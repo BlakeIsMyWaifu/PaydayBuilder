@@ -1,0 +1,23 @@
+export default {
+	"Chicago Typewriter":	[50, 150, 723, 58, 48, 68, 18, 12, 14, "Community"],
+	"Mark 10":				[40, 160, 1000, 40, 48, 64, 27, 10, 2, "Base Game"],
+	"Compact-5":			[30, 210, 750, 44, 44, 80, 24, 6, 13, "Base Game"],
+	"CMP":					[30, 210, 952, 44, 28, 76, 26, 8, 19, "Base Game"],
+	"Para":					[25, 150, 682, 55, 44, 64, 24, 14, 19, "Base Game"],
+	"MP40":					[40, 80, 600, 99, 68, 44, 24, 10, 25, "Base Game"],
+	"Heather":				[32, 160, 750, 58, 52, 52, 28, 10, 25, "Base Game"],
+	"Krinkov":				[30, 90, 822, 99, 60, 44, 21, 22, 29, "Base Game"],
+	"Kobus 90":				[50, 150, 909, 56, 52, 60, 25, 12, 36, "Base Game"],
+	"Swedish K":			[40, 80, 600, 99, 68, 44, 24, 10, 0, "Armored Transport"],
+	"SpecOps":				[20, 160, 952, 58, 64, 68, 23, 8, 0, "Gage Weapon Pack #01"],
+	"Cobra":				[20, 220, 1000, 44, 28, 68, 28, 6, 18, "Hotline Miami"],
+	"Blaster 9mm":			[20, 220, 896, 44, 28, 76, 27, 12, 32, "Hotline Miami"],
+	"Uzi":					[40, 200, 698, 44, 52, 68, 24, 12, 55, "Hotline Miami"],
+	"Patchett L2A1":		[20, 220, 545, 42, 28, 76, 20, 12, 51, "Gage Historical Pack"],
+	"Jacket's Piece":		[32, 160, 1200, 57, 52, 68, 25, 10, 12, "Jacket Character Pack"],
+	"Kross Vertex":			[30, 150, 1200, 58, 52, 76, 20, 10, 39, "Gage Ninja Pack"],
+	"Micro Uzi":			[32, 224, 1200, 44, 28, 76, 29, 10, 19, "Yakuza Character Pack"],
+	"Jackal":				[30, 90, 652, 99, 60, 52, 24, 10, 20, "John Wick Weapon Pack"],
+	"CR 805B":				[30, 90, 750, 99, 72, 68, 18, 10, 2, "The Biker Heist (DLC)"],
+	"Tatonka":				[64, 128, 652, 99, 52, 52, 24, 10, 42, "Gage Russian Weapon Pack"]
+}
