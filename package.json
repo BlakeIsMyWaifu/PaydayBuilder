@@ -1,0 +1,19 @@
+{
+  "name": "payday-builder",
+  "version": "0.0.1",
+  "description": "Payday 2 Build Helper Website",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"cd frontend && npm start\" \"cd backend && npm start\"",
+	"dev": "concurrently \"cd frontend && npm run dev\" \"cd backend && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BlakeIsMyWaifu/PaydayBuilder.git"
+  },
+  "author": "BlakeIsMyWaifu",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^6.0.2"
+  }
+}
