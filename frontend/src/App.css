@@ -3,4 +3,10 @@
 	user-select: none;
 	padding: 0;
 	margin: 0;
+	font-family: 'PaydayFont';
+}
+
+@font-face {
+	font-family: 'PaydayFont';
+	src: local('PaydayFont'), url('./fonts/DINEngschrift.woff') format('woff');
 }
