@@ -15,4 +15,6 @@ app.use('/api/weapons/primary/', primary)
 app.use('/api/weapons/secondary/', secondary)
 app.use('/api/weapons/', weapons)
 
+app.use('/images', express.static('images'))
+
 app.listen(config.port, () => console.log(`Listening to port: ${config.port}`))
