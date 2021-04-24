@@ -1,14 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
+import { Container, Link, Title } from './Selector-Elements'
 
 interface type {
-	path: string
+	path: string,
+	title: string
 }
 
-const Selector: React.FC<type> = ({ path }) => {
+const Selector: React.FC<type> = ({ path, title }) => {
 	return (
 		<Link to={path}>
-			
+			<Container>
+				<Title>{title}</Title>
+			</Container>
 		</Link>
 	)
 }
