@@ -1,35 +1,35 @@
 {
-	"compilerOptions": {
-		"target": "es5",
-		"lib": [
-			"DOM",
-			"DOM.Iterable",
-			"ESNext"
-		],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
-		"strict": true,
-		"forceConsistentCasingInFileNames": true,
-		"module": "ESNext",
-		"moduleResolution": "node",
-		"isolatedModules": true,
-		"resolveJsonModule": true,
-		"noEmit": true,
-		"jsx": "react",
-		"sourceMap": true,
-		"declaration": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"incremental": true,
-		"noFallthroughCasesInSwitch": true
-	},
-	"include": [
-		"src/**/*"
-	],
-	"exclude": [
-		"node_modules",
-		"build"
-	]
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "sourceMap": true,
+    "declaration": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "incremental": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
 }
