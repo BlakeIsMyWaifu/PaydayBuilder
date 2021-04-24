@@ -1,21 +1,13 @@
 import styled from 'styled-components'
 
 import { dim } from '../../utils/colours'
+import container from '../../utils/container'
 import corner from '../../utils/corner'
 
 export const Container = styled.div`
-	position: absolute;
-	width: calc(100% - 16px);
-	height: calc(100% - 16px);
-	top: 8px;
-	bottom: 8px;
-	left: 8px;
-	right: 8px;
-
-	display: grid;
+	${container}
 	grid-template-columns: 2fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr;
-	gap: 8px;
 	grid-template-areas: "stats character weapons abilities";
 `
 
