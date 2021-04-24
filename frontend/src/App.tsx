@@ -8,8 +8,8 @@ const App: React.FC = () => {
 	return (
 		<MemoryRouter>
 			<Switch>
-				<Route exact path="/" component={Home} />
-				<Route path="/mask" component={Masks} />
+				<Route exact path='/' component={Home} />
+				<Route path='/mask' component={Masks} />
 			</Switch>
 		</MemoryRouter>
 	)
