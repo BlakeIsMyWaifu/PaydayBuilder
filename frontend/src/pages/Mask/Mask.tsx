@@ -1,29 +1,25 @@
 import React from 'react'
 
 import Back from '../../components/Back'
-import Background from '../../components/Background'
 import { Container, Info, MaskWrapper, Title } from './Mask-Elements'
 
 const Mask: React.FC = () => {
 	return (
-		<>
-			<Background />
-			<Container>
+		<Container>
+			
+			<Title>Mask</Title>
+
+			<MaskWrapper>
 				
-				<Title>Mask</Title>
+			</MaskWrapper>
 
-				<MaskWrapper>
-					
-				</MaskWrapper>
+			<Info>
 
-				<Info>
+			</Info>
 
-				</Info>
+			<Back />
 
-				<Back />
-
-			</Container>
-		</>
+		</Container>
 	)
 }
 
