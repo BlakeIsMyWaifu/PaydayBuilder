@@ -1,28 +1,30 @@
 import Back from 'components/Back'
 import Container from 'components/Container'
-import React from 'react'
+import React, { useState } from 'react'
 
-import { Info, Points, PointsNumber, PointsText, Reset, ResetText, SubtreeSkills, Title, TreeName, TreeNamesWrapper, Trees } from './Skills-Elements'
+import { Info, Points, PointsNumber, PointsText, Reset, ResetText, Title, TreeName, TreeNamesWrapper } from './Skills-Elements'
+import Tree from './Tree'
+
+type tree = 'mastermind' | 'enforcer' | 'technician' | 'ghost' | 'fugitive'
 
 const Skills: React.FC = () => {
+
+	const [currentClass, setCurrentClass] = useState<tree>('mastermind')
+
 	return (
 		<Container columns='3fr 1fr' rows='1fr 2rem 7fr 1fr' areas='"title reset" "treenames points" "skills info" "skills back"'>
 			
 			<Title>Skills</Title>
 
 			<TreeNamesWrapper>
-				<TreeName>Mastermind</TreeName>
-				<TreeName>Enforcer</TreeName>
-				<TreeName>Technician</TreeName>
-				<TreeName>Ghost</TreeName>
-				<TreeName>Fugitive</TreeName>
+				<TreeName onClick={() => setCurrentClass('mastermind')}>Mastermind</TreeName>
+				<TreeName onClick={() => setCurrentClass('enforcer')}>Enforcer</TreeName>
+				<TreeName onClick={() => setCurrentClass('technician')}>Technician</TreeName>
+				<TreeName onClick={() => setCurrentClass('ghost')}>Ghost</TreeName>
+				<TreeName onClick={() => setCurrentClass('fugitive')}>Fugitive</TreeName>
 			</TreeNamesWrapper>
 
-			<Trees>
-				<SubtreeSkills></SubtreeSkills>
-				<SubtreeSkills></SubtreeSkills>
-				<SubtreeSkills></SubtreeSkills>
-			</Trees>
+			<Tree tree={currentClass}/>
 
 			<Reset>
 				<ResetText>Reset this tree</ResetText>

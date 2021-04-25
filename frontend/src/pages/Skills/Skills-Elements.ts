@@ -13,16 +13,10 @@ export const TreeNamesWrapper = styled.div`
 `
 
 export const TreeName = styled.p`
-	padding-right: 20px;
+	padding-right: 2rem;
 	font-size: 1.6rem;
+	cursor: pointer;
 `
-
-export const Trees = styled.div`
-	grid-area: skills;
-	${corner}
-`
-
-export const SubtreeSkills = styled.div``
 
 export const Reset = styled.div`
 	grid-area: reset;
