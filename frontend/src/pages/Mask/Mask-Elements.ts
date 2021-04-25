@@ -4,7 +4,6 @@ import corner from 'utils/corner'
 export const Title = styled.div`
 	grid-area: title;
 	font-size: 4rem;
-	text-transform: uppercase;
 `
 
 export const MaskWrapper = styled.div`

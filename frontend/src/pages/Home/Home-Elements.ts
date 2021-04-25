@@ -15,7 +15,6 @@ interface tabtitle {
 export const TabTitle = styled.p<tabtitle>`
 	direction: ${props => props.direction};
 	font-size: 20px;
-	text-transform: uppercase;
 `
 
 export const PreviewWrapper = styled.div`

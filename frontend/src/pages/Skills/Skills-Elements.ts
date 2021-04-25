@@ -5,7 +5,6 @@ import corner from 'utils/corner'
 export const Title = styled.div`
 	grid-area: title;
 	font-size: 4rem;
-	text-transform: uppercase;
 `
 
 export const TreeNamesWrapper = styled.div`
@@ -16,7 +15,6 @@ export const TreeNamesWrapper = styled.div`
 export const TreeName = styled.p`
 	padding-right: 20px;
 	font-size: 1.6rem;
-	text-transform: uppercase;
 `
 
 export const Trees = styled.div`
@@ -32,7 +30,6 @@ export const Reset = styled.div`
 
 export const ResetText = styled.p`
 	color: ${blue};
-	text-transform: uppercase;
 	font-size: 1.6rem;
 	direction: rtl;
 `
@@ -47,7 +44,6 @@ export const Points = styled.div`
 
 export const PointsText = styled.p`
 	color: inherit;
-	text-transform: uppercase;
 `
 
 export const PointsNumber = styled.p`

@@ -11,7 +11,6 @@ export const Link = styled(LinkR)`
 `
 
 export const Text = styled.p`
-	text-transform: uppercase;
 	direction: rtl;
 	color: ${blue};
 	position: absolute;

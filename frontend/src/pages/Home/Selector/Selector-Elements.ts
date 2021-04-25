@@ -14,7 +14,6 @@ export const Container = styled.div`
 
 export const Title = styled.p`
 	font-size: 20px;
-	text-transform: uppercase;
 	color: ${blue};
 	padding-left: 4px;
 `
