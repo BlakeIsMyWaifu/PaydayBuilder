@@ -1,11 +1,27 @@
 import React from 'react'
 
-const Masks: React.FC = () => {
+import Background from '../../components/Background/Background'
+import { Container, Info, MaskWrapper, Title } from './Mask-Elements'
+
+const Mask: React.FC = () => {
 	return (
-		<div>
-			<p>mask</p>
-		</div>
+		<>
+			<Background />
+			<Container>
+				
+				<Title>Mask</Title>
+
+				<MaskWrapper>
+					
+				</MaskWrapper>
+
+				<Info>
+
+				</Info>
+
+			</Container>
+		</>
 	)
 }
 
-export default Masks
+export default Mask
