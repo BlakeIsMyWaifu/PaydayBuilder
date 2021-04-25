@@ -1,7 +1,7 @@
+import Back from 'components/Back'
+import Container from 'components/Container'
 import React from 'react'
 
-import Back from '../../components/Back'
-import Container from '../../components/Container'
 import { Info, MaskWrapper, Title } from './Mask-Elements'
 
 const Mask: React.FC = () => {

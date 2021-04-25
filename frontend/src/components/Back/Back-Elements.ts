@@ -1,7 +1,6 @@
 import { Link as LinkR } from 'react-router-dom'
 import styled from 'styled-components'
-
-import { blue } from '../../utils/colours'
+import { blue } from 'utils/colours'
 
 export const Container = styled.div`
 	grid-area: back;

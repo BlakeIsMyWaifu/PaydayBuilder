@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-
-import { dim } from '../../utils/colours'
-import corner from '../../utils/corner'
+import { dim } from 'utils/colours'
+import corner from 'utils/corner'
 
 interface tab {
 	id: string

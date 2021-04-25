@@ -1,12 +1,11 @@
 import './App.css'
 
+import Background from 'components/Background/Background'
+import Home from 'pages/Home'
+import Mask from 'pages/Mask'
+import Skills from 'pages/Skills'
 import React from 'react'
 import { MemoryRouter, Route, Switch } from 'react-router'
-
-import Background from './components/Background/Background'
-import Home from './pages/Home'
-import Mask from './pages/Mask'
-import Skills from './pages/Skills'
 
 const App: React.FC = () => {
 	return (

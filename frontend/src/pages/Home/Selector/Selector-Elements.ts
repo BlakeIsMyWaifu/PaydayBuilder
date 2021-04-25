@@ -1,7 +1,6 @@
 import { Link as LinkRouter } from 'react-router-dom'
 import styled from 'styled-components'
-
-import { blue, dim } from '../../../utils/colours'
+import { blue, dim } from 'utils/colours'
 
 export const Link = styled(LinkRouter)`
 	text-decoration: none;

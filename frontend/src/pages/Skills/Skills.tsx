@@ -1,7 +1,7 @@
+import Back from 'components/Back'
+import Container from 'components/Container'
 import React from 'react'
 
-import Back from '../../components/Back'
-import Container from '../../components/Container'
 import { Info, Points, Reset, Title, Trees } from './Skills-Elements'
 
 const Skills: React.FC = () => {

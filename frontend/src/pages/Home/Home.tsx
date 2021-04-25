@@ -1,6 +1,6 @@
+import Container from 'components/Container/Container'
 import React from 'react'
 
-import Container from '../../components/Container/Container'
 import { Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle } from './Home-Elements'
 import Selector from './Selector'
 
