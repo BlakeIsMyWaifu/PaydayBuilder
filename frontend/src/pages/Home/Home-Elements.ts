@@ -1,15 +1,7 @@
 import styled from 'styled-components'
 
 import { dim } from '../../utils/colours'
-import container from '../../utils/container'
 import corner from '../../utils/corner'
-
-export const Container = styled.div`
-	${container}
-	grid-template-columns: 2fr 1fr 1fr 1fr;
-	grid-template-rows: 1fr;
-	grid-template-areas: "stats character weapons abilities";
-`
 
 interface tab {
 	id: string

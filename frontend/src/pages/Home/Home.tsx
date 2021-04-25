@@ -1,11 +1,12 @@
 import React from 'react'
 
-import { Container, Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle } from './Home-Elements'
+import Container from '../../components/Container/Container'
+import { Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle } from './Home-Elements'
 import Selector from './Selector'
 
 const Home: React.FC = () => {
 	return (
-		<Container>
+		<Container columns='2fr 1fr 1fr 1fr' rows='1fr' areas='"stats character weapons abilities"'>
 
 			<Tab id='stats'>
 				<TabTitle direction='ltr'>Inventory</TabTitle>

@@ -1,14 +1,6 @@
 import styled from 'styled-components'
 
-import container from '../../utils/container'
 import corner from '../../utils/corner'
-
-export const Container = styled.div`
-	${container}
-	grid-template-columns: 3fr 1fr;
-	grid-template-rows: 1fr 8fr 1fr;
-	grid-template-areas: "title title" "masks info" "masks back";
-`
 
 export const Title = styled.div`
 	grid-area: title;

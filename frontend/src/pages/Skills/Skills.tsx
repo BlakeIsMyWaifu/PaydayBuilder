@@ -1,11 +1,12 @@
 import React from 'react'
 
 import Back from '../../components/Back'
-import { Container, Info, Points, Reset, Title, Trees } from './Skills-Elements'
+import Container from '../../components/Container'
+import { Info, Points, Reset, Title, Trees } from './Skills-Elements'
 
 const Skills: React.FC = () => {
 	return (
-		<Container>
+		<Container columns='3fr 1fr' rows='1fr 1fr 7fr 1fr' areas='"title reset" "skills points" "skills info" "skills back"'>
 			
 			<Title>Skills</Title>
 
