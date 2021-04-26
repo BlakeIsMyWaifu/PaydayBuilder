@@ -16,7 +16,7 @@ const Skills: React.FC = () => {
 	const currentClassLabels = Object.keys(data[currentClass])
 
 	return (
-		<Container columns='3fr 1fr' rows='1fr 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"'>
+		<Container columns='3fr 1fr' rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"'>
 
 			<Title>Skills</Title>
 
