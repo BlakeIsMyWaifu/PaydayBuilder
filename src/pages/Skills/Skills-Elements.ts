@@ -18,6 +18,24 @@ export const TreeName = styled.p`
 	cursor: pointer;
 `
 
+export const Tree = styled.div`
+	grid-area: skills;
+	display: flex;
+	justify-content: space-between;
+`
+
+export const SubtreeLabelWrapper = styled.div`
+	grid-area: subtreelabels;
+	display: flex;
+`
+
+export const SubtreeLabel = styled.p`
+	color: ${blue};
+	font-size: 2rem;
+	width: calc(100% / 3);
+	text-align: center;
+`
+
 export const Reset = styled.div`
 	grid-area: reset;
 `
