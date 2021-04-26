@@ -1,25 +1,29 @@
 import React from 'react'
 
+import Skill, { skillData } from './Skill'
 import { Container, Tier } from './Subtree-Elements'
 
-interface skills {
-	name: string;
-		description: string;
-		pos: number[];
-		tier: number;
+interface subtreeComponent {
+	skills: skillData[]
 }
 
-interface subtree {
-	skills: skills[]
-}
-
-const Subtree: React.FC<subtree> = ({ skills }: subtree) => {
+const Subtree: React.FC<subtreeComponent> = ({ skills }: subtreeComponent) => {
 	return (
 		<Container>
-			<Tier>{skills[5].name}</Tier>
-			<Tier>{skills[3].name} + {skills[4].name}</Tier>
-			<Tier>{skills[1].name} + {skills[2].name}</Tier>
-			<Tier>{skills[0].name}</Tier>
+			<Tier>
+				<Skill data={skills[5]}/>
+			</Tier>
+			<Tier>
+				<Skill data={skills[4]}/>
+				<Skill data={skills[3]}/>
+			</Tier>
+			<Tier>
+				<Skill data={skills[2]}/>
+				<Skill data={skills[1]}/>
+			</Tier>
+			<Tier>
+				<Skill data={skills[0]}/>
+			</Tier>
 		</Container>
 	)
 }
