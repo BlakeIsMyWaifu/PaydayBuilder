@@ -15,6 +15,6 @@ export const Text = styled.p`
 	color: ${blue};
 	position: absolute;
 	bottom: 0;
-	right: 12px;
-	font-size: 4rem;
+	right: 8px;
+	font-size: calc(4rem - 8px);
 `
