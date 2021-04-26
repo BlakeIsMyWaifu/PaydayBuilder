@@ -10,6 +10,7 @@ export const Container = styled.div`
 `
 
 export const Tier = styled.div`
+	color: #fff;
 	height: 25%;
 	width: 100%;
 `

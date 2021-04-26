@@ -12,7 +12,7 @@ export const Tab = styled.div<tab>`
 interface tabtitle {
 	direction: 'ltr' | 'rtl'
 }
-export const TabTitle = styled.p<tabtitle>`
+export const TabTitle = styled.h1<tabtitle>`
 	direction: ${props => props.direction};
 	font-size: 20px;
 `

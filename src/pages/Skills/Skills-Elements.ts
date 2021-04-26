@@ -12,7 +12,7 @@ export const TreeNamesWrapper = styled.div`
 	display: flex;
 `
 
-export const TreeName = styled.p`
+export const TreeName = styled.h1`
 	padding-right: 2rem;
 	font-size: 1.6rem;
 	cursor: pointer;
