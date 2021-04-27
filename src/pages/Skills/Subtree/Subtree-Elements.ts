@@ -13,4 +13,7 @@ export const Tier = styled.div`
 	color: #fff;
 	height: 25%;
 	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 `

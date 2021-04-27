@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import { Container } from './Skill-Elements'
+import { Container, Icon, Label } from './Skill-Elements'
 
 export interface skillData {
 	name: string;
@@ -13,10 +13,16 @@ interface skillComponent {
 	data: skillData;
 }
 
+type skillState = 'locked' | 'available' | 'basic' | 'aced'
+
 const Skill: React.FC<skillComponent> = ({ data }: skillComponent) => {
+
+	const [skillState, setSkillState] = useState<skillState>(data.tier === 1 ? 'available' : 'locked')
+
 	return (
 		<Container>
-			{data.name}
+			<Icon x={data.pos[0]} y={data.pos[1]} state={skillState}/>
+			<Label>{data.name}</Label>
 		</Container>
 	)
 }
