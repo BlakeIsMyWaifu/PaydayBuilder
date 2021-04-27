@@ -1,19 +1,24 @@
 import Back from 'components/Back'
 import Container from 'components/Container'
 import data from 'data/abilities/skills'
+import { skillsData } from 'data/abilities/skills'
 import React, { useState } from 'react'
 
-import { Info, Points, PointsNumber, PointsText, Reset, ResetText, SubtreeLabel, SubtreeLabelWrapper, Title, Tree, TreeName, TreeNamesWrapper } from './Skills-Elements'
+import { Info, InfoName, InfoSkill, Points, PointsNumber, PointsText, Reset, ResetText, SubtreeLabel, SubtreeLabelWrapper, Title, Tree, TreeName, TreeNamesWrapper } from './Skills-Elements'
 import Subtree from './Subtree'
 
-type tree = 'mastermind' | 'enforcer' | 'technician' | 'ghost' | 'fugitive'
+type tree = 'mastermind' | 'enforcer' | 'technician' | 'ghost' | 'fugitive';
 
 const Skills: React.FC = () => {
 
+	const getClassData = (key: tree, obj: skillsData) => obj[key]
+
 	const [currentClass, setCurrentClass] = useState<tree>('mastermind')
 
-	const currentClassSkills = Object.values(data[currentClass])
-	const currentClassLabels = Object.keys(data[currentClass])
+	const currentClassSkills = Object.values(getClassData(currentClass, data))
+	const currentClassLabels = Object.keys(getClassData(currentClass, data))
+
+	const [skillHovered, setSkillHovered] = useState<string>('')
 
 	return (
 		<Container columns='3fr 1fr' rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"'>
@@ -29,9 +34,9 @@ const Skills: React.FC = () => {
 			</TreeNamesWrapper>
 
 			<Tree>
-				<Subtree skills={currentClassSkills[0]}/>
-				<Subtree skills={currentClassSkills[1]}/>
-				<Subtree skills={currentClassSkills[2]}/>
+				<Subtree skills={currentClassSkills[0]} setSkillHovered={setSkillHovered}/>
+				<Subtree skills={currentClassSkills[1]} setSkillHovered={setSkillHovered}/>
+				<Subtree skills={currentClassSkills[2]} setSkillHovered={setSkillHovered}/>
 			</Tree>
 
 			<SubtreeLabelWrapper>
@@ -50,7 +55,11 @@ const Skills: React.FC = () => {
 				<PointsNumber>0</PointsNumber>
 			</Points>
 
-			<Info></Info>
+			<Info>
+				<InfoName>{skillHovered}</InfoName>
+				<InfoSkill></InfoSkill>
+				<InfoSkill></InfoSkill>
+			</Info>
 
 			<Back />
 

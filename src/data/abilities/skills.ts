@@ -1,4 +1,50 @@
-export default {
+export interface skillData {
+	name: string;
+	description: string;
+	vr_description?: string;
+	pos: number[];
+	tier: number;
+}
+
+interface mastermind {
+	medic: skillData[];
+	controller: skillData[];
+	sharpshooter: skillData[];
+}
+
+interface enforcer {
+	shotgunner: skillData[];
+	tank: skillData[];
+	"ammo specialist": skillData[];
+}
+
+interface technician {
+	engineer: skillData[];
+	breacher: skillData[];
+	oppressor: skillData[];
+}
+
+interface ghost {
+	shinobi: skillData[];
+	"artful dodger": skillData[];
+	"silent killer": skillData[];
+}
+
+interface fugitive {
+	gunslinger: skillData[];
+	revenant: skillData[];
+	brawler: skillData[];
+}
+
+export interface skillsData {
+	mastermind: mastermind;
+	enforcer: enforcer;
+	technician: technician;
+	ghost: ghost;
+	fugitive: fugitive;
+}
+
+const data: skillsData = {
 	"mastermind": {
 		"medic": [
 			{
@@ -588,3 +634,5 @@ export default {
 		]
 	}
 }
+
+export default data
