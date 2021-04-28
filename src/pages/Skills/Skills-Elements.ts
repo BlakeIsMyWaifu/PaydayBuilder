@@ -66,4 +66,11 @@ export const PointsNumber = styled.p`
 export const Info = styled.div`
 	grid-area: info;
 	${corner}
+	display: flex;
 `
+
+export const InfoName = styled.h1`
+	font-size: 1.5rem;
+`
+
+export const InfoSkill = styled.h1``
