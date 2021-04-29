@@ -13,18 +13,18 @@ const Subtree: React.FC<subtreeComponent> = ({ skills, setSkillHovered }: subtre
 	return (
 		<Container>
 			<Tier>
-				<Skill data={skills[5]} setSkillHovered={setSkillHovered}/>
+				<Skill skill={skills[5]} setSkillHovered={setSkillHovered}/>
 			</Tier>
 			<Tier>
-				<Skill data={skills[4]} setSkillHovered={setSkillHovered}/>
-				<Skill data={skills[3]} setSkillHovered={setSkillHovered}/>
+				<Skill skill={skills[4]} setSkillHovered={setSkillHovered}/>
+				<Skill skill={skills[3]} setSkillHovered={setSkillHovered}/>
 			</Tier>
 			<Tier>
-				<Skill data={skills[2]} setSkillHovered={setSkillHovered}/>
-				<Skill data={skills[1]} setSkillHovered={setSkillHovered}/>
+				<Skill skill={skills[2]} setSkillHovered={setSkillHovered}/>
+				<Skill skill={skills[1]} setSkillHovered={setSkillHovered}/>
 			</Tier>
 			<Tier>
-				<Skill data={skills[0]} setSkillHovered={setSkillHovered}/>
+				<Skill skill={skills[0]} setSkillHovered={setSkillHovered}/>
 			</Tier>
 		</Container>
 	)

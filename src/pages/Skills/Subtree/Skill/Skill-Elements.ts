@@ -23,6 +23,16 @@ export const Locked = styled.div`
 	position: absolute;
 `
 
+export const Aced = styled.div`
+	background: url("/images/skills/ace.png") 0 0 no-repeat;
+	background-size: 100% 100%;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+`
+
 interface icon {
 	x: number;
 	y: number;
