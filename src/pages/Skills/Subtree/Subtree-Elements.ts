@@ -14,6 +14,6 @@ export const Tier = styled.div`
 	height: 25%;
 	width: 100%;
 	display: flex;
-	flex-direction: row;
+	flex-direction: row-reverse;
 	justify-content: center;
 `
