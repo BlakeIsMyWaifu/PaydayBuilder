@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import corner from 'utils/corner'
 
-export const Title = styled.div`
+export const Title = styled.h1`
 	grid-area: title;
 	font-size: 4rem;
 `
