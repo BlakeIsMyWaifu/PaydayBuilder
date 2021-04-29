@@ -1,13 +1,7 @@
+import { skillData } from 'data/abilities/skills'
 import React, { useState } from 'react'
 
 import { Container, Icon, Label } from './Skill-Elements'
-
-export interface skillData {
-	name: string;
-	description: string;
-	pos: number[];
-	tier: number;
-}
 
 interface skillComponent {
 	data: skillData;
