@@ -6,7 +6,7 @@ import { Container, Tier } from './Subtree-Elements'
 
 interface subtreeComponent {
 	skills: skillData[];
-	setSkillHovered: React.Dispatch<React.SetStateAction<string>>;
+	setSkillHovered: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 
 const Subtree: React.FC<subtreeComponent> = ({ skills, setSkillHovered }: subtreeComponent) => {

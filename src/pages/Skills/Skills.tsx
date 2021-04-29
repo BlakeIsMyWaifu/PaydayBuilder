@@ -1,24 +1,25 @@
 import Back from 'components/Back'
 import Container from 'components/Container'
 import data from 'data/abilities/skills'
-import { skillsData } from 'data/abilities/skills'
+import { skillData, skillsData } from 'data/abilities/skills'
 import React, { useState } from 'react'
 
-import { Info, InfoName, InfoSkill, Points, PointsNumber, PointsText, Reset, ResetText, SubtreeLabel, SubtreeLabelWrapper, Title, Tree, TreeName, TreeNamesWrapper } from './Skills-Elements'
+import Info from './Info/Info'
+import { Points, PointsNumber, PointsText, Reset, ResetText, SubtreeLabel, SubtreeLabelWrapper, Title, Tree, TreeName, TreeNamesWrapper } from './Skills-Elements'
 import Subtree from './Subtree'
 
 type tree = 'mastermind' | 'enforcer' | 'technician' | 'ghost' | 'fugitive';
 
 const Skills: React.FC = () => {
 
-	const getClassData = (key: tree, obj: skillsData) => obj[key]
-
 	const [currentClass, setCurrentClass] = useState<tree>('mastermind')
 
-	const currentClassSkills = Object.values(getClassData(currentClass, data))
-	const currentClassLabels = Object.keys(getClassData(currentClass, data))
+	const currentClassSkills = Object.values(data[currentClass])
+	const currentClassLabels = Object.keys(data[currentClass])
 
-	const [skillHovered, setSkillHovered] = useState<string>('')
+	const [skillHovered, setSkillHovered] = useState<string | undefined>()
+
+	const getSkillFromName = (name: string | undefined): skillData | undefined => currentClassSkills.flat().find(skill => skill.name === name)
 
 	return (
 		<Container columns='3fr 1fr' rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"'>
@@ -55,11 +56,7 @@ const Skills: React.FC = () => {
 				<PointsNumber>0</PointsNumber>
 			</Points>
 
-			<Info>
-				<InfoName>{skillHovered}</InfoName>
-				<InfoSkill></InfoSkill>
-				<InfoSkill></InfoSkill>
-			</Info>
+			<Info skillLabel={skillHovered} skill={getSkillFromName(skillHovered)}/>
 
 			<Back />
 

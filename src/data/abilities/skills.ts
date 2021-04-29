@@ -3,7 +3,7 @@ export interface skillData {
 	description: string[];
 	vr_description?: string;
 	pos: number[];
-	tier: number;
+	tier: 1 | 2 | 3 | 4;
 }
 
 interface classData {
