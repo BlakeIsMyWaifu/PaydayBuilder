@@ -1,8 +1,9 @@
 import Back from 'components/Back'
 import Container from 'components/Container'
 import data from 'data/abilities/skills'
-import { skillData, skillsData } from 'data/abilities/skills'
-import React, { useState } from 'react'
+import { skillData } from 'data/abilities/skills'
+import React, { useReducer, useState } from 'react'
+import { useSelector } from 'react-redux'
 
 import Info from './Info/Info'
 import { Points, PointsNumber, PointsText, Reset, ResetText, SubtreeLabel, SubtreeLabelWrapper, Title, Tree, TreeName, TreeNamesWrapper } from './Skills-Elements'
@@ -15,7 +16,7 @@ const Skills: React.FC = () => {
 	const [currentClass, setCurrentClass] = useState<tree>('mastermind')
 
 	const currentClassSkills = Object.values(data[currentClass])
-	const currentClassLabels = Object.keys(data[currentClass])
+	const currentClassLabels = Object.keys(data[currentClass]).map(label => label.replaceAll('_', ' '))
 
 	const [skillHovered, setSkillHovered] = useState<string | undefined>()
 

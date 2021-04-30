@@ -1,0 +1,6 @@
+export const RESETALL = 'skills/RESETALL'
+export const RESETTREE = 'skills/RESETTREE'
+export const UPGRADEAVAILABLE = 'skills/UPGRADEAVAILABLE'
+export const UPGRADEBASIC = 'skills/UPGRADEBASIC'
+export const DOWNGRADEBASIC = 'skills/DOWNGRADEBASIC'
+export const DOWNGRADEACED = 'skills/DOWNGRADEACED'

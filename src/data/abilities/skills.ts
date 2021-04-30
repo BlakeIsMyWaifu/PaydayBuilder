@@ -299,7 +299,7 @@ const data: skillsData = {
 				"tier": 4
 			}
 		],
-		"ammo specialist": [
+		"ammo_specialist": [
 			{
 				"name": "Scavenger",
 				"description": [
@@ -585,7 +585,7 @@ const data: skillsData = {
 				"tier": 4
 			}
 		],
-		"artful dodger": [
+		"artful_dodger": [
 			{
 				"name": "Duck and Cover",
 				"description": [
@@ -643,7 +643,7 @@ const data: skillsData = {
 				"tier": 4
 			}
 		],
-		"silent killer": [
+		"silent_killer": [
 			{
 				"name": "Second Wind",
 				"description": [
