@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export const Image = styled.img`
+const Container = styled.div`
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -9,14 +9,21 @@ export const Image = styled.img`
 	bottom: 0;
 	left: 0;
 	right: 0;
+	background-color: rgba(0, 0, 0, 0.25);
+`
 
+const Image = styled.img`
+	position: absolute;
+	width: 100%;
+	height: 100%;
 	z-index: -1;
-	user-select: none;
 `
 
 const Background: React.FC = () => {
 	return (
-		<Image src='/images/background.jpg'/>
+		<Container>
+			<Image src='/images/background.jpg'/>
+		</Container>
 	)
 }
 
