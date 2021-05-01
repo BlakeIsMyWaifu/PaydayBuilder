@@ -45,20 +45,3 @@ export const ResetText = styled.p`
 	font-size: 1.6rem;
 	direction: rtl;
 `
-
-export const Points = styled.div`
-	grid-area: points;
-	color: ${red};
-	font-size: 1.8rem;
-	display: flex;
-	justify-content: space-between;
-`
-
-export const PointsText = styled.p`
-	color: inherit;
-`
-
-export const PointsNumber = styled.p`
-	color: inherit;
-	direction: rtl;
-`

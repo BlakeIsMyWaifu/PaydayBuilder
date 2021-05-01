@@ -4,8 +4,9 @@ import data from 'data/abilities/skills'
 import { skillData } from 'data/abilities/skills'
 import React, { useState } from 'react'
 
-import Info from './Info/Info'
-import { Points, PointsNumber, PointsText, Reset, ResetText, SubtreeLabel, SubtreeLabelWrapper, Title, Tree, TreeName, TreeNamesWrapper } from './Skills-Elements'
+import Info from './Info'
+import Points from './Points'
+import { Reset, ResetText, SubtreeLabel, SubtreeLabelWrapper, Title, Tree, TreeName, TreeNamesWrapper } from './Skills-Elements'
 import Subtree from './Subtree'
 
 type tree = 'mastermind' | 'enforcer' | 'technician' | 'ghost' | 'fugitive';
@@ -51,10 +52,7 @@ const Skills: React.FC = () => {
 				<ResetText>Reset all trees</ResetText>
 			</Reset>
 
-			<Points>
-				<PointsText>Remaining Skill Points</PointsText>
-				<PointsNumber>0</PointsNumber>
-			</Points>
+			<Points />
 
 			<Info skillLabel={skillHovered} skill={getSkillFromName(skillHovered)}/>
 
