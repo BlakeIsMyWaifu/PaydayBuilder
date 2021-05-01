@@ -9,7 +9,7 @@ import { MemoryRouter, Route, Switch } from 'react-router'
 
 const App: React.FC = () => {
 	return (
-		<>
+		<div onContextMenu={e => e.preventDefault()}>
 			<Background />
 			<MemoryRouter>
 				<Switch>
@@ -18,7 +18,7 @@ const App: React.FC = () => {
 					<Route path='/skills' component={Skills} />
 				</Switch>
 			</MemoryRouter>
-		</>
+		</div>
 	)
 }
 
