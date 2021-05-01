@@ -14,11 +14,19 @@ const Skill: React.FC<skillComponent> = ({ skill, setSkillHovered }: skillCompon
 
 	const [skillState, setSkillState] = useState<skillState>(skill.tier === 1 ? 'available' : 'locked')
 
-	const buySkill = () => {
-		if (skillState === 'available') {
-			setSkillState('basic')
-		} else if (skillState === 'basic') {
-			setSkillState('aced')
+	const clickSkills = (e: React.MouseEvent) => {
+		if (e.button === 0) {
+			if (skillState === 'available') {
+				setSkillState('basic')
+			} else if (skillState === 'basic') {
+				setSkillState('aced')
+			}
+		} else if (e.button === 2) {
+			if (skillState === 'aced') {
+				setSkillState('basic')
+			} else if (skillState === 'basic') {
+				setSkillState('available')
+			}
 		}
 	}
 
@@ -26,7 +34,7 @@ const Skill: React.FC<skillComponent> = ({ skill, setSkillHovered }: skillCompon
 		<Container
 			onMouseOver={() => setSkillHovered(skill.name)}
 			onMouseLeave={() => setSkillHovered(undefined)}
-			onMouseDown={buySkill}>
+			onMouseDown={e => clickSkills(e)}>
 			<Icon>
 				{ skillState === 'locked' ? <Locked /> : <></> }
 				{ skillState === 'aced' ? <Aced /> : <></> }
