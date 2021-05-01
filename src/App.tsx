@@ -6,10 +6,11 @@ import Mask from 'pages/Mask'
 import Skills from 'pages/Skills'
 import React from 'react'
 import { MemoryRouter, Route, Switch } from 'react-router'
+import { isDev } from 'utils/isDev'
 
 const App: React.FC = () => {
 	return (
-		<div onContextMenu={e => e.preventDefault()}>
+		<div onContextMenu={e => isDev() ? null : e.preventDefault()}>
 			<Background />
 			<MemoryRouter>
 				<Switch>
