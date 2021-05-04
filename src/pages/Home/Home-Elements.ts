@@ -3,8 +3,9 @@ import { dim } from 'utils/colours'
 import corner from 'utils/corner'
 
 interface tab {
-	id: string
+	id: string;
 }
+
 export const Tab = styled.div<tab>`
 	grid-area: ${(props) => props.id};
 `
@@ -12,6 +13,7 @@ export const Tab = styled.div<tab>`
 interface tabtitle {
 	direction: 'ltr' | 'rtl'
 }
+
 export const TabTitle = styled.h1<tabtitle>`
 	direction: ${props => props.direction};
 	font-size: 20px;
