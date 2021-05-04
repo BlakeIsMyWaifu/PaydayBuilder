@@ -6,7 +6,8 @@ import React, { useState } from 'react'
 
 import Info from './Info'
 import Points from './Points'
-import { Reset, ResetText, SubtreeLabel, SubtreeLabelWrapper, Title, Tree, TreeName, TreeNamesWrapper } from './Skills-Elements'
+import Reset from './Reset'
+import { SubtreeLabel, SubtreeLabelWrapper, Title, Tree, TreeName, TreeNamesWrapper } from './Skills-Elements'
 import Subtree from './Subtree'
 
 type tree = 'mastermind' | 'enforcer' | 'technician' | 'ghost' | 'fugitive';
@@ -47,10 +48,7 @@ const Skills: React.FC = () => {
 				<SubtreeLabel>{currentTreeLabels[2].replaceAll('_', ' ')}</SubtreeLabel>
 			</SubtreeLabelWrapper>
 
-			<Reset>
-				<ResetText>Reset this tree</ResetText>
-				<ResetText>Reset all trees</ResetText>
-			</Reset>
+			<Reset tree={currentTree}/>
 
 			<Points />
 

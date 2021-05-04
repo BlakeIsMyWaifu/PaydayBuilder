@@ -1,5 +1,10 @@
 import skillsData, { skillData } from 'data/abilities/skills'
 
+export interface skillsDefaultState {
+	points: number,
+	trees: trees
+}
+
 export interface trees {
 	[key: string]: subtrees;
 }
@@ -40,7 +45,7 @@ const getSubtrees = (tree: string): subtrees => {
 
 const getUpgrades = (tree: string, subtree: string) => Object.assign({}, ...skillsData[tree][subtree].map(skill => ({[skill.name]: skill.tier === 1 ? 'available' : 'locked'})))
 
-const skillsState = {
+const skillsState: skillsDefaultState = {
 	points: 120,
 	trees: getTrees()
 }

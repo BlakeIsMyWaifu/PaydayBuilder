@@ -7,19 +7,57 @@ type skillsAction = ActionType<typeof actions>
 const skills = (state = defaultstate, action: any) => {
 	switch (action.type) {
 		case getType(actions.downgradeSkill):
-			let {tree, subtree, skill, oldLevel} = action.payload
-			let newLevel: 'available' | 'basic' = oldLevel === 'basic' ? 'available' : 'basic'
-			state.trees[tree][subtree].upgrades[skill] = newLevel
-			return state
+			const {tree, subtree, skill, oldLevel}: actions.skillChangeAction = action.payload
+			const newLevel: 'available' | 'basic' = oldLevel === 'basic' ? 'available' : 'basic'
+			return {
+				...state,
+				trees: {
+					...state.trees,
+					[tree]: {
+						...state.trees[tree],
+						[subtree]: {
+							...state.trees[tree][subtree],
+							upgrades: {
+								...state.trees[tree][subtree].upgrades,
+								[skill]: newLevel
+							}
+						}
+					}
+				}
+			}
 		case getType(actions.resetAll):
 			return defaultstate
-		case getType(actions.resetTree):
-			return state
+		case getType(actions.resetTree): {
+			const tree: string = action.payload
+			return {
+				...state,
+				trees: {
+					...state.trees,
+					[tree]: {
+						...defaultstate.trees[tree]
+					}
+				}
+			}
+		}
 		case getType(actions.upgradeSkill): {
-			let {tree, subtree, skill, oldLevel} = action.payload
-			let newLevel: 'basic' | 'aced' = oldLevel === 'available' ? 'basic' : 'aced'
-			state.trees[tree][subtree].upgrades[skill] = newLevel
-			return state
+			const {tree, subtree, skill, oldLevel}: actions.skillChangeAction = action.payload
+			const newLevel: 'basic' | 'aced' = oldLevel === 'available' ? 'basic' : 'aced'
+			return {
+				...state,
+				trees: {
+					...state.trees,
+					[tree]: {
+						...state.trees[tree],
+						[subtree]: {
+							...state.trees[tree][subtree],
+							upgrades: {
+								...state.trees[tree][subtree].upgrades,
+								[skill]: newLevel
+							}
+						}
+					}
+				}
+			}
 		}
 		default:
 			return state

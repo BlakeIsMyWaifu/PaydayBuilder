@@ -35,13 +35,3 @@ export const SubtreeLabel = styled.p`
 	width: calc(100% / 3);
 	text-align: center;
 `
-
-export const Reset = styled.div`
-	grid-area: reset;
-`
-
-export const ResetText = styled.p`
-	color: ${blue};
-	font-size: 1.6rem;
-	direction: rtl;
-`
