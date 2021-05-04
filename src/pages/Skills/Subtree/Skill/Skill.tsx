@@ -1,39 +1,48 @@
+import { downgradeSkill, upgradeSkill } from 'actions/skillsAction'
 import { skillData } from 'data/abilities/skills'
-import React, { useState } from 'react'
+import { useAppDispatch, useAppSelector } from 'hooks'
+import React from 'react'
+import { skillUpgradeTypes } from 'states/skillsDefaultState'
 
 import { Aced, Container, Icon, Label, Locked, SkillIcon } from './Skill-Elements'
 
 interface skillComponent {
 	skill: skillData;
+	tree: string;
+	subtree: string;
 	setSkillHovered: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 
-type skillState = 'locked' | 'available' | 'basic' | 'aced'
+const Skill: React.FC<skillComponent> = ({ skill, tree, subtree, setSkillHovered }: skillComponent) => {
 
-const Skill: React.FC<skillComponent> = ({ skill, setSkillHovered }: skillComponent) => {
+	const skillState = useAppSelector<skillUpgradeTypes>(state => state.skills.trees[tree][subtree].upgrades[skill.name])
 
-	const [skillState, setSkillState] = useState<skillState>(skill.tier === 1 ? 'available' : 'locked')
+	const dispatch = useAppDispatch()
 
 	const clickSkills = (e: React.MouseEvent) => {
 		e.preventDefault()
-		if (e.button !== 0 && e.button !== 2) return;
-		e.button ? downgradeSkill() : upgradeSkill()
+		if (e.button !== 0 && e.button !== 2) return
+		e.button ? downgradeSkillState() : upgradeSkillState()
 	}
 
-	const upgradeSkill = () => {
-		if (skillState === 'available') {
-			setSkillState('basic')
-		} else if (skillState === 'basic') {
-			setSkillState('aced')
-		}
+	const upgradeSkillState = () => {
+		if (skillState !== 'available' && skillState !== 'basic') return
+		dispatch(upgradeSkill({
+			tree,
+			subtree,
+			skill: skill.name,
+			oldLevel: skillState
+		}))
 	}
 
-	const downgradeSkill = () => {
-		if (skillState === 'aced') {
-			setSkillState('basic')
-		} else if (skillState === 'basic') {
-			setSkillState('available')
-		}
+	const downgradeSkillState = () => {
+		if (skillState !== 'aced' && skillState !== 'basic') return
+		dispatch(downgradeSkill({
+			tree,
+			subtree,
+			skill: skill.name,
+			oldLevel: skillState
+		}))
 	}
 
 	return (

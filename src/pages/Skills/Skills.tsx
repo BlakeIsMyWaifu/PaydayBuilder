@@ -13,14 +13,14 @@ type tree = 'mastermind' | 'enforcer' | 'technician' | 'ghost' | 'fugitive';
 
 const Skills: React.FC = () => {
 
-	const [currentClass, setCurrentClass] = useState<tree>('mastermind')
+	const [currentTree, setCurrentTree] = useState<tree>('mastermind')
 
-	const currentClassSkills = Object.values(data[currentClass])
-	const currentClassLabels = Object.keys(data[currentClass]).map(label => label.replaceAll('_', ' '))
+	const currentTreeSkills = Object.values(data[currentTree])
+	const currentTreeLabels = Object.keys(data[currentTree])
 
 	const [skillHovered, setSkillHovered] = useState<string | undefined>()
 
-	const getSkillFromName = (name: string | undefined): skillData | undefined => currentClassSkills.flat().find(skill => skill.name === name)
+	const getSkillFromName = (name: string | undefined): skillData | undefined => currentTreeSkills.flat().find(skill => skill.name === name)
 
 	return (
 		<Container columns='3fr 1fr' rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"'>
@@ -28,23 +28,23 @@ const Skills: React.FC = () => {
 			<Title>Skills</Title>
 
 			<TreeNamesWrapper>
-				<TreeName onClick={() => setCurrentClass('mastermind')}>Mastermind</TreeName>
-				<TreeName onClick={() => setCurrentClass('enforcer')}>Enforcer</TreeName>
-				<TreeName onClick={() => setCurrentClass('technician')}>Technician</TreeName>
-				<TreeName onClick={() => setCurrentClass('ghost')}>Ghost</TreeName>
-				<TreeName onClick={() => setCurrentClass('fugitive')}>Fugitive</TreeName>
+				<TreeName onClick={() => setCurrentTree('mastermind')}>Mastermind</TreeName>
+				<TreeName onClick={() => setCurrentTree('enforcer')}>Enforcer</TreeName>
+				<TreeName onClick={() => setCurrentTree('technician')}>Technician</TreeName>
+				<TreeName onClick={() => setCurrentTree('ghost')}>Ghost</TreeName>
+				<TreeName onClick={() => setCurrentTree('fugitive')}>Fugitive</TreeName>
 			</TreeNamesWrapper>
 
 			<Tree>
-				<Subtree skills={currentClassSkills[0]} setSkillHovered={setSkillHovered}/>
-				<Subtree skills={currentClassSkills[1]} setSkillHovered={setSkillHovered}/>
-				<Subtree skills={currentClassSkills[2]} setSkillHovered={setSkillHovered}/>
+				<Subtree skills={currentTreeSkills[0]} tree={currentTree} subtree={currentTreeLabels[0]} setSkillHovered={setSkillHovered}/>
+				<Subtree skills={currentTreeSkills[1]} tree={currentTree} subtree={currentTreeLabels[1]} setSkillHovered={setSkillHovered}/>
+				<Subtree skills={currentTreeSkills[2]} tree={currentTree} subtree={currentTreeLabels[2]} setSkillHovered={setSkillHovered}/>
 			</Tree>
 
 			<SubtreeLabelWrapper>
-				<SubtreeLabel>{currentClassLabels[0]}</SubtreeLabel>
-				<SubtreeLabel>{currentClassLabels[1]}</SubtreeLabel>
-				<SubtreeLabel>{currentClassLabels[2]}</SubtreeLabel>
+				<SubtreeLabel>{currentTreeLabels[0].replaceAll('_', ' ')}</SubtreeLabel>
+				<SubtreeLabel>{currentTreeLabels[1].replaceAll('_', ' ')}</SubtreeLabel>
+				<SubtreeLabel>{currentTreeLabels[2].replaceAll('_', ' ')}</SubtreeLabel>
 			</SubtreeLabelWrapper>
 
 			<Reset>

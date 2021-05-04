@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-import skills from './skills'
+import skills from './skillsReducer'
 
 const allReducers = combineReducers({
 	skills

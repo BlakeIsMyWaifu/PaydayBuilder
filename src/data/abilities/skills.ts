@@ -6,7 +6,7 @@ export interface skillData {
 	tier: 1 | 2 | 3 | 4;
 }
 
-interface classData {
+export interface classData {
 	[key: string]: skillData[];
 }
 
