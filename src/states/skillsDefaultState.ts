@@ -38,7 +38,7 @@ const getSubtrees = (tree: string): subtrees => {
 	return out
 }
 
-const getUpgrades = (tree: string, subtree: string) => Object.assign({}, ...skillsData[tree][subtree].map(skill => ({[skill.name]: 'available'})))
+const getUpgrades = (tree: string, subtree: string) => Object.assign({}, ...skillsData[tree][subtree].map(skill => ({[skill.name]: skill.tier === 1 ? 'available' : 'locked'})))
 
 const skillsState = {
 	points: 120,
