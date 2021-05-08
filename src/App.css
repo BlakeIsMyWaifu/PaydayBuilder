@@ -9,10 +9,16 @@
 h1 {
 	color: #fff;
 	font-weight: normal;
+	font-size: 1rem;
 }
 
 p {
 	color: #0F639F;
+	font-size: 1rem;
+}
+
+div {
+	scrollbar-color: #fff rgba(0, 0, 0, 0);
 }
 
 @font-face {
