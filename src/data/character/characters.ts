@@ -1,4 +1,4 @@
-interface characterData {
+export interface characterData {
 	name: string;
 	nationality: string;
 	age: number | string;

@@ -1,6 +1,7 @@
 import './App.css'
 
 import Background from 'components/Background/Background'
+import Character from 'pages/Character'
 import Home from 'pages/Home'
 import Mask from 'pages/Mask'
 import Skills from 'pages/Skills'
@@ -16,6 +17,7 @@ const App: React.FC = () => {
 				<Switch>
 					<Route exact path='/' component={Home} />
 					<Route path='/mask' component={Mask} />
+					<Route path='/character' component={Character} />
 					<Route path='/skills' component={Skills} />
 				</Switch>
 			</MemoryRouter>
