@@ -17,3 +17,11 @@ export const Title = styled.p`
 	color: ${blue};
 	padding-left: 4px;
 `
+
+export const Image = styled.img`
+	height: calc(100% - 32px);
+	width: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+`

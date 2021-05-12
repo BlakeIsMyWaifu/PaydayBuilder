@@ -1,10 +1,14 @@
 import Container from 'components/Container/Container'
+import { useAppSelector } from 'hooks'
 import React from 'react'
 
 import { Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle } from './Home-Elements'
 import Selector from './Selector'
 
 const Home: React.FC = () => {
+
+	const character = useAppSelector(state => state.character)
+
 	return (
 		<Container columns='2fr 1fr 1fr 1fr' rows='1fr' areas='"stats character weapons abilities"'>
 
@@ -20,8 +24,8 @@ const Home: React.FC = () => {
 				<TabTitle direction='rtl'>Character</TabTitle>
 				
 				<SelectorWrapper>
-					<Selector path='/mask' title='mask'/>
-					<Selector path='/character' title='character'/>
+					<Selector path='/mask' title='mask' imagePath={`images/masks/${character.mask.imageColour}.png`}/>
+					<Selector path='/character' title='character' imagePath={`images/characters/${character.character.name}.png`}/>
 					<Selector path='/armour' title='armour'/>
 					<Selector path='/equipment' title='equipment'/>
 				</SelectorWrapper>
