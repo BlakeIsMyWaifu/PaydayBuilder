@@ -17,4 +17,7 @@ export const Text = styled.p`
 	bottom: 0;
 	right: 8px;
 	font-size: calc(4rem - 8px);
+	&:hover {
+		color: #fff;
+	}
 `
