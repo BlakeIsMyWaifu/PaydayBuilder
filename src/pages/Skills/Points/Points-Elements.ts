@@ -14,9 +14,11 @@ export const Container = styled.div<pointsContainer>`
 
 export const PointsText = styled.p`
 	color: inherit;
+	font-size: inherit;
 `
 
 export const PointsNumber = styled.p`
 	color: inherit;
+	font-size: inherit;
 	direction: rtl;
 `

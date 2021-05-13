@@ -30,7 +30,7 @@ const Skill: React.FC<skillComponent> = ({ skill, tree, subtree, setSkillHovered
 		dispatch(upgradeSkill({
 			tree,
 			subtree,
-			skill: skill.name,
+			skill: skill,
 			oldLevel: skillState
 		}))
 	}
@@ -40,7 +40,7 @@ const Skill: React.FC<skillComponent> = ({ skill, tree, subtree, setSkillHovered
 		dispatch(downgradeSkill({
 			tree,
 			subtree,
-			skill: skill.name,
+			skill: skill,
 			oldLevel: skillState
 		}))
 	}
