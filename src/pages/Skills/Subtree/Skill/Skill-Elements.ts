@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
 	height: 100%;
 	width: 50%;
+	padding-top: 5%;
 `
 
 export const Icon = styled.div`
@@ -54,5 +55,5 @@ export const SkillIcon = styled.div<icon>`
 
 export const Label = styled.p`
 	color: #fff;
-	margin-left: 25%;
+	text-align: center;
 `

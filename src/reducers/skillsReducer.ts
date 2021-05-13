@@ -1,6 +1,7 @@
 import actions, { skillChangeAction } from 'actions/skillsAction'
 import defaultstate from 'states/skillsDefaultState'
 import { getType } from 'typesafe-actions'
+import skillTreePoints from 'utils/skillTreePoints'
 
 const acedCost = {
 	1: 3,
@@ -9,12 +10,7 @@ const acedCost = {
 	4: 8
 }
 
-const tierCost = {
-	0: 1,
-	1: 2,
-	3: 3,
-	16: 4
-}
+const tierCost = [0, 1, 3, 16]
 
 const skills = (state = defaultstate, action: any) => {
 	switch (action.type) {
@@ -22,6 +18,9 @@ const skills = (state = defaultstate, action: any) => {
 			const { tree, subtree, skill, oldLevel }: skillChangeAction = action.payload
 			const newLevel: 'available' | 'basic' = oldLevel === 'basic' ? 'available' : 'basic'
 			const cost = oldLevel === 'basic' ? skill.tier : acedCost[skill.tier]
+			for (var tier = 0; tier < 4; tier++) {
+				if ((state.trees[tree][subtree].points - cost) < tierCost[tier]) break
+			}
 			return {
 				points: state.points + cost,
 				trees: {
@@ -29,8 +28,8 @@ const skills = (state = defaultstate, action: any) => {
 					[tree]: {
 						...state.trees[tree],
 						[subtree]: {
-							...state.trees[tree][subtree],
 							points: state.trees[tree][subtree].points - cost,
+							tier,
 							upgrades: {
 								...state.trees[tree][subtree].upgrades,
 								[skill.name]: newLevel
@@ -43,12 +42,8 @@ const skills = (state = defaultstate, action: any) => {
 			return defaultstate
 		case getType(actions.resetTree): {
 			const tree: string = action.payload
-			let treePoints = 0
-			for (let subtree in state.trees[tree]) {
-				treePoints += state.trees[tree][subtree].points
-			}
 			return {
-				points: state.points + treePoints,
+				points: state.points + skillTreePoints(tree, state.trees),
 				trees: {
 					...state.trees,
 					[tree]: {
@@ -61,6 +56,9 @@ const skills = (state = defaultstate, action: any) => {
 			const { tree, subtree, skill, oldLevel }: skillChangeAction = action.payload
 			const newLevel: 'basic' | 'aced' = oldLevel === 'available' ? 'basic' : 'aced'
 			const cost = oldLevel === 'available' ? skill.tier : acedCost[skill.tier]
+			for (var tier = 0; tier < 4; tier++) {
+				if ((state.trees[tree][subtree].points + cost) < tierCost[tier]) break
+			}
 			return {
 				points: state.points - cost,
 				trees: {
@@ -68,8 +66,8 @@ const skills = (state = defaultstate, action: any) => {
 					[tree]: {
 						...state.trees[tree],
 						[subtree]: {
-							...state.trees[tree][subtree],
 							points: state.trees[tree][subtree].points + cost,
+							tier,
 							upgrades: {
 								...state.trees[tree][subtree].upgrades,
 								[skill.name]: newLevel

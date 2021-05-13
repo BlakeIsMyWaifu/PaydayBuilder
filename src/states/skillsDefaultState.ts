@@ -37,7 +37,7 @@ const getSubtrees = (tree: string): subtrees => {
 	let out: subtrees = {}
 	for (let subtree in skillsData[tree]) {
 		out[subtree] = {
-			tier: 0,
+			tier: 1,
 			points: 0,
 			upgrades: getUpgrades(tree, subtree)
 		}
