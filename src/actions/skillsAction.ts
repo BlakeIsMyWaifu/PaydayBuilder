@@ -8,11 +8,11 @@ export interface skillChangeAction {
 	subtree: string;
 	skill: skillData;
 	oldLevel: skillUpgradeTypes;
+	direction: 'upgrade' | 'downgrade';
 }
 
-export const downgradeSkill = createAction(DOWNGRADESKILL)<skillChangeAction>()
+export const changeSkillState = createAction(DOWNGRADESKILL)<skillChangeAction>()
 export const resetAll = createAction(RESETALL)<void>()
 export const resetTree = createAction(RESETTREE)<string>()
-export const upgradeSkill = createAction(UPGRADESKILL)<skillChangeAction>()
 
-export default { downgradeSkill, resetAll, resetTree, upgradeSkill }
+export default { changeSkillState, resetAll, resetTree }

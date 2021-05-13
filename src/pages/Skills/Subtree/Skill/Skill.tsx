@@ -1,4 +1,4 @@
-import { downgradeSkill, upgradeSkill } from 'actions/skillsAction'
+import { changeSkillState } from 'actions/skillsAction'
 import { skillData } from 'data/abilities/skills'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React from 'react'
@@ -27,21 +27,23 @@ const Skill: React.FC<skillComponent> = ({ skill, tree, subtree, setSkillHovered
 
 	const upgradeSkillState = () => {
 		if (skillState !== 'available' && skillState !== 'basic') return
-		dispatch(upgradeSkill({
+		dispatch(changeSkillState({
 			tree,
 			subtree,
 			skill: skill,
-			oldLevel: skillState
+			oldLevel: skillState,
+			direction: 'upgrade'
 		}))
 	}
 
 	const downgradeSkillState = () => {
 		if (skillState !== 'aced' && skillState !== 'basic') return
-		dispatch(downgradeSkill({
+		dispatch(changeSkillState({
 			tree,
 			subtree,
 			skill: skill,
-			oldLevel: skillState
+			oldLevel: skillState,
+			direction: 'downgrade'
 		}))
 	}
 
