@@ -19,7 +19,7 @@ interface subtreeState {
 	upgrades: upgrades;
 }
 
-interface upgrades {
+export interface upgrades {
 	[key: string]: skillUpgradeTypes;
 }
 

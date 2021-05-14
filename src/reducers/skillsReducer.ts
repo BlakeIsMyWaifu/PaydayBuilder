@@ -1,5 +1,5 @@
 import actions, { skillChangeAction } from 'actions/skillsAction'
-import defaultstate, { skillsState } from 'states/skillsDefaultState'
+import defaultstate, { upgrades } from 'states/skillsDefaultState'
 import { getType } from 'typesafe-actions'
 import skillTreePoints from 'utils/skillTreePoints'
 
@@ -11,6 +11,8 @@ const acedCost = {
 }
 
 const tierCost = [0, 1, 3, 16]
+
+const skillTierIndex = [1, 2, 2, 3, 3, 4]
 
 const skills = (state = defaultstate, action: any) => {
 	switch (action.type) {
@@ -32,6 +34,19 @@ const skills = (state = defaultstate, action: any) => {
 				if (points < tierCost[tier]) break
 			}
 
+			let unlocked: upgrades = {}
+			if (tier !== state.trees[tree][subtree].tier) {
+				let skills = Object.keys(state.trees[tree][subtree].upgrades)
+				for (let i = 0; i < 6; i++) {
+					if (tier === skillTierIndex[i]) {
+						unlocked[skills[i]] = 'available'
+					}
+					if (tier < skillTierIndex[i]) {
+						unlocked[skills[i]] = 'locked'
+					}
+				}
+			}
+
 			return {
 				points: state.points - cost,
 				trees: {
@@ -43,6 +58,7 @@ const skills = (state = defaultstate, action: any) => {
 							tier,
 							upgrades: {
 								...state.trees[tree][subtree].upgrades,
+								...unlocked,
 								[skill.name]: newLevel
 							}
 						}
