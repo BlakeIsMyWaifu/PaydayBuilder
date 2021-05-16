@@ -2,7 +2,7 @@
   "name": "payday-builder",
   "version": "0.1.0",
   "description": "Payday 2 Build Helper Website",
-  "homepage": "https://blakeismywaifu.github.io/PaydayBuilder/",
+  "homepage": ".",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
