@@ -1,5 +1,5 @@
-import characters, { characterData } from "data/character/characters"
-import masks, { maskData } from "data/character/masks"
+import characters, { characterData } from 'data/character/characters'
+import masks, { maskData } from 'data/character/masks'
 
 export interface characterState {
 	mask: maskData;

@@ -44,5 +44,4 @@ export const CardIcon = styled.div<cardIcon>`
 	top: 24px;
 	left: 8px;
 	position: absolute;
-	
 `

@@ -15,7 +15,7 @@ export const Icon = styled.div`
 `
 
 export const Locked = styled.div`
-	background: url("/images/skills/locked.png") 0 0 no-repeat;
+	background: url('/images/skills/locked.png') 0 0 no-repeat;
 	background-size: 50% 50%;
 	height: 100%;
 	width: 100%;
@@ -25,7 +25,7 @@ export const Locked = styled.div`
 `
 
 export const Aced = styled.div`
-	background: url("/images/skills/ace.png") 0 0 no-repeat;
+	background: url('/images/skills/ace.png') 0 0 no-repeat;
 	background-size: 100% 100%;
 	height: 100%;
 	width: 100%;
@@ -43,7 +43,7 @@ interface icon {
 export const SkillIcon = styled.div<icon>`
 	background-position-x: calc((${props => props.x}% / 880) * 100) !important;
 	background-position-y: calc((${props => props.y}% / 960) * 100) !important;
-	background: url("/images/skills/skills.png") 0 0 no-repeat;
+	background: url('/images/skills/skills.png') 0 0 no-repeat;
 	background-size: 1200% 1300%;
 	opacity: ${props => props.state === 'locked' || props.state === 'available' ? 0.3 : 1};
 	height: 100%;

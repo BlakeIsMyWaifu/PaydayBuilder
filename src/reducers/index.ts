@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
 import abilities from './abilitiesReducer'
 import character from './characterReducer'

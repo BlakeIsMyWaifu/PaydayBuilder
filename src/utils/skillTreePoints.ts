@@ -1,5 +1,5 @@
-import { useAppSelector } from "hooks"
-import { trees } from "states/skillsDefaultState"
+import { useAppSelector } from 'hooks'
+import { trees } from 'states/skillsDefaultState'
 
 export default (tree: string, trees?: trees) => {
 
