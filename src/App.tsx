@@ -1,9 +1,10 @@
 import './App.css'
 
-import Background from 'components/Background/Background'
+import Background from 'components/Background'
 import Character from 'pages/Character'
 import Home from 'pages/Home'
 import Mask from 'pages/Mask'
+import PerkDeck from 'pages/PerkDeck'
 import Skills from 'pages/Skills'
 import React from 'react'
 import { MemoryRouter, Route, Switch } from 'react-router'
@@ -19,6 +20,7 @@ const App: React.FC = () => {
 					<Route path='/mask' component={Mask} />
 					<Route path='/character' component={Character} />
 					<Route path='/skills' component={Skills} />
+					<Route path='/perkdeck' component={PerkDeck} />
 				</Switch>
 			</MemoryRouter>
 		</div>
