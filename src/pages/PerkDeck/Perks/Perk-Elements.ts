@@ -21,7 +21,13 @@ export const Card = styled.div`
 	position: relative;
 `
 
-export const CardBackground = styled.img``
+interface cardBackground {
+	selected: boolean;
+}
+
+export const CardBackground = styled.img<cardBackground>`
+	opacity: ${props => props.selected ? 1 : 0.5};
+`
 
 interface cardIcon {
 	x: number;

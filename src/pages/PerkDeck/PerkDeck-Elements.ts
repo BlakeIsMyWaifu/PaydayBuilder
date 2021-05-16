@@ -30,5 +30,17 @@ export const PerksWrapper = styled.div`
 
 export const Info = styled.div`
 	grid-area: info;
+	padding: 8px;
 	${corner};
+`
+
+export const InfoName = styled.h1`
+	text-transform: none;
+	font-size: 2rem;
+	padding-bottom: 16px;
+`
+
+export const InfoDescription = styled.h1`
+	text-transform: none;
+	font-size: 1.2rem;
 `

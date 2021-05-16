@@ -5,7 +5,7 @@ export interface perk {
 	dlc?: string;
 }
 
-interface card {
+export interface card {
 	name: string;
 	description: string[];
 	vr_description?: string;

@@ -1,9 +1,10 @@
 import Back from 'components/Back/Back'
 import Container from 'components/Container/Container'
 import data from 'data/abilities/perks'
-import React, { createRef, useRef } from 'react'
+import { useAppSelector } from 'hooks'
+import React, { createRef, useEffect, useRef, useState } from 'react'
 
-import { Info, PerkDeckName, PerkDeckNamesWrapper, PerksWrapper, Title } from './PerkDeck-Elements'
+import { Info, InfoDescription, InfoName, PerkDeckName, PerkDeckNamesWrapper, PerksWrapper, Title } from './PerkDeck-Elements'
 import Perk from './Perks/Perk'
 
 const PerkDeck: React.FC = () => {
@@ -23,17 +24,31 @@ const PerkDeck: React.FC = () => {
 
 	const perkWrapperRef = useRef<HTMLDivElement>(null)
 
-	const perkRefs = useRef(Array.from({length: data.length}, _ => React.createRef<HTMLDivElement>()))
+	const perkRefs = useRef(Array.from({length: data.length}, () => createRef<HTMLDivElement>()))
 
-	const scrollToPerk = (event: React.MouseEvent, i: number) => {
+	const scrollToPerk = (i: number) => {
 		const container = perkWrapperRef.current
 		if (!container) return
 		container.scrollTo({
 			top: i * 136,
 			left: 0,
-			behavior: 'smooth'
+			behavior: firstScroll ? 'smooth' : 'auto'
 		})
+		firstScroll = true
 	}
+
+	const [hoveredCard, setHoveredCard] = useState(data[0].cards[0])
+
+	const equipedPerk = useAppSelector(state => state.abilities.perkdeck)
+
+	const [selectedPerk, setSelectedPerk] = useState(equipedPerk)
+
+	let firstScroll = false
+
+	useEffect(() => {
+		const currentEquipedIndex = data.indexOf(equipedPerk)
+		scrollToPerk(currentEquipedIndex)
+	}, [])
 
 	return (
 		<Container columns='3fr 1fr' rows='4rem 2rem 7fr 4rem' areas='"title title" "perkdecknames ." "perkdeck info" "perkdeck back"'>
@@ -43,7 +58,7 @@ const PerkDeck: React.FC = () => {
 			<PerkDeckNamesWrapper ref={scrollRef} onWheel={onWheel}>
 				{
 					data.map((perkdeck, i) => {
-						return <PerkDeckName key={perkdeck.name} onClick={event => scrollToPerk(event, i)}>{perkdeck.name}</PerkDeckName>
+						return <PerkDeckName key={perkdeck.name} onClick={() => scrollToPerk(i)}>{perkdeck.name}</PerkDeckName>
 					})
 				}
 			</PerkDeckNamesWrapper>
@@ -51,13 +66,22 @@ const PerkDeck: React.FC = () => {
 			<PerksWrapper ref={perkWrapperRef}>
 				{
 					data.map((perkdeck, i) => {
-						return <Perk perkref={perkRefs.current[i]} key={perkdeck.name} data={perkdeck} index={i} />
+						return <Perk
+							perkref={perkRefs.current[i]}
+							key={perkdeck.name}
+							data={perkdeck}
+							index={i}
+							setHoveredCard={setHoveredCard}
+							selectedPerk={selectedPerk}
+							setSelectedPerk={setSelectedPerk}
+						/>
 					})
 				}
 			</PerksWrapper>
 
 			<Info>
-				
+				<InfoName>{hoveredCard.name}</InfoName>
+				<InfoDescription>{hoveredCard.description}</InfoDescription>
 			</Info>
 
 			<Back />
