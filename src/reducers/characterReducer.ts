@@ -1,7 +1,7 @@
 import actions from 'actions/characterAction'
 import { characterData } from 'data/character/characters'
 import { maskData } from 'data/character/masks'
-import defaultstate from 'states/characterDefaultState'
+import defaultstate from 'defualtStates/characterDefaultState'
 import { getType } from 'typesafe-actions'
 
 const characterReducer = (state = defaultstate, action: any) => {

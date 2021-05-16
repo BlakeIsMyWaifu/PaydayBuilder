@@ -1,8 +1,8 @@
 import { changeSkillState } from 'actions/skillsAction'
 import { skillData } from 'data/abilities/skills'
+import { skillUpgradeTypes } from 'defualtStates/skillsDefaultState'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React from 'react'
-import { skillUpgradeTypes } from 'states/skillsDefaultState'
 
 import { Aced, Container, Icon, Label, Locked, SkillIcon } from './Skill-Elements'
 

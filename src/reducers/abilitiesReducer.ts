@@ -1,6 +1,6 @@
 import actions from 'actions/abilitiesAction'
 import { perk } from 'data/abilities/perks'
-import defaultState from 'states/abilitiesDefaultState'
+import defaultState from 'defualtStates/abilitiesDefaultState'
 import { getType } from 'typesafe-actions'
 
 const abilitiesReducer = (state = defaultState, action: any) => {

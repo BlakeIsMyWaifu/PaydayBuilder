@@ -1,5 +1,5 @@
 import actions, { skillChangeAction } from 'actions/skillsAction'
-import defaultstate, { upgrades } from 'states/skillsDefaultState'
+import defaultstate, { upgrades } from 'defualtStates/skillsDefaultState'
 import { getType } from 'typesafe-actions'
 import skillTreePoints from 'utils/skillTreePoints'
 
