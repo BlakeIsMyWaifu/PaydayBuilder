@@ -57,5 +57,21 @@ export interface skillsAmount {
 export const SkillsAmount = styled.h1<skillsAmount>`
 	font-size: 1.5rem;
 	text-align: center;
-	color: ${props => props.colour}
+	color: ${props => props.colour};
+`
+
+interface perkDeckImage {
+	x: number;
+	y: number;
+}
+
+export const PerkDeckImage = styled.div<perkDeckImage>`
+	background-position-x: calc((${props => props.x}% / 192) * 100) !important;
+	background-position-y: calc((${props => props.y}% / 1008) * 100) !important;
+	background: url('/images/perks/perks.png') 0 0 no-repeat;
+	background-size: 500% 2200%;
+	height: 144px;
+	width: 144px;
+	margin-left: calc(50% - 72px);
+	filter: invert(1);
 `
