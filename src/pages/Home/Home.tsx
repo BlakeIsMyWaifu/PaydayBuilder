@@ -1,4 +1,4 @@
-import Container from 'components/Container/Container'
+import Container from 'components/Container'
 import { useAppSelector } from 'hooks'
 import React from 'react'
 

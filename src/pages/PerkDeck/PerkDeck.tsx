@@ -1,5 +1,5 @@
-import Back from 'components/Back/Back'
-import Container from 'components/Container/Container'
+import Back from 'components/Back'
+import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import data from 'data/abilities/perks'
 import { useAppSelector } from 'hooks'

@@ -1,5 +1,5 @@
 import { changeCharacter } from 'actions/characterAction'
-import Back from 'components/Back/Back'
+import Back from 'components/Back'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoSubtitle, InfoTitle } from 'components/Info'
 import data, { characterData } from 'data/character/characters'

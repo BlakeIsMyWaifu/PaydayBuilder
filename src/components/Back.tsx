@@ -1,16 +1,17 @@
+import React from 'react'
 import { Link as LinkR } from 'react-router-dom'
 import styled from 'styled-components'
 import { blue } from 'utils/colours'
 
-export const Container = styled.div`
+const Container = styled.div`
 	grid-area: back;
 `
 
-export const Link = styled(LinkR)`
+const Link = styled(LinkR)`
 	text-decoration: none;
 `
 
-export const Text = styled.p`
+const Text = styled.p`
 	direction: rtl;
 	color: ${blue};
 	position: absolute;
@@ -21,3 +22,15 @@ export const Text = styled.p`
 		color: #fff;
 	}
 `
+
+const Back: React.FC = () => {
+	return (
+		<Container>
+			<Link to='/'>
+				<Text>Back</Text>
+			</Link>
+		</Container>
+	)
+}
+
+export default Back
