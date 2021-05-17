@@ -1,12 +1,13 @@
 import { changeCharacter } from 'actions/characterAction'
 import Back from 'components/Back/Back'
 import Container from 'components/Container'
+import { InfoContainer, InfoDescription, InfoSubtitle, InfoTitle } from 'components/Info'
 import data, { characterData } from 'data/character/characters'
 import { useAppDispatch } from 'hooks'
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 
-import { Character, CharacterWrapper, Info, InfoAge, InfoDescription, InfoName, InfoNationality, Title } from './Character-Elements'
+import { Character, CharacterWrapper, Title } from './Character-Elements'
 
 const CharacterPage: React.FC = () => {
 
@@ -38,22 +39,18 @@ const CharacterPage: React.FC = () => {
 				}
 			</CharacterWrapper>
 
-			<Info>
+			<InfoContainer>
 				{
 					hoveredCharacter && (
 						<>
-							<InfoName>{hoveredCharacter.name}</InfoName>
-							<InfoNationality>Nationality: {hoveredCharacter.nationality}</InfoNationality>
-							<InfoAge>Age: {hoveredCharacter.age}</InfoAge>
-							{
-								hoveredCharacter.description.map((description, i) => {
-									return <InfoDescription key={`character-info-${hoveredCharacter.name}-${i}`}>{description}</InfoDescription>
-								})
-							}
+							<InfoTitle>{hoveredCharacter.name}</InfoTitle>
+							<InfoSubtitle>Nationality: {hoveredCharacter.nationality}</InfoSubtitle>
+							<InfoSubtitle>Age: {hoveredCharacter.age}</InfoSubtitle>
+							<InfoDescription>{hoveredCharacter.description.join('\n\n')}</InfoDescription>
 						</>
 					)
 				}
-			</Info>
+			</InfoContainer>
 
 			<Back />
 

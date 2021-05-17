@@ -18,22 +18,6 @@ export const Mask = styled.img`
 	height: 96px;
 `
 
-export const Info = styled.div`
-	grid-area: info;
-	${corner};
-	padding: 8px;
-`
-
-export const InfoName = styled.h1`
-	text-transform: none;
-	font-size: 2rem;
-`
-
-export const InfoDescription = styled.h1`
-	text-transform: none;
-	font-size: 1.2rem;
-`
-
 export const InfoUnlock = styled.h1`
 	text-transform: none;
 	color: yellow;

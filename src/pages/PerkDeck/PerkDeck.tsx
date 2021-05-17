@@ -1,10 +1,11 @@
 import Back from 'components/Back/Back'
 import Container from 'components/Container/Container'
+import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import data from 'data/abilities/perks'
 import { useAppSelector } from 'hooks'
 import React, { createRef, useEffect, useRef, useState } from 'react'
 
-import { Info, InfoDescription, InfoName, PerkDeckName, PerkDeckNamesWrapper, PerksWrapper, Title } from './PerkDeck-Elements'
+import { PerkDeckName, PerkDeckNamesWrapper, PerksWrapper, Title } from './PerkDeck-Elements'
 import Perk from './Perks/Perk'
 
 const PerkDeck: React.FC = () => {
@@ -79,10 +80,10 @@ const PerkDeck: React.FC = () => {
 				}
 			</PerksWrapper>
 
-			<Info>
-				<InfoName>{hoveredCard.name}</InfoName>
-				<InfoDescription>{hoveredCard.description}</InfoDescription>
-			</Info>
+			<InfoContainer>
+				<InfoTitle>{hoveredCard.name}</InfoTitle>
+				<InfoDescription>{hoveredCard.description.join('\n\n')}</InfoDescription>
+			</InfoContainer>
 
 			<Back />
 

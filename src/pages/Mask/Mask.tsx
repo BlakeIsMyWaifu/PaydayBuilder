@@ -1,12 +1,13 @@
 import { changeMask } from 'actions/characterAction'
 import Back from 'components/Back'
 import Container from 'components/Container'
+import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import data, { maskData } from 'data/character/masks'
 import { useAppDispatch } from 'hooks'
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 
-import { Info, InfoCost, InfoDescription, InfoName, InfoUnlock, Mask, MaskWrapper, Title } from './Mask-Elements'
+import { InfoCost, InfoUnlock, Mask, MaskWrapper, Title } from './Mask-Elements'
 
 const MaskPage: React.FC = () => {
 
@@ -38,18 +39,18 @@ const MaskPage: React.FC = () => {
 				}
 			</MaskWrapper>
 
-			<Info>
+			<InfoContainer>
 				{
 					hoveredMask && (
 						<>
-							<InfoName>{hoveredMask.name}</InfoName>
-							<InfoDescription>{hoveredMask.description}</InfoDescription>
+							<InfoTitle>{hoveredMask.name}</InfoTitle>
+							<InfoDescription>{hoveredMask.description.join('\n\n')}</InfoDescription>
 							<InfoUnlock>{hoveredMask.unlock}</InfoUnlock>
 							<InfoCost>{hoveredMask.cost}</InfoCost>
 						</>
 					)
 				}
-			</Info>
+			</InfoContainer>
 
 			<Back />
 

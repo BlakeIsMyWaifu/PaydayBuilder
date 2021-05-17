@@ -1,7 +1,8 @@
+import { InfoContainer, InfoTitle } from 'components/Info'
 import { skillData } from 'data/abilities/skills'
 import React from 'react'
 
-import { Container, InfoCost, InfoCostNumber, InfoCostText, InfoName, InfoSkill } from './Info-Elements'
+import { InfoCost, InfoCostNumber, InfoCostText, InfoSkill } from './Info-Elements'
 
 interface info {
 	skillLabel: string | undefined;
@@ -18,8 +19,8 @@ const Info: React.FC<info> = ({skillLabel, skill}: info) => {
 	}
 
 	return skill ? (
-		<Container>
-			<InfoName>{skillLabel}</InfoName>
+		<InfoContainer>
+			<InfoTitle uppercase={true}>{skillLabel}</InfoTitle>
 
 			<InfoCost>
 				<InfoCostText>Basic: </InfoCostText>
@@ -32,8 +33,8 @@ const Info: React.FC<info> = ({skillLabel, skill}: info) => {
 				<InfoCostNumber>{acedCost[skill.tier]} points</InfoCostNumber>
 			</InfoCost>
 			<InfoSkill>{skill.description[1]}</InfoSkill>
-		</Container>
-	) : <Container></Container>
+		</InfoContainer>
+	) : <InfoContainer></InfoContainer>
 }
 
 export default Info
