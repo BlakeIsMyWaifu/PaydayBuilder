@@ -8,43 +8,10 @@ export interface maskData {
 	cost: string;
 }
 
-/*
-https://payday.fandom.com/wiki/Masks_(Payday_2)
-
-note, image and collection aren't automatic
-some types are wrong (no collaboration + some infamous)
-
-[...document.getElementsByClassName('lightbox-caption')].map((element => {
-	let parent = element.children[0];
-	let name = parent.children[0].children[0].children[0].innerText;
-	let unlock;
-	let description = [];
-	let type;
-	[...parent.children[1].children].forEach(element => {
-		if (element.nodeName === 'DIV') return;
-		let [desc, ...unlck] = element.innerHTML.split('<');
-		if (desc.length > 0) description.push(desc);
-		let div = document.createElement('div');
-		div.innerHTML = `<${unlck.join('<')}`;
-		unlock = div.textContent.replace('<', '');
-		type = div.firstChild.className?.replace('color-', '') || 'normal';
-	});
-	return ({
-		name,
-		image: 'ggac_od_t2',
-		description,
-		collection: '',
-		type,
-		unlock,
-		cost: element.innerText.replace(name, '').replaceAll('\n', ' ').trim()
-	});
-})).flat();
-*/
-
 const masks: maskData[] = [
 	{
 		name: 'Preferred Character',
-		image: 'ggac_od_t2',
+		image: 'character_locked',
 		description: [
 			'Equipping this mask slot will make you wear your preferred character\'s mask.'
 		],
@@ -54,8 +21,52 @@ const masks: maskData[] = [
 		cost: ''
 	},
 	{
+		name: 'Dallas',
+		image: 'dallas',
+		description: [
+			'The mask that everyone fears.'
+		],
+		collection: 'Default',
+		type: 'infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
+		cost: '$48,750'
+	},
+	{
+		name: 'Chains',
+		image: 'chains',
+		description: [
+			'The mask of Chains.'
+		],
+		collection: 'Default',
+		type: 'infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
+		cost: '$48,750'
+	},
+	{
+		name: 'Hoxton',
+		image: 'hoxton',
+		description: [
+			'The mask of Hoxton.'
+		],
+		collection: 'Default',
+		type: 'infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
+		cost: '$48,750'
+	},
+	{
+		name: 'Wolf',
+		image: 'wolf',
+		description: [
+			'The mask of Wolf.'
+		],
+		collection: 'Default',
+		type: 'infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
+		cost: '$48,750'
+	},
+	{
 		name: 'Collateral',
-		image: 'ggac_od_t2',
+		image: 'jw_shades',
 		description: [
 			'These shades belonged to a colleague of John\'s that he was hired to kill.',
 			'It started like any other night. Only this night, he got a contract to kill another contract killer who was making rounds that day. John knew he had five stops to make and was using the same taxi cab between all of them.',
@@ -68,7 +79,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hoxton Reborn',
-		image: 'ggac_od_t2',
+		image: 'old_hoxton',
 		description: [
 			'The Hoxton Reborn mask is a mask that Hoxton made while in prison. For him, it\'s a symbol of everything he experienced in the past years while the PAYDAY gang kept on going without him. No one knows how his experiences in prison has changed him, and he won\'t talk about it when asked.',
 			'All we can assume is that he has been changed forever, and that he is reborn into... Something different.'
@@ -80,7 +91,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Clover',
-		image: 'ggac_od_t2',
+		image: 'msk_grizel',
 		description: [
 			'Clover\'s mask represents what Clover both fears and hates most of all - wearing a mask as your normal face. The surgically-shrunken nose, the botox\'d lips and the expression of all-consuming vanity and self-obsession - all are symbols of fear and weakness, twisted into a horrifying parody.'
 		],
@@ -91,7 +102,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Dragan',
-		image: 'ggac_od_t2',
+		image: 'dragan',
 		description: [
 			'With a background like the one Dragan has, there\'s no surprise he aspires to greatness in the criminal underworld.',
 			'His mask represents a lot of his own characteristics, with the clear resemblance to some of the original crew\'s masks that tells of his ability to infiltrate and blend in while still having some features that tells of his unending ruthlessness.',
@@ -104,7 +115,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Richard Returns',
-		image: 'ggac_od_t2',
+		image: 'richard_returns',
 		description: [
 			'Is this mask a reflection of a deep-seated psychological problem? Possibly a dissociative identity disorder? Schizophrenia? Trauma of a disturbed psyche? Or is it not a reflection at all, but instead something to cause them?'
 		],
@@ -115,7 +126,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Bonnie',
-		image: 'ggac_od_t2',
+		image: 'bonnie',
 		description: [
 			'Few nations have contributed to humanity as Scotland has. In every field of endeavor - science, arts, cuisine - it is the people of this blessed land that give freely and generously. With this mask, Bonnie is determined to reverse this trend.'
 		],
@@ -126,7 +137,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sokol',
-		image: 'ggac_od_t2',
+		image: 'sokol',
 		description: [
 			'If playing as a grinder for the St Petersburg Bombers hockey team taught Sokol the value of one thing, it was the importance of a terrifying mask that protects his handsome Russian face.'
 		],
@@ -137,7 +148,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Jiro',
-		image: 'ggac_od_t2',
+		image: 'jiro',
 		description: [
 			'Japan is a land of tradition. A land of warriors. Jiro\'s mask reflects this. The mask expresses Jiro\'s love for a traditional Japan, while the bared snarl represents his unshakable determination.'
 		],
@@ -148,7 +159,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Bodhi',
-		image: 'ggac_od_t2',
+		image: 'bodhi',
 		description: [
 			'Masks have always been used in spiritual traditions that relate to deities, the divine and those chasing the apotheosis of the self. Bodhi\'s mask reflects the man behind it. Strong, cunning, single-minded and centered.'
 		],
@@ -159,7 +170,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Jimmy',
-		image: 'ggac_od_t2',
+		image: 'jimmy_duct',
 		description: [
 			'Jimmy hasn\'t really made many masks before he made his signature mask - and it shows. His mask design captures his free spirit and his disregard to things as appearance, planning and such. Good is good enough for Jimmy, he doesn\'t get stuck in ideas and wants to move forward at all times.'
 		],
@@ -170,7 +181,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sydney',
-		image: 'ggac_od_t2',
+		image: 'sydney',
 		description: [
 			'Smirk, Grin, Sneer - call it what you want. As you see this smiling punker mask approaching it\'s not synonyms that\'ll run through your head - it\'s bullets. Sydney will make sure of it.'
 		],
@@ -181,7 +192,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Rust',
-		image: 'ggac_od_t2',
+		image: 'rust',
 		description: [
 			'The Devil is the moniker that has followed Rust for most of his life. Therefore, Rust\'s mask is a combination of a smiling clown with ominous horns protruding from his forehead, letting everyone know that the Devil is here.'
 		],
@@ -192,7 +203,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Scarface',
-		image: 'ggac_od_t2',
+		image: 'chc_terry',
 		description: [
 			'Scarface came to the US with nothing more than two empty hands and a bad attitude, the darkness in his heart matched only by the brilliance of his criminal mind. His mask tells the story, complete with the trail of blood he left in his wake as he began to make his mark.'
 		],
@@ -203,7 +214,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sangres',
-		image: 'ggac_od_t2',
+		image: 'max',
 		description: [
 			'The skull is Death, Sangres\' faithful companion throughout his career. The gold tooth is the coin that has been paid. The kill counter represents his past as a hitman, the blood-red ruby the new wealth he\'s seeking in the US. Sangres\' name spreaks of the many bloody episodes in his life, and that red blood is also present on his mask.'
 		],
@@ -214,7 +225,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Duke',
-		image: 'ggac_od_t2',
+		image: 'myh',
 		description: [
 			'Duke is a man of culture, virtue and stone-hard composure. Thus his mask has been modeled of of the',
 			'A big draw for Duke is his love for mystery- you never really know what\'s inside the safe until you open it, or behind the painting until you take it out of the frame. And with the Payday gang, the biggest mystery may be just around the corner...'
@@ -226,7 +237,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Ethan',
-		image: 'ggac_od_t2',
+		image: 'ecp_male',
 		description: [
 			'This mask exudes power and brute force, in stark contrast to the man who wears it. Equal parts clown-like sadness and begrudging anger, it perfectly captures the mood of someone who has somewhat reluctantly chosen to be a heister.'
 		],
@@ -237,7 +248,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hila',
-		image: 'ggac_od_t2',
+		image: 'ecp_female',
 		description: [
 			'Something about this mask radiates a playful malice and most who gaze upon it immediately feel a sense of unease, which is just the kind of thing you need when you\'re robbing a bank.'
 		],
@@ -248,7 +259,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mark',
-		image: 'ggac_od_t2',
+		image: 'bear',
 		description: [
 			'hello from Russia.',
 			'I think it will be the best game in the world.',
@@ -264,7 +275,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hockey Heat',
-		image: 'ggac_od_t2',
+		image: 'heat',
 		description: [
 			'A classic hockey mask.',
 			'A guy told me one time...',
@@ -277,7 +288,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Happy Santa',
-		image: 'ggac_od_t2',
+		image: 'santa_happy',
 		description: [
 			'Santa, more known as Santa Claus, Saint Nicholas, Father Christmas and Kris Kringle (?) is a man of epic proportions. Words like legendary, mythical, historical and folkloric best describe this beast of a man.',
 			'This particular mask is the Happy Santa mask. Big smile and super jolly with red cheeks and all, wearing this you\'ll even bring the most negative of Bulldozers into a joyous smile.'
@@ -289,7 +300,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Peter',
-		image: 'ggac_od_t2',
+		image: 'unicorn',
 		description: [
 			'Peter is a true legend and has been so for like, ever. A beast with a large, pointed, spiraling horn projected from its forehead, Peter is known by all of mankind as the go-to guy for whenever you need to touch the rainbow. No, touch it. Touch the motherfucking rainbow. Now taste it.',
 			'Shh. It\'s okay. You did good.'
@@ -301,7 +312,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Firestarter',
-		image: 'ggac_od_t2',
+		image: 'combusto',
 		description: [
 			'This clown used to be a master of pyrotechnics, having a fire breathing number that no one could top. His competitors in the not-so-known-firebreathing-clown-scene were unhappy with his success... And spiked his cocktail.',
 			'With third degree burns on his face and an evil look in his eyes he fought fire with fire and set the other clowns ablaze. But he didn\'t stop there, the fiery hatred in him burned too bright. Now he seeks to set the world on fire.'
@@ -313,7 +324,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Spackle',
-		image: 'ggac_od_t2',
+		image: 'spackle',
 		description: [
 			'Once a well renowned circus clown Spackle was the best make-up artist in the scene. Known for her skill and ability to make people look so unlike themselves, she became obsessed with the art.',
 			'With her own face as canvas she tirelessly applied layer after layer, each becoming more twisted. She was sent to an asylum after killing five people during their make-up process.'
@@ -325,7 +336,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Gumbo',
-		image: 'ggac_od_t2',
+		image: 'gumbo',
 		description: [
 			'Little is known about the man known as the devouring clown, but for a long time people believed that his red eyes were part of his outfit. Needless to say, they were wrong. Now people fear the red eyed clown with a laugh so evil it makes even the most seasoned badasses quiver in fear.',
 			'Word on the street is that he haunts alletways in a demonic shape looking for something... Or someone. All that is known is that people end up dead, more dead than you thought possible...'
@@ -337,7 +348,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Smiley',
-		image: 'ggac_od_t2',
+		image: 'smiley',
 		description: [
 			'There was once a clown who couldn\'t smile. He watched as the other clowns brought joy and happiness to both young and old. He grew enviuos and angry, so to the point that he stapled his lips to his cheecks, giving him a wide grin. But instead of making everyone happy, they were all afraid, why, he did not understand.',
 			'He came to the conclusion perhaps this was his calling, to make people afraid... Very afraid.'
@@ -349,7 +360,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Reservoir Dog',
-		image: 'ggac_od_t2',
+		image: 'wayfarer',
 		description: [
 			'These shades belonged to five strangers. John was hired to kill a group of people who were about to commit the perfect crime. They all dressed the same and had code names so they were easy to identify.',
 			'However, John arrived too late to the scene. The police were already there. He made sure the strangers were all dead before he left the scene.'
@@ -361,7 +372,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Terminator',
-		image: 'ggac_od_t2',
+		image: 'stoneface',
 		description: [
 			'These shades belonged to an assassin from a distant land. The assassin John was sent to kill was built like a machine. This one would prove to be hard. He used a customized Improved Combined Tactical Vest. He was fully armored and very tough. Behind all that armor however, John knew there was only flesh and bones.',
 			'John managed to to kill him in the end. He knew however that when he removed him from his place, another would replace him.'
@@ -373,7 +384,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mad Lion',
-		image: 'ggac_od_t2',
+		image: 'crazy_lion',
 		description: [
 			'A horrifying mask shaped like the head of a lion.',
 			'Little is known about this mask. It is said it was made by a crazy Balkan scientist who had a sick fascination for lions. Only he could see the beauty in this mask.',
@@ -386,7 +397,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Conquest',
-		image: 'ggac_od_t2',
+		image: 'mig_conquest',
 		description: [
 			'The identity of the first horseman of the Apocalypse, and exactly what he represents is something still greatly debated to this day. Some call him Conquest, some say he was Christ himself, and some claim he was even the Antichrist.'
 		],
@@ -397,7 +408,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Death',
-		image: 'ggac_od_t2',
+		image: 'mig_death',
 		description: [
 			'The fourth and final horseman of the Apocalypse is Death himself. Wherever Death went, Hades always followed with jaws wide open, ready to devour the souls of the victims slain by Death.'
 		],
@@ -408,7 +419,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Famine',
-		image: 'ggac_od_t2',
+		image: 'mig_famine',
 		description: [
 			'The third horseman of the apocalypse is the embodiment of Famine, a force so powerful he would leave people starving to their deaths if they laid eyes upon him.'
 		],
@@ -419,7 +430,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'War',
-		image: 'ggac_od_t2',
+		image: 'mig_war',
 		description: [
 			'The second horseman of the Apocalypse is War and the violent spirit of mankind. War believes humans are naturally vicious, and that they don\'t require a real reason to fight or kill. He rode a fiery red horse, suggesting that blood would flow wherever he went.'
 		],
@@ -430,7 +441,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Cat',
-		image: 'ggac_od_t2',
+		image: 'fib_cat',
 		description: [
 			'Agile as a Cat, and lucky as one too, you will dare any heist and successfully breach any defenses. When the shit hits the fan, you will always dodge and land on your feet. There is no better way to spend your nine lives - a stone-cold killer is what you are and everyone knows it.'
 		],
@@ -441,7 +452,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Fox',
-		image: 'ggac_od_t2',
+		image: 'fib_fox',
 		description: [
 			'The Fox - slickest and slyest of all predators. No locks can keep you out, no defensive plan can withstand your guile and artifice. You will take what you want and leave everyone wondering who did it, or if it even happened at all.'
 		],
@@ -452,7 +463,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Rabbit',
-		image: 'ggac_od_t2',
+		image: 'fib_hare',
 		description: [
 			'Mad as March Hare. As they stare into your crazed yellow eyes, they\'d better hand the cash over quick. Then take the money and run. No one outruns a hare.'
 		],
@@ -463,7 +474,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Mouse',
-		image: 'ggac_od_t2',
+		image: 'fib_mouse',
 		description: [
 			'Quiet as a Mouse, you\'ll enter and exit silently and none will be the wiser. And if they should spot you, who would expect such wickedness from such a small creature? But yes, you are capable of it - all of it.'
 		],
@@ -474,7 +485,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Golden Dallas',
-		image: 'ggac_od_t2',
+		image: 'dgm',
 		description: [
 			'To commemorate the day PAYDAY became the most played co-op game in a single day - 10th of June 2017. Some 221k heisters per hour were robbing banks together in style. Earning us the Top 5 Position among Most Played Games in a day of all time - PAYDAY leaves its golden mark on history. Dallas is pleased.'
 		],
@@ -485,7 +496,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'A Proud Pilotka',
-		image: 'ggac_od_t2',
+		image: 'wmp_03',
 		description: [
 			'This pilotka was found on a corpse near Lake Müritz in Germany. It was attached with a string around the poor, dead soldier\'s head. There were no other bodies next to unnamed fellow,'
 		],
@@ -496,7 +507,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Officer\'s Hat',
-		image: 'ggac_od_t2',
+		image: 'wmp_04',
 		description: [
 			'This item popped up at an auction in North France during the 1990s. Among the auction goers sat a woman in her 50s. She recognized it and even though she could not remember the name of the officer who wore it, she paid a hefty sum for it. As a young girl she visited a square to buy vegetables when paratroopers came dropping down. Gunfire, explosions and screams of fear and pain filled the air. The officer took her to a shelter in a government building. He had no reason but kindness to save her. But even as his life was on stake,'
 		],
@@ -507,7 +518,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Survivor\'s Pilot Hat',
-		image: 'ggac_od_t2',
+		image: 'wmp_01',
 		description: [
 			'A pilot in the Royal Air Force went down during WW2 a few miles outside Bialystok, Poland. Considered K.I.A, he was later found deep in the Bialowieza Forest where he\'d survived on fish, roots and animals he managed to caught'
 		],
@@ -518,7 +529,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Trophy Helmet',
-		image: 'ggac_od_t2',
+		image: 'wmp_02',
 		description: [
 			'In the small village of Pomtsburg, you can find a small monument. Few read the plaque covered with moss, but it holds the tale of a young boy. As the Germans came marching into Pomtsburg he lead the resistance with bravery and determination. Pomtsburg was his birthplace and no one were to destroy it. The Battle of Pomtsburg never reached the history books, and few even remember how it ended. But the boy managed to steal this souvenir. Something to remind him and others you should always stand up to oppression.'
 		],
@@ -529,7 +540,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Golden Chains',
-		image: 'ggac_od_t2',
+		image: 'gcm',
 		description: [
 			'It\'s been four years. Four years of hard work, meth cooked, shots fired and loot hauled. But we\'ve only just began. We do feel a bit nostalgic. It\'s been four years since we came to Washington and took on our first heist here and now we\'re pros. And when it\'s someone\'s birthday, you need to get them a gift. Therefore we\'ve poured 24k hot, luscious gold all over Chain\'s Mask. Happy Birthday PAYDAY 2!'
 		],
@@ -540,7 +551,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Golden Wolf',
-		image: 'ggac_od_t2',
+		image: 'gwm',
 		description: [
 			'Has it been five years already? Damn. Not many make it this far into the life. This last year has been hard. Real hard. The family has been hit where we are most vulnerable, the cops are getting closer every day, and we\'re almost in over our heads. This situation would have killed most heisters or put them away forever, but we\'re not just any two-bit crooks. We\'re PAYDAY. We always get it done right. And we always get the gold.'
 		],
@@ -551,7 +562,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Golden Hoxton',
-		image: 'ggac_od_t2',
+		image: 'ghx',
 		description: [
 			'I remember the first time I put on a mask. Was it really seven years ago? When you\'ve been doing something for a long time, you eventually end up at a crossroads. In this line of work, you\'re either staring down the barrel of a gun or looking at the sweet life. Everybody has to make their choice. Everybody has to decide what that choice is worth risking. For Payday, it\'s always been all-or-nothing!'
 		],
@@ -562,7 +573,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Golden Houston',
-		image: 'ggac_od_t2',
+		image: 'ghm',
 		description: [
 			'So this is it- the time of reckoning. Our family of heisters against a power we haven\'t seen the limit of. I know one thing- we\'ll either come out of this together or die trying. We\'re the Clowns, the fucking gods of thieving, and we play by our rules. So, whatever comes next, we\'re ready for a blaze of golden glory.'
 		],
@@ -573,7 +584,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Devourer',
-		image: 'ggac_od_t2',
+		image: 'devourer',
 		description: [
 			'This mask, heavily inspired by the Great Old Ones that rule below the seas was recovered from a police storage where it had been kept since it was found during a raid on a murderous cult. It\'s monstrous look makes you wonder what beings lurk out in the dark.'
 		],
@@ -584,7 +595,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Unborn',
-		image: 'ggac_od_t2',
+		image: 'unborn',
 		description: [
 			'A once great actor who claimed to have become possessed by a demonic spirit started to wear a mask to hide his deformed appearance. The mask one day broke and what was hiding underneath could never be sealed again.'
 		],
@@ -595,7 +606,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Blister Head',
-		image: 'ggac_od_t2',
+		image: 'dbd_04',
 		description: [
 			'This blister stricken creature is the embodiment of true terror. All your childhood fears poured into something unfathomable and horrendous. Question is if you will even need bullets anymore.'
 		],
@@ -606,7 +617,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Clawer',
-		image: 'ggac_od_t2',
+		image: 'dbd_01',
 		description: [
 			'On gloomy nights when the moon is bright, one might witness how the Clawer emerges from the watery depths. It yearns for fresh meat and won\'t stop until its hunger is still. The Clawer is one of those urban myths that campfire teens tell - just before The Clawer strikes. Afterwards, it returns to the deep. Hibernating until its stomach growls yet again.'
 		],
@@ -617,7 +628,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Killer',
-		image: 'ggac_od_t2',
+		image: 'dbd_slasher',
 		description: [
 			'Even stark raving mad Killers need cash. It\'s a fact. So sometimes you simply must take a break from slashing teens and hang up the blood stained machete. But killing can be done in so many ways and it\'s real important with a hobby - and remember that cops bleed too.'
 		],
@@ -628,7 +639,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Planetary Tomb Guardian',
-		image: 'ggac_od_t2',
+		image: 'solus',
 		description: [
 			'Being a Planetary Tomb Guardian is a lonely job. But a job that must be done. Eons of time float by without a single living organism in sight. Stars and suns brighten the day and night. But solitude is a horrid thing. But then one day, a spacecraft breaks the silence and you are not alone anymore. Someone is visiting this planet you call home.'
 		],
@@ -639,7 +650,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Alienware',
-		image: 'ggac_od_t2',
+		image: 'alienware',
 		description: [
 			'Based on the visions of a madman who thought he saw an extraterrestrial being.',
 			'It is strange though, as the powerful materials is not from anywhere on Earth.'
@@ -651,7 +662,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Baby Rhino',
-		image: 'ggac_od_t2',
+		image: 'babyrhino',
 		description: [
 			'Who would not want to wear the head of a baby rhino. Is it not cute? Putting it on makes you feel a little stupid, maybe because how it looks.',
 			'While wearing it, you are worried that it is a bit hard seeing through the mask. You will do fine as long as you do not wander off with your pig-headed friends.'
@@ -663,7 +674,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Big Lips',
-		image: 'ggac_od_t2',
+		image: 'biglips',
 		description: [
 			'Throw someone a lip by wearing this mask.',
 			'The thing that gets people is the two fleshy folds that surround the mouth of this mask, the biggest lips you ever saw.',
@@ -676,7 +687,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Blackhearted',
-		image: 'ggac_od_t2',
+		image: 'mr_sinister',
 		description: [
 			'Evil and treacherous in a haunting way, this mask is said to change the wearer in mysterious ways.',
 			'Worn long enough, it is said it turns the wearers heart into a black one, filled with lust for black deeds.'
@@ -688,7 +699,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Brainiac',
-		image: 'ggac_od_t2',
+		image: 'brainiack',
 		description: [
 			'This is the mask of someone who has a lot on his mind.',
 			'Putting on this mask sparks an excessive, almost explosive desire to learn more about crimes and how to commit them.'
@@ -700,7 +711,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Bullet',
-		image: 'ggac_od_t2',
+		image: 'bullet',
 		description: [
 			'Worried about getting shot in the face with a high powered firearm?',
 			'Scared that you will get stomped by a bulldozer, cloaker and a shield at the same time?',
@@ -713,7 +724,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Calaca',
-		image: 'ggac_od_t2',
+		image: 'day_of_the_dead',
 		description: [
 			'A skeleton mask connected to the Mexican Day of the Dead festival.',
 			'Origins have been traced back to Aztec imagery, but no one is really sure.',
@@ -726,7 +737,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Cannula',
-		image: 'ggac_od_t2',
+		image: 'outlandish_a',
 		description: [
 			'This mask is made of strange materials, holding it feels awkward. Wearing it feels even stranger.',
 			'Putting on the mask, you feel like an outsider, a foreigner, someone who constantly changes locations, staying away, not wanting to be recognized by anyone.'
@@ -738,7 +749,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Crybaby',
-		image: 'ggac_od_t2',
+		image: 'clowncry',
 		description: [
 			'Is there anything sadder than a crying clown?',
 			'Probably crying civilians, being shouted to the ground by a criminal wearing a horrific mask.',
@@ -751,7 +762,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Dripper',
-		image: 'ggac_od_t2',
+		image: 'dripper',
 		description: [
 			'The Dripper was made by atomization of a larger mass of liquid, somehow made into a hard material while retaining a smooth surface.',
 			'Everyone who looks at it sees different things.',
@@ -764,7 +775,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Doctor Crime',
-		image: 'ggac_od_t2',
+		image: 'irondoom',
 		description: [
 			'Doctor Mayhem is an American fictional character, a supervillain who appears in comic books by OVERKILL Comics.',
 			'The character was created by writer-editor David Goldfarb and designed by artist Max Elmberg Sjöholm.',
@@ -777,7 +788,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Gagball',
-		image: 'ggac_od_t2',
+		image: 'gagball',
 		description: [
 			'Take a walk on the submissive side with a gagball stuck to your face.',
 			'People wear these for a variety of reasons, one being roleplays involving bondage. This isn\'t necessarily the case though, as gagballs apparently can be used in bank robberies too.'
@@ -789,7 +800,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Greek Tragedy',
-		image: 'ggac_od_t2',
+		image: 'greek_tragedy',
 		description: [
 			'A mask that symbolizes all the parts in a greek tragedy.',
 			'In old Greece, masks were used to worship the gods in ceremonial rites and celebrations.',
@@ -802,7 +813,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hockey Mask',
-		image: 'ggac_od_t2',
+		image: 'hockey',
 		description: [
 			'A hockey mask is a mask worn by hockey goaltenders to protect their heads from injury.',
 			'It is also the iconic robber mask, hand-crafted using only high-quality materials. Instead of protecting you from pucks, it protects you from being recognized while going about, doing your thing.',
@@ -815,7 +826,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Hog',
-		image: 'ggac_od_t2',
+		image: 'hog',
 		description: [
 			'You have a new message! *BEEP*',
 			'Salutations, this is \'Almir\' at OVERKILL. The Mask that you ordered should be delivered by now...',
@@ -830,7 +841,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Horned Beast',
-		image: 'ggac_od_t2',
+		image: 'demon',
 		description: [
 			'A beast that came from the abyss.',
 			'It has a lion\'s body, bear feet and a leopard\'s mouth.',
@@ -843,7 +854,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Jaw',
-		image: 'ggac_od_t2',
+		image: 'jaw',
 		description: [
 			'Protect your glass chin with a metal jaw.',
 			'The only thing you will be chewing from now on with your jaw is law enforcers, right?'
@@ -855,7 +866,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Kawaii',
-		image: 'ggac_od_t2',
+		image: 'kawaii',
 		description: [
 			'Lovable, cute, aborable, cool and hip, charming, non-threatening, innocent, happy-go-lucky.',
 			'These are words not commonly used in crimonology.',
@@ -868,7 +879,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Kenneth',
-		image: 'ggac_od_t2',
+		image: 'demonictender',
 		description: [
 			'A horrifying mask shaped like the head of a demon.',
 			'Not much is known about it other than the name - Kenneth.',
@@ -881,7 +892,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mrs. Mannequin',
-		image: 'ggac_od_t2',
+		image: 'rubber_female',
 		description: [
 			'The Female Mannequin.',
 			'The face of an articulated doll used by tailors, dressmakers, artists, windowdressers and now bank robbers.',
@@ -894,7 +905,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mr. Mannequin',
-		image: 'ggac_od_t2',
+		image: 'rubber_male',
 		description: [
 			'The Male Mannequin.',
 			'The face of an articulated doll used by tailors, dressmakers, artists, windowdressers and now bank robbers.',
@@ -907,7 +918,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mr. Sackcloth',
-		image: 'ggac_od_t2',
+		image: 'scarecrow',
 		description: [
 			'Discourage crows, sparrows and law enforcers from entering your field of terror.',
 			'The legend goes that in distant lands, there lived a god who knew everything yet could not walk. The greed of man found the god and beheaded it, thinking they could gain its wisdom.'
@@ -919,7 +930,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mr. Smooth',
-		image: 'ggac_od_t2',
+		image: 'tounge',
 		description: [
 			'This mask somehow simultaneously conveys and expresses opposing or contradictory feelings, beliefs, and motivations.',
 			'Legends says that four creatures merged together, forming a greater entity with the face of this mask.',
@@ -932,7 +943,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Monkey Business',
-		image: 'ggac_od_t2',
+		image: 'monkeybiss',
 		description: [
 			'Worn by someone who does not take life that seriously.',
 			'Because it is a mask of a monkey.'
@@ -944,7 +955,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Mummy',
-		image: 'ggac_od_t2',
+		image: 'mummy',
 		description: [
 			'The face of a mummy that has had its skin and organs preserved. Either intentional or incidental exposure to extreme cold (ice mummies!), low humidity, lack of air or chemicals might have caused this.',
 			'Who knows what part of the world it is from? Having been preserved for the longest time, its ready to be exposed to the world again.'
@@ -956,7 +967,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Oni',
-		image: 'ggac_od_t2',
+		image: 'oni',
 		description: [
 			'The Oni is a Japanese devil.',
 			'They are hideous, gigantic ogre-like creatures that have sharp claws and two horns growing from their heads.',
@@ -969,7 +980,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Outlander',
-		image: 'ggac_od_t2',
+		image: 'outlandish_b',
 		description: [
 			'Have you ever had that feeling when you have no mouth but feel the urge to scream?',
 			'That is how you are going to feel if you are a civilian looking at a criminal wearing this mask, pointing a gun at you, shouting you to the floor.'
@@ -981,7 +992,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Perfect Stranger',
-		image: 'ggac_od_t2',
+		image: 'outlandish_c',
 		description: [
 			'The mask of a stranger in a strange land.',
 			'Masks like these were used in a lost civilization, in war, on soldiers; ceremonially, for burial rites and for shamanistic ceremonies to drive away evil spirits.'
@@ -993,7 +1004,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Pout',
-		image: 'ggac_od_t2',
+		image: 'stonekisses',
 		description: [
 			'The pout is a facial expression that humans can make.',
 			'It is a protrusion of the lips, especially as an expression of sullen discontent.',
@@ -1006,7 +1017,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Rage',
-		image: 'ggac_od_t2',
+		image: 'buha',
 		description: [
 			'Probably one of the angriest looking clown masks you have ever seen.',
 			'It almostputs Wolf\'s mask to shame.',
@@ -1019,7 +1030,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Shogun',
-		image: 'ggac_od_t2',
+		image: 'shogun',
 		description: [
 			'Don the mask and feel like a Japanese general from a distant past.',
 			'It is said that this mask was the mask of a mad and desperate warrior, who rose above the ranks and became a great general, winning many battles.',
@@ -1032,7 +1043,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Shrunken Head',
-		image: 'ggac_od_t2',
+		image: 'shrunken',
 		description: [
 			'Ritually prepared, the cranium is removed fromthe head, eyes and mouth sewn shut. Boiled in hot water, dried with hot rocks and sand and molded to keep the features of a human face.',
 			'Taken by ship to the Americas by Westerns long ago, it now somehow has ended up in your possession.'
@@ -1044,7 +1055,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Starved',
-		image: 'ggac_od_t2',
+		image: 'clown_56',
 		description: [
 			'This mask has a hideous appearance, a bony facial structure and dehydrated skin.',
 			'It is the kind of mask gives you nightmares.'
@@ -1056,7 +1067,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Troll',
-		image: 'ggac_od_t2',
+		image: 'troll',
 		description: [
 			'Now here is a troll that is tired of hiding under the bridge.',
 			'Why not see the world, pillage a village, take the local inhabitants gold treasures and flee from the the angry mobs instead?'
@@ -1068,7 +1079,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Undead',
-		image: 'ggac_od_t2',
+		image: 'dawn_of_the_dead',
 		description: [
 			'An undead is a being that is dead yet somehow behaves like it is still alive.',
 			'Created in mysterious ways, this might as well be a zombie as it could be a Vampire.',
@@ -1081,7 +1092,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Vampire',
-		image: 'ggac_od_t2',
+		image: 'vampire',
 		description: [
 			'The Vampire is a mythological undead creature, said to feed on the blood of the living.',
 			'Vampires can appear as normal humans.',
@@ -1094,7 +1105,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Zipper',
-		image: 'ggac_od_t2',
+		image: 'zipper',
 		description: [
 			'The zipper mask consists of two parallel tracks of teeth that can be interlocked or separated by the pulling of a slide between them.',
 			'Separate the zipper when you need to communicate.'
@@ -1106,7 +1117,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Zombie',
-		image: 'ggac_od_t2',
+		image: 'zombie',
 		description: [
 			'A zombie is an animated corpse that somehow has been brought to life again.',
 			'Brains?'
@@ -1118,7 +1129,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Almir\'s Beard',
-		image: 'ggac_od_t2',
+		image: 'almirs_beard',
 		description: [
 			'Some say that real men don\'t shave, but the truth is that real men can\'t shave. Ordinary razors simply bounce off the dense, magnificent foliage that is a truly full Almir beard.'
 		],
@@ -1129,7 +1140,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Krampus',
-		image: 'ggac_od_t2',
+		image: 'krampus',
 		description: [
 			'Been a bad boy or girl this year? Then you can expect a visit from Krampus. Or a phone-call from Bain.'
 		],
@@ -1140,7 +1151,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mechanical Santa',
-		image: 'ggac_od_t2',
+		image: 'robo_santa',
 		description: [
 			'This jolly, festive automaton has the heart of Santa. He keeps it in a box, under a pile of elf corpses, and surrounded by severed reindeer heads.'
 		],
@@ -1151,7 +1162,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mrs. Claus',
-		image: 'ggac_od_t2',
+		image: 'mrs_claus',
 		description: [
 			'When Santa is flying through December skies, someone has to stay home and keep the elves in line. No-one does that better than the whip-cracking, cigar-smoking kommandant of the Claus household.'
 		],
@@ -1162,7 +1173,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Strinch',
-		image: 'ggac_od_t2',
+		image: 'strinch',
 		description: [
 			'A seasoned heister over the festival period, the Strinch has been stealing Christmases since 1957. Also linked with the Halloween Heist of 1972.'
 		],
@@ -1173,7 +1184,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Champ',
-		image: 'ggac_od_t2',
+		image: 'champion_dallas',
 		description: [
 			'This is the Champ mask. Based on a bad day for Dallas. How bad?, imagine being on the business end of thirteen rounds with a professional boxer. Swollen brow, concussions, dislocated jaw - you name it, and this mask has it. Yeah, a really bad day for Dallas.'
 		],
@@ -1184,7 +1195,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Tids',
-		image: 'ggac_od_t2',
+		image: 'simpson',
 		description: [
 			'Some say his racing leathers are made from bleached dolphin skin, and that his oily secretions are prized in Chinese medicine. All we know is... he\'s called The Tids.'
 		],
@@ -1195,7 +1206,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Funnyman',
-		image: 'ggac_od_t2',
+		image: 'baitface',
 		description: [
 			'The Funnyman knows how to make people laugh. The Funnyman might go too far and take a hit or two. Beware though, because a person who can control others laughter knows how to get the last laugh.'
 		],
@@ -1206,7 +1217,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Dawg',
-		image: 'ggac_od_t2',
+		image: 'dawg',
 		description: [
 			'Such mask. Much disguise. Very robber.'
 		],
@@ -1217,7 +1228,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'No Me Gusta',
-		image: 'ggac_od_t2',
+		image: 'nomegusta',
 		description: [
 			'When you\'re robbing a bank and there\'s only a toast in the deposit box.'
 		],
@@ -1228,7 +1239,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Rageface',
-		image: 'ggac_od_t2',
+		image: 'rageface',
 		description: [
 			'Dodging a cloaker kick and your buddy gets hit. Lol.'
 		],
@@ -1239,7 +1250,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Greedy the Elf',
-		image: 'ggac_od_t2',
+		image: 'greedy_the_elf',
 		description: [
 			'Santa\'s elves have a tough job. No medical, dental and they endure the whip of Mrs. Claus, but at least they have these fucking sweet hats.'
 		],
@@ -1250,7 +1261,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Rudelf',
-		image: 'ggac_od_t2',
+		image: 'rudeolph',
 		description: [
 			'Houston wore these at the Payday crews\' Christmas party until Hoxton told him he \'looked a proper tit\'. Ignore Hox. Embrace the spirit of Christmas.'
 		],
@@ -1261,7 +1272,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Cloaker-san',
-		image: 'ggac_od_t2',
+		image: 'mad_goggles',
 		description: [
 			'It\'s not only the American government that uses specially trained operatives for infiltration missions. Japan has their own unit called the Anbu, and while this mask is only a prototype, it\'s very similar to the actual thing they use.',
 			'Activate Night Vision Mode by holding down the Fire Mode button.'
@@ -1273,7 +1284,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Zero 68',
-		image: 'ggac_od_t2',
+		image: 'mad_mask',
 		description: [
 			'Inspired by the immensely popular anime Zero 68, this mask is modeled after the helmet of the cyborg-ninja hero of the show.'
 		],
@@ -1284,7 +1295,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Augmentation',
-		image: 'ggac_od_t2',
+		image: 'half_mask',
 		description: [
 			'The future is now. This special mouthpiece is believed to be developed for soldiers of the future, acting not only as a gasmask but also give the wearer the ability to breathe under water. Unfortunately, this one seems broken, but it still looks cool.'
 		],
@@ -1295,7 +1306,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Safety First',
-		image: 'ggac_od_t2',
+		image: 'visor',
 		description: [
 			'A scientist inspired by the virtual-reality sex scene in Demolition Man made his own attempt at building a device where no physical contact would actually be needed when performing intercourse. The experiment was an utter failure but a few of the prototypes still exist.'
 		],
@@ -1306,7 +1317,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Paycheck Chains',
-		image: 'ggac_od_t2',
+		image: 'moon_paycheck_chains',
 		description: [
 			'Paycheck Chains longs to be completely bonkers. But truth be told, behind that mask he\'s just a regular guy trying to make an indecent living. When trying to push his normal self into craziness, he took a poodle hostage during a robbery when a police'
 		],
@@ -1317,7 +1328,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Paycheck Dallas',
-		image: 'ggac_od_t2',
+		image: 'moon_paycheck_dallas',
 		description: [
 			'Paycheck Dallas finally made the decision to stop using black plastic bags for concealment. He gathered the nerve to order a real Dallas-mask to honor his idol, but that online printing service didn\'t exactly deliver the real deal... Even so, with the mask, he\'s trying to step up his game and convinced the Paycheck gang to raid a china shop. The CCTV footage shows that Paycheck Dallas accidentally broke the biggest vase while storming in. That made him apologize to the owner, grabb'
 		],
@@ -1328,7 +1339,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Alces',
-		image: 'ggac_od_t2',
+		image: 'cmt_01',
 		description: [
 			'Make the hunted become the hunter and stagger your way through any heist with these impressive horns.'
 		],
@@ -1339,7 +1350,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Canis Lupus',
-		image: 'ggac_od_t2',
+		image: 'cmt_02',
 		description: [
 			'Blow down the bank vaults and scare the crap out of all the little pigs with this mask.'
 		],
@@ -1350,7 +1361,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Felis Lynx',
-		image: 'ggac_od_t2',
+		image: 'cmt_03',
 		description: [
 			'Never come between a cat and his prey, or a heister and his loot!'
 		],
@@ -1361,7 +1372,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Ursus Maritimus',
-		image: 'ggac_od_t2',
+		image: 'cmt_04',
 		description: [
 			'Fight global warming with a mighty roar while wearing this magnificent face covering.'
 		],
@@ -1372,7 +1383,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Baba Yaga',
-		image: 'ggac_od_t2',
+		image: 'baba_yaga',
 		description: [
 			'Occasionally villainous, always mysterious. The Baba Yaga stalks the dark forests of Slavic myth. She flies around in a mortar, wields a pestle and lives in a hut that stomps about on giant chicken legs.'
 		],
@@ -1383,7 +1394,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Russian Hat',
-		image: 'ggac_od_t2',
+		image: 'rus_hat',
 		description: [
 			'The world would be very different were it not for the howling, freezing Russian winter. Napoleon and Hitler both learned this. History could be very different if they only packed a warm hat.'
 		],
@@ -1394,7 +1405,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sputnik',
-		image: 'ggac_od_t2',
+		image: 'sputnik',
 		description: [
 			'Despite being just a tiny, beeping sphere, the original Sputnik sent political shock-waves across 1950\'s Washington. Send some criminal shock-waves around the capital with this vintage-yet-pimped version.'
 		],
@@ -1405,7 +1416,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Tiara',
-		image: 'ggac_od_t2',
+		image: 'tiara',
 		description: [
 			'Okay, it doesn\'t hide your face and it is certainly not going to stop any bullets whizzing your way....but, damn. You\'re going to look like the belle of the ball wearing Mrs Volkov\'s wedding tiara.'
 		],
@@ -1416,7 +1427,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Vlad Armor',
-		image: 'ggac_od_t2',
+		image: 'vlad_armor',
 		description: [
 			'\'Hey! Payday clowns! Vlad here with a little something from the Motherland. I wore this beautiful heavy bastard all through my days in Donetsk. It ain\'t pretty like your delicate American masks, but it kept me pretty!\''
 		],
@@ -1427,7 +1438,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Le Castle Vania',
-		image: 'ggac_od_t2',
+		image: 'lcv',
 		description: [
 			'It\'s modern, dynamic and a real crowd-pleaser. It\'s sleek, slick and totally stylish. It\'s both the music of Le Castle Vania, and his mask.'
 		],
@@ -1438,7 +1449,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Eggian',
-		image: 'ggac_od_t2',
+		image: 'eggian',
 		description: [
 			'In \'Xenogogs\', this creature embodied fear itself, as it tore its way from the butt of Troy Templeton during that scene.'
 		],
@@ -1449,7 +1460,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Fatboy',
-		image: 'ggac_od_t2',
+		image: 'fatboy',
 		description: [
 			'It\'s the full-cheeked, pink, healthy face that represents the wonderful, magical alchemy of deep-fried dough and sugar found in the lobby of theaters across the States.'
 		],
@@ -1460,7 +1471,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Oliver',
-		image: 'ggac_od_t2',
+		image: 'oliver',
 		description: [
 			'\'And the nominees for The Greatest Heisters In The World are.....\''
 		],
@@ -1471,7 +1482,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Pirate',
-		image: 'ggac_od_t2',
+		image: 'pirate_skull',
 		description: [
 			'In \'Buccaneers Ahoy!\', these swashbuckling undead heisters terrorized the treasure-laden galleons of the Caribbean for years, proving forever that....pirates arrrrrrrrrrrr cool.'
 		],
@@ -1482,7 +1493,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Groucho',
-		image: 'ggac_od_t2',
+		image: 'groucho_glasses',
 		description: [
 			'A perfect disguise doesn\'t have to mean dying your hair, changing your iris and burning off your fingerprints. Sometimes looking obviously strange makes people uncomfortable enough to look away and pay you no mind.'
 		],
@@ -1493,7 +1504,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Tinted Love',
-		image: 'ggac_od_t2',
+		image: 'glasses_tinted_love',
 		description: [
 			'Murder, extortion, violence, destruction, drugs, guns, and theft. These are all crimes associated with Vlad, but none are as great as his fashion sense.'
 		],
@@ -1504,7 +1515,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Al Capone',
-		image: 'ggac_od_t2',
+		image: 'gti_al_capone',
 		description: [
 			'The original mobster that really made the criminal way of life something to strive for. A given member of the PAYDAY crew if he were alive today. But now you can at least cosplay him, making the police scared as they think they’ve seen a ghost.'
 		],
@@ -1515,7 +1526,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Charles \'Lucky\' Luciano',
-		image: 'ggac_od_t2',
+		image: 'gti_bugsy',
 		description: [
 			'Considered the \'father of modern organized crime\'. Not clear why he’s nicknamed \'Lucky\', but he did managed to get arrested 25 times, but never spent one day in jail. And he survived a throat slashing as he refused to join another mob. Either way, he’s a true inspiration.'
 		],
@@ -1526,7 +1537,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'George \'Bugs\' Moran',
-		image: 'ggac_od_t2',
+		image: 'gti_lucky_luciano',
 		description: [
 			'The rival of Al Capone. Two men battling it out as the prohibition era turned booze into gold for anyone who could get their hands on some bottles of whiskey. Capone even tried gunning him down in the infamous Saint Valentine’s Day Massacre. But he failed.'
 		],
@@ -1537,7 +1548,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Stephanie \'Madame\' St. Clair',
-		image: 'ggac_od_t2',
+		image: 'gti_madame_st_claire',
 		description: [
 			'This is one tough cookie. The criminal part of St. Clair was born as she went through hell one dark night. After that, she dove deep into the shady world of illegality. But she was also an advocate for civil rights and police corruption. Like a modern day, twisted version of Robin Hood one might say.'
 		],
@@ -1548,7 +1559,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Commando',
-		image: 'ggac_od_t2',
+		image: 'nyck_beret',
 		description: [
 			'Chains had this beret custom made in preparation for a mercenary operation in West Africa. What he did while wearing it is something he won’t talk about, though.'
 		],
@@ -1559,7 +1570,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Dawn Patrol',
-		image: 'ggac_od_t2',
+		image: 'nyck_ace',
 		description: [
 			'Way back in the day, on a secret and highly dangerous mercenary mission in Southeast Asia, Chains acquired this old US Army helmet. No one knows who the previous owner was.'
 		],
@@ -1570,7 +1581,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Martial Law',
-		image: 'ggac_od_t2',
+		image: 'nyck_cap',
 		description: [
 			'This is an old souvenir that Chains keeps as a memory of two long, boring months spent in Central America doing VIP security after an armed coup. Effectively, it reminds him of the kind of military monotony that made him leave mercenary life behind.'
 		],
@@ -1581,7 +1592,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Pickle Face',
-		image: 'ggac_od_t2',
+		image: 'nyck_pickle',
 		description: [
 			'Lean, mean, green killing machine. The perfect mask to wear when you’re in a pickle and need to make like a banana and split. Be water, my friend.'
 		],
@@ -1592,7 +1603,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Awkward Seal',
-		image: 'ggac_od_t2',
+		image: 'urf_seal',
 		description: [
 			'That moment when you\'re going to finish off a Dozer but when you pull the trigger you\'re out of ammo. Or that moment when you\'re throwing the last bag straight into the sea. Or that moment when other robbers compliment your mask but you didn\'t put any effort into it. Or that moment when someone is repairing the drill at the same time as you.'
 		],
@@ -1603,7 +1614,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Black Beanie',
-		image: 'ggac_od_t2',
+		image: 'bny_03',
 		description: [
 			'Most robbers choose this snug, concealing headwear to help them blend in with the night. Unfortunately it won\'t do you much good to conceal yourself carrying all that equipment.'
 		],
@@ -1614,7 +1625,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Green Beanie',
-		image: 'ggac_od_t2',
+		image: 'bny_02',
 		description: [
 			'A murky green that adds a touch of subtle mystery to your profile. The FBI will appreciate your fondness for their own green uniformed team. Not that it won\'t stop them firing on you openly anyway!'
 		],
@@ -1625,7 +1636,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Navy Beanie',
-		image: 'ggac_od_t2',
+		image: 'bny_01',
 		description: [
 			'This fetching number will make you the talk of the town. You\'ll guaranteed'
 		],
@@ -1636,7 +1647,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Red Beanie',
-		image: 'ggac_od_t2',
+		image: 'bny_04',
 		description: [
 			'This supposedly \'three million dollar hat\' is either soaked in the blood of your enemies, or was just made with some red woolen material. Just wash it after each heist!'
 		],
@@ -1647,7 +1658,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Chains, The Weapons Expert',
-		image: 'ggac_od_t2',
+		image: 'toon_03',
 		description: [
 			'When there\'s only one copy of something left in the world, it becomes priceless. Know what you can do, and what others can do better. Get the job done. Don\'t get carried away by jealousy: that\'s fear talking. Fear brings you down. It doesn\'t come from love. When you really love someone, you trust them. Trust them enough to not get mean over priceless things.'
 		],
@@ -1658,7 +1669,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Dallas, The Chief',
-		image: 'ggac_od_t2',
+		image: 'toon_01',
 		description: [
 			'Some people expect a free ride through life, cruising on good looks and luck. The world doesn\'t work that way, even if it sometimes looks like it. Talent is just the start; it takes education, dedication, determination. As a leader, you gotta make up your own mind. Respect your decisions, and others will too.'
 		],
@@ -1669,7 +1680,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hoxton, The Infiltrator',
-		image: 'ggac_od_t2',
+		image: 'toon_04',
 		description: [
 			'The friends you have right now, may not be all the friends you\'ll ever need. Don\'t miss out on a future gain by keeping friends away. It\'s easy to get lost in the desert. One wrong turn is all it takes. And when you do, those new friends just might be your ticket to an oasis.'
 		],
@@ -1680,7 +1691,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Wolf, The Maniac',
-		image: 'ggac_od_t2',
+		image: 'toon_02',
 		description: [
 			'Knowing when not to quit is harder than knowing when to throw in the towel. Don\'t get sidetracked by vanity or foolish pride. Sometimes, you get so wrapped up in a problem that you don\'t see what the problem really is. It gets everyone in a lot of trouble. Bad trouble. So do what\'s right, and you can\'t go wrong.'
 		],
@@ -1691,7 +1702,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Byrne',
-		image: 'ggac_od_t2',
+		image: 'mp2_03',
 		description: [
 			'Byrne is gone. He\'s our koala and our \'pet\'. But we don\'t want him back. He\'s boring and tedious and all he does is eat eucalyptus leaves. And we mean like ALL day. He doesn\'t like when you touch or even talk to him. So now he\'s gone and we wanna keep it that way. If you find him (he looks like a douchebag pet) you can keep him or whatever. Consider this a warning of boredom.'
 		],
@@ -1702,7 +1713,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Fluffedup',
-		image: 'ggac_od_t2',
+		image: 'mp2_01',
 		description: [
 			'Our darling Fluffedup is gone. He\'s 95 years old, and part of our family. Fluffedup is a happy little individual who\'s absolutely not been trying to throw himself into the blender or off the roof several times. We just want to keep him forever, and never let him go. So it\'s super important that we get him back to us, to our home where he lives and loves and absolutely doesn\'t hate.'
 		],
@@ -1713,7 +1724,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Stoibs',
-		image: 'ggac_od_t2',
+		image: 'mp2_02',
 		description: [
 			'Stoibs is a bit frantic and \'speedy\'. He ran away last tuesday night and we would be glad to get him back. We have had a hard time finding a chinchilla with a good pedigree. So for us to start over again with a new one, feeding him corn to get him fat and tender will be tedious. If you find him, we\'ll invite you to dinner where we enjoy Stoibs!'
 		],
@@ -1724,7 +1735,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Tempy',
-		image: 'ggac_od_t2',
+		image: 'mp2_04',
 		description: [
 			'Tempy is our tame lion. He\'s been away for 2 weeks now and we miss him. Tempy loves all kind of cuddle, as long as it\'s done by us. If you spot Tempy: do not approach him in any way. Please tell us where you\'ve seen him. But you will get mutilated if he gets close. Other than that, he\'s a doll and loves sleeping in the sun. Also don\'t let him see any kids...that doesn\'t end well.'
 		],
@@ -1735,7 +1746,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Keelhauled Alex',
-		image: 'ggac_od_t2',
+		image: 'amp_02',
 		description: [
 			'Every ship come bearing tales of ghost. Restless phantoms seen by tired spotters late at night. Everything from Krakens to mermaids. But the tale of Keelhauled Alex is maybe one of the most feared. Alex had been stealing food during a long sail out at sea. As he was caught, he was sentenced to be keelhauled. Not a serious crime, but a serious punishment. But as Alex was beneath the boat, another ship opened fire, and Alex was forgotten on the bottom of the ship. As the dust settled, his corpse was thrown into the depths. But ever since then, Keelhauled Alex walks ships at night, staring down everyone from captains to simple deck hands. It is said that he can gaze into your soul and devour it.'
 		],
@@ -1746,7 +1757,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Nilam',
-		image: 'ggac_od_t2',
+		image: 'amp_03',
 		description: [
 			'Nilam grew up among buccaneers, pirates and corsairs. She knew rum before she could speak, and held a sword before she could walk. Nilam was without family, and instead she found the nomadic lifestyle of a pirate her destiny. She was swift with a blade and few could match her in combat. All she sought was the same respect her peers got, but this was a world ruled by men. Finally Nilam had reached her limit. Those who wronged her were \'sentenced\' by getting their throats slit. Her reputation preceded her, and harbours feared the bloodshed she brought with her when her ship \'Verdict\' came sailing in.'
 		],
@@ -1757,7 +1768,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'One-Eyed Jessicah',
-		image: 'ggac_od_t2',
+		image: 'amp_04',
 		description: [
 			'With two eyes, Jessicah would never have been famous. After a shipwreck, she managed to swim to a small islet. Circled by a shark, with no rescue in sight, she was caught. With only a broken knife, her only choice was to kill the shark, so that she could safely swim to shore. But she needed a decoy, a lure so she could surprise the shark. The loss of a finger to toe would make swimming difficult, so instead, she scooped out one of her eyeballs and threw the bloody mess in the water. Then she dove in.'
 		],
@@ -1768,7 +1779,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Schneider',
-		image: 'ggac_od_t2',
+		image: 'amp_01',
 		description: [
 			'One of the most brutal and ruthless pirates to ever exist. But also one of the most unknown. Just the way Schneider wanted it. Instead, Schneider\'s moniker \'the Devil\' was much more well known. He found it more profitable if nobody actually knew his face. But tales of how the \'devil\' sailed the seven seas traveled among bars in the Caribbean. To \'spot the Devil on the horizon\' is a common saying whe someone had disappeared out at sea. But the truth was that Schneider had forever buried them in a watery grave.'
 		],
@@ -1779,7 +1790,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Kurgan\'s Gas Mask',
-		image: 'ggac_od_t2',
+		image: 'jfr_03',
 		description: [],
 		collection: 'Normal (Aldstone\'s Heritage)',
 		type: 'normal',
@@ -1788,7 +1799,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Rivet\'s Bandana',
-		image: 'ggac_od_t2',
+		image: 'jfr_04',
 		description: [],
 		collection: 'Normal (Aldstone\'s Heritage)',
 		type: 'normal',
@@ -1797,7 +1808,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sterling\'s Beret',
-		image: 'ggac_od_t2',
+		image: 'jfr_01',
 		description: [
 			'It would be lovely to think '
 		],
@@ -1808,7 +1819,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Wolfgang\'s Cap',
-		image: 'ggac_od_t2',
+		image: 'jfr_02',
 		description: [
 			'This cap may look like a normal, standard-issue M43 field cap. And you may think such humble headgear is an unusual choice for a man as vain as '
 		],
@@ -1819,7 +1830,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Retro Chains',
-		image: 'ggac_od_t2',
+		image: 'cmo_04',
 		description: [
 			'Combat and shooter games that simulate intense situations between players is a great way to keep up your skills in between jobs. Chains likes games that train your situational awareness and award skillfull'
 		],
@@ -1830,7 +1841,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Retro Dallas',
-		image: 'ggac_od_t2',
+		image: 'cmo_01',
 		description: [
 			'A good tactical game is the perfect way to prep before a big heist. Dallas prefers to kick-start his strategic mind with something difficult and calculating where you need to manage units and resources to achieve victory.'
 		],
@@ -1841,7 +1852,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Retro Hoxton',
-		image: 'ggac_od_t2',
+		image: 'cmo_02',
 		description: [
 			'Solving logic puzzles as a brain teaser is a great way to unwind after some intense criminal activity. Hoxton likes games that lets'
 		],
@@ -1852,7 +1863,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Retro Wolf',
-		image: 'ggac_od_t2',
+		image: 'cmo_03',
 		description: [
 			'Violent games help Wolf getting into the mood'
 		],
@@ -1863,7 +1874,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Z.A.M.S Helmet',
-		image: 'ggac_od_t2',
+		image: 'mmj',
 		description: [
 			'Classic gear can be a wonderful thing. The mindset of a heroic thrill-seeker riding a 200BHP steel horse has many things in common with a heister that are not obvious at first glance- the aesthetic value of a piece of custom headgear being one of them!'
 		],
@@ -1874,7 +1885,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Rhubarb',
-		image: 'ggac_od_t2',
+		image: 'kwm',
 		description: [
 			'A tribute to our legendary adventurer [MANY GUN] CLOVERAPTOR- solver of mysteries and bringer of The Mega Death! Giving up a dream of being a banker, he faced his destiny and faced the Cop Wizard and his minions, the Law Elementals. Who knows if it was his own will, or his pushy Crime Dad, that allowed him to prevail, but we will be forever grateful for his service.',
 			'OVERKILL Salutes You!'
@@ -1886,7 +1897,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'PNV - BriteNite',
-		image: 'ggac_od_t2',
+		image: 'flm',
 		description: [
 			'On the one-thousand-and-first night, there was no light. But neither was it needed, for legends tell of an unruly rogue, who donned a visage that would allow all to be seen.',
 			'Activate Night Vision Mode by holding down the Fire Mode button.'
@@ -1898,7 +1909,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Boxey',
-		image: 'ggac_od_t2',
+		image: 'sdm_02',
 		description: [
 			'Old school street smarts and butch toughness is what you get here. A no nonsense get-the-job-done personality. You won\'t find a more devoted guard for your loot than this fellow.'
 		],
@@ -1909,7 +1920,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Crazy Lou',
-		image: 'ggac_od_t2',
+		image: 'sdm_04',
 		description: [
 			'Don\'t let the small frame and disheveled fur fool you. This little guy\'s piercing eyes can intimidate just about anyone, and woe betide any who dares steal something while he\'s on watch.'
 		],
@@ -1920,7 +1931,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Frou Frou',
-		image: 'ggac_od_t2',
+		image: 'sdm_03',
 		description: [
 			'With her charming, floppy ears, Frou Frou is no timid Afghan Hound. Sharp and witty, she\'s the ideal companion to cover your face with on those heists that require brains as well as cunning.'
 		],
@@ -1931,7 +1942,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Klaus',
-		image: 'ggac_od_t2',
+		image: 'sdm_01',
 		description: [
 			'Klaus isn\'t a particularly smart dog, but what he lacks in brains, he makes up for in heart, and is always ready to share his bones with the rest of the pack.'
 		],
@@ -1942,7 +1953,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Bird Brain',
-		image: 'ggac_od_t2',
+		image: 'xm20_owl',
 		description: [
 			'This mask has no signature inside, implying that it was not crafted by Eduardo Maquevera himself, but by one of his apprentices.'
 		],
@@ -1953,7 +1964,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hyena Two-Face',
-		image: 'ggac_od_t2',
+		image: 'xm20_dog',
 		description: [
 			'Accompanying this mask was a hand-written letter by the maker, Eduardo Maquevera. In it, he explain'
 		],
@@ -1964,7 +1975,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mad Cat',
-		image: 'ggac_od_t2',
+		image: 'xm20_jaguar',
 		description: [
 			'Buluc\'s henchmen demanded that real leopard skin be used to craft this mask, but master mask maker Eduardo Maquevera instead went out of his way to fake it. They never noticed the difference!'
 		],
@@ -1975,7 +1986,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mayan Mosaic Death',
-		image: 'ggac_od_t2',
+		image: 'xm20_serpent',
 		description: [
 			'This mask was made by master mask maker Eduardo Mauqevera, in his San Diego workshop. A craftsman of true renown, he supplies much of the film industry with masks and props.'
 		],
@@ -1986,7 +1997,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Relic Mask of the Body',
-		image: 'ggac_od_t2',
+		image: 'msq_02',
 		description: [
 			'This mask was found, in the possession of an elderly farmer, whose family had it for generations. When he refused to sell it, Buluc\'s henchmen, in an act of utter cruelty, burned down his farm and livelihood, thereby forcing his hand. Hopefully, future owners of this historical relic will fare better, and act less barbarically.'
 		],
@@ -1997,7 +2008,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Relic Mask of the Mind',
-		image: 'ggac_od_t2',
+		image: 'msq_04',
 		description: [
 			'Buluc\'s people found this mask while diving in an underwater Mayan ruin off the coast of Mexico, in search of precious relics for his collection. Rumor has it that his henchman Raul, who was on the boat, pushed the divers so hard that a couple of them died.'
 		],
@@ -2008,7 +2019,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Relic Mask of the Soul',
-		image: 'ggac_od_t2',
+		image: 'msq_03',
 		description: [
 			'This is the second of Buluc\'s collection of masks to be found in an underwater ruin of Mayan origin. It too was recovered at great cost, and the sole survivor of the expedition to retrieve it claims that it\'s cursed. Buluc gives no regard to such notions, nor to the loss of people in his employ. The wreck of the small wooden boat used to retrieve it sits and decays on a beach near Buluc\'s mansion.'
 		],
@@ -2019,7 +2030,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Relic Mask of the Will',
-		image: 'ggac_od_t2',
+		image: 'msq_01',
 		description: [
 			'Mucho Mike bought this mask on the black market for Buluc\'s 40th birthday. It was the last one he needed to complete his set. Buluc, in a rare moment of sincere gratitude, granted Mike a promotion, giving him the status of his fourth personal bodyguard and confidant.'
 		],
@@ -2030,7 +2041,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Tormentor',
-		image: 'ggac_od_t2',
+		image: 'tormentor',
 		description: [
 			'A smile can hide the most murderous thought, but the eyes can never lie. Reading a person is mostly looking straight into their eyes. What\'s truly terrifying is people who wear their thoughts on their face and within a second it\'s hard for the beholder to suppress a scream.'
 		],
@@ -2041,7 +2052,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'God Emperor',
-		image: 'ggac_od_t2',
+		image: 'win_donald_mega',
 		description: [
 			'Bow down before him.',
 			'The Mega 45th mask is an evolved version of the original mask. It symbolises transcendence and catharsis.',
@@ -2054,7 +2065,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The 45th',
-		image: 'ggac_od_t2',
+		image: 'win_donald',
 		description: [
 			'Commander-In-Chief, father. Has an ambition to serve this great nation for 8 years. A talkative man, no doubt.',
 			'The 45th is one of the most controversial presidents in history. Among criminals however, he remains extremely popular.'
@@ -2066,7 +2077,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Fire Rooster',
-		image: 'ggac_od_t2',
+		image: 'yor',
 		description: [
 			'You\'re a reliable firestarter, always on time and always on target. As the new year begins, you will set your sights on that shining gold, the most noble metal of them all. Your motives may be shady, but seven is magnificent and before you know it you\'ll be high-fiving to celebrate that perfect heist. Maybe you\'ll finally get that eight-ball tattoo.'
 		],
@@ -2077,7 +2088,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The 46th',
-		image: 'ggac_od_t2',
+		image: 'biden',
 		description: [
 			'Politician, Commander-In-Chief, father. Has an ambition to serve this great nation for 8 years.',
 			'An opinionated man, no doubt.',
@@ -2091,7 +2102,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Skull',
-		image: 'ggac_od_t2',
+		image: 'skull',
 		description: [
 			'An exclusive mask representing death and mortality.',
 			'Created in the heavens as a gift by the gods to men and women who believed in them early on, who built their shrines and spread their beliefs across the lands.',
@@ -2104,7 +2115,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Furious Santa',
-		image: 'ggac_od_t2',
+		image: 'santa_mad',
 		description: [
 			'Santa, more known as Santa Claus, Saint Nicholas, Father Christmas and Kris Kringle (?) is a man of epic proportions. Words like legendary, mythical, historical and folkloric best describe this beast of a man.',
 			'This particular mask is the Furious Santa mask. It\'s worn by angry internet users and bad children who didn\'t get the presents they wanted.'
@@ -2116,7 +2127,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Surprised Santa',
-		image: 'ggac_od_t2',
+		image: 'santa_surprise',
 		description: [
 			'Santa, more known as Santa Claus, Saint Nicholas, Father Christmas and Kris Kringle (?) is a man of epic proportions. Words like legendary, mythical, historical and folkloric best describe this beast of a man.',
 			'This particular mask is the Surprised Santa mask. Who knows why he\'s surprised? Maybe someone stole his sled? Maybe someone stole his reindeers? Maybe he just saw someone rob a bank?'
@@ -2128,7 +2139,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Tipsy Santa',
-		image: 'ggac_od_t2',
+		image: 'santa_drunk',
 		description: [
 			'Santa, more known as Santa Claus, Saint Nicholas, Father Christmas and Kris Kringle (?) is a man of epic proportions. Words like legendary, mythical, historical and folkloric best describe this beast of a man.',
 			'This particular mask is the Tipsy Santa mask. You know that type of feeling when you\'re tipsy and are feeling something\'s going on but you aren\'t hammered yet. That\'s tipsy for ya.'
@@ -2140,7 +2151,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The 37th',
-		image: 'ggac_od_t2',
+		image: 'nixon',
 		description: [
 			'Politican, Commander-In-Chief, father. Had an ambition to serve this great nation for 8 years. He wasn\'t a crook, for sure.',
 			'The 37th was the only president who resigned from office. Among criminals however, he remains extremely popular.'
@@ -2152,7 +2163,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The 42nd',
-		image: 'ggac_od_t2',
+		image: 'clinton',
 		description: [
 			'Politican, Commander-In-Chief, father. Served this great nation for 8 years. A ladies man, no doubt.',
 			'The 42nd was one of the most peaceful presidents in history. Among criminals however, he remains extremely popular.'
@@ -2164,7 +2175,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The 43rd',
-		image: 'ggac_od_t2',
+		image: 'bush',
 		description: [
 			'Politican, Commander-In-Chief, father. Served this great nation for 8 years. A wordsmith, no doubt.',
 			'The 43rd was one of the most unpopular presidents in history. Among criminals however, he remains extremely popular.'
@@ -2176,7 +2187,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The 44th',
-		image: 'ggac_od_t2',
+		image: 'obama',
 		description: [
 			'Politican, Commander-In-Chief, father. Had an ambition to serve this great nation for 8 years. A hopeful man, and an award winner at that.',
 			'The 44th is one of the most ambitious presidents in history. Among criminals however, he remains extremely popular.'
@@ -2188,7 +2199,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Arnold',
-		image: 'ggac_od_t2',
+		image: 'pitbull',
 		description: [
 			'Arnold the Bulldog has always been a doge of great ambition.',
 			'He wanted to build much body - and he did. He became the biggest doge in his little mountain town and received such prize.',
@@ -2201,7 +2212,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Chuck',
-		image: 'ggac_od_t2',
+		image: 'eagle',
 		description: [
 			'Chuck the Eagle represents everything that is righteous, good and true.',
 			'A famous Martial Artist found this huge eagle while he was doing karate in the mountains of Alaska.',
@@ -2214,7 +2225,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Dolph',
-		image: 'ggac_od_t2',
+		image: 'goat',
 		description: [
 			'Dolph the Goat represents natural strength and stone.',
 			'It was found by a group of adventurers in a mountain cave in the most northern parts of Sweden.',
@@ -2227,7 +2238,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Jean-Claude',
-		image: 'ggac_od_t2',
+		image: 'panda',
 		description: [
 			'Jean-Claude the Panda used to be really cool and star in all sorts of crazy stuff.',
 			'Sadly, he later became a drug addict and stopped being cool. Because of training however, he managed to get back on track.',
@@ -2240,7 +2251,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Alpha Force',
-		image: 'ggac_od_t2',
+		image: 'gage_deltaforce',
 		description: [
 			'4th Domestic Operation Group-force Enforcers-Alpha (4th DOGE-A), popularly ridiculed as Alpha Force, is a U.S. Army component of the Joint Common Operations Command. They\'re reputation is pretty poor and have become a less and less respected force to deal with.',
 			'One of the members probably dropped this helmet when he fled from you.'
@@ -2252,7 +2263,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Commander Crime',
-		image: 'ggac_od_t2',
+		image: 'cloth_commander',
 		description: [
 			'Commander Crime is an American fictional character, a supervillain and the supreme leader of the criminal network C.R.I.M.E. who appears in comic books by OVERKILL Comics.',
 			'The character was created by now world renowned writer-editor-artist and professional badminton player Max Elmberg Sjöholm.',
@@ -2265,7 +2276,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Gage Blade',
-		image: 'ggac_od_t2',
+		image: 'gage_blade',
 		description: [
 			'The Gage Blade is one of Gage\'s own personal favorite ballistic face masks. It will protect your face from one or two 9mm bullets before your head explodes.',
 			'Without this mask, Gage wouldn\'t be the wonderful human being he is today.'
@@ -2277,7 +2288,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Troubled War Veteran',
-		image: 'ggac_od_t2',
+		image: 'gage_rambo',
 		description: [
 			'The Troubled War Veteran is a mask that Gage has worked on for some time. Back in the Vietnam war Gage met this big-muscled guy who went nuts and started to use a bow instead of modern weapons.',
 			'He died pretty early in the war, but for some strange reason Gage couldn\'t forget his face.'
@@ -2289,7 +2300,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Criminal Ambitions',
-		image: 'ggac_od_t2',
+		image: 'tcn',
 		description: [
 			'A mask only for the most ambitious heister.',
 			'Take all the loot, leave nothing behind.'
@@ -2301,7 +2312,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Metalhead',
-		image: 'ggac_od_t2',
+		image: 'metalhead',
 		description: [
 			'The origin of the Metalhead is unclear.',
 			'It looks more of a helmet than a mask. It has spikes pointing out of it and looks very much like a pimped out gas mask made of iron. It\'s unclear if it protects the wearer from any gas or melee weapons however.',
@@ -2314,7 +2325,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Optimist',
-		image: 'ggac_od_t2',
+		image: 'optimist_prime',
 		description: [
 			'\'Be the change you want to see in the world.\'',
 			'That\'s what the Optimist believes.',
@@ -2329,7 +2340,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'War Face',
-		image: 'ggac_od_t2',
+		image: 'surprise',
 		description: [
 			'You got a war face! AAAAAAAAHH! That\'s a war face, let me see your war face!',
 			'...',
@@ -2343,7 +2354,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Asilidae',
-		image: 'ggac_od_t2',
+		image: 'mantis',
 		description: [
 			'The Asilidae, also known as robber fly or assassin fly, are powerfully built, bristly flies who are known for their notoriously aggressive predatory habits. They feed on other insects and as a rule, they wait in ambush and catch their prey in flight.'
 		],
@@ -2354,7 +2365,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sphodromantis',
-		image: 'ggac_od_t2',
+		image: 'robberfly',
 		description: [
 			'The common name for these lovely little fellows is \'praying mantis\'. The reason? It refers to the prayer-like posture where it folds its fore-limbs. More commonly however it\'s refered to as the preying mantis, because of it\'s nature.',
 			'Basically, they eat anything they can successfully capture and devour.'
@@ -2366,7 +2377,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Tarantula',
-		image: 'ggac_od_t2',
+		image: 'spider',
 		description: [
 			'Eight legs strong, tarantula sizes range from as small as a fingernail to as large as a handgun when the legs are fully extended. The name originally comes from the name Lycosa tarantula, a species of wolf spider. Tarantulas generally hunt in trees, on or near the ground. They\'re also popular as pets.'
 		],
@@ -2377,7 +2388,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Vespula',
-		image: 'ggac_od_t2',
+		image: 'wasp',
 		description: [
 			'Two pairs of wings, an ovipositor or stinger, no thickened hairs and a pair of talons. That\'s the wasp for you. Almost every pest insect species has at least one wasp species that preys upon it or parasitizes it. This makes the wasps very important in natural control of their numbers.'
 		],
@@ -2388,7 +2399,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The 16th',
-		image: 'ggac_od_t2',
+		image: 'lincoln',
 		description: [
 			'Lawyer, Commander-In-Chief, father. Had an ambition to serve this great nation for 8 years.',
 			' Consistently ranked by scholars and the public as one of the greatest U.S. presidents of all time.',
@@ -2401,7 +2412,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The 18th',
-		image: 'ggac_od_t2',
+		image: 'grant',
 		description: [
 			'Soldier, Commander-In-Chief, father. Served this great nation for 8 years.',
 			'A protector and a warrior, and a great one at that.',
@@ -2414,7 +2425,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The 1st',
-		image: 'ggac_od_t2',
+		image: 'washington',
 		description: [
 			'General of the Armies, Commander-In-Chief,  Founding Father. Served this great nation for 8 years.',
 			'The first ever president, and a great one at that.',
@@ -2427,7 +2438,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The First American',
-		image: 'ggac_od_t2',
+		image: 'franklin',
 		description: [
 			'Worls-renowned polymath, author, printer, political theorist, postmaster, scientist, inventor, civic activist, statesman, diplomat, Founding Father.',
 			' Titulated as \'The First American\' and the face of the $100 bill.',
@@ -2440,7 +2451,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Clint',
-		image: 'ggac_od_t2',
+		image: 'skullmonkey',
 		description: [
 			'Clint the black-capped squirrel monkey. Not really a monkey without a name. Just like the real Clint, this monkey doesn\'t fuck around. It minds its own business. Doesn\'t talk unless talked to, knowing that the less it says the stronger it becomes. When it actually tries to say something it ends up screeching because it\'s a FUCKING MONKEY.'
 		],
@@ -2451,7 +2462,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'John',
-		image: 'ggac_od_t2',
+		image: 'mandril',
 		description: [
 			'John the mandrill monkey. Mandrill\'s are closely related to baboons and even more to the drill. Not the kind of drill you use in a bank robbery, but the monkey drill, silly you! John is a monkey known for his sardonic one-liners, include the catch phrase \'unidentified monkey screech\'.'
 		],
@@ -2462,7 +2473,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Rutger',
-		image: 'ggac_od_t2',
+		image: 'orangutang',
 		description: [
 			'Rutger the motherfucking orangutan. If you\'re strolling down the jungle and suddenly face an orangutan, you\'re in trouble. Statistics show that one orangutan is as dangerous as ten hobos with shotguns. You remember that movie about dinosaurs with the big dinosaur in the end saving the kids? Know who killed the dinosaur after the credits? The kids did, but you know who killed the kids? Rutger the motherfucking orangutan did.'
 		],
@@ -2473,7 +2484,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Steven',
-		image: 'ggac_od_t2',
+		image: 'silverback',
 		description: [
 			'Steven the silverback gorilla. Not only is he fucking huge, he\'s strong as hell too. He can break your back by just looking at you. You\'ll be hospitalized for weeks. Not only that, but there\'ll be months of therapy as well. Do you know how hard it is learning to walk again? Want to know what else that is hard? Steven\'s muscles. 22 years ago he worked as a chef on a military ship. Killed everyone in 103 minutes.'
 		],
@@ -2484,7 +2495,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Black Death',
-		image: 'ggac_od_t2',
+		image: 'evil',
 		description: [
 			'Bob Robertson worked at a purple stuff factory. The purple stuff factory was old and in need of reperations. Bob mentioned this to his supervisors but they ignored him. Bob kept on hardly working, playing pre-installed games on his operative system. One day when he was checking out early, cracks started to form in a container filled with purple stuff. Just when he went past, the container burst and Bob was drenched in purple stuff.',
 			'When he got out of hospital, he had become a super villain. His face has been purple ever since.'
@@ -2496,7 +2507,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Crow Goblin',
-		image: 'ggac_od_t2',
+		image: 'crowgoblin',
 		description: [
 			'For the longest time ever no one knew who the real identity behind the Crow Goblin was. Twenty years later people found out, but it was unsatisfactory so they said that that person was an imposter or something. The real Crow Goblin was someone else.',
 			'I don\'t want to bore you with the rest of it but the mask looks pretty nice, yeah? It\'s got a purple hat, or maybe it\'s a hoodie, I don\'t know. It sports a pretty cool grin and some thread sewn across its face. I wonder who hides behind the mask though.'
@@ -2508,7 +2519,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Professor Wrath',
-		image: 'ggac_od_t2',
+		image: 'galax',
 		description: [
 			'Milhouse Anderson worked at a chemical plant handling dangerous chemical waste. As a prank, his friends thought it would be a good idea to lock him up in the room where they kept the dangerous chemical waste. What they didn\'t know was that the dangerous chemical waste was dangerous, and while being locked in for several hours, Milhouse was exposed to high levels of radiation and other bad stuff.',
 			'When they finally let him out, he had become a super villain. He\'s been super angry ever since.'
@@ -2520,7 +2531,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Volt',
-		image: 'ggac_od_t2',
+		image: 'volt',
 		description: [
 			'Being a snoopy lowlife, janitor David Davidson snuck around the military research facility he worked at, looking for something easy to steal. He found a door that he didn\'t have a key for. Curious, he kicked the door open and was instantly attacked by some kind of bright light. Somehow he survived the attack and got superhuman powers.',
 			'With his new powers, he called himself Volt.'
@@ -2532,7 +2543,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Aubrey',
-		image: 'ggac_od_t2',
+		image: 'pig',
 		description: [
 			'Aubrey is a real gun lover.',
 			'Large headed and long snouted Aubrey is a master of arms and knows nothing better than to kill using some fine weaponry.',
@@ -2545,7 +2556,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Dennis',
-		image: 'ggac_od_t2',
+		image: 'white_wolf',
 		description: [
 			'Dennis loves knives.',
 			'The gray wolf is one of the best known and well researched animals on the entire planet. It was the first animal and only large carnivore to be domesticated by humans.',
@@ -2558,7 +2569,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Graham',
-		image: 'ggac_od_t2',
+		image: 'rabbit',
 		description: [
 			'Graham enjoys long walks in the sun.',
 			'Rabbits are small mammals that practically can be found anywhere. If confronted by a potential threat, rabbits will instantly freeze and warn others in the warren with powerful thumps on the ground.',
@@ -2571,7 +2582,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Rasmus',
-		image: 'ggac_od_t2',
+		image: 'owl',
 		description: [
 			'Rasmus has an eye for secrets.',
 			'Owls are nocturnal birds of prey. They are known for their large eyes in comparison to their skulls. They can\'t actually move their eyes, they swivel their heads instead and are able to swivel 270 degrees. Shit you didn\'t know, amirite.',
@@ -2584,7 +2595,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'British Bulldog',
-		image: 'ggac_od_t2',
+		image: 'churchill',
 		description: [
 			'Politician, prize winner, owner of many medals and the first honorary citizen of the United States of America. By some it was said that he had a flawed character, saying; \'never had people admired and despised a man simultaneously to the same extent; never had such opposite extremes been combined in the same human being.\''
 		],
@@ -2595,7 +2606,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Old Blood and Guts',
-		image: 'ggac_od_t2',
+		image: 'patton',
 		description: [
 			'One of the bravest men I saw in the African campaign was on a telegraph pole in the midst of furious fire while we were moving toward Tunis. I stopped and asked him what the hell he was doing up there. He answered, \'Fixing the wire, sir.\' \'Isn\'t it a little unhealthy up there right now?\' I asked. \'Yes sir, but this goddamn wire has got to be fixed.\' I asked, \'Don\'t those planes strafing the road bother you?\' And he answered, \'No sir, but you sure as hell do.\'',
 			'Now, there was a real soldier. A real man. A man who devoted all he had to his duty, no matter how great the odds, no matter how seemingly insignificant his duty appeared at the time.'
@@ -2607,7 +2618,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Constable',
-		image: 'ggac_od_t2',
+		image: 'de_gaulle',
 		description: [
 			'For much between 1940-1969, the Constable was the dominant military and political leader of France. Refusing to accept his government\'s armistice with the German invaders in 1940, he set up his base in London, proclaimed himself the incarnation of France, and created the Free French movement. During the war he rallied the overseas colonies, especially those in Africa, organized the Resistance from abroad, and struggled to gain full recognition from the British and Americans.'
 		],
@@ -2618,7 +2629,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Red Bear',
-		image: 'ggac_od_t2',
+		image: 'red_hurricane',
 		description: [
 			'\'In Soviet Russia, Red Bear kills you.\' No one knows exactly who the Red Bear was; some say he was just a myth, a symbol of the motherland and everything that was strong, combined into one being. Only the stories are known and told again and again. Like that one time, when he killed a bunch of bears and came back home all in red, drenched in blood.'
 		],
@@ -2629,7 +2640,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Anubis',
-		image: 'ggac_od_t2',
+		image: 'anubis',
 		description: [
 			'The Egyptian jackal-headed god of the afterlife, Anubis sought to protect graves rather than fill them.'
 		],
@@ -2640,7 +2651,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Medusa',
-		image: 'ggac_od_t2',
+		image: 'medusa',
 		description: [
 			'A hideous visage, snakes for hair, a petrifying gaze and a hate for men. Her gazing eyes still sends chills down spines… But this is just a mask, right?'
 		],
@@ -2651,7 +2662,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Pazuzu',
-		image: 'ggac_od_t2',
+		image: 'pazuzu',
 		description: [
 			'Pazuzu was the king of the wind demons according to ancient Babylonian mythology. Legends also tell of him as a beastial behemoth fighting groups of adventurers in far away lands, and some even say he walked the earth as an immortal warrior in human form.'
 		],
@@ -2662,7 +2673,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Cursed One',
-		image: 'ggac_od_t2',
+		image: 'cursed_crown',
 		description: [
 			'His name is lost to legend. He might have been a King, or a mighty Sorceror. But even the great are undone by the Diamond.'
 		],
@@ -2673,7 +2684,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Clover',
-		image: 'ggac_od_t2',
+		image: 'msk_grizel',
 		description: [
 			'Clover\'s mask represents what Clover both fears and hates most of all - wearing a mask as your normal face. The surgically-shrunken nose, the botox\'d lips and the expression of all-consuming vanity and self-obsession - all are symbols of fear and weakness, twisted into a horrifying parody.'
 		],
@@ -2684,7 +2695,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Clover Begins',
-		image: 'ggac_od_t2',
+		image: 'grizel_clean',
 		description: [
 			'This is a clean version of Clover\'s iconic mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -2696,7 +2707,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Arch Nemesis',
-		image: 'ggac_od_t2',
+		image: 'arch_nemesis',
 		description: [
 			'Nemesis, as defined by the dictionary;',
 			'1. Something that a person cannot conquer, achieve, etc.: “That Chinese buffet at lunch proved to be my arch-nemesis.”',
@@ -2709,7 +2720,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Nun',
-		image: 'ggac_od_t2',
+		image: 'nun_town',
 		description: [
 			'A Catholic nun may not seem like the obvious choice for a terrifying mask, unless you know an actual Catholic nun. In which case, you’ll know any notions of gentle, grandmotherly penguins are without merit. These bitter crones are the personification of evil, dishing out thrashings to any young buttocks within reach.'
 		],
@@ -2720,7 +2731,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Robo-Arnold',
-		image: 'ggac_od_t2',
+		image: 'robo_arnold',
 		description: [
 			'Iconic, time-travelling cyborg star of the ‘Exterminator’ movie series. In the first movie, he was sent to kill the mother of the leader of the future rebellion before she can steal the chip left by her son who was also her father… In the past. Noted for his deadpan delivery of the catchphrase “Await my return”.'
 		],
@@ -2731,7 +2742,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Butcher from Hell',
-		image: 'ggac_od_t2',
+		image: 'butcher',
 		description: [
 			'There are many rumours about the mad butcher from the east, one of them tells of a man who found such pleasure in butchering pigs that he slowly started to look like one.',
 			'Working in a butchery as hot as hell itself his skin became disfigured with blisters and cuts, people tell of screams coming from inside... And not just the screams of pigs.'
@@ -2743,7 +2754,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Lady Butcher',
-		image: 'ggac_od_t2',
+		image: 'lady_butcher',
 		description: [
 			'If you received a dollar every time the Butcher was called a \'witch\', a \'harlot\' or a \'banshee\' by her peers you could earn enough money to buy the entirety of Croatia. Cynical men around her bemoaned the fact that she was female, and felt endangered and distressed at the sight of her meteoric rise in the criminal underground. Keep in mind that the Balkans are not exactly known for their capacity to tolerate anybody who is in any way different, and one can only image the flat-out chauvinism and misogyny she must have dealt with while working with some of the most ruthless criminals every day of her existence. This mask shows how she is seen by both her rivals and her associates. It makes people feel afraid. As they should be.'
 		],
@@ -2754,7 +2765,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Tech Lion',
-		image: 'ggac_od_t2',
+		image: 'tech_lion',
 		description: [
 			'This mask is a modern interpretation of the Egyptian war-god Maahes. Known as the \'Wield of the Knife\', \'Lord of Slaughter\' and \'Avenger of Wrongs\', Maahes punished those who transgressed from the rules of Ma`at - the personification of order and balance. Considered the embodiment of the burning heat of the sun, he was also seen as a protective deity that defended the Pharaoh during battle.',
 			'He is usually depicted as lion-headed man carrying a knife wearing the Atef crown, the Solar Disk or is pictured as a lion devouring a victim.'
@@ -2766,7 +2777,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Doctor',
-		image: 'ggac_od_t2',
+		image: 'doctor',
 		description: [
 			'A naso-buccal mask usually associated with hospitals and ambulances. This mask disables the host from spreading airborne viruses by catching the bacteria-laden saliva and mucus that is discharged upon sneezing or coughing. Both doctors and patients wear this, so you should ask yourself: am I the sick or the healthy one? The disease or the cure?',
 			'In any case - it\'s fever season, and the only prescription is dead Bulldozers.'
@@ -2778,7 +2789,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Dragan',
-		image: 'ggac_od_t2',
+		image: 'dragan',
 		description: [
 			'With a background like the one Dragan has, there\'s no surprise he aspires to greatness in the criminal underworld.',
 			'His mask represents a lot of his own characteristics, with the clear resemblance to some of the original crew\'s masks that tells of his ability to infiltrate and blend in while still having some features that tells of his unending ruthlessness.',
@@ -2791,7 +2802,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Dragan Begins',
-		image: 'ggac_od_t2',
+		image: 'dragan_begins',
 		description: [
 			'This is a clean version of Dragan\'s iconic mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -2803,7 +2814,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Alfred',
-		image: 'ggac_od_t2',
+		image: 'carnotaurus',
 		description: [
 			'Alfred the Carnotaurus was a very fast dinosaur when he was alive and kicking. His distinctive horns and his muscular neck made him stand out next to all the other dinosaurs. His large head along with his horns working as shock absorbers made him particularly skilled at head butting other dinosaurs in order to show who had the largest prehistoric d-peen.'
 		],
@@ -2814,7 +2825,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Pachy',
-		image: 'ggac_od_t2',
+		image: 'pachy',
 		description: [
 			'Pachy the Pachycephalosaurus, meaning thick headed lizard, wasn\'t never that thick headed really. He never took that name for himself, the other dinosaurs gave it to him because they were jealous of his high rolls in intelligence, spirit and wisdom. Having earned a robe and a wizard hat as a second prize at the local prehistoric spelling bee didn\'t make it any better.'
 		],
@@ -2825,7 +2836,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Timothy',
-		image: 'ggac_od_t2',
+		image: 'triceratops',
 		description: [
 			'Timothy the Triceratops is one of the most popular dinosaurs at the Jurassic High. He had a huge grudge with Teddy the Tyrannosaurus though. Even though they were massive and lived together during the last epoch of the age of dinosaurs, they couldn\'t find it in them to be friends. Especially not since that one time when they went to that cabin during Spring Break and Teddy and his pals pranked Timothy with that horror movie and the phone call about seven days left before the meteorite would hit. Timothy did not think that was funny at all.'
 		],
@@ -2836,7 +2847,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Vincent',
-		image: 'ggac_od_t2',
+		image: 'velociraptor',
 		description: [
 			'Vincent the Velociraptor and his best friend Andreas HÃ¤ll Penninger the Protoceratops were out and about one day in the jungle when they got in a fight. It wasn\'t a big thing really but Vincent just wouldn\'t let it go. Andreas, being the stubborn Protoceratops he was, continued to mouth off to Vincent. Violent fighting ensued and to this day, no one is sure who actually won.'
 		],
@@ -2847,7 +2858,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'General Overkill',
-		image: 'ggac_od_t2',
+		image: 'the_overkill_mask',
 		description: [
 			'Ten-shun! Right, listen up, you heisting bastards. You\'re heading into war. You\'re gonna feel the sting of battle. And in war you need a leader. Meet General Overkill. He\'ll be there to make sure you go through those cop bastards like crap through a goose. Dismissed!'
 		],
@@ -2858,7 +2869,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Chains',
-		image: 'ggac_od_t2',
+		image: 'chains_glow',
 		description: [
 			'The Mega Chains mask is an evolved version of the original mask. It symbolises transcendence and catharsis.',
 			'Thank you for your support.',
@@ -2871,7 +2882,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Cthulhu',
-		image: 'ggac_od_t2',
+		image: 'megacthulhu',
 		description: [
 			'Somewhere, deep in the oceanic darkness dwells our lord and savior, Cthulhu. Praise be to Him who spares us His giant wrath and blesses us with His mind controlling tenderness. Don\'t eat squids or eternal damnation is yours.',
 			'Thank you for your support.',
@@ -2884,7 +2895,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Dallas',
-		image: 'ggac_od_t2',
+		image: 'dallas_glow',
 		description: [
 			'The Mega Dallas mask is an evolved version of the original mask. It symbolises transcendence and catharsis.',
 			'Thank you for your support.',
@@ -2897,7 +2908,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Death Wish',
-		image: 'ggac_od_t2',
+		image: 'cop_skull',
 		description: [
 			'We never get why hardcore heisters don\'t just call themselves Death Wishers. Maybe it\'s just too damn cool.',
 			'Thank you for your support.',
@@ -2910,7 +2921,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Doctor Crime',
-		image: 'ggac_od_t2',
+		image: 'fab_mega_doctor',
 		description: [
 			'In issue #34 of The Mazing Career Criminals, we saw the assumed death of Doctor Crime, but fear not - the Doctor is back! With a new power armor and a fancy new mask, he\'s set to take out his vengeance against our unknowing heroes.',
 			'Thank you for your support.',
@@ -2923,7 +2934,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Gage Blade',
-		image: 'ggac_od_t2',
+		image: 'cop_mega_gage_blade',
 		description: [
 			'The original Gage Blade is one of Gage\'s own personal favorite ballistic face masks. With the Mega Gage Blade, he\'s decided to give his favorite ballistic mask an upgrade. Before it was only practical, now it\'s also stylish.',
 			'Thank you for your support.',
@@ -2936,7 +2947,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Grin',
-		image: 'ggac_od_t2',
+		image: 'fab_mega_grin',
 		description: [
 			'The Grin was once the face representing a man\'s breakdown as he had to accept defeat. But now the times have changed, and the same man is back again, stronger than ever before. Rejuvenated and ready to take on the world with a determined fierceness and cunning, the mask still represents the face of a mad man, but a mad man that is winning.',
 			'Thank you for your support.',
@@ -2949,7 +2960,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Hoxton',
-		image: 'ggac_od_t2',
+		image: 'hoxton_glow',
 		description: [
 			'The Mega Hoxton mask is an evolved version of the original mask. It symbolises transcendence and catharsis.',
 			'Thank you for your support.',
@@ -2962,7 +2973,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Kawaii',
-		image: 'ggac_od_t2',
+		image: 'cop_kawaii',
 		description: [
 			'In the name of the kawaii, I will punish you! For love, for justice, FOR MERCURY BUBBLE BLAST!',
 			'Thank you for your support.',
@@ -2975,7 +2986,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Kevin',
-		image: 'ggac_od_t2',
+		image: 'hunter',
 		description: [
 			'For Kevin it was never enough to rip out the spine and scream defiantly at the sky. He always proceeded to also fuck the skull.',
 			'Thank you for your support.',
@@ -2988,7 +2999,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Mark',
-		image: 'ggac_od_t2',
+		image: 'fab_mega_mark',
 		description: [
 			'The mask is modeled after a legendary bear that was known to terrorize humans and other animals in an Eastern land far, far away. The story is wildly popular with the criminal underworld, and getting compared to to the fierce beast is considered a great honor, reserved only to the greatest and most ruthless criminals.',
 			'Thank you for your support.',
@@ -3001,7 +3012,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Plague Doctor',
-		image: 'ggac_od_t2',
+		image: 'cop_plague_doctor',
 		description: [
 			'Three years of healing took its toll. He witnessed man\'s cruel ways, born out of desperation. He stopped seeing the plague as a disease and started spreading it as the cure.',
 			'Thank you for your support.',
@@ -3014,7 +3025,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Watcher',
-		image: 'ggac_od_t2',
+		image: 'fab_mega_alien',
 		description: [
 			'The Watchers are a species of extraterrestials that act as spies on planet Earth. They communicate using their minds and use their large eyes to witness, gather and share information about humankind, preparing themselves for the coming invasion.',
 			'Thank you for your support.',
@@ -3027,7 +3038,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Wolf',
-		image: 'ggac_od_t2',
+		image: 'wolf_glow',
 		description: [
 			'The Mega Wolf mask is an evolved version of the original mask. It symbolises transcendence and catharsis.',
 			'Thank you for your support.',
@@ -3040,7 +3051,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Firefighter\'s Helmet',
-		image: 'ggac_od_t2',
+		image: 'firemask',
 		description: [
 			'The crew may show scant respect to the police authorities, but they have huge respect for the men and women that clean up the burning messes left in their wake. This mask is a tribute to their efforts.'
 		],
@@ -3051,7 +3062,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Graug',
-		image: 'ggac_od_t2',
+		image: 'firedemon',
 		description: [
 			'The head of the legendary Graug. Towering beings of fire and smoking darkness, bound in blackened iron mail. Shaped like a man, but horned and visaged like a cruel demon. Body consumed by a furnace heat, hotter than Hell itself. Knows all the best tunes.'
 		],
@@ -3062,7 +3073,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Chef',
-		image: 'ggac_od_t2',
+		image: 'chef_hat',
 		description: [
 			'Whether you’re a line cook flipping patties at a roadside diner, or an itamae dissecting toadfish at a $1000-a-table joint, this hat means one thing: you’re the chef. '
 		],
@@ -3073,7 +3084,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Gas Mask',
-		image: 'ggac_od_t2',
+		image: 'gasmask',
 		description: [
 			'The gas mask may seem like it belongs to the wars of an older era, but it is a crucial piece of equipment on the urban battlefield, where gas can still be deployed. Also, gives you a cool, wheezy breathing sound.'
 		],
@@ -3084,7 +3095,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Apache Mystic',
-		image: 'ggac_od_t2',
+		image: 'kangee',
 		description: [
 			'The west that the white men entered was a land of mystery. A land populated with civilizations of warriors, who marked themselves, their lands and their mythologies with these sacred carvings.'
 		],
@@ -3095,7 +3106,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Desert Skull',
-		image: 'ggac_od_t2',
+		image: 'bullskull',
 		description: [
 			'When staggering through desolate barrancas, with only thoughts for company, the last thing you want to see is the parched bones of those who went before you. Suddenly those thoughts are screams.'
 		],
@@ -3106,7 +3117,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Lone Heister',
-		image: 'ggac_od_t2',
+		image: 'lone',
 		description: [
 			'Whether you\'re a murderous desperado or a lone, brooding ranger, sometimes you need to hide your identity. What does that better than a slender black eye-mask, covering a third of your face?'
 		],
@@ -3117,7 +3128,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Wild West Classic',
-		image: 'ggac_od_t2',
+		image: 'bandit',
 		description: [
 			'The wide-brimmed hat, the steely gaze and the scarf pulled up over the mouth. A combination so iconic, so classic and so effective that it remains the staple for gangsters and heisters everywhere.'
 		],
@@ -3128,7 +3139,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Boombox',
-		image: 'ggac_od_t2',
+		image: 'boombox',
 		description: [
 			'According to the brochure, Alesso\'s Boom Box features include \'No batteries to slay your vibe, sound insulation to keep suckas from hearing your beats and full-face armor to keep cops from checking your clock.\''
 		],
@@ -3139,7 +3150,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Cantus',
-		image: 'ggac_od_t2',
+		image: 'cantus',
 		description: [
 			'Whether you\'re on the bus or in the boardroom, when Alesso is filling your ears with heavenly tunes, it\'s important to show the world a suitable face. Presenting Cantus - the Angel of Music and Song. Let your spirit soar!'
 		],
@@ -3150,7 +3161,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Female Concert Goer',
-		image: 'ggac_od_t2',
+		image: 'concert_female',
 		description: [
 			'When you descend into the roiling whirlpool that is the ecstasy of an Alesso concert, you better be wearing your best face. The Female Concert Goer is impassive and detached, because nothing matters but the music.'
 		],
@@ -3161,7 +3172,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Male Concert Goer',
-		image: 'ggac_od_t2',
+		image: 'concert_male',
 		description: [
 			'Tie-dyed shirts are so 70\'s. Holding up a lighter went out in the 80\'s. Whistles and glow sticks were left behind in the 90\'s, and the 00\'s, well, the less said the better. The modern concert goer, however, favors the mask.'
 		],
@@ -3172,7 +3183,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Murmillo Galea Helmet',
-		image: 'ggac_od_t2',
+		image: 'gladiator_helmet',
 		description: [
 			'Gladiators were members of a brutal caste in Ancient Rome whose sole duty was to entertain by way of public exhibitions of horrific violence. This style of helmet with its high crest  resembles a fish. It was worn by a Murmillo - a heavy class of gladiator that fought with a sword and tower shield. They symbolize Vulcan - the roman god of fire, and they stand for strength and honor.'
 		],
@@ -3183,7 +3194,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sports Utility Mask',
-		image: 'ggac_od_t2',
+		image: 'sports_utility_mask',
 		description: [
 			'Forget bulky and unfashionable helmets, this glorious sucker is the best friend of every adrenaline junkie. The face-guard is made out of tough ABS plastic and it provides solid protection against snow, sand blasts and hail drops. Just avoid heavy blows to the head. Be the envy of your airboarding friends, brah!'
 		],
@@ -3194,7 +3205,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'King, The',
-		image: 'ggac_od_t2',
+		image: 'the_king_mask',
 		description: [
 			'Mercy! Are you bad enough of a dude or dudette to rock the royal trifecta of slick aviators ,bad-ass pompadour and tactical sideburns? Summon forth the indomitable spirit of various used-car dealers and shotgun-wedding ministers all around Vegas who wore this thing all the way to success. Or at least mild public awkwardness. Hail to the king!'
 		],
@@ -3205,7 +3216,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Wheeler Dealer',
-		image: 'ggac_od_t2',
+		image: 'croupier_hat',
 		description: [
 			'Spruce up your glamorous neon 80\'s look! This kind of mint-green headwear has been in use since the 19th century as a method of preventing eyestrain from intense light sources. Coked out gamblers and gonzo journalists have propelled the croupier\'s hat into the focus of the mainstream. They are also perfect for beach-front raves, picking up hotties on the beach, signing a contract on the 18th hole of your nearest country club and generally looking like an octogenarian.'
 		],
@@ -3216,7 +3227,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sokol',
-		image: 'ggac_od_t2',
+		image: 'sokol',
 		description: [
 			'If playing as a grinder for the St Petersburg Bombers hockey team taught Sokol the value of one thing, it was the importance of a terrifying mask that protects his handsome Russian face.'
 		],
@@ -3227,7 +3238,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sokol Begins',
-		image: 'ggac_od_t2',
+		image: 'sokol_begins',
 		description: [
 			'This is a clean version of Sokol\'s iconic mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -3239,7 +3250,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Kage',
-		image: 'ggac_od_t2',
+		image: 'kage',
 		description: [
 			'The kage mask was said to be haunted, originally from a kabuki theater in Osaka where the actor fell down dead on stage while wearing the mask. The last thing he said was \'No, I will not kill them, I will not\'. Legend says that the kage mask will kill whoever wears it if its thirst for blood is not satisfied.'
 		],
@@ -3250,7 +3261,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Kuro Zukin',
-		image: 'ggac_od_t2',
+		image: 'ninja_hood',
 		description: [
 			'A simple piece of cloth tied around their heads will transform anyone, be it beggar, farmer or common man into a ninja. A shadow among shadows, a dagger in the dark. He can be fierce or stealthy and can be anyone in a crowd. He does what he sets out to do and then disappears.'
 		],
@@ -3261,7 +3272,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Shirai',
-		image: 'ggac_od_t2',
+		image: 'shirai',
 		description: [
 			'Get over here! And let me tell you about the most badass ninjas you ever heard about. They are the protectors of our world and they only accept the best warriors. They are given the most kickass mask to show that they are better than everyone else. Here is your mask, welcome to the clan.'
 		],
@@ -3272,7 +3283,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Slicer',
-		image: 'ggac_od_t2',
+		image: 'slicer',
 		description: [
 			'After his brother\'s murder, Ikas joined an underground clan of ninjas to train and become their deadliest warrior. Ikas quickly proved himself and was put in charge of the whole American branch of the clan. His signature mask now inspires fear and respect and anyone who wears a mask like this will be seen as a brother of the Achilles Clan.'
 		],
@@ -3283,7 +3294,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Jiro',
-		image: 'ggac_od_t2',
+		image: 'jiro',
 		description: [
 			'Japan is a land of tradition. A land of warriors. Jiro\'s mask reflects this. The mask expresses Jiro\'s love for a traditional Japan, while the bared snarl represents his unshakable determination.'
 		],
@@ -3294,7 +3305,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Jiro Begins',
-		image: 'ggac_od_t2',
+		image: 'jiro_begins',
 		description: [
 			'This is a clean version of Jiro\'s iconic mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -3306,7 +3317,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Agatha Knight Veteran',
-		image: 'ggac_od_t2',
+		image: 'agatha_knight',
 		description: [
 			'Excavated from the arid wastelands of Tenosia, the helmet of this Agathian Knight could protect him from swords and arrows, but not from the bloody ambitions of a leader as delusional as King Alphonso.'
 		],
@@ -3317,7 +3328,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Agatha Vanguard Veteran',
-		image: 'ggac_od_t2',
+		image: 'agatha_vanguard_veteran',
 		description: [
 			'When you\'re trying to reclaim your homeland and King\'s law from the upstart Masons, you need strength, support and a fearsome visage. This Vanguard helm provides all three.'
 		],
@@ -3328,7 +3339,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mason Knight Veteran',
-		image: 'ggac_od_t2',
+		image: 'mason_knight_veteran',
 		description: [
 			'The helmet of the Knight Veterans of the Masons were effectively symbols of this powerful, upstart order. When peasants saw this helm, they knew that Malric\'s new order was close behind.'
 		],
@@ -3339,7 +3350,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mason Vanguard Veteran',
-		image: 'ggac_od_t2',
+		image: 'mason_vanguard_veteran',
 		description: [
 			'This helmet was unearthed in an elaborate barrow, indicating that the wearer enjoyed prestige in the Mason army. These great warriors appear to have been Malric\'s elite troops, perhaps having served with him in the failed Tenosian crusade.'
 		],
@@ -3350,7 +3361,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Maui',
-		image: 'ggac_od_t2',
+		image: 'maui',
 		description: [
 			'Exploring the Pacific \'Ring of Fire\' in his youth, Bodhi came to the following revelation: honoring oneself means honoring the myths. A myth that stuck with him was that of Maui. Like Bodhi, Maui was a dauntless champion of humankind, a trickster and adventurer.'
 		],
@@ -3361,7 +3372,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Oro',
-		image: 'ggac_od_t2',
+		image: 'oro',
 		description: [
 			'It was exploring the Islands of French Polynesia, Bodhi encountered the disciples of the war-god Oro. The young adventurer quickly became enamored of this god, who valued the appreciation of beautiful crafts as much as the art of struggle.'
 		],
@@ -3372,7 +3383,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Tane',
-		image: 'ggac_od_t2',
+		image: 'tane',
 		description: [
 			'Tane was the god of the forest who used his mighty strength to separate his parents, the earth and the sky. Legends also credit him with creating Tiki, the first man. Thus, he created the world as we know it, and the people within it.'
 		],
@@ -3383,7 +3394,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Tawhiri',
-		image: 'ggac_od_t2',
+		image: 'water_spirit',
 		description: [
 			'Brother of Tane, Tawhiri is the god of weather, most particularly violent storms and lightning. Bodhi experienced plenty of both, and it was during a particularly vicious explosion while reef-diving in Tuvalu that Bodhi gained a true appreciation for this powerful deity.'
 		],
@@ -3394,7 +3405,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Goat Goat',
-		image: 'ggac_od_t2',
+		image: 'goat_goat',
 		description: [
 			'The goat doesn\'t get much respect in the animal kingdom, and often find themselves mocked by other animals - but that works perfectly in their favor. Putting on this foolish mask might give you the same advantage and make the cops underestimate you.'
 		],
@@ -3405,7 +3416,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mastermind Goat',
-		image: 'ggac_od_t2',
+		image: 'wet_goat',
 		description: [
 			'The dolphin is the most sinister and vicious heister in the animal kingdom, tricking everyone with its friendly and cute appearance. But it\'s all a facade! The dolphin only cares about itself and the loot, and won\'t hesitate a second to leave anyone behind. Caution is advised if you meet a fellow heister with this mask.'
 		],
@@ -3416,7 +3427,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Scout Goat',
-		image: 'ggac_od_t2',
+		image: 'tall_goat',
 		description: [
 			'The giraffe doesn\'t miss a thing, always in control of its surroundings, acting as the perfect \'look-out\' companion for heisting in the animal kingdom. Whatever it is, you\'ll see it coming from miles away and the cops can forget to take you by surprise.'
 		],
@@ -3427,7 +3438,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Slick Goat',
-		image: 'ggac_od_t2',
+		image: 'fancy_goat',
 		description: [
 			'The penguin is the slickest heister in the animal kingdom, walking around with a \'know-it-all\' attitude, taking their time and taking what they want - when they want, not giving a damn. Put on this mask and show everyone you\'re the boss of things.'
 		],
@@ -3438,7 +3449,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hans',
-		image: 'ggac_od_t2',
+		image: 'nutcracker',
 		description: [
 			'Hans hates people and will crack the skull of anyone who opposes him. But under his frightening appearance, Hans is a good boy. You could almost say he\'s a prince in disguise. Treat him well and he might take you to the Land of Sweets.'
 		],
@@ -3449,7 +3460,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Dragon Head',
-		image: 'ggac_od_t2',
+		image: 'viking',
 		description: [
 			'Mounting the prow of Viking ships, the dragon head was used to scare off sea monsters and evil spirits. Dozers and Cloakers are evil, right? Why not give it a go and see if it can scare them away? But have your gun ready just in case. For safety.'
 		],
@@ -3460,7 +3471,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Viking',
-		image: 'ggac_od_t2',
+		image: 'horned_king',
 		description: [
 			'The Germanic Norse seafarers known as Vikings were fierce warriors during the late 8th to late 11th centuries. Equipped with their mighty axes and horned helmets, they stood tall and proud in the heat of battle. If you want to capture the spirit of these old fighters, this mask will do the job.'
 		],
@@ -3471,7 +3482,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Trickster Demon',
-		image: 'ggac_od_t2',
+		image: 'divided',
 		description: [
 			'The Trickster Demon is a mischievous being, who thrives on creating chaos and spreading mayhem. It might not look that scary, but don\'t let that smirk fool you; its idea of \'fun\' differ greatly from what you and me would enjoy. Trust me on this.'
 		],
@@ -3482,7 +3493,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sydney',
-		image: 'ggac_od_t2',
+		image: 'sydney',
 		description: [
 			'Smirk, Grin, Sneer - call it what you want. As you see this smiling punker mask approaching it\'s not synonyms that\'ll run through your head - it\'s bullets. Sydney will make sure of it.'
 		],
@@ -3493,7 +3504,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sydney Begins',
-		image: 'ggac_od_t2',
+		image: 'sydney_begins',
 		description: [
 			'This is a clean version of Sydney\'s iconic mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -3505,7 +3516,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Classic',
-		image: 'ggac_od_t2',
+		image: 'born_biker_01',
 		description: [
 			'This old school motorcycle helmet is part of a legacy all bikers around the world cherish. And it\'s more about nostalgia rather than style. This helmet transports you back to the golden biker days of the 1940\'s.'
 		],
@@ -3516,7 +3527,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Speed Devil',
-		image: 'ggac_od_t2',
+		image: 'born_biker_02',
 		description: [
 			'What better way to symbolize the do-not-give-a-fuck attitude of the biker lifestyle, than by wearing the face of the Devil. The ultimate symbol for breaking the law.'
 		],
@@ -3527,7 +3538,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Flaming Skull',
-		image: 'ggac_od_t2',
+		image: 'born_biker_03',
 		description: [
 			'The skull as a symbol can either mean death or mortality, and we humans have always had a fascination for it. Wearing this motorcycle helmet looks powerful and intimidating.'
 		],
@@ -3538,7 +3549,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Road Rage',
-		image: 'ggac_od_t2',
+		image: 'brutal',
 		description: [
 			'This helmet is reserved for the top dog in a biker gang. It demands respect and authority from your brothers, and when it\'s time to do battle, you wear this helmet proudly and ride at the front.'
 		],
@@ -3549,7 +3560,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Rust',
-		image: 'ggac_od_t2',
+		image: 'rust',
 		description: [
 			'The Devil is the moniker that has followed Rust for most of his life. Therefore, Rust\'s mask is a combination of a smiling clown with ominous horns protruding from his forehead, letting everyone know that the Devil is here.'
 		],
@@ -3560,7 +3571,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Rust Begins',
-		image: 'ggac_od_t2',
+		image: 'rust_begins',
 		description: [
 			'This is a clean version of Rust\'s iconic mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -3572,7 +3583,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Daisy',
-		image: 'ggac_od_t2',
+		image: 'pim_dog',
 		description: [
 			'They might have not known what they did and to who, but that doesn\'t matter. They got what they deserved and then some. John is back.'
 		],
@@ -3583,7 +3594,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hotelier',
-		image: 'ggac_od_t2',
+		image: 'pim_hotelier',
 		description: [
 			'The Continental only serves the people who can respect the rules of the assassins\' sanctuary. It\'s not a cult or a secret society, it\'s a necessity in a business where everybody is willing to kill for money and everybody in there is on someone\'s list of targets.'
 		],
@@ -3594,7 +3605,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Zaschita',
-		image: 'ggac_od_t2',
+		image: 'pim_russian_ballistic',
 		description: [
 			'A good way to not get shot in the head is to wear a helmet, but when you want to protect just your face from bullets and identification this will do. Does it really look bulletproof? What are you? A coward? Grab your fear by the balls and headbutt it in the face with this mask on.'
 		],
@@ -3605,7 +3616,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mustang',
-		image: 'ggac_od_t2',
+		image: 'pim_mustang',
 		description: [
 			'Do you think you\'re a car? Oh? But do you think you\'re a MUSCLE car? No? Heisting isn\'t about looking fast and sleek, it\'s about looking furious and dangerous. Vroom, vroom motherfuckers!'
 		],
@@ -3616,7 +3627,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Batshit Crazy',
-		image: 'ggac_od_t2',
+		image: 'tng_cloaker',
 		description: [
 			'Somehow bending the laws of physics, the special unit of the WPD nicknamed the \'Cloaker\' is the bane of every bad guy trying to prove they can do things on their own. The first Cloaker is rumored to just have been a regular SWAT officer who nobody wanted to team up with. Might be because he was a fucked up killing machine with kung fu-kicks and bullets flying everywhere around him. He used excessive force almost always and left any combat tactic behind together with his unit. But he produced results, so the brass kept him on and made him train like minded individuals.',
 			'Activate Night Vision Mode by holding down the Fire Mode button.'
@@ -3628,7 +3639,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'A.W.O.L',
-		image: 'ggac_od_t2',
+		image: 'tng_cap',
 		description: [
 			'Highly classified reports mentions this soldier from an elite special operations force. Engaged in high profile military operations and on constant alert, he was living his life under extreme pressure and constant adrenaline highs. During a sensitive strategic operation, the evidence suggest that he turned on his own unit. But no one knows certain, since the massacre left no witnesses. The soldier went A.W.O.L. and has not been seen since that day.'
 		],
@@ -3639,7 +3650,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Bloody Bandana',
-		image: 'ggac_od_t2',
+		image: 'tng_bandana',
 		description: [
 			'The identity of the soldier that wore this red headband is classified information. Leaked reports speak of a war veteran and former U.S. Army Special Forces soldier that was an expert in guerrilla tactics. His military comrades described him as tough, reckless and over the top aggressive. Based on how many high-ranking officers he tracked down and slaughtered, he may have major problem with authorities...'
 		],
@@ -3650,7 +3661,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Dark Legion',
-		image: 'ggac_od_t2',
+		image: 'tng_zeal_swat_mask',
 		description: [
 			'He did not exist, not officially. Not since he came aboard ZEAL, the top-secret strike force. He was always the last resort, deployed when extreme violence was needed. He never held back. For every operation, he lost a bit of his humanity. For every operation, he gained an edge as an instrument of death. He did not separate right from wrong, not anymore. Only obeyed the orders from above. Just one shadow in the dark legion of secret super soldiers. One day, he woke up and could only think of killing others. He had finally found his true purpose.'
 		],
@@ -3661,7 +3672,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Exalted',
-		image: 'ggac_od_t2',
+		image: 'sfm_01',
 		description: [
 			'Cold and unmoving, you watch them from above. They shall envy your majesty as your golden gaze falls on them, an undeserved blessing on these wretched soft ones. You unite the hard chill of the night with the dazzling radiance of the sun. Glorious, golden and beautiful, you shall turn their heads mad with desire - and it shall be their undoing.'
 		],
@@ -3672,7 +3683,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Golden Hour',
-		image: 'ggac_od_t2',
+		image: 'sfm_02',
 		description: [
 			'Timothy Miller dreamt of working with movie lightning when he grew up. For a Halloween-party, he created the Golden Hour mask. But when he put it on and looked in the mirror, his eyes stared back surrounded by the perfect soft, red glow of the sunset. In that moment, a new dream was born. He wanted people to view the serenity of the sunset close-up, wanted it imprinted on their retina forever. The only thing the coroner could confirm was that all victims were killed shortly before sunset, their eyes always left wide open.'
 		],
@@ -3683,7 +3694,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Barrori Flex',
-		image: 'ggac_od_t2',
+		image: 'sfm_03',
 		description: [
 			'The day Chad got the Barrori Flex sunglasses, everything changed. They gave him a brand new perspective on what’s important in life. Looking cool and blase became his purpose, his reason to live. With his Italian sports coat, beige linen pants and loafers he caught jealous looks and turned necks wherever he went. But it couldn’t last and when Chad’s beauty faded so did his will to live. He made a good-looking corpse, best clothes on, when he swallowed a whole can of diet pills.'
 		],
@@ -3694,7 +3705,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Panthera Tigris',
-		image: 'ggac_od_t2',
+		image: 'sfm_04',
 		description: [
 			'The rage of the tiger is legendary, and the king of the jungle will not be contained willingly. They may think they have you under control, but hell hath no fury like a caged tiger. As you break out, they will come to know this. Claws will rip and teeth will tear, flesh from bone, as you claim your kingdom.'
 		],
@@ -3705,7 +3716,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Scarface',
-		image: 'ggac_od_t2',
+		image: 'chc_terry',
 		description: [
 			'Scarface came to the US with nothing more than two empty hands and a bad attitude, the darkness in his heart matched only by the brilliance of his criminal mind. His mask tells the story, complete with the trail of blood he left in his wake as he began to make his mark.'
 		],
@@ -3716,7 +3727,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Scarface Begins',
-		image: 'ggac_od_t2',
+		image: 'chc_terry_begins',
 		description: [
 			'This is a clean version of the iconic Scarface mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -3728,7 +3739,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Lady Liberty',
-		image: 'ggac_od_t2',
+		image: 'spa_04',
 		description: [
 			'Liberty. Liberty for all those heisters that have fallen and been sent to prison. Liberty for all that gold which sits sadly in the dark basement vaults of banks. Liberty for the spirit of enterpise, the will to take what you want, the rule of the gun. Liberty for those seeking a bigger PAYDAY.'
 		],
@@ -3739,7 +3750,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Captain',
-		image: 'ggac_od_t2',
+		image: 'spa_01',
 		description: [
 			'Captain on the bridge! Guide your crew safely through the banks, and a favourite wind will lead you to great adventures. Strike the coast and take their treasure, then disappear over the horizon.'
 		],
@@ -3750,7 +3761,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Bird of Prey',
-		image: 'ggac_od_t2',
+		image: 'spa_03',
 		description: [
 			'Soar high, swoop down and strike your prey with merciless, deadly claws. Then fly home to your lofty nest, enjoying the spoils of your hunt. You are the apex predator and you shall devour it all.'
 		],
@@ -3761,7 +3772,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sailor',
-		image: 'ggac_od_t2',
+		image: 'spa_02',
 		description: [
 			'Sail on the treasure fleet - climb the rigging and keep an eye out for pursuing ships as you scour the sea for sunken gold. If they catch up with you, abandon ship like the rat you are - but don\'t forget to bring the gold.'
 		],
@@ -3772,7 +3783,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Red Machine',
-		image: 'ggac_od_t2',
+		image: 'grv_04',
 		description: [
 			'No one can stop the Red Machine! It’s fast, ice-cold and merciless. With swift moves, lightning strikes and flawless tactics it humiliates the oppostion, leaving them crying in desperation. Just like The Payday Gang.'
 		],
@@ -3783,7 +3794,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Matryoshka',
-		image: 'ggac_od_t2',
+		image: 'grv_02',
 		description: [
 			'Things are not always what they seem. Behind the mask there is a face, true. But what\'s behind the face? Another face, perhaps. How do you know where the real person is, and how many layers must be removed before you reach the core - the inner self?'
 		],
@@ -3794,7 +3805,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'War Balaclava',
-		image: 'ggac_od_t2',
+		image: 'grv_01',
 		description: [
 			'Half a block, half a block'
 		],
@@ -3805,7 +3816,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Kokoshnik',
-		image: 'ggac_od_t2',
+		image: 'grv_03',
 		description: [
 			'Finely crested for glory, this elaborate headpiece will impress. Wear it proudly, displaying the fine embriodery for all to envy. But watch out for low doorways.'
 		],
@@ -3816,7 +3827,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Almir',
-		image: 'ggac_od_t2',
+		image: 'ztm',
 		description: [
 			'This mask will instil',
 			'The Almir is a mask that many would hesitate to unleash on a crew. that many would hesitate to unleash on a crew. Someone crazy enough to wear it would be capable of great deeds one day, only to go on a psychotic rampage the next. But sometimes, that\'s the kind of person you need to get you out of a sticky situation and avoid botching a heist completely.',
@@ -3830,7 +3841,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Ethan',
-		image: 'ggac_od_t2',
+		image: 'ecp_male',
 		description: [
 			'This mask exudes power and brute force, in stark contrast to the man who wears it. Equal parts clown-like sadness and begrudging anger, it perfectly captures the mood of someone who has somewhat reluctantly chosen to be a heister.'
 		],
@@ -3841,7 +3852,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hila',
-		image: 'ggac_od_t2',
+		image: 'ecp_female',
 		description: [
 			'Something about this mask radiates a playful malice and most who gaze upon it immediately feel a sense of unease, which is just the kind of thing you need when you\'re robbing a bank.'
 		],
@@ -3852,7 +3863,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Ethan Begins',
-		image: 'ggac_od_t2',
+		image: 'ecp_male_begins',
 		description: [
 			'This is a clean version of Ethan\'s iconic mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -3864,7 +3875,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hila Begins',
-		image: 'ggac_od_t2',
+		image: 'ecp_female_begins',
 		description: [
 			'This is a clean version of Hila\'s iconic mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -3876,7 +3887,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Laughing Dragon',
-		image: 'ggac_od_t2',
+		image: 'dragon01',
 		description: [
 			'Do dragons laugh? For Real? They\'re usually such cranky bastards, even if some of them have nice manners. Still, imagine you\'re on the receiving end of a heister wearing this, gunning at you with a big, fat hand-cannon.'
 		],
@@ -3887,7 +3898,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mahakala',
-		image: 'ggac_od_t2',
+		image: 'daemon',
 		description: [
 			'There\'s probably a song based on the name of this mask out there somewhere. All those even syllables make for a catchy rhythm, don\'t they?'
 		],
@@ -3898,7 +3909,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Serenity',
-		image: 'ggac_od_t2',
+		image: 'godess',
 		description: [
 			'The label on this says it\'s great for those situations when you\'re all stressed out and need a bit of Feng Shui to center yourself. But note the fine print: \'The manufacturer takes no responsibility for its use, misuse or resulting incarceration!\''
 		],
@@ -3909,7 +3920,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Shouting Dragon',
-		image: 'ggac_od_t2',
+		image: 'dragon02',
 		description: [
 			'If the dragon is shouting, does that make the tiger roar? Usually, making a loud statement during a heist can be detrimental to its success. But you know, sometimes you just gotta roll with it because it\'s cool, so go ahead... treat yo\'self.'
 		],
@@ -3920,7 +3931,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sweettooth',
-		image: 'ggac_od_t2',
+		image: 'Sweettooth',
 		description: [
 			'Sweet Tooth, real name Marcus \'Needles\' Kane is a character from the Twisted Metal video game series. Sweet Tooth is best known for being a killer clown that drives a combat ice cream truck.',
 			'It\'s said that he once had escaped from a mental institution. He now leads a life of crime.'
@@ -3932,7 +3943,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Thespian',
-		image: 'ggac_od_t2',
+		image: 'Thespian',
 		description: [
 			'Thespian is a superhuman soldier of fortune. In the future, space marines like Thespian protect the world of mankind and its space colonies from the forces of evil.',
 			'His helmet is popular gift in the criminal underworld and is given to thieves, thugs and career criminals who show loyalty and patience to their syndicate.',
@@ -3945,7 +3956,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Griefer',
-		image: 'ggac_od_t2',
+		image: 'The_Griefer',
 		description: [
 			'The Griefer is a mythical beast, known to have been a part of this world long ago. The beast deliberately chased and harassed common folk in villages and towns, hunting them down in unsuspecting ways. The Griefer derived pleasure from these acts and was a threat to the peace until the King\'s men finally found him and destroyed him.'
 		],
@@ -3956,7 +3967,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Intuition',
-		image: 'ggac_od_t2',
+		image: 'The_Intuition',
 		description: [
 			'This mask belonged to a mysterious warrior from far away place. He walked the lands, guided by his intuition, hunting evil forces across the world. He ventured to dungeons and slew thousands of evil beings he came across. In the end, he found peace, knowing that the next generation would continue as he did.'
 		],
@@ -3967,7 +3978,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Frank',
-		image: 'ggac_od_t2',
+		image: 'frank',
 		description: [
 			'Frank is a monster, but he is - contrary to popular belief - a sensitive, emotional creature whose only aim is to share his life with another monster.',
 			'However, he realized from the moment of his \'birth\' that even his own creator cannot stand being around him. Knowing this, Frank decided to become a bank robber instead. The end.'
@@ -3979,7 +3990,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Pumpkin King',
-		image: 'ggac_od_t2',
+		image: 'pumpkin_king',
 		description: [
 			'Legend has it that a boy named Jack was getting chased by some villagers from whom he had stolen, when he suddenly bumped into the Devil.',
 			'Jack was a clever little heister and managed to convince the devil that the loot he was carrying was worth to be shared. The Devil agreed and the two ran to the escape horses and got away.'
@@ -3991,7 +4002,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Venomorph',
-		image: 'ggac_od_t2',
+		image: 'venomorph',
 		description: [
 			'When you see the Venomorph, you know it\'s game over, man. GAME OVER!',
 			'In reality, you better go back and hide, because it will be dark soon, and these babies mostly only come at night... Mostly.'
@@ -4003,7 +4014,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Witch',
-		image: 'ggac_od_t2',
+		image: 'witch',
 		description: [
 			'A witch is someone practicing black witchcraft, often with the aid of a devil or familiar.',
 			'It can be anything from an ugly old hag to a charming, alluring woman.',
@@ -4016,7 +4027,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Angry Baby',
-		image: 'ggac_od_t2',
+		image: 'baby_angry',
 		description: [
 			'GRRRRRRRR GRRR grrr grr grr GRRRR Wah, wah, WAAAAAAAAAAH! GRRR! Grr.',
 			'GRRRR grr GRRRR rawr GRRRRRRRRRRRRR, wahh, WAH, WAH, WAH, GRRR.'
@@ -4028,7 +4039,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Cry Baby',
-		image: 'ggac_od_t2',
+		image: 'baby_cry',
 		description: [
 			'Waaaah, waah, wah, WAAAAAAAAAAAAAAAAAH, wah, WAAAAAAAAH, WAAAAAAH!',
 			'WAAAAAAAAAAAAAAAAAH, wah, WAAAAAAAAH, WAAAAAAH, Waaaah, waah, wah. Wah. WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!'
@@ -4040,7 +4051,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Happy Baby',
-		image: 'ggac_od_t2',
+		image: 'baby_happy',
 		description: [
 			'Ffff, gaga, bo, gaga bo GAGA GAGA? GAGAGAGA? GAGA? Gagag GOGOGO GAGA? GAGA! GOGO! Bah. Gaga bah gogo go.',
 			'GAGA? GAGA! GOGO! Bah. GAGAGA? GAGA GOGO GAGAGA? GAGA! Gagaga gogoga. Fff.'
@@ -4052,7 +4063,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Brazil Baby',
-		image: 'ggac_od_t2',
+		image: 'brazil_baby',
 		description: [
 			'GAGA? GAGA! GOGO! Boo! GAGAGA? GAGA GOGO GAGAGA? GAGA? GAGA!  GAGAGA? GAGA GAGAGA?',
 			'GAGAGA? GAGAGAGOGO? Boo! BOOO! Gagagaga boo gaga.'
@@ -4064,7 +4075,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Invader',
-		image: 'ggac_od_t2',
+		image: 'invader',
 		description: [
 			'I want to belie... ZAP! May the for... ZAP! Live long a.. ZAP! Why can\'t we all just get along? Because ZAP! That\'s why.'
 		],
@@ -4075,7 +4086,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Satan',
-		image: 'ggac_od_t2',
+		image: 'satan',
 		description: [
 			'The second greatest trick the devil ever pulled was to be depicted as a big horned, red skinned demon. Now nobody knows who the person listening to music through their phone\'s speakers on the subway truly is.'
 		],
@@ -4086,7 +4097,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Risen Chains',
-		image: 'ggac_od_t2',
+		image: 'howl_chains_zombie',
 		description: [
 			'Go darker, hear the calling and become the daredevil of nightmares with an itchy trigger finger. This is a tribute to all the moments you have cheated death out on the field. You are a soldier from an army of darkness. Your veins are pumping of adrenaline and you have enough ammo packed to take on hell itself. Invincible in the darkness and ready to challenge death. All chains will break this time around and anyone in your path will meet their maker.',
 			'This mask is an achievement reward. It can\'t drop during a PAYDAY and it can\'t be sold. Instead, it can be returned to your mask stash for free, but any pattern, color or material as well as the customization fee to put that together will be lost.'
@@ -4098,7 +4109,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Risen Dallas',
-		image: 'ggac_od_t2',
+		image: 'hwl_dallas_zombie',
 		description: [
 			'There needs to be a harsh statement made about the rotting corruption penetrating every sinew of today\'s society. The self-deception, the scrambling for a false sense of a security. But you\'re not safe, not now and not ever. The American Dream is a brutally scarred nightmare disguised to lead poor souls astray. Take what you need; grab your future by the throat and force down your ambitions until it chokes on it. Mark where you tread with the bodies you leave in your wake.'
 		],
@@ -4109,7 +4120,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Risen Houston',
-		image: 'ggac_od_t2',
+		image: 'hwl_hoxton_zombie',
 		description: [
 			'This distorted face is what ghost stories are truly made of. You linger in the shadows, torn and grim. Before you step out and scare the living daylights out of anyone that crosses your path. The knowledge of true fear is gained from looking upon this horror. That fear, that delicious, pure, crispy fear is what drives this monster. It triggers an unquenchable thirst for more. Don\'t look, but don\'t close your eyes.',
 			'This mask is an achievement reward. It can\'t drop during a PAYDAY and it can\'t be sold. Instead, it can be returned to your mask stash for free, but any pattern, color or material as well as the customization fee to put that together will be lost.'
@@ -4121,7 +4132,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Risen Wolf',
-		image: 'ggac_od_t2',
+		image: 'hwl_wolf_zombie',
 		description: [
 			'The sheer sight is enough to drive an opponent into madness. As if made of blood and old bones, it\'s like a second skin on your face. Always listen to the choir of voices in the back of your head. The ones that keep telling you about the destructive things you should be doing. Succumb to the temptation, relish in your own insanity. This time, do not hold back. Not for anything. This time, drive any foes into your own roaming and frothing madness. Become the demon you truly are, cause you\'ve been to hell and you liked it. It\'s pointless to hold back, the only soothing is to feel an enemy\'s blood gently trickle down your lips',
 			'This mask is an achievement reward. It can\'t drop during a PAYDAY and it can\'t be sold. Instead, it can be returned to your mask stash for free, but any pattern, color or material as well as the customization fee to put that together will be lost.'
@@ -4133,7 +4144,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Envy',
-		image: 'ggac_od_t2',
+		image: 'sds_03',
 		description: [
 			'It isn\'t fair, is it? There you stand, deserving of everything in life and the cosmos refuse to give unto you. The Others smile and dance, while you twist inward, wondering why no one has gifted you with whatever success everyone else has been given for free. Oh, you want it so, but how could you ever dare to take it?'
 		],
@@ -4144,7 +4155,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Gluttony',
-		image: 'ggac_od_t2',
+		image: 'sds_06',
 		description: [
 			'There it is, your unquenchable need to stuff your face and fill your belly with the ravaging furor of someone in a constant state of starvation. And when you stop, it\'s like a gaping hole opens up in the pit of your stomache,'
 		],
@@ -4155,7 +4166,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Greed',
-		image: 'ggac_od_t2',
+		image: 'sds_07',
 		description: [
 			'More is never enough. No amount of gold or treasure can satisfy you. It\'s all about obtaining the next pile of needless wealth to add to your bloated coffers, be they spiritual or physical. The plights of your fellows matter are inconsequential if you can gain from their suffering.'
 		],
@@ -4166,7 +4177,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Lust',
-		image: 'ggac_od_t2',
+		image: 'sds_01',
 		description: [
 			'You lock your eyes on your prize until they water. Unattended, your slacking jaw lets slip a drop of saliva onto the floor as the need for possession takes over. The person you pine for is an object, the object is a person. It matters not, to your blinded senses.'
 		],
@@ -4177,7 +4188,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Pride',
-		image: 'ggac_od_t2',
+		image: 'sds_05',
 		description: [
 			'You are unbreakable. The ship is filling with water, but you refuse to move. Such are your principles that you would rather go into the deep with a failing institution than admit your folly and admit yourself as fallible as your peers. Justice is what you deem it to be, and damned be those who would oppose your righteous wisdom.'
 		],
@@ -4188,7 +4199,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sloth',
-		image: 'ggac_od_t2',
+		image: 'sds_02',
 		description: [
 			'Why bother? Let the universe expand, die and grow dark. You have endless time to lift your fingers in protest at whatever mindless chore that demands you exert yourself in the slightest. Your life energy oozes from your soul, wasted and dissolved in the emptiness as you remain perpetually drained of ambition.'
 		],
@@ -4199,7 +4210,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Wrath',
-		image: 'ggac_od_t2',
+		image: 'sds_04',
 		description: [
 			'There is a cold fire in your heart. All those who have wronged you will pay. If you so have to burn with them in the conflagration, you will extract payment for any perceived or actual slight against your person. There is no rationality to your rage- it must simply be indulged.'
 		],
@@ -4210,7 +4221,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Crossbreed',
-		image: 'ggac_od_t2',
+		image: 'ancient',
 		description: [
 			'A powerful alien race, described by some as the most advanced beings in the universe. Different races that have come in contact with them have different names for the Crossbreed.',
 			'Strong, lean and intelligent, the Crossbreed takes the best from the DNA of each alien race that it meets, always making sure it evolves in the right direction.'
@@ -4222,7 +4233,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Orc',
-		image: 'ggac_od_t2',
+		image: 'twitch_orc',
 		description: [
 			'Brutish, aggressive and generally repulsive, the orcs have always been a hated race. Orcs are larger stronger than their goblin cousins but smaller and less powerful than their ogre brethren.',
 			'This particular purple-skinned orc came from the Stonetremble clan who were known for their fierce warriors and overpowered, hybrid shamans.'
@@ -4234,7 +4245,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Lycanwulf',
-		image: 'ggac_od_t2',
+		image: 'lycan',
 		description: [
 			'\'Lycanwulf, Lycanwulf!\' they yelled, the frightened villagers, as they laid eyes upon this abomination known as the Lycanwulf. The petty humans were now prisoners of the beast, in a prison without walls, ceilings or a key, where the only escape was death.'
 		],
@@ -4245,7 +4256,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The One Below',
-		image: 'ggac_od_t2',
+		image: 'the_one_below',
 		description: [
 			'The head is what remains of this aquatic horror from the old days, when dark lords ruled the lands and good men grew up only to die; when the summer was short and the winter felt like an eternity; when the One Below stepped out of the ocean and walked the earth.'
 		],
@@ -4256,7 +4267,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Alpha Grey',
-		image: 'ggac_od_t2',
+		image: 'alien_helmet',
 		description: [
 			'Grey Aliens are alleged extraterrestrial beings whose existence is promoted in ufological, paranormal, and New Age communities, and who are named for their skin color.',
 			'Or are they?'
@@ -4268,7 +4279,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Anomaly',
-		image: 'ggac_od_t2',
+		image: 'area51',
 		description: [
 			'Forged from Penrose patterned rapidly quenched metallic alloys, this helmet was constructed from debris recovered from a top secret crash site. The government continues to deny any knowledge of its existence.'
 		],
@@ -4279,7 +4290,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Electarodent',
-		image: 'ggac_od_t2',
+		image: 'pokachu',
 		description: [
 			'Untrained, the Electarodent can be found nibbling sweet carrots or frolicking across Alpine meadows. However, fully trained, the Electarodent is most often found wielding Bernetti 9\'s and eating through the face-plates of Skulldozers'
 		],
@@ -4290,7 +4301,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Titan',
-		image: 'ggac_od_t2',
+		image: 'titan',
 		description: [
 			'Once, they strode amongs us. Cyclopean beings, tall as towers. They were old, even when our primate ancestors howled at fire. Now, they are gone, and only their shades come to us in half-dreamt race memories.'
 		],
@@ -4301,7 +4312,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Borsuk',
-		image: 'ggac_od_t2',
+		image: 'borsuk',
 		description: [
 			'There is more to being a world-class heister than picking up a gun. It requires training, conditioning and a singular focus on developing far beyond the norm. Such heisters are near mutants, who wade into furious battle and always emerge victorious.'
 		],
@@ -4312,7 +4323,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mask of the Moon',
-		image: 'ggac_od_t2',
+		image: 'moon',
 		description: [
 			'Legend speaks of an entity so malevolent it tried to smash the Moon into the Earth. Though defeated by four masked warriors, the entity escaped and inhabited... something. We hope it will never return, but remember: sometimes the man wears the mask, and sometimes the mask wears the man.'
 		],
@@ -4323,7 +4334,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Jack of Cards',
-		image: 'ggac_od_t2',
+		image: 'card_jack',
 		description: [
 			'A classic made into a mask. The standard 52-card deck is the most played deck of playing cards used today, and regardless if you are a rookie or professional player, you will most likely recognize this face. A proper poker face-mask.'
 		],
@@ -4334,7 +4345,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Queen of Cards',
-		image: 'ggac_od_t2',
+		image: 'card_queen',
 		description: [
 			'A classic made into a mask. The standard 52-card deck is the most played deck of playing cards used today, and regardless if you are a rookie or professional player, you will most likely recognize this face. A proper poker face-mask.'
 		],
@@ -4345,7 +4356,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'King of Cards',
-		image: 'ggac_od_t2',
+		image: 'card_king',
 		description: [
 			'A classic made into a mask. The standard 52-card deck is the most played deck of playing cards used today, and regardless if you are a rookie or professional player, you will most likely recognize this face. A proper poker face-mask.'
 		],
@@ -4356,7 +4367,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Joker of Cards',
-		image: 'ggac_od_t2',
+		image: 'card_joker',
 		description: [
 			'A classic made into a mask. The standard 52-card deck is the most played deck of playing cards used today, and regardless if you are a rookie or professional player, you will most likely recognize this face. A proper poker face-mask.'
 		],
@@ -4367,7 +4378,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Dozer Mask',
-		image: 'ggac_od_t2',
+		image: 'bobblehead_dozer',
 		description: [
 			'\'Senpai Noticed Me!!! :3\'',
 			'A big thank you to community member Far2close for making a hilarious version of an otherwise intimidating dozer face plate.',
@@ -4380,7 +4391,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'King of Jesters',
-		image: 'ggac_od_t2',
+		image: 'king_of_jesters',
 		description: [
 			'Wearing brightly coloured clothes and eccentric hats in a motley pattern, jesters have always had a place in these parts.',
 			'Whether walking on stilts, performing with fire or telling jokes; their sole purpose is to spread joy in our hearts.',
@@ -4394,7 +4405,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Floating Guy',
-		image: 'ggac_od_t2',
+		image: 'damned',
 		description: [
 			'As you walk down the corridor you see this scary, but also somewhat slow guy. Hovering there, ominously. Hard to tell if he\'s a threat or just floating around a bit. But then. A blast breaks the silence and you cease to exist. So next time you meet Floating Guy: come prepared and don\'t take him lightly.'
 		],
@@ -4405,7 +4416,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Garreth',
-		image: 'ggac_od_t2',
+		image: 'jig_01',
 		description: [
 			'In space you need a trusted companion. As everything from huge monsters on distant planets to space itself is deadly - you need an ally. Not just a hired gun. But instead a friend and a soldier that makes sure that you survive and others don\'t. Be happy that Garreth is on your team. Be happy that he helps you shepherd the herd'
 		],
@@ -4416,7 +4427,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Judge',
-		image: 'ggac_od_t2',
+		image: 'jig_02',
 		description: [
 			'\'Those pesky youngsters think they can just run around doing whatever they feel like. Don\'t they understand? I exist for a reason. One must obey me - my ruling and my saying. Escaping the world, just feeling free? What kind of life is that? Riding around on those yellow bird creations. No respect for the empire or the emperor. Disgraceful!\''
 		],
@@ -4427,7 +4438,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Party Hat',
-		image: 'ggac_od_t2',
+		image: 'spk_party',
 		description: [
 			'Party hats never get old. It\'s an essential accessory to any fun event, be it a festivity of misdeeds or a celebration of moving into a new home. Strap one on and loosen that tie. It\'s party time. Excellent.'
 		],
@@ -4438,7 +4449,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Clover',
-		image: 'ggac_od_t2',
+		image: 'pdc16_clover',
 		description: [
 			'The Mega Clover mask is an evolved version of the original mask. It symbolises transcendence and catharsis.',
 			'Thank you for your support.',
@@ -4451,7 +4462,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Sydney',
-		image: 'ggac_od_t2',
+		image: 'swm_sydney',
 		description: [
 			'The Mega Sydney mask is an evolved version of the original mask. It symbolises transcendence and catharsis.',
 			'Thank you for your support.',
@@ -4464,7 +4475,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Fedora',
-		image: 'ggac_od_t2',
+		image: 'fdm',
 		description: [
 			'The fedora, the very height of fashion and class. Where the line is drawn between boys and men. Carry this classical headgear with the pride and resolve that it deserves. Feel the legacy and tradition of the millions of gentlemen and gangsters that wore a fedora throughout the ages.'
 		],
@@ -4475,7 +4486,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Simon',
-		image: 'ggac_od_t2',
+		image: 'pbm',
 		description: [
 			'A wanna-be robber tried to knock over a liquor store, but neglected to properly conceil'
 		],
@@ -4486,7 +4497,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Brandon',
-		image: 'ggac_od_t2',
+		image: 'panther',
 		description: [
 			'Brandon has a thing for walking really, really fast.',
 			'Brandon is a panther, and panthers are large cats. One funny thing is that only the tiger, lion, leopard and jaguar has the anatomical structure which enables them to roar. Poor panther.'
@@ -4498,7 +4509,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Don Juan',
-		image: 'ggac_od_t2',
+		image: 'horse',
 		description: [
 			'Don Juan loves slamming doors in.',
 			'Knock, knock. Who\'s there? It\'s Don Juan. Prepare yourself.',
@@ -4511,7 +4522,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Richard',
-		image: 'ggac_od_t2',
+		image: 'rooster',
 		description: [
 			'Richard enjoys spending time with different personas and asking questions.',
 			'Do you like hurting other people?',
@@ -4526,7 +4537,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Tony',
-		image: 'ggac_od_t2',
+		image: 'tiger',
 		description: [
 			'Tony uses his fists of fury to beat the crap of anyone who messes with him.',
 			'Tony was born in the 1970s and was of Italian-American nationality. Many people easily recognize Tony. Probably in part because of his Tiger mask, and in part because of his physical brutality when dealing with people he don\'t like.'
@@ -4538,7 +4549,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Alex',
-		image: 'ggac_od_t2',
+		image: 'alex',
 		description: [
 			'One half of a brother and sister duo, Alex. Like swans, they are fierce. Unlike swans, they wield chainsaws and SMG\'s. Like swans, they are closely bonded. Unlike swans, they have a penchant for slaughter.'
 		],
@@ -4549,7 +4560,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Biker',
-		image: 'ggac_od_t2',
+		image: 'biker',
 		description: [
 			'When you\'re a thrill-seeker, and a risk-taker, and a live-for-the-moment kind of heister, it is important to have at least some measure of protection. That also goes if you are a meat-cleaver waving maniac.'
 		],
@@ -4560,7 +4571,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Corey',
-		image: 'ggac_od_t2',
+		image: 'corey',
 		description: [
 			'When you\'re the most delicious lunch on the savannah, you have to be fast, agile and cunning if you\'re going to survive. Corey is all of these things. Zebras are also peaceful, gentle and herbivorous. Corey is none of these things.'
 		],
@@ -4571,7 +4582,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Jake',
-		image: 'ggac_od_t2',
+		image: 'jake',
 		description: [
 			'There\'s no such thing as a good snake, but even among the deadly serpents the cobra is bad news. The broad hood, when seen, is a display of threat - so run. Its long fangs can pierce elephant skin - so run. And just a drop of its venom can fell a dozer - so... look, basically, when you see this, just run. Because they also spit.'
 		],
@@ -4582,7 +4593,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Richter',
-		image: 'ggac_od_t2',
+		image: 'richter',
 		description: [
 			'Like the rat, Richter is a silent killer. It can make its way into just about anywhere - into the most secure banks and apartments. It can avoid detection when it wants, and, once there, spread death like a plague. It kills without remorse. Nothing personal.'
 		],
@@ -4593,7 +4604,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Tony\'s Revenge',
-		image: 'ggac_od_t2',
+		image: 'tonys_revenge',
 		description: [
 			'The near-perfect predator. Tigers are immensely strong, yet fast. They are brutal, yet patient. They can stalk silently, before exploding into violence. The perfect killing machine. Despite this, the tiger is in decline. Poachers prize the tiger penis in traditional medicine. So don\'t get taken alive.'
 		],
@@ -4604,7 +4615,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Richard Begins',
-		image: 'ggac_od_t2',
+		image: 'richard_begins',
 		description: [
 			'This is a clean version of the iconic Richard Returns mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -4616,7 +4627,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Richard Returns',
-		image: 'ggac_od_t2',
+		image: 'richard_returns',
 		description: [
 			'Is this mask a reflection of a deep-seated psychological problem? Possibly a dissociative identity disorder? Schizophrenia? Trauma of a disturbed psyche? Or is it not a reflection at all, but instead something to cause them?'
 		],
@@ -4627,7 +4638,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hothead',
-		image: 'ggac_od_t2',
+		image: 'hothead',
 		description: [
 			'With the rage of fearsome volcano, the hostile Hothead lights up the night with blazing speed! What ignites his frenzied flame? From what does the raging bull run? Very few have caought up close enough to ask, and even fewer have gotten a coherent response!'
 		],
@@ -4638,7 +4649,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'SpeedRunner',
-		image: 'ggac_od_t2',
+		image: 'speedrunner',
 		description: [
 			'It\'s time for a speedy run! SpeedRunner is the people\'s champ in New Rush City. Running, sliding, swinging his way toward crime and those in need, he accepts no less than first place. SpeedRunner\'s got the need... for running!'
 		],
@@ -4649,7 +4660,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Falcon',
-		image: 'ggac_od_t2',
+		image: 'falcon',
 		description: [
 			'Life\'s not all about speed and running! With his livelihood destroyed from a speedy accident, he became the hero that New Rush City truly deserves. Flacon vows to take down SpeedRunner and get the city back. Is Falcon the only one sane in a world gone mad- or is he a man in a chicken suit?'
 		],
@@ -4660,7 +4671,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Unic',
-		image: 'ggac_od_t2',
+		image: 'unic',
 		description: [
 			'Clop Clop- who\'s there? It\'s Unic! In the dark streets of New Rush City, what could shine brighter than an honest smile? Galloping in meadows, and sharing time with his friends, Unic is dedicated to showing the world\'s positive side, A pink leotard and purple boots make this speedy runner truly unique!'
 		],
@@ -4671,7 +4682,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Feeder',
-		image: 'ggac_od_t2',
+		image: 'dbd_02',
 		description: [
 			'Feeder has dislodged his jaw with one sole purpose: to be able to swallow a whole, human heart. When he roams the night he seeks out teens with strong hearts that can sustain him. So if you spot a corpse with a ripped chest - run.'
 		],
@@ -4682,7 +4693,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Dendron',
-		image: 'ggac_od_t2',
+		image: 'dbd_03',
 		description: [
 			'A dark forest is scary to anyone, no matter how old you are. You fear whatever is in it, and the things lurking in the shadows. But you seldom think of the actual trees. You never think of Dendron. And when you do, it\'s already too late. Dendron strikes without mercy. So fear not what\'s behind the trees, but instead the trees.'
 		],
@@ -4693,7 +4704,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Ameonna',
-		image: 'ggac_od_t2',
+		image: 'sha_01',
 		description: [
 			'Mighty horned demon. Vengeful, weeping destroyer. Do not arouse her anger.'
 		],
@@ -4704,7 +4715,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Co-Cop Ninja',
-		image: 'ggac_od_t2',
+		image: 'sha_02',
 		description: [
 			'Strike fast, strike hard, strike silently. You will leave even the cloakers sulking in shame.'
 		],
@@ -4715,7 +4726,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hata Mari',
-		image: 'ggac_od_t2',
+		image: 'sha_04',
 		description: [
 			'A fast and agile killer, sending blades flying through the air. Always ready to strike. A popular killer with many fans.'
 		],
@@ -4726,7 +4737,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Thorntail',
-		image: 'ggac_od_t2',
+		image: 'sha_03',
 		description: [
 			'Be an aggressive, merciless, swarming menace. As you roll into town, death follows in the form of fire.'
 		],
@@ -4737,7 +4748,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'DOME',
-		image: 'ggac_od_t2',
+		image: 'ant_04',
 		description: [
 			'Dome was the centerpiece of a grand scheme, planned and set in motion by the other side. A simple robot, assembled to restore/reassemble/rearrange, Dome was on mission to reassemble a government building that got destroyed by the enemy. A stealth attack - to take out Commander Wasp - was taking place near the location as the Commander\'s car drove passed the debris. Dome saw the coming attack and sacrificed himself to protect the Commander by throwing himself in front of the car, making it steer away from the blast. Wasp survived, Dome did not.'
 		],
@@ -4748,7 +4759,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'DRONE',
-		image: 'ggac_od_t2',
+		image: 'ant_06',
 		description: [
 			'Engineered to be as lethal as robotly possible. Drone was solely responsible for the Great Purge. Forever imprinted in all minds and historical dataservers. Drone had the skills needed to go beyond what was expected by a \'grunt\'. Someone who seemed disposable. but would prove invaluable. The Great Purge turned the war: sleeper cells got exposed, robots got disconnected, and the Hive Mind lost thousands of zettabytes. Drone became a statue to be gazed upon in Ming Ji Memorial Park.'
 		],
@@ -4759,7 +4770,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'INTERCEPTOR',
-		image: 'ggac_od_t2',
+		image: 'ant_01',
 		description: [
 			'Interceptor model BX-99 was built to keep \'things in order\'. A mission with a lof to interpret. Roaming the streets, making sure that civilians are safe and that things are \'OK\'. This Interceptor took things too far as a situation occurred near a assembly factory. Some civilians came to harm, others destroyed, ammo slugs filled the air, and Interceptor did what it thought was absolutely necessary to not obstruct the assembly factory. Interceptor BX-99 with serial number 151010130807 was later disassembled.'
 		],
@@ -4770,7 +4781,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'MOTH',
-		image: 'ggac_od_t2',
+		image: 'ant_03',
 		description: [
 			'Every war has its traitor. Moth was one of them. A sentinel robot assembled to retrieve information - by any means necessary. But hierarchy and power are often coveted. Wars breed corruption, and Moth followed his logic and switched sides - causing millions of robots to disconnect. Celebrated by one side and hated by another - Moth came to be one of the pawns that turned the war.'
 		],
@@ -4781,7 +4792,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'RAPTOR',
-		image: 'ggac_od_t2',
+		image: 'ant_08',
 		description: [
 			'Raptor was a fighter pilot. Hooked into the central hub on each plane he flew, he steered with certainty. It became a matter of accumulated knowledge. Even though all pilots got the same software installed - an AI learns. And somehow, Raptor managed to stay alive enough to keep his knowledge. The Hive Mind was off limits to fighter pilots, as they could be captured and hacked when they crossed into enemy territory. But Raptor learned to be the best at taking out enemy bases without hesitation.'
 		],
@@ -4792,7 +4803,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'VIZOR',
-		image: 'ggac_od_t2',
+		image: 'ant_02',
 		description: [
 			'Robot wars are easy to make fun of. Dead things that fight other dead things. But as the AI evolved, things turned real. Soldiers like Vizor played a crucial role in the mayhem orchestrated by long dead humans. Humans who pushed the button, but failed to experience the consequences. As robots turned against robots, soldiers like Vizor rose, and those with a heartbeat became a memory.'
 		],
@@ -4803,7 +4814,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'SKULL',
-		image: 'ggac_od_t2',
+		image: 'ant_05',
 		description: [
 			'Every war requires executioners. Not a simple soldier, but someone who can take a life with a threatening demeanor. Someone working for the \'system\', who blindly follow orders. Skull was one of those. Someone who, tirelessly disconnected robot after robot, war criminals and everyone else deemed \'dangerous\' to the \'cause\'.'
 		],
@@ -4814,7 +4825,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'WASP',
-		image: 'ggac_od_t2',
+		image: 'ant_07',
 		description: [
 			'Commander Wasp sat on incredible technical capacity. Strength and intelligence was by far superior to the other side. A prototype that would have the needed circuits to outsmart the opposing forces. But an untested prototype. Something rushed. Something that was too experimental. Madness strikes circuit boards, but we refer to it as a \'bug\'. Killing his fellow troops in a rage of paranoia - Commander Wasp became a criminal of war.'
 		],
@@ -4825,7 +4836,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Bullet',
-		image: 'ggac_od_t2',
+		image: 'eng_01',
 		description: [
 			'Equipped with his Blasphemy sword of infinite ammo the Bullet'
 		],
@@ -4836,7 +4847,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Cultist',
-		image: 'ggac_od_t2',
+		image: 'eng_03',
 		description: [
 			'Always being referred to as \'Number 2\' the Cultist'
 		],
@@ -4847,7 +4858,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Marine',
-		image: 'ggac_od_t2',
+		image: 'eng_04',
 		description: [
 			'The Marine was a guard stationed at Primerdyne R&amp;D when an experiment went awry and unleashing'
 		],
@@ -4858,7 +4869,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Robot',
-		image: 'ggac_od_t2',
+		image: 'eng_02',
 		description: [
 			'The Robot was an honored member of the killbot army. When commanded by his master, EMP-R0R to kill the leader of the human resistance, he broke protocol, failing to eliminate humanity.'
 		],
@@ -4869,7 +4880,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Futuras',
-		image: 'ggac_od_t2',
+		image: 'rvd_02',
 		description: [
 			'Look no further for a bad ass cherry to put on top of your Ice Cream of Minigun mayhem.'
 		],
@@ -4880,7 +4891,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Producers',
-		image: 'ggac_od_t2',
+		image: 'rvd_01',
 		description: [
 			'These frames harken back to a time when moon-landings were envisioned, all dreams were possible and people all dressed a little nicer.'
 		],
@@ -4891,7 +4902,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Dons',
-		image: 'ggac_od_t2',
+		image: 'rvd_01',
 		description: [
 			'True class is eternal when accepted by scoundrels and heroes alike.'
 		],
@@ -4902,7 +4913,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Dallas',
-		image: 'ggac_od_t2',
+		image: 'dallas',
 		description: [
 			'The mask that everyone fears.'
 		],
@@ -4913,7 +4924,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Chains',
-		image: 'ggac_od_t2',
+		image: 'chains',
 		description: [
 			'The mask of Chains.'
 		],
@@ -4924,7 +4935,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hoxton',
-		image: 'ggac_od_t2',
+		image: 'hoxton',
 		description: [
 			'The mask of Hoxton.'
 		],
@@ -4935,7 +4946,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Wolf',
-		image: 'ggac_od_t2',
+		image: 'wolf',
 		description: [
 			'The mask of Wolf.'
 		],
@@ -4946,7 +4957,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Dallas Begins',
-		image: 'ggac_od_t2',
+		image: 'dallas_clean',
 		description: [
 			'This is a clean version of the iconic Dallas mask,before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -4958,7 +4969,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Chains Begins',
-		image: 'ggac_od_t2',
+		image: 'chains_clean',
 		description: [
 			'This is a clean version of the iconic Chains mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -4970,7 +4981,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hoxton Begins',
-		image: 'ggac_od_t2',
+		image: 'hoxton_clean',
 		description: [
 			'This is a clean version of the iconic Hoxton mask,before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -4982,7 +4993,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Wolf Begins',
-		image: 'ggac_od_t2',
+		image: 'wolf_clean',
 		description: [
 			'This is a clean version of the iconic Wolf mask,before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -4994,7 +5005,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Anonymous',
-		image: 'ggac_od_t2',
+		image: 'anonymous',
 		description: [
 			'Don the mask, become anonymous and do as you wish.',
 			'Do it because you mean it, do it because you were told to, or do it for the lulz.',
@@ -5007,7 +5018,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Cthulhu',
-		image: 'ggac_od_t2',
+		image: 'cthulhu',
 		description: [
 			'A mask with a hideous appearance, the very face of terror.',
 			'They say that an evil beast has many names. That must be why this beast is known as Tulu, Clulu, Clooloo, Cthulu, C\'thulhu, Cighulu, Cathulu, C\'thlu among other names,',
@@ -5020,7 +5031,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Dillinger Death Mask, The',
-		image: 'ggac_od_t2',
+		image: 'dillinger_death_mask',
 		description: [
 			'John Herbert Dillinger was a famous American bank robber.',
 			'His gang robbed two dozen banks and even four police stations.',
@@ -5033,7 +5044,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Grin, The',
-		image: 'ggac_od_t2',
+		image: 'grin',
 		description: [
 			'There once was a man and his brother.',
 			'Together, they owned a successful company.',
@@ -5047,7 +5058,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Somen Mempo',
-		image: 'ggac_od_t2',
+		image: 'samurai',
 		description: [
 			'In ancient Japan, samurai warriors wore somen masks to protect themselves in war and to incite fear in their enemies. Somen masks were tied to the large kabuto helmets, making the samurai look like demons from jigoku.',
 			'No one knows what fierce and ruthless warrior wore this intimidating mask in the past. Now however, it is ready for battle once more.',
@@ -5060,7 +5071,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hoxton Reborn',
-		image: 'ggac_od_t2',
+		image: 'old_hoxton',
 		description: [
 			'The Hoxton Reborn mask is a mask that Hoxton made while in prison. For him, it\'s a symbol of everything he experienced in the past years while the PAYDAY gang kept on going without him. No one knows how his experiences in prison has changed him, and he won\'t talk about it when asked.',
 			'All we can assume is that he has been changed forever, and that he is reborn into... Something different.'
@@ -5072,7 +5083,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Hard Hat',
-		image: 'ggac_od_t2',
+		image: 'hectors_helmet',
 		description: [
 			'When you rat out the Payday gang, you need to expect some form of retribution. And the gang aren\'t big on wagging fingers and a stern telling off. You can expect bullets, and plenty of them. This hard hat is cold school riot cop tech - heavy iron, fronted with reinforced glass. Good luck getting through it.'
 		],
@@ -5083,7 +5094,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Rad Mutant',
-		image: 'ggac_od_t2',
+		image: 'grendel',
 		description: [
 			'Genetic mutation is the key to our evolution. Assuming that our evolution is of the green, scaly, homicidal and irradiated kind.',
 			'This mask is an achievement reward.It can\'t drop during a PAYDAY and can\'t be sold. It can be returned to your mask stash for free, but any pattern, color or material as well as the customization fee to put these together will be lost.'
@@ -5095,7 +5106,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Rust',
-		image: 'ggac_od_t2',
+		image: 'mrm',
 		description: [
 			'The Mega Rust mask is an evolved version of the original mask. It symbolises transcendence and catharsis.',
 			'Thank you for your support.',
@@ -5108,7 +5119,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Sangres',
-		image: 'ggac_od_t2',
+		image: 'mega_max',
 		description: [
 			'As the drunken tale goes, the gods themselves came together in Xibala to forge this mask, which has been tempered in the blood of 1000 warriors and cleansed tequila made from the tears of 1000 virgins. Well, that\'s what Sangres says. And really, who\'s gonna argue with him?',
 			'Thank you for your support.',
@@ -5121,7 +5132,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'StarVR',
-		image: 'ggac_od_t2',
+		image: 'starvr',
 		description: [
 			'Real life is dirty, uncomfortable, sticky, sweaty, stinky, it tastes bad and leaves you old and broken. Screw that. The StarVR Headset lets you immerse yourself in a virtual world of incredible realism.'
 		],
@@ -5132,7 +5143,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Death',
-		image: 'ggac_od_t2',
+		image: 'mdm',
 		description: [
 			'Death can be the end but it can also be a beginning, a transcendence and catharsis. And Mega Death has a million times the power of Death.'
 		],
@@ -5143,7 +5154,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Duke',
-		image: 'ggac_od_t2',
+		image: 'mmh',
 		description: [
 			'Aristole, Plato, Confucius, Michelangelo, DaVinci, Newton, Galileo... artists and thinkers forever engraved in history. And somewhere in that history, the place of a heister is assured. Contained herein is their essence, so magnificent in combination that the very surface of the mask can barely contain it.'
 		],
@@ -5154,7 +5165,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Omen',
-		image: 'ggac_od_t2',
+		image: 'maw_01',
 		description: [
 			'The mask is made from ancient stone, with carvings from each previous owner, and a symbol that radiates immense power. As the writing on the edge suggests, it is the beginning of the end for anyone who opposes the wearer.'
 		],
@@ -5165,7 +5176,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Bonnie',
-		image: 'ggac_od_t2',
+		image: 'bonnie',
 		description: [
 			'Few nations have contributed to humanity as Scotland has. In every field of endeavor - science, arts, cuisine - it is the people of this blessed land that give freely and generously. With this mask, Bonnie is determined to reverse this trend.'
 		],
@@ -5176,7 +5187,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Bonnie Begins',
-		image: 'ggac_od_t2',
+		image: 'bonnie_begins',
 		description: [
 			'This is a clean version of the iconic Bonnie mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -5188,7 +5199,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hoxton Reborn Begins',
-		image: 'ggac_od_t2',
+		image: 'old_hoxton_begins',
 		description: [
 			'This is a clean version of the iconic Hoxton Reborn mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -5200,7 +5211,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Bodhi',
-		image: 'ggac_od_t2',
+		image: 'bodhi',
 		description: [
 			'Masks have always been used in spiritual traditions that relate to deities, the divine and those chasing the apotheosis of the self. Bodhi\'s mask reflects the man behind it. Strong, cunning, single-minded and centered.'
 		],
@@ -5211,7 +5222,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Bodhi Begins',
-		image: 'ggac_od_t2',
+		image: 'bodhi_begins',
 		description: [
 			'This is a clean version of the iconic Bodhi mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
@@ -5223,7 +5234,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Jimmy',
-		image: 'ggac_od_t2',
+		image: 'jimmy_duct',
 		description: [
 			'Jimmy hasn\'t really made many masks before he made his signature mask - and it shows. His mask design captures his free spirit and his disregard to things as appearance, planning and such. Good is good enough for Jimmy, he doesn\'t get stuck in ideas and wants to move forward at all times.'
 		],
@@ -5234,7 +5245,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The White Death',
-		image: 'ggac_od_t2',
+		image: 'jimmy',
 		description: [
 			'Jimmys second attempt at making a mask went much better - that\'s because he got some help from Gage. It represents the Grim Reaper himself if he was coked up. The mask captures both the crazy and deadly sides of Jimmy, aimed to sending fear into his enemies.'
 		],
@@ -5245,7 +5256,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Collateral',
-		image: 'ggac_od_t2',
+		image: 'jw_shades',
 		description: [
 			'These shades belonged to a colleague of John\'s that he was hired to kill.',
 			'It started like any other night. Only this night, he got a contract to kill another contract killer who was making rounds that day. John knew he had five stops to make and was using the same taxi cab between all of them.',
@@ -5258,7 +5269,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sangres',
-		image: 'ggac_od_t2',
+		image: 'max',
 		description: [
 			'The skull is Death, Sangres\' faithful companion throughout his career. The gold tooth is the coin that has been paid. The kill counter represents his past as a hitman, the blood-red ruby the new wealth he\'s seeking in the US. Sangres\' name spreaks of the many bloody episodes in his life, and that red blood is also present on his mask.'
 		],
@@ -5269,7 +5280,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Sangres Begins',
-		image: 'ggac_od_t2',
+		image: 'max_begins',
 		description: [
 			'This is a clean version of the iconic Sangres mask, before it was painted.'
 		],
@@ -5280,7 +5291,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Duke',
-		image: 'ggac_od_t2',
+		image: 'myh',
 		description: [
 			'Duke is a man of culture, virtue and stone-hard composure. Thus his mask has been modeled of of the',
 			'A big draw for Duke is his love for mystery- you never really know what\'s inside the safe until you open it, or behind the painting until you take it out of the frame. And with the Payday gang, the biggest mystery may be just around the corner...'
@@ -5292,7 +5303,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Duke Begins',
-		image: 'ggac_od_t2',
+		image: 'myh_begins',
 		description: [
 			'This is a clean version of the iconic Duke mask, before it was painted.'
 		],
@@ -5303,7 +5314,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Joy',
-		image: 'ggac_od_t2',
+		image: 'joy',
 		description: [
 			'Bring back disco in style and confuse the hell out of your enemies when they gaze into your fabulously flashy face.'
 		],
@@ -5314,7 +5325,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Joy Begins',
-		image: 'ggac_od_t2',
+		image: 'joy_begins',
 		description: [
 			'Flair and flash always have to start somewhere. Sometimes it\'s a thumping white basline,'
 		],
@@ -5325,7 +5336,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Normal Skull, The',
-		image: 'ggac_od_t2',
+		image: 'dnm',
 		description: [
 			'A strange thing, the human skull. It\'s both simple and beautiful. Humans can often recognize a human skull, even if it\'s only partially shown. The human brain even has a special region for it.',
 			'You finished all heists on the Normal difficulty? What are you, some kind of gangster? Maybe this mask will suit you after all.'
@@ -5337,7 +5348,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Hard Skull, The',
-		image: 'ggac_od_t2',
+		image: 'skullhard',
 		description: [
 			'A strange thing, the human skull. Humans can often recognize a human skull, even if it\'s only partially shown. The human brain even has a specific region for it.',
 			'You finished all heists on the Hard difficulty? What are you, some kind of pro? Maybe this mask will suit you after all.'
@@ -5349,7 +5360,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Very Hard Skull, The',
-		image: 'ggac_od_t2',
+		image: 'skullveryhard',
 		description: [
 			'A strange thing, the human skull. Not that this skull looks that human anymore. Humans can often recognize a human skull, even if it\'s only partially shown. The human brain even has a specific region for it. There\'s something strange with this skull though.',
 			'You finished all heists on the Very Hard difficulty? What are you, some kind of monster? Maybe this mask will suit you after all.'
@@ -5361,7 +5372,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'OVERKILL Skull, The',
-		image: 'ggac_od_t2',
+		image: 'skulloverkill',
 		description: [
 			'Holy Shit - what is this new devilry? Humans can often recognize a human skull, even if it\'s only partially shown. The human brain even has a specific region for it. This doesn\'t look like a human skull however.',
 			'You finished all heists on the OVERKILL difficulty? What are you, some kind of pit fiend? Maybe this mask will suit you after all.'
@@ -5373,7 +5384,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mayhem Skull, The',
-		image: 'ggac_od_t2',
+		image: 'gitgud_e_wish',
 		description: [
 			'Your full potential is close. Embrace the change. Humans can often recognize a human skull, even if it\'s only partially shown. The human brain even has a specific region for it. This doesn\'t look like a human skull however, but you don\'t have to worry about it.',
 			'You finished all heists on Mayhem difficulty? What are you, some kind of beast? Maybe this mask will suit you after all.'
@@ -5385,7 +5396,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Death Wish Skull, The',
-		image: 'ggac_od_t2',
+		image: 'skulloverkillplus',
 		description: [
 			'OVERKILL salutes you, bringer of death, slayer of law enforcers and finisher of difficulties. Humans can often recognize a human skull, even if only partially shown. The human brain even has a specific region for it. This isn\'t a human skull however, this is something completely different.',
 			'You finished all heists on the Death Wish difficulty? What are you, some kind of demon? Maybe this mask will suit you after all.'
@@ -5397,7 +5408,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Death Sentence Skull, The',
-		image: 'ggac_od_t2',
+		image: 'gitgud_sm_wish',
 		description: [
 			'DEMON! The Humans can often recognize a human skull, even if it\'s only partially shown. The human brain even has a specific region for it. This is definitely not a human skull anymore. This is what happens when you summon your demonic powers to get good.',
 			'We at OVERKILL are surprised, baffled and genuinely impressed. You did it. You are among a certain few who stuck with it and actually finished the hardest difficulty we could think of. You fought, you suffered and you persevered. You have our eternal respect, you ruler of demons.'
@@ -5421,7 +5432,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Classy Monocle',
-		image: 'ggac_od_t2',
+		image: 'skm_03',
 		description: [
 			'If only this magnificent seeing glass contained a monolens, but alas it will only help you look classically stylish while typing the correct key combo on a vault.'
 		],
@@ -5432,7 +5443,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Fancy Top Hat',
-		image: 'ggac_od_t2',
+		image: 'skm_01',
 		description: [
 			'There is something for the distinguished heister in everyone. This vintage hat, made by famous hatters in New York, is sure to distract the gaze of any law enforcement officer.'
 		],
@@ -5443,7 +5454,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Spirit Fox',
-		image: 'ggac_od_t2',
+		image: 'smo_02',
 		description: [
 			'In the woods of Okinawa, legends say there lives a spirit of a fox with a head of flame. Being seen by this fox is said to be a blessing, but being seen by a heister wearing this mask, is probably not!'
 		],
@@ -5454,7 +5465,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Classically Fancy Super Villain',
-		image: 'ggac_od_t2',
+		image: 'skm_04',
 		description: [
 			'Ultimate old-school evil. Whether combined with a tail coat or body armor, this set will tell all that you mean business, in the most criminal sense.'
 		],
@@ -5465,7 +5476,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Super Villain Moustache',
-		image: 'ggac_od_t2',
+		image: 'skm_02',
 		description: [
 			'Wax on, wax off. Twirl it to your heart\'s content as you disappear into the foggy night with your bounty and laugh.'
 		],
@@ -5476,7 +5487,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Arcade Simian',
-		image: 'ggac_od_t2',
+		image: 'smo_05',
 		description: [
 			'When wearing this mask, you can always pretend that the grenades you\'re lobbing at the cops are barrels. They won\'t appreciate it, but it might break up the monotony of blowing things up!'
 		],
@@ -5487,7 +5498,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Black Bird',
-		image: 'ggac_od_t2',
+		image: 'smo_06',
 		description: [
 			'Oh, how you can ponder, all rich and sweary, over a quaint and not-forgotten pile of cash. Quote, The Heister.'
 		],
@@ -5498,7 +5509,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Chibi Kitteh',
-		image: 'ggac_od_t2',
+		image: 'smo_01',
 		description: [
 			'If a heister walks down the street wearing this mask, the world knows he\'s not afraid of anything, nine lives be damned!'
 		],
@@ -5509,7 +5520,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Jamaican Nightmare',
-		image: 'ggac_od_t2',
+		image: 'smo_04',
 		description: [
 			'Some Voodoo priests claim to know the secret of eternal life. There\'s no guarantee that wearing this mask will grant it, but it\'ll likely scare the crap out of your enemies. And it might get you invited to a Jamaican barbeque.'
 		],
@@ -5520,7 +5531,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Poly Goat',
-		image: 'ggac_od_t2',
+		image: 'smo_03',
 		description: [
 			'Satanic worshippers from a video game in the 1990s called and want their low-poly goat back. Are you gonna give it, or just stick it to \'em?'
 		],
@@ -5531,7 +5542,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Optimist Prime',
-		image: 'ggac_od_t2',
+		image: 'skm_05',
 		description: [
 			'Robot Overlords from the Future rejoice! For thy leader has come, and is the bearer of many positively charged particles.'
 		],
@@ -5542,7 +5553,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Pirate',
-		image: 'ggac_od_t2',
+		image: 'skm_07',
 		description: [
 			'Skulltooth the Terrible, ye most mystical of Pirate Kings, will shiver the timbers of any law enforcement officers present. Yarr!'
 		],
@@ -5553,7 +5564,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Vlad Armor',
-		image: 'ggac_od_t2',
+		image: 'skm_08',
 		description: [
 			'Rumor has it that this helmet was found in an abandoned Russian nuclear facility and that its wearer will gain super powers over time. But it\'s just a rumor.'
 		],
@@ -5564,7 +5575,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega War',
-		image: 'ggac_od_t2',
+		image: 'skm_06',
 		description: [
 			'With this helmet, make the cops think they are being assaulted by the God of All 80s Metal Bands!'
 		],
@@ -5575,7 +5586,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Anubis',
-		image: 'ggac_od_t2',
+		image: 'smo_11',
 		description: [
 			'Bark like an Egyptian god and stand guard for eternity as you watch over and protect your piles of loot.'
 		],
@@ -5586,7 +5597,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Biker',
-		image: 'ggac_od_t2',
+		image: 'smo_07',
 		description: [
 			'Any child of the 1980s would kill for this mask. Show everyone who really rules the neon highways.'
 		],
@@ -5597,7 +5608,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Krampus',
-		image: 'ggac_od_t2',
+		image: 'smo_08',
 		description: [
 			'Devils and demons alike will tremble in awe as they behold the glory of any heister that chooses to don this mask.'
 		],
@@ -5608,7 +5619,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Robber Fly',
-		image: 'ggac_od_t2',
+		image: 'smo_12',
 		description: [
 			'Make both cops and civillians'
 		],
@@ -5619,7 +5630,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Smiley',
-		image: 'ggac_od_t2',
+		image: 'smo_09',
 		description: [
 			'See the torturously happy grin, the rotting golden teeth, and the deeply mesmerizing glare of this ultimate tribute to the Tragic Clown.'
 		],
@@ -5630,7 +5641,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Tiara',
-		image: 'ggac_od_t2',
+		image: 'smo_10',
 		description: [
 			'Prom queens ain\'t got nothin\' on the heister who wears this shiny piece of forehead decor. Rumor has it that the gemstones all came from a Perseid meteorite that fell to Earth in the 1800s.'
 		],
@@ -5641,7 +5652,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Secret Chains Mask',
-		image: 'ggac_od_t2',
+		image: 'sms_02',
 		description: [
 			'Chains never took the search for the Secret too seriously, often calling it a bunch of \'weird mumbo jumbo\'. As a practical man, with real-world sensibilities, he has however remained steadfast and loyal, trusting in his relationship with Bain.'
 		],
@@ -5652,7 +5663,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Secret Dallas Mask',
-		image: 'ggac_od_t2',
+		image: 'sms_01',
 		description: [
 			'Dallas sometimes felt Bain held out on him regarding certain details of the Secret. After the job in the First World Bank, Bain never did explain why the Mayan gold was so important. The Payday gang is a family, and trust isn\'t always bullet-proof, but Dallas has come to understand Bain\'s need for secrecy now, at the end. And his wisdom let them both get what they each wanted.'
 		],
@@ -5663,7 +5674,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Secret Hoxton Mask',
-		image: 'ggac_od_t2',
+		image: 'sms_03',
 		description: [
 			'Hoxton left the Old Country to get his Payday in the new. When Bain first told him about the Secret, he fancied the idea of going after ancient items for their potential value, never really caring whether or not the legendary power Bain talked about was real or not.'
 		],
@@ -5674,7 +5685,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Secret Wolf Mask',
-		image: 'ggac_od_t2',
+		image: 'sms_04',
 		description: [
 			'Wolf has always been a violent and unpredictable ally, so initially Bain was unsure about how much about the hunt for the Secret he should tell him. Eventually, his worth became clear, but when Bain eventually revealed his quest, Wolf went crazy over it. Not only would he reap the golden benefits, he also loves a good conspiracy.'
 		],
@@ -5685,7 +5696,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Guardian of Kings',
-		image: 'ggac_od_t2',
+		image: 'scm_01',
 		description: [
 			'Bast, consort of Anubis, worshipped by the ancient Egyptians as a feline warrior, but in fact a much older force in the world. Blessed by her power, the Guardians of The Ark of the Watcher don her mask in tribute as they carry out their unending task. It is said that mortals who wear her visage are blessed with uncanny luck, and have the ability to trick death when it comes calling.'
 		],
@@ -5696,7 +5707,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Guardian of Watchers',
-		image: 'ggac_od_t2',
+		image: 'scm_02',
 		description: [
 			'Anubis, Warrior Guardian of the underworld and consort of Bast, an ancient power born at the dawn of time itself. The Guardians of the Ark of the Watcher are strengthened by his wisdom and ferocity, as they hold closed the gates through which no unworthy soul may enter. Mortals strong enough to defeat this ancient warrior may don his mask, and perhaps catch a glimpse of the power it holds.'
 		],
@@ -5707,7 +5718,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Egyptian Wolf Mask',
-		image: 'ggac_od_t2',
+		image: 'sms_06',
 		description: [
 			'Viciousness, denial of death, and gold- all aspects of how the ancient Egyptians prospered and conquered, in defiance of all. So it is somehow fitting that Wolf should don a mask honoring that ancient culture.'
 		],
@@ -5718,7 +5729,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mesoamerican Dallas Mask',
-		image: 'ggac_od_t2',
+		image: 'sms_05',
 		description: [
 			'As a leader, he has had to sacrifice much throughout his career. Jobs, team members, personal goals- whatever it takes to get the job done. As Mesoamerican cultures sacrificed to the gods to appease them, so has Dallas sacrificed to the gods of heisting- the contractors. '
 		],
@@ -5729,7 +5740,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Watchers Hoxton Mask',
-		image: 'ggac_od_t2',
+		image: 'sms_08',
 		description: [
 			'Where did they come from, the ones who gifted mankind with the greatest gift, the ones whose civilization may lie beneath the surface of earth and water? Whoever they were, most traces of their existence has been wiped away by the passage of time. Hoxton, the traveler in search of a new future, may not know the truth, but he bears their mask nonetheless in honor of the origin of the Secret.'
 		],
@@ -5740,7 +5751,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Summerian Chains Mask',
-		image: 'ggac_od_t2',
+		image: 'sms_07',
 		description: [
 			'The Sumerians began an age of wisdom, music, spiritual strength and had the imagination to dream up ideas of how the world began. On the surface, Chains may be a professional weapons-master, but inside, he is larger than life itself, and thus honors the culture which this mask represents. '
 		],
@@ -5751,7 +5762,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Heat, The',
-		image: 'ggac_od_t2',
+		image: 'aviator',
 		description: [
 			'Everyone loves a good pair of sunglasses.',
 			'But only the cockiest, most wanted, cops be damned sons of bitches are crazy enough to rob a goddamn bank wearing \'em.',
@@ -5764,7 +5775,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Plague Doctor, The',
-		image: 'ggac_od_t2',
+		image: 'plague',
 		description: [
 			'A plague doctor mask for the Mastermind.',
 			'In the word of the Bhagavad-Gita: \'Now I am become death, destroyer of worlds.\'',
@@ -5777,7 +5788,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Butcher, The',
-		image: 'ggac_od_t2',
+		image: 'welder',
 		description: [
 			'A truly legendary Enforcer mask.',
 			'The story goes it was made for one of the premier hitters in the Pink Panther crew years back but he didn\'t have the guts to wear it. It\'d draw too much attention.',
@@ -5790,7 +5801,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Specialist, The',
-		image: 'ggac_od_t2',
+		image: 'smoker',
 		description: [
 			'Only a true Technician could come up with a mask like this.',
 			'Featuring a state of the art air filtration system, the mask can double as a chemist\'s hood in those unlikely \'must cook meth\' scenarios.'
@@ -5802,7 +5813,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Spectre, The',
-		image: 'ggac_od_t2',
+		image: 'ghost',
 		description: [
 			'This Ghost mask look like it\'s from the future and it might as well be.',
 			'Full head protection, made out of carbon fiber and genetically engineered spider-silk. People might even mistake you for a high-end Moto GP rider.',
@@ -5815,7 +5826,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Balaclava',
-		image: 'ggac_od_t2',
+		image: 'balaclava',
 		description: [
 			'The weapons may change, the ideologies may shift and the accents may swap, but the balaclava has been a mainstay for the armed robber and terrorist for decades. Covering all but your steely, flint-like eyes and your cruel, twisted mouth, it keeps you warm when it\'s chilly too.'
 		],
@@ -5826,7 +5837,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Lurker',
-		image: 'ggac_od_t2',
+		image: 'infamy_lurker',
 		description: [
 			'Teeth are scary. Big teeth are scarier. And giant sharp fang-like teeth suddenly gnashing out where they lurk in the darkness are downright shit-yourself-terrifying. With all of that in mind, can you think of a better mask to keep the civilians in line?'
 		],
@@ -5837,7 +5848,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Android',
-		image: 'ggac_od_t2',
+		image: 'daft',
 		description: [
 			'For the truly detached and impassive, we provide the Android mask. Lightweight alloys, chromium finish and really cool LED lights means this mask is ready for the bank job or the dancefloor. Alas, it does not make you fluent in six million languages.'
 		],
@@ -5848,7 +5859,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Being, The',
-		image: 'ggac_od_t2',
+		image: 'punk',
 		description: [
 			'This mask is based on the experiments of the peculiar Dr Rudolf Mastaba. A modern Prometheus, he sought to return life to the dead with the application of Industrial Revolution technology. Rumour suggests that he was partly successful - the undead rose, but had an insatiable appetite for wheat, barley and maize.'
 		],
@@ -5859,7 +5870,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Venger',
-		image: 'ggac_od_t2',
+		image: 'pain',
 		description: [
 			'Based on the crazed leader of the League of Darkness. It\'s unclear if this was a breathing apparatus or a vocabulator. Some speculate that it was a delivery system, designed to provide Nemesis with the narcotics that gave him both his superhuman strength and psychotic rage.'
 		],
@@ -5870,7 +5881,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Heister Sentry',
-		image: 'ggac_od_t2',
+		image: 'ranger',
 		description: [
 			'This mask was originally designed to be part of a complete head-to-toe heisting outfit. However, field testing revealed that the gaudy spandex suit offered no protection against bullets, knives or grenades. The mask, however, was found to be lightweight, durable and stylish. It\'s heistin\' time!'
 		],
@@ -5881,7 +5892,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Kamul',
-		image: 'ggac_od_t2',
+		image: 'infamy_hood',
 		description: [
 			'There are things older and fouler than heisters in the dark places of the world. And one of them is Kamul. We do not know if he is the lingering spirit of a long dead man, or something that has crossed from the realm of shade. All we know is that few look into this face and live to tell of it.'
 		],
@@ -5892,7 +5903,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Demonshank',
-		image: 'ggac_od_t2',
+		image: 'destroyer',
 		description: [
 			'A warrior spirit doesn\'t appear naturally. It isn\'t something you are born with. Like steel, it is forged in fire. It is beaten in the furnace of battle - tempered, polished and sharpened. This mask celebrates the birth of this warrior spirit - the furnace-born steel given wings.'
 		],
@@ -5903,7 +5914,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Gangsta Pranksta',
-		image: 'ggac_od_t2',
+		image: 'lastlaugh',
 		description: [
 			'Is there a madness behind the shell? Does it represent the wearer, or is it just the projection of the contempt heisters feel for the law?'
 		],
@@ -5914,7 +5925,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Max, The',
-		image: 'ggac_od_t2',
+		image: 'cyberpunk',
 		description: [
 			'Like impeccable clockwork, digital precision flows from the heister who dons this facial covering. No enemy can avoid being just a little bit freaked when you confront them.'
 		],
@@ -5925,7 +5936,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Vanity Gold',
-		image: 'ggac_od_t2',
+		image: 'goldenbrute',
 		description: [
 			'When you\'ve got the gold, there\'s always a question of what to do with it. Put it in a vault, change it into cash or use it to make yourself look rather bad-ass. There are, of course, lots of ways to do the latter. Someone decided that one of them was by forging this gleaming visage. Good choice? Your decision.'
 		],
@@ -5936,7 +5947,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Masquerade, The',
-		image: 'ggac_od_t2',
+		image: 'ingoldnito',
 		description: [
 			'Hokey religions and ancient weapons may not be a match for a good submachine gun, or a getaway van that never breaks down, but a mask like this, intricately crafted by an artisan using techniques handed down through generations, can certainly make you feel like a million bucks when you\'re putting down a Dozer. Also good for that strange masquerade ball that occasionally comes around.'
 		],
@@ -5947,7 +5958,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Famine',
-		image: 'ggac_od_t2',
+		image: 'ami_02',
 		description: [
 			'That loaf of bread you wanted. Imagine that hunger one thousandfold. More than just a lack of food, your very soul is deprived of sustenance until it\'s as empty on nourishment as your belly. If starvation could continue beyond death, this is the visage it would take. But such a plight can be a mighty motivator for heisting.'
 		],
@@ -5958,7 +5969,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Conquest',
-		image: 'ggac_od_t2',
+		image: 'ami_03',
 		description: [
 			'If only the Kings of Old had such an artifact, they would have been invincible. What enemy could withstand bowing before you, as they gaze upon your magnificence? Sun Tzu can go suck a lemon, because with a mask like this, who needs to employ art in war?'
 		],
@@ -5969,7 +5980,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Tormentor',
-		image: 'ggac_od_t2',
+		image: 'ami_05',
 		description: [
 			'Torturer or tortured? Perhaps both, as the seething glow from your eyes sends chills of terror into the souls of the Law. hear the lamentations of the Uniformed Blue as you evade them skillfully, with evil glee flowing through your veins as you foil every one of their attempts to apprehend you.'
 		],
@@ -5980,7 +5991,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Arch Nemesis',
-		image: 'ggac_od_t2',
+		image: 'ami_04',
 		description: [
 			'One move, then another. Your opponent makes a move and you respond. he stands there, atop the mountain of gold, daring you to come forward and take on his challenge. By wearing this mask, you declare your defiance, and the rivalry unending.'
 		],
@@ -5991,7 +6002,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Rad Mutant',
-		image: 'ggac_od_t2',
+		image: 'ami_01',
 		description: [
 			'As if high on radioactive spray paint, the power level has been turned up a notch and is now close to bursting. When you go on a heist, everyone around you will duck for cover as you roll by. Every geiger counter in town is about to go haywire.'
 		],
@@ -6002,7 +6013,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'Mega Greed',
-		image: 'ggac_od_t2',
+		image: 'ami_06',
 		description: [
 			'It burns into your heart and tears the flesh from your skull- orange flames to contrast the color of an unquenchable need for more. How many trips back into the vault will you make until you are satisfied? How many weapons will make you happy? All of them! Maybe.'
 		],
@@ -6013,7 +6024,7 @@ const masks: maskData[] = [
 	},
 	{
 		name: 'The Great Immortal',
-		image: 'ggac_od_t2',
+		image: 'tam',
 		description: [
 			'For a thousand years, the traveller slept, biding his time until the stars did align and a mortal of sufficient ability would unlock him from his unholy prison. Rejoice! For that day has come. Wield this power... wisely.'
 		],
@@ -6021,6 +6032,39 @@ const masks: maskData[] = [
 		type: 'infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at 1000 Achievements'
+	},
+	{
+		name: 'Buluc',
+		image: 'buluc',
+		description: [
+			'Used in the Buluc\'s Mansion Heist'
+		],
+		collection: 'Unobtainable',
+		type: 'collaboration',
+		unlock: 'THIS ITEM IS UNOBTAINABLE',
+		cost: ''
+	},
+	{
+		name: 'Roman',
+		image: 'roman',
+		description: [
+			'Used in the Border Crossing Heist'
+		],
+		collection: 'Unobtainable',
+		type: 'collaboration',
+		unlock: 'THIS ITEM IS UNOBTAINABLE',
+		cost: ''
+	},
+	{
+		name: 'Sombrero',
+		image: 'sombrero',
+		description: [
+			'Used in the San Marín Bank Heist'
+		],
+		collection: 'Unobtainable',
+		type: 'collaboration',
+		unlock: 'THIS ITEM IS UNOBTAINABLE',
+		cost: ''
 	}
 ]
 
