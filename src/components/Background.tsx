@@ -22,7 +22,7 @@ const Image = styled.img`
 const Background: React.FC = () => {
 	return (
 		<Container>
-			<Image src='/images/background.jpg'/>
+			<Image src='/images/loading_bg.png'/>
 		</Container>
 	)
 }
