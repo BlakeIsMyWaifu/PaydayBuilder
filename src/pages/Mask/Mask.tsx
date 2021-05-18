@@ -4,13 +4,18 @@ import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import data, { maskData } from 'data/character/masks'
 import { useAppDispatch } from 'hooks'
-import React, { useState } from 'react'
+import React, { createRef, useRef, useState } from 'react'
 import { useHistory } from 'react-router'
+import scrollHorizontalDiv from 'utils/scrollHorizontalDiv'
 
-import { CollectionTitle, InfoCost, InfoUnlock, Mask, MaskCollection, MaskContainer, Title } from './Mask-Elements'
+import { CollectionTitle, CollectionTitles, FilterContainer, FilterText, FilterTitle, FiltersWrapper, InfoCost, InfoUnlock, Mask, MaskCollection, MaskCollectionTitle, MaskContainer, Title } from './Mask-Elements'
 
 interface collections {
 	[key: string]: maskData[];
+}
+
+interface colours {
+	[key: string]: string;
 }
 
 const MaskPage: React.FC = () => {
@@ -21,7 +26,7 @@ const MaskPage: React.FC = () => {
 
 	const history = useHistory()
 
-	const colours = {
+	const colours: colours = {
 		normal: '#fff',
 		community: '#3baefe',
 		dlc: '#ffd400',
@@ -39,17 +44,64 @@ const MaskPage: React.FC = () => {
 		return out
 	})()
 
+	const scrollRef = useRef<HTMLDivElement>(null)
+
+	const collectionRefs = useRef(Array.from({length: Object.keys(collections).length}, () => createRef<HTMLDivElement>()))
+
+	const scrollToCollection = (i: number) => {
+		const ref = collectionRefs.current[i].current
+		ref?.scrollIntoView({ behavior: 'smooth' })
+	}
+
+	const [filters, setFilters] = useState(Object.assign({}, ...Object.keys(colours).map(colour => ({[colour]: false}))))
+
+	const toggleFilter = (type: string) => {
+		setFilters({
+			...filters,
+			[type]: !filters[type]
+		})
+	}
+
 	return (
-		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "masks info" "masks back"'>
-			
+		<Container columns='3fr 1fr' rows='4rem 2rem 8fr 4rem' areas='"title filter" "collectiontitles filter" "masks info" "masks back"'>
+
 			<Title>Mask</Title>
+
+			<CollectionTitles ref={scrollRef} onWheel={e => scrollHorizontalDiv(e, scrollRef)}>
+				{
+					Object.keys(collections).map((collection, i) => {
+						return <CollectionTitle
+							key={collection}
+							color={colours[collections[collection][0].type]}
+							onClick={() => scrollToCollection(i)}
+						>{collection}</CollectionTitle>
+					})
+				}
+			</CollectionTitles>
+
+			<FilterContainer>
+				<FilterTitle>Filters</FilterTitle>
+				<FiltersWrapper>
+					{
+						Object.keys(colours).map(type => {
+							return <FilterText
+								key={type}
+								color={colours[type]}
+								onClick={() => toggleFilter(type)}
+								filter={filters[type]}
+							>{type}</FilterText>
+						})
+					}
+				</FiltersWrapper>
+			</FilterContainer>
 
 			<MaskContainer>
 				{
-					Object.keys(collections).map(collection => {
+					Object.keys(collections).map((collection, i) => {
 						const masks = collections[collection]
-						return <MaskCollection key={collection}>
-							<CollectionTitle color={colours[masks[0].type]}>{collection}</CollectionTitle>
+						if (filters[masks[0].type]) return
+						return <MaskCollection key={collection} ref={collectionRefs.current[i]}>
+							<MaskCollectionTitle color={colours[masks[0].type]}>{collection}</MaskCollectionTitle>
 							{
 								masks.map(mask => {
 									return <Mask

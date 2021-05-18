@@ -6040,7 +6040,7 @@ const masks: maskData[] = [
 			'Used in the Buluc\'s Mansion Heist'
 		],
 		collection: 'Unobtainable',
-		type: 'collaboration',
+		type: 'infamous',
 		unlock: 'THIS ITEM IS UNOBTAINABLE',
 		cost: ''
 	},
@@ -6051,7 +6051,7 @@ const masks: maskData[] = [
 			'Used in the Border Crossing Heist'
 		],
 		collection: 'Unobtainable',
-		type: 'collaboration',
+		type: 'infamous',
 		unlock: 'THIS ITEM IS UNOBTAINABLE',
 		cost: ''
 	},
@@ -6062,7 +6062,7 @@ const masks: maskData[] = [
 			'Used in the San Marín Bank Heist'
 		],
 		collection: 'Unobtainable',
-		type: 'collaboration',
+		type: 'infamous',
 		unlock: 'THIS ITEM IS UNOBTAINABLE',
 		cost: ''
 	}
