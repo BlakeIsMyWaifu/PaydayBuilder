@@ -4,6 +4,7 @@ import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import data from 'data/abilities/perks'
 import { useAppSelector } from 'hooks'
 import React, { createRef, useEffect, useRef, useState } from 'react'
+import scrollHorizontalDiv from 'utils/scrollHorizontalDiv'
 
 import { PerkDeckName, PerkDeckNamesWrapper, PerksWrapper, Title } from './PerkDeck-Elements'
 import Perk from './Perks/Perk'
@@ -11,17 +12,6 @@ import Perk from './Perks/Perk'
 const PerkDeck: React.FC = () => {
 
 	const scrollRef = useRef<HTMLDivElement>(null)
-
-	const onWheel = (event: React.WheelEvent) => {
-		const container = scrollRef.current
-		if (!container) return
-		const containerScrollPosition = container.scrollLeft
-		container.scrollTo({
-			top: 0,
-			left: containerScrollPosition + event.deltaY,
-			behavior: 'auto'
-		})
-	}
 
 	const perkWrapperRef = useRef<HTMLDivElement>(null)
 
@@ -56,7 +46,7 @@ const PerkDeck: React.FC = () => {
 
 			<Title>Perk Deck</Title>
 
-			<PerkDeckNamesWrapper ref={scrollRef} onWheel={onWheel}>
+			<PerkDeckNamesWrapper ref={scrollRef} onWheel={e => scrollHorizontalDiv(e, scrollRef)}>
 				{
 					data.map((perkdeck, i) => {
 						return <PerkDeckName key={perkdeck.name} onClick={() => scrollToPerk(i)}>{perkdeck.name}</PerkDeckName>
