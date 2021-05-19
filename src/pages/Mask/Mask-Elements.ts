@@ -39,7 +39,7 @@ export const FiltersWrapper = styled.div`
 `
 
 interface filterText {
-	filter: string;
+	typeFilter: boolean;
 }
 
 export const FilterText = styled.h1<filterText>`
@@ -47,7 +47,7 @@ export const FilterText = styled.h1<filterText>`
 	direction: rtl;
 	cursor: pointer;
 	color: ${props => props.color};
-	text-decoration: ${props => props.filter ? 'line-through' : 'none'};
+	text-decoration: ${props => props.typeFilter ? 'line-through' : 'none'};
 `
 
 export const MaskContainer = styled.div`

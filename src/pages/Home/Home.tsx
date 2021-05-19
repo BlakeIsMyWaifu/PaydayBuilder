@@ -22,9 +22,9 @@ const Home: React.FC = () => {
 
 			<Tab id='character'>
 				<TabTitle direction='rtl'>Character</TabTitle>
-				
+
 				<SelectorWrapper>
-					<Selector path='/mask' title='mask' imagePath={`images/masks/${character.mask.image}.png`}/>
+					<Selector path='/mask' title='mask' imagePath={`images/masks/${character.mask.equiped.image}.png`}/>
 					<Selector path='/character' title='character' imagePath={`images/characters/${character.character.name}.png`}/>
 					<Selector path='/armour' title='armour'/>
 					<Selector path='/equipment' title='equipment'/>

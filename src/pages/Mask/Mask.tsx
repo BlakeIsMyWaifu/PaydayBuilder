@@ -1,9 +1,9 @@
-import { changeMask } from 'actions/characterAction'
+import { changeMask, toggleMaskFilter } from 'actions/characterAction'
 import Back from 'components/Back'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import data, { maskData } from 'data/character/masks'
-import { useAppDispatch } from 'hooks'
+import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { createRef, useRef, useState } from 'react'
 import { useHistory } from 'react-router'
 import scrollHorizontalDiv from 'utils/scrollHorizontalDiv'
@@ -53,14 +53,7 @@ const MaskPage: React.FC = () => {
 		ref?.scrollIntoView({ behavior: 'smooth' })
 	}
 
-	const [filters, setFilters] = useState(Object.assign({}, ...Object.keys(colours).map(colour => ({[colour]: false}))))
-
-	const toggleFilter = (type: string) => {
-		setFilters({
-			...filters,
-			[type]: !filters[type]
-		})
-	}
+	const filters = useAppSelector(state => state.character.mask.filter)
 
 	return (
 		<Container columns='3fr 1fr' rows='4rem 2rem 8fr 4rem' areas='"title filter" "collectiontitles filter" "masks info" "masks back"'>
@@ -87,8 +80,8 @@ const MaskPage: React.FC = () => {
 							return <FilterText
 								key={type}
 								color={colours[type]}
-								onClick={() => toggleFilter(type)}
-								filter={filters[type]}
+								onClick={() => dispatch(toggleMaskFilter(type))}
+								typeFilter={filters[type]}
 							>{type}</FilterText>
 						})
 					}
