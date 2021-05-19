@@ -37,7 +37,7 @@ const PerkDeck: React.FC = () => {
 	let firstScroll = false
 
 	useEffect(() => {
-		const currentEquipedIndex = data.indexOf(equipedPerk)
+		const currentEquipedIndex = data.indexOf(data.find(perk => perk.name === equipedPerk.name) || data[0])
 		scrollToPerk(currentEquipedIndex)
 	}, [])
 

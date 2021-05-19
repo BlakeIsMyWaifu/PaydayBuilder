@@ -1,7 +1,9 @@
 import perkData from 'data/abilities/perks'
+import skillData from 'data/abilities/skills'
 import { useAppSelector } from 'hooks'
 import React from 'react'
 import { grey } from 'utils/colours'
+import skillTreePoints from 'utils/skillTreePoints'
 
 import { Container, Image, Link, PerkDeckImage, SkillWrapper, SkillsAmount, SkillsCard, SkillsContainer, Title } from './Selector-Elements'
 
@@ -13,10 +15,8 @@ interface selectorComponent {
 
 const Selector: React.FC<selectorComponent> = ({ path, title, imagePath }) => {
 
-	const skillTrees = useAppSelector(state => Object.values(state.skills.trees))
-
 	const perkDeck = useAppSelector(state => state.abilities.perkdeck)
-	const perkDeckIndex = perkData.indexOf(perkDeck)
+	const perkDeckIndex = perkData.indexOf(perkData.find(perk => perk.name === perkDeck.name) || perkData[0])
 
 	return (
 		<Link to={path}>
@@ -28,11 +28,8 @@ const Selector: React.FC<selectorComponent> = ({ path, title, imagePath }) => {
 				{
 					title === 'skills' && <SkillsContainer>
 						{
-							skillTrees.map((tree, i) => {
-								let treePoints = 0
-								for (let subtree in tree) {
-									treePoints += tree[subtree].points
-								}
+							Object.keys(skillData).map((tree, i) => {
+								const treePoints = skillTreePoints(tree)
 								return <SkillWrapper key={`selector-skill-${i}`}>
 									<SkillsCard />
 									<SkillsAmount colour={treePoints ? '#fff' : grey}>{treePoints}</SkillsAmount>

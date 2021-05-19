@@ -16,7 +16,7 @@ interface perkComponent {
 
 const Perk: React.FC<perkComponent> = ({ data, index, perkref, setHoveredCard, selectedPerk, setSelectedPerk }: perkComponent) => {
 	
-	const selected = selectedPerk === data
+	const selected = selectedPerk.name === data.name
 	
 	const dispatch = useAppDispatch()
 
@@ -27,7 +27,7 @@ const Perk: React.FC<perkComponent> = ({ data, index, perkref, setHoveredCard, s
 	return (
 		<Container ref={perkref}>
 			
-			<Title>{data.name} {data === equipedPerk && '(EQUIPED)'}</Title>
+			<Title>{data.name} {data.name === equipedPerk.name && '(EQUIPED)'}</Title>
 
 			<CardWrapper onMouseDown={clickPerk}>
 				{
