@@ -1,5 +1,6 @@
 import Back from 'components/Back'
 import Container from 'components/Container'
+import { Title } from 'components/Title'
 import data from 'data/abilities/skills'
 import { skillData } from 'data/abilities/skills'
 import React, { useState } from 'react'
@@ -7,7 +8,7 @@ import React, { useState } from 'react'
 import Info from './Info'
 import Points from './Points'
 import Reset from './Reset'
-import { SubtreeLabel, SubtreeLabelWrapper, Title, Tree, TreeName, TreeNamesWrapper } from './Skills-Elements'
+import { SubtreeLabel, SubtreeLabelWrapper, Tree, TreeName, TreeNamesWrapper } from './Skills-Elements'
 import Subtree from './Subtree'
 
 type tree = 'mastermind' | 'enforcer' | 'technician' | 'ghost' | 'fugitive';

@@ -1,11 +1,6 @@
 import styled from 'styled-components'
 import { blue } from 'utils/colours'
 
-export const Title = styled.h1`
-	grid-area: title;
-	font-size: 4rem;
-`
-
 export const TreeNamesWrapper = styled.div`
 	grid-area: treenames;
 	display: flex;

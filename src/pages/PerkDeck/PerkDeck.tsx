@@ -1,12 +1,13 @@
 import Back from 'components/Back'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
+import { Title } from 'components/Title'
 import data from 'data/abilities/perks'
 import { useAppSelector } from 'hooks'
 import React, { createRef, useEffect, useRef, useState } from 'react'
 import scrollHorizontalDiv from 'utils/scrollHorizontalDiv'
 
-import { PerkDeckName, PerkDeckNamesWrapper, PerksWrapper, Title } from './PerkDeck-Elements'
+import { PerkDeckName, PerkDeckNamesWrapper, PerksWrapper } from './PerkDeck-Elements'
 import Perk from './Perks/Perk'
 
 const PerkDeck: React.FC = () => {

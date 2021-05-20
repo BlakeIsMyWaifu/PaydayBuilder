@@ -2,13 +2,14 @@ import { changeMask, toggleMaskFilter } from 'actions/characterAction'
 import Back from 'components/Back'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
+import { Title } from 'components/Title'
 import data, { maskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { createRef, useRef, useState } from 'react'
 import { useHistory } from 'react-router'
 import scrollHorizontalDiv from 'utils/scrollHorizontalDiv'
 
-import { CollectionTitle, CollectionTitles, FilterContainer, FilterText, FilterTitle, FiltersWrapper, InfoCost, InfoUnlock, Mask, MaskCollection, MaskCollectionTitle, MaskContainer, Title } from './Mask-Elements'
+import { CollectionTitle, CollectionTitles, FilterContainer, FilterText, FilterTitle, FiltersWrapper, InfoCost, InfoUnlock, Mask, MaskCollection, MaskCollectionTitle, MaskContainer } from './Mask-Elements'
 
 interface collections {
 	[key: string]: maskData[];

@@ -2,12 +2,13 @@ import { changeCharacter } from 'actions/characterAction'
 import Back from 'components/Back'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoSubtitle, InfoTitle } from 'components/Info'
+import { Title } from 'components/Title'
 import data, { characterData } from 'data/character/characters'
 import { useAppDispatch } from 'hooks'
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 
-import { Character, CharacterWrapper, Title } from './Character-Elements'
+import { Character, CharacterWrapper } from './Character-Elements'
 
 const CharacterPage: React.FC = () => {
 
