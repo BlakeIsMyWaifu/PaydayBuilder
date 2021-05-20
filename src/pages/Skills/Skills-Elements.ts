@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import { blue, red } from 'utils/colours'
-import corner from 'utils/corner'
+import { blue } from 'utils/colours'
 
 export const Title = styled.h1`
 	grid-area: title;
