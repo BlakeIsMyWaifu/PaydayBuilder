@@ -1,6 +1,7 @@
 import './App.css'
 
 import Background from 'components/Background'
+import Armour from 'pages/Armour'
 import Character from 'pages/Character'
 import Home from 'pages/Home'
 import Mask from 'pages/Mask'
@@ -19,6 +20,7 @@ const App: React.FC = () => {
 					<Route exact path='/' component={Home} />
 					<Route path='/mask' component={Mask} />
 					<Route path='/character' component={Character} />
+					<Route path='/armour' component={Armour} />
 					<Route path='/skills' component={Skills} />
 					<Route path='/perkdeck' component={PerkDeck} />
 				</Switch>
