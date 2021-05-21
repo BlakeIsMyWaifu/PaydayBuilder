@@ -1,13 +1,13 @@
 import Back from 'components/Back'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
-import { Title } from 'components/Title'
+import { Title, Wrapper } from 'components/Content'
 import data from 'data/abilities/perks'
 import { useAppSelector } from 'hooks'
 import React, { createRef, useEffect, useRef, useState } from 'react'
 import scrollHorizontalDiv from 'utils/scrollHorizontalDiv'
 
-import { PerkDeckName, PerkDeckNamesWrapper, PerksWrapper } from './PerkDeck-Elements'
+import { PerkDeckName, PerkDeckNamesWrapper } from './PerkDeck-Elements'
 import Perk from './Perks/Perk'
 
 const PerkDeck: React.FC = () => {
@@ -43,7 +43,7 @@ const PerkDeck: React.FC = () => {
 	}, [])
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 2rem 7fr 4rem' areas='"title title" "perkdecknames ." "perkdeck info" "perkdeck back"'>
+		<Container columns='3fr 1fr' rows='4rem 2rem 7fr 4rem' areas='"title title" "perkdecknames ." "wrapper info" "wrapper back"'>
 
 			<Title>Perk Deck</Title>
 
@@ -55,7 +55,7 @@ const PerkDeck: React.FC = () => {
 				}
 			</PerkDeckNamesWrapper>
 
-			<PerksWrapper ref={perkWrapperRef}>
+			<Wrapper ref={perkWrapperRef}>
 				{
 					data.map((perkdeck, i) => {
 						return <Perk
@@ -69,7 +69,7 @@ const PerkDeck: React.FC = () => {
 						/>
 					})
 				}
-			</PerksWrapper>
+			</Wrapper>
 
 			<InfoContainer>
 				<InfoTitle>{hoveredCard.name}</InfoTitle>

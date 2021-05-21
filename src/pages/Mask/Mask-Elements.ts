@@ -62,11 +62,6 @@ export const MaskCollectionTitle = styled.h1`
 	color: ${props => props.color};
 `
 
-export const Mask = styled.img`
-	width: 96px;
-	height: 96px;
-`
-
 export const InfoUnlock = styled.h1`
 	text-transform: none;
 	color: ${props => props.color};

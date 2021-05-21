@@ -1,9 +1,8 @@
 import Back from 'components/Back'
 import Container from 'components/Container'
 import { InfoContainer, InfoTitle } from 'components/Info'
-import { Title } from 'components/Title'
+import { Item, Title, Wrapper } from 'components/Content'
 import data, { armourData } from 'data/character/armours'
-import { ArmourWrapper, Armourr } from 'pages/Armour/Armour-Elements'
 import React, { useState } from 'react'
 
 const Armour: React.FC = () => {
@@ -11,14 +10,14 @@ const Armour: React.FC = () => {
 	const [hoveredArmour, setHoveredArmour] = useState<armourData | null>(null)
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "armours info" "armours back"'>
+		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "wrapper info" "wrapper back"'>
 
 			<Title>Armour</Title>
 
-			<ArmourWrapper>
+			<Wrapper>
 				{
 					data.map(armour => {
-						return <Armourr
+						return <Item
 							key={armour.name}
 							src={`images/armours/${armour.name}.png`}
 							onMouseEnter={() => setHoveredArmour(armour)}
@@ -26,7 +25,7 @@ const Armour: React.FC = () => {
 						/>
 					})
 				}
-			</ArmourWrapper>
+			</Wrapper>
 
 			<InfoContainer>
 				{

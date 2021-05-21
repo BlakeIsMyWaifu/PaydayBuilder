@@ -1,16 +1,14 @@
 import { changeCharacter } from 'actions/characterAction'
 import Back from 'components/Back'
 import Container from 'components/Container'
+import { Item, Title, Wrapper } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoSubtitle, InfoTitle } from 'components/Info'
-import { Title } from 'components/Title'
 import data, { characterData } from 'data/character/characters'
 import { useAppDispatch } from 'hooks'
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 
-import { Character, CharacterWrapper } from './Character-Elements'
-
-const CharacterPage: React.FC = () => {
+const Character: React.FC = () => {
 
 	const [hoveredCharacter, setHoveredCharacter] = useState<characterData | null>()
 
@@ -19,14 +17,14 @@ const CharacterPage: React.FC = () => {
 	const history = useHistory()
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "characters info" "characters back"'>
+		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "wrapper info" "characters back"'>
 
 			<Title>Character</Title>
 
-			<CharacterWrapper>
+			<Wrapper>
 				{
 					data.map(character => {
-						return <Character
+						return <Item
 							onMouseEnter={() => setHoveredCharacter(character)}
 							onMouseLeave={() => setHoveredCharacter(null)}
 							onMouseDown={() => {
@@ -38,7 +36,7 @@ const CharacterPage: React.FC = () => {
 						/>
 					})
 				}
-			</CharacterWrapper>
+			</Wrapper>
 
 			<InfoContainer>
 				{
@@ -59,4 +57,4 @@ const CharacterPage: React.FC = () => {
 	)
 }
 
-export default CharacterPage
+export default Character

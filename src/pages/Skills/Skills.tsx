@@ -1,6 +1,6 @@
 import Back from 'components/Back'
 import Container from 'components/Container'
-import { Title } from 'components/Title'
+import { Title } from 'components/Content'
 import data from 'data/abilities/skills'
 import { skillData } from 'data/abilities/skills'
 import React, { useState } from 'react'

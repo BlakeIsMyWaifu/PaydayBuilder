@@ -2,14 +2,14 @@ import { changeMask, toggleMaskFilter } from 'actions/characterAction'
 import Back from 'components/Back'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
-import { Title } from 'components/Title'
+import { Item, Title } from 'components/Content'
 import data, { maskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { createRef, useRef, useState } from 'react'
 import { useHistory } from 'react-router'
 import scrollHorizontalDiv from 'utils/scrollHorizontalDiv'
 
-import { CollectionTitle, CollectionTitles, FilterContainer, FilterText, FilterTitle, FiltersWrapper, InfoCost, InfoUnlock, Mask, MaskCollection, MaskCollectionTitle, MaskContainer } from './Mask-Elements'
+import { CollectionTitle, CollectionTitles, FilterContainer, FilterText, FilterTitle, FiltersWrapper, InfoCost, InfoUnlock, MaskCollection, MaskCollectionTitle, MaskContainer } from './Mask-Elements'
 
 interface collections {
 	[key: string]: maskData[];
@@ -19,7 +19,7 @@ interface colours {
 	[key: string]: string;
 }
 
-const MaskPage: React.FC = () => {
+const Mask: React.FC = () => {
 
 	const [hoveredMask, setHoveredMask] = useState<maskData | null>()
 
@@ -98,7 +98,8 @@ const MaskPage: React.FC = () => {
 							<MaskCollectionTitle color={colours[masks[0].type]}>{collection}</MaskCollectionTitle>
 							{
 								masks.map(mask => {
-									return <Mask
+									return <Item
+										size={96}
 										onMouseEnter={() => setHoveredMask(mask)}
 										onMouseLeave={() => setHoveredMask(null)}
 										onMouseDown={() => {
@@ -134,4 +135,4 @@ const MaskPage: React.FC = () => {
 	)
 }
 
-export default MaskPage
+export default Mask

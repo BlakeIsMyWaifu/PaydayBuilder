@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-import corner from 'utils/corner';
+import styled from 'styled-components'
 
 export const PerkDeckNamesWrapper = styled.div`
 	grid-area: perkdecknames;
@@ -15,10 +14,4 @@ export const PerkDeckName = styled.h1`
 	&:last-child {
 		padding-right: 0;
 	}
-`
-
-export const PerksWrapper = styled.div`
-	grid-area: perkdeck;
-	overflow-y: scroll;
-	${corner};
 `
