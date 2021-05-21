@@ -18,15 +18,14 @@ const PerkDeck: React.FC = () => {
 
 	const perkRefs = useRef(Array.from({length: data.length}, () => createRef<HTMLDivElement>()))
 
-	const scrollToPerk = (i: number) => {
+	const scrollToPerk = (i: number, behavior: 'smooth' | 'auto') => {
 		const container = perkWrapperRef.current
 		if (!container) return
 		container.scrollTo({
-			top: i * 136,
+			top: (i * 120) + 8,
 			left: 0,
-			behavior: firstScroll ? 'smooth' : 'auto'
+			behavior
 		})
-		firstScroll = true
 	}
 
 	const [hoveredCard, setHoveredCard] = useState(data[0].cards[0])
@@ -35,11 +34,9 @@ const PerkDeck: React.FC = () => {
 
 	const [selectedPerk, setSelectedPerk] = useState(equipedPerk)
 
-	let firstScroll = false
-
 	useEffect(() => {
 		const currentEquipedIndex = data.indexOf(data.find(perk => perk.name === equipedPerk.name) || data[0])
-		scrollToPerk(currentEquipedIndex)
+		scrollToPerk(currentEquipedIndex, 'auto')
 	}, [])
 
 	return (
@@ -50,7 +47,7 @@ const PerkDeck: React.FC = () => {
 			<PerkDeckNamesWrapper ref={scrollRef} onWheel={e => scrollHorizontalDiv(e, scrollRef)}>
 				{
 					data.map((perkdeck, i) => {
-						return <PerkDeckName key={perkdeck.name} onClick={() => scrollToPerk(i)}>{perkdeck.name}</PerkDeckName>
+						return <PerkDeckName key={perkdeck.name} onClick={() => scrollToPerk(i, 'smooth')}>{perkdeck.name}</PerkDeckName>
 					})
 				}
 			</PerkDeckNamesWrapper>
