@@ -24,12 +24,21 @@ const Skills: React.FC = () => {
 
 	const getSkillFromName = (name: string | undefined): skillData | undefined => currentTreeSkills.flat().find(skill => skill.name === name)
 
+	const scrollTrees = (event: React.WheelEvent) => {
+		const order: tree[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
+		let index = order.indexOf(currentTree)
+		const direction = event.deltaY < 0 ? -1 : 1
+		index += direction
+		index = index < 0 ? 0 : index > 4 ? 4 : index
+		setCurrentTree(order[index])
+	}
+
 	return (
 		<Container columns='3fr 1fr' rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"'>
 
 			<Title>Skills</Title>
 
-			<TreeNamesWrapper>
+			<TreeNamesWrapper onWheel={scrollTrees}>
 				<TreeName onClick={() => setCurrentTree('mastermind')}>Mastermind</TreeName>
 				<TreeName onClick={() => setCurrentTree('enforcer')}>Enforcer</TreeName>
 				<TreeName onClick={() => setCurrentTree('technician')}>Technician</TreeName>
@@ -37,7 +46,7 @@ const Skills: React.FC = () => {
 				<TreeName onClick={() => setCurrentTree('fugitive')}>Fugitive</TreeName>
 			</TreeNamesWrapper>
 
-			<Tree>
+			<Tree onWheel={scrollTrees}>
 				<Subtree skills={currentTreeSkills[0]} tree={currentTree} subtree={currentTreeLabels[0]} setSkillHovered={setSkillHovered}/>
 				<Subtree skills={currentTreeSkills[1]} tree={currentTree} subtree={currentTreeLabels[1]} setSkillHovered={setSkillHovered}/>
 				<Subtree skills={currentTreeSkills[2]} tree={currentTree} subtree={currentTreeLabels[2]} setSkillHovered={setSkillHovered}/>
