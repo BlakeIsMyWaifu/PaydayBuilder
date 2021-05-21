@@ -1,4 +1,5 @@
 import actions from 'actions/characterAction'
+import { armourData } from 'data/character/armours'
 import { characterData } from 'data/character/characters'
 import { maskData } from 'data/character/masks'
 import defaultstate from 'defualtStates/characterDefaultState'
@@ -32,6 +33,12 @@ const characterReducer = (state = defaultstate, action: any) => {
 			return {
 				...state,
 				character
+			}
+		case getType(actions.changeArmour):
+			const armour: armourData = action.payload
+			return {
+				...state,
+				armour
 			}
 		default:
 			return state

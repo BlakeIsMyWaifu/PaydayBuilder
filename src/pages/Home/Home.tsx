@@ -26,7 +26,7 @@ const Home: React.FC = () => {
 				<SelectorWrapper>
 					<Selector path='/mask' title='mask' imagePath={`images/masks/${character.mask.equiped.image}.png`}/>
 					<Selector path='/character' title='character' imagePath={`images/characters/${character.character.name}.png`}/>
-					<Selector path='/armour' title='armour'/>
+					<Selector path='/armour' title='armour' imagePath={`images/armours/${character.armour.name}.png`}/>
 					<Selector path='/equipment' title='equipment'/>
 				</SelectorWrapper>
 			</Tab>
