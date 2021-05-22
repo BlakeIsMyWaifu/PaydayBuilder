@@ -1,4 +1,5 @@
 import { resetAll, resetTree } from 'actions/skillsAction'
+import { treeData } from 'data/abilities/skills'
 import { useAppDispatch } from 'hooks'
 import React from 'react'
 

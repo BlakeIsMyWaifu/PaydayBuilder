@@ -1,7 +1,7 @@
 import Back from 'components/Back'
 import Container from 'components/Container'
 import { Title } from 'components/Content'
-import data from 'data/abilities/skills'
+import data, { treeData, treeNames } from 'data/abilities/skills'
 import { skillData } from 'data/abilities/skills'
 import React, { useState } from 'react'
 
@@ -11,26 +11,19 @@ import Reset from './Reset'
 import { SubtreeLabel, SubtreeLabelWrapper, Tree, TreeName, TreeNamesWrapper } from './Skills-Elements'
 import Subtree from './Subtree'
 
-type tree = 'mastermind' | 'enforcer' | 'technician' | 'ghost' | 'fugitive';
-
 const Skills: React.FC = () => {
 
-	const [currentTree, setCurrentTree] = useState<tree>('mastermind')
+	const [currentTree, setCurrentTree] = useState<treeData>(data.mastermind)
 
-	const currentTreeSkills = Object.values(data[currentTree])
-	const currentTreeLabels = Object.keys(data[currentTree])
-
-	const [skillHovered, setSkillHovered] = useState<string | undefined>()
-
-	const getSkillFromName = (name: string | undefined): skillData | undefined => currentTreeSkills.flat().find(skill => skill.name === name)
+	const [skillHovered, setSkillHovered] = useState<skillData | null>(null)
 
 	const scrollTrees = (event: React.WheelEvent) => {
-		const order: tree[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
-		let index = order.indexOf(currentTree)
 		const direction = event.deltaY < 0 ? -1 : 1
+		const order: treeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
+		let index = order.indexOf(currentTree.name)
 		index += direction
 		index = index < 0 ? 0 : index > 4 ? 4 : index
-		setCurrentTree(order[index])
+		setCurrentTree(data[order[index]])
 	}
 
 	return (
@@ -39,30 +32,30 @@ const Skills: React.FC = () => {
 			<Title>Skills</Title>
 
 			<TreeNamesWrapper onWheel={scrollTrees}>
-				<TreeName onClick={() => setCurrentTree('mastermind')}>Mastermind</TreeName>
-				<TreeName onClick={() => setCurrentTree('enforcer')}>Enforcer</TreeName>
-				<TreeName onClick={() => setCurrentTree('technician')}>Technician</TreeName>
-				<TreeName onClick={() => setCurrentTree('ghost')}>Ghost</TreeName>
-				<TreeName onClick={() => setCurrentTree('fugitive')}>Fugitive</TreeName>
+				<TreeName onClick={() => setCurrentTree(data.mastermind)}>Mastermind</TreeName>
+				<TreeName onClick={() => setCurrentTree(data.enforcer)}>Enforcer</TreeName>
+				<TreeName onClick={() => setCurrentTree(data.technician)}>Technician</TreeName>
+				<TreeName onClick={() => setCurrentTree(data.ghost)}>Ghost</TreeName>
+				<TreeName onClick={() => setCurrentTree(data.fugitive)}>Fugitive</TreeName>
 			</TreeNamesWrapper>
 
 			<Tree onWheel={scrollTrees}>
-				<Subtree skills={currentTreeSkills[0]} tree={currentTree} subtree={currentTreeLabels[0]} setSkillHovered={setSkillHovered}/>
-				<Subtree skills={currentTreeSkills[1]} tree={currentTree} subtree={currentTreeLabels[1]} setSkillHovered={setSkillHovered}/>
-				<Subtree skills={currentTreeSkills[2]} tree={currentTree} subtree={currentTreeLabels[2]} setSkillHovered={setSkillHovered}/>
+				<Subtree tree={currentTree} subtree={currentTree.subtrees[0]} setSkillHovered={setSkillHovered}/>
+				<Subtree tree={currentTree} subtree={currentTree.subtrees[1]} setSkillHovered={setSkillHovered}/>
+				<Subtree tree={currentTree} subtree={currentTree.subtrees[2]} setSkillHovered={setSkillHovered}/>
 			</Tree>
 
 			<SubtreeLabelWrapper>
-				<SubtreeLabel>{currentTreeLabels[0].replaceAll('_', ' ')}</SubtreeLabel>
-				<SubtreeLabel>{currentTreeLabels[1].replaceAll('_', ' ')}</SubtreeLabel>
-				<SubtreeLabel>{currentTreeLabels[2].replaceAll('_', ' ')}</SubtreeLabel>
+				<SubtreeLabel>{currentTree.subtrees[0].name.replaceAll('_', ' ')}</SubtreeLabel>
+				<SubtreeLabel>{currentTree.subtrees[1].name.replaceAll('_', ' ')}</SubtreeLabel>
+				<SubtreeLabel>{currentTree.subtrees[2].name.replaceAll('_', ' ')}</SubtreeLabel>
 			</SubtreeLabelWrapper>
 
-			<Reset tree={currentTree}/>
+			<Reset tree={currentTree.name}/>
 
 			<Points />
 
-			<Info skillLabel={skillHovered} skill={getSkillFromName(skillHovered)}/>
+			<Info skill={skillHovered}/>
 
 			<Back />
 

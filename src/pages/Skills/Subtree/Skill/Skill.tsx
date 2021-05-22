@@ -1,5 +1,5 @@
 import { changeSkillState } from 'actions/skillsAction'
-import { skillData } from 'data/abilities/skills'
+import { skillData, subtreeData, treeData } from 'data/abilities/skills'
 import { skillUpgradeTypes } from 'defualtStates/skillsDefaultState'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React from 'react'
@@ -7,52 +7,38 @@ import React from 'react'
 import { Aced, Container, Icon, Label, Locked, SkillIcon } from './Skill-Elements'
 
 interface skillComponent {
+	tree: treeData;
+	subtree: subtreeData;
 	skill: skillData;
-	tree: string;
-	subtree: string;
-	setSkillHovered: React.Dispatch<React.SetStateAction<string | undefined>>;
+	setSkillHovered: React.Dispatch<React.SetStateAction<skillData | null>>;
 }
 
-const Skill: React.FC<skillComponent> = ({ skill, tree, subtree, setSkillHovered }: skillComponent) => {
+const Skill: React.FC<skillComponent> = ({ tree, subtree, skill, setSkillHovered }: skillComponent) => {
 
-	const skillState = useAppSelector<skillUpgradeTypes>(state => state.skills.trees[tree][subtree].upgrades[skill.name])
+	const skillState = useAppSelector<skillUpgradeTypes>(state => state.skills.trees[tree.name][subtree.name].upgrades[skill.name])
 
 	const dispatch = useAppDispatch()
 
-	const clickSkills = (e: React.MouseEvent) => {
-		e.preventDefault()
-		if (e.button !== 0 && e.button !== 2) return
-		e.button ? downgradeSkillState() : upgradeSkillState()
-	}
-
-	const upgradeSkillState = () => {
-		if (skillState !== 'available' && skillState !== 'basic') return
+	const clickSkills = (event: React.MouseEvent) => {
+		event.preventDefault()
+		if (event.button !== 0 && event.button !== 2) return
+		if (!event.button && (skillState !== 'available' && skillState !== 'basic')) return
+		if (event.button && (skillState !== 'aced' && skillState !== 'basic')) return
 		dispatch(changeSkillState({
-			tree,
-			subtree,
+			tree: tree.name,
+			subtree: subtree.name,
 			skill: skill,
 			oldLevel: skillState,
-			direction: 'upgrade'
-		}))
-	}
-
-	const downgradeSkillState = () => {
-		if (skillState !== 'aced' && skillState !== 'basic') return
-		dispatch(changeSkillState({
-			tree,
-			subtree,
-			skill: skill,
-			oldLevel: skillState,
-			direction: 'downgrade'
+			direction: event.button ? 'downgrade' : 'upgrade'
 		}))
 	}
 
 	return (
 		<Container
-			onMouseOver={() => setSkillHovered(skill.name)}
-			onMouseLeave={() => setSkillHovered(undefined)}
-			onContextMenu={e => e.preventDefault()}
-			onMouseDown={e => clickSkills(e)}>
+			onMouseOver={() => setSkillHovered(skill)}
+			onMouseLeave={() => setSkillHovered(null)}
+			onContextMenu={event => event.preventDefault()}
+			onMouseDown={event => clickSkills(event)}>
 			<Icon>
 				{ skillState === 'locked' ? <Locked /> : <></> }
 				{ skillState === 'aced' ? <Aced /> : <></> }

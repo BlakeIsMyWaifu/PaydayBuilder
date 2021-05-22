@@ -5,11 +5,10 @@ import React from 'react'
 import { InfoCost, InfoCostNumber, InfoCostText, InfoSkill } from './Info-Elements'
 
 interface info {
-	skillLabel: string | undefined;
-	skill: skillData | undefined;
+	skill: skillData | null;
 }
 
-const Info: React.FC<info> = ({skillLabel, skill}: info) => {
+const Info: React.FC<info> = ({ skill }: info) => {
 
 	const acedCost = {
 		1: 3,
@@ -20,7 +19,7 @@ const Info: React.FC<info> = ({skillLabel, skill}: info) => {
 
 	return skill ? (
 		<InfoContainer>
-			<InfoTitle uppercase={true}>{skillLabel}</InfoTitle>
+			<InfoTitle uppercase={true}>{skill.name}</InfoTitle>
 
 			<InfoCost>
 				<InfoCostText>Basic: </InfoCostText>
