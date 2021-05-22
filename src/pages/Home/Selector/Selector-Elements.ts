@@ -26,6 +26,11 @@ export const Image = styled.img`
 	margin-right: auto;
 `
 
+export const EquipmentContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+`
+
 export const SkillsContainer = styled.div`
 	width: calc(100% - 24px);
 	height: 96px;

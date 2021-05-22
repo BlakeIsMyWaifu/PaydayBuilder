@@ -5,7 +5,7 @@ import React from 'react'
 import { grey } from 'utils/colours'
 import skillTreePoints from 'utils/skillTreePoints'
 
-import { Container, Image, Link, PerkDeckImage, SkillWrapper, SkillsAmount, SkillsCard, SkillsContainer, Title } from './Selector-Elements'
+import { Container, EquipmentContainer, Image, Link, PerkDeckImage, SkillWrapper, SkillsAmount, SkillsCard, SkillsContainer, Title } from './Selector-Elements'
 
 interface selectorComponent {
 	path: string;
@@ -14,6 +14,8 @@ interface selectorComponent {
 }
 
 const Selector: React.FC<selectorComponent> = ({ path, title, imagePath }) => {
+
+	const equipment = useAppSelector(state => state.character.equipment)
 
 	const perkDeck = useAppSelector(state => state.abilities.perkdeck)
 	const perkDeckIndex = perkData.indexOf(perkData.find(perk => perk.name === perkDeck.name) || perkData[0])
@@ -24,6 +26,14 @@ const Selector: React.FC<selectorComponent> = ({ path, title, imagePath }) => {
 				<Title>{title}</Title>
 				{
 					imagePath && <Image src={imagePath}/>
+				}
+				{
+					title === 'equipment' && (
+						equipment.secondary ? <EquipmentContainer>
+							<Image src={`images/equipment/${equipment.primary.name}.png`} />
+							<Image src={`images/equipment/${equipment.secondary.name}.png`} />
+						</EquipmentContainer> : <Image src={`images/equipment/${equipment.primary.name}.png`} />
+					)
 				}
 				{
 					title === 'skills' && <SkillsContainer>

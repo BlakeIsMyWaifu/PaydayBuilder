@@ -1,6 +1,7 @@
-import characters, { characterData } from 'data/character/characters'
-import masks, { maskData } from 'data/character/masks'
 import armours, { armourData } from 'data/character/armours'
+import characters, { characterData } from 'data/character/characters'
+import equipment, { equipmentData } from 'data/character/equipment'
+import masks, { maskData } from 'data/character/masks'
 
 export interface characterState {
 	mask: {
@@ -11,7 +12,10 @@ export interface characterState {
 	};
 	character: characterData;
 	armour: armourData;
-	equipment: null;
+	equipment: {
+		primary: equipmentData;
+		secondary: equipmentData | null;
+	};
 }
 
 const characterDefaultState: characterState = {
@@ -28,7 +32,10 @@ const characterDefaultState: characterState = {
 	},
 	character: characters[0],
 	armour: armours[0],
-	equipment: null,
+	equipment: {
+		primary: equipment[0],
+		secondary: null
+	},
 }
 
 export default characterDefaultState

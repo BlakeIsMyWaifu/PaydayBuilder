@@ -10,6 +10,7 @@ import Skills from 'pages/Skills'
 import React from 'react'
 import { MemoryRouter, Route, Switch } from 'react-router'
 import { isDev } from 'utils/isDev'
+import Equipment from 'pages/Equipment'
 
 const App: React.FC = () => {
 	return (
@@ -21,6 +22,7 @@ const App: React.FC = () => {
 					<Route path='/mask' component={Mask} />
 					<Route path='/character' component={Character} />
 					<Route path='/armour' component={Armour} />
+					<Route path='/equipment' component={Equipment} />
 					<Route path='/skills' component={Skills} />
 					<Route path='/perkdeck' component={PerkDeck} />
 				</Switch>

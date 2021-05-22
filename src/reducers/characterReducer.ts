@@ -1,6 +1,7 @@
 import actions from 'actions/characterAction'
 import { armourData } from 'data/character/armours'
 import { characterData } from 'data/character/characters'
+import { equipmentData } from 'data/character/equipment'
 import { maskData } from 'data/character/masks'
 import defaultstate from 'defualtStates/characterDefaultState'
 import { getType } from 'typesafe-actions'
@@ -39,6 +40,15 @@ const characterReducer = (state = defaultstate, action: any) => {
 			return {
 				...state,
 				armour
+			}
+		case getType(actions.changeEquipment):
+			const [equipment, slot]: [equipmentData, 'primary' | 'secondary'] = action.payload
+			return {
+				...state,
+				equipment: {
+					...state.equipment,
+					[slot]: equipment
+				}
 			}
 		default:
 			return state
