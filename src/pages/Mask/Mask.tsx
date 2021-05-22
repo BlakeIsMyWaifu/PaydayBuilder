@@ -1,8 +1,8 @@
 import { changeMask, toggleMaskFilter } from 'actions/characterAction'
 import Back from 'components/Back'
 import Container from 'components/Container'
-import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import { Item, Title } from 'components/Content'
+import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import data, { maskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { createRef, useRef, useState } from 'react'
@@ -64,6 +64,7 @@ const Mask: React.FC = () => {
 			<CollectionTitles ref={scrollRef} onWheel={e => scrollHorizontalDiv(e, scrollRef)}>
 				{
 					Object.keys(collections).map((collection, i) => {
+						if (filters[collections[collection][0].type]) return
 						return <CollectionTitle
 							key={collection}
 							color={colours[collections[collection][0].type]}
