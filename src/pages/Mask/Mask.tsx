@@ -1,7 +1,7 @@
 import { changeMask, toggleMaskFilter } from 'actions/characterAction'
 import Back from 'components/Back'
 import Container from 'components/Container'
-import { Item, Title } from 'components/Content'
+import { Item, Title, Wrapper } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import data, { maskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks'
@@ -9,7 +9,7 @@ import React, { createRef, useRef, useState } from 'react'
 import { useHistory } from 'react-router'
 import scrollHorizontalDiv from 'utils/scrollHorizontalDiv'
 
-import { CollectionTitle, CollectionTitles, FilterContainer, FilterText, FilterTitle, FiltersWrapper, InfoCost, InfoUnlock, MaskCollection, MaskCollectionTitle, MaskContainer } from './Mask-Elements'
+import { CollectionTitle, CollectionTitles, FilterContainer, FilterText, FilterTitle, FiltersWrapper, InfoCost, InfoUnlock, MaskCollection, MaskCollectionTitle } from './Mask-Elements'
 
 interface collections {
 	[key: string]: maskData[];
@@ -57,7 +57,7 @@ const Mask: React.FC = () => {
 	const filters = useAppSelector(state => state.character.mask.filter)
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 2rem 8fr 4rem' areas='"title filter" "collectiontitles filter" "masks info" "masks back"'>
+		<Container columns='3fr 1fr' rows='4rem 2rem 8fr 4rem' areas='"title filter" "collectiontitles filter" "wrapper info" "wrapper back"'>
 
 			<Title>Mask</Title>
 
@@ -90,7 +90,7 @@ const Mask: React.FC = () => {
 				</FiltersWrapper>
 			</FilterContainer>
 
-			<MaskContainer>
+			<Wrapper>
 				{
 					Object.keys(collections).map((collection, i) => {
 						const masks = collections[collection]
@@ -115,7 +115,7 @@ const Mask: React.FC = () => {
 						</MaskCollection>
 					})
 				}
-			</MaskContainer>
+			</Wrapper>
 
 			<InfoContainer>
 				{

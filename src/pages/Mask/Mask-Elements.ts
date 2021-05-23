@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import corner from 'utils/corner'
 
 export const CollectionTitles = styled.div`
 	grid-area: collectiontitles;
@@ -43,13 +42,6 @@ export const FilterText = styled.h1<filterText>`
 	cursor: pointer;
 	color: ${props => props.color};
 	text-decoration: ${props => props.typeFilter ? 'line-through' : 'none'};
-`
-
-export const MaskContainer = styled.div`
-	grid-area: masks;
-	${corner};
-	padding: 12px;
-	overflow-y: scroll;
 `
 
 export const MaskCollection = styled.div`

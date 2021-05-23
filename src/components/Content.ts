@@ -9,7 +9,7 @@ export const Title = styled.h1`
 export const Wrapper = styled.div`
 	grid-area: wrapper;
 	padding: 12px;
-	overflow-y: scroll;
+	overflow-y: auto;
 	${corner};
 `
 
