@@ -28,16 +28,20 @@ export const PreviewWrapper = styled.div`
 `
 
 export const Preview = styled.div`
-	width: 100%;
-	height: calc(50% - 4px);
+	width: calc(100% - 32px);
+	height: calc(50% - 20px);
 	background-color: ${dim} !important;
-	${corner}
+	display: flex;
+	flex-direction: column;
+	padding: 8px 16px;
+	overflow-y: auto;
+	${corner};
 `
 
 export const SelectorWrapper = styled.div`
 	width: 100%;
 	height: calc(100% - 20px);
-	${corner}
+	${corner};
 `
 
 export const Image = styled.img`
