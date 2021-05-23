@@ -100,15 +100,15 @@ const Mask: React.FC = () => {
 							{
 								masks.map(mask => {
 									return <Item
-										size={96}
+										key={mask.name}
+										src={`images/masks/${mask.image}.png`}
 										onMouseEnter={() => setHoveredMask(mask)}
 										onMouseLeave={() => setHoveredMask(null)}
 										onMouseDown={() => {
 											dispatch(changeMask(mask))
 											history.push('/')
 										}}
-										src={`images/masks/${mask.image}.png`}
-										key={mask.name}
+										size={96}
 									/>
 								})
 							}

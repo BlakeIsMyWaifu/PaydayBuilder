@@ -38,10 +38,10 @@ const Skill: React.FC<skillComponent> = ({ tree, subtree, skill, setSkillHovered
 			onMouseOver={() => setSkillHovered(skill)}
 			onMouseLeave={() => setSkillHovered(null)}
 			onContextMenu={event => event.preventDefault()}
-			onMouseDown={event => clickSkills(event)}>
+			onMouseDown={clickSkills}>
 			<Icon>
-				{ skillState === 'locked' ? <Locked /> : <></> }
-				{ skillState === 'aced' ? <Aced /> : <></> }
+				{ skillState === 'locked' && <Locked /> }
+				{ skillState === 'aced' && <Aced /> }
 				<SkillIcon x={skill.pos[0]} y={skill.pos[1]} state={skillState}/>
 			</Icon>
 			<Label>{skill.name}</Label>

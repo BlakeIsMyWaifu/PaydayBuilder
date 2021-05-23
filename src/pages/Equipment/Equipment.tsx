@@ -27,6 +27,8 @@ const Equipment: React.FC = () => {
 				{
 					data.map(equipment => {
 						return <EquipementIcon
+							key={equipment.name}
+							src={`images/equipment/${equipment.name}.png`}
 							onMouseEnter={() => setHoveredEquipment(equipment)}
 							onMouseLeave={() => setHoveredEquipment(null)}
 							onMouseDown={(event: React.MouseEvent) => {
@@ -36,8 +38,6 @@ const Equipment: React.FC = () => {
 								dispatch(changeEquipment([equipment, slot]))
 								history.push('/')
 							}}
-							src={`images/equipment/${equipment.name}.png`}
-							key={equipment.name}
 						/>
 					})
 				}

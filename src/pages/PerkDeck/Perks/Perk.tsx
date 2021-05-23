@@ -34,7 +34,7 @@ const Perk: React.FC<perkComponent> = ({ data, index, perkref, setHoveredCard, s
 					data.cards.map((card, i) => {
 						const x = ~~((i + 1) / 2) * 48
 						const y = i % 2 ? 0 : (index + 1) * 48
-						return <Card key={`card-${data.name}-${card.name}`} onMouseOver={() => setHoveredCard(card)}>
+						return <Card key={`${data.name}-${card.name}`} onMouseOver={() => setHoveredCard(card)}>
 							<CardBackground src={'images/perks/card.png'} selected={selected}/>
 							<CardIcon x={x} y={y}/>
 						</Card>

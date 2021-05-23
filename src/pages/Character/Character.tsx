@@ -25,14 +25,14 @@ const Character: React.FC = () => {
 				{
 					data.map(character => {
 						return <Item
+							key={character.name}
+							src={`images/characters/${character.name}.png`}
 							onMouseEnter={() => setHoveredCharacter(character)}
 							onMouseLeave={() => setHoveredCharacter(null)}
 							onMouseDown={() => {
 								dispatch(changeCharacter(character))
 								history.push('/')
 							}}
-							src={`images/characters/${character.name}.png`}
-							key={`character-${character.name}`}
 						/>
 					})
 				}
