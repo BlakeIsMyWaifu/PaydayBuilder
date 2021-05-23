@@ -39,3 +39,16 @@ export const SelectorWrapper = styled.div`
 	height: calc(100% - 20px);
 	${corner}
 `
+
+export const ConfigWrapper = styled.div`
+	grid-area: config;
+	display: flex;
+`
+
+export const ResetCurrentBuild = styled.p`
+	font-size: 2.5rem;
+	cursor: pointer;
+	&:hover {
+		color: white;
+	}
+`

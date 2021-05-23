@@ -1,16 +1,18 @@
 import Container from 'components/Container'
-import { useAppSelector } from 'hooks'
+import { useAppDispatch, useAppSelector } from 'hooks'
 import React from 'react'
 
-import { Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle } from './Home-Elements'
+import { ConfigWrapper, Preview, PreviewWrapper, ResetCurrentBuild, SelectorWrapper, Tab, TabTitle } from './Home-Elements'
 import Selector from './Selector'
 
 const Home: React.FC = () => {
 
 	const character = useAppSelector(state => state.character)
 
+	const dispatch = useAppDispatch()
+
 	return (
-		<Container columns='2fr 1fr 1fr 1fr' rows='1fr' areas='"stats character weapons abilities"'>
+		<Container columns='2fr 1fr 1fr 1fr' rows='calc(100% - 3rem) 3rem' areas='"stats character weapons abilities" "config config config config"'>
 
 			<Tab id='stats'>
 				<TabTitle direction='ltr'>Inventory</TabTitle>
@@ -50,6 +52,10 @@ const Home: React.FC = () => {
 					<Selector path='infamy' title='infamy'/>
 				</SelectorWrapper>
 			</Tab>
+
+			<ConfigWrapper>
+				<ResetCurrentBuild onMouseDown={() => dispatch({type: 'RESET'})}>[Reset Build]</ResetCurrentBuild>
+			</ConfigWrapper>
 
 		</Container>
 	)

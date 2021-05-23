@@ -10,4 +10,4 @@ const allReducers = combineReducers({
 	abilities
 })
 
-export default allReducers
+export default (state: any, action: any) => allReducers(action.type === 'RESET' ? undefined : state, action)
