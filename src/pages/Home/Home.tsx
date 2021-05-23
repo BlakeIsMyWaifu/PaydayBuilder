@@ -1,15 +1,20 @@
 import Container from 'components/Container'
+import perkData from 'data/abilities/perks'
 import { useAppDispatch, useAppSelector } from 'hooks'
-import React from 'react'
+import React, { useState } from 'react'
 
-import { ConfigWrapper, Preview, PreviewWrapper, ResetCurrentBuild, SelectorWrapper, Tab, TabTitle } from './Home-Elements'
+import { ConfigWrapper, EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, ResetCurrentBuild, SelectorWrapper, Tab, TabTitle } from './Home-Elements'
 import Selector from './Selector'
+import SelectorSkills from './Selector/SelectorSkills'
 
 const Home: React.FC = () => {
 
-	const character = useAppSelector(state => state.character)
+	const { mask, character, armour, equipment } = useAppSelector(state => state.character)
 
 	const dispatch = useAppDispatch()
+
+	const perkDeck = useAppSelector(state => state.abilities.perkdeck)
+	const perkDeckIndex = perkData.indexOf(perkData.find(perk => perk.name === perkDeck.name) || perkData[0])
 
 	return (
 		<Container columns='2fr 1fr 1fr 1fr' rows='calc(100% - 3rem) 3rem' areas='"stats character weapons abilities" "config config config config"'>
@@ -24,32 +29,46 @@ const Home: React.FC = () => {
 
 			<Tab id='character'>
 				<TabTitle direction='rtl'>Character</TabTitle>
-
 				<SelectorWrapper>
-					<Selector path='/mask' title='mask' imagePath={`images/masks/${character.mask.equiped.image}.png`}/>
-					<Selector path='/character' title='character' imagePath={`images/characters/${character.character.name}.png`}/>
-					<Selector path='/armour' title='armour' imagePath={`images/armours/${character.armour.name}.png`}/>
-					<Selector path='/equipment' title='equipment'/>
+					<Selector title='mask'>
+						<Image src={`images/masks/${mask.equiped.image}.png`} />
+					</Selector>
+					<Selector title='character'>
+						<Image src={`images/characters/${character.name}.png`} />
+					</Selector>
+					<Selector title='armour'>
+						<Image src={`images/armours/${armour.name}.png`} />
+					</Selector>
+					<Selector title='equipment'>
+						{
+							equipment.secondary ? <EquipmentContainer>
+								<Image src={`images/equipment/${equipment.primary.name}.png`} />
+								<Image src={`images/equipment/${equipment.secondary.name}.png`} />
+							</EquipmentContainer> : <Image src={`images/equipment/${equipment.primary.name}.png`} />
+						}
+					</Selector>
 				</SelectorWrapper>
 			</Tab>
 
 			<Tab id='weapons'>
 				<TabTitle direction='rtl'>Weapons</TabTitle>
 				<SelectorWrapper>
-					<Selector path='/primary' title='primary'/>
-					<Selector path='/secondary' title='secondary'/>
-					<Selector path='/throwable' title='throwable'/>
-					<Selector path='/melee' title='melee'/>
+					<Selector title='primary' />
+					<Selector title='secondary' />
+					<Selector title='throwable' />
+					<Selector title='melee' />
 				</SelectorWrapper>
 			</Tab>
 
 			<Tab id='abilities'>
 				<TabTitle direction='rtl'>Abilities</TabTitle>
 				<SelectorWrapper>
-					<Selector path='/skills' title='skills'/>
-					<Selector path='/perkdeck' title='perk deck'/>
-					<Selector path='/crewmangement' title='crew mangement'/>
-					<Selector path='infamy' title='infamy'/>
+					<SelectorSkills />
+					<Selector title='perk deck'>
+						<PerkDeckImage x={192} y={(perkDeckIndex + 1) * 48} />
+					</Selector>
+					<Selector title='crew mangement' />
+					<Selector title='infamy' />
 				</SelectorWrapper>
 			</Tab>
 
