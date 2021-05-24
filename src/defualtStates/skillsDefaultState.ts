@@ -1,8 +1,8 @@
 import data, { skillData, treeNames } from 'data/abilities/skills'
 
 export interface skillsState {
-	points: number,
-	trees: trees
+	points: number;
+	trees: trees;
 }
 
 export interface trees {
@@ -21,7 +21,7 @@ export interface upgrades {
 	[key: string]: skillUpgradeTypes;
 }
 
-export type skillUpgradeTypes = 'locked' | 'available' | 'basic' | 'aced'
+export type skillUpgradeTypes = 'locked' | 'available' | 'basic' | 'aced';
 
 const getTrees = (): trees => {
 	let out: trees = {}
