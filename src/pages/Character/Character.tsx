@@ -17,7 +17,7 @@ const Character: React.FC = () => {
 	const history = useHistory()
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "wrapper info" "characters back"'>
+		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "wrapper info" "wrapper back"'>
 
 			<Title>Character</Title>
 
