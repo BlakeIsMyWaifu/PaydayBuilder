@@ -236,6 +236,17 @@ const masks: maskData[] = [
 		cost: ''
 	},
 	{
+		name: 'Joy',
+		image: 'joy',
+		description: [
+			'Bring back disco in style and confuse the hell out of your enemies when they gaze into your fabulously flashy face.'
+		],
+		collection: 'Joy Character Pack',
+		type: 'infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
+		cost: 'Free'
+	},
+	{
 		name: 'Ethan',
 		image: 'ecp_male',
 		description: [

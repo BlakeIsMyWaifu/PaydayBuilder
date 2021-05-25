@@ -26,7 +26,7 @@ const Character: React.FC = () => {
 					data.map(character => {
 						return <Item
 							key={character.name}
-							src={`images/characters/${character.name}.png`}
+							src={`images/masks/${character.image}.png`}
 							onMouseEnter={() => setHoveredCharacter(character)}
 							onMouseLeave={() => setHoveredCharacter(null)}
 							onMouseDown={() => {

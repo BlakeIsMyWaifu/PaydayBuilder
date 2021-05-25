@@ -1,5 +1,6 @@
 export interface characterData {
 	name: string;
+	image: string;
 	nationality: string;
 	age: number | string;
 	description: string[];
@@ -8,6 +9,7 @@ export interface characterData {
 const characters: characterData[] = [
 	{
 		name: 'Dallas',
+		image: 'dallas',
 		nationality: 'American',
 		age: 44,
 		description: [
@@ -16,7 +18,8 @@ const characters: characterData[] = [
 		]
 	},
 	{
-		name: 'wolf',
+		name: 'Wolf',
+		image: 'wolf',
 		nationality: 'Swedish',
 		age: 34,
 		description: [
@@ -26,6 +29,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Chains',
+		image: 'chains',
 		nationality: 'American',
 		age: 37,
 		description: [
@@ -35,6 +39,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Houston',
+		image: 'hoxton',
 		nationality: 'Houston',
 		age: 31,
 		description: [
@@ -43,7 +48,8 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Wick',
-		nationality: 'American', 
+		image: 'jw_shades',
+		nationality: 'American',
 		age: '40s',
 		description: [
 			'John Wick is a quiet and calm former hitman. He has a seemingly ageless physique, probably from his background as a boxer. John and Chains know each other from before as they used to be in the military together.',
@@ -52,6 +58,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Hoxton',
+		image: 'old_hoxton',
 		nationality: 'English',
 		age: 32,
 		description: [
@@ -61,6 +68,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Clover',
+		image: 'msk_grizel',
 		nationality: 'Irish',
 		age: 27,
 		description: [
@@ -69,6 +77,7 @@ const characters: characterData[] = [
 	},
 	{
 		name:  'Dragan',
+		image: 'dragan',
 		nationality: 'Croatian',
 		age: 45,
 		description: [
@@ -77,6 +86,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Jacket',
+		image: 'richard_returns',
 		nationality: 'American',
 		age: 'Unknown',
 		description: [
@@ -85,6 +95,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Bonnie',
+		image: 'bonnie',
 		nationality: 'Scottish',
 		age: 43,
 		description: [
@@ -93,6 +104,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Sokol',
+		image: 'sokol',
 		nationality: 'Sokol',
 		age: 25,
 		description: [
@@ -101,6 +113,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Jiro',
+		image: 'jiro',
 		nationality: 'Japanese',
 		age: 52,
 		description: [
@@ -109,6 +122,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Bodhi',
+		image: 'bodhi',
 		nationality: 'Venezuelan',
 		age: 'Unknown',
 		description: [
@@ -117,6 +131,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Jimmy',
+		image: 'jimmy_duct',
 		nationality: 'Unknown',
 		age: 'Unknown',
 		description: [
@@ -125,6 +140,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Sydney',
+		image: 'sydney',
 		nationality: 'Australian',
 		age: 24,
 		description: [
@@ -133,6 +149,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Rust',
+		image: 'rust',
 		nationality: 'American',
 		age: 61,
 		description: [
@@ -141,6 +158,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Scarface',
+		image: 'chc_terry',
 		nationality: 'Cuban',
 		age: 'Unknown',
 		description: [
@@ -149,6 +167,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Sangres',
+		image: 'max',
 		nationality: 'Mexican',
 		age: 33,
 		description: [
@@ -157,6 +176,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Joy',
+		image: 'joy',
 		nationality: 'Japanese',
 		age: 22,
 		description: [
@@ -165,6 +185,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Duke',
+		image: 'myh',
 		nationality: 'North American',
 		age: '50s',
 		description: [
@@ -173,6 +194,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Ethan',
+		image: 'ecp_male',
 		nationality: 'American',
 		age: 32,
 		description: [
@@ -181,6 +203,7 @@ const characters: characterData[] = [
 	},
 	{
 		name: 'Hila',
+		image: 'ecp_female',
 		nationality: 'Israeli',
 		age: 29,
 		description: [
