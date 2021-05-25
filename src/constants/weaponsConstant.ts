@@ -1,0 +1,4 @@
+export const CHANGEPRIMARY = 'weapons/CHANGEPRIMARY'
+export const CHANGESECONDARY = 'weapons/CHANGESECONDARY'
+export const CHANGETHROWABLE = 'weapons/CHANGETHROWABLE'
+export const CHANGEMELEE = 'weapons/CHANGEMELEE'

@@ -27,7 +27,7 @@ const melees: meleeData[] = [
 		reputation: 0,
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'weapon',
 		stats: {
 			damage: [30, 30],
 			knockdown: [30, 30],
@@ -45,7 +45,7 @@ const melees: meleeData[] = [
 		reputation: 0,
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'fists',
 		stats: {
 			damage: [30, 55],
 			knockdown: [90, 110],
@@ -63,7 +63,7 @@ const melees: meleeData[] = [
 		reputation: 0,
 		source: 'THIS IS A COMMUNITY ITEM!',
 		sourceType: 'community',
-		image: '',
+		image: 'brass_knuckles',
 		stats: {
 			damage: [30, 55],
 			knockdown: [90, 110],
@@ -81,7 +81,7 @@ const melees: meleeData[] = [
 		reputation: 0,
 		source: 'THIS IS A COMMUNITY ITEM!',
 		sourceType: 'community',
-		image: '',
+		image: 'kabartanto',
 		stats: {
 			damage: [20, 80],
 			knockdown: [20, 80],
@@ -99,7 +99,7 @@ const melees: meleeData[] = [
 		reputation: 0,
 		source: 'THIS IS A COMMUNITY ITEM!',
 		sourceType: 'community',
-		image: '',
+		image: 'toothbrush',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -117,7 +117,7 @@ const melees: meleeData[] = [
 		reputation: 0,
 		source: 'THIS IS A GAGE WEAPON PACK #02 ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'kabar',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -135,7 +135,7 @@ const melees: meleeData[] = [
 		reputation: 0,
 		source: 'OWN THE HOTLINE MIAMI GAME ON STEAM TO UNLOCK!',
 		sourceType: 'collaboration',
-		image: '',
+		image: 'briefcase',
 		stats: {
 			damage: [30, 55],
 			knockdown: [90, 110],
@@ -153,7 +153,7 @@ const melees: meleeData[] = [
 		reputation: 0,
 		source: 'THIS IS A GAGE HISTORICAL PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'swagger',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -171,7 +171,7 @@ const melees: meleeData[] = [
 		reputation: 0,
 		source: 'THIS IS A SPRING BREAK 2018 ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'aziz',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -189,7 +189,7 @@ const melees: meleeData[] = [
 		reputation: 0,
 		source: 'THIS IS A RESERVOIR DOGS ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'clean',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -207,7 +207,7 @@ const melees: meleeData[] = [
 		reputation: 0,
 		source: 'THIS IS A MELES WEAPON PACK ITEM!',
 		sourceType: 'event',
-		image: '',
+		image: 'spoon_gold',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 450],
@@ -227,7 +227,7 @@ const melees: meleeData[] = [
 		reputation: 1,
 		source: 'THIS IS A WOLF PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'nin',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 450],
@@ -245,7 +245,7 @@ const melees: meleeData[] = [
 		reputation: 2,
 		source: 'THIS IS A MELES WEAPON PACK ITEM!',
 		sourceType: 'event',
-		image: '',
+		image: 'spoon',
 		stats: {
 			damage: [40, 250],
 			knockdown: [40, 250],
@@ -263,7 +263,7 @@ const melees: meleeData[] = [
 		reputation: 3,
 		source: 'THIS IS A BBQ WEAPON PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'fork',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -281,7 +281,7 @@ const melees: meleeData[] = [
 		reputation: 3,
 		source: 'THIS IS A BBQ WEAPON PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'spatula',
 		stats: {
 			damage: [30, 55],
 			knockdown: [90, 110],
@@ -299,7 +299,7 @@ const melees: meleeData[] = [
 		reputation: 4,
 		source: 'THIS IS A GAGE SHOTGUN PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'shovel',
 		stats: {
 			damage: [20, 40],
 			knockdown: [200, 400],
@@ -317,7 +317,7 @@ const melees: meleeData[] = [
 		reputation: 7,
 		source: 'THIS IS A COMMUNITY ITEM!',
 		sourceType: 'community',
-		image: '',
+		image: 'moneybundle',
 		stats: {
 			damage: [30, 55],
 			knockdown: [90, 110],
@@ -335,7 +335,7 @@ const melees: meleeData[] = [
 		reputation: 8,
 		source: 'THIS IS A GAGE NINJA PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'fight',
 		stats: {
 			damage: [30, 55],
 			knockdown: [90, 110],
@@ -353,7 +353,7 @@ const melees: meleeData[] = [
 		reputation: 10,
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'cutters',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -371,7 +371,7 @@ const melees: meleeData[] = [
 		reputation: 10,
 		source: 'THIS IS A GOAT SUMULATOR ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'shawn',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -389,7 +389,7 @@ const melees: meleeData[] = [
 		reputation: 12,
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'boxcutter',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -407,7 +407,7 @@ const melees: meleeData[] = [
 		reputation: 13,
 		source: 'THIS IS A THE ALESSO HIEST PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'microphone',
 		stats: {
 			damage: [30, 55],
 			knockdown: [90, 110],
@@ -425,7 +425,7 @@ const melees: meleeData[] = [
 		reputation: 13,
 		source: 'THIS IS A POINT BREAK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'selfie',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -443,7 +443,7 @@ const melees: meleeData[] = [
 		reputation: 14,
 		source: 'THIS IS A GAGE ASSUALT PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'bayonet',
 		stats: {
 			damage: [20, 80],
 			knockdown: [20, 36],
@@ -461,7 +461,7 @@ const melees: meleeData[] = [
 		reputation: 14,
 		source: 'THIS IS A POINT BREAK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'gator',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -479,7 +479,7 @@ const melees: meleeData[] = [
 		reputation: 15,
 		source: 'THIS IS A BIKER CHARACTER PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'road',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 450],
@@ -497,7 +497,7 @@ const melees: meleeData[] = [
 		reputation: 16,
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'zeus',
 		stats: {
 			damage: [20, 20],
 			knockdown: [20, 20],
@@ -518,7 +518,7 @@ const melees: meleeData[] = [
 		reputation: 16,
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'iceaxe',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 450],
@@ -536,7 +536,7 @@ const melees: meleeData[] = [
 		reputation: 16,
 		source: 'THIS IS A GAGE RUSSIAN WEAPON PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'oxide',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 450],
@@ -554,7 +554,7 @@ const melees: meleeData[] = [
 		reputation: 16,
 		source: 'THIS IS A SEARCH FOR KENTO ITEM!',
 		sourceType: 'event',
-		image: '',
+		image: 'sword',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -572,7 +572,7 @@ const melees: meleeData[] = [
 		reputation: 17,
 		source: 'THIS IS A GAGE SHOTGUN PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'baton',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -590,7 +590,7 @@ const melees: meleeData[] = [
 		reputation: 17,
 		source: 'THIS IS A GOLDEN CASINO ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'slot_lever',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -608,7 +608,7 @@ const melees: meleeData[] = [
 		reputation: -1,
 		source: 'THIS IS A SAN MARÍN BANK HEIST ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'chac',
 		stats: {
 			damage: [30, 55],
 			knockdown: [90, 110],
@@ -626,7 +626,7 @@ const melees: meleeData[] = [
 		reputation: 18,
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'fear',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -647,7 +647,7 @@ const melees: meleeData[] = [
 		reputation: 18,
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'hauteur',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 450],
@@ -665,7 +665,7 @@ const melees: meleeData[] = [
 		reputation: 18,
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'shock',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -683,7 +683,7 @@ const melees: meleeData[] = [
 		reputation: 18,
 		source: 'THIS IS A HOTLINE MIAMI DLC ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'baseballbat',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -701,7 +701,7 @@ const melees: meleeData[] = [
 		reputation: 18,
 		source: 'THIS IS A THE ALESSO HEIST PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'oldbaton',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -719,7 +719,7 @@ const melees: meleeData[] = [
 		reputation: 18,
 		source: 'THIS IS A SOKOL CHARACTER PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'hockey',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -737,7 +737,7 @@ const melees: meleeData[] = [
 		reputation: 18,
 		source: 'THIS IS A H3H3 CHARACTER PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'meter',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 450],
@@ -755,7 +755,7 @@ const melees: meleeData[] = [
 		reputation: 19,
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'ballistic',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -773,7 +773,7 @@ const melees: meleeData[] = [
 		reputation: 19,
 		source: 'THIS IS A POINT BREAK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'pugio',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -791,7 +791,7 @@ const melees: meleeData[] = [
 		reputation: 20,
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'agave',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 450],
@@ -809,7 +809,7 @@ const melees: meleeData[] = [
 		reputation: 20,
 		source: 'THIS IS A JOY CHARACTER PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'happy',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -827,7 +827,7 @@ const melees: meleeData[] = [
 		reputation: 21,
 		source: 'THIS IS A GAGE WEAPON PACK #02 ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'kampfmesser',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -845,7 +845,7 @@ const melees: meleeData[] = [
 		reputation: 21,
 		source: 'THIS IS A GAGE CHIVALRY PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'buck',
 		stats: {
 			damage: [30, 55],
 			knockdown: [90, 110],
@@ -863,7 +863,7 @@ const melees: meleeData[] = [
 		reputation: 21, // 21 & 35?
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'wing',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -881,7 +881,7 @@ const melees: meleeData[] = [
 		reputation: 22,
 		source: 'THIS IS A WESTERN WEAPON PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'branding_iron',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -899,7 +899,7 @@ const melees: meleeData[] = [
 		reputation: 22,
 		source: 'THIS IS A THE ALESSO HEIST DLC ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'detector',
 		stats: {
 			damage: [30, 55],
 			knockdown: [90, 110],
@@ -917,7 +917,7 @@ const melees: meleeData[] = [
 		reputation: 22,
 		source: 'THIS IS A GOLDEN GRIN CASINO ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'croupier_rake',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -935,7 +935,7 @@ const melees: meleeData[] = [
 		reputation: 23,
 		source: 'THIS IS A SHADOW WARRIOR ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'ostry',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -953,7 +953,7 @@ const melees: meleeData[] = [
 		reputation: 23,
 		source: 'THIS IS A GAGE ASSAULT PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'bullseye',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -971,7 +971,7 @@ const melees: meleeData[] = [
 		reputation: 23,
 		source: 'THIS IS A SCARFACE CHARACTER PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'cs',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 450],
@@ -989,7 +989,7 @@ const melees: meleeData[] = [
 		reputation: 23,
 		source: 'THIS IS A SCARFACE HEIST PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'brick',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1007,7 +1007,7 @@ const melees: meleeData[] = [
 		reputation: 24,
 		source: 'THIS IS A GAGE HISTORICAL PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'model24',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -1025,7 +1025,7 @@ const melees: meleeData[] = [
 		reputation: 24,
 		source: 'THIS IS A WESTERN WEAPON PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'scalper',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1043,7 +1043,7 @@ const melees: meleeData[] = [
 		reputation: 24,
 		source: 'THIS IS A GOLDEN GRIN CASINO ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'switchblade',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1061,7 +1061,7 @@ const melees: meleeData[] = [
 		reputation: 25,
 		source: 'THIS IS A RAID: WORLD WAR II COMMUNITY ITEM!',
 		sourceType: 'community',
-		image: '',
+		image: 'grip',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1079,7 +1079,7 @@ const melees: meleeData[] = [
 		reputation: 25,
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'boxing_gloves',
 		stats: {
 			damage: [30, 55],
 			knockdown: [90, 110],
@@ -1097,7 +1097,7 @@ const melees: meleeData[] = [
 		reputation: 25,
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'push',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1115,7 +1115,7 @@ const melees: meleeData[] = [
 		reputation: 50,  // 50?
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'sap',
 		stats: {
 			damage: [20, 40],
 			knockdown: [200, 400],
@@ -1133,7 +1133,7 @@ const melees: meleeData[] = [
 		reputation: 25,
 		source: 'THIS IS A DRAGAN CHARACTER PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'meat_cleaver',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1151,7 +1151,7 @@ const melees: meleeData[] = [
 		reputation: 26,
 		source: 'THIS IS A YAKUZA CHARACTER PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'sandsteel',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 450],
@@ -1169,7 +1169,7 @@ const melees: meleeData[] = [
 		reputation: 27,
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'twins',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1187,7 +1187,7 @@ const melees: meleeData[] = [
 		reputation: 27,
 		source: 'THIS IS A GOAT SIMULATOR ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'pitchfork',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 4505],
@@ -1205,7 +1205,7 @@ const melees: meleeData[] = [
 		reputation: 28,
 		source: 'THIS IS A WESTERN WEAPON PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'bowie',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1223,7 +1223,7 @@ const melees: meleeData[] = [
 		reputation: 28,
 		source: 'THIS IS A THE ALESSO HEIST ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'micstand',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -1241,7 +1241,7 @@ const melees: meleeData[] = [
 		reputation: 31,
 		source: 'THIS IS A COMMUNITY ITEM!',
 		sourceType: 'community',
-		image: '',
+		image: 'chef',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1259,7 +1259,7 @@ const melees: meleeData[] = [
 		reputation: 32,
 		source: 'THIS IS A GAGE ASSAULT PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'x46',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1277,7 +1277,7 @@ const melees: meleeData[] = [
 		reputation: 32,
 		source: 'THIS IS A GAGE NINJA PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'tiger',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1295,7 +1295,7 @@ const melees: meleeData[] = [
 		reputation: 33,
 		source: 'THIS IS A GAGE CHIVALRY PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'beardy',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 450],
@@ -1313,7 +1313,7 @@ const melees: meleeData[] = [
 		reputation: 33,
 		source: 'THIS IS A JOHN WICK HEISTS ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'catch',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1331,7 +1331,7 @@ const melees: meleeData[] = [
 		reputation: 34,
 		source: 'THIS IS A HOTLINE MIAMI PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'cleaver',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1349,7 +1349,7 @@ const melees: meleeData[] = [
 		reputation: 34,
 		source: 'THIS IS A GOLDEN CASINO ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'taser',
 		stats: {
 			damage: [20, 20],
 			knockdown: [20, 20],
@@ -1370,7 +1370,7 @@ const melees: meleeData[] = [
 		reputation: 34,
 		source: 'THIS IS A WESTERN WEAPON PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'mining_pick',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 450],
@@ -1388,7 +1388,7 @@ const melees: meleeData[] = [
 		reputation: 37,
 		source: 'REQUIRES OWNERSHIP OF HOTLINE MIAMI 2 DIGITAL SPECIAL EDITION ON STEAM.',
 		sourceType: 'collaboration',
-		image: '',
+		image: 'hammer',
 		stats: {
 			damage: [20, 40],
 			knockdown: [200, 400],
@@ -1406,7 +1406,7 @@ const melees: meleeData[] = [
 		reputation: 37,
 		source: 'THIS IS A CLOVER CHARACTER PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'shillelagh',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -1424,7 +1424,7 @@ const melees: meleeData[] = [
 		reputation: 37,
 		source: 'THIS IS A GOAT SIMULATOR ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'stick',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -1442,7 +1442,7 @@ const melees: meleeData[] = [
 		reputation: 38,
 		source: 'THIS IS A GOAT SIMULATOR ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'scoutknife',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1460,7 +1460,7 @@ const melees: meleeData[] = [
 		reputation: 41,
 		source: 'THIS IS A GAGE WEAPON PACK #02 ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'gerber',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1478,7 +1478,7 @@ const melees: meleeData[] = [
 		reputation: 41,
 		source: 'THIS IS A GAGE HISTORICAL PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'fairbair',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1496,7 +1496,7 @@ const melees: meleeData[] = [
 		reputation: 42,
 		source: 'THIS IS A GAGE SHOTGUN PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'tomahawk',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1514,7 +1514,7 @@ const melees: meleeData[] = [
 		reputation: 43,
 		source: 'THIS IS A GAGE CHIVALRY PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'morning',
 		stats: {
 			damage: [20, 40],
 			knockdown: [200, 400],
@@ -1532,7 +1532,7 @@ const melees: meleeData[] = [
 		reputation: 44,
 		source: 'THIS IS A BBQ WEAPON PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'poker',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -1550,7 +1550,7 @@ const melees: meleeData[] = [
 		reputation: 45,
 		source: 'THIS IS A COMMUNITY ITEM!',
 		sourceType: 'community',
-		image: '',
+		image: 'barbedwire',
 		stats: {
 			damage: [30, 90],
 			knockdown: [150, 270],
@@ -1568,7 +1568,7 @@ const melees: meleeData[] = [
 		reputation: 46,
 		source: 'THIS IS A GAGE CHIVALRY PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'great',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 450],
@@ -1586,7 +1586,7 @@ const melees: meleeData[] = [
 		reputation: 47,
 		source: 'THIS IS A COMMUNITY ITEM!',
 		sourceType: 'community',
-		image: '',
+		image: 'whiskey',
 		stats: {
 			damage: [30, 55],
 			knockdown: [90, 110],
@@ -1604,7 +1604,7 @@ const melees: meleeData[] = [
 		reputation: 47,
 		source: 'THIS IS A GAGE HISTORICAL PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'freedom',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 450],
@@ -1622,7 +1622,7 @@ const melees: meleeData[] = [
 		reputation: 48,
 		source: 'THIS IS A GAGE ASSAULT PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'dingdong',
 		stats: {
 			damage: [20, 40],
 			knockdown: [200, 400],
@@ -1640,7 +1640,7 @@ const melees: meleeData[] = [
 		reputation: 48,
 		source: 'THIS IS A BBQ WEAPON PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'tenderizer',
 		stats: {
 			damage: [20, 40],
 			knockdown: [200, 400],
@@ -1658,7 +1658,7 @@ const melees: meleeData[] = [
 		reputation: 51,
 		source: 'THIS IS A HOTLINE MIAMI DLC ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'machete',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1676,7 +1676,7 @@ const melees: meleeData[] = [
 		reputation: 54,
 		source: 'THIS IS A GAGE SHOTGUN PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'becker',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1694,7 +1694,7 @@ const melees: meleeData[] = [
 		reputation: 54,
 		source: 'THIS IS A GAGE NINJA PACK ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'cqc',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1715,7 +1715,7 @@ const melees: meleeData[] = [
 		reputation: 61,
 		source: 'THIS IS A GAGE WEAPON PACK #02 ITEM!',
 		sourceType: 'dlc',
-		image: '',
+		image: 'rambo',
 		stats: {
 			damage: [30, 80],
 			knockdown: [30, 80],
@@ -1733,7 +1733,7 @@ const melees: meleeData[] = [
 		reputation: 71,
 		source: 'Base Game',
 		sourceType: 'normal',
-		image: '',
+		image: 'fireaxe',
 		stats: {
 			damage: [70, 450],
 			knockdown: [70, 450],
@@ -1751,7 +1751,7 @@ const melees: meleeData[] = [
 		reputation: 0,
 		source: 'THIS IS AN ALIENWARE ALPHA ITEM!',
 		sourceType: 'event',
-		image: '',
+		image: 'alien_maul',
 		stats: {
 			damage: [20, 40],
 			knockdown: [200, 400],

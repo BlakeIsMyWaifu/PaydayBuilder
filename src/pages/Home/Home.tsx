@@ -17,6 +17,8 @@ const Home: React.FC = () => {
 
 	const { mask, character, armour, equipment } = useAppSelector(state => state.character)
 
+	const { melee } = useAppSelector(state => state.weapons)
+
 	const dispatch = useAppDispatch()
 
 	const [hoverInfo, setHoverInfo] = useState<hoverInfo | null>(null)
@@ -90,7 +92,9 @@ const Home: React.FC = () => {
 
 					<Selector title='throwable' setHoverInfo={setHoverInfo} infoData={null} />
 
-					<Selector title='melee' setHoverInfo={setHoverInfo} infoData={null} />
+					<Selector title='melee' setHoverInfo={setHoverInfo} infoData={null}>
+						<Image src={`images/melees/${melee.image}.png`} />
+					</Selector>
 
 				</SelectorWrapper>
 			</Tab>
