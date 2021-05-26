@@ -54,11 +54,6 @@ export const MaskCollectionTitle = styled.h1`
 	color: ${props => props.color};
 `
 
-export const InfoUnlock = styled.h1`
-	text-transform: none;
-	color: ${props => props.color};
-`
-
 export const InfoCost = styled.p`
 	text-transform: none;
 `

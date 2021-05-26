@@ -31,3 +31,8 @@ export const InfoDescription = styled.h1<infoText>`
 	padding-bottom: 8px;
 	white-space: pre-line;
 `
+
+export const InfoUnlock = styled.h1`
+	text-transform: none;
+	color: ${props => props.color};
+`

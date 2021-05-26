@@ -10,6 +10,8 @@ export const Wrapper = styled.div`
 	grid-area: wrapper;
 	padding: 12px;
 	overflow-y: auto;
+	display: flex;
+	flex-wrap: wrap;
 	${corner};
 `
 

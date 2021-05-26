@@ -2,21 +2,18 @@ import { changeMask, toggleMaskFilter } from 'actions/characterAction'
 import Back from 'components/Back'
 import Container from 'components/Container'
 import { Item, Title, Wrapper } from 'components/Content'
-import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
+import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
 import data, { maskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { createRef, useRef, useState } from 'react'
 import { useHistory } from 'react-router'
+import { itemColours } from 'utils/colours'
 import scrollHorizontalDiv from 'utils/scrollHorizontalDiv'
 
-import { CollectionTitle, CollectionTitles, FilterContainer, FilterText, FilterTitle, FiltersWrapper, InfoCost, InfoUnlock, MaskCollection, MaskCollectionTitle } from './Mask-Elements'
+import { CollectionTitle, CollectionTitles, FilterContainer, FilterText, FilterTitle, FiltersWrapper, InfoCost, MaskCollection, MaskCollectionTitle } from './Mask-Elements'
 
 interface collections {
 	[key: string]: maskData[];
-}
-
-interface colours {
-	[key: string]: string;
 }
 
 const Mask: React.FC = () => {
@@ -26,15 +23,6 @@ const Mask: React.FC = () => {
 	const dispatch = useAppDispatch()
 
 	const history = useHistory()
-
-	const colours: colours = {
-		normal: '#fff',
-		community: '#3baefe',
-		dlc: '#ffd400',
-		event: '#ff9100',
-		collaboration: '#fe5d63',
-		infamous: '#ff1aff'
-	}
 
 	const collections = (() => {
 		let out: collections = {}
@@ -67,7 +55,7 @@ const Mask: React.FC = () => {
 						if (filters[collections[collection][0].type]) return
 						return <CollectionTitle
 							key={collection}
-							color={colours[collections[collection][0].type]}
+							color={itemColours[collections[collection][0].type]}
 							onClick={() => scrollToCollection(i)}
 						>{collection}</CollectionTitle>
 					})
@@ -78,10 +66,10 @@ const Mask: React.FC = () => {
 				<FilterTitle>Filters</FilterTitle>
 				<FiltersWrapper>
 					{
-						Object.keys(colours).map(type => {
+						Object.keys(itemColours).map(type => {
 							return <FilterText
 								key={type}
-								color={colours[type]}
+								color={itemColours[type]}
 								onClick={() => dispatch(toggleMaskFilter(type))}
 								typeFilter={filters[type]}
 							>{type}</FilterText>
@@ -96,7 +84,7 @@ const Mask: React.FC = () => {
 						const masks = collections[collection]
 						if (filters[masks[0].type]) return
 						return <MaskCollection key={collection} ref={collectionRefs.current[i]}>
-							<MaskCollectionTitle color={colours[masks[0].type]}>{collection}</MaskCollectionTitle>
+							<MaskCollectionTitle color={itemColours[masks[0].type]}>{collection}</MaskCollectionTitle>
 							{
 								masks.map(mask => {
 									return <Item
@@ -123,7 +111,7 @@ const Mask: React.FC = () => {
 						<>
 							<InfoTitle>{hoveredMask.name}</InfoTitle>
 							<InfoDescription>{hoveredMask.description.join('\n\n')}</InfoDescription>
-							<InfoUnlock color={colours[hoveredMask.type]}>{hoveredMask.unlock}</InfoUnlock>
+							<InfoUnlock color={itemColours[hoveredMask.type]}>{hoveredMask.unlock}</InfoUnlock>
 							<InfoCost>{hoveredMask.cost}</InfoCost>
 						</>
 					)
