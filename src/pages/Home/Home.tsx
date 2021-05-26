@@ -10,7 +10,7 @@ import SelectorSkills from './Selector/SelectorSkills'
 
 export interface hoverInfo {
 	title: string;
-	description: string[];
+	description?: string[];
 }
 
 const Home: React.FC = () => {
@@ -38,7 +38,7 @@ const Home: React.FC = () => {
 							hoverInfo && (
 								<>
 									<InfoTitle>{hoverInfo.title}</InfoTitle>
-									<InfoDescription>{hoverInfo.description.join('\n\n')}</InfoDescription>
+									<InfoDescription>{hoverInfo.description?.join('\n\n')}</InfoDescription>
 								</>
 							)
 						}
@@ -92,7 +92,9 @@ const Home: React.FC = () => {
 
 					<Selector title='throwable' setHoverInfo={setHoverInfo} infoData={null} />
 
-					<Selector title='melee' setHoverInfo={setHoverInfo} infoData={null}>
+					<Selector title='melee' setHoverInfo={setHoverInfo} infoData={{
+						title: melee.name
+					}}>
 						<Image src={`images/melees/${melee.image}.png`} />
 					</Selector>
 

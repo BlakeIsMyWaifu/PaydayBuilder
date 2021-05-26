@@ -45,8 +45,10 @@ export const SelectorWrapper = styled.div`
 `
 
 export const Image = styled.img`
-	height: calc(100% - 32px);
+	height: auto;
+	max-height: calc(100% - 32px);
 	width: auto;
+	max-width: 100%;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
