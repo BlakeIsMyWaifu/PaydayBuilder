@@ -1,6 +1,6 @@
 import Container from 'components/Container'
-import { ItemContainer } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
+import { ItemContainer } from 'components/Item'
 import data from 'data/abilities/perks'
 import { useAppSelector } from 'hooks'
 import React, { createRef, useEffect, useRef, useState } from 'react'

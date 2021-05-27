@@ -1,7 +1,7 @@
 import { changeMask, toggleMaskFilter } from 'actions/characterAction'
 import Container from 'components/Container'
-import { Item, ItemEquiped, ItemName } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
+import { Item, ItemEquiped, ItemName } from 'components/Item'
 import data, { maskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { createRef, useRef, useState } from 'react'

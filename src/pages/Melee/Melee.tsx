@@ -1,7 +1,7 @@
 import { changeMelee } from 'actions/weaponsAction'
 import Container from 'components/Container'
-import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
+import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Item'
 import data, { meleeData } from 'data/weapons/melees'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'

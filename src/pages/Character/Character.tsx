@@ -1,7 +1,7 @@
 import { changeCharacter } from 'actions/characterAction'
 import Container from 'components/Container'
-import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/Info'
+import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Item'
 import data, { characterData } from 'data/character/characters'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'

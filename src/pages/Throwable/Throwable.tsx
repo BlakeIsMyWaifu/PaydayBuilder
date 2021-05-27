@@ -1,7 +1,7 @@
 import { changeThrowable } from 'actions/weaponsAction'
 import Container from 'components/Container'
-import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
+import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Item'
 import data, { throwableData } from 'data/weapons/throwables'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'

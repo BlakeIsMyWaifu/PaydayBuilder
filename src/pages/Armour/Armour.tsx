@@ -1,7 +1,7 @@
 import { changeArmour } from 'actions/characterAction'
 import Container from 'components/Container'
-import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Content'
 import { InfoContainer, InfoTitle } from 'components/Info'
+import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Item'
 import data, { armourData } from 'data/character/armours'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'

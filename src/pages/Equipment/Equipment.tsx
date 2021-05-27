@@ -1,7 +1,7 @@
 import { changeEquipment } from 'actions/characterAction'
 import Container from 'components/Container'
-import { ItemEquiped, ItemName } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
+import { ItemEquiped, ItemName } from 'components/Item'
 import data, { equipmentData } from 'data/character/equipment'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
