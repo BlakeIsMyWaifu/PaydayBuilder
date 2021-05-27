@@ -2,14 +2,16 @@ export interface armourData {
 	name: string;
 	desciption: string[];
 	reputation: number;
-	stats: {
-		armour: number;
-		concealment: number;
-		dodge: number;
-		speed: number;
-		stamina: number;
-		steadiness: number;
-	}
+	stats: armourStats
+}
+
+export interface armourStats {
+	armour: number;
+	concealment: number;
+	dodge: number;
+	speed: number;
+	stamina: number;
+	steadiness: number;
 }
 
 const armour: armourData[] = [
