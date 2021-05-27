@@ -9,6 +9,7 @@ import Mask from 'pages/Mask'
 import Melee from 'pages/Melee'
 import PerkDeck from 'pages/PerkDeck'
 import Skills from 'pages/Skills'
+import Throwable from 'pages/Throwable'
 import React from 'react'
 import { MemoryRouter, Route, Switch } from 'react-router'
 import { isDev } from 'utils/isDev'
@@ -24,7 +25,10 @@ const App: React.FC = () => {
 					<Route path='/character' component={Character} />
 					<Route path='/armour' component={Armour} />
 					<Route path='/equipment' component={Equipment} />
+
+					<Route path='/throwable' component={Throwable} />
 					<Route path='/melee' component={Melee} />
+
 					<Route path='/skills' component={Skills} />
 					<Route path='/perkdeck' component={PerkDeck} />
 				</Switch>

@@ -17,7 +17,7 @@ const Home: React.FC = () => {
 
 	const { mask, character, armour, equipment } = useAppSelector(state => state.character)
 
-	const { melee } = useAppSelector(state => state.weapons)
+	const { primary, secondary, throwable, melee } = useAppSelector(state => state.weapons)
 
 	const dispatch = useAppDispatch()
 
@@ -90,7 +90,11 @@ const Home: React.FC = () => {
 
 					<Selector title='secondary' setHoverInfo={setHoverInfo} infoData={null} />
 
-					<Selector title='throwable' setHoverInfo={setHoverInfo} infoData={null} />
+					<Selector title='throwable' setHoverInfo={setHoverInfo} infoData={{
+						title: throwable.name,
+						description: throwable.description}}>
+						<Image src={`images/throwables/${throwable.image}.png`} />
+					</Selector>
 
 					<Selector title='melee' setHoverInfo={setHoverInfo} infoData={{
 						title: melee.name
