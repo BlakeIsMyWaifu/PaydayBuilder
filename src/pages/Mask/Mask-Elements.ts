@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import corner from 'utils/corner'
 
 export const CollectionTitles = styled.div`
 	grid-area: collectiontitles;
@@ -44,14 +45,41 @@ export const FilterText = styled.h1<filterText>`
 	text-decoration: ${props => props.typeFilter ? 'line-through' : 'none'};
 `
 
+export const ItemContainer = styled.div`
+	grid-area: items;
+	padding: 12px;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	${corner};
+`
+
 export const MaskCollection = styled.div`
-	padding-top: 16px;
+	display: flex;
+	flex-direction: column;
 `
 
 export const MaskCollectionTitle = styled.h1`
 	font-size: 1.5rem;
 	padding-left: 32px;
 	color: ${props => props.color};
+`
+
+export const MaskWrapper = styled.div`
+	padding-top: 16px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+`
+
+interface itemImage {
+	selected?: boolean;
+}
+
+export const ItemImage = styled.img<itemImage>`
+	width: 96px;
+	height: 96px;
+	${props => props.selected && corner};
 `
 
 export const InfoCost = styled.p`

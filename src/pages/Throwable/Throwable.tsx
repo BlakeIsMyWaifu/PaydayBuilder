@@ -1,14 +1,12 @@
 import { changeThrowable } from 'actions/weaponsAction'
 import Back from 'components/Back'
 import Container from 'components/Container'
-import { Title, Wrapper } from 'components/Content'
+import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName, Title } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
 import data, { throwableData } from 'data/weapons/throwables'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 import { itemColours } from 'utils/colours'
-
-import { EquipedLabel, IconWrapper, NameLabel, ThrowableIcon } from './Throwable-Elements'
 
 const Throwable: React.FC = () => {
 
@@ -21,27 +19,24 @@ const Throwable: React.FC = () => {
 	const clickThrowable = (throwable: throwableData) => throwable.name === selectedThrowable.name ? dispatch(changeThrowable(throwable)) : setSelectedThrowable(throwable)
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "wrapper info" "wrapper back"'>
+		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "items info" "items back"'>
 
 			<Title>Throwable</Title>
 
-			<Wrapper>
+			<ItemContainer>
 				{
 					data.map(throwable => {
-						return <IconWrapper key={throwable.name}>
-							{
-								throwable.name === equipedThrowable.name && <EquipedLabel>Equiped</EquipedLabel>
-							}
-							<NameLabel color={itemColours[throwable.sourceType]}>{throwable.name}</NameLabel>
-							<ThrowableIcon
+						return <Item key={throwable.name} width={192} height={96} selected={throwable.name === selectedThrowable.name}>
+							<ItemName color={itemColours[throwable.sourceType]}>{throwable.name}</ItemName>
+							{throwable.name === equipedThrowable.name && <ItemEquiped />}
+							<ItemImage
 								src={`images/throwables/${throwable.image}.png`}
-								selected={throwable.name === selectedThrowable.name}
 								onMouseDown={() => clickThrowable(throwable)}
-								/>
-						</IconWrapper>
+							/>
+						</Item>
 					})
 				}
-			</Wrapper>
+			</ItemContainer>
 
 			<InfoContainer>
 				<InfoTitle>{selectedThrowable.name}</InfoTitle>

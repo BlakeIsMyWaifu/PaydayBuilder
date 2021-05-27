@@ -241,7 +241,7 @@ const masks: maskData[] = [
 		description: [
 			'Bring back disco in style and confuse the hell out of your enemies when they gaze into your fabulously flashy face.'
 		],
-		collection: 'Joy Character Pack',
+		collection: 'Default',
 		type: 'infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'

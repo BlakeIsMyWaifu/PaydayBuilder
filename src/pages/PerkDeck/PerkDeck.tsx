@@ -1,7 +1,7 @@
 import Back from 'components/Back'
 import Container from 'components/Container'
+import { ItemContainer, Title } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
-import { Title, Wrapper } from 'components/Content'
 import data from 'data/abilities/perks'
 import { useAppSelector } from 'hooks'
 import React, { createRef, useEffect, useRef, useState } from 'react'
@@ -40,7 +40,7 @@ const PerkDeck: React.FC = () => {
 	}, [])
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 2rem 7fr 4rem' areas='"title title" "perkdecknames ." "wrapper info" "wrapper back"'>
+		<Container columns='3fr 1fr' rows='4rem 2rem 7fr 4rem' areas='"title title" "perkdecknames ." "items info" "items back"'>
 
 			<Title>Perk Deck</Title>
 
@@ -52,7 +52,7 @@ const PerkDeck: React.FC = () => {
 				}
 			</PerkDeckNamesWrapper>
 
-			<Wrapper ref={perkWrapperRef}>
+			<ItemContainer ref={perkWrapperRef}>
 				{
 					data.map((perkdeck, i) => {
 						return <Perk
@@ -66,7 +66,7 @@ const PerkDeck: React.FC = () => {
 						/>
 					})
 				}
-			</Wrapper>
+			</ItemContainer>
 
 			<InfoContainer>
 				<InfoTitle>{hoveredCard.name}</InfoTitle>

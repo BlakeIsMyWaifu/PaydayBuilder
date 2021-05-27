@@ -1,16 +1,15 @@
 import { changeMask, toggleMaskFilter } from 'actions/characterAction'
 import Back from 'components/Back'
 import Container from 'components/Container'
-import { Item, Title, Wrapper } from 'components/Content'
+import { Item, ItemEquiped, ItemName, Title } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
 import data, { maskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { createRef, useRef, useState } from 'react'
-import { useHistory } from 'react-router'
 import { itemColours } from 'utils/colours'
 import scrollHorizontalDiv from 'utils/scrollHorizontalDiv'
 
-import { CollectionTitle, CollectionTitles, FilterContainer, FilterText, FilterTitle, FiltersWrapper, InfoCost, MaskCollection, MaskCollectionTitle } from './Mask-Elements'
+import { CollectionTitle, CollectionTitles, FilterContainer, FilterText, FilterTitle, FiltersWrapper, InfoCost, ItemContainer, ItemImage, MaskCollection, MaskCollectionTitle, MaskWrapper } from './Mask-Elements'
 
 interface collections {
 	[key: string]: maskData[];
@@ -18,11 +17,13 @@ interface collections {
 
 const Mask: React.FC = () => {
 
-	const [hoveredMask, setHoveredMask] = useState<maskData | null>()
-
 	const dispatch = useAppDispatch()
+	
+	const equipedMask = useAppSelector(state => state.character.mask.equiped)
 
-	const history = useHistory()
+	const [selectedMask, setSelectedMask] = useState<maskData>(equipedMask)
+
+	const clickMask = (mask: maskData) => mask.name === selectedMask.name ? dispatch(changeMask(mask)) : setSelectedMask(mask)
 
 	const collections = (() => {
 		let out: collections = {}
@@ -45,7 +46,7 @@ const Mask: React.FC = () => {
 	const filters = useAppSelector(state => state.character.mask.filter)
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 2rem 8fr 4rem' areas='"title filter" "collectiontitles filter" "wrapper info" "wrapper back"'>
+		<Container columns='3fr 1fr' rows='4rem 2rem 8fr 4rem' areas='"title filter" "collectiontitles filter" "items info" "items back"'>
 
 			<Title>Mask</Title>
 
@@ -78,44 +79,37 @@ const Mask: React.FC = () => {
 				</FiltersWrapper>
 			</FilterContainer>
 
-			<Wrapper>
+			<ItemContainer>
 				{
 					Object.keys(collections).map((collection, i) => {
 						const masks = collections[collection]
 						if (filters[masks[0].type]) return
-						return <MaskCollection key={collection} ref={collectionRefs.current[i]}>
+						return <MaskCollection>
 							<MaskCollectionTitle color={itemColours[masks[0].type]}>{collection}</MaskCollectionTitle>
-							{
-								masks.map(mask => {
-									return <Item
-										key={mask.name}
-										src={`images/masks/${mask.image}.png`}
-										onMouseEnter={() => setHoveredMask(mask)}
-										onMouseLeave={() => setHoveredMask(null)}
-										onMouseDown={() => {
-											dispatch(changeMask(mask))
-											history.push('/')
-										}}
-										size={96}
-									/>
-								})
-							}
+							<MaskWrapper key={collection} ref={collectionRefs.current[i]}>
+								{
+									masks.map(mask => {
+										return <Item key={mask.name} size={96} selected={mask.name === selectedMask.name}>
+											<ItemName color={itemColours[mask.type]}>{mask.name}</ItemName>
+											{mask.name === equipedMask.name && <ItemEquiped />}
+											<ItemImage
+												src={`images/masks/${mask.image}.png`}
+												onMouseDown={() => clickMask(mask)}
+											/>
+										</Item>
+									})
+								}
+							</MaskWrapper>
 						</MaskCollection>
 					})
 				}
-			</Wrapper>
+			</ItemContainer>
 
 			<InfoContainer>
-				{
-					hoveredMask && (
-						<>
-							<InfoTitle>{hoveredMask.name}</InfoTitle>
-							<InfoDescription>{hoveredMask.description.join('\n\n')}</InfoDescription>
-							<InfoUnlock color={itemColours[hoveredMask.type]}>{hoveredMask.unlock}</InfoUnlock>
-							<InfoCost>{hoveredMask.cost}</InfoCost>
-						</>
-					)
-				}
+				<InfoTitle>{selectedMask.name}</InfoTitle>
+				<InfoDescription>{selectedMask.description.join('\n\n')}</InfoDescription>
+				<InfoUnlock color={itemColours[selectedMask.type]}>{selectedMask.unlock}</InfoUnlock>
+				<InfoCost>{selectedMask.cost}</InfoCost>
 			</InfoContainer>
 
 			<Back />

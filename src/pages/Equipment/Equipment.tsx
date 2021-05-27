@@ -1,22 +1,22 @@
 import { changeEquipment } from 'actions/characterAction'
 import Back from 'components/Back'
 import Container from 'components/Container'
-import { Title } from 'components/Content'
+import { ItemEquiped, ItemName, Title } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import data, { equipmentData } from 'data/character/equipment'
-import { useAppDispatch } from 'hooks'
+import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
-import { useHistory } from 'react-router'
+import { itemColours } from 'utils/colours'
 
-import { EquipInfo, EquipText, EquipementIcon, EquipmentWrapper } from './Equipment-Elements'
+import { EquipInfo, EquipText, EquipementImage, EquipmentWrapper, Item } from './Equipment-Elements'
 
 const Equipment: React.FC = () => {
 
-	const [hoveredEquipment, setHoveredEquipment] = useState<equipmentData | null>()
-
 	const dispatch = useAppDispatch()
 
-	const history = useHistory()
+	const { primary: equipedPrimary, secondary: equipedSecondary } = useAppSelector(state => state.character.equipment)
+
+	const [selectedEquipment, setSelectedEquipment] = useState<equipmentData>(equipedPrimary)
 
 	return (
 		<Container columns='3fr 1fr' rows='4rem 8fr 3rem 4rem' areas='"title title" "wrapper info" "wrapper equipinfo" "wrapper back"'>
@@ -26,29 +26,35 @@ const Equipment: React.FC = () => {
 			<EquipmentWrapper>
 				{
 					data.map(equipment => {
-						return <EquipementIcon
-							key={equipment.name}
-							src={`images/equipment/${equipment.name}.png`}
-							onMouseEnter={() => setHoveredEquipment(equipment)}
-							onMouseLeave={() => setHoveredEquipment(null)}
-							onMouseDown={(event: React.MouseEvent) => {
-								event.preventDefault()
-								if (event.button !== 0 && event.button !== 2) return
-								const slot = event.button ? 'secondary' : 'primary'
-								dispatch(changeEquipment([equipment, slot]))
-								history.push('/')
-							}}
-						/>
+						return <Item key={equipment.name} selected={equipment.name === selectedEquipment.name}>
+							<ItemName color={itemColours.normal}>{equipment.name}</ItemName>
+							{equipment.name === equipedPrimary.name && <ItemEquiped> Primary</ItemEquiped>}
+							{equipment.name === equipedSecondary?.name && <ItemEquiped> Secondary</ItemEquiped>}
+							<EquipementImage
+								src={`images/equipment/${equipment.name}.png`}
+								onContextMenu={event => event.preventDefault()}
+								onMouseDown={(event: React.MouseEvent) => {
+									event.preventDefault()
+									if (equipment.name !== selectedEquipment.name) {
+										setSelectedEquipment(equipment)
+									} else {
+										if (event.button !== 0 && event.button !== 2) return
+										const slot = event.button ? 'secondary' : 'primary'
+										dispatch(changeEquipment([equipment, slot]))
+									}
+								}}
+							/>
+						</Item>
 					})
 				}
 			</EquipmentWrapper>
 
 			<InfoContainer>
 				{
-					hoveredEquipment && (
+					selectedEquipment && (
 						<>
-							<InfoTitle>{hoveredEquipment.name} (x{hoveredEquipment.amount.join('/x')})</InfoTitle>
-							<InfoDescription>{hoveredEquipment.description.join('\n\n')}</InfoDescription>
+							<InfoTitle>{selectedEquipment.name} (x{selectedEquipment.amount.join('/x')})</InfoTitle>
+							<InfoDescription>{selectedEquipment.description.join('\n\n')}</InfoDescription>
 						</>
 					)
 				}

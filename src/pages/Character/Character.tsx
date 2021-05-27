@@ -1,56 +1,49 @@
 import { changeCharacter } from 'actions/characterAction'
 import Back from 'components/Back'
 import Container from 'components/Container'
-import { Item, Title, Wrapper } from 'components/Content'
+import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName, Title } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/Info'
 import data, { characterData } from 'data/character/characters'
-import { useAppDispatch } from 'hooks'
+import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
-import { useHistory } from 'react-router'
 import { itemColours } from 'utils/colours'
 
 const Character: React.FC = () => {
 
-	const [hoveredCharacter, setHoveredCharacter] = useState<characterData | null>()
-
 	const dispatch = useAppDispatch()
 
-	const history = useHistory()
+	const equipedCharacter = useAppSelector(state => state.character.character)
+
+	const [selectedCharacter, setSelectedCharacter] = useState<characterData>(equipedCharacter)
+
+	const clickCharacter = (character: characterData) => character.name === selectedCharacter.name ? dispatch(changeCharacter(character)) : setSelectedCharacter(character)
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "wrapper info" "wrapper back"'>
+		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "items info" "items back"'>
 
 			<Title>Character</Title>
 
-			<Wrapper>
+			<ItemContainer>
 				{
 					data.map(character => {
-						return <Item
-							key={character.name}
-							src={`images/masks/${character.image}.png`}
-							onMouseEnter={() => setHoveredCharacter(character)}
-							onMouseLeave={() => setHoveredCharacter(null)}
-							onMouseDown={() => {
-								dispatch(changeCharacter(character))
-								history.push('/')
-							}}
-						/>
+						return <Item key={character.name} size={128} selected={character.name === selectedCharacter.name}>
+							<ItemName color={itemColours[character.sourceType]}>{character.name}</ItemName>
+							{character.name === equipedCharacter.name && <ItemEquiped />}
+							<ItemImage
+								src={`images/masks/${character.image}.png`}
+								onMouseDown={() => clickCharacter(character)}
+							/>
+						</Item>
 					})
 				}
-			</Wrapper>
+			</ItemContainer>
 
 			<InfoContainer>
-				{
-					hoveredCharacter && (
-						<>
-							<InfoTitle>{hoveredCharacter.name}</InfoTitle>
-							<InfoSubtitle>Nationality: {hoveredCharacter.nationality}</InfoSubtitle>
-							<InfoSubtitle>Age: {hoveredCharacter.age}</InfoSubtitle>
-							<InfoDescription>{hoveredCharacter.description.join('\n\n')}</InfoDescription>
-							<InfoUnlock color={itemColours[hoveredCharacter.sourceType]}>{hoveredCharacter.source}</InfoUnlock>
-						</>
-					)
-				}
+				<InfoTitle>{selectedCharacter.name}</InfoTitle>
+				<InfoSubtitle>Nationality: {selectedCharacter.nationality}</InfoSubtitle>
+				<InfoSubtitle>Age: {selectedCharacter.age}</InfoSubtitle>
+				<InfoDescription>{selectedCharacter.description.join('\n\n')}</InfoDescription>
+				<InfoUnlock color={itemColours[selectedCharacter.sourceType]}>{selectedCharacter.source}</InfoUnlock>
 			</InfoContainer>
 
 			<Back />

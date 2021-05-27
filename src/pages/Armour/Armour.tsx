@@ -1,51 +1,44 @@
+import { changeArmour } from 'actions/characterAction'
 import Back from 'components/Back'
 import Container from 'components/Container'
+import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName, Title } from 'components/Content'
 import { InfoContainer, InfoTitle } from 'components/Info'
-import { Item, Title, Wrapper } from 'components/Content'
 import data, { armourData } from 'data/character/armours'
+import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
-import { useAppDispatch } from 'hooks'
-import { useHistory } from 'react-router'
-import { changeArmour } from 'actions/characterAction'
 
 const Armour: React.FC = () => {
-
-	const [hoveredArmour, setHoveredArmour] = useState<armourData | null>(null)
-
+	
 	const dispatch = useAppDispatch()
 
-	const history = useHistory()
+	const equipedArmour = useAppSelector(state => state.character.armour)
+
+	const [selectedArmour, setSelectedArmour] = useState<armourData>(equipedArmour)
+
+	const clickArmour = (armour: armourData) => armour.name === selectedArmour.name ? dispatch(changeArmour(armour)) : setSelectedArmour(armour)
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "wrapper info" "wrapper back"'>
+		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "items info" "items back"'>
 
 			<Title>Armour</Title>
 
-			<Wrapper>
+			<ItemContainer>
 				{
 					data.map(armour => {
-						return <Item
-							key={armour.name}
-							src={`images/armours/${armour.name}.png`}
-							onMouseEnter={() => setHoveredArmour(armour)}
-							onMouseLeave={() => setHoveredArmour(null)}
-							onMouseDown={() => {
-								dispatch(changeArmour(armour))
-								history.push('/')
-							}}
-						/>
+						return <Item key={armour.name} size={196} selected={armour.name === selectedArmour.name}>
+							<ItemName>{armour.name}</ItemName>
+							{armour.name === equipedArmour.name && <ItemEquiped />}
+							<ItemImage
+								src={`images/armours/${armour.name}.png`}
+								onMouseDown={() => clickArmour(armour)}
+							/>
+						</Item>
 					})
 				}
-			</Wrapper>
+			</ItemContainer>
 
 			<InfoContainer>
-				{
-					hoveredArmour && (
-						<>
-							<InfoTitle>{hoveredArmour.name}</InfoTitle>
-						</>
-					)
-				}
+				<InfoTitle>{selectedArmour.name}</InfoTitle>
 			</InfoContainer>
 
 			<Back />
