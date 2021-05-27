@@ -1,7 +1,6 @@
 import { changeEquipment } from 'actions/characterAction'
-import Back from 'components/Back'
 import Container from 'components/Container'
-import { ItemEquiped, ItemName, Title } from 'components/Content'
+import { ItemEquiped, ItemName } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import data, { equipmentData } from 'data/character/equipment'
 import { useAppDispatch, useAppSelector } from 'hooks'
@@ -19,9 +18,7 @@ const Equipment: React.FC = () => {
 	const [selectedEquipment, setSelectedEquipment] = useState<equipmentData>(equipedPrimary)
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 8fr 3rem 4rem' areas='"title title" "wrapper info" "wrapper equipinfo" "wrapper back"'>
-			
-			<Title>Equipment</Title>
+		<Container rows='4rem 8fr 3rem 4rem' areas='"title title" "wrapper info" "wrapper equipinfo" "wrapper back"' title={'Equipment'}>
 
 			<EquipmentWrapper>
 				{
@@ -64,8 +61,6 @@ const Equipment: React.FC = () => {
 				<EquipText>[Left Click] Equip Primary</EquipText>
 				<EquipText>[Right Click] Equip Secondary</EquipText>
 			</EquipInfo>
-
-			<Back />
 
 		</Container>
 	)

@@ -1,6 +1,4 @@
-import Back from 'components/Back'
 import Container from 'components/Container'
-import { Title } from 'components/Content'
 import data, { treeData, treeNames } from 'data/abilities/skills'
 import { skillData } from 'data/abilities/skills'
 import React, { useState } from 'react'
@@ -27,9 +25,7 @@ const Skills: React.FC = () => {
 	}
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"'>
-
-			<Title>Skills</Title>
+		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"' title={'Skills'}>
 
 			<TreeNamesWrapper onWheel={scrollTrees}>
 				<TreeName onClick={() => setCurrentTree(data.mastermind)}>Mastermind</TreeName>
@@ -56,8 +52,6 @@ const Skills: React.FC = () => {
 			<Points />
 
 			<Info skill={skillHovered}/>
-
-			<Back />
 
 		</Container>
 	)

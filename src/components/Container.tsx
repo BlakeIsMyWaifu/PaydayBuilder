@@ -1,11 +1,15 @@
 import React from 'react'
+import { Link as LinkR } from 'react-router-dom'
 import styled from 'styled-components'
+import { blue } from 'utils/colours'
 
 interface area {
-	columns: string;
-	rows: string;
-	areas: string;
-	children: React.ReactNode;
+	columns?: string;
+	rows?: string;
+	areas?: string;
+	title?: string;
+	backButton?: boolean;
+	children?: React.ReactNode;
 }
 
 const Area = styled.div<area>`
@@ -25,10 +29,54 @@ const Area = styled.div<area>`
 	grid-template-areas: ${props => props.areas};
 `
 
-const Container: React.FC<area> = ({ columns, rows, areas, children}: area) => {
+const Title = styled.h1`
+	grid-area: title;
+	font-size: 4rem;
+`
+
+const BackContainer = styled.div`
+	grid-area: back;
+`
+
+const BackLink = styled(LinkR)`
+	text-decoration: none;
+`
+
+const BackText = styled.p`
+	direction: rtl;
+	color: ${blue};
+	position: absolute;
+	bottom: 0;
+	right: 8px;
+	font-size: calc(4rem - 8px);
+	&:hover {
+		color: #fff;
+	}
+`
+
+const Container: React.FC<area> = ({
+	columns = '3fr 1fr',
+	rows = '4rem 8fr 4rem',
+	areas = '"title title" "items info" "items back"',
+	title,
+	backButton = true,
+	children
+}) => {
 	return (
 		<Area columns={columns} rows={rows} areas={areas}>
+
+			<Title>{title}</Title>
+
 			{children}
+
+			{
+				backButton && <BackContainer>
+					<BackLink to='/'>
+						<BackText>Back</BackText>
+					</BackLink>
+				</BackContainer>
+			}
+
 		</Area>
 	)
 }

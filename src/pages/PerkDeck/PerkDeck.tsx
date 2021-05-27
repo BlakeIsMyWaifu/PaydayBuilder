@@ -1,6 +1,5 @@
-import Back from 'components/Back'
 import Container from 'components/Container'
-import { ItemContainer, Title } from 'components/Content'
+import { ItemContainer } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import data from 'data/abilities/perks'
 import { useAppSelector } from 'hooks'
@@ -40,9 +39,7 @@ const PerkDeck: React.FC = () => {
 	}, [])
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 2rem 7fr 4rem' areas='"title title" "perkdecknames ." "items info" "items back"'>
-
-			<Title>Perk Deck</Title>
+		<Container rows='4rem 2rem 7fr 4rem' areas='"title title" "perkdecknames ." "items info" "items back"' title={'Perk Deck'}>
 
 			<PerkDeckNamesWrapper ref={scrollRef} onWheel={e => scrollHorizontalDiv(e, scrollRef)}>
 				{
@@ -72,8 +69,6 @@ const PerkDeck: React.FC = () => {
 				<InfoTitle>{hoveredCard.name}</InfoTitle>
 				<InfoDescription>{hoveredCard.description.join('\n\n')}</InfoDescription>
 			</InfoContainer>
-
-			<Back />
 
 		</Container>
 	)

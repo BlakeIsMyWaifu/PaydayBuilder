@@ -1,7 +1,6 @@
 import { changeCharacter } from 'actions/characterAction'
-import Back from 'components/Back'
 import Container from 'components/Container'
-import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName, Title } from 'components/Content'
+import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/Info'
 import data, { characterData } from 'data/character/characters'
 import { useAppDispatch, useAppSelector } from 'hooks'
@@ -19,9 +18,7 @@ const Character: React.FC = () => {
 	const clickCharacter = (character: characterData) => character.name === selectedCharacter.name ? dispatch(changeCharacter(character)) : setSelectedCharacter(character)
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "items info" "items back"'>
-
-			<Title>Character</Title>
+		<Container title={'Character'}>
 
 			<ItemContainer>
 				{
@@ -45,8 +42,6 @@ const Character: React.FC = () => {
 				<InfoDescription>{selectedCharacter.description.join('\n\n')}</InfoDescription>
 				<InfoUnlock color={itemColours[selectedCharacter.sourceType]}>{selectedCharacter.source}</InfoUnlock>
 			</InfoContainer>
-
-			<Back />
 
 		</Container>
 	)

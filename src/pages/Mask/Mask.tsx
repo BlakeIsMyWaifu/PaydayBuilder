@@ -1,7 +1,6 @@
 import { changeMask, toggleMaskFilter } from 'actions/characterAction'
-import Back from 'components/Back'
 import Container from 'components/Container'
-import { Item, ItemEquiped, ItemName, Title } from 'components/Content'
+import { Item, ItemEquiped, ItemName } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
 import data, { maskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks'
@@ -46,9 +45,7 @@ const Mask: React.FC = () => {
 	const filters = useAppSelector(state => state.character.mask.filter)
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 2rem 8fr 4rem' areas='"title filter" "collectiontitles filter" "items info" "items back"'>
-
-			<Title>Mask</Title>
+		<Container rows='4rem 2rem 8fr 4rem' areas='"title filter" "collectiontitles filter" "items info" "items back"' title={'Mask'}>
 
 			<CollectionTitles ref={scrollRef} onWheel={e => scrollHorizontalDiv(e, scrollRef)}>
 				{
@@ -111,8 +108,6 @@ const Mask: React.FC = () => {
 				<InfoUnlock color={itemColours[selectedMask.type]}>{selectedMask.unlock}</InfoUnlock>
 				<InfoCost>{selectedMask.cost}</InfoCost>
 			</InfoContainer>
-
-			<Back />
 
 		</Container>
 	)

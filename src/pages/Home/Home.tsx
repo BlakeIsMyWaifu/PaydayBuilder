@@ -27,7 +27,7 @@ const Home: React.FC = () => {
 	const perkDeckIndex = perkData.indexOf(perkData.find(perk => perk.name === perkDeck.name) || perkData[0])
 
 	return (
-		<Container columns='2fr 1fr 1fr 1fr' rows='calc(100% - 3rem) 3rem' areas='"stats character weapons abilities" "config config config config"'>
+		<Container columns='2fr 1fr 1fr 1fr' rows='calc(100% - 3rem) 3rem' areas='"stats character weapons abilities" "config config config config"' backButton={false}>
 
 			<Tab id='stats'>
 				<TabTitle direction='ltr'>Inventory</TabTitle>

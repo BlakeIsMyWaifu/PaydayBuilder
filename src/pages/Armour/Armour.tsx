@@ -1,7 +1,6 @@
 import { changeArmour } from 'actions/characterAction'
-import Back from 'components/Back'
 import Container from 'components/Container'
-import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName, Title } from 'components/Content'
+import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Content'
 import { InfoContainer, InfoTitle } from 'components/Info'
 import data, { armourData } from 'data/character/armours'
 import { useAppDispatch, useAppSelector } from 'hooks'
@@ -18,9 +17,7 @@ const Armour: React.FC = () => {
 	const clickArmour = (armour: armourData) => armour.name === selectedArmour.name ? dispatch(changeArmour(armour)) : setSelectedArmour(armour)
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "items info" "items back"'>
-
-			<Title>Armour</Title>
+		<Container title={'Armour'}>
 
 			<ItemContainer>
 				{
@@ -40,8 +37,6 @@ const Armour: React.FC = () => {
 			<InfoContainer>
 				<InfoTitle>{selectedArmour.name}</InfoTitle>
 			</InfoContainer>
-
-			<Back />
 
 		</Container>
 	)

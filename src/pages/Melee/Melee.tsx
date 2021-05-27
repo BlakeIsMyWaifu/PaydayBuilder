@@ -1,7 +1,6 @@
 import { changeMelee } from 'actions/weaponsAction'
-import Back from 'components/Back'
 import Container from 'components/Container'
-import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName, Title } from 'components/Content'
+import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Content'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
 import data, { meleeData } from 'data/weapons/melees'
 import { useAppDispatch, useAppSelector } from 'hooks'
@@ -33,10 +32,7 @@ const Melee: React.FC = () => {
 	const toTwoDecimal = (number: number) => (Math.round(number * 100) / 100).toFixed(2)
 
 	return (
-		<Container columns='3fr 1fr' rows='4rem 8fr 4rem' areas='"title title" "items info" "items back"'>
-
-			<Title>Melee</Title>
-
+		<Container title={'Melee'}>
 			<ItemContainer>
 				{
 					data.map(melee => {
@@ -209,8 +205,6 @@ const Melee: React.FC = () => {
 				}
 				<InfoDescription>{selectedMelee.description}</InfoDescription>
 			</InfoContainer>
-
-			<Back />
 
 		</Container>
 	)
