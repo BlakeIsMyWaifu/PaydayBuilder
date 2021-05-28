@@ -1,4 +1,3 @@
-import { armourStats } from 'data/character/armours'
 import React from 'react'
 import styled from 'styled-components'
 import { blue, dim, grey } from 'utils/colours'
@@ -48,12 +47,14 @@ const Data = styled.td`
 
 interface tableEquiped {
 	baseStats: {
-		[key: string]: number;
+		[key: string]: any;
 	};
 	additionalStats: {
-		[key: string]: number;
+		[key: string]: any;
 	};
 }
+
+const isArrayZeros = (arr: number[]) => arr.reduce((a, b) => a + b)
 
 export const TableEquiped: React.FC<tableEquiped> = ({ baseStats, additionalStats }) => {
 	return (
@@ -72,9 +73,24 @@ export const TableEquiped: React.FC<tableEquiped> = ({ baseStats, additionalStat
 						const skillValue = additionalStats[label]
 						return <Row key={label}>
 							<Label>{label}</Label>
-							<Data>{baseValue + skillValue}</Data>
-							<Data>{baseValue}</Data>
-							{skillValue ? <Data color={blue}>+{skillValue}</Data> : <Data />}
+							{
+								typeof baseValue === 'number' && (
+									<>
+										<Data>{baseValue + skillValue}</Data>
+										<Data>{baseValue}</Data>
+										{skillValue ? <Data color={blue}>+{skillValue}</Data> : <Data />}
+									</>
+								)
+							}
+							{
+								Array.isArray(baseValue) && (
+									<>
+										<Data>{`${baseValue[0] + skillValue[0]} (${baseValue[1] + skillValue[1]})`}</Data>
+										<Data>{`${baseValue[0]} (${baseValue[1]})`}</Data>
+										{isArrayZeros(skillValue) ? <Data color={blue}>+{`${skillValue[0]} (${skillValue[1]})`}</Data> : <Data />}
+									</>
+								)
+							}
 						</Row>
 					})
 				}
@@ -85,20 +101,23 @@ export const TableEquiped: React.FC<tableEquiped> = ({ baseStats, additionalStat
 
 interface tableCompare {
 	equipedStats: {
-		[key: string]: number;
+		[key: string]: any;
 	};
 	selectedStats: {
-		[key: string]: number;
+		[key: string]: any;
 	};
 	equipedAdditional: {
-		[key: string]: number;
+		[key: string]: any;
 	};
 	selectedAdditional: {
-		[key: string]: number;
+		[key: string]: any;
 	};
 }
 
 export const TableCompare: React.FC<tableCompare> = ({ equipedStats, selectedStats, equipedAdditional, selectedAdditional }) => {
+
+	const labels = [...Object.keys(equipedStats), ...Object.keys(selectedStats)].filter((label, i, arr) => arr.indexOf(label) == i)
+
 	return (
 		<Table>
 			<thead>
@@ -110,11 +129,25 @@ export const TableCompare: React.FC<tableCompare> = ({ equipedStats, selectedSta
 			</thead>
 			<tbody>
 				{
-					Object.entries(equipedStats).map(([label, value]) => {
+					labels.map(label => {
 						return <Row>
 							<Label>{label}</Label>
-							<Data>{value + equipedAdditional[label]}</Data>
-							<Data>{selectedStats[label] + selectedAdditional[label]}</Data>
+							{
+								typeof equipedStats[label] === 'number' && (
+									<>
+										<Data>{(equipedStats[label] ?? '') + (equipedAdditional[label] ?? '')}</Data>
+										<Data>{(selectedStats[label] ?? '') + (selectedAdditional[label] ?? '')}</Data>
+									</>
+								)
+							}
+							{
+								Array.isArray(equipedStats[label]) && (
+									<>
+										<Data>{`${equipedStats[label][0] + equipedAdditional[label][0]} (${equipedStats[label][1] + equipedAdditional[label][1]})`}</Data>
+										<Data>{`${selectedStats[label][0] + selectedAdditional[label][0]} (${selectedStats[label][1] + selectedAdditional[label][1]})`}</Data>
+									</>
+								)
+							}
 						</Row>
 					})
 				}

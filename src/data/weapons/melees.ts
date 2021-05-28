@@ -5,19 +5,21 @@ export interface meleeData {
 	sourceType: 'normal' | 'dlc' | 'community' | 'event' | 'infamous' | 'collaboration';
 	source: string;
 	image: string;
-	stats: {
-		damage: [number, number];
-		knockdown: [number, number];
-		chargeTime: number;
-		range: number;
-		concealment: number;
-		attackDelay: number;
-		cooldown: number;
-		unequipDelay: number;
-		specialType?: string;
-		specialTime?: string | number;
-	};
+	stats: meleeStats;
 	description?: string;
+}
+
+export interface meleeStats {
+	damage: [number, number];
+	knockdown: [number, number];
+	chargeTime: number;
+	range: number;
+	concealment: number;
+	attackDelay: number;
+	cooldown: number;
+	unequipDelay: number;
+	specialType?: string;
+	specialTime?: string | number;
 }
 
 const melees: meleeData[] = [
