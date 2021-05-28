@@ -73,8 +73,8 @@ const masks: maskData[] = [
 			'In the end, he didn\'t even need to do the deed himself - he was already dead when he found him.'
 		],
 		collection: 'Default',
-		type: 'normal',
-		unlock: '',
+		type: 'infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
 	},
 	{
@@ -85,7 +85,7 @@ const masks: maskData[] = [
 			'All we can assume is that he has been changed forever, and that he is reborn into... Something different.'
 		],
 		collection: 'Default',
-		type: 'normal',
+		type: 'infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
 	},
@@ -120,7 +120,7 @@ const masks: maskData[] = [
 			'Is this mask a reflection of a deep-seated psychological problem? Possibly a dissociative identity disorder? Schizophrenia? Trauma of a disturbed psyche? Or is it not a reflection at all, but instead something to cause them?'
 		],
 		collection: 'Default',
-		type: 'dlc',
+		type: 'collaboration',
 		unlock: 'THIS IS A HOTLINE MIAMI 2 DELUXE ITEM!',
 		cost: ''
 	},
@@ -131,8 +131,8 @@ const masks: maskData[] = [
 			'Few nations have contributed to humanity as Scotland has. In every field of endeavor - science, arts, cuisine - it is the people of this blessed land that give freely and generously. With this mask, Bonnie is determined to reverse this trend.'
 		],
 		collection: 'Default',
-		type: 'normal',
-		unlock: '',
+		type: 'infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
 	},
 	{
@@ -164,8 +164,8 @@ const masks: maskData[] = [
 			'Masks have always been used in spiritual traditions that relate to deities, the divine and those chasing the apotheosis of the self. Bodhi\'s mask reflects the man behind it. Strong, cunning, single-minded and centered.'
 		],
 		collection: 'Default',
-		type: 'normal',
-		unlock: '',
+		type: 'infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
 	},
 	{
@@ -175,7 +175,7 @@ const masks: maskData[] = [
 			'Jimmy hasn\'t really made many masks before he made his signature mask - and it shows. His mask design captures his free spirit and his disregard to things as appearance, planning and such. Good is good enough for Jimmy, he doesn\'t get stuck in ideas and wants to move forward at all times.'
 		],
 		collection: 'Default',
-		type: 'normal',
+		type: 'infamous',
 		unlock: '',
 		cost: ''
 	},
@@ -208,7 +208,7 @@ const masks: maskData[] = [
 			'Scarface came to the US with nothing more than two empty hands and a bad attitude, the darkness in his heart matched only by the brilliance of his criminal mind. His mask tells the story, complete with the trail of blood he left in his wake as he began to make his mark.'
 		],
 		collection: 'Default',
-		type: 'normal',
+		type: 'dlc',
 		unlock: 'THIS IS A SCARFACE CHARACTER PACK ITEM!',
 		cost: ''
 	},
@@ -219,8 +219,8 @@ const masks: maskData[] = [
 			'The skull is Death, Sangres\' faithful companion throughout his career. The gold tooth is the coin that has been paid. The kill counter represents his past as a hitman, the blood-red ruby the new wealth he\'s seeking in the US. Sangres\' name spreaks of the many bloody episodes in his life, and that red blood is also present on his mask.'
 		],
 		collection: 'Default',
-		type: 'normal',
-		unlock: '',
+		type: 'infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
 	},
 	{
@@ -231,8 +231,8 @@ const masks: maskData[] = [
 			'A big draw for Duke is his love for mystery- you never really know what\'s inside the safe until you open it, or behind the painting until you take it out of the frame. And with the Payday gang, the biggest mystery may be just around the corner...'
 		],
 		collection: 'Default',
-		type: 'normal',
-		unlock: '',
+		type: 'infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
 	},
 	{
