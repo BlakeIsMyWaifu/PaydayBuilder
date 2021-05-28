@@ -2,7 +2,7 @@ import { Data, Head, Label, Row, Table } from 'components/Table'
 import data from 'data/abilities/skills'
 import { useAppSelector } from 'hooks'
 import React from 'react'
-import { blue } from 'utils/colours'
+import { blue, dim, dimBlue, grey } from 'utils/colours'
 
 const SkillTable: React.FC = () => {
 
@@ -30,11 +30,12 @@ const SkillTable: React.FC = () => {
 							basicAmount += Object.values(upgrades).filter(skill => skill === 'basic').length
 							acedAmount += Object.values(upgrades).filter(skill => skill === 'aced').length
 						})
+						const ownedAmount = basicAmount + acedAmount
 						return <Row key={tree}>
 							<Label>{tree}</Label>
-							<Data>{treePoints}</Data>
-							<Data>{basicAmount + acedAmount}</Data>
-							<Data color={blue}>{acedAmount}</Data>
+							<Data color={treePoints ? '#fff' : grey}>{treePoints}</Data>
+							<Data color={ownedAmount ? '#fff' : grey}>{ownedAmount}</Data>
+							<Data color={acedAmount ? blue : dimBlue}>{acedAmount}</Data>
 						</Row>
 					})
 				}

@@ -57,10 +57,10 @@ export const MeleeStatsTable: React.FC<meleeStatsTable> = ({ mainMelee, compareM
 	return (
 		compareMelee ? 
 			<TableCompare
-				equipedStats={baseStats(compareMelee)}
-				selectedStats={baseStats(mainMelee)}
-				equipedAdditional={additionalStats(compareMelee)}
-				selectedAdditional={additionalStats(mainMelee)}
+				mainStats={baseStats(compareMelee)}
+				compareStats={baseStats(mainMelee)}
+				mainAdditional={additionalStats(compareMelee)}
+				compareAdditional={additionalStats(mainMelee)}
 			/> :
 			<TableEquiped
 				baseStats={baseStats(mainMelee)}

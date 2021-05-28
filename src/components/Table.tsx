@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { blue, dim, grey } from 'utils/colours'
+import { blue, dim, green, grey, red } from 'utils/colours'
 
 export const Table = styled.table`
 	color: #fff;
@@ -54,9 +54,12 @@ interface tableEquiped {
 	};
 }
 
-const isArrayZeros = (arr: number[]) => arr.reduce((a, b) => a + b)
+const colourCompare = (valueOne: number, valueTwo: number) => valueOne !== valueTwo ? (valueOne < valueTwo ? red : green) : '#fff'
 
 export const TableEquiped: React.FC<tableEquiped> = ({ baseStats, additionalStats }) => {
+
+	const isArrayZeros = (arr: number[]) => arr.reduce((a, b) => a + b)
+
 	return (
 		<Table>
 			<thead>
@@ -76,18 +79,18 @@ export const TableEquiped: React.FC<tableEquiped> = ({ baseStats, additionalStat
 							{
 								typeof baseValue === 'number' && (
 									<>
-										<Data>{baseValue + skillValue}</Data>
+										<Data color={colourCompare(baseValue + skillValue, baseValue)}>{baseValue + skillValue}</Data>
 										<Data>{baseValue}</Data>
-										{skillValue ? <Data color={blue}>+{skillValue}</Data> : <Data />}
+										{skillValue ? <Data color={blue}>{skillValue > 0 ? '+' : ''}{skillValue}</Data> : <Data />}
 									</>
 								)
 							}
 							{
 								Array.isArray(baseValue) && (
 									<>
-										<Data>{`${baseValue[0] + skillValue[0]} (${baseValue[1] + skillValue[1]})`}</Data>
+										<Data color={colourCompare(baseValue[0] + skillValue[0], baseValue[0])}>{`${baseValue[0] + skillValue[0]} (${baseValue[1] + skillValue[1]})`}</Data>
 										<Data>{`${baseValue[0]} (${baseValue[1]})`}</Data>
-										{isArrayZeros(skillValue) ? <Data color={blue}>+{`${skillValue[0]} (${skillValue[1]})`}</Data> : <Data />}
+										{isArrayZeros(skillValue) ? <Data color={blue}>{skillValue[0] > 0 ? '+' : ''}{`${skillValue[0]} (${skillValue[1]})`}</Data> : <Data />}
 									</>
 								)
 							}
@@ -109,23 +112,23 @@ export const TableEquiped: React.FC<tableEquiped> = ({ baseStats, additionalStat
 }
 
 interface tableCompare {
-	equipedStats: {
+	mainStats: {
 		[key: string]: any;
 	};
-	selectedStats: {
+	compareStats: {
 		[key: string]: any;
 	};
-	equipedAdditional: {
+	mainAdditional: {
 		[key: string]: any;
 	};
-	selectedAdditional: {
+	compareAdditional: {
 		[key: string]: any;
 	};
 }
 
-export const TableCompare: React.FC<tableCompare> = ({ equipedStats, selectedStats, equipedAdditional, selectedAdditional }) => {
+export const TableCompare: React.FC<tableCompare> = ({ mainStats, compareStats, mainAdditional, compareAdditional }) => {
 
-	const labels = [...Object.keys(equipedStats), ...Object.keys(selectedStats)].filter((label, i, arr) => arr.indexOf(label) == i)
+	const labels = [...Object.keys(mainStats), ...Object.keys(compareStats)].filter((label, i, arr) => arr.indexOf(label) == i)
 
 	return (
 		<Table>
@@ -139,29 +142,38 @@ export const TableCompare: React.FC<tableCompare> = ({ equipedStats, selectedSta
 			<tbody>
 				{
 					labels.map(label => {
+						const main = mainStats[label]
+						const compare = compareStats[label]
+
+						const numMain = main + mainAdditional[label]
+						const numCompare = compare + compareAdditional[label]
+
+						const arrMain = main[0] + mainAdditional[label][0]
+						const arrCompare = compare[0] + compareAdditional[label][0]
+
 						return <Row>
 							<Label>{label}</Label>
 							{
-								typeof equipedStats[label] === 'number' && (
+								typeof main === 'number' && (
 									<>
-										<Data>{(equipedStats[label] ?? '') + (equipedAdditional[label] ?? '')}</Data>
-										<Data>{(selectedStats[label] ?? '') + (selectedAdditional[label] ?? '')}</Data>
+										<Data color={colourCompare(numMain, numCompare)}>{numMain}</Data>
+										<Data color={colourCompare(numCompare, numMain)}>{numCompare}</Data>
 									</>
 								)
 							}
 							{
-								Array.isArray(equipedStats[label]) && (
+								Array.isArray(main) && (
 									<>
-										<Data>{`${equipedStats[label][0] + equipedAdditional[label][0]} (${equipedStats[label][1] + equipedAdditional[label][1]})`}</Data>
-										<Data>{`${selectedStats[label][0] + selectedAdditional[label][0]} (${selectedStats[label][1] + selectedAdditional[label][1]})`}</Data>
+										<Data color={colourCompare(arrMain, arrCompare)}>{`${arrMain} (${main[1] + mainAdditional[label][1]})`}</Data>
+										<Data color={colourCompare(arrCompare, arrMain)}>{`${arrCompare} (${compare[1] + compareAdditional[label][1]})`}</Data>
 									</>
 								)
 							}
 							{
-								typeof equipedStats[label] === 'string' && (
+								typeof main === 'string' && (
 									<>
-										<Data>{equipedStats[label]}</Data>
-										<Data>{selectedStats[label]}</Data>
+										<Data>{main}</Data>
+										<Data>{compare}</Data>
 									</>
 								)
 							}

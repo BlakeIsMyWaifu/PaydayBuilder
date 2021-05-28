@@ -45,10 +45,10 @@ export const ArmourStatsTable: React.FC<armourStatsTable> = ({ mainArmour, compa
 	return (
 		compareArmour ? 
 		<TableCompare
-			equipedStats={baseStats(compareArmour.stats)}
-			selectedStats={baseStats(mainArmour.stats)}
-			equipedAdditional={additionalStats(compareArmour)}
-			selectedAdditional={additionalStats(mainArmour)}
+			mainStats={baseStats(compareArmour.stats)}
+			compareStats={baseStats(mainArmour.stats)}
+			mainAdditional={additionalStats(compareArmour)}
+			compareAdditional={additionalStats(mainArmour)}
 		/> :
 		<TableEquiped
 			baseStats={baseStats(mainArmour.stats)}
