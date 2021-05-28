@@ -81,9 +81,9 @@ const Mask: React.FC = () => {
 					Object.keys(collections).map((collection, i) => {
 						const masks = collections[collection]
 						if (filters[masks[0].type]) return
-						return <MaskCollection>
+						return <MaskCollection ref={collectionRefs.current[i]}>
 							<MaskCollectionTitle color={itemColours[masks[0].type]}>{collection}</MaskCollectionTitle>
-							<MaskWrapper key={collection} ref={collectionRefs.current[i]}>
+							<MaskWrapper key={collection}>
 								{
 									masks.map(mask => {
 										return <Item key={mask.name} size={96} selected={mask.name === selectedMask.name}>
