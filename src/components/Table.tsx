@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { blue, dim, grey } from 'utils/colours'
 
-const Table = styled.table`
+export const Table = styled.table`
 	color: #fff;
 	font-size: 1rem;
 	margin-top: 12px;
@@ -10,13 +10,13 @@ const Table = styled.table`
 	border: 1px solid ${grey};
 `
 
-const Row = styled.tr`
+export const Row = styled.tr`
 	&:nth-child(odd) {
 		background-color: ${dim};
 	}
 `
 
-const Head = styled.th`
+export const Head = styled.th`
 	text-align: end;
 	width: 65px;
 	color: ${props => props.color};
@@ -29,13 +29,13 @@ const Head = styled.th`
 	}
 `
 
-const Label = styled.td`
+export const Label = styled.td`
 	text-align: start;
 	font-weight: bold;
 	font-size: 1.2rem;
 `
 
-const Data = styled.td`
+export const Data = styled.td`
 	text-align: end;
 	width: 65px;
 	color: ${props => props.color};

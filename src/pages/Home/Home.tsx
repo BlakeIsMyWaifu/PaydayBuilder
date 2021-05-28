@@ -9,6 +9,7 @@ import React, { ReactElement, useState } from 'react'
 import { ConfigWrapper, EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, ResetCurrentBuild, SelectorWrapper, Tab, TabTitle } from './Home-Elements'
 import Selector from './Selector'
 import SelectorSkills from './Selector/SelectorSkills'
+import SkillTable from './SkillTable/SkillTable'
 
 export interface hoverInfo {
 	title: string;
@@ -119,7 +120,10 @@ const Home: React.FC = () => {
 				<TabTitle direction='rtl'>Abilities</TabTitle>
 				<SelectorWrapper>
 
-					<SelectorSkills setHoverInfo={setHoverInfo} infoData={null} />
+					<SelectorSkills setHoverInfo={setHoverInfo} infoData={{
+						title: 'Skills',
+						table: <SkillTable />
+					}} />
 
 					<Selector title='perk deck' setHoverInfo={setHoverInfo} infoData={{
 						title: perkDeck.name,
