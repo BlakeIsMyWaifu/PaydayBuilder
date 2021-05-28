@@ -7,15 +7,12 @@ import data, { armourData, armourStats } from 'data/character/armours'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 
-const Armour: React.FC = () => {
+interface armourStatsTable {
+	mainArmour: armourData;
+	compareArmour?: armourData;
+}
 
-	const dispatch = useAppDispatch()
-
-	const equipedArmour = useAppSelector(state => state.character.armour)
-
-	const [selectedArmour, setSelectedArmour] = useState<armourData>(equipedArmour)
-
-	const clickArmour = (armour: armourData) => armour.name === selectedArmour.name ? dispatch(changeArmour(armour)) : setSelectedArmour(armour)
+export const ArmourStatsTable: React.FC<armourStatsTable> = ({ mainArmour, compareArmour }) => {
 
 	const baseStats = ({ armour, concealment, speed, dodge, steadiness, stamina }: armourStats) => {
 		return ({ armour, health: 230, concealment, speed, dodge, steadiness, stamina })
@@ -43,7 +40,32 @@ const Armour: React.FC = () => {
 		stats.concealment += innerPockets === 'aced' && hasBallistic ? 5 : 1 // +1 from blending in perk
 
 		return stats
-	}
+	}	
+
+	return (
+		compareArmour ? 
+		<TableCompare
+			equipedStats={baseStats(compareArmour.stats)}
+			selectedStats={baseStats(mainArmour.stats)}
+			equipedAdditional={additionalStats(compareArmour)}
+			selectedAdditional={additionalStats(mainArmour)}
+		/> :
+		<TableEquiped
+			baseStats={baseStats(mainArmour.stats)}
+			additionalStats={additionalStats(mainArmour)}
+		/>
+	)
+}
+
+export const Armour: React.FC = () => {
+
+	const dispatch = useAppDispatch()
+
+	const equipedArmour = useAppSelector(state => state.character.armour)
+
+	const [selectedArmour, setSelectedArmour] = useState<armourData>(equipedArmour)
+
+	const clickArmour = (armour: armourData) => armour.name === selectedArmour.name ? dispatch(changeArmour(armour)) : setSelectedArmour(armour)
 
 	return (
 		<Container title={'Armour'}>
@@ -67,17 +89,7 @@ const Armour: React.FC = () => {
 				<InfoTitle>{selectedArmour.name}</InfoTitle>
 
 				{
-					selectedArmour.name === equipedArmour.name ?
-						<TableEquiped
-							baseStats={baseStats(selectedArmour.stats)}
-							additionalStats={additionalStats(selectedArmour)}
-						/> :
-						<TableCompare
-							equipedStats={baseStats(equipedArmour.stats)}
-							selectedStats={baseStats(selectedArmour.stats)}
-							equipedAdditional={additionalStats(equipedArmour)}
-							selectedAdditional={additionalStats(selectedArmour)}
-						/>
+					<ArmourStatsTable mainArmour={selectedArmour} compareArmour={selectedArmour.name !== equipedArmour.name ? equipedArmour : undefined} />
 				}
 
 				<InfoDescription>{selectedArmour.desciption.join('\n\n')}</InfoDescription>

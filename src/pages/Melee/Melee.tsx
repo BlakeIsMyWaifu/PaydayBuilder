@@ -6,23 +6,14 @@ import { TableCompare, TableEquiped } from 'components/Table'
 import data, { meleeData, meleeStats } from 'data/weapons/melees'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
-import { blue, itemColours } from 'utils/colours'
+import { itemColours } from 'utils/colours'
 
-import { TableData, TableHead, TableLabel, TableRow, TableStats } from './Melee-Elements'
+interface meleeStatsTable {
+	mainMelee: meleeStats;
+	compareMelee?: meleeStats;
+}
 
-const Melee: React.FC = () => {
-
-	const dispatch = useAppDispatch()
-
-	const equipedMelee = useAppSelector(state => state.weapons.melee)
-
-	const [selectedMelee, setSelectedMelee] = useState(equipedMelee)
-
-	const clickMelee = (melee: meleeData) => melee.name === selectedMelee.name ? dispatch(changeMelee(melee)) : setSelectedMelee(melee)
-
-	const innerPockets = useAppSelector(state => state.skills.trees.ghost.artful_dodger.upgrades['Inner Pockets'])
-
-	const pumpingIron = useAppSelector(state => state.skills.trees.fugitive.brawler.upgrades['Pumping Iron'])
+export const MeleeStatsTable: React.FC<meleeStatsTable> = ({ mainMelee, compareMelee }) => {
 
 	const baseStats = (meleeStats: meleeStats) => {
 		const toTwoDecimal = (number: number) => +(Math.round(number * 100) / 100).toFixed(2)
@@ -39,6 +30,9 @@ const Melee: React.FC = () => {
 		}
 		return stats
 	}
+
+	const innerPockets = useAppSelector(state => state.skills.trees.ghost.artful_dodger.upgrades['Inner Pockets'])
+	const pumpingIron = useAppSelector(state => state.skills.trees.fugitive.brawler.upgrades['Pumping Iron'])
 
 	const additionalStats = (meleeStats: meleeStats) => {
 		let stats = {
@@ -59,6 +53,31 @@ const Melee: React.FC = () => {
 
 		return stats
 	}
+
+	return (
+		compareMelee ? 
+			<TableCompare
+				equipedStats={baseStats(compareMelee)}
+				selectedStats={baseStats(mainMelee)}
+				equipedAdditional={additionalStats(compareMelee)}
+				selectedAdditional={additionalStats(mainMelee)}
+			/> :
+			<TableEquiped
+				baseStats={baseStats(mainMelee)}
+				additionalStats={additionalStats(mainMelee)}
+			/>
+	)
+}
+
+export const Melee: React.FC = () => {
+
+	const dispatch = useAppDispatch()
+
+	const equipedMelee = useAppSelector(state => state.weapons.melee)
+
+	const [selectedMelee, setSelectedMelee] = useState(equipedMelee)
+
+	const clickMelee = (melee: meleeData) => melee.name === selectedMelee.name ? dispatch(changeMelee(melee)) : setSelectedMelee(melee)
 
 	return (
 		<Container title={'Melee'}>
@@ -82,17 +101,7 @@ const Melee: React.FC = () => {
 				<InfoTitle>{selectedMelee.name}</InfoTitle>
 
 				{
-					selectedMelee.name === equipedMelee.name ?
-						<TableEquiped
-							baseStats={baseStats(selectedMelee.stats)}
-							additionalStats={additionalStats(selectedMelee.stats)}
-						/> :
-						<TableCompare
-							equipedStats={baseStats(equipedMelee.stats)}
-							selectedStats={baseStats(selectedMelee.stats)}
-							equipedAdditional={additionalStats(equipedMelee.stats)}
-							selectedAdditional={additionalStats(selectedMelee.stats)}
-						/>
+					<MeleeStatsTable mainMelee={selectedMelee.stats} compareMelee={selectedMelee.name !== equipedMelee.name ? equipedMelee.stats : undefined} />
 				}
 
 				{

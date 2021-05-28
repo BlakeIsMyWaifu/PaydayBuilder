@@ -5,7 +5,7 @@ import { blue, dim, grey } from 'utils/colours'
 const Table = styled.table`
 	color: #fff;
 	font-size: 1rem;
-	margin-top: 24px;
+	margin-top: 12px;
 	border-collapse: collapse;
 	border: 1px solid ${grey};
 `
@@ -91,6 +91,15 @@ export const TableEquiped: React.FC<tableEquiped> = ({ baseStats, additionalStat
 									</>
 								)
 							}
+							{
+								typeof baseValue === 'string' && (
+									<>
+										<Data>{baseValue}</Data>
+										<Data />
+										<Data />
+									</>
+								)
+							}
 						</Row>
 					})
 				}
@@ -145,6 +154,14 @@ export const TableCompare: React.FC<tableCompare> = ({ equipedStats, selectedSta
 									<>
 										<Data>{`${equipedStats[label][0] + equipedAdditional[label][0]} (${equipedStats[label][1] + equipedAdditional[label][1]})`}</Data>
 										<Data>{`${selectedStats[label][0] + selectedAdditional[label][0]} (${selectedStats[label][1] + selectedAdditional[label][1]})`}</Data>
+									</>
+								)
+							}
+							{
+								typeof equipedStats[label] === 'string' && (
+									<>
+										<Data>{equipedStats[label]}</Data>
+										<Data>{selectedStats[label]}</Data>
 									</>
 								)
 							}

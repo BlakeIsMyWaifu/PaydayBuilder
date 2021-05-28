@@ -2,7 +2,9 @@ import Container from 'components/Container'
 import { InfoDescription, InfoTitle } from 'components/Info'
 import perkData from 'data/abilities/perks'
 import { useAppDispatch, useAppSelector } from 'hooks'
-import React, { useState } from 'react'
+import { ArmourStatsTable } from 'pages/Armour/Armour'
+import { MeleeStatsTable } from 'pages/Melee/Melee'
+import React, { ReactElement, useState } from 'react'
 
 import { ConfigWrapper, EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, ResetCurrentBuild, SelectorWrapper, Tab, TabTitle } from './Home-Elements'
 import Selector from './Selector'
@@ -11,6 +13,7 @@ import SelectorSkills from './Selector/SelectorSkills'
 export interface hoverInfo {
 	title: string;
 	description?: string[];
+	table?: ReactElement;
 }
 
 const Home: React.FC = () => {
@@ -39,6 +42,7 @@ const Home: React.FC = () => {
 								<>
 									<InfoTitle>{hoverInfo.title}</InfoTitle>
 									<InfoDescription>{hoverInfo.description?.join('\n\n')}</InfoDescription>
+									{hoverInfo.table}
 								</>
 							)
 						}
@@ -52,25 +56,29 @@ const Home: React.FC = () => {
 
 					<Selector title='mask' setHoverInfo={setHoverInfo} infoData={{
 						title: mask.equiped.name,
-						description: mask.equiped.description}}>
+						description: mask.equiped.description
+					}}>
 						<Image src={`images/masks/${mask.equiped.image}.png`} />
 					</Selector>
 
 					<Selector title='character' setHoverInfo={setHoverInfo} infoData={{
 						title: character.name,
-						description: [`Nationality: ${character.nationality}`, `Age: ${character.age.toString()}`, ...character.description]}}>
+						description: [`Nationality: ${character.nationality}`, `Age: ${character.age.toString()}`, ...character.description]
+					}}>
 						<Image src={`images/masks/${character.image}.png`} />
 					</Selector>
 
 					<Selector title='armour' setHoverInfo={setHoverInfo} infoData={{
 						title: armour.name,
-						description: armour.desciption}}>
+						table: <ArmourStatsTable mainArmour={armour} />
+					}}>
 						<Image src={`images/armours/${armour.name}.png`} />
 					</Selector>
 
 					<Selector title='equipment' setHoverInfo={setHoverInfo} infoData={{
 						title: equipment.primary.name,
-						description: equipment.primary.description}}>
+						description: equipment.primary.description
+					}}>
 						{
 							equipment.secondary ? <EquipmentContainer>
 								<Image src={`images/equipment/${equipment.primary.name}.png`} />
@@ -92,12 +100,14 @@ const Home: React.FC = () => {
 
 					<Selector title='throwable' setHoverInfo={setHoverInfo} infoData={{
 						title: throwable.name,
-						description: throwable.description}}>
+						description: throwable.description
+					}}>
 						<Image src={`images/throwables/${throwable.image}.png`} />
 					</Selector>
 
 					<Selector title='melee' setHoverInfo={setHoverInfo} infoData={{
-						title: melee.name
+						title: melee.name,
+						table: <MeleeStatsTable mainMelee={melee.stats} />
 					}}>
 						<Image src={`images/melees/${melee.image}.png`} />
 					</Selector>
@@ -113,7 +123,8 @@ const Home: React.FC = () => {
 
 					<Selector title='perk deck' setHoverInfo={setHoverInfo} infoData={{
 						title: perkDeck.name,
-						description: perkDeck.description}}>
+						description: perkDeck.description
+					}}>
 						<PerkDeckImage x={192} y={(perkDeckIndex + 1) * 48} />
 					</Selector>
 	

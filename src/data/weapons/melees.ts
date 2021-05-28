@@ -19,7 +19,7 @@ export interface meleeStats {
 	cooldown: number;
 	unequipDelay: number;
 	specialType?: string;
-	specialTime?: string | number;
+	specialTime?: string;
 }
 
 const melees: meleeData[] = [
@@ -220,7 +220,7 @@ const melees: meleeData[] = [
 			cooldown: 1.0,
 			unequipDelay: 1.2,
 			specialType: 'fire',
-			specialTime: 3.1
+			specialTime: '3.1'
 		}
 	},
 	{
@@ -639,7 +639,7 @@ const melees: meleeData[] = [
 			cooldown: 0.65,
 			unequipDelay: 1.2,
 			specialType: 'poison',
-			specialTime: 1.0
+			specialTime: '1.0'
 		},
 		description: 'Syringe filled with poison that deals damage over time and has a chance to interrupt enemies.'
 	},
@@ -1707,7 +1707,7 @@ const melees: meleeData[] = [
 			cooldown: 0.3,
 			unequipDelay: 1.2,
 			specialType: 'poison',
-			specialTime: 1.0
+			specialTime: '1.0'
 		},
 		description: 'Knife with a poisoned tip that deals damage over time and has a chance to interrupt enemies.'
 	},
