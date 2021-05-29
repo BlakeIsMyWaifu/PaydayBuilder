@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 
 export const Container = styled.div`
 	height: 100%;
@@ -37,8 +37,30 @@ export const Aced = styled.div`
 interface icon {
 	x: number;
 	y: number;
-	state: string
+	state: string;
+	redFlash: boolean;
 }
+
+// https://github.com/microsoft/typescript-styled-plugin/issues/137
+// https://github.com/microsoft/typescript-styled-plugin/pull/138
+let redFlash = keyframes`
+	\ 25% {
+		transform: rotate(3deg);
+		filter: hue-rotate(180deg);
+	}
+	\ 50% {
+		transform: rotate(-6deg);
+		filter: hue-rotate(180deg);
+	}
+	\ 75% {
+		transform: rotate(1deg);
+		filter: hue-rotate(180deg);
+	}
+	\ 100% {
+		transform: rotate(0deg);
+		filter: hue-rotate(180deg);
+	}
+`
 
 export const SkillIcon = styled.div<icon>`
 	background-position-x: calc((${props => props.x}% / 880) * 100) !important;
@@ -51,6 +73,10 @@ export const SkillIcon = styled.div<icon>`
 	top: 0;
 	left: 0;
 	position: absolute;
+	&:hover {
+		transform: scale(1.1);
+	}
+	animation: ${props => props.redFlash ? css`${redFlash} 0.25s 1` : ''};
 `
 
 export const Label = styled.p`

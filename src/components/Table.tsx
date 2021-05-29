@@ -151,7 +151,7 @@ export const TableCompare: React.FC<tableCompare> = ({ mainStats, compareStats, 
 						const arrMain = main[0] + mainAdditional[label][0]
 						const arrCompare = compare[0] + compareAdditional[label][0]
 
-						return <Row>
+						return <Row key={label}>
 							<Label>{label}</Label>
 							{
 								typeof main === 'number' && (

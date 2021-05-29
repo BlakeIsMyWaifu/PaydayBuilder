@@ -19,7 +19,7 @@ const skills = (state = defaultstate, action: any) => {
 		case getType(actions.changeSkillState):
 			const { tree, subtree, skill, oldLevel, direction }: skillChangeAction = action.payload
 
-			let newLevel: 'available' | 'basic' | 'aced', cost
+			let newLevel: 'available' | 'basic' | 'aced', cost: number
 			if (direction === 'upgrade') {
 				newLevel = oldLevel === 'available' ? 'basic' : 'aced'
 				cost = oldLevel === 'available' ? skill.tier : acedCost[skill.tier]
@@ -28,20 +28,21 @@ const skills = (state = defaultstate, action: any) => {
 				cost = (oldLevel === 'basic' ? skill.tier : acedCost[skill.tier]) * -1
 			}
 
-			const points = state.trees[tree][subtree].points + cost
+			const currentSubtree = state.trees[tree][subtree]
+			const points = currentSubtree.points + cost
 
-			for (var tier = 0; tier < 4; tier++) {
-				if (points < tierCost[tier]) break
+			for (var newTier = 0; newTier < 4; newTier++) {
+				if (points < tierCost[newTier]) break
 			}
 
 			let unlocked: upgrades = {}
-			if (tier !== state.trees[tree][subtree].tier) {
-				let skills = Object.keys(state.trees[tree][subtree].upgrades)
+			if (newTier !== currentSubtree.tier) {
+				const skills = Object.keys(currentSubtree.upgrades)
 				for (let i = 0; i < 6; i++) {
-					if (tier === skillTierIndex[i]) {
+					if (newTier === skillTierIndex[i] && direction === 'upgrade') {
 						unlocked[skills[i]] = 'available'
 					}
-					if (tier < skillTierIndex[i]) {
+					if (newTier < skillTierIndex[i] && direction === 'downgrade') {
 						unlocked[skills[i]] = 'locked'
 					}
 				}
@@ -55,7 +56,7 @@ const skills = (state = defaultstate, action: any) => {
 						...state.trees[tree],
 						[subtree]: {
 							points: points,
-							tier,
+							tier: newTier,
 							upgrades: {
 								...state.trees[tree][subtree].upgrades,
 								...unlocked,
