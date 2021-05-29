@@ -1,6 +1,5 @@
 import { changeSkillState } from 'actions/skillsAction'
 import { skillData, subtreeData, treeData } from 'data/abilities/skills'
-import { skillUpgradeTypes } from 'defualtStates/skillsDefaultState'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 
@@ -13,19 +12,6 @@ interface skillComponent {
 	setSkillHovered: React.Dispatch<React.SetStateAction<skillData | null>>;
 }
 
-interface acedCost {
-	[key: number]: number;
-}
-
-function findLastIndex<T>(array: Array<T>, predicate: (value: T, index: number, obj: T[]) => boolean): number {
-	let l = array.length;
-	while (l--) {
-		if (predicate(array[l], l, array))
-			return l;
-	}
-	return -1;
-}
-
 const Skill: React.FC<skillComponent> = ({ tree, subtree, skill, setSkillHovered }: skillComponent) => {
 
 	const dispatch = useAppDispatch()
@@ -36,7 +22,7 @@ const Skill: React.FC<skillComponent> = ({ tree, subtree, skill, setSkillHovered
 
 	const [redFlash, setRedFlash] = useState(false)
 
-	const acedCost: acedCost = {
+	const acedCost = {
 		1: 3,
 		2: 4,
 		3: 6,
