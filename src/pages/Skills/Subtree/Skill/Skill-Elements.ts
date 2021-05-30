@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components'
+import { red } from 'utils/colours'
 
 export const Container = styled.div`
 	height: 100%;
@@ -79,7 +80,11 @@ export const SkillIcon = styled.div<icon>`
 	animation: ${props => props.redFlash ? css`${redFlash} 0.25s 1` : ''};
 `
 
-export const Label = styled.p`
-	color: #fff;
+interface label {
+	redFlash: boolean;
+}
+
+export const Label = styled.p<label>`
+	color: ${props => props.redFlash ? red : props.color};
 	text-align: center;
 `

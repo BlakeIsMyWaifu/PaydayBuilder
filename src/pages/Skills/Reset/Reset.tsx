@@ -1,5 +1,4 @@
 import { resetAll, resetTree } from 'actions/skillsAction'
-import { treeData } from 'data/abilities/skills'
 import { useAppDispatch } from 'hooks'
 import React from 'react'
 
@@ -9,14 +8,14 @@ interface reset {
 	tree: string
 }
 
-const Reset: React.FC<reset> = ({ tree }: reset) => {
+const Reset: React.FC<reset> = ({ tree }) => {
 
 	const dispatch = useAppDispatch()
 
 	return (
 		<Container>
-			<ResetText onClick={() => dispatch(resetTree(tree))}>Reset this tree</ResetText>
-			<ResetText onClick={() => dispatch(resetAll())}>Reset all trees</ResetText>
+			<ResetText onClick={() => dispatch(resetTree(tree))}>[F] Reset this tree</ResetText>
+			<ResetText onClick={() => dispatch(resetAll())}>[R] Reset all trees</ResetText>
 		</Container>
 	)
 }

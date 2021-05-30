@@ -8,7 +8,7 @@ export const Container = styled.div`
 export const ResetText = styled.p`
 	color: ${blue};
 	font-size: 1.6rem;
-	direction: rtl;
+	text-align: end;
 	cursor: pointer;
 	&:hover {
 		color: #fff;

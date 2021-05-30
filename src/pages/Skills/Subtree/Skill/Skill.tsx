@@ -2,6 +2,7 @@ import { changeSkillState } from 'actions/skillsAction'
 import { skillData, subtreeData, treeData } from 'data/abilities/skills'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
+import { grey } from 'utils/colours'
 
 import { Aced, Container, Icon, Label, Locked, SkillIcon } from './Skill-Elements'
 
@@ -12,7 +13,7 @@ interface skillComponent {
 	setSkillHovered: React.Dispatch<React.SetStateAction<skillData | null>>;
 }
 
-const Skill: React.FC<skillComponent> = ({ tree, subtree, skill, setSkillHovered }: skillComponent) => {
+const Skill: React.FC<skillComponent> = ({ tree, subtree, skill, setSkillHovered }) => {
 
 	const dispatch = useAppDispatch()
 
@@ -31,11 +32,17 @@ const Skill: React.FC<skillComponent> = ({ tree, subtree, skill, setSkillHovered
 
 	const tierCost = [0, 1, 3, 16]
 
+	const points = useAppSelector(state => state.skills.points)
+
 	const clickSkills = (event: React.MouseEvent) => {
 		event.preventDefault()
 		if (event.button !== 0 && event.button !== 2) return
-		if (!event.button && (skillState !== 'available' && skillState !== 'basic')) return
-		if (event.button && (skillState !== 'aced' && skillState !== 'basic')) return
+		const leftClickDecline = !event.button && (skillState !== 'available' && skillState !== 'basic')
+		const rightClickDecline = event.button && (skillState !== 'aced' && skillState !== 'basic')
+		if (leftClickDecline || rightClickDecline) {
+			setRedFlash(true)
+			return
+		}
 
 		if (event.button) {
 			const highestTier = Math.max.apply(null, Object.entries(subtreeState.upgrades)
@@ -65,6 +72,12 @@ const Skill: React.FC<skillComponent> = ({ tree, subtree, skill, setSkillHovered
 					return
 				}
 			}
+		} else {
+			const cost = skillState === 'available' ? skill.tier : acedCost[skill.tier]
+			if ((points - cost) < 0) {
+				setRedFlash(true)
+				return
+			}
 		}
 
 		dispatch(changeSkillState({
@@ -87,7 +100,7 @@ const Skill: React.FC<skillComponent> = ({ tree, subtree, skill, setSkillHovered
 				{ skillState === 'aced' && <Aced /> }
 				<SkillIcon x={skill.pos[0]} y={skill.pos[1]} state={skillState} redFlash={redFlash} onAnimationEnd={() => setRedFlash(false)} />
 			</Icon>
-			<Label>{skill.name}</Label>
+			<Label redFlash={redFlash} color={skillState === 'locked' ? grey : '#fff'}>{skill.name}</Label>
 		</Container>
 	)
 }

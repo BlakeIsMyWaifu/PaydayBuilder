@@ -10,6 +10,7 @@ interface area {
 	title?: string;
 	backButton?: boolean;
 	children?: React.ReactNode;
+	ref?: React.MutableRefObject<any>;
 }
 
 const Area = styled.div<area>`

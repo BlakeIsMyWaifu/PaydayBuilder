@@ -23,13 +23,10 @@ export const Tier = styled.div`
 	justify-content: center;
 `
 
-interface background {
-	height: number
-}
-
 export const Background = styled.img`
 	position: absolute;
 	width: 100%;
 	height: ${props => props.height}%;
+	transition: height 0.5s;
 	bottom: 0;
 `

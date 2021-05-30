@@ -8,7 +8,7 @@ interface info {
 	skill: skillData | null;
 }
 
-const Info: React.FC<info> = ({ skill }: info) => {
+const Info: React.FC<info> = ({ skill }) => {
 
 	const acedCost = {
 		1: 3,

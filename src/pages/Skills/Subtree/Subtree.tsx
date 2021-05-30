@@ -11,7 +11,7 @@ interface subtreeComponent {
 	setSkillHovered: React.Dispatch<React.SetStateAction<skillData | null>>;
 }
 
-const Subtree: React.FC<subtreeComponent> = ({ tree, subtree, setSkillHovered }: subtreeComponent) => {
+const Subtree: React.FC<subtreeComponent> = ({ tree, subtree, setSkillHovered }) => {
 
 	const { points, tier } = useAppSelector(state => state.skills.trees[tree.name][subtree.name])
 

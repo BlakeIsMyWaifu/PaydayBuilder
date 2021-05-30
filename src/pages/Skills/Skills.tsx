@@ -1,7 +1,9 @@
+import { resetAll, resetTree } from 'actions/skillsAction'
 import Container from 'components/Container'
 import data, { treeData, treeNames } from 'data/abilities/skills'
 import { skillData } from 'data/abilities/skills'
-import React, { useState } from 'react'
+import { useAppDispatch } from 'hooks'
+import React, { useEffect, useState } from 'react'
 
 import Info from './Info'
 import Points from './Points'
@@ -10,6 +12,8 @@ import { SubtreeLabel, SubtreeLabelWrapper, Tree, TreeName, TreeNamesWrapper } f
 import Subtree from './Subtree'
 
 const Skills: React.FC = () => {
+
+	const dispatch = useAppDispatch()
 
 	const [currentTree, setCurrentTree] = useState<treeData>(data.mastermind)
 
@@ -23,6 +27,18 @@ const Skills: React.FC = () => {
 		index = index < 0 ? 0 : index > 4 ? 4 : index
 		setCurrentTree(data[order[index]])
 	}
+
+	useEffect(() => {
+		const handleKeys = (event: KeyboardEvent) => {
+			if (event.key === 'f') {
+				dispatch(resetTree(currentTree.name))
+			} else if (event.key === 'r') {
+				dispatch(resetAll())
+			}
+		}
+		window.addEventListener('keydown', handleKeys)
+		return () => window.removeEventListener('keydown', handleKeys)
+	}, [currentTree])
 
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"' title={'Skills'}>
