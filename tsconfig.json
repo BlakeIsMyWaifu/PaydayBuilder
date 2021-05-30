@@ -24,7 +24,8 @@
     "noUnusedParameters": false,
     "incremental": true,
     "noFallthroughCasesInSwitch": true,
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "downlevelIteration": true
   },
   "include": [
     "src",

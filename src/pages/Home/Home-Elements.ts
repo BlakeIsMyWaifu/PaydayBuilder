@@ -78,6 +78,8 @@ export const PerkDeckImage = styled.div<perkDeckImage>`
 export const ConfigWrapper = styled.div`
 	grid-area: config;
 	display: flex;
+	justify-content: center;
+	align-items: center;
 `
 
 export const ResetCurrentBuild = styled.p`

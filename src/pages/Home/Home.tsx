@@ -6,6 +6,7 @@ import { ArmourStatsTable } from 'pages/Armour/Armour'
 import { MeleeStatsTable } from 'pages/Melee/Melee'
 import React, { ReactElement, useState } from 'react'
 
+import BuildIO from './BuildIO/BuildIO'
 import { ConfigWrapper, EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, ResetCurrentBuild, SelectorWrapper, Tab, TabTitle } from './Home-Elements'
 import Selector from './Selector'
 import SelectorSkills from './Selector/SelectorSkills'
@@ -141,6 +142,7 @@ const Home: React.FC = () => {
 
 			<ConfigWrapper>
 				<ResetCurrentBuild onMouseDown={() => dispatch({type: 'RESET'})}>[Reset Build]</ResetCurrentBuild>
+				<BuildIO />
 			</ConfigWrapper>
 
 		</Container>
