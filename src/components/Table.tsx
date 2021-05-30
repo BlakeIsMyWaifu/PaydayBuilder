@@ -142,14 +142,14 @@ export const TableCompare: React.FC<tableCompare> = ({ mainStats, compareStats, 
 			<tbody>
 				{
 					labels.map(label => {
-						const main = mainStats[label]
-						const compare = compareStats[label]
+						const main = mainStats?.[label]
+						const compare = compareStats?.[label]
 
-						const numMain = main + mainAdditional[label]
-						const numCompare = compare + compareAdditional[label]
+						const numMain = main + mainAdditional?.[label]
+						const numCompare = compare + compareAdditional?.[label]
 
-						const arrMain = main[0] + mainAdditional[label][0]
-						const arrCompare = compare[0] + compareAdditional[label][0]
+						const arrMain = main?.[0] + mainAdditional[label]?.[0]
+						const arrCompare = compare?.[0] + compareAdditional[label]?.[0]
 
 						return <Row key={label}>
 							<Label>{label}</Label>
@@ -170,7 +170,7 @@ export const TableCompare: React.FC<tableCompare> = ({ mainStats, compareStats, 
 								)
 							}
 							{
-								typeof main === 'string' && (
+								(typeof main === 'string' || typeof compare === 'string') && (
 									<>
 										<Data>{main}</Data>
 										<Data>{compare}</Data>
