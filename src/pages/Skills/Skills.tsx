@@ -1,8 +1,10 @@
+import { changeEquipment } from 'actions/characterAction'
 import { resetAll, resetTree } from 'actions/skillsAction'
 import Container from 'components/Container'
 import data, { treeData, treeNames } from 'data/abilities/skills'
 import { skillData } from 'data/abilities/skills'
-import { useAppDispatch } from 'hooks'
+import equipmentData from 'data/character/equipment'
+import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useEffect, useState } from 'react'
 
 import Info from './Info'
@@ -28,6 +30,10 @@ const Skills: React.FC = () => {
 		setCurrentTree(data[order[index]])
 	}
 
+	const jackOfAllTrades = useAppSelector(state => state.skills.trees.technician.engineer.upgrades['Jack of All Trades'])
+	const engineering = useAppSelector(state => state.skills.trees.technician.engineer.upgrades.Engineering)
+	const equipedEquipment = useAppSelector(state => state.character.equipment)
+
 	useEffect(() => {
 		const handleKeys = (event: KeyboardEvent) => {
 			if (event.key === 'f') {
@@ -37,8 +43,15 @@ const Skills: React.FC = () => {
 			}
 		}
 		window.addEventListener('keydown', handleKeys)
-		return () => window.removeEventListener('keydown', handleKeys)
-	}, [currentTree])
+		if (jackOfAllTrades !== 'aced') dispatch(changeEquipment([null, 'secondary']))
+		if (engineering !== 'basic' && engineering !== 'aced') {
+			if (equipedEquipment.primary.name === 'Silenced Sentry Gun') dispatch(changeEquipment([equipmentData[0], 'primary']))
+			if (equipedEquipment.secondary?.name === 'Silenced Sentry Gun') dispatch(changeEquipment([null, 'secondary']))
+		}
+		return () => {
+			window.removeEventListener('keydown', handleKeys)
+		}
+	}, [currentTree, jackOfAllTrades, engineering])
 
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"' title={'Skills'}>

@@ -3,13 +3,13 @@ import keybinds from 'data/keybinds'
 export interface equipmentData {
 	name: string;
 	amount: number[];
-	upgrade: equipmentUpgradeData[] | null;
+	upgrade: equipmentUpgradeData[];
 	description: string[];
 }
 
 interface equipmentUpgradeData {
 	amount: number[];
-	skill: string;
+	skillPath: [string, string, string];
 	skillState: 'basic' | 'aced';
 }
 
@@ -19,7 +19,7 @@ const equipment: equipmentData[] = [
 		amount: [1],
 		upgrade: [{
 			amount: [2],
-			skill: '',
+			skillPath: ['enforcer', 'tank', 'Extra Lead'],
 			skillState: 'aced'
 		}],
 		description: [
@@ -30,7 +30,7 @@ const equipment: equipmentData[] = [
 	{
 		name: 'Armour Kit',
 		amount: [1],
-		upgrade: null,
+		upgrade: [],
 		description: [
 			`To use the Armor Bag, hold [${keybinds['Deploy Equipment/Throw Bag']}] to put on your equipped armor. Until that, you will wear the Two-piece Suit.`,
 			'The armor bag has only one use and when it is consumed, it disappears. The Armor Bag is a portable bag used to transport an armor of your choice, that can be used during a heist.'
@@ -41,7 +41,7 @@ const equipment: equipmentData[] = [
 		amount: [1],
 		upgrade: [{
 			amount: [2],
-			skill: '',
+			skillPath: ['ghost', 'shinobi', 'Cleaner'],
 			skillState: 'aced'
 		}],
 		description: [
@@ -54,7 +54,7 @@ const equipment: equipmentData[] = [
 		amount: [1],
 		upgrade: [{
 			amount: [2],
-			skill: '',
+			skillPath: ['mastermind', 'medic', 'Combat Doctor'],
 			skillState: 'aced'
 		}],
 		description: [
@@ -68,8 +68,8 @@ const equipment: equipmentData[] = [
 		amount: [1],
 		upgrade: [{
 			amount: [2],
-			skill: '',
-			skillState: 'aced'
+			skillPath: ['ghost', 'shinobi', 'ECM Specialist'],
+			skillState: 'basic'
 		}],
 		description: [
 			`To use the ECM Jammer, you need to place it by holding [${keybinds['Deploy Equipment/Throw Bag']}]. Once placed it cannot be moved and it will be active for 20 seconds.`,
@@ -80,11 +80,18 @@ const equipment: equipmentData[] = [
 	{
 		name: 'First Aid Kit',
 		amount: [4],
-		upgrade: [{
-			amount: [14],
-			skill: '',
-			skillState: 'aced'
-		}],
+		upgrade: [
+			{
+				amount: [11],
+				skillPath: ['mastermind', 'medic', 'Uppers'],
+				skillState: 'basic'
+			},
+			{
+				amount: [14],
+				skillPath: ['mastermind', 'medic', 'Uppers'],
+				skillState: 'aced'
+			}
+		],
 		description: [
 			'The first aid kit is a collection of supplies and equipment for use in giving first aid.',
 			`To use the first aid kit, you need to place it by holding [${keybinds['Deploy Equipment/Throw Bag']}]. Once placed it cannot be moved, but it can be used by you and your crew by holding [${keybinds['Shout/Interact']}] to regain health.`,
@@ -94,11 +101,18 @@ const equipment: equipmentData[] = [
 	{
 		name: 'Sentry Gun',
 		amount: [1],
-		upgrade: [{
-			amount: [4],
-			skill: '',
-			skillState: 'aced'
-		}],
+		upgrade: [
+			{
+				amount: [2],
+				skillPath: ['technician', 'engineer', 'Tower Defense'],
+				skillState: 'basic'
+			},
+			{
+				amount: [4],
+				skillPath: ['technician', 'engineer', 'Tower Defense'],
+				skillState: 'aced'
+			}
+		],
 		description: [
 			`To use the Sentry Gun, you need to place it by holding [${keybinds['Deploy Equipment/Throw Bag']}]. Upon deployment it will use up 30% of your weapons' total ammo. It can be destroyed by firing at it, but as long as it is not completely destroyed, picking it up will automatically repair it and return the remaining Sentry Gun ammo. As it runs out of ammo it will stop firing but it can be reloaded by re-deploying it after pick up.`,
 			'The Sentry Gun automatically aims and fires at targets that are detected by its sensors. It\'s commonly used as a distraction, drawing attention from you and your team.'
@@ -107,11 +121,18 @@ const equipment: equipmentData[] = [
 	{
 		name: 'Silenced Sentry Gun',
 		amount: [1],
-		upgrade: [{
-			amount: [4],
-			skill: '',
-			skillState: 'aced'
-		}],
+		upgrade: [
+			{
+				amount: [2],
+				skillPath: ['technician', 'engineer', 'Tower Defense'],
+				skillState: 'basic'
+			},
+			{
+				amount: [4],
+				skillPath: ['technician', 'engineer', 'Tower Defense'],
+				skillState: 'aced'
+			}
+		],
 		description: [
 			`To use the Suppressed Sentry Gun, you need to place it by holding [${keybinds['Deploy Equipment/Throw Bag']}]. Upon deployment it will use up 30% of your weapons' total ammo. It can be destroyed by firing at it, but as long as it is not completely destroyed, picking it up will automatically repair it and return the remaining Sentry Gun ammo. As it runs out of ammo it will stop firing but it can be reloaded by re-deploying it after pick up.`,
 			'The Suppressed Sentry Gun is the counterpart to the regular, louder Sentry Gun as it\'s more used to take out enemies than a classic distraction.'
@@ -123,12 +144,12 @@ const equipment: equipmentData[] = [
 		upgrade: [
 			{
 				amount: [7, 4],
-				skill: '',
+				skillPath: ['technician', 'breacher', 'More Firepower'],
 				skillState: 'basic'
 			},
 			{
 				amount: [14, 6],
-				skill: '',
+				skillPath: ['technician', 'breacher', 'More Firepower'],
 				skillState: 'aced'
 			}
 		],

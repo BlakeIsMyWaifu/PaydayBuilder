@@ -9,6 +9,6 @@ export const changeMask = createAction(CHANGEMASK)<maskData>()
 export const toggleMaskFilter = createAction(TOGGLEMASKFILTER)<string>()
 export const changeCharacter = createAction(CHANGECHARACTER)<characterData>()
 export const changeArmour = createAction(CHANGEARMOUR)<armourData>()
-export const changeEquipment = createAction(CHANGEEQUIPMENT)<[equipmentData, 'primary' | 'secondary']>()
+export const changeEquipment = createAction(CHANGEEQUIPMENT)<[equipmentData | null, 'primary' | 'secondary']>()
 
 export default { changeMask, toggleMaskFilter, changeCharacter, changeArmour, changeEquipment }

@@ -22,12 +22,29 @@ export const Item = styled.div<item>`
 	height: 100%;
 	${props => props.selected && corner};
 `
-export const EquipementImage = styled.img`
+
+export const LockedIcon = styled.div`
+	position: absolute;
+	top: calc(50% - 16px);
+	left: calc(50% - 16px);
+	background-image: url('images/locked.png');
+	background-repeat: no-repeat;
+	width: 32px;
+	height: 32px;
+	z-index: 10;
+`
+
+interface equipementImage {
+	locked: boolean;
+}
+
+export const EquipementImage = styled.img<equipementImage>`
 	width: auto;
 	height: 100%;
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
+	filter: brightness(${props => props.locked ? 0.2 : 1});
 `
 
 export const EquipInfo = styled.div`
@@ -36,5 +53,5 @@ export const EquipInfo = styled.div`
 
 export const EquipText = styled.h1`
 	font-size: 1.5rem;
-	direction: rtl;
+	text-align: end;
 `

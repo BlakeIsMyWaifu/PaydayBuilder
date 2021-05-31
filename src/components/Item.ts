@@ -42,6 +42,7 @@ export const ItemName = styled.h1`
 	right: 8px;
 	font-size: 0.8rem;
 	color: ${props => props.color};
+	z-index: 5;
 `
 
 export const ItemImage = styled.img`
