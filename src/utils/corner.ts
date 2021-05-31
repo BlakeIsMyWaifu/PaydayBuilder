@@ -1,4 +1,6 @@
-export default `
+import { css } from 'styled-components';
+
+export default css`
 	background:
 		linear-gradient(to right, #fff 2px, transparent 2px) 0 0,
 		linear-gradient(to right, #fff 2px, transparent 2px) 0 100%,
