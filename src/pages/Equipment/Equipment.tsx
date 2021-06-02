@@ -44,7 +44,7 @@ const Equipment: React.FC = () => {
 						const amount = getEquipmentAmount(equipment)
 						return <Item key={equipment.name} selected={equipment.name === selectedEquipment.name}>
 							<ItemName color={itemColours[equipment.amount === amount ? 'normal' : 'dlc']}>{equipment.name} (x{amount.join('/x')})</ItemName>
-							{ equipment.name === equipedPrimary.name && <ItemEquiped> Primary</ItemEquiped> }
+							{ equipment.name === equipedPrimary.name && <ItemEquiped> { jackOfAllTradesUnlocked ? 'Primary' : ''}</ItemEquiped> }
 							{ equipment.name === equipedSecondary?.name && <ItemEquiped> Secondary</ItemEquiped> }
 							{ locked && <LockedIcon /> }
 							<EquipementImage
