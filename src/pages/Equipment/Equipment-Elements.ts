@@ -23,17 +23,6 @@ export const Item = styled.div<item>`
 	${props => props.selected && corner};
 `
 
-export const LockedIcon = styled.div`
-	position: absolute;
-	top: calc(50% - 16px);
-	left: calc(50% - 16px);
-	background-image: url('images/locked.png');
-	background-repeat: no-repeat;
-	width: 32px;
-	height: 32px;
-	z-index: 10;
-`
-
 interface equipementImage {
 	locked: boolean;
 }

@@ -34,10 +34,12 @@ const PerkDeck: React.FC = () => {
 
 	const [selectedPerk, setSelectedPerk] = useState(equipedPerk)
 
+	const throwable = useAppSelector(state => state.weapons.throwable)
+
 	useEffect(() => {
 		const currentEquipedIndex = data.indexOf(data.find(perk => perk.name === equipedPerk.name) || data[0])
 		scrollToPerk(currentEquipedIndex, 'auto')
-	}, [])
+	}, [throwable])
 
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title title" "perkdecknames ." "items info" "items back"' title={'Perk Deck'}>
@@ -60,7 +62,7 @@ const PerkDeck: React.FC = () => {
 						return <Perk
 							perkref={perkRefs.current[i]}
 							key={perkdeck.name}
-							data={perkdeck}
+							perk={perkdeck}
 							index={i}
 							setHoveredCard={setHoveredCard}
 							selectedPerk={selectedPerk}

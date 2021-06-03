@@ -3,6 +3,7 @@ export interface perk {
 	description: string[];
 	cards: card[];
 	dlc?: string;
+	throwable?: string;
 }
 
 export interface card {
@@ -1291,7 +1292,8 @@ const perks: perk[] = [
 				]
 			}
 		],
-		dlc: 'Scarface Character Pack'
+		dlc: 'Scarface Character Pack',
+		throwable: 'Injector'
 	},
 	{
 		name: 'Sicario',
@@ -1343,7 +1345,8 @@ const perks: perk[] = [
 				],
 				vr_description: 'The dash effect is now from 1% up to a maximum of 10%.'
 			}
-		]
+		],
+		throwable: 'Smoke Bomb'
 	},
 	{
 		name: 'Stoic',
@@ -1403,7 +1406,8 @@ const perks: perk[] = [
 				],
 				vr_description: 'The dash effect is now from 0 up to a maximum of 15.'
 			}
-		]
+		],
+		throwable: 'Stoic\'s Hip Flask'
 	},
 	{
 		name: 'Tag Team',
@@ -1466,7 +1470,8 @@ const perks: perk[] = [
 				vr_description: 'The dash effect is now from 0 up to a maximum of 15.'
 			}
 		],
-		dlc: 'H3H3 Character Pack'
+		dlc: 'H3H3 Character Pack',
+		throwable: 'Gas Dispenser'
 	},
 	{
 		name: 'Hacker',
@@ -1516,7 +1521,8 @@ const perks: perk[] = [
 					'Crew members killing enemies while the feedback effect is active will regenerate 10 health.'
 				]
 			}
-		]
+		],
+		throwable: 'Pocket ECM'
 	}
 ].map(perkdeck => {
 	let cards: any[] = []

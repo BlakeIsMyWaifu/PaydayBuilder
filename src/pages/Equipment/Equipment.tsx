@@ -1,13 +1,13 @@
 import { changeEquipment } from 'actions/characterAction'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
-import { ItemEquiped, ItemName } from 'components/Item'
+import { ItemEquiped, ItemName, LockedIcon } from 'components/Item'
 import data, { equipmentData } from 'data/character/equipment'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 import { itemColours } from 'utils/colours'
 
-import { EquipInfo, EquipText, EquipementImage, EquipmentWrapper, Item, LockedIcon } from './Equipment-Elements'
+import { EquipInfo, EquipText, EquipementImage, EquipmentWrapper, Item } from './Equipment-Elements'
 
 const Equipment: React.FC = () => {
 

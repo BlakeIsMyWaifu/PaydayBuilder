@@ -1,7 +1,7 @@
 import { changeThrowable } from 'actions/weaponsAction'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
-import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Item'
+import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName, LockedIcon } from 'components/Item'
 import data, { throwableData } from 'data/weapons/throwables'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
@@ -15,7 +15,7 @@ const Throwable: React.FC = () => {
 
 	const [selectedThrowable, setSelectedThrowable] = useState(equipedThrowable)
 
-	const clickThrowable = (throwable: throwableData) => throwable.name === selectedThrowable.name ? dispatch(changeThrowable(throwable)) : setSelectedThrowable(throwable)
+	const perkDeckName = useAppSelector(state => state.abilities.perkdeck.name)
 
 	return (
 		<Container title={'Throwable'}>
@@ -23,12 +23,23 @@ const Throwable: React.FC = () => {
 			<ItemContainer>
 				{
 					data.map(throwable => {
+						const locked = !!(throwable.perkDeck && perkDeckName !== throwable.perkDeck)
 						return <Item key={throwable.name} width={192} height={96} selected={throwable.name === selectedThrowable.name}>
 							<ItemName color={itemColours[throwable.sourceType]}>{throwable.name}</ItemName>
-							{throwable.name === equipedThrowable.name && <ItemEquiped />}
+							{ locked && <LockedIcon /> }
+							{ throwable.name === equipedThrowable.name && <ItemEquiped /> }
 							<ItemImage
 								src={`images/throwables/${throwable.image}.png`}
-								onMouseDown={() => clickThrowable(throwable)}
+								locked={locked}
+								onMouseDown={event => {
+									event.preventDefault()
+									if (throwable.name !== selectedThrowable.name) {
+										setSelectedThrowable(throwable)
+									} else {
+										if (locked) return
+										dispatch(changeThrowable(throwable))
+									}
+								}}
 							/>
 						</Item>
 					})

@@ -45,7 +45,23 @@ export const ItemName = styled.h1`
 	z-index: 5;
 `
 
-export const ItemImage = styled.img`
+interface itemImage {
+	locked?: boolean;
+}
+
+export const ItemImage = styled.img<itemImage>`
 	width: 100%;
 	height: 100%;
+	filter: brightness(${props => props.locked ? 0.2 : 1});
+`
+
+export const LockedIcon = styled.div`
+	position: absolute;
+	top: calc(50% - 16px);
+	left: calc(50% - 16px);
+	background-image: url('images/locked.png');
+	background-repeat: no-repeat;
+	width: 32px;
+	height: 32px;
+	z-index: 10;
 `
