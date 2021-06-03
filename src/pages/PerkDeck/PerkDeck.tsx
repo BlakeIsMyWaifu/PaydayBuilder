@@ -1,12 +1,13 @@
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import { ItemContainer } from 'components/Item'
-import data from 'data/abilities/perks'
+import data, { card } from 'data/abilities/perks'
 import { useAppSelector } from 'hooks'
 import React, { createRef, useEffect, useRef, useState } from 'react'
+import { blue } from 'utils/colours'
 import scrollHorizontalDiv from 'utils/scrollHorizontalDiv'
 
-import { PerkDeckName, PerkDeckNamesWrapper } from './PerkDeck-Elements'
+import { PerkDeckName, PerkDeckNamesContainer } from './PerkDeck-Elements'
 import Perk from './Perks/Perk'
 
 const PerkDeck: React.FC = () => {
@@ -27,7 +28,7 @@ const PerkDeck: React.FC = () => {
 		})
 	}
 
-	const [hoveredCard, setHoveredCard] = useState(data[0].cards[0])
+	const [hoveredCard, setHoveredCard] = useState<card | null>(data[0].cards[0])
 
 	const equipedPerk = useAppSelector(state => state.abilities.perkdeck)
 
@@ -41,13 +42,17 @@ const PerkDeck: React.FC = () => {
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title title" "perkdecknames ." "items info" "items back"' title={'Perk Deck'}>
 
-			<PerkDeckNamesWrapper ref={scrollRef} onWheel={e => scrollHorizontalDiv(e, scrollRef)}>
+			<PerkDeckNamesContainer ref={scrollRef} onWheel={event => scrollHorizontalDiv(event, scrollRef)}>
 				{
 					data.map((perkdeck, i) => {
-						return <PerkDeckName key={perkdeck.name} onClick={() => scrollToPerk(i, 'smooth')}>{perkdeck.name}</PerkDeckName>
+						return <PerkDeckName
+							key={perkdeck.name}
+							onClick={() => scrollToPerk(i, 'smooth')}
+							color={perkdeck.name === equipedPerk.name ? '#fff' : blue}
+						>{perkdeck.name}</PerkDeckName>
 					})
 				}
-			</PerkDeckNamesWrapper>
+			</PerkDeckNamesContainer>
 
 			<ItemContainer ref={perkWrapperRef}>
 				{
@@ -66,8 +71,8 @@ const PerkDeck: React.FC = () => {
 			</ItemContainer>
 
 			<InfoContainer>
-				<InfoTitle>{hoveredCard.name}</InfoTitle>
-				<InfoDescription>{hoveredCard.description.join('\n\n')}</InfoDescription>
+				<InfoTitle>{hoveredCard?.name}</InfoTitle>
+				<InfoDescription>{hoveredCard?.description.join('\n\n')}</InfoDescription>
 			</InfoContainer>
 
 		</Container>

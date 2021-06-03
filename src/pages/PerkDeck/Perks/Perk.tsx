@@ -9,18 +9,16 @@ interface perkComponent {
 	data: perk;
 	index: number;
 	perkref: React.RefObject<HTMLDivElement>;
-	setHoveredCard: React.Dispatch<React.SetStateAction<card>>;
+	setHoveredCard: React.Dispatch<React.SetStateAction<card | null>>;
 	selectedPerk: perk;
 	setSelectedPerk: React.Dispatch<React.SetStateAction<perk>>;
 }
 
-const Perk: React.FC<perkComponent> = ({ data, index, perkref, setHoveredCard, selectedPerk, setSelectedPerk }: perkComponent) => {
-	
-	const selected = selectedPerk.name === data.name
+const Perk: React.FC<perkComponent> = ({ data, index, perkref, setHoveredCard, selectedPerk, setSelectedPerk }) => {
 	
 	const dispatch = useAppDispatch()
 
-	const clickPerk = () => selected ? dispatch(changePerkdeck(data)) : setSelectedPerk(data)
+	const clickPerk = () => selectedPerk.name === data.name ? dispatch(changePerkdeck(data)) : setSelectedPerk(data)
 
 	const equipedPerk = useAppSelector(state => state.abilities.perkdeck)
 
@@ -29,13 +27,20 @@ const Perk: React.FC<perkComponent> = ({ data, index, perkref, setHoveredCard, s
 			
 			<Title>{data.name} {data.name === equipedPerk.name && '(EQUIPED)'}</Title>
 
-			<CardWrapper onMouseDown={clickPerk}>
+			<CardWrapper onMouseDown={event => {
+				event.preventDefault()
+				clickPerk()
+			}}>
 				{
 					data.cards.map((card, i) => {
 						const x = ~~((i + 1) / 2) * 48
 						const y = i % 2 ? 0 : (index + 1) * 48
-						return <Card key={`${data.name}-${card.name}`} onMouseOver={() => setHoveredCard(card)}>
-							<CardBackground src={'images/perks/card.png'} selected={selected}/>
+						return <Card
+							key={`${data.name}-${card.name}`}
+							onMouseOver={() => setHoveredCard(card)}
+							onMouseLeave={() => setHoveredCard(null)}
+							selected={selectedPerk.name === data.name}>
+							<CardBackground src={'images/perks/card.png'} selected={selectedPerk.name === data.name}/>
 							<CardIcon x={x} y={y}/>
 						</Card>
 					})

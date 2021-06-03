@@ -15,7 +15,7 @@ export interface card {
 interface stat {
 	type: string;
 	value: string | number;
-	multiply?: boolean;
+	multiply: boolean;
 	whitelist?: string[];
 	blacklist?: string[];
 	arguments?: string[];
@@ -37,14 +37,15 @@ const commonCards: card[] = [
 		],
 		stats: [
 			{
-				'type': 'concealment',
-				'value': 1
+				type: 'concealment',
+				value: 1,
+				multiply: false
 			},
 			{
-				'type': 'speed',
-				'value': 1.15,
-				'multiply': true,
-				'blacklist': ['suit']
+				type: 'speed',
+				value: 1.15,
+				multiply: true,
+				blacklist: ['suit']
 			}
 		]
 	},
@@ -231,7 +232,8 @@ const perks: perk[] = [
 					},
 					{
 						type: 'hpRegen',
-						value: 3
+						value: 3,
+						multiply: false
 					}
 				]
 			}
@@ -1108,8 +1110,9 @@ const perks: perk[] = [
 				stats: [
 					{
 						type: 'armor',
-						'arguments': ['hp'],
-						value: 'hp'
+						arguments: ['hp'],
+						value: 'hp',
+						multiply: false
 					},
 					{
 						type: 'hp',
@@ -1127,8 +1130,9 @@ const perks: perk[] = [
 				stats: [
 					{
 						type: 'armor',
-						'arguments': ['hp'],
-						value: '(0.5*hp)*2.1'
+						arguments: ['hp'],
+						value: '(0.5*hp)*2.1',
+						multiply: false
 					},
 					{
 						type: 'hp',
@@ -1146,8 +1150,9 @@ const perks: perk[] = [
 				stats: [
 					{
 						type: 'armor',
-						'arguments': ['hp'],
-						value: '(0.5*hp)*2.2'
+						arguments: ['hp'],
+						value: '(0.5*hp)*2.2',
+						multiply: false
 					},
 					{
 						type: 'hp',
@@ -1365,13 +1370,15 @@ const perks: perk[] = [
 				stats: [
 					{
 						type: 'hp',
-						'arguments': ['armor'],
-						value: 'armor'
+						arguments: ['armor'],
+						value: 'armor',
+						multiply: false
 					},
 					{
 						type: 'armor',
-						'arguments': ['armor'],
-						value: '-armor'
+						arguments: ['armor'],
+						value: '-armor',
+						multiply: false
 					}
 				]
 			},

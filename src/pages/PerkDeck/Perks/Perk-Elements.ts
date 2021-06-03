@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import corner from 'utils/corner'
 
 export const Container = styled.div`
 	width: calc(100% - 16px);
@@ -14,17 +15,24 @@ export const CardWrapper = styled.div`
 	justify-content: space-evenly;
 `
 
-export const Card = styled.div`
-	height: 48px;
-	width: 48px;
-	position: relative;
-`
-
 interface cardBackground {
 	selected: boolean;
 }
 
+export const Card = styled.div<cardBackground>`
+	height: 92px;
+	width: 64px;
+	position: relative;
+	${props => props.selected ? 'transform: scale(120%);' : ''}
+	transition: transform 0.25s ease-in-out;
+	&:hover {
+		${corner}
+	}
+`
+
 export const CardBackground = styled.img<cardBackground>`
+	height: 100%;
+	width: 100%;
 	opacity: ${props => props.selected ? 1 : 0.5};
 `
 
