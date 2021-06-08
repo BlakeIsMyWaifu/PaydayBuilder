@@ -189,6 +189,7 @@ interface content {
 	'Buluc\'s Mansion Heist': contentData;
 	'Buluc\'s Mansion Bundle': contentData;
 	'Jiu Feng Smuggler Pack': contentData;
+	'Jiu Feng Smuggler Pack 2': contentData;
 }
 
 const downloadableContent: content = {
@@ -2577,6 +2578,20 @@ const downloadableContent: content = {
 		rarity: 'Paid',
 		type: 'Weapon Pack',
 		released: '2021, February 24',
+		price: '$3.99',
+		platform: {
+			360: false,
+			pc: true,
+			ps4: false,
+			xb1: false,
+			ps3: false
+		}
+	},
+	'Jiu Feng Smuggler Pack 2': {
+		name: 'Jiu Feng Smuggler Pack 2',
+		rarity: 'Paid',
+		type: 'Weapon Pack',
+		released: '2021, May 20',
 		price: '$3.99',
 		platform: {
 			360: false,

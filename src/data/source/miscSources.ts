@@ -8,6 +8,8 @@ type sourceRarity = 'normal' | 'dlc' | 'community' | 'event' | 'infamous' | 'col
 interface source {
 	'Base Game': sourceData;
 	'Infamous': sourceData;
+	'Community': sourceData;
+	'Reservoir Dogs': sourceData;
 }
 
 const miscSources: source = {
@@ -18,6 +20,14 @@ const miscSources: source = {
 	'Infamous': {
 		name: 'Infamous',
 		rarity: 'infamous'
+	},
+	'Community': {
+		name: 'Community',
+		rarity: 'community'
+	},
+	'Reservoir Dogs': {
+		name: 'Reservoir Dogs',
+		rarity: 'dlc'
 	}
 }
 
