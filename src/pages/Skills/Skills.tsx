@@ -54,7 +54,7 @@ const Skills: React.FC = () => {
 	}, [currentTree, jackOfAllTrades, engineering])
 
 	return (
-		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"' title={'Skills'}>
+		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"' title='Skills'>
 
 			<TreeNamesWrapper onWheel={scrollTrees}>
 				<TreeName onClick={() => setCurrentTree(data.mastermind)}>Mastermind</TreeName>

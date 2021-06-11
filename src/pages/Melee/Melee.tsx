@@ -80,14 +80,14 @@ export const Melee: React.FC = () => {
 	const clickMelee = (melee: meleeData) => melee.name === selectedMelee.name ? dispatch(changeMelee(melee)) : setSelectedMelee(melee)
 
 	return (
-		<Container title={'Melee'}>
+		<Container title='Melee'>
 
 			<ItemContainer>
 				{
 					data.map(melee => {
 						return <Item key={melee.name} width={192} height={96} selected={melee.name === selectedMelee.name}>
 							<ItemName color={itemColours[melee.sourceType]}>{melee.name}</ItemName>
-							{melee.name === equipedMelee.name && <ItemEquiped />}
+							{ melee.name === equipedMelee.name && <ItemEquiped /> }
 							<ItemImage
 								src={`images/melees/${melee.image}.png`}
 								onMouseDown={() => clickMelee(melee)}
@@ -99,16 +99,11 @@ export const Melee: React.FC = () => {
 
 			<InfoContainer>
 				<InfoTitle>{selectedMelee.name}</InfoTitle>
-
-				{
-					<MeleeStatsTable mainMelee={selectedMelee.stats} compareMelee={selectedMelee.name !== equipedMelee.name ? equipedMelee.stats : undefined} />
-				}
-
+				<MeleeStatsTable mainMelee={selectedMelee.stats} compareMelee={selectedMelee.name !== equipedMelee.name ? equipedMelee.stats : undefined} />
 				{
 					selectedMelee.source !== 'Base Game' &&
 						<InfoUnlock color={itemColours[selectedMelee.sourceType]}>{selectedMelee.source}</InfoUnlock>
 				}
-
 				<InfoDescription>{selectedMelee.description}</InfoDescription>
 			</InfoContainer>
 

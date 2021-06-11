@@ -18,14 +18,14 @@ const Character: React.FC = () => {
 	const clickCharacter = (character: characterData) => character.name === selectedCharacter.name ? dispatch(changeCharacter(character)) : setSelectedCharacter(character)
 
 	return (
-		<Container title={'Character'}>
+		<Container title='Character'>
 
 			<ItemContainer>
 				{
 					data.map(character => {
 						return <Item key={character.name} size={128} selected={character.name === selectedCharacter.name}>
 							<ItemName color={itemColours[character.sourceType]}>{character.name}</ItemName>
-							{character.name === equipedCharacter.name && <ItemEquiped />}
+							{ character.name === equipedCharacter.name && <ItemEquiped /> }
 							<ItemImage
 								src={`images/masks/${character.image}.png`}
 								onMouseDown={() => clickCharacter(character)}

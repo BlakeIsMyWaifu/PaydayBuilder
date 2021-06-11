@@ -18,7 +18,7 @@ const Throwable: React.FC = () => {
 	const perkDeckName = useAppSelector(state => state.abilities.perkdeck.name)
 
 	return (
-		<Container title={'Throwable'}>
+		<Container title='Throwable'>
 
 			<ItemContainer>
 				{

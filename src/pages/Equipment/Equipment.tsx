@@ -35,7 +35,7 @@ const Equipment: React.FC = () => {
 	const engineeringUnlocked = engineeringState  === 'basic' || engineeringState === 'aced'
 
 	return (
-		<Container rows='4rem 8fr 3rem 4rem' areas={`"title title" "wrapper info" "wrapper ${jackOfAllTradesUnlocked ? 'equipinfo' : 'info'}" "wrapper back"`} title={'Equipment'}>
+		<Container rows='4rem 8fr 3rem 4rem' areas={`"title title" "wrapper info" "wrapper ${jackOfAllTradesUnlocked ? 'equipinfo' : 'info'}" "wrapper back"`} title='Equipment'>
 
 			<EquipmentWrapper>
 				{
@@ -78,11 +78,11 @@ const Equipment: React.FC = () => {
 
 			{
 				jackOfAllTradesUnlocked && (
-				<EquipInfo>
-					<EquipText>[Left Click] Equip Primary</EquipText>
-					<EquipText>[Right Click] Equip Secondary</EquipText>
-				</EquipInfo>
-				)	
+					<EquipInfo>
+						<EquipText>[Left Click] Equip Primary</EquipText>
+						<EquipText>[Right Click] Equip Secondary</EquipText>
+					</EquipInfo>
+				)
 			}
 
 		</Container>

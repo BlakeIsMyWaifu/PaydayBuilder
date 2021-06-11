@@ -45,7 +45,7 @@ const Mask: React.FC = () => {
 	const filters = useAppSelector(state => state.character.mask.filter)
 
 	return (
-		<Container rows='4rem 2rem 8fr 4rem' areas='"title filter" "collectiontitles filter" "items info" "items back"' title={'Mask'}>
+		<Container rows='4rem 2rem 8fr 4rem' areas='"title filter" "collectiontitles filter" "items info" "items back"' title='Mask'>
 
 			<CollectionTitles ref={scrollRef} onWheel={e => scrollHorizontalDiv(e, scrollRef)}>
 				{
@@ -88,7 +88,7 @@ const Mask: React.FC = () => {
 									masks.map(mask => {
 										return <Item key={mask.name} size={96} selected={mask.name === selectedMask.name}>
 											<ItemName color={itemColours[mask.type]}>{mask.name}</ItemName>
-											{mask.name === equipedMask.name && <ItemEquiped />}
+											{ mask.name === equipedMask.name && <ItemEquiped /> }
 											<ItemImage
 												src={`images/masks/${mask.image}.png`}
 												onMouseDown={() => clickMask(mask)}

@@ -42,7 +42,7 @@ const PerkDeck: React.FC = () => {
 	}, [throwable])
 
 	return (
-		<Container rows='4rem 2rem 7fr 4rem' areas='"title title" "perkdecknames ." "items info" "items back"' title={'Perk Deck'}>
+		<Container rows='4rem 2rem 7fr 4rem' areas='"title title" "perkdecknames ." "items info" "items back"' title='Perk Deck'>
 
 			<PerkDeckNamesContainer ref={scrollRef} onWheel={event => scrollHorizontalDiv(event, scrollRef)}>
 				{

@@ -68,14 +68,14 @@ export const Armour: React.FC = () => {
 	const clickArmour = (armour: armourData) => armour.name === selectedArmour.name ? dispatch(changeArmour(armour)) : setSelectedArmour(armour)
 
 	return (
-		<Container title={'Armour'}>
+		<Container title='Armour'>
 
 			<ItemContainer>
 				{
 					data.map(armour => {
 						return <Item key={armour.name} size={196} selected={armour.name === selectedArmour.name}>
 							<ItemName>{armour.name}</ItemName>
-							{armour.name === equipedArmour.name && <ItemEquiped />}
+							{ armour.name === equipedArmour.name && <ItemEquiped /> }
 							<ItemImage
 								src={`images/armours/${armour.name}.png`}
 								onMouseDown={() => clickArmour(armour)}
