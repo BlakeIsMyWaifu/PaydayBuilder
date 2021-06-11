@@ -8,7 +8,7 @@ export interface weaponData {
 	inventorySlot: 'primary' | 'secondary';
 	reputation: number;
 	weaponType: 'Assault Rifle' | 'Shotgun' | 'LMG' | 'Sniper' | 'Akimbo Pistol';
-	firingMode: 'Selective firing' | 'Semi-Automatic' | 'Lever Action' | 'Pump action' | 'Break Action' | 'Fully automatic';
+	firingMode: 'Selective firing' | 'Semi-Automatic' | 'Lever Action' | 'Pump action' | 'Break Action' | 'Fully automatic' | 'Bolt action';
 	cost: number;
 	stats: weaponStats;
 	extraStats: weaponExtraStats;
