@@ -42,22 +42,20 @@ interface icon {
 	redFlash: boolean;
 }
 
-// https://github.com/microsoft/typescript-styled-plugin/issues/137
-// https://github.com/microsoft/typescript-styled-plugin/pull/138
 let redFlash = keyframes`
-	\ 25% {
+	25% {
 		transform: rotate(3deg);
 		filter: hue-rotate(180deg);
 	}
-	\ 50% {
+	50% {
 		transform: rotate(-6deg);
 		filter: hue-rotate(180deg);
 	}
-	\ 75% {
+	75% {
 		transform: rotate(1deg);
 		filter: hue-rotate(180deg);
 	}
-	\ 100% {
+	100% {
 		transform: rotate(0deg);
 		filter: hue-rotate(180deg);
 	}
