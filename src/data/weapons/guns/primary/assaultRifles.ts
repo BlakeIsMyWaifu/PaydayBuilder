@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { weaponData } from '../weaponTypes'
 
-interface assaultRiflesList {
+export interface assaultRiflesList {
 	'AMCAR Rifle': weaponData;
 	'Commando 553 Rifle': weaponData;
 	'Eagle Heavy Rifle': weaponData;

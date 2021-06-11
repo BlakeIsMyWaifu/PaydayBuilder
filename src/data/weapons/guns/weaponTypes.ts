@@ -69,3 +69,7 @@ interface weaponSkin {
 	statBoost: [number, 'stability'];
 	safe: string;
 }
+
+export interface weaponTypes {
+	[key: string]: weaponData[];
+}

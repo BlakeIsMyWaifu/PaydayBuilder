@@ -6,6 +6,14 @@ import { getType } from 'typesafe-actions'
 
 const weaponReducer = (state = defaultState, action: any) => {
 	switch (action.type) {
+		case getType(actions.changeWeapon):
+			const { slot, weapon } = action.payload
+			return {
+				...state,
+				[slot]: {
+					equipped: weapon
+				}
+			}
 		case getType(actions.changeThrowable):
 			const throwable: throwableData = action.payload
 			return {

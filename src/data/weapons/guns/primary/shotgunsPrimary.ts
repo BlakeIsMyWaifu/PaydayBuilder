@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { weaponData } from '../weaponTypes'
 
-interface shotgunsList {
+export interface shotgunsList {
 	'Predator 12G Shotgun': weaponData;
 	'Breaker 12G Shotgun': weaponData;
 	'Reinfeld 880 Shotgun': weaponData;
