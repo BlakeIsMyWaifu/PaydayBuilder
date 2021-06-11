@@ -1,5 +1,5 @@
-import { contentData } from 'data/source/downloadableContent';
-import { sourceData } from 'data/source/miscSources';
+import { contentData } from 'data/source/downloadableContent'
+import { sourceData } from 'data/source/miscSources'
 
 export interface weaponData {
 	name: string;
@@ -7,8 +7,8 @@ export interface weaponData {
 	source: sourceData | contentData;
 	inventorySlot: 'primary' | 'secondary';
 	reputation: number;
-	weaponType: 'Assault Rifle' | 'Shotgun' | 'Akimbo Pistol';
-	firingMode: 'Selective firing' | 'Semi-Automatic' | 'Lever Action' | 'Pump action' | 'Break Action';
+	weaponType: 'Assault Rifle' | 'Shotgun' | 'LMG' | 'Sniper' | 'Akimbo Pistol';
+	firingMode: 'Selective firing' | 'Semi-Automatic' | 'Lever Action' | 'Pump action' | 'Break Action' | 'Fully automatic';
 	cost: number;
 	stats: weaponStats;
 	extraStats: weaponExtraStats;
