@@ -8,7 +8,7 @@ export interface weaponData {
 	inventorySlot: 'primary' | 'secondary';
 	reputation: number;
 	weaponType: 'Assault Rifle' | 'Shotgun' | 'LMG' | 'Sniper' | 'Akimbo Pistol' | 'Akimbo Shotgun' | 'Special';
-	firingMode: 'Selective firing' | 'Semi-Automatic' | 'Lever Action' | 'Pump action' | 'Break Action' | 'Fully automatic' | 'Bolt action';
+	firingMode: 'Selective firing' | 'Semi-Automatic' | 'Lever Action' | 'Pump action' | 'Break Action' | 'Fully automatic' | 'Bolt action' | 'Single Shot' | 'Double action';
 	cost: number;
 	stats: weaponStats;
 	extraStats: weaponExtraStats;
@@ -36,14 +36,14 @@ interface weaponStats {
 }
 
 interface weaponExtraStats {
-	tacticalReload: number | [number, number];
+	tacticalReload: number | [number, number] | null;
 	reload: number;
 	equipDelays: number | [number, number];
-	ammoPickup: [number, number];
+	ammoPickup: [number, number] | null;
 	recoilHorizontal: number | [number, number];
-	recoilVertical: [number, number];
-	spread: number | [number, number];
-	damageModifier: number | [number, number];
+	recoilVertical: number | [number, number];
+	spread: number | [number, number] | null;
+	damageModifier: number | [number, number] | null;
 }
 
 export interface weaponModifications {
