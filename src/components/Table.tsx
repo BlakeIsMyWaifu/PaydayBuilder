@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { blue, dim, green, grey, red } from 'utils/colours'
+import { blue, dim, green, grey, lightgrey, red } from 'utils/colours'
 
 export const Table = styled.table`
 	color: #fff;
@@ -38,7 +38,7 @@ export const Label = styled.td`
 export const Data = styled.td`
 	text-align: end;
 	width: 65px;
-	color: ${props => props.color};
+	color: ${props => props.color || lightgrey};
 	&:last-child {
 		padding-right: 8px;
 		width: 57px;

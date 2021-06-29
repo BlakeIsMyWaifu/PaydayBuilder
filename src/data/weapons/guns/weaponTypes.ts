@@ -24,7 +24,7 @@ export interface weaponData {
 	skins?: weaponSkin[]
 }
 
-interface weaponStats {
+export interface weaponStats {
 	magazine: number;
 	totalAmmo: number;
 	rateOfFire: number;
@@ -35,14 +35,14 @@ interface weaponStats {
 	threat: number;
 }
 
-interface weaponExtraStats {
+export interface weaponExtraStats {
 	tacticalReload: number | [number, number] | null;
 	reload: number;
 	equipDelays: number | [number, number];
 	ammoPickup: [number, number] | null;
 	recoilHorizontal: number | [number, number];
 	recoilVertical: number | [number, number];
-	spread: number | [number, number] | null;
+	spread: number | null;// | [number, number] | null;
 	damageModifier: number | [number, number] | null;
 }
 
