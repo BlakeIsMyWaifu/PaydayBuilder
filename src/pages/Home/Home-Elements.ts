@@ -2,6 +2,22 @@ import styled from 'styled-components'
 import { dim } from 'utils/colours'
 import corner from 'utils/corner'
 
+interface container {
+	area: string;
+}
+
+export const Container = styled.div<container>`
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+	display: grid;
+	gap: 8px;
+	grid-template-columns: 0 2fr 1fr 1fr 1fr;
+	grid-template-rows: 0 calc(100% - 3rem - 16px) 3rem;
+	grid-template-areas: ${props => props.area};
+`
+
 interface tab {
 	id: string;
 }
@@ -78,11 +94,11 @@ export const PerkDeckImage = styled.div<perkDeckImage>`
 export const ConfigWrapper = styled.div`
 	grid-area: config;
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
 `
 
-export const ResetCurrentBuild = styled.p`
+export const ConfigButton = styled.p`
 	font-size: 2.5rem;
 	cursor: pointer;
 	&:hover {

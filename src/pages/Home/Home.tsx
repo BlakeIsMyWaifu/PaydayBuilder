@@ -1,4 +1,3 @@
-import Container from 'components/Container'
 import { InfoDescription, InfoTitle } from 'components/Info'
 import perkData from 'data/abilities/perks'
 import { useAppDispatch, useAppSelector } from 'hooks'
@@ -6,10 +5,10 @@ import { ArmourStatsTable } from 'pages/Armour/Armour'
 import { MeleeStatsTable } from 'pages/Melee/Melee'
 import React, { ReactElement, useState } from 'react'
 
-import BuildIO from './BuildIO/BuildIO'
-import { ConfigWrapper, EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, ResetCurrentBuild, SelectorWrapper, Tab, TabTitle } from './Home-Elements'
+import { ConfigButton, ConfigWrapper, Container, EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle } from './Home-Elements'
 import Selector from './Selector'
 import SelectorSkills from './Selector/SelectorSkills'
+import SettingsPanel from './SettingsPanel/SettingsPanel'
 import SkillTable from './SkillTable/SkillTable'
 
 export interface hoverInfo {
@@ -31,26 +30,36 @@ const Home: React.FC = () => {
 	const perkDeck = useAppSelector(state => state.abilities.perkdeck)
 	const perkDeckIndex = perkData.indexOf(perkData.find(perk => perk.name === perkDeck.name) || perkData[0])
 
-	return (
-		<Container columns='2fr 1fr 1fr 1fr' rows='calc(100% - 3rem) 3rem' areas='"stats character weapons abilities" "config config config config"' backButton={false}>
+	const [toggleSettings, setToggleSettings] = useState(false)
 
-			<Tab id='stats'>
-				<TabTitle direction='ltr'>Inventory</TabTitle>
-				<PreviewWrapper>
-					<Preview id='player'></Preview>
-					<Preview id='details'>
-						{
-							hoverInfo && (
-								<>
-									<InfoTitle>{hoverInfo.title}</InfoTitle>
-									<InfoDescription>{hoverInfo.description?.join('\n\n')}</InfoDescription>
-									{hoverInfo.table}
-								</>
-							)
-						}
-					</Preview>
-				</PreviewWrapper>
-			</Tab>
+	const area = toggleSettings ?
+		'"settings settings . . . ." "settings settings character weapons abilities ." "settings settings config config config config"' :
+		'". . . . . ." ". stats character weapons abilities ." ". . config config config config"'
+
+	return (
+		<Container area={area}>
+
+			{
+				toggleSettings ? 
+					<SettingsPanel /> :
+					<Tab id='stats'>
+						<TabTitle direction='ltr'>Inventory</TabTitle>
+						<PreviewWrapper>
+							<Preview id='player'></Preview>
+							<Preview id='details'>
+								{
+									hoverInfo && (
+										<>
+											<InfoTitle>{hoverInfo.title}</InfoTitle>
+											<InfoDescription>{hoverInfo.description?.join('\n\n')}</InfoDescription>
+											{hoverInfo.table}
+										</>
+									)
+								}
+							</Preview>
+						</PreviewWrapper>
+					</Tab>
+			}
 
 			<Tab id='character'>
 				<TabTitle direction='rtl'>Character</TabTitle>
@@ -141,8 +150,8 @@ const Home: React.FC = () => {
 			</Tab>
 
 			<ConfigWrapper>
-				<ResetCurrentBuild onMouseDown={() => dispatch({type: 'RESET'})}>[Reset Build]</ResetCurrentBuild>
-				<BuildIO />
+				<ConfigButton onMouseDown={() => setToggleSettings(!toggleSettings)}>[Settings]</ConfigButton>
+				<ConfigButton onMouseDown={() => dispatch({type: 'RESET'})}>[Reset Build]</ConfigButton>
 			</ConfigWrapper>
 
 		</Container>

@@ -8,22 +8,15 @@ import armourData from 'data/character/armours'
 import equipmentData from 'data/character/equipment'
 import throwableData from 'data/weapons/throwables'
 import { useAppDispatch } from 'hooks'
-import React from 'react'
-import styled from 'styled-components'
+import React, { createRef, useRef } from 'react'
 
-const BuildInput = styled.input`
-	width: 600px;
-	height: 2rem;
-	font-size: 2rem;
-	margin-left: 20px;
-	user-select: text !important;
-	background-color: transparent;
-	color: #fff;
-`
+import { BuildInput, SubmitButton, TextInput } from './BuildIO-Elements'
 
 const BuildIO: React.FC = () => {
 
 	const dispatch = useAppDispatch()
+
+	const textInputRef = useRef<HTMLInputElement>(null)
 
 	const charString = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,@'
 
@@ -44,8 +37,9 @@ const BuildIO: React.FC = () => {
 		return decompressed
 	}
 
-	const loadBuildFromIterable = (input: URLSearchParams) => {
-		const parameters = new URLSearchParams(input)
+	const loadBuildFromIterable = (input: string) => {
+		if (!input) return
+		const parameters = new URLSearchParams(input.replace('https://pd2builder.netlify.app/?', ''))
 		dispatch({type: 'RESET'})
 		for (const [key, value] of parameters) {
 			const decompressed = decompressData(value)
@@ -138,15 +132,26 @@ const BuildIO: React.FC = () => {
 		if (secondaryEquipment) dispatch(changeEquipment([equipmentData[secondaryEquipment], 'secondary']))
 	}
 
-	const onInputEnter = (event: any) => {
+	const onInputEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
 		if (event.key === 'Enter') {
-			loadBuildFromIterable(event.currentTarget.value?.replace('https://pd2builder.netlify.app/?', ''))
+			loadBuildFromIterable(event.currentTarget.value)
 			event.currentTarget.value = ''
 		}
 	}
 
+	const inputOnClick = (event: React.MouseEvent<HTMLInputElement>) => {
+		event.preventDefault()
+		const input = textInputRef.current
+		if (!input) return
+		loadBuildFromIterable(input.value)
+		input.value = ''
+	}
+
 	return (
-		<BuildInput type={'text'} placeholder={'temp pd2builder input'} onKeyDown={onInputEnter} />
+		<BuildInput>
+			<TextInput type='text' placeholder='example: https://pd2builder.netlify.app/?s=10-90-90-900' onKeyDown={onInputEnter} ref={textInputRef} />
+			<SubmitButton type='button' value='Submit' onMouseDown={inputOnClick} />
+		</BuildInput>
 	)
 }
 
