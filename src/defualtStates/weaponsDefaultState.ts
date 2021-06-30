@@ -1,4 +1,5 @@
 import assaultRifles from 'data/weapons/guns/primary/assaultRifles'
+import pistols from 'data/weapons/guns/secondary/pistol'
 import { weaponData } from 'data/weapons/guns/weaponTypes'
 import melee, { meleeData } from 'data/weapons/melees'
 import throwable, { throwableData } from 'data/weapons/throwables'
@@ -22,7 +23,7 @@ const weaponsDefaultState: weaponsState = {
 		saved: []
 	},
 	secondary: {
-		equipped: assaultRifles['AMCAR Rifle'],
+		equipped: pistols['Chimano 88 Pistol'],
 		saved: []
 	},
 	throwable: throwable[5],
