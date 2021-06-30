@@ -304,7 +304,7 @@ const throwable: throwableData[] = [
 			'Shrapnel is all well and good, but some things need to be fried, and this little beauty is a rather practical beast for dishing out some damage with high voltage.'
 		],
 		image: 'wpn_gre_electric',
-		reputation: -1,
+		reputation: 0,
 		source: 'THIS IS A JIU FENG SMUGGLER PACK 2 ITEM!',
 		sourceType: 'dlc',
 		type: ['Grenade', 'Electric Grenade'],
