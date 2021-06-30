@@ -28,7 +28,7 @@ export const WeaponsStatsTable: React.FC<weaponsStatsTable> = ({ mainWeapon, com
 			equipDelays: typeof extra.equipDelays === 'number' ? `${extra.equipDelays} | ${extra.equipDelays}` : `${extra.equipDelays.join(' | ')}`,
 			ammoPickup: extra.ammoPickup ? `${extra.ammoPickup.join(' | ')}` : '0 | 0',
 			recoilHorizontal: typeof extra.recoilHorizontal === 'number' ? `${extra.recoilHorizontal * -1} | ${extra.recoilHorizontal}` : `${extra.recoilHorizontal.join(' | ')}`,
-			recoilVertical: typeof extra.recoilVertical === 'number' ? `${extra.recoilVertical * -1} | ${extra.recoilVertical}` : `${extra.recoilVertical.join(' | ')}`,
+			recoilVertical: typeof extra.recoilVertical === 'number' ? `${extra.recoilVertical} | ${extra.recoilVertical}` : `${extra.recoilVertical.join(' | ')}`,
 			spread: `${extra.spread}`,
 			damageModifier: extra.damageModifier ? (typeof extra.damageModifier === 'number' ? `${extra.damageModifier} | ${extra.damageModifier}` : `${extra.damageModifier.join(' | ')}`) : ''
 		}
