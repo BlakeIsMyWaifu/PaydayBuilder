@@ -33,7 +33,7 @@ const akimboShotuns: akimboShotunsList = {
 			reload: 3.5,
 			equipDelays: [0.5, 0.5],
 			ammoPickup: [3.6, 5.4],
-			recoilHorizontal: 1.4,
+			recoilHorizontal: [-1.4, 1.4],
 			recoilVertical: [3.92, 3.36],
 			spread: 2.64,
 			damageModifier: [1.0, 0.6]
@@ -61,9 +61,9 @@ const akimboShotuns: akimboShotunsList = {
 		extraStats: {
 			tacticalReload: 3.0,
 			reload: 3.5,
-			equipDelays: 0.5,
+			equipDelays: [0.5, 0.5],
 			ammoPickup: [3.8, 7.2],
-			recoilHorizontal: 1.35,
+			recoilHorizontal: [-1.35, 1.35],
 			recoilVertical: [3.78, 3.24],
 			spread: 5.28,
 			damageModifier: [1.0, 0.5]
@@ -91,9 +91,9 @@ const akimboShotuns: akimboShotunsList = {
 		extraStats: {
 			tacticalReload: 3.0,
 			reload: 3.5,
-			equipDelays: 0.5,
+			equipDelays: [0.5, 0.5],
 			ammoPickup: [0.2, 0.6],
-			recoilHorizontal: 1.5,
+			recoilHorizontal: [-1.5, 1.5],
 			recoilVertical: [4.2, 3.6],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]

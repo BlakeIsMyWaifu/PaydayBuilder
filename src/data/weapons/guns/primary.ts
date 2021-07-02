@@ -1,3 +1,4 @@
+import akimboShotuns from './primary/akimboShotuns'
 import assaultRifles from './primary/assaultRifles'
 import lightMachineGuns from './primary/lightMachineGuns'
 import shotguns from './primary/shotgunsPrimary'
@@ -10,9 +11,9 @@ const primary: weaponTypes = {
 	'Shotgun': Object.values(shotguns),
 	'LMG': Object.values(lightMachineGuns),
 	'Sniper': Object.values(snipers),
-	'Akimbo Pistol': [],
-	'Akimbo SMG': [],
-	'Akimbo Shotun': [],
+	// 'Akimbo Pistol': [],
+	// 'Akimbo SMG': [],
+	'Akimbo Shotgun': Object.values(akimboShotuns),
 	'Special': Object.values(specials)
 }
 

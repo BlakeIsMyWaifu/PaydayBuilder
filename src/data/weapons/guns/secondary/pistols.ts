@@ -60,7 +60,7 @@ const pistols: pistolList = {
 			reload: 2.2,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.27, 3.19],
-			recoilHorizontal: 0.75,
+			recoilHorizontal: [-0.75, 0.75],
 			recoilVertical: [1.8, 2.7],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
@@ -90,7 +90,7 @@ const pistols: pistolList = {
 			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.83, 5.36],
-			recoilHorizontal: 0.65,
+			recoilHorizontal: [-0.65, 0.65],
 			recoilVertical: [1.56, 2.34],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
@@ -120,7 +120,7 @@ const pistols: pistolList = {
 			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.85, 5.39],
-			recoilHorizontal: 0.65,
+			recoilHorizontal: [-0.65, 0.65],
 			recoilVertical: [1.56, 2.34],
 			spread: 3.36,
 			damageModifier: [1.0, 0.7]
@@ -150,7 +150,7 @@ const pistols: pistolList = {
 			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.1, 2.94],
-			recoilHorizontal: 0.75,
+			recoilHorizontal: [-0.75, 0.75],
 			recoilVertical: [1.8, 2.7],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
@@ -180,7 +180,7 @@ const pistols: pistolList = {
 			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.25, 3.15],
-			recoilHorizontal: 0.75,
+			recoilHorizontal: [-0.75, 0.75],
 			recoilVertical: [1.8, 2.7],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
@@ -210,7 +210,7 @@ const pistols: pistolList = {
 			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.85, 5.93],
-			recoilHorizontal: 0.65,
+			recoilHorizontal: [-0.65, 0.65],
 			recoilVertical: [1.56, 2.34],
 			spread: 2.64,
 			damageModifier: [1.0, 0.7]
@@ -240,7 +240,7 @@ const pistols: pistolList = {
 			reload: 2.25,
 			equipDelays: [0.45, 0.5],
 			ammoPickup: [1.35, 1.89],
-			recoilHorizontal: 1.35,
+			recoilHorizontal: [-1.35, 1.35],
 			recoilVertical: [3.24, 4.86],
 			spread: 1.44,
 			damageModifier: [1.0, 0.8]
@@ -270,7 +270,7 @@ const pistols: pistolList = {
 			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.5, 2.1],
-			recoilHorizontal: 0.8,
+			recoilHorizontal: [-0.8, 0.8],
 			recoilVertical: [3.2, 3.6],
 			spread: 2.16,
 			damageModifier: [1.0, 0.7]
@@ -300,7 +300,7 @@ const pistols: pistolList = {
 			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.5, 2.1],
-			recoilHorizontal: 1.0,
+			recoilHorizontal: [-1.0, 1.0],
 			recoilVertical: [2.4, 3.6],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
@@ -330,7 +330,7 @@ const pistols: pistolList = {
 			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.5, 2.1],
-			recoilHorizontal: 1.0,
+			recoilHorizontal: [-1.0, 1.0],
 			recoilVertical: [2.4, 3.6],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
@@ -360,7 +360,7 @@ const pistols: pistolList = {
 			reload: 2.15,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.9, 5.46],
-			recoilHorizontal: 0.8,
+			recoilHorizontal: [-0.8, 0.8],
 			recoilVertical: [1.92, 2.88],
 			spread: 3.36,
 			damageModifier: [1.0, 0.7]
@@ -390,7 +390,7 @@ const pistols: pistolList = {
 			reload: 2.2,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.4, 3.36],
-			recoilHorizontal: 0.75,
+			recoilHorizontal: [-0.75, 0.75],
 			recoilVertical: [1.8, 2.7],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
@@ -420,7 +420,7 @@ const pistols: pistolList = {
 			reload: 4.17,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.25, 3.15],
-			recoilHorizontal: 0.65,
+			recoilHorizontal: [-0.65, 0.65],
 			recoilVertical: [1.56, 2.34],
 			spread: 1.2,
 			damageModifier: [1.0, 0.7]
@@ -450,7 +450,7 @@ const pistols: pistolList = {
 			reload: 2.1,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.4, 1.96],
-			recoilHorizontal: 1.1,
+			recoilHorizontal: [-1.1, 1.1],
 			recoilVertical: [2.64, 3.96],
 			spread: 1.44,
 			damageModifier: [1.0, 0.8]
@@ -480,7 +480,7 @@ const pistols: pistolList = {
 			reload: 2.15,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [0.23, 0.67],
-			recoilHorizontal: 0.95,
+			recoilHorizontal: [-0.95, 0.95],
 			recoilVertical: [2.28, 3.42],
 			spread: 3.12,
 			damageModifier: [1.0, 0.7]
@@ -510,7 +510,7 @@ const pistols: pistolList = {
 			reload: 2.97,
 			equipDelays: [0.45, 0.5],
 			ammoPickup: [1.35, 1.89],
-			recoilHorizontal: 1.35,
+			recoilHorizontal: [-1.35, 1.35],
 			recoilVertical: [3.24, 4.86],
 			spread: 1.44,
 			damageModifier: [1.0, 0.8]
@@ -540,7 +540,7 @@ const pistols: pistolList = {
 			reload: 2.32,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.25, 3.15],
-			recoilHorizontal: 0.65,
+			recoilHorizontal: [-0.65, 0.65],
 			recoilVertical: [1.56, 2.34],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
@@ -570,7 +570,7 @@ const pistols: pistolList = {
 			reload: 2.47,
 			equipDelays: [0.45, 0.5],
 			ammoPickup: [1.65, 2.31],
-			recoilHorizontal: 0.63,
+			recoilHorizontal: [-0.63, 0.63],
 			recoilVertical: [3.36, 2.73],
 			spread: 1.44,
 			damageModifier: [1.0, 0.7]
@@ -600,7 +600,7 @@ const pistols: pistolList = {
 			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.75, 5.25],
-			recoilHorizontal: 0.65,
+			recoilHorizontal: [-0.65, 0.65],
 			recoilVertical: [1.56, 2.34],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
@@ -630,7 +630,7 @@ const pistols: pistolList = {
 			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.83, 5.36],
-			recoilHorizontal: 0.65,
+			recoilHorizontal: [0.65, 0.65],
 			recoilVertical: [1.56, 2.34],
 			spread: 2.16,
 			damageModifier: [1.0, 0.7]
@@ -658,9 +658,9 @@ const pistols: pistolList = {
 		extraStats: {
 			tacticalReload: 1.47,
 			reload: 2.12,
-			equipDelays: 0.5,
+			equipDelays: [0.5, 0.5],
 			ammoPickup: [2.38, 3.33],
-			recoilHorizontal: 0.75,
+			recoilHorizontal: [-0.75, 0.75],
 			recoilVertical: [1.8, 2.7],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
@@ -690,7 +690,7 @@ const pistols: pistolList = {
 			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.6, 5.6],
-			recoilHorizontal: 0.42,
+			recoilHorizontal: [0.42, 0.42],
 			recoilVertical: [0.42, 0.56],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
@@ -720,7 +720,7 @@ const pistols: pistolList = {
 			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.95, 6.83],
-			recoilHorizontal: 0.24,
+			recoilHorizontal: [-0.24, 0.24],
 			recoilVertical: [0.48, 0.6],
 			spread: 3.6,
 			damageModifier: [1.0, 0.7]
@@ -780,7 +780,7 @@ const pistols: pistolList = {
 			reload: 2.7,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [0.8, 2.8],
-			recoilHorizontal: 0.63,
+			recoilHorizontal: [-0.63, 0.63],
 			recoilVertical: [0.63, 0.84],
 			spread: 2.64,
 			damageModifier: [1.0, 0.7]
@@ -810,7 +810,7 @@ const pistols: pistolList = {
 			reload: 2.15,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.25, 3.15],
-			recoilHorizontal: 0.55,
+			recoilHorizontal: [-0.55, 0.55],
 			recoilVertical: [1.32, 1.98],
 			spread: 2.4,
 			damageModifier: [1.0, 0.7]
@@ -838,9 +838,9 @@ const pistols: pistolList = {
 		extraStats: {
 			tacticalReload: [3.76, 0.67],
 			reload: 7.09,
-			equipDelays: 0.65,
+			equipDelays: [0.65, 0.65],
 			ammoPickup: [1.35, 1.89],
-			recoilHorizontal: 1.25,
+			recoilHorizontal: [-1.25, 1.25],
 			recoilVertical: [7.25, 7.5],
 			spread: 0.96,
 			damageModifier: [1.0, 0.8]
@@ -870,7 +870,7 @@ const pistols: pistolList = {
 			reload: 3.6,
 			equipDelays: [0.45, 0.5],
 			ammoPickup: [1.35, 1.89],
-			recoilHorizontal: 1.25,
+			recoilHorizontal: [-1.25, 1.25],
 			recoilVertical: [3.0, 4.5],
 			spread: 0.96,
 			damageModifier: [1.0, 0.8]
@@ -900,7 +900,7 @@ const pistols: pistolList = {
 			reload: 3.1,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.5, 2.1],
-			recoilHorizontal: 1.05,
+			recoilHorizontal: [-1.05, 1.05],
 			recoilVertical: [2.52, 3.78],
 			spread: 1.44,
 			damageModifier: [1.0, 0.7]

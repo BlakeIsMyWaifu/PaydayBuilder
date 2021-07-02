@@ -35,7 +35,7 @@ const lightMachineGuns: lightMachineGunList = {
 		extraStats: {
 			tacticalReload: 3.4,
 			reload: 4.56,
-			equipDelays: 0.9,
+			equipDelays: [0.9, 0.9],
 			ammoPickup: [7.5, 10.5],
 			recoilHorizontal: [-2.8, 3.92],
 			recoilVertical: [-0.56, 2.24],
@@ -65,7 +65,7 @@ const lightMachineGuns: lightMachineGunList = {
 		extraStats: {
 			tacticalReload: 6.5,
 			reload: 6.5,
-			equipDelays: 0.9,
+			equipDelays: [0.9, 0.9],
 			ammoPickup: [10.0, 12.0],
 			recoilHorizontal: [-2.3, 3.91],
 			recoilVertical: [-0.46, 1.84],
@@ -95,7 +95,7 @@ const lightMachineGuns: lightMachineGunList = {
 		extraStats: {
 			tacticalReload: 6.25,
 			reload: 6.25,
-			equipDelays: 0.9,
+			equipDelays: [0.9, 0.9],
 			ammoPickup: [7.5, 10.5],
 			recoilHorizontal: [-2.5, 3.5],
 			recoilVertical: [-0.5, 2],
@@ -125,7 +125,7 @@ const lightMachineGuns: lightMachineGunList = {
 		extraStats: {
 			tacticalReload: 5.62,
 			reload: 5.62,
-			equipDelays: 0.9,
+			equipDelays: [0.9, 0.9],
 			ammoPickup: [10.0, 12.0],
 			recoilHorizontal: [-2.3, 3.22],
 			recoilVertical: [-0.46, 1.84],
@@ -155,7 +155,7 @@ const lightMachineGuns: lightMachineGunList = {
 		extraStats: {
 			tacticalReload: 6.5,
 			reload: 6.5,
-			equipDelays: 0.9,
+			equipDelays: [0.9, 0.9],
 			ammoPickup: [11.25, 13.5],
 			recoilHorizontal: [-2.3, 3.22],
 			recoilVertical: [-0.46, 1.84],
@@ -185,9 +185,9 @@ const lightMachineGuns: lightMachineGunList = {
 		extraStats: {
 			tacticalReload: 4.65,
 			reload: 6.7,
-			equipDelays: 0.9,
+			equipDelays: [0.9, 0.9],
 			ammoPickup: [7.5, 10.5],
-			recoilHorizontal: 1.68,
+			recoilHorizontal: [-1.68, 1.68],
 			recoilVertical: [1.12, 2.24],
 			spread: 3.84,
 			damageModifier: [1.0, 0.8]

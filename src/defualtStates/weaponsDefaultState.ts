@@ -1,5 +1,5 @@
 import assaultRifles from 'data/weapons/guns/primary/assaultRifles'
-import pistols from 'data/weapons/guns/secondary/pistol'
+import pistols from 'data/weapons/guns/secondary/pistols'
 import { weaponData } from 'data/weapons/guns/weaponTypes'
 import melee, { meleeData } from 'data/weapons/melees'
 import throwable, { throwableData } from 'data/weapons/throwables'

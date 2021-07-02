@@ -55,7 +55,7 @@ const submachineGuns: submachineGunList = {
 			reload: 3.39,
 			equipDelays: [0.6, 0.5],
 			ammoPickup: [0.8, 2.8],
-			recoilHorizontal: 1.7,
+			recoilHorizontal: [-1.7, 1.7],
 			recoilVertical: [-2.04, 2.04],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
@@ -85,7 +85,7 @@ const submachineGuns: submachineGunList = {
 			reload: 2.13,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [4.8, 8.8],
-			recoilHorizontal: 1.1,
+			recoilHorizontal: [-1.1, 1.1],
 			recoilVertical: [0.66, 0.88],
 			spread: 2.16,
 			damageModifier: [1.0, 0.6]
@@ -113,9 +113,9 @@ const submachineGuns: submachineGunList = {
 		extraStats: {
 			tacticalReload: 1.74,
 			reload: 2.35,
-			equipDelays: 0.5,
+			equipDelays: [0.5, 0.5],
 			ammoPickup: [4.8, 8.8],
-			recoilHorizontal: 0.6,
+			recoilHorizontal: [-0.6, 0.6],
 			recoilVertical: [0.84, 1.2],
 			spread: 3.12,
 			damageModifier: [1.0, 0.6]
@@ -143,9 +143,9 @@ const submachineGuns: submachineGunList = {
 		extraStats: {
 			tacticalReload: 1.74,
 			reload: 3.04,
-			equipDelays: 0.6,
+			equipDelays: [0.6, 0.6],
 			ammoPickup: [0.9, 3.15],
-			recoilHorizontal: 1.1,
+			recoilHorizontal: [-1.1, 1.1],
 			recoilVertical: [-0.66, 1.32],
 			spread: 1.68,
 			damageModifier: [1.0, 0.7]
@@ -175,7 +175,7 @@ const submachineGuns: submachineGunList = {
 			reload: 2.68,
 			equipDelays: [0.45, 0.6],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: 0.55,
+			recoilHorizontal: [-0.55, 0.55],
 			recoilVertical: [0.55, 0.77],
 			spread: 2.16,
 			damageModifier: [1.0, 0.6]
@@ -205,7 +205,7 @@ const submachineGuns: submachineGunList = {
 			reload: 3.78,
 			equipDelays: [0.5, 0.55],
 			ammoPickup: [4.8, 8.8],
-			recoilHorizontal: 1.1,
+			recoilHorizontal: [-1.1, 1.1],
 			recoilVertical: [-0.66, 1.32],
 			spread: 2.88,
 			damageModifier: [1.0, 0.6]
@@ -233,9 +233,9 @@ const submachineGuns: submachineGunList = {
 		extraStats: {
 			tacticalReload: 2.09,
 			reload: 3.13,
-			equipDelays: 0.6,
+			equipDelays: [0.6, 0.6],
 			ammoPickup: [6.3, 11.55],
-			recoilHorizontal: 0.8,
+			recoilHorizontal: [-0.8, 0.8],
 			recoilVertical: [0.48, 0.64],
 			spread: 3.36,
 			damageModifier: [1.0, 0.5]
@@ -265,7 +265,7 @@ const submachineGuns: submachineGunList = {
 			reload: 3.91,
 			equipDelays: [0.75, 0.6],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: 1.32,
+			recoilHorizontal: [-1.32, 1.32],
 			recoilVertical: [0.33, 1.65],
 			spread: 3.12,
 			damageModifier: [1.0, 0.6]
@@ -295,7 +295,7 @@ const submachineGuns: submachineGunList = {
 			reload: 2.26,
 			equipDelays: [0.5, 0.7],
 			ammoPickup: [5.25, 9.63],
-			recoilHorizontal: 1.68,
+			recoilHorizontal: [-1.68, 1.68],
 			recoilVertical: [-0.14, 0.84],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
@@ -325,7 +325,7 @@ const submachineGuns: submachineGunList = {
 			reload: 2.39,
 			equipDelays: [0.5, 0.7],
 			ammoPickup: [6.6, 12.1],
-			recoilHorizontal: 1.1,
+			recoilHorizontal: [-1.1, 1.1],
 			recoilVertical: [0.66, 0.88],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
@@ -355,8 +355,8 @@ const submachineGuns: submachineGunList = {
 			reload: 2.16,
 			equipDelays: [0.4, 0.5],
 			ammoPickup: [6.3, 11.55],
-			recoilHorizontal: 0.9,
-			recoilVertical: 1.08,
+			recoilHorizontal: [-0.9, 0.9],
+			recoilVertical: [-1.08, 1.08],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
 		}
@@ -385,7 +385,7 @@ const submachineGuns: submachineGunList = {
 			reload: 2.81,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: 1.2,
+			recoilHorizontal: [-1.2, 1.2],
 			recoilVertical: [0.72, 0.96],
 			spread: 3.36,
 			damageModifier: [1.0, 0.6]
@@ -415,7 +415,7 @@ const submachineGuns: submachineGunList = {
 			reload: 2.26,
 			equipDelays: [0.5, 0.7],
 			ammoPickup: [6.72, 12.32],
-			recoilHorizontal: 1.08,
+			recoilHorizontal: [-1.08, 1.08],
 			recoilVertical: [-0.09, 0.54],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
@@ -445,7 +445,7 @@ const submachineGuns: submachineGunList = {
 			reload: 2.48,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [6.0, 11.0],
-			recoilHorizontal: 1.7,
+			recoilHorizontal: [-1.7, 1.7],
 			recoilVertical: [-0.34, 0.68],
 			spread: 3.36,
 			damageModifier: [1.0, 0.5]
@@ -475,7 +475,7 @@ const submachineGuns: submachineGunList = {
 			reload: 3.15,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [0.9, 3.15],
-			recoilHorizontal: 1.5,
+			recoilHorizontal: [-1.5, 1.5],
 			recoilVertical: [-0.3, 0.6],
 			spread: 2.4,
 			damageModifier: [1.0, 0.7]
@@ -505,7 +505,7 @@ const submachineGuns: submachineGunList = {
 			reload: 2.65,
 			equipDelays: [0.6, 0.5],
 			ammoPickup: [0.8, 2.8],
-			recoilHorizontal: 1.7,
+			recoilHorizontal: [-1.7, 1.7],
 			recoilVertical: [-2.04, 2.04],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
@@ -535,7 +535,7 @@ const submachineGuns: submachineGunList = {
 			reload: 3.48,
 			equipDelays: [0.5, 0.55],
 			ammoPickup: [4.8, 8.8],
-			recoilHorizontal: 0.75,
+			recoilHorizontal: [-0.75, 0.75],
 			recoilVertical: [-0.45, 0.9],
 			spread: 2.88,
 			damageModifier: [1.0, 0.6]
@@ -565,7 +565,7 @@ const submachineGuns: submachineGunList = {
 			reload: 3.39,
 			equipDelays: [0.6, 0.55],
 			ammoPickup: [0.9, 3.15],
-			recoilHorizontal: 1.7,
+			recoilHorizontal: [-1.7, 1.7],
 			recoilVertical: [1.02, 1.36],
 			spread: 2.4,
 			damageModifier: [1.0, 0.7]
@@ -595,7 +595,7 @@ const submachineGuns: submachineGunList = {
 			reload: 2.85,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [6.6, 12.1],
-			recoilHorizontal: 0.9,
+			recoilHorizontal: [-0.9, 0.9],
 			recoilVertical: [0.54, 0.72],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
@@ -625,7 +625,7 @@ const submachineGuns: submachineGunList = {
 			reload: 2.96,
 			equipDelays: [0.65, 0.68],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: 1.3,
+			recoilHorizontal: [-1.3, 1.3],
 			recoilVertical: [0.78, 1.04],
 			spread: 2.88,
 			damageModifier: [1.0, 0.6]
@@ -655,7 +655,7 @@ const submachineGuns: submachineGunList = {
 			reload: 2.17,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: 0.9,
+			recoilHorizontal: [-0.9, 0.9],
 			recoilVertical: [-0.18, 0.36],
 			spread: 2.88,
 			damageModifier: [1.0, 0.6]
@@ -685,7 +685,7 @@ const submachineGuns: submachineGunList = {
 			reload: 3.7,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [1.28, 4.48],
-			recoilHorizontal: 1.5,
+			recoilHorizontal: [-1.5, 1.5],
 			recoilVertical: [-0.3, 0.6],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
@@ -715,7 +715,7 @@ const submachineGuns: submachineGunList = {
 			reload: 2.87,
 			equipDelays: [0.65, 0.55],
 			ammoPickup: [2.88, 5.28],
-			recoilHorizontal: 0.9,
+			recoilHorizontal: [-0.9, 0.9],
 			recoilVertical: [0.54, 0.72],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
@@ -745,7 +745,7 @@ const submachineGuns: submachineGunList = {
 			reload: 3.06,
 			equipDelays: [0.6, 0.55],
 			ammoPickup: [6.0, 11.0],
-			recoilHorizontal: 1.1,
+			recoilHorizontal: [-1.1, 1.1],
 			recoilVertical: [0.66, 0.88],
 			spread: 2.88,
 			damageModifier: [1.0, 0.5]

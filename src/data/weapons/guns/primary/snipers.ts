@@ -44,7 +44,7 @@ const snipers: snipersList = {
 			reload: 3.7,
 			equipDelays: [0.7, 0.6],
 			ammoPickup: [2.0, 3.0],
-			recoilHorizontal: 0.69,
+			recoilHorizontal: [-0.69, 0.69],
 			recoilVertical: [6.9, 11.04],
 			spread: 0.72,
 			damageModifier: [1.0, 1.5]
@@ -74,7 +74,7 @@ const snipers: snipersList = {
 			reload: 4.7,
 			equipDelays: [0.75, 0.45],
 			ammoPickup: [2.0, 3.0],
-			recoilHorizontal: 0.69,
+			recoilHorizontal: [-0.69, 0.69],
 			recoilVertical: [6.9, 11.04],
 			spread: 0.48,
 			damageModifier: [1.0, 1.5]
@@ -102,9 +102,9 @@ const snipers: snipersList = {
 		extraStats: {
 			tacticalReload: [2.27, 0.57],
 			reload: 7.73,
-			equipDelays: 0.6,
+			equipDelays: [0.6, 0.6],
 			ammoPickup: [2.5, 3.75],
-			recoilHorizontal: 0.75,
+			recoilHorizontal: [-0.75, 0.75],
 			recoilVertical: [5.0, 7.5],
 			spread: 1.92,
 			damageModifier: [1.0, 1.1]
@@ -132,9 +132,9 @@ const snipers: snipersList = {
 		extraStats: {
 			tacticalReload: 2.3,
 			reload: 3.3,
-			equipDelays: 0.9,
+			equipDelays: [0.9, 0.9],
 			ammoPickup: [2.0, 3.0],
-			recoilHorizontal: 0.72,
+			recoilHorizontal: [-0.72, 0.72],
 			recoilVertical: [2.7, 3.6],
 			spread: 1.2,
 			damageModifier: [1.0, 1.1]
@@ -164,7 +164,7 @@ const snipers: snipersList = {
 			reload: 4.5,
 			equipDelays: [0.75, 0.45],
 			ammoPickup: [0.7, 1.0],
-			recoilHorizontal: 0.81,
+			recoilHorizontal: [-0.81, 0.81],
 			recoilVertical: [8.1, 12.96],
 			spread: 0.48,
 			damageModifier: [1.0, 1.8]
@@ -192,9 +192,9 @@ const snipers: snipersList = {
 		extraStats: {
 			tacticalReload: 4.64,
 			reload: 6.2,
-			equipDelays: 0.9,
+			equipDelays: [0.9, 0.9],
 			ammoPickup: [2.0, 3.0],
-			recoilHorizontal: 0.5,
+			recoilHorizontal: [-0.5, 0.5],
 			recoilVertical: [5.0, 6.25],
 			spread: 0.48,
 			damageModifier: [1.0, 1.1]
@@ -224,7 +224,7 @@ const snipers: snipersList = {
 			reload: 3.86,
 			equipDelays: [0.75, 0.45],
 			ammoPickup: [0.7, 1.0],
-			recoilHorizontal: 0.81,
+			recoilHorizontal: [-0.81, 0.81],
 			recoilVertical: [8.1, 12.96],
 			spread: 1.44,
 			damageModifier: [1.0, 1.8]
@@ -252,9 +252,9 @@ const snipers: snipersList = {
 		extraStats: {
 			tacticalReload: 2.3,
 			reload: 3.3,
-			equipDelays: 0.9,
+			equipDelays: [0.9, 0.9],
 			ammoPickup: [2.0, 3.0],
-			recoilHorizontal: 0.87,
+			recoilHorizontal: [-0.87, 0.87],
 			recoilVertical: [4.35, 5.8],
 			spread: 2.4,
 			damageModifier: [1.0, 1.1]
@@ -284,7 +284,7 @@ const snipers: snipersList = {
 			reload: 3.82,
 			equipDelays: [0.65, 0.7],
 			ammoPickup: [0.7, 1.0],
-			recoilHorizontal: 0.27,
+			recoilHorizontal: [-0.27, 0.27],
 			recoilVertical: [8.1, 10.26],
 			spread: 0.48,
 			damageModifier: [1.0, 1.8]
@@ -312,9 +312,9 @@ const snipers: snipersList = {
 		extraStats: {
 			tacticalReload: [2.27, 0.57],
 			reload: 10.57,
-			equipDelays: 0.9,
+			equipDelays: [0.9, 0.9],
 			ammoPickup: [2.25, 3.38],
-			recoilHorizontal: 0.75,
+			recoilHorizontal: [-0.75, 0.75],
 			recoilVertical: [7.5, 12.0],
 			spread: 0.48,
 			damageModifier: [1.0, 1.5]
@@ -342,9 +342,9 @@ const snipers: snipersList = {
 		extraStats: {
 			tacticalReload: 2.3,
 			reload: 3.3,
-			equipDelays: 0.9,
+			equipDelays: [0.9, 0.9],
 			ammoPickup: [2.0, 3.0],
-			recoilHorizontal: 1.16,
+			recoilHorizontal: [-1.16, 1.16],
 			recoilVertical: [4.35, 5.8],
 			spread: 1.68,
 			damageModifier: [1.0, 1.1]
@@ -374,7 +374,7 @@ const snipers: snipersList = {
 			reload: 3.85,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [0.7, 1.0],
-			recoilHorizontal: 0.81,
+			recoilHorizontal: [-0.81, 0.81],
 			recoilVertical: [8.1, 12.96],
 			spread: 0.48,
 			damageModifier: [1.0, 1.8]
@@ -402,9 +402,9 @@ const snipers: snipersList = {
 		extraStats: {
 			tacticalReload: 3.96,
 			reload: 5.23,
-			equipDelays: 0.9,
+			equipDelays: [0.9, 0.9],
 			ammoPickup: [0.05, 0.65],
-			recoilHorizontal: 1.45,
+			recoilHorizontal: [-1.45, 1.45],
 			recoilVertical: [8.7, 11.02],
 			spread: 0.48,
 			damageModifier: [1.0, 1.3]

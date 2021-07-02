@@ -39,6 +39,7 @@ export const Data = styled.td`
 	text-align: end;
 	width: 65px;
 	color: ${props => props.color || lightgrey};
+	text-transform: none;
 	&:last-child {
 		padding-right: 8px;
 		width: 57px;

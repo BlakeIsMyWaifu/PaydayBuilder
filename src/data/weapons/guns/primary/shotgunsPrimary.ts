@@ -40,7 +40,7 @@ const shotguns: shotgunsList = {
 		extraStats: {
 			tacticalReload: [1.77, 0.57],
 			reload: 5.0,
-			equipDelays: 0.85,
+			equipDelays: [0.85, 0.85],
 			ammoPickup: [3.3, 4.95],
 			recoilHorizontal: [-0.95, 1.52],
 			recoilVertical: [3.42, 2.85],
@@ -72,7 +72,7 @@ const shotguns: shotgunsList = {
 			reload: 5.61,
 			equipDelays: [0.85, 0.55],
 			ammoPickup: [0.21, 0.74],
-			recoilHorizontal: 0.46,
+			recoilHorizontal: [-0.46, 0.46],
 			recoilVertical: [4.37, 4.6],
 			spread: 3.12,
 			damageModifier: [1.0, 0.7]
@@ -100,9 +100,9 @@ const shotguns: shotgunsList = {
 		extraStats: {
 			tacticalReload: [1.77, 0.57],
 			reload: 5.0,
-			equipDelays: 0.85,
+			equipDelays: [0.85, 0.85],
 			ammoPickup: [0.42, 1.47],
-			recoilHorizontal: 0.44,
+			recoilHorizontal: [-0.44, 0.44],
 			recoilVertical: [4.18, 4.4],
 			spread: 3.6,
 			damageModifier: [1.0, 0.6]
@@ -130,9 +130,9 @@ const shotguns: shotgunsList = {
 		extraStats: {
 			tacticalReload: [1.26, 0.4],
 			reload: 3.98,
-			equipDelays: 0.85,
+			equipDelays: [0.85, 0.85],
 			ammoPickup: [0.42, 1.47],
-			recoilHorizontal: 0.22,
+			recoilHorizontal: [-0.22, 0.22],
 			recoilVertical: [4.62, 4.84],
 			spread: 3.84,
 			damageModifier: [1.0, 0.6]
@@ -160,9 +160,9 @@ const shotguns: shotgunsList = {
 		extraStats: {
 			tacticalReload: [1.77, 0.57],
 			reload: 6.13,
-			equipDelays: 0.85,
+			equipDelays: [0.85, 0.85],
 			ammoPickup: [3.2, 4.8],
-			recoilHorizontal: 0.38,
+			recoilHorizontal: [-0.38, 0.38],
 			recoilVertical: [3.61, 3.8],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
@@ -192,7 +192,7 @@ const shotguns: shotgunsList = {
 			reload: 9.53,
 			equipDelays: [0.55, 0.6],
 			ammoPickup: [0.42, 1.47],
-			recoilHorizontal: 0.38,
+			recoilHorizontal: [-0.38, 0.38],
 			recoilVertical: [3.61, 3.8],
 			spread: 3.36,
 			damageModifier: [1.0, 0.6]
@@ -220,9 +220,9 @@ const shotguns: shotgunsList = {
 		extraStats: {
 			tacticalReload: 2.65,
 			reload: 3.95,
-			equipDelays: 0.6,
+			equipDelays: [0.6, 0.6],
 			ammoPickup: [3.5, 5.25],
-			recoilHorizontal: 0.38,
+			recoilHorizontal: [-0.38, 0.38],
 			recoilVertical: [3.61, 3.8],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
@@ -250,9 +250,9 @@ const shotguns: shotgunsList = {
 		extraStats: {
 			tacticalReload: [2.45, 0.65],
 			reload: 6.75,
-			equipDelays: 0.85,
+			equipDelays: [0.85, 0.85],
 			ammoPickup: [0.35, 1.23],
-			recoilHorizontal: 0.21,
+			recoilHorizontal: [-0.21, 0.21],
 			recoilVertical: [4.41, 4.62],
 			spread: 3.6,
 			damageModifier: [1.0, 0.6]
@@ -280,9 +280,9 @@ const shotguns: shotgunsList = {
 		extraStats: {
 			tacticalReload: 2.5,
 			reload: 2.5,
-			equipDelays: 0.6,
+			equipDelays: [0.6, 0.6],
 			ammoPickup: [0.32, 1.12],
-			recoilHorizontal: 1.05,
+			recoilHorizontal: [-1.05, 1.05],
 			recoilVertical: [6.09, 6.3],
 			spread: 2.4,
 			damageModifier: [1.0, 0.7]
@@ -310,9 +310,9 @@ const shotguns: shotgunsList = {
 		extraStats: {
 			tacticalReload: 2.5,
 			reload: 2.7,
-			equipDelays: 0.55,
+			equipDelays: [0.55, 0.55],
 			ammoPickup: [0.28, 0.98],
-			recoilHorizontal: 1.15,
+			recoilHorizontal: [-1.15, 1.15],
 			recoilVertical: [6.67, 6.9],
 			spread: 2.4,
 			damageModifier: [1.0, 0.7]
@@ -340,9 +340,9 @@ const shotguns: shotgunsList = {
 		extraStats: {
 			tacticalReload: 3.0,
 			reload: 4.1,
-			equipDelays: 0.55,
+			equipDelays: [0.55, 0.55],
 			ammoPickup: [3.6, 5.4],
-			recoilHorizontal: 0.38,
+			recoilHorizontal: [-0.38, 0.38],
 			recoilVertical: [3.61, 3.8],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]

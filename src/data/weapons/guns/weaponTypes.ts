@@ -38,12 +38,12 @@ export interface weaponStats {
 export interface weaponExtraStats {
 	tacticalReload: number | [number, number] | null;
 	reload: number;
-	equipDelays: number | [number, number];
+	equipDelays: [number, number];
 	ammoPickup: [number, number] | null;
-	recoilHorizontal: number | [number, number];
-	recoilVertical: number | [number, number];
-	spread: number | null;// | [number, number] | null;
-	damageModifier: number | [number, number] | null;
+	recoilHorizontal: [number, number];
+	recoilVertical: [number, number];
+	spread: number | null;
+	damageModifier: [number, number] | null;
 }
 
 export interface weaponModifications {

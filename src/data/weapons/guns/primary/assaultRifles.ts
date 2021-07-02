@@ -58,10 +58,10 @@ const assaultRifles: assaultRiflesList = {
 			reload: 3.0,
 			equipDelays: [0.55, 0.6],
 			ammoPickup: [6.6, 12.1],
-			recoilHorizontal: 1.1,
+			recoilHorizontal: [-1.1, 1.1],
 			recoilVertical: [0.66, 0.88],
 			spread: 3.84,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Commando 553 Rifle': {
@@ -88,10 +88,10 @@ const assaultRifles: assaultRiflesList = {
 			reload: 2.4,
 			equipDelays: [0.7, 0.55],
 			ammoPickup: [7.2, 13.2],
-			recoilHorizontal: 1.6,
+			recoilHorizontal: [-1.6, 1.6],
 			recoilVertical: [0.96, 1.28],
 			spread: 3.84,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Eagle Heavy Rifle': {
@@ -118,10 +118,10 @@ const assaultRifles: assaultRiflesList = {
 			reload: 3.15,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [3.0, 4.5],
-			recoilHorizontal: 1.9,
+			recoilHorizontal: [-1.9, 1.9],
 			recoilVertical: [1.14, 1.52],
 			spread: 1.68,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Union 5.56 Rifle': {
@@ -146,12 +146,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 2.1,
 			reload: 2.9,
-			equipDelays: 0.6,
+			equipDelays: [0.6, 0.6],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: 1.3,
+			recoilHorizontal: [-1.3, 1.3],
 			recoilVertical: [0.78, 1.04],
 			spread: 1.92,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'AK Rifle': {
@@ -176,12 +176,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 2.8,
 			reload: 3.87,
-			equipDelays: 0.5,
+			equipDelays: [0.5, 0.5],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: 1.5,
+			recoilHorizontal: [-1.5, 1.5],
 			recoilVertical: [0.9, 1.2],
 			spread: 3.12,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'CAR-4 Rifle': {
@@ -206,12 +206,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 2.67,
 			reload: 3.34,
-			equipDelays: 0.6,
+			equipDelays: [0.6, 0.6],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: 1.5,
+			recoilHorizontal: [-1.5, 1.5],
 			recoilVertical: [0.9, 1.2],
 			spread: 3.36,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'UAR Rifle': {
@@ -236,12 +236,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 2.5,
 			reload: 3.3,
-			equipDelays: 0.5,
+			equipDelays: [0.5, 0.5],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: 2,
+			recoilHorizontal: [-2.0, 2.0],
 			recoilVertical: [1.2, 1.6],
 			spread: 2.16,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'KETCHNOV Byk-1 Assault Rifle': {
@@ -266,12 +266,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 2.16,
 			reload: 2.9,
-			equipDelays: 0.55,
+			equipDelays: [0.55, 0.55],
 			ammoPickup: [2.4, 4.4],
-			recoilHorizontal: 1.02,
+			recoilHorizontal: [-1.02, 1.02],
 			recoilVertical: [1.19, 1.53],
 			spread: 1.68,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Cavity 9mm': {
@@ -296,12 +296,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 2.3,
 			reload: 3.3,
-			equipDelays: 0.9,
+			equipDelays: [0.9, 0.9],
 			ammoPickup: [1.19, 2.64],
-			recoilHorizontal: 2.2,
+			recoilHorizontal: [-2.2, 2.2],
 			recoilVertical: [1.32, 1.76],
 			spread: 1.68,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'AK.762': {
@@ -326,12 +326,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 2.8,
 			reload: 3.87,
-			equipDelays: 0.5,
+			equipDelays: [0.5, 0.5],
 			ammoPickup: [2.7, 4.05],
-			recoilHorizontal: 1.9,
+			recoilHorizontal: [-1.9, 1.9],
 			recoilVertical: [1.14, 1.52],
 			spread: 2.4,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'JP36 Rifle': {
@@ -356,12 +356,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 2.85,
 			reload: 3.85,
-			equipDelays: 0.6,
+			equipDelays: [0.6, 0.6],
 			ammoPickup: [7.2, 13.2],
-			recoilHorizontal: 1.4,
+			recoilHorizontal: [-1.4, 1.4],
 			recoilVertical: [0.84, 1.12],
 			spread: 3.6,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'AK17 Rifle': {
@@ -386,12 +386,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 2.26,
 			reload: 3.37,
-			equipDelays: 0.5,
+			equipDelays: [0.5, 0.5],
 			ammoPickup: [3.15, 4.72],
-			recoilHorizontal: 1.5,
+			recoilHorizontal: [-1.5, 1.5],
 			recoilVertical: [0.9, 1.2],
 			spread: 2.4,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Golden AK.762 Rifle': {
@@ -416,12 +416,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 2.8,
 			reload: 3.87,
-			equipDelays: 0.5,
+			equipDelays: [0.5, 0.5],
 			ammoPickup: [2.7, 4.05],
-			recoilHorizontal: 1.9,
+			recoilHorizontal: [-1.9, 1.9],
 			recoilVertical: [1.14, 1.52],
 			spread: 2.4,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Bootleg Rifle': {
@@ -446,12 +446,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 3.8,
 			reload: 4.7,
-			equipDelays: 0.6,
+			equipDelays: [0.6, 0.6],
 			ammoPickup: [6, 11],
-			recoilHorizontal: 1.7,
+			recoilHorizontal: [-1.7, 1.7],
 			recoilVertical: [1.02, 1.36],
 			spread: 4.56,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Queen\'s Wrath Rifle': {
@@ -478,10 +478,10 @@ const assaultRifles: assaultRiflesList = {
 			reload: 4.5,
 			equipDelays: [0.75, 0.45],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: 1.8,
+			recoilHorizontal: [-1.8, 1.8],
 			recoilVertical: [1.2, 1.65],
 			spread: 2.16,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Galant Rifle': {
@@ -508,10 +508,10 @@ const assaultRifles: assaultRiflesList = {
 			reload: 1.52,
 			equipDelays: [0.55, 0.6],
 			ammoPickup: [1.3, 2.88],
-			recoilHorizontal: 2.1,
+			recoilHorizontal: [-2.1, 2.1],
 			recoilVertical: [1.26, 1.68],
 			spread: 0.96,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'M308 Rifle': {
@@ -538,10 +538,10 @@ const assaultRifles: assaultRiflesList = {
 			reload: 3.15,
 			equipDelays: [0.55, 0.6],
 			ammoPickup: [1.26, 2.8],
-			recoilHorizontal: 2.1,
+			recoilHorizontal: [-2.1, 2.1],
 			recoilVertical: [1.26, 1.68],
 			spread: 0.96,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Clarion Rifle': {
@@ -568,10 +568,10 @@ const assaultRifles: assaultRiflesList = {
 			reload: 3.78,
 			equipDelays: [0.6, 0.55],
 			ammoPickup: [7.2, 13.2],
-			recoilHorizontal: 1.3,
+			recoilHorizontal: [-1.3, 1.3],
 			recoilVertical: [0.78, 1.04],
 			spread: 3.84,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Lion\'s Roar Rifle': {
@@ -596,12 +596,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 3.2,
 			reload: 4.75,
-			equipDelays: 0.6,
+			equipDelays: [0.6, 0.6],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: 1.4,
+			recoilHorizontal: [-1.4, 1.4],
 			recoilVertical: [0.84, 1.12],
 			spread: 2.4,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Valkyria Rifle': {
@@ -626,12 +626,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 2.6,
 			reload: 3.7,
-			equipDelays: 0.5,
+			equipDelays: [0.5, 0.5],
 			ammoPickup: [6.6, 12.1],
-			recoilHorizontal: 1.4,
+			recoilHorizontal: [-1.4, 1.4],
 			recoilVertical: [0.84, 1.12],
 			spread: 2.64,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'AK5 Rifle': {
@@ -658,10 +658,10 @@ const assaultRifles: assaultRiflesList = {
 			reload: 3.08,
 			equipDelays: [0.45, 0.6],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: 1.5,
+			recoilHorizontal: [-1.5, 1.5],
 			recoilVertical: [0.9, 1.2],
 			spread: 2.4,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Gecko 7.62 Rifle': {
@@ -686,12 +686,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 3.0,
 			reload: 4.2,
-			equipDelays: 0.6,
+			equipDelays: [0.6, 0.6],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: 1.3,
+			recoilHorizontal: [-1.3, 1.3],
 			recoilVertical: [0.78, 1.04],
 			spread: 3.12,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Tempest-21 Rifle': {
@@ -718,10 +718,10 @@ const assaultRifles: assaultRiflesList = {
 			reload: 3.35,
 			equipDelays: [0.6, 0.65],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: 1.02,
+			recoilHorizontal: [-1.02, 1.02],
 			recoilVertical: [0.68, 1.02],
 			spread: 2.4,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'AMR-16 Rifle': {
@@ -746,12 +746,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 2.75,
 			reload: 3.73,
-			equipDelays: 0.6,
+			equipDelays: [0.6, 0.6],
 			ammoPickup: [2.7, 4.05],
-			recoilHorizontal: 1.32,
+			recoilHorizontal: [-1.32, 1.32],
 			recoilVertical: [0.88, 1.32],
 			spread: 2.64,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Little Friend 7.62 Assault Rifle': {
@@ -778,10 +778,10 @@ const assaultRifles: assaultRiflesList = {
 			reload: 3.2,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [1.08, 2.4],
-			recoilHorizontal: 1.9,
+			recoilHorizontal: [-1.9, 1.9],
 			recoilVertical: [1.14, 1.52],
 			spread: 1.68,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Falcon Rifle': {
@@ -806,12 +806,12 @@ const assaultRifles: assaultRiflesList = {
 		extraStats: {
 			tacticalReload: 2.2,
 			reload: 3.28,
-			equipDelays: 0.6,
+			equipDelays: [0.6, 0.6],
 			ammoPickup: [3.0, 4.5],
-			recoilHorizontal: 1.9,
+			recoilHorizontal: [-1.9, 1.9],
 			recoilVertical: [1.14, 1.52],
 			spread: 1.92,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	},
 	'Gewehr 3 Rifle': {
@@ -838,10 +838,10 @@ const assaultRifles: assaultRiflesList = {
 			reload: 2.0,
 			equipDelays: [0.65, 0.6],
 			ammoPickup: [3.0, 4.5],
-			recoilHorizontal: 1.8,
+			recoilHorizontal: [-1.8, 1.8],
 			recoilVertical: [1.08, 1.44],
 			spread: 1.92,
-			damageModifier: 1.0
+			damageModifier: [1.0, 1.0]
 		}
 	}
 }

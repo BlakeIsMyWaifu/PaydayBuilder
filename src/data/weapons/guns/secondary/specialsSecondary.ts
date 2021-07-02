@@ -39,7 +39,7 @@ const specials: specialsList = {
 			reload: 1.2,
 			equipDelays: [0.5, 0.55],
 			ammoPickup: null,
-			recoilHorizontal: 0.5,
+			recoilHorizontal: [-0.5, 0.5],
 			recoilVertical: [-0.1, 0.2],
 			spread: 0.17,
 			damageModifier: null
@@ -67,9 +67,9 @@ const specials: specialsList = {
 		extraStats: {
 			tacticalReload: null,
 			reload: 2.5,
-			equipDelays: 0.6,
+			equipDelays: [0.6, 0.6],
 			ammoPickup: [0.05, 0.65],
-			recoilHorizontal: 0.35,
+			recoilHorizontal: [-0.35, 0.35],
 			recoilVertical: [2.03, 2.1],
 			spread: 0.96,
 			damageModifier: null
@@ -97,9 +97,9 @@ const specials: specialsList = {
 		extraStats: {
 			tacticalReload: null,
 			reload: 4.7,
-			equipDelays: 0.85,
+			equipDelays: [0.85, 0.85],
 			ammoPickup: null,
-			recoilHorizontal: 0.25,
+			recoilHorizontal: [-0.25, 0.25],
 			recoilVertical: [1.45, 1.5],
 			spread: 0.24,
 			damageModifier: null
@@ -129,7 +129,7 @@ const specials: specialsList = {
 			reload: 6.98,
 			equipDelays: [1.0, 0.6],
 			ammoPickup: [0.05, 0.65],
-			recoilHorizontal: 0.25,
+			recoilHorizontal: [-0.25, 0.25],
 			recoilVertical: [1.45, 1.5],
 			spread: 0.24,
 			damageModifier: null
@@ -157,9 +157,9 @@ const specials: specialsList = {
 		extraStats: {
 			tacticalReload: 6.0,
 			reload: 5.75,
-			equipDelays: 0.85,
+			equipDelays: [0.85, 0.85],
 			ammoPickup: null,
-			recoilHorizontal: 0.25,
+			recoilHorizontal: [-0.25, 0.25],
 			recoilVertical: [1.45, 1.5],
 			spread: 0.24,
 			damageModifier: null
@@ -187,7 +187,7 @@ const specials: specialsList = {
 		extraStats: {
 			tacticalReload: 8.5,
 			reload: 8.5,
-			equipDelays: 0.85,
+			equipDelays: [0.85, 0.85],
 			ammoPickup: [3.5, 10.5],
 			recoilHorizontal: [0.0, 0.0],
 			recoilVertical: [0.0, 0.0],
@@ -217,9 +217,9 @@ const specials: specialsList = {
 		extraStats: {
 			tacticalReload: 3.34,
 			reload: 4.5,
-			equipDelays: 0.6,
+			equipDelays: [0.6, 0.6],
 			ammoPickup: [0.05, 0.65],
-			recoilHorizontal: 0.25,
+			recoilHorizontal: [-0.25, 0.25],
 			recoilVertical: [1.45, 1.5],
 			spread: 0.24,
 			damageModifier: null
@@ -247,9 +247,9 @@ const specials: specialsList = {
 		extraStats: {
 			tacticalReload: 3.75,
 			reload: 3.75,
-			equipDelays: 0.8,
+			equipDelays: [0.8, 0.8],
 			ammoPickup: null,
-			recoilHorizontal: 2.2,
+			recoilHorizontal: [-2.2, 2.2],
 			recoilVertical: [2.2, -2.2],
 			spread: null,
 			damageModifier: null

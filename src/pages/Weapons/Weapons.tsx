@@ -23,14 +23,14 @@ export const WeaponsStatsTable: React.FC<weaponsStatsTable> = ({ mainWeapon, com
 		let extra = weapon.extraStats
 
 		let extraStats = {
-			tacticalReload: `${extra.tacticalReload}`,
-			reload: `${extra.reload}`,
-			equipDelays: typeof extra.equipDelays === 'number' ? `${extra.equipDelays} | ${extra.equipDelays}` : `${extra.equipDelays.join(' | ')}`,
-			ammoPickup: extra.ammoPickup ? `${extra.ammoPickup.join(' | ')}` : '0 | 0',
-			recoilHorizontal: typeof extra.recoilHorizontal === 'number' ? `${extra.recoilHorizontal * -1} | ${extra.recoilHorizontal}` : `${extra.recoilHorizontal.join(' | ')}`,
-			recoilVertical: typeof extra.recoilVertical === 'number' ? `${extra.recoilVertical} | ${extra.recoilVertical}` : `${extra.recoilVertical.join(' | ')}`,
-			spread: `${extra.spread}`,
-			damageModifier: extra.damageModifier ? (typeof extra.damageModifier === 'number' ? `${extra.damageModifier} | ${extra.damageModifier}` : `${extra.damageModifier.join(' | ')}`) : ''
+			tacticalReload: extra.tacticalReload ? (typeof extra.tacticalReload === 'number' ? `${extra.tacticalReload}s` : `${extra.tacticalReload[0]}s | ${extra.tacticalReload[1]}s`) : '',
+			reload: `${extra.reload}s`,
+			equipDelays: `${extra.equipDelays[0]}s | ${extra.equipDelays[1]}s`,
+			ammoPickup: extra.ammoPickup ? `${extra.ammoPickup.join(' | ')}` : '',
+			recoilHorizontal: `${extra.recoilHorizontal[0]}' | ${extra.recoilHorizontal[1]}'`,
+			recoilVertical: `${extra.recoilVertical[0]}' | ${extra.recoilVertical[1]}'`,
+			spread: `${extra.spread}'`,
+			damageModifier: extra.damageModifier ? `${extra.damageModifier.join(' | ')}` : ''
 		}
 
 		return ({ ...weapon.stats, ...extraStats })
