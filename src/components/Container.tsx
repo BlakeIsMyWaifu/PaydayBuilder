@@ -66,7 +66,7 @@ const Container: React.FC<area> = ({
 	return (
 		<Area columns={columns} rows={rows} areas={areas}>
 
-			<Title>{title}</Title>
+			{ title && <Title>{title}</Title> }
 
 			{children}
 

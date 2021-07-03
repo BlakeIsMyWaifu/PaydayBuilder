@@ -1,3 +1,4 @@
+export const raisinBlack = '#26252E'
 export const grey = '#2C2F33'
 export const lightgrey = '#808080'
 export const blue = '#0F639F'

@@ -3,9 +3,13 @@ import React from 'react'
 import BuildIO from '../BuildIO/BuildIO'
 import { Container, Setting, SettingsTitle, Title } from './SettingsPanel-Elements'
 
-const SettingsPanel: React.FC = () => {
+interface SettingsPanelComponent {
+	toggleSettings: boolean;
+}
+
+const SettingsPanel: React.FC<SettingsPanelComponent> = ({ toggleSettings }) => {
 	return (
-		<Container>
+		<Container toggle={toggleSettings}>
 
 			<Title>Settings</Title>
 

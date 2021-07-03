@@ -2,21 +2,18 @@ import { changePerkdeck } from 'actions/abilitiesAction'
 import { changeArmour, changeEquipment } from 'actions/characterAction'
 import { changeSkillState } from 'actions/skillsAction'
 import { changeThrowable } from 'actions/weaponsAction'
+import TextInput from 'components/TextInput'
 import perkData from 'data/abilities/perks'
 import skillsData, { treeNames } from 'data/abilities/skills'
 import armourData from 'data/character/armours'
 import equipmentData from 'data/character/equipment'
 import throwableData from 'data/weapons/throwables'
 import { useAppDispatch } from 'hooks'
-import React, { createRef, useRef } from 'react'
-
-import { BuildInput, SubmitButton, TextInput } from './BuildIO-Elements'
+import React from 'react'
 
 const BuildIO: React.FC = () => {
 
 	const dispatch = useAppDispatch()
-
-	const textInputRef = useRef<HTMLInputElement>(null)
 
 	const charString = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,@'
 
@@ -132,26 +129,11 @@ const BuildIO: React.FC = () => {
 		if (secondaryEquipment) dispatch(changeEquipment([equipmentData[secondaryEquipment], 'secondary']))
 	}
 
-	const onInputEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
-		if (event.key === 'Enter') {
-			loadBuildFromIterable(event.currentTarget.value)
-			event.currentTarget.value = ''
-		}
-	}
-
-	const inputOnClick = (event: React.MouseEvent<HTMLInputElement>) => {
-		event.preventDefault()
-		const input = textInputRef.current
-		if (!input) return
-		loadBuildFromIterable(input.value)
-		input.value = ''
-	}
-
 	return (
-		<BuildInput>
-			<TextInput type='text' placeholder='example: https://pd2builder.netlify.app/?s=10-90-90-900' onKeyDown={onInputEnter} ref={textInputRef} />
-			<SubmitButton type='button' value='Submit' onMouseDown={inputOnClick} />
-		</BuildInput>
+		<TextInput
+			placeholder='example: https://pd2builder.netlify.app/?s=10-90-90-900'
+			callback={loadBuildFromIterable}
+		/>
 	)
 }
 
