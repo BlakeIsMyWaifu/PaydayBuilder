@@ -15,7 +15,7 @@ interface lightMachineGunList {
 const lightMachineGuns: lightMachineGunList = {
 	'RPK Light Machine Gun': {
 		name: 'RPK Light Machine Gun',
-		image: '',
+		image: 'rpk',
 		source: content['Gage Weapon Pack #02'],
 		inventorySlot: 'primary',
 		reputation: 0,
@@ -45,7 +45,7 @@ const lightMachineGuns: lightMachineGunList = {
 	},
 	'KSP 58 Light Machine Gun': {
 		name: 'KSP 58 Light Machine Gun',
-		image: '',
+		image: 'par',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 23,
@@ -75,7 +75,7 @@ const lightMachineGuns: lightMachineGunList = {
 	},
 	'M60 Light Machine Gun': {
 		name: 'M60 Light Machine Gun',
-		image: '',
+		image: 'm60',
 		source: content['Fugitive Weapon Pack'],
 		inventorySlot: 'primary',
 		reputation: 33,
@@ -105,7 +105,7 @@ const lightMachineGuns: lightMachineGunList = {
 	},
 	'KSP Light Machine Gun': {
 		name: 'KSP Light Machine Gun',
-		image: '',
+		image: 'm249',
 		source: content['Gage Weapon Pack #02'],
 		inventorySlot: 'primary',
 		reputation: 45,
@@ -135,7 +135,7 @@ const lightMachineGuns: lightMachineGunList = {
 	},
 	'Buzzsaw 42 Light Machine Gun': {
 		name: 'Buzzsaw 42 Light Machine Gun',
-		image: '',
+		image: 'mg42',
 		source: content['Gage Historical Pack'],
 		inventorySlot: 'primary',
 		reputation: 71,
@@ -165,7 +165,7 @@ const lightMachineGuns: lightMachineGunList = {
 	},
 	'Brenner-21 Light Machine Gun': {
 		name: 'Brenner-21 Light Machine Gun',
-		image: '',
+		image: 'hk21',
 		source: content['Gage Weapon Pack #02'],
 		inventorySlot: 'primary',
 		reputation: 75,

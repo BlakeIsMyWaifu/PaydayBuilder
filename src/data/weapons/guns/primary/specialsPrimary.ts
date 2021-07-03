@@ -21,7 +21,7 @@ interface specialsList {
 const specials: specialsList = {
 	'OVE9000 Saw': {
 		name: 'OVE9000 Saw',
-		image: '',
+		image: 'saw',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 0,
@@ -51,7 +51,7 @@ const specials: specialsList = {
 	},
 	'Plainsrider Bow': {
 		name: 'Plainsrider Bow',
-		image: '',
+		image: 'plainsrider',
 		source: content['The Butcher\'s Western Pack'],
 		inventorySlot: 'primary',
 		reputation: 15,
@@ -81,7 +81,7 @@ const specials: specialsList = {
 	},
 	'Light Crossbow': {
 		name: 'Light Crossbow',
-		image: '',
+		image: 'frankish',
 		source: content['Gage Chivalry Pack'],
 		inventorySlot: 'primary',
 		reputation: 17,
@@ -111,7 +111,7 @@ const specials: specialsList = {
 	},
 	'Airbow': {
 		name: 'Airbow',
-		image: '',
+		image: 'ecp',
 		source: content['h3h3 Character Pack'],
 		inventorySlot: 'primary',
 		reputation: 0,
@@ -141,7 +141,7 @@ const specials: specialsList = {
 	},
 	'English Longbow': {
 		name: 'English Longbow',
-		image: '',
+		image: 'long',
 		source: content['Gage Chivalry Pack'],
 		inventorySlot: 'primary',
 		reputation: 29,
@@ -171,7 +171,7 @@ const specials: specialsList = {
 	},
 	'XL 5.56 Microgun': {
 		name: 'XL 5.56 Microgun',
-		image: '',
+		image: 'shuno',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 30,
@@ -201,7 +201,7 @@ const specials: specialsList = {
 	},
 	'DECA Technologies Compound Bow': {
 		name: 'DECA Technologies Compound Bow',
-		image: '',
+		image: 'elastic',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 33,
@@ -231,7 +231,7 @@ const specials: specialsList = {
 	},
 	'Vulcan Minigun': {
 		name: 'Vulcan Minigun',
-		image: '',
+		image: 'm134',
 		source: content['The OVERKILL Pack'],
 		inventorySlot: 'primary',
 		reputation: 40,
@@ -261,7 +261,7 @@ const specials: specialsList = {
 	},
 	'Heavy Crossbow': {
 		name: 'Heavy Crossbow',
-		image: '',
+		image: 'arblast',
 		source: content['Gage Chivalry Pack'],
 		inventorySlot: 'primary',
 		reputation: 38,
@@ -291,7 +291,7 @@ const specials: specialsList = {
 	},
 	'Piglet Grenade Launcher': {
 		name: 'Piglet Grenade Launcher',
-		image: '',
+		image: 'm32',
 		source: content['The Butcher\'s BBQ Pack'],
 		inventorySlot: 'primary',
 		reputation: 43,
@@ -321,7 +321,7 @@ const specials: specialsList = {
 	},
 	'Flamethrower Mk.1': {
 		name: 'Flamethrower Mk.1',
-		image: '',
+		image: 'flamethrower_mk2',
 		source: content['The Butcher\'s BBQ Pack'],
 		inventorySlot: 'primary',
 		reputation: 44,
@@ -351,7 +351,7 @@ const specials: specialsList = {
 	},
 	'GL40 Grenade Launcher': {
 		name: 'GL40 Grenade Launcher',
-		image: '',
+		image: 'gre_m79',
 		source: content['Gage Assault Pack'],
 		inventorySlot: 'primary',
 		reputation: 46,

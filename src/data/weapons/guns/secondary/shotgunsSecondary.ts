@@ -16,7 +16,7 @@ interface shotgunsList {
 const shotguns: shotgunsList = {
 	'Locomotive 12G Shotgun': {
 		name: 'Locomotive 12G Shotgun',
-		image: '',
+		image: 'serbu',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 13,
@@ -46,7 +46,7 @@ const shotguns: shotgunsList = {
 	},
 	'GSPS 12G Shotgun': {
 		name: 'GSPS 12G Shotgun',
-		image: '',
+		image: 'm37',
 		source: content['The Goat Simulator Heist'],
 		inventorySlot: 'secondary',
 		reputation: 23,
@@ -76,7 +76,7 @@ const shotguns: shotgunsList = {
 	},
 	'Goliath 12G Shotgun': {
 		name: 'Goliath 12G Shotgun',
-		image: '',
+		image: 'rota',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 23,
@@ -106,7 +106,7 @@ const shotguns: shotgunsList = {
 	},
 	'Grimm 12G Shotgun': {
 		name: 'Grimm 12G Shotgun',
-		image: '',
+		image: 'basset',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 27,
@@ -136,7 +136,7 @@ const shotguns: shotgunsList = {
 	},
 	'Street Sweeper Shotgun': {
 		name: 'Street Sweeper Shotgun',
-		image: '',
+		image: 'striker',
 		source: content['Gage Shotgun Pack'],
 		inventorySlot: 'secondary',
 		reputation: 33,
@@ -166,7 +166,7 @@ const shotguns: shotgunsList = {
 	},
 	'The Judge Shotgun': {
 		name: 'The Judge Shotgun',
-		image: '',
+		image: 'judge',
 		source: source.Community,
 		inventorySlot: 'secondary',
 		reputation: 35,
@@ -196,7 +196,7 @@ const shotguns: shotgunsList = {
 	},
 	'Claire 12G Shotgun': {
 		name: 'Claire 12G Shotgun',
-		image: '',
+		image: 'coach',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 43,

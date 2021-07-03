@@ -22,7 +22,7 @@ interface snipersList {
 const snipers: snipersList = {
 	'Rattlesnake Sniper Rifle': {
 		name: 'Rattlesnake Sniper Rifle',
-		image: '',
+		image: 'msr',
 		source: content['Gage Sniper Pack'],
 		inventorySlot: 'primary',
 		reputation: 15,
@@ -52,7 +52,7 @@ const snipers: snipersList = {
 	},
 	'R700 Sniper Rifle': {
 		name: 'R700 Sniper Rifle',
-		image: '',
+		image: 'r700',
 		source: content['Fugitive Weapon Pack'],
 		inventorySlot: 'primary',
 		reputation: 23,
@@ -82,7 +82,7 @@ const snipers: snipersList = {
 	},
 	'Bernetti Rangehitter Sniper Rifle': {
 		name: 'Bernetti Rangehitter Sniper Rifle',
-		image: '',
+		image: 'sbl',
 		source: content['Gunslinger Weapon Pack'],
 		inventorySlot: 'primary',
 		reputation: 26,
@@ -112,7 +112,7 @@ const snipers: snipersList = {
 	},
 	'Káng Arms X1 Sniper Rifle': {
 		name: 'Káng Arms X1 Sniper Rifle',
-		image: '',
+		image: 'qbu88',
 		source: content['Jiu Feng Smuggler Pack 2'],
 		inventorySlot: 'primary',
 		reputation: -1,
@@ -142,7 +142,7 @@ const snipers: snipersList = {
 	},
 	'Platypus 70 Sniper Rifle': {
 		name: 'Platypus 70 Sniper Rifle',
-		image: '',
+		image: 'model70',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 32,
@@ -172,7 +172,7 @@ const snipers: snipersList = {
 	},
 	'Lebensauger .308 Sniper Rifle': {
 		name: 'Lebensauger .308 Sniper Rifle',
-		image: '',
+		image: 'wa2000',
 		source: content['Gage Ninja Pack'],
 		inventorySlot: 'primary',
 		reputation: 33,
@@ -202,7 +202,7 @@ const snipers: snipersList = {
 	},
 	'Desertfox Sniper Rifle': {
 		name: 'Desertfox Sniper Rifle',
-		image: '',
+		image: 'desertfox',
 		source: content['John Wick Weapon Pack'],
 		inventorySlot: 'primary',
 		reputation: 34,
@@ -232,7 +232,7 @@ const snipers: snipersList = {
 	},
 	'Contractor .308 Sniper Rifle': {
 		name: 'Contractor .308 Sniper Rifle',
-		image: '',
+		image: 'tti',
 		source: content['John Wick Heists'],
 		inventorySlot: 'primary',
 		reputation: 34,
@@ -262,7 +262,7 @@ const snipers: snipersList = {
 	},
 	'R93 Sniper Rifle': {
 		name: 'R93 Sniper Rifle',
-		image: '',
+		image: 'r93',
 		source: content['Gage Sniper Pack'],
 		inventorySlot: 'primary',
 		reputation: 35,
@@ -292,7 +292,7 @@ const snipers: snipersList = {
 	},
 	'Repeater 1874 Sniper Rifle': {
 		name: 'Repeater 1874 Sniper Rifle',
-		image: '',
+		image: 'winchester1874',
 		source: content['The Butcher\'s Western Pack'],
 		inventorySlot: 'primary',
 		reputation: 36,
@@ -322,7 +322,7 @@ const snipers: snipersList = {
 	},
 	'Grom Sniper Rifle': {
 		name: 'Grom Sniper Rifle',
-		image: '',
+		image: 'siltstone',
 		source: content['Gage Russian Weapon Pack'],
 		inventorySlot: 'primary',
 		reputation: 46,
@@ -352,7 +352,7 @@ const snipers: snipersList = {
 	},
 	'Nagant Sniper Rifle': {
 		name: 'Nagant Sniper Rifle',
-		image: '',
+		image: 'mosin',
 		source: content['Gage Historical Pack'],
 		inventorySlot: 'primary',
 		reputation: 54,
@@ -382,7 +382,7 @@ const snipers: snipersList = {
 	},
 	'Thanatos .50 cal Sniper Rifle': {
 		name: 'Thanatos',
-		image: '',
+		image: 'm95',
 		source: content['Gage Sniper Pack'],
 		inventorySlot: 'primary',
 		reputation: 65,

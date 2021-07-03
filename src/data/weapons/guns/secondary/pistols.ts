@@ -38,7 +38,7 @@ export interface pistolList {
 const pistols: pistolList = {
 	'Interceptor 45 Pistol': {
 		name: 'Interceptor 45 Pistol',
-		image: '',
+		image: 'usp',
 		source: source.Community,
 		inventorySlot: 'secondary',
 		reputation: 0,
@@ -68,7 +68,7 @@ const pistols: pistolList = {
 	},
 	'Chimano 88 Pistol': {
 		name: 'Chimano 88 Pistol',
-		image: '',
+		image: 'glock_17',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 0,
@@ -98,7 +98,7 @@ const pistols: pistolList = {
 	},
 	'Gruber Kurz Pistol': {
 		name: 'Gruber Kurz Pistol',
-		image: '',
+		image: 'ppk',
 		source: content['Armored Transport'],
 		inventorySlot: 'secondary',
 		reputation: 0,
@@ -128,7 +128,7 @@ const pistols: pistolList = {
 	},
 	'Signature .40 Pistol': {
 		name: 'Signature .40 Pistol',
-		image: '',
+		image: 'p226',
 		source: content['Gage Weapon Pack #01'],
 		inventorySlot: 'secondary',
 		reputation: 0,
@@ -158,7 +158,7 @@ const pistols: pistolList = {
 	},
 	'Crosskill Pistol': {
 		name: 'Crosskill Pistol',
-		image: '',
+		image: 'colt_1911',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 2,
@@ -188,7 +188,7 @@ const pistols: pistolList = {
 	},
 	'Bernetti 9 Pistol': {
 		name: 'Bernetti 9 Pistol',
-		image: '',
+		image: 'b92fs',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 6,
@@ -218,7 +218,7 @@ const pistols: pistolList = {
 	},
 	'Bronco .44 Pistol': {
 		name: 'Bronco .44 Pistol',
-		image: '',
+		image: 'new_raging_bull',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 6,
@@ -248,7 +248,7 @@ const pistols: pistolList = {
 	},
 	'Crosskill Chunky Compact Pistol': {
 		name: 'Crosskill Chunky Compact Pistol',
-		image: '',
+		image: 'm1911',
 		source: content['Jiu Feng Smuggler Pack'],
 		inventorySlot: 'secondary',
 		reputation: 6,
@@ -278,7 +278,7 @@ const pistols: pistolList = {
 	},
 	'White Streak Pistol': {
 		name: 'White Streak Pistol',
-		image: '',
+		image: 'pl14',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 14,
@@ -308,7 +308,7 @@ const pistols: pistolList = {
 	},
 	'Baby Deagle': {
 		name: 'Baby Deagle',
-		image: '',
+		image: 'sparrow',
 		source: content['The Point Break Heists'],
 		inventorySlot: 'secondary',
 		reputation: 14,
@@ -338,7 +338,7 @@ const pistols: pistolList = {
 	},
 	'M13 9mm Pistol': {
 		name: 'M13 9mm Pistol',
-		image: '',
+		image: 'legacy',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 15,
@@ -368,7 +368,7 @@ const pistols: pistolList = {
 	},
 	'Chimano Custom Pistol': {
 		name: 'Chimano Custom Pistol',
-		image: '',
+		image: 'g22c',
 		source: source.Community,
 		inventorySlot: 'secondary',
 		reputation: 22,
@@ -398,7 +398,7 @@ const pistols: pistolList = {
 	},
 	'Broomstick Pistol': {
 		name: 'Broomstick Pistol',
-		image: '',
+		image: 'c96',
 		source: content['Gage Historical Pack'],
 		inventorySlot: 'secondary',
 		reputation: 23,
@@ -428,7 +428,7 @@ const pistols: pistolList = {
 	},
 	'Parabellum Pistol': {
 		name: 'Parabellum Pistol',
-		image: '',
+		image: 'breech',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 25,
@@ -458,7 +458,7 @@ const pistols: pistolList = {
 	},
 	'5/7 AP Pistol': {
 		name: '5/7 AP Pistol',
-		image: '',
+		image: 'lemming',
 		source: source.Community,
 		inventorySlot: 'secondary',
 		reputation: 26,
@@ -488,7 +488,7 @@ const pistols: pistolList = {
 	},
 	'Castigo .44 Revolver': {
 		name: 'Castigo .44 Revolver',
-		image: '',
+		image: 'chinchilla',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 26,
@@ -518,7 +518,7 @@ const pistols: pistolList = {
 	},
 	'Contractor Pistol': {
 		name: 'Contractor Pistol',
-		image: '',
+		image: 'packrat',
 		source: content['John Wick Weapon Pack'],
 		inventorySlot: 'secondary',
 		reputation: 26,
@@ -548,7 +548,7 @@ const pistols: pistolList = {
 	},
 	'Frenchman Model 87 Revolver': {
 		name: 'Frenchman Model 87 Revolver',
-		image: '',
+		image: 'model3',
 		source: content['Gunslinger Weapon Pack'],
 		inventorySlot: 'secondary',
 		reputation: 26,
@@ -578,7 +578,7 @@ const pistols: pistolList = {
 	},
 	'Chimano Compact Pistol': {
 		name: 'Chimano Compact Pistol',
-		image: '',
+		image: 'g26',
 		source: source.Community,
 		inventorySlot: 'secondary',
 		reputation: 27,
@@ -608,7 +608,7 @@ const pistols: pistolList = {
 	},
 	'Crosskill Guard Pistol': {
 		name: 'Crosskill Guard Pistol',
-		image: '',
+		image: 'shrew',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 27,
@@ -638,7 +638,7 @@ const pistols: pistolList = {
 	},
 	'LEO Pistol': {
 		name: 'LEO Pistol',
-		image: '',
+		image: 'hs2000',
 		source: content['The Bomb Heists'],
 		inventorySlot: 'secondary',
 		reputation: 28,
@@ -668,7 +668,7 @@ const pistols: pistolList = {
 	},
 	'STRYK 18c Pistol': {
 		name: 'STRYK 18c Pistol',
-		image: '',
+		image: 'glock_18c',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 29,
@@ -698,7 +698,7 @@ const pistols: pistolList = {
 	},
 	'Bernetti Auto Pistol': {
 		name: 'Bernetti Auo Pistol',
-		image: '',
+		image: 'beer',
 		source: content['Federales Weapon Pack'],
 		inventorySlot: 'secondary',
 		reputation: 29,
@@ -728,7 +728,7 @@ const pistols: pistolList = {
 	},
 	'Czech 92 Pistol': {
 		name: 'Czech 92 Pistol',
-		image: '',
+		image: 'czech',
 		source: content['Federales Weapon Pack'],
 		inventorySlot: 'secondary',
 		reputation: 29,
@@ -758,7 +758,7 @@ const pistols: pistolList = {
 	},
 	'Igor Automatik Pistol': {
 		name: 'Igor Automatik Pistol',
-		image: '',
+		image: 'stech',
 		source: content['Federales Weapon Pack'],
 		inventorySlot: 'secondary',
 		reputation: 29,
@@ -788,7 +788,7 @@ const pistols: pistolList = {
 	},
 	'HOLT 9mm Pistol': {
 		name: 'HOLT 9mm Pistol',
-		image: '',
+		image: 'holt',
 		source: content['Fugitive Weapon Pack'],
 		inventorySlot: 'secondary',
 		reputation: 30,
@@ -818,7 +818,7 @@ const pistols: pistolList = {
 	},
 	'Peacemaker .45 Revolver': {
 		name: 'Peacemaker .45 Revolver',
-		image: '',
+		image: 'peacemaker',
 		source: content['The Butcher\'s Western Pack'],
 		inventorySlot: 'secondary',
 		reputation: 31,
@@ -848,7 +848,7 @@ const pistols: pistolList = {
 	},
 	'Matever .357 Revolver': {
 		name: 'Matever .357 Revoler',
-		image: '',
+		image: 'mateba',
 		source: content['The Alesso Heist'],
 		inventorySlot: 'secondary',
 		reputation: 34,
@@ -878,7 +878,7 @@ const pistols: pistolList = {
 	},
 	'Deagle Pistol': {
 		name: 'Deagle Pistol',
-		image: '',
+		image: 'deagle',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 36,

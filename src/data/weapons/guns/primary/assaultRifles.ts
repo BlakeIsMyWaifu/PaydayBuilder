@@ -36,7 +36,7 @@ export interface assaultRiflesList {
 const assaultRifles: assaultRiflesList = {
 	'AMCAR Rifle': {
 		name: 'AMCAR Rifle',
-		image: '',
+		image: 'amcar',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 0,
@@ -66,7 +66,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Commando 553 Rifle': {
 		name: 'Commando 553 Rifle',
-		image: '',
+		image: 's552',
 		source: content['Armored Transport'],
 		inventorySlot: 'primary',
 		reputation: 0,
@@ -96,7 +96,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Eagle Heavy Rifle': {
 		name: 'Eagle Heavy Rifle',
-		image: '',
+		image: 'scar',
 		source: content['Gage Weapon Pack #01'],
 		inventorySlot: 'primary',
 		reputation: 0,
@@ -126,7 +126,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Union 5.56 Rifle': {
 		name: 'Union 5.56 Rifle',
-		image: '',
+		image: 'corgi',
 		source: source['Reservoir Dogs'],
 		inventorySlot: 'primary',
 		reputation: 0,
@@ -156,7 +156,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'AK Rifle': {
 		name: 'AK Rifle',
-		image: '',
+		image: 'ak74',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 1,
@@ -186,7 +186,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'CAR-4 Rifle': {
 		name: 'CAR-4 Rifle',
-		image: '',
+		image: 'new_m4',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 4,
@@ -216,7 +216,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'UAR Rifle': {
 		name: 'UAR Rifle',
-		image: '',
+		image: 'aug',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 8,
@@ -246,7 +246,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'KETCHNOV Byk-1 Assault Rifle': {
 		name: 'KETCHNOV Byk-1 Assault Rifle',
-		image: '',
+		image: 'groza',
 		source: content['Jiu Feng Smuggler Pack 2'],
 		inventorySlot: 'primary',
 		reputation: 12,
@@ -276,7 +276,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Cavity 9mm': {
 		name: 'Cavity 9mm',
-		image: '',
+		image: 'sub2000',
 		source: content['The Golden Grin Casino Heist'],
 		inventorySlot: 'primary',
 		reputation: 15,
@@ -306,7 +306,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'AK.762': {
 		name: 'AK.762',
-		image: '',
+		image: 'akm',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 16,
@@ -336,7 +336,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'JP36 Rifle': {
 		name: 'JP36',
-		image: '',
+		image: 'g36',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 16,
@@ -366,7 +366,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'AK17 Rifle': {
 		name: 'AK17 Rifle',
-		image: '',
+		image: 'flint',
 		source: content['Gage Russian Weapon Pack'],
 		inventorySlot: 'primary',
 		reputation: 16,
@@ -396,7 +396,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Golden AK.762 Rifle': {
 		name: 'Golden AK.762 Rifle',
-		image: '',
+		image: 'akm_gold',
 		source: source.Community,
 		inventorySlot: 'primary',
 		reputation: 17,
@@ -426,7 +426,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Bootleg Rifle': {
 		name: 'Bootleg Rifle',
-		image: '',
+		image: 'tecci',
 		source: content['Sydney Character Pack'],
 		inventorySlot: 'primary',
 		reputation: 21,
@@ -456,7 +456,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Queen\'s Wrath Rifle': {
 		name: 'Queen\'s Wrath Rifle',
-		image: '',
+		image: 'l85a2',
 		source: content['Clover Character Pack'],
 		inventorySlot: 'primary',
 		reputation: 24,
@@ -486,7 +486,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Galant Rifle': {
 		name: 'Galant Rifle',
-		image: '',
+		image: 'ching',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 25,
@@ -516,7 +516,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'M308 Rifle': {
 		name: 'M308 Rifle',
-		image: '',
+		image: 'new_m14',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 26,
@@ -546,7 +546,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Clarion Rifle': {
 		name: 'Clarion Rifle',
-		image: '',
+		image: 'famas',
 		source: content['Gage Assault Pack'],
 		inventorySlot: 'primary',
 		reputation: 27,
@@ -576,7 +576,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Lion\'s Roar Rifle': {
 		name: 'Lion\'s Roar Rifle',
-		image: '',
+		image: 'vhs',
 		source: content['Dragan Character Pack'],
 		inventorySlot: 'primary',
 		reputation: 28,
@@ -606,7 +606,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Valkyria Rifle': {
 		name: 'Valkyria Rifle',
-		image: '',
+		image: 'asval',
 		source: content['Sokol Character Pack'],
 		inventorySlot: 'primary',
 		reputation: 29,
@@ -636,7 +636,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'AK5 Rifle': {
 		name: 'AK5 Rifle',
-		image: '',
+		image: 'ak5',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 33,
@@ -666,7 +666,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Gecko 7.62 Rifle': {
 		name: 'Gecko 7.62 Rifle',
-		image: '',
+		image: 'galil',
 		source: content['Gage Assault Pack'],
 		inventorySlot: 'primary',
 		reputation: 34,
@@ -696,7 +696,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Tempest-21 Rifle': {
 		name: 'Tempest-21 Rifle',
-		image: '',
+		image: 'komodo',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 38,
@@ -726,7 +726,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'AMR-16 Rifle': {
 		name: 'AMR-16 Rifle',
-		image: '',
+		image: 'm16',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 39,
@@ -756,7 +756,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Little Friend 7.62 Assault Rifle': {
 		name: 'Little Friend 7.62 Assault Rifle',
-		image: '',
+		image: 'contraband',
 		source: content['Scarface Character Pack'],
 		inventorySlot: 'primary',
 		reputation: 41,
@@ -786,7 +786,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Falcon Rifle': {
 		name: 'Falcon Rifle',
-		image: '',
+		image: 'fal',
 		source: content['The Big Bank Heist'],
 		inventorySlot: 'primary',
 		reputation: 42,
@@ -816,7 +816,7 @@ const assaultRifles: assaultRiflesList = {
 	},
 	'Gewehr 3 Rifle': {
 		name: 'Gewehr 3 Rifle',
-		image: '',
+		image: 'g3',
 		source: content['Gage Assault Pack'],
 		inventorySlot: 'primary',
 		reputation: 52,

@@ -20,7 +20,7 @@ export interface shotgunsList {
 const shotguns: shotgunsList = {
 	'Predator 12G Shotgun': {
 		name: 'Predator 12G Shotgun',
-		image: '',
+		image: 'spas12',
 		source: source.Community,
 		inventorySlot: 'primary',
 		reputation: 0,
@@ -50,7 +50,7 @@ const shotguns: shotgunsList = {
 	},
 	'Breaker 12G Shotgun': {
 		name: 'Breaker 12G Shotgun',
-		image: '',
+		image: 'boot',
 		source: content['Biker Character Pack'],
 		inventorySlot: 'primary',
 		reputation: 3,
@@ -80,7 +80,7 @@ const shotguns: shotgunsList = {
 	},
 	'Reinfeld 880 Shotgun': {
 		name: 'Reinfeld 880 Shotgun',
-		image: '',
+		image: 'r870',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 8,
@@ -110,7 +110,7 @@ const shotguns: shotgunsList = {
 	},
 	'Mosconi 12G Tactical Shotgun': {
 		name: 'Mosconi 12G Tactical Shotgun',
-		image: '',
+		image: 'm590',
 		source: content['Jiu Feng Smuggler Pack'],
 		inventorySlot: 'primary',
 		reputation: 39,
@@ -140,7 +140,7 @@ const shotguns: shotgunsList = {
 	},
 	'M1014 Shotgun': {
 		name: 'M1014 Shotgun',
-		image: '',
+		image: 'benelli',
 		source: content['Gage Shotgun Pack'],
 		inventorySlot: 'primary',
 		reputation: 15,
@@ -170,7 +170,7 @@ const shotguns: shotgunsList = {
 	},
 	'Raven Shotgun': {
 		name: 'Raven Shotgun',
-		image: '',
+		image: 'ksg',
 		source: content['Gage Shotgun Pack'],
 		inventorySlot: 'primary',
 		reputation: 22,
@@ -200,7 +200,7 @@ const shotguns: shotgunsList = {
 	},
 	'IZHMA 12G Shotgun': {
 		name: 'IZHMA 12G Shotgun',
-		image: '',
+		image: 'saiga',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 26,
@@ -230,7 +230,7 @@ const shotguns: shotgunsList = {
 	},
 	'Reinfeld 88 Shotgun': {
 		name: 'Reinfeld 88 Shotgun',
-		image: '',
+		image: 'm1897',
 		source: content['Gunslinger Weapon Pack'],
 		inventorySlot: 'primary',
 		reputation: 26,
@@ -260,7 +260,7 @@ const shotguns: shotgunsList = {
 	},
 	'Mosconi 12G Shotgun': {
 		name: 'Mosconi 12G Shotgun',
-		image: '',
+		image: 'huntsman',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 39,
@@ -290,7 +290,7 @@ const shotguns: shotgunsList = {
 	},
 	'Joceline O/U 12G Shotgun': {
 		name: 'Joceline O/U 12G Shotgun',
-		image: '',
+		image: 'b682',
 		source: source.Community,
 		inventorySlot: 'primary',
 		reputation: 43,
@@ -320,7 +320,7 @@ const shotguns: shotgunsList = {
 	},
 	'Steakout 12G Shotgun': {
 		name: 'Steakout 12G Shotgun',
-		image: '',
+		image: 'aa12',
 		source: content['The Butcher\'s BBQ Pack'],
 		inventorySlot: 'primary',
 		reputation: -1,

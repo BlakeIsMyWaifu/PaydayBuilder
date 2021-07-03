@@ -106,7 +106,7 @@ const Weapons: React.FC<weaponsComponent> = ({ slot }) => {
 							<ItemName color={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
 								{weapon.name === equipedWeapon.name && <ItemEquiped />}
 								<ItemImage
-									src={`images/weapons/ksg.png`}
+									src={`images/weapons/${weapon.image}.png`}
 									onClick={() => clickWeapon(weapon)}
 								/>
 						</Item>

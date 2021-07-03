@@ -11,7 +11,7 @@ interface akimboShotunsList {
 const akimboShotuns: akimboShotunsList = {
 	'Akimbo Goliath 12G Shotguns': {
 		name: 'Akimbo Goliath 12G Shotguns',
-		image: '',
+		image: 'x_rota',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 0,
@@ -41,7 +41,7 @@ const akimboShotuns: akimboShotunsList = {
 	},
 	'Brothers Grimm 12G Shotguns': {
 		name: 'Brothers Grimm 12G Shotguns',
-		image: '',
+		image: 'x_basset',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 27,
@@ -71,7 +71,7 @@ const akimboShotuns: akimboShotunsList = {
 	},
 	'Akimbo Judge Shotguns': {
 		name: 'Akimbo Judge Shotguns',
-		image: '',
+		image: 'x_judge',
 		source: source['Base Game'],
 		inventorySlot: 'primary',
 		reputation: 0,

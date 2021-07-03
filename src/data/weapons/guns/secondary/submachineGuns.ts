@@ -33,7 +33,7 @@ export interface submachineGunList {
 const submachineGuns: submachineGunList = {
 	'Swedish K Submachine Gun': {
 		name: 'Swedish K Submachine Gun',
-		image: '',
+		image: 'm45',
 		source: content['Armored Transport'],
 		inventorySlot: 'secondary',
 		reputation: 0,
@@ -63,7 +63,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'SpecOps Submachine Gun': {
 		name: 'SpecOps Submachine Gun',
-		image: '',
+		image: 'mp7',
 		source: content['Gage Weapon Pack #01'],
 		inventorySlot: 'secondary',
 		reputation: 0,
@@ -93,7 +93,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Mark 10 Submachine Gun': {
 		name: 'Mark 10 Submachine Gun',
-		image: '',
+		image: 'mac10',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 2,
@@ -123,7 +123,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'CR 805B Submachine Gun': {
 		name: 'CR 805B Submachine Gun',
-		image: '',
+		image: 'hajk',
 		source: content['The Biker Heist'],
 		inventorySlot: 'secondary',
 		reputation: 2,
@@ -153,7 +153,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'AK Gen 21 Tactical Submachine Gun': {
 		name: 'AK Gen 21 Tactical Submachine Gun',
-		image: '',
+		image: 'vityaz',
 		source: content['Jiu Feng Smuggler Pack'],
 		inventorySlot: 'secondary',
 		reputation: 6,
@@ -183,7 +183,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Jacket\'s Piece': {
 		name: 'Jacket\'s Piece',
-		image: '',
+		image: 'cobray',
 		source: content['Jacket Character Pack'],
 		inventorySlot: 'secondary',
 		reputation: 12,
@@ -213,7 +213,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Compact-5 Submachine Gun': {
 		name: 'Compact-5 Submachine Gun',
-		image: '',
+		image: 'new_mp5',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 13,
@@ -243,7 +243,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Chicago Typewriter Submachine Gun': {
 		name: 'Chicago Typewriter Submachine Gun',
-		image: '',
+		image: 'm1928',
 		source: source.Community,
 		inventorySlot: 'secondary',
 		reputation: 14,
@@ -273,7 +273,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Miyaka 10 Special Submachine Gun': {
 		name: 'Miyaka 10 Special Submachine Gun',
-		image: '',
+		image: 'pm9',
 		source: content['Jiu Feng Smuggler Pack 2'],
 		inventorySlot: 'secondary',
 		reputation: 17,
@@ -303,7 +303,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Cobra Submachine Gun': {
 		name: 'Cobra Submachine Gun',
-		image: '',
+		image: 'scorpion',
 		source: content['Hotline Miami'],
 		inventorySlot: 'secondary',
 		reputation: 18,
@@ -333,7 +333,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'CMP Submachine Gun': {
 		name: 'CMP Submachine Gun',
-		image: '',
+		image: 'mp9',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 19,
@@ -363,7 +363,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Para Submachine Gun': {
 		name: 'Para Submachine Gun',
-		image: '',
+		image: 'olympic',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 19,
@@ -393,7 +393,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Micro Uzi Submachine Gun': {
 		name: 'Micro Uzi Submachine Gun',
-		image: '',
+		image: 'baka',
 		source: content['Yakuza Character Pack'],
 		inventorySlot: 'secondary',
 		reputation: 19,
@@ -423,7 +423,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Signature Submachine Gun': {
 		name: 'Signature Submachine Gun',
-		image: '',
+		image: 'shepheard',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 20,
@@ -453,7 +453,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Jackal Submachine Gun': {
 		name: 'Jackal Submachine Gun',
-		image: '',
+		image: 'schakal',
 		source: content['John Wick Weapon Pack'],
 		inventorySlot: 'secondary',
 		reputation: 20,
@@ -483,7 +483,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'MP40 Submachine Gun': {
 		name: 'MP40 Submachine Gun',
-		image: '',
+		image: 'erma',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 25,
@@ -513,7 +513,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Heather Submachine Gun': {
 		name: 'Heather Submachine Gun',
-		image: '',
+		image: 'sr2',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 25,
@@ -543,7 +543,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Krinkov Submachine Gun': {
 		name: 'Krinkov Submachine Gun',
-		image: '',
+		image: 'akmsu',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 29,
@@ -573,7 +573,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Blaster 9mm Submachine Gun': {
 		name: 'Blaster 9mm Submachine Gun',
-		image: '',
+		image: 'tec9',
 		source: content['Hotline Miami'],
 		inventorySlot: 'secondary',
 		reputation: 32,
@@ -603,7 +603,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Kobus 90 Submachine Gun': {
 		name: 'Kobus 90 Submachine Gun',
-		image: '',
+		image: 'p90',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 36,
@@ -633,7 +633,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Kross Vertex Submachine Gun': {
 		name: 'Kross Vertext Submachine Gun',
-		image: '',
+		image: 'polymer',
 		source: content['Gage Ninja Pack'],
 		inventorySlot: 'secondary',
 		reputation: 39,
@@ -663,7 +663,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Tatonka Submachine Gun': {
 		name: 'Tatonka Submachine Gun',
-		image: '',
+		image: 'coal',
 		source: content['Gage Russian Weapon Pack'],
 		inventorySlot: 'secondary',
 		reputation: 42,
@@ -693,7 +693,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Patchett L2A1 Submachine Gun': {
 		name: 'Patchett L2A1 Submachine Gun',
-		image: '',
+		image: 'sterling',
 		source: content['Gage Historical Pack'],
 		inventorySlot: 'secondary',
 		reputation: 51,
@@ -723,7 +723,7 @@ const submachineGuns: submachineGunList = {
 	},
 	'Uzi Submachine Gun': {
 		name: 'Uzi Submachine Gun',
-		image: '',
+		image: 'uzi',
 		source: content['Hotline Miami'],
 		inventorySlot: 'secondary',
 		reputation: 55,

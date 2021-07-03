@@ -17,7 +17,7 @@ interface specialsList {
 const specials: specialsList = {
 	'Pistol Crossbow': {
 		name: 'Pistol Crowssbow',
-		image: '',
+		image: 'hunter',
 		source: content['Gage Ninja Pack'],
 		inventorySlot: 'secondary',
 		reputation: 16,
@@ -47,7 +47,7 @@ const specials: specialsList = {
 	},
 	'Compact 40mm Grenade Launcher': {
 		name: 'Compact 40mm Grenade Launcher',
-		image: '',
+		image: 'slap',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 20,
@@ -77,7 +77,7 @@ const specials: specialsList = {
 	},
 	'HRL-7 Rocket Launcher': {
 		name: 'HRL-7 Rocket Launcher',
-		image: '',
+		image: 'rpg7',
 		source: content['The OVERKILL Pack'],
 		inventorySlot: 'secondary',
 		reputation: 38,
@@ -107,7 +107,7 @@ const specials: specialsList = {
 	},
 	'China Puff 40mm Grenade Launcher': {
 		name: 'China Puff 40mm Grenade Launcher',
-		image: '',
+		image: 'china',
 		source: content['Wolf Pack'],
 		inventorySlot: 'secondary',
 		reputation: 39,
@@ -137,7 +137,7 @@ const specials: specialsList = {
 	},
 	'Commando 101 Rocket Launcher': {
 		name: 'Commando 101 Rocket Launcher',
-		image: '',
+		image: 'ray',
 		source: content['Scarface Heist'],
 		inventorySlot: 'secondary',
 		reputation: 41,
@@ -167,7 +167,7 @@ const specials: specialsList = {
 	},
 	'MA-17 Flamethrower': {
 		name: 'MA-17 Flamethrower',
-		image: '',
+		image: 'system',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 47,
@@ -197,7 +197,7 @@ const specials: specialsList = {
 	},
 	'Arbiter Grenade Launcher': {
 		name: 'Arbiter Grenade Launcher',
-		image: '',
+		image: 'arbiter',
 		source: content['Gage Spec Ops Pack'],
 		inventorySlot: 'secondary',
 		reputation: 47,
@@ -227,7 +227,7 @@ const specials: specialsList = {
 	},
 	'OVE9000 Saw': {
 		name: 'OVE9000 Saw',
-		image: '',
+		image: 'saw',
 		source: source['Base Game'],
 		inventorySlot: 'secondary',
 		reputation: 0,

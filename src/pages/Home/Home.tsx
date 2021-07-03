@@ -105,9 +105,13 @@ const Home: React.FC = () => {
 				<TabTitle direction='rtl'>Weapons</TabTitle>
 				<SelectorWrapper>
 
-					<Selector title='primary' setHoverInfo={setHoverInfo} infoData={null} />
+					<Selector title='primary' setHoverInfo={setHoverInfo} infoData={null}>
+						<Image src={`images/weapons/${primary.equipped.image}.png`} />
+					</Selector>
 
-					<Selector title='secondary' setHoverInfo={setHoverInfo} infoData={null} />
+					<Selector title='secondary' setHoverInfo={setHoverInfo} infoData={null}>
+						<Image src={`images/weapons/${secondary.equipped.image}.png`} />
+					</Selector>
 
 					<Selector title='throwable' setHoverInfo={setHoverInfo} infoData={{
 							title: throwable.name,
