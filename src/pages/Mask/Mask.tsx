@@ -64,7 +64,7 @@ const Mask: React.FC = () => {
 				<FilterTitle>Filters</FilterTitle>
 				<FiltersWrapper>
 					{
-						Object.keys(itemColours).map(type => {
+						['normal', 'community', 'dlc', 'event', 'collaboration', 'infamous'].map(type => {
 							return <FilterText
 								key={type}
 								color={itemColours[type]}

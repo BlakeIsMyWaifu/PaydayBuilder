@@ -1,6 +1,6 @@
 import { changeWeapon } from 'actions/weaponsAction'
 import Container from 'components/Container'
-import { InfoContainer, InfoSubtitle, InfoTitle } from 'components/Info'
+import { InfoContainer, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Item'
 import { TableCompare, TableEquiped } from 'components/Table'
 import primary from 'data/weapons/guns/primary'
@@ -118,6 +118,10 @@ const Weapons: React.FC<weaponsComponent> = ({ slot }) => {
 				<InfoTitle>{selectedWeapon.name}</InfoTitle>
 				<InfoSubtitle>Value ${selectedWeapon.cost.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}</InfoSubtitle>
 				<WeaponsStatsTable mainWeapon={selectedWeapon} compareWeapon={selectedWeapon.name !== equipedWeapon.name ? equipedWeapon : undefined} />
+				{
+					selectedWeapon.source.name !== 'Base Game' &&
+						<InfoUnlock color={itemColours[selectedWeapon.source.rarity]}>{selectedWeapon.source.name}</InfoUnlock>
+				}
 			</InfoContainer>
 
 		</Container>

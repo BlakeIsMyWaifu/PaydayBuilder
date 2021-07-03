@@ -1,9 +1,10 @@
+import { contentRarity, contentType } from "./downloadableContent"
+
 export interface sourceData {
 	name: string;
-	rarity: sourceRarity;
+	rarity: contentRarity;
+	type: contentType;
 }
-
-type sourceRarity = 'normal' | 'dlc' | 'community' | 'event' | 'infamous' | 'collaboration';
 
 interface source {
 	'Base Game': sourceData;
@@ -15,19 +16,23 @@ interface source {
 const miscSources: source = {
 	'Base Game': {
 		name: 'Base Game',
-		rarity: 'normal'
+		rarity: 'Free',
+		type: 'Feature'
 	},
 	'Infamous': {
 		name: 'Infamous',
-		rarity: 'infamous'
+		rarity: 'Event',
+		type: 'Feature'
 	},
 	'Community': {
 		name: 'Community',
-		rarity: 'community'
+		rarity: 'Community',
+		type: 'Feature'
 	},
 	'Reservoir Dogs': {
 		name: 'Reservoir Dogs',
-		rarity: 'dlc'
+		rarity: 'Free',
+		type: 'Heist'
 	}
 }
 

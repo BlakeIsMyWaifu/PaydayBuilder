@@ -13,11 +13,19 @@ interface itemColoursInterface {
 
 export const itemColours: itemColoursInterface = {
 	normal: '#fff',
+	'Pre-order': '#fff',
+	Free: '#fff',
 	community: '#3baefe',
+	Community: '#3baefe',
 	dlc: '#ffd400',
+	Paid: '#ffd400',
 	event: '#ff9100',
+	Event: '#ff9100',
 	collaboration: '#fe5d63',
-	infamous: '#ff1aff'
+	Collaboration: '#fe5d63',
+	infamous: '#ff1aff',
+	Secret: '#ff1aff',
+	Bundle: '#80ff00'
 }
 
 export default { grey, blue, red, dim, itemColours }
