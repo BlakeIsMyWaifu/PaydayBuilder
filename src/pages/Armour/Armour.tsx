@@ -78,7 +78,10 @@ export const Armour: React.FC = () => {
 							{ armour.name === equipedArmour.name && <ItemEquiped /> }
 							<ItemImage
 								src={`images/armours/${armour.name}.png`}
-								onMouseDown={() => clickArmour(armour)}
+								onMouseDown={event => {
+									event.preventDefault()
+									clickArmour(armour)
+								}}
 							/>
 						</Item>
 					})

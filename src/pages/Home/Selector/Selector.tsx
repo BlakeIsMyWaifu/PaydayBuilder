@@ -12,7 +12,7 @@ interface selectorComponent {
 
 const Selector: React.FC<selectorComponent> = ({ title, children, infoData, setHoverInfo }) => {
 	return (
-		<Link to={`/${title.replaceAll(' ', '')}`} onMouseEnter={() => setHoverInfo(infoData)} onMouseLeave={() => setHoverInfo(null)}>
+		<Link to={`/${title.replaceAll(' ', '')}`} onMouseDown={event => event.preventDefault()} onMouseEnter={() => setHoverInfo(infoData)} onMouseLeave={() => setHoverInfo(null)}>
 			<Container>
 				<Title>{title}</Title>
 				{children}

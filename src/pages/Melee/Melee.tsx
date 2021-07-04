@@ -90,7 +90,10 @@ export const Melee: React.FC = () => {
 							{ melee.name === equipedMelee.name && <ItemEquiped /> }
 							<ItemImage
 								src={`images/melees/${melee.image}.png`}
-								onMouseDown={() => clickMelee(melee)}
+								onMouseDown={event => {
+									event.preventDefault()
+									clickMelee(melee)
+								}}
 							/>
 						</Item>
 					})
@@ -100,10 +103,7 @@ export const Melee: React.FC = () => {
 			<InfoContainer>
 				<InfoTitle>{selectedMelee.name}</InfoTitle>
 				<MeleeStatsTable mainMelee={selectedMelee.stats} compareMelee={selectedMelee.name !== equipedMelee.name ? equipedMelee.stats : undefined} />
-				{
-					selectedMelee.source !== 'Base Game' &&
-						<InfoUnlock color={itemColours[selectedMelee.sourceType]}>{selectedMelee.source}</InfoUnlock>
-				}
+				<InfoUnlock color={itemColours[selectedMelee.sourceType]}>{selectedMelee.source}</InfoUnlock>
 				<InfoDescription>{selectedMelee.description}</InfoDescription>
 			</InfoContainer>
 

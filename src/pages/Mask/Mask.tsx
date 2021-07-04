@@ -91,7 +91,10 @@ const Mask: React.FC = () => {
 											{ mask.name === equipedMask.name && <ItemEquiped /> }
 											<ItemImage
 												src={`images/masks/${mask.image}.png`}
-												onMouseDown={() => clickMask(mask)}
+												onMouseDown={event => {
+													event.preventDefault()
+													clickMask(mask)
+												}}
 											/>
 										</Item>
 									})

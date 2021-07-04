@@ -28,7 +28,10 @@ const Character: React.FC = () => {
 							{ character.name === equipedCharacter.name && <ItemEquiped /> }
 							<ItemImage
 								src={`images/masks/${character.image}.png`}
-								onMouseDown={() => clickCharacter(character)}
+								onMouseDown={event => {
+									event.preventDefault()
+									clickCharacter(character)
+								}}
 							/>
 						</Item>
 					})

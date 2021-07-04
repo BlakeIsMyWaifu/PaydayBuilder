@@ -108,6 +108,7 @@ const Weapons: React.FC<weaponsComponent> = ({ slot }) => {
 								<ItemImage
 									src={`images/weapons/${weapon.image}.png`}
 									onClick={() => clickWeapon(weapon)}
+									onMouseDown={event => event.preventDefault()}
 								/>
 						</Item>
 					})
@@ -118,10 +119,7 @@ const Weapons: React.FC<weaponsComponent> = ({ slot }) => {
 				<InfoTitle>{selectedWeapon.name}</InfoTitle>
 				<InfoSubtitle>Value ${selectedWeapon.cost.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}</InfoSubtitle>
 				<WeaponsStatsTable mainWeapon={selectedWeapon} compareWeapon={selectedWeapon.name !== equipedWeapon.name ? equipedWeapon : undefined} />
-				{
-					selectedWeapon.source.name !== 'Base Game' &&
-						<InfoUnlock color={itemColours[selectedWeapon.source.rarity]}>{selectedWeapon.source.name}</InfoUnlock>
-				}
+				<InfoUnlock color={itemColours[selectedWeapon.source.rarity]}>{selectedWeapon.source.name}</InfoUnlock>
 			</InfoContainer>
 
 		</Container>
