@@ -1,18 +1,18 @@
 import { changeArmour } from 'actions/characterAction'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
-import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Item'
-import { TableCompare, TableEquiped } from 'components/Table'
+import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
+import { TableCompare, TableEquipped } from 'components/Table'
 import data, { armourData, armourStats } from 'data/character/armours'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 
 interface armourStatsTable {
 	selectedArmour: armourData;
-	equipedArmour?: armourData;
+	equippedArmour?: armourData;
 }
 
-export const ArmourStatsTable: React.FC<armourStatsTable> = ({ selectedArmour, equipedArmour }) => {
+export const ArmourStatsTable: React.FC<armourStatsTable> = ({ selectedArmour, equippedArmour }) => {
 
 	const baseStats = ({ armour, concealment, speed, dodge, steadiness, stamina }: armourStats) => {
 		return ({ armour, health: 230, concealment, speed, dodge, steadiness, stamina })
@@ -43,14 +43,14 @@ export const ArmourStatsTable: React.FC<armourStatsTable> = ({ selectedArmour, e
 	}	
 
 	return (
-		equipedArmour ? 
+		equippedArmour ? 
 		<TableCompare
-			equipedStats={baseStats(equipedArmour.stats)}
+			equippedStats={baseStats(equippedArmour.stats)}
 			selectedStats={baseStats(selectedArmour.stats)}
-			equipedAdditional={additionalStats(equipedArmour)}
+			equippedAdditional={additionalStats(equippedArmour)}
 			selectedAdditional={additionalStats(selectedArmour)}
 		/> :
-		<TableEquiped
+		<TableEquipped
 			baseStats={baseStats(selectedArmour.stats)}
 			additionalStats={additionalStats(selectedArmour)}
 		/>
@@ -61,9 +61,9 @@ export const Armour: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const equipedArmour = useAppSelector(state => state.character.armour)
+	const equippedArmour = useAppSelector(state => state.character.armour)
 
-	const [selectedArmour, setSelectedArmour] = useState<armourData>(equipedArmour)
+	const [selectedArmour, setSelectedArmour] = useState<armourData>(equippedArmour)
 
 	const clickArmour = (armour: armourData) => armour.name === selectedArmour.name ? dispatch(changeArmour(armour)) : setSelectedArmour(armour)
 
@@ -75,7 +75,7 @@ export const Armour: React.FC = () => {
 					data.map(armour => {
 						return <Item key={armour.name} size={196} selected={armour.name === selectedArmour.name}>
 							<ItemName>{armour.name}</ItemName>
-							{ armour.name === equipedArmour.name && <ItemEquiped /> }
+							{ armour.name === equippedArmour.name && <ItemEquipped /> }
 							<ItemImage
 								src={`images/armours/${armour.name}.png`}
 								onMouseDown={event => {
@@ -90,7 +90,7 @@ export const Armour: React.FC = () => {
 
 			<InfoContainer>
 				<InfoTitle>{selectedArmour.name}</InfoTitle>
-				<ArmourStatsTable selectedArmour={selectedArmour} equipedArmour={selectedArmour.name !== equipedArmour.name ? equipedArmour : undefined} />
+				<ArmourStatsTable selectedArmour={selectedArmour} equippedArmour={selectedArmour.name !== equippedArmour.name ? equippedArmour : undefined} />
 				<InfoDescription>{selectedArmour.desciption.join('\n\n')}</InfoDescription>
 			</InfoContainer>
 

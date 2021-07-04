@@ -1,7 +1,7 @@
 import { changeEquipment } from 'actions/characterAction'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
-import { ItemEquiped, ItemName, LockedIcon } from 'components/Item'
+import { ItemEquipped, ItemName, LockedIcon } from 'components/Item'
 import data, { equipmentData } from 'data/character/equipment'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
@@ -13,9 +13,9 @@ const Equipment: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const { primary: equipedPrimary, secondary: equipedSecondary } = useAppSelector(state => state.character.equipment)
+	const { primary: equippedPrimary, secondary: equippedSecondary } = useAppSelector(state => state.character.equipment)
 
-	const [selectedEquipment, setSelectedEquipment] = useState<equipmentData>(equipedPrimary)
+	const [selectedEquipment, setSelectedEquipment] = useState<equipmentData>(equippedPrimary)
 
 	const skillTrees = useAppSelector(state => state.skills.trees)
 
@@ -44,8 +44,8 @@ const Equipment: React.FC = () => {
 						const amount = getEquipmentAmount(equipment)
 						return <Item key={equipment.name} selected={equipment.name === selectedEquipment.name}>
 							<ItemName color={itemColours[equipment.amount === amount ? 'normal' : 'dlc']}>{equipment.name} (x{amount.join('/x')})</ItemName>
-							{ equipment.name === equipedPrimary.name && <ItemEquiped> { jackOfAllTradesUnlocked ? 'Primary' : ''}</ItemEquiped> }
-							{ equipment.name === equipedSecondary?.name && <ItemEquiped> Secondary</ItemEquiped> }
+							{ equipment.name === equippedPrimary.name && <ItemEquipped> { jackOfAllTradesUnlocked ? 'Primary' : ''}</ItemEquipped> }
+							{ equipment.name === equippedSecondary?.name && <ItemEquipped> Secondary</ItemEquipped> }
 							{ locked && <LockedIcon /> }
 							<EquipementImage
 								src={`images/equipment/${equipment.name}.png`}
@@ -59,9 +59,9 @@ const Equipment: React.FC = () => {
 										if (event.button !== 0 && event.button !== 2) return
 										if (locked) return
 										const slot = event.button ? 'secondary' : 'primary'
-										if (slot === 'primary'&& equipment === equipedSecondary) dispatch(changeEquipment([null, 'secondary']))
+										if (slot === 'primary'&& equipment === equippedSecondary) dispatch(changeEquipment([null, 'secondary']))
 										if (slot === 'secondary' && jackOfAllTrades !== 'aced') return
-										if (slot === 'secondary' && equipment === equipedPrimary) return
+										if (slot === 'secondary' && equipment === equippedPrimary) return
 										dispatch(changeEquipment([equipment, slot]))
 									}
 								}}

@@ -14,7 +14,7 @@ const characterReducer = (state = defaultstate, action: any) => {
 				...state,
 				mask: {
 					...state.mask,
-					equiped: mask
+					equipped: mask
 				}
 			}
 		case getType(actions.toggleMaskFilter):

@@ -1,8 +1,8 @@
 import { changeWeapon } from 'actions/weaponsAction'
 import Container from 'components/Container'
 import { InfoContainer, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/Info'
-import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Item'
-import { TableCompare, TableEquiped } from 'components/Table'
+import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
+import { TableCompare, TableEquipped } from 'components/Table'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
 import { weaponData, weaponStats } from 'data/weapons/guns/weaponTypes'
@@ -56,12 +56,12 @@ export const WeaponsStatsTable: React.FC<weaponsStatsTable> = ({ showExtraStats,
 	return (
 		equippedWeapon ? 
 			<TableCompare
-				equipedStats={baseStats(equippedWeapon)}
+				equippedStats={baseStats(equippedWeapon)}
 				selectedStats={baseStats(selectedWeapon)}
-				equipedAdditional={additionalStats(equippedWeapon)}
+				equippedAdditional={additionalStats(equippedWeapon)}
 				selectedAdditional={additionalStats(selectedWeapon)}
 			/> :
-			<TableEquiped
+			<TableEquipped
 				baseStats={baseStats(selectedWeapon)}
 				additionalStats={additionalStats(selectedWeapon)}
 			/>
@@ -78,11 +78,11 @@ const Weapons: React.FC<weaponsComponent> = ({ slot }) => {
 
 	const dispatch = useAppDispatch()
 
-	const equipedWeapon = useAppSelector(state => state.weapons[slot].equipped)
+	const equippedWeapon = useAppSelector(state => state.weapons[slot].equipped)
 
-	const [selectedTab, setSeletectTab] = useState<string>(equipedWeapon.weaponType)
+	const [selectedTab, setSeletectTab] = useState<string>(equippedWeapon.weaponType)
 
-	const [selectedWeapon, setSeletectedWeapon] = useState(equipedWeapon)
+	const [selectedWeapon, setSeletectedWeapon] = useState(equippedWeapon)
 
 	const clickWeapon = (weapon: weaponData) => weapon.name === selectedWeapon.name ? dispatch(changeWeapon({slot, weapon})) : setSeletectedWeapon(weapon)
 
@@ -106,7 +106,7 @@ const Weapons: React.FC<weaponsComponent> = ({ slot }) => {
 					Object.values(data[selectedTab]).map(weapon => {
 						return <Item key={weapon.name} width={192} height={96}  selected={weapon.name === selectedWeapon.name}>
 							<ItemName color={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
-								{weapon.name === equipedWeapon.name && <ItemEquiped />}
+								{weapon.name === equippedWeapon.name && <ItemEquipped />}
 								<ItemImage
 									src={`images/weapons/${weapon.image}.png`}
 									onClick={() => clickWeapon(weapon)}
@@ -120,7 +120,7 @@ const Weapons: React.FC<weaponsComponent> = ({ slot }) => {
 			<InfoContainer>
 				<InfoTitle>{selectedWeapon.name}</InfoTitle>
 				<InfoSubtitle>Value ${selectedWeapon.cost.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}</InfoSubtitle>
-				<WeaponsStatsTable showExtraStats={true} selectedWeapon={selectedWeapon} equippedWeapon={selectedWeapon.name !== equipedWeapon.name ? equipedWeapon : undefined} />
+				<WeaponsStatsTable showExtraStats={true} selectedWeapon={selectedWeapon} equippedWeapon={selectedWeapon.name !== equippedWeapon.name ? equippedWeapon : undefined} />
 				<InfoUnlock color={itemColours[selectedWeapon.source.rarity]}>{selectedWeapon.source.name}</InfoUnlock>
 			</InfoContainer>
 

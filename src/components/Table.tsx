@@ -46,7 +46,7 @@ export const Data = styled.td`
 	}
 `
 
-interface tableEquiped {
+interface tableEquipped {
 	baseStats: {
 		[key: string]: any;
 	};
@@ -57,7 +57,7 @@ interface tableEquiped {
 
 const colourCompare = (valueOne: number, valueTwo: number) => valueOne !== valueTwo ? (valueOne < valueTwo ? red : green) : '#fff'
 
-export const TableEquiped: React.FC<tableEquiped> = ({ baseStats, additionalStats }) => {
+export const TableEquipped: React.FC<tableEquipped> = ({ baseStats, additionalStats }) => {
 
 	const isArrayZeros = (arr: number[]) => arr.reduce((a, b) => a + b)
 
@@ -113,13 +113,13 @@ export const TableEquiped: React.FC<tableEquiped> = ({ baseStats, additionalStat
 }
 
 interface tableCompare {
-	equipedStats: {
+	equippedStats: {
 		[key: string]: any;
 	};
 	selectedStats: {
 		[key: string]: any;
 	};
-	equipedAdditional: {
+	equippedAdditional: {
 		[key: string]: any;
 	};
 	selectedAdditional: {
@@ -127,29 +127,29 @@ interface tableCompare {
 	};
 }
 
-export const TableCompare: React.FC<tableCompare> = ({ equipedStats, selectedStats, equipedAdditional, selectedAdditional }) => {
+export const TableCompare: React.FC<tableCompare> = ({ equippedStats, selectedStats, equippedAdditional, selectedAdditional }) => {
 
-	const stats = [...Object.keys(equipedStats), ...Object.keys(selectedStats)].filter((label, i, arr) => arr.indexOf(label) == i)
+	const stats = [...Object.keys(equippedStats), ...Object.keys(selectedStats)].filter((label, i, arr) => arr.indexOf(label) == i)
 
 	return (
 		<Table>
 			<thead>
 				<Row>
 					<Head />
-					<Head>Equiped</Head>
+					<Head>Equipped</Head>
 					<Head>Selected</Head>
 				</Row>
 			</thead>
 			<tbody>
 				{
 					stats.map(stat => {
-						const main = equipedStats?.[stat]
+						const main = equippedStats?.[stat]
 						const compare = selectedStats?.[stat]
 
-						const numMain = main + equipedAdditional?.[stat]
+						const numMain = main + equippedAdditional?.[stat]
 						const numCompare = compare + selectedAdditional?.[stat]
 
-						const arrMain = main?.[0] + equipedAdditional[stat]?.[0]
+						const arrMain = main?.[0] + equippedAdditional[stat]?.[0]
 						const arrCompare = compare?.[0] + selectedAdditional[stat]?.[0]
 
 						return <Row key={stat}>
@@ -165,7 +165,7 @@ export const TableCompare: React.FC<tableCompare> = ({ equipedStats, selectedSta
 							{
 								Array.isArray(main) && (
 									<>
-										<Data color={colourCompare(arrMain, arrCompare)}>{`${arrMain} (${main[1] + equipedAdditional[stat][1]})`}</Data>
+										<Data color={colourCompare(arrMain, arrCompare)}>{`${arrMain} (${main[1] + equippedAdditional[stat][1]})`}</Data>
 										<Data color={colourCompare(arrCompare, arrMain)}>{`${arrCompare} (${compare[1] + selectedAdditional[stat][1]})`}</Data>
 									</>
 								)

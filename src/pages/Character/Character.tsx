@@ -1,7 +1,7 @@
 import { changeCharacter } from 'actions/characterAction'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/Info'
-import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Item'
+import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import data, { characterData } from 'data/character/characters'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
@@ -11,9 +11,9 @@ const Character: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const equipedCharacter = useAppSelector(state => state.character.character)
+	const equippedCharacter = useAppSelector(state => state.character.character)
 
-	const [selectedCharacter, setSelectedCharacter] = useState<characterData>(equipedCharacter)
+	const [selectedCharacter, setSelectedCharacter] = useState<characterData>(equippedCharacter)
 
 	const clickCharacter = (character: characterData) => character.name === selectedCharacter.name ? dispatch(changeCharacter(character)) : setSelectedCharacter(character)
 
@@ -25,7 +25,7 @@ const Character: React.FC = () => {
 					data.map(character => {
 						return <Item key={character.name} size={128} selected={character.name === selectedCharacter.name}>
 							<ItemName color={itemColours[character.source.rarity]}>{character.name}</ItemName>
-							{ character.name === equipedCharacter.name && <ItemEquiped /> }
+							{ character.name === equippedCharacter.name && <ItemEquipped /> }
 							<ItemImage
 								src={`images/masks/${character.image}.png`}
 								onMouseDown={event => {

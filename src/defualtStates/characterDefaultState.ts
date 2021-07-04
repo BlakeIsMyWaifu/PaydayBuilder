@@ -5,7 +5,7 @@ import masks, { maskData } from 'data/character/masks'
 
 export interface characterState {
 	mask: {
-		equiped: maskData;
+		equipped: maskData;
 		filter: {
 			[key: string]: boolean;
 		}
@@ -20,7 +20,7 @@ export interface characterState {
 
 const characterDefaultState: characterState = {
 	mask: {
-		equiped: masks[0],
+		equipped: masks[0],
 		filter: {
 			normal: false,
 			community: false,

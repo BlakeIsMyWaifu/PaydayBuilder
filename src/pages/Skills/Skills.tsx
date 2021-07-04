@@ -32,7 +32,7 @@ const Skills: React.FC = () => {
 
 	const jackOfAllTrades = useAppSelector(state => state.skills.trees.technician.engineer.upgrades['Jack of All Trades'])
 	const engineering = useAppSelector(state => state.skills.trees.technician.engineer.upgrades.Engineering)
-	const equipedEquipment = useAppSelector(state => state.character.equipment)
+	const equippedEquipment = useAppSelector(state => state.character.equipment)
 
 	useEffect(() => {
 		const handleKeys = (event: KeyboardEvent) => {
@@ -45,8 +45,8 @@ const Skills: React.FC = () => {
 		window.addEventListener('keydown', handleKeys)
 		if (jackOfAllTrades !== 'aced') dispatch(changeEquipment([null, 'secondary']))
 		if (engineering !== 'basic' && engineering !== 'aced') {
-			if (equipedEquipment.primary.name === 'Silenced Sentry Gun') dispatch(changeEquipment([equipmentData[0], 'primary']))
-			if (equipedEquipment.secondary?.name === 'Silenced Sentry Gun') dispatch(changeEquipment([null, 'secondary']))
+			if (equippedEquipment.primary.name === 'Silenced Sentry Gun') dispatch(changeEquipment([equipmentData[0], 'primary']))
+			if (equippedEquipment.secondary?.name === 'Silenced Sentry Gun') dispatch(changeEquipment([null, 'secondary']))
 		}
 		return () => {
 			window.removeEventListener('keydown', handleKeys)

@@ -1,8 +1,8 @@
 import { changeMelee } from 'actions/weaponsAction'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
-import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'components/Item'
-import { TableCompare, TableEquiped } from 'components/Table'
+import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
+import { TableCompare, TableEquipped } from 'components/Table'
 import data, { meleeData, meleeStats } from 'data/weapons/melees'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
@@ -10,10 +10,10 @@ import { itemColours } from 'utils/colours'
 
 interface meleeStatsTable {
 	selectedMelee: meleeStats;
-	equipedMelee?: meleeStats;
+	equippedMelee?: meleeStats;
 }
 
-export const MeleeStatsTable: React.FC<meleeStatsTable> = ({ selectedMelee, equipedMelee }) => {
+export const MeleeStatsTable: React.FC<meleeStatsTable> = ({ selectedMelee, equippedMelee }) => {
 
 	const baseStats = (meleeStats: meleeStats) => {
 		const toTwoDecimal = (number: number) => +(Math.round(number * 100) / 100).toFixed(2)
@@ -55,14 +55,14 @@ export const MeleeStatsTable: React.FC<meleeStatsTable> = ({ selectedMelee, equi
 	}
 
 	return (
-		equipedMelee ? 
+		equippedMelee ? 
 			<TableCompare
-				equipedStats={baseStats(equipedMelee)}
+				equippedStats={baseStats(equippedMelee)}
 				selectedStats={baseStats(selectedMelee)}
-				equipedAdditional={additionalStats(equipedMelee)}
+				equippedAdditional={additionalStats(equippedMelee)}
 				selectedAdditional={additionalStats(selectedMelee)}
 			/> :
-			<TableEquiped
+			<TableEquipped
 				baseStats={baseStats(selectedMelee)}
 				additionalStats={additionalStats(selectedMelee)}
 			/>
@@ -73,9 +73,9 @@ export const Melee: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const equipedMelee = useAppSelector(state => state.weapons.melee)
+	const equippedMelee = useAppSelector(state => state.weapons.melee)
 
-	const [selectedMelee, setSelectedMelee] = useState(equipedMelee)
+	const [selectedMelee, setSelectedMelee] = useState(equippedMelee)
 
 	const clickMelee = (melee: meleeData) => melee.name === selectedMelee.name ? dispatch(changeMelee(melee)) : setSelectedMelee(melee)
 
@@ -87,7 +87,7 @@ export const Melee: React.FC = () => {
 					data.map(melee => {
 						return <Item key={melee.name} width={192} height={96} selected={melee.name === selectedMelee.name}>
 							<ItemName color={itemColours[melee.sourceType]}>{melee.name}</ItemName>
-							{ melee.name === equipedMelee.name && <ItemEquiped /> }
+							{ melee.name === equippedMelee.name && <ItemEquipped /> }
 							<ItemImage
 								src={`images/melees/${melee.image}.png`}
 								onMouseDown={event => {
@@ -102,7 +102,7 @@ export const Melee: React.FC = () => {
 
 			<InfoContainer>
 				<InfoTitle>{selectedMelee.name}</InfoTitle>
-				<MeleeStatsTable selectedMelee={selectedMelee.stats} equipedMelee={selectedMelee.name !== equipedMelee.name ? equipedMelee.stats : undefined} />
+				<MeleeStatsTable selectedMelee={selectedMelee.stats} equippedMelee={selectedMelee.name !== equippedMelee.name ? equippedMelee.stats : undefined} />
 				<InfoUnlock color={itemColours[selectedMelee.sourceType]}>{selectedMelee.source}</InfoUnlock>
 				<InfoDescription>{selectedMelee.description}</InfoDescription>
 			</InfoContainer>

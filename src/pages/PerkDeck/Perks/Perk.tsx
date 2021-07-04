@@ -20,12 +20,12 @@ const Perk: React.FC<perkComponent> = ({ perk, index, perkref, setHoveredCard, s
 	
 	const dispatch = useAppDispatch()
 
-	const equipedPerk = useAppSelector(state => state.abilities.perkdeck)
+	const equippedPerk = useAppSelector(state => state.abilities.perkdeck)
 
 	return (
 		<Container ref={perkref}>
 			
-			<Title>{perk.name} {perk.name === equipedPerk.name && '(EQUIPED)'}</Title>
+			<Title>{perk.name} {perk.name === equippedPerk.name && '(EQUIPPED)'}</Title>
 
 			<CardWrapper onMouseDown={event => {
 				event.preventDefault()
@@ -34,7 +34,7 @@ const Perk: React.FC<perkComponent> = ({ perk, index, perkref, setHoveredCard, s
 					return
 				}
 				const throwable = throwableData.find(throwable => throwable.name === perk.throwable) || throwableData[5]
-				if (perk.throwable || equipedPerk.throwable) {
+				if (perk.throwable || equippedPerk.throwable) {
 					dispatch(changeThrowable(throwable))
 				}
 				dispatch(changePerkdeck(perk))

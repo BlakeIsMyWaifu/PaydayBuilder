@@ -1,7 +1,7 @@
 import { changeMask, toggleMaskFilter } from 'actions/characterAction'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
-import { Item, ItemEquiped, ItemName } from 'components/Item'
+import { Item, ItemEquipped, ItemName } from 'components/Item'
 import data, { maskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { createRef, useRef, useState } from 'react'
@@ -18,9 +18,9 @@ const Mask: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 	
-	const equipedMask = useAppSelector(state => state.character.mask.equiped)
+	const equippedMask = useAppSelector(state => state.character.mask.equipped)
 
-	const [selectedMask, setSelectedMask] = useState<maskData>(equipedMask)
+	const [selectedMask, setSelectedMask] = useState<maskData>(equippedMask)
 
 	const clickMask = (mask: maskData) => mask.name === selectedMask.name ? dispatch(changeMask(mask)) : setSelectedMask(mask)
 
@@ -88,7 +88,7 @@ const Mask: React.FC = () => {
 									masks.map(mask => {
 										return <Item key={mask.name} size={96} selected={mask.name === selectedMask.name}>
 											<ItemName color={itemColours[mask.rarity]}>{mask.name}</ItemName>
-											{ mask.name === equipedMask.name && <ItemEquiped /> }
+											{ mask.name === equippedMask.name && <ItemEquipped /> }
 											<ItemImage
 												src={`images/masks/${mask.image}.png`}
 												onMouseDown={event => {

@@ -25,13 +25,13 @@ export const Item = styled.div<item>`
 	${props => props.selected && corner};
 `
 
-export const ItemEquiped = styled.h1`
+export const ItemEquipped = styled.h1`
 	position: absolute;
 	top: 5px;
 	left: 8px;
 	font-size: 0.8rem;
 	&::before {
-		content: 'Equiped';
+		content: 'Equipped';
 	}
 `
 

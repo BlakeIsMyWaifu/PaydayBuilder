@@ -30,15 +30,15 @@ const PerkDeck: React.FC = () => {
 
 	const [hoveredCard, setHoveredCard] = useState<card | null>(null)
 
-	const equipedPerk = useAppSelector(state => state.abilities.perkdeck)
+	const equippedPerk = useAppSelector(state => state.abilities.perkdeck)
 
-	const [selectedPerk, setSelectedPerk] = useState(equipedPerk)
+	const [selectedPerk, setSelectedPerk] = useState(equippedPerk)
 
 	const throwable = useAppSelector(state => state.weapons.throwable)
 
 	useEffect(() => {
-		const currentEquipedIndex = data.indexOf(data.find(perk => perk.name === equipedPerk.name) || data[0])
-		scrollToPerk(currentEquipedIndex, 'auto')
+		const currentEquippedIndex = data.indexOf(data.find(perk => perk.name === equippedPerk.name) || data[0])
+		scrollToPerk(currentEquippedIndex, 'auto')
 	}, [throwable])
 
 	return (
@@ -50,7 +50,7 @@ const PerkDeck: React.FC = () => {
 						return <PerkDeckName
 							key={perkdeck.name}
 							onClick={() => scrollToPerk(i, 'smooth')}
-							color={perkdeck.name === equipedPerk.name ? '#fff' : blue}
+							color={perkdeck.name === equippedPerk.name ? '#fff' : blue}
 						>{perkdeck.name}</PerkDeckName>
 					})
 				}
