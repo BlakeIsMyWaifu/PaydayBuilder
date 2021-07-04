@@ -13,7 +13,7 @@ export interface contentData {
 	}
 }
 
-export type contentRarity = 'Pre-order' | 'Paid' | 'Secret' | 'Free' | 'Event' | 'Collaboration' | 'Bundle' | 'Community'
+export type contentRarity = 'Pre-order' | 'Paid' | 'Secret' | 'Free' | 'Event' | 'Collaboration' | 'Bundle' | 'Community' | 'Infamous'
 
 export type contentType = 'Pre-order' | 'Soundtrack' | 'Heist' | 'Feature' | 'Weapon' | 'Mask' | 'Character' | 'Weapon mod' | 'Bundle' | 'Weapon Pack' | 'Weapon Mod' | 'Outfit' | 'Weapon Skin'
 

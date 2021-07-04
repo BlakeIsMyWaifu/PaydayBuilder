@@ -1,11 +1,13 @@
+import content, { contentData } from 'data/source/downloadableContent'
+import source, { sourceData } from 'data/source/miscSources'
+
 export interface characterData {
 	name: string;
 	age: number | string;
 	description: string[];
 	image: string;
 	nationality: string;
-	source: string;
-	sourceType: 'normal' | 'dlc' | 'community' | 'event' | 'infamous' | 'collaboration';
+	source: contentData | sourceData;
 }
 
 const characters: characterData[] = [
@@ -18,8 +20,7 @@ const characters: characterData[] = [
 		],
 		image: 'dallas',
 		nationality: 'American',
-		source: '',
-		sourceType: 'normal'
+		source: source['Base Game']
 	},
 	{
 		name: 'Wolf',
@@ -30,8 +31,7 @@ const characters: characterData[] = [
 		],
 		image: 'wolf',
 		nationality: 'Swedish',
-		source: '',
-		sourceType: 'normal'
+		source: source['Base Game']
 	},
 	{
 		name: 'Chains',
@@ -42,8 +42,7 @@ const characters: characterData[] = [
 		],
 		image: 'chains',
 		nationality: 'American',
-		source: '',
-		sourceType: 'normal'
+		source: source['Base Game']
 	},
 	{
 		name: 'Houston',
@@ -53,8 +52,7 @@ const characters: characterData[] = [
 		],
 		image: 'hoxton',
 		nationality: 'Houston',
-		source: '',
-		sourceType: 'normal'
+		source: source['Base Game']
 	},
 	{
 		name: 'Wick',
@@ -65,8 +63,7 @@ const characters: characterData[] = [
 		],
 		image: 'jw_shades',
 		nationality: 'American',
-		source: '',
-		sourceType: 'normal'
+		source: content['John Wick Character Pack']
 	},
 	{
 		name: 'Hoxton',
@@ -77,8 +74,7 @@ const characters: characterData[] = [
 		],
 		image: 'old_hoxton',
 		nationality: 'English',
-		source: '',
-		sourceType: 'normal'
+		source: content['Old Hoxton Character Pack']
 	},
 	{
 		name: 'Clover',
@@ -88,8 +84,7 @@ const characters: characterData[] = [
 		],
 		image: 'msk_grizel',
 		nationality: 'Irish',
-		source: 'THIS IS A CLOVER CHARACTER PACK ITEM!',
-		sourceType: 'dlc'
+		source: content['Clover Character Pack']
 	},
 	{
 		name:  'Dragan',
@@ -99,8 +94,7 @@ const characters: characterData[] = [
 		],
 		image: 'dragan',
 		nationality: 'Croatian',
-		source: 'THIS IS A DRAGAN CHARACTER PACK ITEM!',
-		sourceType: 'dlc'
+		source: content['Dragan Character Pack']
 	},
 	{
 		name: 'Jacket',
@@ -110,8 +104,7 @@ const characters: characterData[] = [
 		],
 		image: 'richard_returns',
 		nationality: 'American',
-		source: 'THIS IS A HOTLINE MIAMI 2 DELUXE ITEM!',
-		sourceType: 'collaboration'
+		source: content['Jacket Character Pack']
 	},
 	{
 		name: 'Bonnie',
@@ -121,8 +114,7 @@ const characters: characterData[] = [
 		],
 		image: 'bonnie',
 		nationality: 'Scottish',
-		source: '',
-		sourceType: 'normal'
+		source: content['Bonnie Character Pack']
 	},
 	{
 		name: 'Sokol',
@@ -132,8 +124,7 @@ const characters: characterData[] = [
 		],
 		image: 'sokol',
 		nationality: 'Sokol',
-		source: 'THIS IS A SOKOL CHARACTER PACK ITEM!',
-		sourceType: 'dlc'
+		source: content['Sokol Character Pack']
 	},
 	{
 		name: 'Jiro',
@@ -143,8 +134,7 @@ const characters: characterData[] = [
 		],
 		image: 'jiro',
 		nationality: 'Japanese',
-		source: 'THIS IS A YAKUZA CHARACTER PACK ITEM!',
-		sourceType: 'dlc'
+		source: content['Yakuza Character Pack']
 	},
 	{
 		name: 'Bodhi',
@@ -154,8 +144,7 @@ const characters: characterData[] = [
 		],
 		image: 'bodhi',
 		nationality: 'Venezuelan',
-		source: '',
-		sourceType: 'normal'
+		source: content['Bodhi Character Pack']
 	},
 	{
 		name: 'Jimmy',
@@ -165,8 +154,7 @@ const characters: characterData[] = [
 		],
 		image: 'jimmy_duct',
 		nationality: 'Unknown',
-		source: '',
-		sourceType: 'normal'
+		source: content['Jimmy Character Pack']
 	},
 	{
 		name: 'Sydney',
@@ -176,8 +164,7 @@ const characters: characterData[] = [
 		],
 		image: 'sydney',
 		nationality: 'Australian',
-		source: 'THIS IS A SYDNEY CHARACTER PACK ITEM!',
-		sourceType: 'dlc'
+		source: content['Sydney Character Pack']
 	},
 	{
 		name: 'Rust',
@@ -187,8 +174,7 @@ const characters: characterData[] = [
 		],
 		image: 'rust',
 		nationality: 'American',
-		source: 'THIS IS A BIKER CHARACTER PACK ITEM!',
-		sourceType: 'dlc'
+		source: content['Biker Character Pack']
 	},
 	{
 		name: 'Scarface',
@@ -198,8 +184,7 @@ const characters: characterData[] = [
 		],
 		image: 'chc_terry',
 		nationality: 'Cuban',
-		source: 'THIS IS A SCARFACE CHARACTER PACK ITEM!',
-		sourceType: 'dlc'
+		source: content['Scarface Character Pack']
 	},
 	{
 		name: 'Sangres',
@@ -209,8 +194,7 @@ const characters: characterData[] = [
 		],
 		image: 'max',
 		nationality: 'Mexican',
-		source: '',
-		sourceType: 'normal'
+		source: content['Sangres Character Pack']
 	},
 	{
 		name: 'Joy',
@@ -220,8 +204,7 @@ const characters: characterData[] = [
 		],
 		image: 'joy',
 		nationality: 'Japanese',
-		source: '',
-		sourceType: 'normal'
+		source: source['Base Game']
 	},
 	{
 		name: 'Duke',
@@ -231,8 +214,7 @@ const characters: characterData[] = [
 		],
 		image: 'myh',
 		nationality: 'North American',
-		source: '',
-		sourceType: 'normal'
+		source: source['Base Game']
 	},
 	{
 		name: 'Ethan',
@@ -242,8 +224,7 @@ const characters: characterData[] = [
 		],
 		image: 'ecp_male',
 		nationality: 'American',
-		source: 'THIS IS A h3h3 CHARACTER PACK ITEM!',
-		sourceType: 'dlc'
+		source: content['h3h3 Character Pack']
 	},
 	{
 		name: 'Hila',
@@ -253,8 +234,7 @@ const characters: characterData[] = [
 		],
 		image: 'ecp_female',
 		nationality: 'Israeli',
-		source: 'THIS IS A h3h3 CHARACTER PACK ITEM!',
-		sourceType: 'dlc'
+		source: content['h3h3 Character Pack']
 	}
 ]
 

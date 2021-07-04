@@ -1,8 +1,11 @@
+import content, { contentData } from 'data/source/downloadableContent'
+import source, { sourceData } from 'data/source/miscSources'
+
 export interface perk {
 	name: string;
 	description: string[];
 	cards: card[];
-	dlc?: string;
+	source: contentData | sourceData;
 	throwable?: string;
 }
 
@@ -158,7 +161,8 @@ const perks: perk[] = [
 				],
 				vr_description: 'The dash effect is now from 0 up to a maximum of 15.'
 			}
-		]
+		],
+		source: source['Base Game']
 	},
 	{
 		name: 'Muscle',
@@ -238,7 +242,8 @@ const perks: perk[] = [
 					}
 				]
 			}
-		]
+		],
+		source: source['Base Game']
 	},
 	{
 		name: 'Armorer',
@@ -330,7 +335,8 @@ const perks: perk[] = [
 					}
 				]
 			}
-		]
+		],
+		source: source['Base Game']
 	},
 	{
 		name: 'Rogue',
@@ -402,7 +408,8 @@ const perks: perk[] = [
 					}
 				]
 			}
-		]
+		],
+		source: source['Base Game']
 	},
 	{
 		name: 'Hitman',
@@ -484,7 +491,8 @@ const perks: perk[] = [
 					}
 				]
 			}
-		]
+		],
+		source: content['John Wick Character Pack']
 	},
 	{
 		name: 'Crook',
@@ -611,7 +619,8 @@ const perks: perk[] = [
 					}
 				]
 			}
-		]
+		],
+		source: content['Old Hoxton Character Pack']
 	},
 	{
 		name: 'Burglar',
@@ -683,7 +692,7 @@ const perks: perk[] = [
 				vr_description: 'The dash effect is now from 1% up to a maximum of 10%.'
 			}
 		],
-		dlc: 'Clover Character Pack'
+		source: content['Clover Character Pack']
 	},
 	{
 		name: 'Infiltrator',
@@ -729,7 +738,7 @@ const perks: perk[] = [
 				vr_description: 'The dash effect is now from 10 up to a maximum of 22.'
 			}
 		],
-		dlc: 'Dragan Character Pack'
+		source: content['Dragan Character Pack']
 	},
 	{
 		name: 'Sociopath',
@@ -797,7 +806,7 @@ const perks: perk[] = [
 				vr_description: 'The dash effect is now from 10 up to a maximum of 22.'
 			}
 		],
-		dlc: 'Hotline Miami 2 Deluxe'
+		source: content['Jacket Character Pack']
 	},
 	{
 		name: 'Gambler',
@@ -861,7 +870,8 @@ const perks: perk[] = [
 				],
 				vr_description: 'The dash effect is now from 0 up to a maximum of 15.'
 			}
-		]
+		],
+		source: content['Bonnie Character Pack']
 	},
 	{
 		name: 'Grinder',
@@ -918,7 +928,7 @@ const perks: perk[] = [
 				vr_description: 'The dash effect is now from 0 up to a maximum of 15.'
 			}
 		],
-		dlc: 'Sokol Character Pack'
+		source: content['Sokol Character Pack']
 	},
 	{
 		name: 'Yakuza',
@@ -964,7 +974,7 @@ const perks: perk[] = [
 				vr_description: 'The dash effect is now from 10 up to a maximum of 22.'
 			}
 		],
-		dlc: 'Yakuza Character Pack'
+		source: content['Yakuza Character Pack']
 	},
 	{
 		name: 'Ex-President',
@@ -1040,7 +1050,8 @@ const perks: perk[] = [
 				],
 				vr_description: 'The dash effect is now from 0 up to a maximum of 15.'
 			}
-		]
+		],
+		source: content['Bodhi Character Pack']
 	},
 	{
 		name: 'Maniac',
@@ -1085,7 +1096,8 @@ const perks: perk[] = [
 				],
 				vr_description: 'The dash effect is now from 10 up to a maximum of 22.'
 			}
-		]
+		],
+		source: content['Jimmy Character Pack']
 	},
 	{
 		name: 'Anarchist',
@@ -1170,7 +1182,7 @@ const perks: perk[] = [
 				vr_description: 'The dash effect is now from 5 up to a maximum of 11.'
 			}
 		],
-		dlc: 'Sydney Character Pack'
+		source: content['Sydney Character Pack']
 	},
 	{
 		name: 'Biker',
@@ -1215,7 +1227,7 @@ const perks: perk[] = [
 				vr_description: 'The dash effect is now from 10 up to a maximum of 22.'
 			}
 		],
-		dlc: 'Biker Character Pack'
+		source: content['Biker Character Pack']
 	},
 	{
 		name: 'Kingpin',
@@ -1292,7 +1304,7 @@ const perks: perk[] = [
 				]
 			}
 		],
-		dlc: 'Scarface Character Pack',
+		source: content['Scarface Character Pack'],
 		throwable: 'Injector'
 	},
 	{
@@ -1346,6 +1358,7 @@ const perks: perk[] = [
 				vr_description: 'The dash effect is now from 1% up to a maximum of 10%.'
 			}
 		],
+		source: content['Sangres Character Pack'],
 		throwable: 'Smoke Bomb'
 	},
 	{
@@ -1407,6 +1420,7 @@ const perks: perk[] = [
 				vr_description: 'The dash effect is now from 0 up to a maximum of 15.'
 			}
 		],
+		source: source['Base Game'],
 		throwable: 'Stoic\'s Hip Flask'
 	},
 	{
@@ -1470,7 +1484,7 @@ const perks: perk[] = [
 				vr_description: 'The dash effect is now from 0 up to a maximum of 15.'
 			}
 		],
-		dlc: 'H3H3 Character Pack',
+		source: content['h3h3 Character Pack'],
 		throwable: 'Gas Dispenser'
 	},
 	{
@@ -1522,6 +1536,7 @@ const perks: perk[] = [
 				]
 			}
 		],
+		source: source['Base Game'],
 		throwable: 'Pocket ECM'
 	}
 ].map(perkdeck => {

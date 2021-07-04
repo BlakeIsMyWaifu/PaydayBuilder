@@ -50,10 +50,10 @@ const Mask: React.FC = () => {
 			<CollectionTitles ref={scrollRef} onWheel={e => scrollHorizontalDiv(e, scrollRef)}>
 				{
 					Object.keys(collections).map((collection, i) => {
-						if (filters[collections[collection][0].type]) return
+						if (filters[collections[collection][0].rarity]) return
 						return <CollectionTitle
 							key={collection}
-							color={itemColours[collections[collection][0].type]}
+							color={itemColours[collections[collection][0].rarity]}
 							onClick={() => scrollToCollection(i)}
 						>{collection}</CollectionTitle>
 					})
@@ -64,7 +64,7 @@ const Mask: React.FC = () => {
 				<FilterTitle>Filters</FilterTitle>
 				<FiltersWrapper>
 					{
-						['normal', 'community', 'dlc', 'event', 'collaboration', 'infamous'].map(type => {
+						['Free', 'Community', 'Paid', 'Infamous', 'Event', 'Collaboration'].map(type => {
 							return <FilterText
 								key={type}
 								color={itemColours[type]}
@@ -80,14 +80,14 @@ const Mask: React.FC = () => {
 				{
 					Object.keys(collections).map((collection, i) => {
 						const masks = collections[collection]
-						if (filters[masks[0].type]) return
+						if (filters[masks[0].rarity]) return
 						return <MaskCollection key={collection} ref={collectionRefs.current[i]}>
-							<MaskCollectionTitle color={itemColours[masks[0].type]}>{collection}</MaskCollectionTitle>
+							<MaskCollectionTitle color={itemColours[masks[0].rarity]}>{collection}</MaskCollectionTitle>
 							<MaskWrapper key={collection}>
 								{
 									masks.map(mask => {
 										return <Item key={mask.name} size={96} selected={mask.name === selectedMask.name}>
-											<ItemName color={itemColours[mask.type]}>{mask.name}</ItemName>
+											<ItemName color={itemColours[mask.rarity]}>{mask.name}</ItemName>
 											{ mask.name === equipedMask.name && <ItemEquiped /> }
 											<ItemImage
 												src={`images/masks/${mask.image}.png`}
@@ -105,7 +105,7 @@ const Mask: React.FC = () => {
 			<InfoContainer>
 				<InfoTitle>{selectedMask.name}</InfoTitle>
 				<InfoDescription>{selectedMask.description.join('\n\n')}</InfoDescription>
-				<InfoUnlock color={itemColours[selectedMask.type]}>{selectedMask.unlock}</InfoUnlock>
+				<InfoUnlock color={itemColours[selectedMask.rarity]}>{selectedMask.unlock}</InfoUnlock>
 				<InfoCost>{selectedMask.cost}</InfoCost>
 			</InfoContainer>
 

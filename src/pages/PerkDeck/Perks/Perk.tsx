@@ -20,8 +20,6 @@ const Perk: React.FC<perkComponent> = ({ perk, index, perkref, setHoveredCard, s
 	
 	const dispatch = useAppDispatch()
 
-	const clickPerk = () => selectedPerk.name === perk.name ? dispatch(changePerkdeck(perk)) : setSelectedPerk(perk)
-
 	const equipedPerk = useAppSelector(state => state.abilities.perkdeck)
 
 	return (

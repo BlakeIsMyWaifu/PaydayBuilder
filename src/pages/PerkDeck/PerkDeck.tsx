@@ -8,7 +8,7 @@ import { blue } from 'utils/colours'
 import scrollHorizontalDiv from 'utils/scrollHorizontalDiv'
 
 import { PerkDeckName, PerkDeckNamesContainer } from './PerkDeck-Elements'
-import Perk from './Perks/Perk'
+import Perk from './Perks'
 
 const PerkDeck: React.FC = () => {
 
@@ -28,7 +28,7 @@ const PerkDeck: React.FC = () => {
 		})
 	}
 
-	const [hoveredCard, setHoveredCard] = useState<card | null>(data[0].cards[0])
+	const [hoveredCard, setHoveredCard] = useState<card | null>(null)
 
 	const equipedPerk = useAppSelector(state => state.abilities.perkdeck)
 

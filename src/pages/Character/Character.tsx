@@ -24,7 +24,7 @@ const Character: React.FC = () => {
 				{
 					data.map(character => {
 						return <Item key={character.name} size={128} selected={character.name === selectedCharacter.name}>
-							<ItemName color={itemColours[character.sourceType]}>{character.name}</ItemName>
+							<ItemName color={itemColours[character.source.rarity]}>{character.name}</ItemName>
 							{ character.name === equipedCharacter.name && <ItemEquiped /> }
 							<ItemImage
 								src={`images/masks/${character.image}.png`}
@@ -40,7 +40,7 @@ const Character: React.FC = () => {
 				<InfoSubtitle>Nationality: {selectedCharacter.nationality}</InfoSubtitle>
 				<InfoSubtitle>Age: {selectedCharacter.age}</InfoSubtitle>
 				<InfoDescription>{selectedCharacter.description.join('\n\n')}</InfoDescription>
-				<InfoUnlock color={itemColours[selectedCharacter.sourceType]}>{selectedCharacter.source}</InfoUnlock>
+				<InfoUnlock color={itemColours[selectedCharacter.source.rarity]}>{selectedCharacter.source.name}</InfoUnlock>
 			</InfoContainer>
 
 		</Container>
