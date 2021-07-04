@@ -5,7 +5,7 @@ import { Item, ItemContainer, ItemEquiped, ItemImage, ItemName } from 'component
 import { TableCompare, TableEquiped } from 'components/Table'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
-import { weaponData, weaponExtraStats, weaponStats } from 'data/weapons/guns/weaponTypes'
+import { weaponData, weaponStats } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 import { blue, itemColours } from 'utils/colours'
@@ -13,15 +13,17 @@ import { blue, itemColours } from 'utils/colours'
 import { WeaponType, WeaponTypes } from './Weapons-Elements'
 
 interface weaponsStatsTable {
-	mainWeapon: weaponData;
-	compareWeapon?: weaponData;
+	showExtraStats: boolean;
+	selectedWeapon: weaponData;
+	equippedWeapon?: weaponData;
 }
 
-export const WeaponsStatsTable: React.FC<weaponsStatsTable> = ({ mainWeapon, compareWeapon }) => {
+export const WeaponsStatsTable: React.FC<weaponsStatsTable> = ({ showExtraStats, selectedWeapon, equippedWeapon }) => {
 
 	const baseStats = (weapon: weaponData) => {
-		let extra = weapon.extraStats
+		if (!showExtraStats) return weapon.stats
 
+		let extra = weapon.extraStats
 		let extraStats = {
 			tacticalReload: extra.tacticalReload ? (typeof extra.tacticalReload === 'number' ? `${extra.tacticalReload}s` : `${extra.tacticalReload[0]}s | ${extra.tacticalReload[1]}s`) : '',
 			reload: `${extra.reload}s`,
@@ -52,16 +54,16 @@ export const WeaponsStatsTable: React.FC<weaponsStatsTable> = ({ mainWeapon, com
 	}
 
 	return (
-		compareWeapon ? 
+		equippedWeapon ? 
 			<TableCompare
-				mainStats={baseStats(compareWeapon)}
-				compareStats={baseStats(mainWeapon)}
-				mainAdditional={additionalStats(compareWeapon)}
-				compareAdditional={additionalStats(mainWeapon)}
+				equipedStats={baseStats(equippedWeapon)}
+				selectedStats={baseStats(selectedWeapon)}
+				equipedAdditional={additionalStats(equippedWeapon)}
+				selectedAdditional={additionalStats(selectedWeapon)}
 			/> :
 			<TableEquiped
-				baseStats={baseStats(mainWeapon)}
-				additionalStats={additionalStats(mainWeapon)}
+				baseStats={baseStats(selectedWeapon)}
+				additionalStats={additionalStats(selectedWeapon)}
 			/>
 	)
 }
@@ -118,7 +120,7 @@ const Weapons: React.FC<weaponsComponent> = ({ slot }) => {
 			<InfoContainer>
 				<InfoTitle>{selectedWeapon.name}</InfoTitle>
 				<InfoSubtitle>Value ${selectedWeapon.cost.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}</InfoSubtitle>
-				<WeaponsStatsTable mainWeapon={selectedWeapon} compareWeapon={selectedWeapon.name !== equipedWeapon.name ? equipedWeapon : undefined} />
+				<WeaponsStatsTable showExtraStats={true} selectedWeapon={selectedWeapon} equippedWeapon={selectedWeapon.name !== equipedWeapon.name ? equipedWeapon : undefined} />
 				<InfoUnlock color={itemColours[selectedWeapon.source.rarity]}>{selectedWeapon.source.name}</InfoUnlock>
 			</InfoContainer>
 

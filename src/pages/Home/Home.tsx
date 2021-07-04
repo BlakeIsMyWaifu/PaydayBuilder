@@ -4,6 +4,7 @@ import perkData from 'data/abilities/perks'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import { ArmourStatsTable } from 'pages/Armour/Armour'
 import { MeleeStatsTable } from 'pages/Melee/Melee'
+import { WeaponsStatsTable } from 'pages/Weapons/Weapons'
 import React, { ReactElement, useState } from 'react'
 
 import { ConfigButton, ConfigWrapper, EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle } from './Home-Elements'
@@ -76,7 +77,7 @@ const Home: React.FC = () => {
 
 						<Selector title='armour' setHoverInfo={setHoverInfo} infoData={{
 								title: armour.name,
-								table: <ArmourStatsTable mainArmour={armour} />
+								table: <ArmourStatsTable selectedArmour={armour} />
 							}}>
 							<Image src={`images/armours/${armour.name}.png`} />
 						</Selector>
@@ -100,11 +101,17 @@ const Home: React.FC = () => {
 					<TabTitle direction='rtl'>Weapons</TabTitle>
 					<SelectorWrapper>
 
-						<Selector title='primary' setHoverInfo={setHoverInfo} infoData={null}>
+						<Selector title='primary' setHoverInfo={setHoverInfo} infoData={{
+							title: primary.equipped.name,
+							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={primary.equipped} />
+						}}>
 							<Image src={`images/weapons/${primary.equipped.image}.png`} />
 						</Selector>
 
-						<Selector title='secondary' setHoverInfo={setHoverInfo} infoData={null}>
+						<Selector title='secondary' setHoverInfo={setHoverInfo} infoData={{
+							title: secondary.equipped.name,
+							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={secondary.equipped} />
+						}}>
 							<Image src={`images/weapons/${secondary.equipped.image}.png`} />
 						</Selector>
 
@@ -117,7 +124,7 @@ const Home: React.FC = () => {
 
 						<Selector title='melee' setHoverInfo={setHoverInfo} infoData={{
 								title: melee.name,
-								table: <MeleeStatsTable mainMelee={melee.stats} />
+								table: <MeleeStatsTable selectedMelee={melee.stats} />
 							}}>
 							<Image src={`images/melees/${melee.image}.png`} />
 						</Selector>

@@ -8,11 +8,11 @@ import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 
 interface armourStatsTable {
-	mainArmour: armourData;
-	compareArmour?: armourData;
+	selectedArmour: armourData;
+	equipedArmour?: armourData;
 }
 
-export const ArmourStatsTable: React.FC<armourStatsTable> = ({ mainArmour, compareArmour }) => {
+export const ArmourStatsTable: React.FC<armourStatsTable> = ({ selectedArmour, equipedArmour }) => {
 
 	const baseStats = ({ armour, concealment, speed, dodge, steadiness, stamina }: armourStats) => {
 		return ({ armour, health: 230, concealment, speed, dodge, steadiness, stamina })
@@ -43,16 +43,16 @@ export const ArmourStatsTable: React.FC<armourStatsTable> = ({ mainArmour, compa
 	}	
 
 	return (
-		compareArmour ? 
+		equipedArmour ? 
 		<TableCompare
-			mainStats={baseStats(compareArmour.stats)}
-			compareStats={baseStats(mainArmour.stats)}
-			mainAdditional={additionalStats(compareArmour)}
-			compareAdditional={additionalStats(mainArmour)}
+			equipedStats={baseStats(equipedArmour.stats)}
+			selectedStats={baseStats(selectedArmour.stats)}
+			equipedAdditional={additionalStats(equipedArmour)}
+			selectedAdditional={additionalStats(selectedArmour)}
 		/> :
 		<TableEquiped
-			baseStats={baseStats(mainArmour.stats)}
-			additionalStats={additionalStats(mainArmour)}
+			baseStats={baseStats(selectedArmour.stats)}
+			additionalStats={additionalStats(selectedArmour)}
 		/>
 	)
 }
@@ -90,11 +90,7 @@ export const Armour: React.FC = () => {
 
 			<InfoContainer>
 				<InfoTitle>{selectedArmour.name}</InfoTitle>
-
-				{
-					<ArmourStatsTable mainArmour={selectedArmour} compareArmour={selectedArmour.name !== equipedArmour.name ? equipedArmour : undefined} />
-				}
-
+				<ArmourStatsTable selectedArmour={selectedArmour} equipedArmour={selectedArmour.name !== equipedArmour.name ? equipedArmour : undefined} />
 				<InfoDescription>{selectedArmour.desciption.join('\n\n')}</InfoDescription>
 			</InfoContainer>
 

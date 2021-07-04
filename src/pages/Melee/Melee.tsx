@@ -9,11 +9,11 @@ import React, { useState } from 'react'
 import { itemColours } from 'utils/colours'
 
 interface meleeStatsTable {
-	mainMelee: meleeStats;
-	compareMelee?: meleeStats;
+	selectedMelee: meleeStats;
+	equipedMelee?: meleeStats;
 }
 
-export const MeleeStatsTable: React.FC<meleeStatsTable> = ({ mainMelee, compareMelee }) => {
+export const MeleeStatsTable: React.FC<meleeStatsTable> = ({ selectedMelee, equipedMelee }) => {
 
 	const baseStats = (meleeStats: meleeStats) => {
 		const toTwoDecimal = (number: number) => +(Math.round(number * 100) / 100).toFixed(2)
@@ -55,16 +55,16 @@ export const MeleeStatsTable: React.FC<meleeStatsTable> = ({ mainMelee, compareM
 	}
 
 	return (
-		compareMelee ? 
+		equipedMelee ? 
 			<TableCompare
-				mainStats={baseStats(compareMelee)}
-				compareStats={baseStats(mainMelee)}
-				mainAdditional={additionalStats(compareMelee)}
-				compareAdditional={additionalStats(mainMelee)}
+				equipedStats={baseStats(equipedMelee)}
+				selectedStats={baseStats(selectedMelee)}
+				equipedAdditional={additionalStats(equipedMelee)}
+				selectedAdditional={additionalStats(selectedMelee)}
 			/> :
 			<TableEquiped
-				baseStats={baseStats(mainMelee)}
-				additionalStats={additionalStats(mainMelee)}
+				baseStats={baseStats(selectedMelee)}
+				additionalStats={additionalStats(selectedMelee)}
 			/>
 	)
 }
@@ -102,7 +102,7 @@ export const Melee: React.FC = () => {
 
 			<InfoContainer>
 				<InfoTitle>{selectedMelee.name}</InfoTitle>
-				<MeleeStatsTable mainMelee={selectedMelee.stats} compareMelee={selectedMelee.name !== equipedMelee.name ? equipedMelee.stats : undefined} />
+				<MeleeStatsTable selectedMelee={selectedMelee.stats} equipedMelee={selectedMelee.name !== equipedMelee.name ? equipedMelee.stats : undefined} />
 				<InfoUnlock color={itemColours[selectedMelee.sourceType]}>{selectedMelee.source}</InfoUnlock>
 				<InfoDescription>{selectedMelee.description}</InfoDescription>
 			</InfoContainer>
