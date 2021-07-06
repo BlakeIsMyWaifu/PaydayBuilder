@@ -26,7 +26,7 @@ const Subtree: React.FC<subtreeComponent> = ({ tree, subtree, setSkillHovered })
 	return (
 		<Container>
 
-			<Background src={'images/skills/background.png'} onClick={event => event.preventDefault()} height={backgroundBarHeight()}/>
+			<Background src={'images/skills/background.png'} onMouseDown={event => event.preventDefault()} height={backgroundBarHeight()}/>
 
 			<TierWrapper>
 				<Tier>

@@ -97,13 +97,15 @@ const Mask: React.FC = () => {
 							<MaskWrapper key={collection}>
 								{
 									masks.map(mask => {
-										return <Item key={mask.name} size={128} selected={mask.name === selectedMask.name} onClick={event => {
-											event.preventDefault()
-											mask.name === selectedMask.name ? dispatch(changeMask(mask)) : setSelectedMask(mask)
-										}}>
+										return <Item
+											key={mask.name}
+											size={128}
+											selected={mask.name === selectedMask.name}
+											onClick={() => mask.name === selectedMask.name ? dispatch(changeMask(mask)) : setSelectedMask(mask)}
+										>
 											<ItemName color={itemColours[mask.rarity]}>{mask.name.replaceAll(' ', '\n')}</ItemName>
 											{ mask.name === equippedMask.name && <ItemEquipped /> }
-											<ItemImage src={`images/masks/${mask.image}.png`} />
+											<ItemImage src={`images/masks/${mask.image}.png`} onMouseDown={event => event.preventDefault()} />
 										</Item>
 									})
 								}

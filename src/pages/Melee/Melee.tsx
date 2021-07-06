@@ -77,21 +77,22 @@ export const Melee: React.FC = () => {
 
 	const [selectedMelee, setSelectedMelee] = useState(equippedMelee)
 
-	const clickMelee = (melee: meleeData) => melee.name === selectedMelee.name ? dispatch(changeMelee(melee)) : setSelectedMelee(melee)
-
 	return (
 		<Container title='Melee'>
 
 			<ItemContainer>
 				{
 					data.map(melee => {
-						return <Item key={melee.name} width={192} height={96} selected={melee.name === selectedMelee.name} onClick={event => {
-							event.preventDefault()
-							clickMelee(melee)
-						}}>
+						return <Item
+							key={melee.name}
+							width={192}
+							height={96}
+							selected={melee.name === selectedMelee.name}
+							onClick={() => melee.name === selectedMelee.name ? dispatch(changeMelee(melee)) : setSelectedMelee(melee)}
+						>
 							<ItemName color={itemColours[melee.source.rarity]}>{melee.name}</ItemName>
 							{ melee.name === equippedMelee.name && <ItemEquipped /> }
-							<ItemImage src={`images/melees/${melee.image}.png`} />
+							<ItemImage src={`images/melees/${melee.image}.png`} onMouseDown={event => event.preventDefault()} />
 						</Item>
 					})
 				}

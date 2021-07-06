@@ -25,7 +25,6 @@ const Throwable: React.FC = () => {
 					data.map(throwable => {
 						const locked = !!(throwable.perkDeck && perkDeckName !== throwable.perkDeck)
 						return <Item key={throwable.name} width={192} height={96} selected={throwable.name === selectedThrowable.name} onClick={event => {
-							event.preventDefault()
 							if (throwable.name !== selectedThrowable.name) {
 								setSelectedThrowable(throwable)
 							} else {
@@ -39,6 +38,7 @@ const Throwable: React.FC = () => {
 							<ItemImage
 								src={`images/throwables/${throwable.image}.png`}
 								locked={locked}
+								onMouseDown={event => event.preventDefault()}
 							/>
 						</Item>
 					})

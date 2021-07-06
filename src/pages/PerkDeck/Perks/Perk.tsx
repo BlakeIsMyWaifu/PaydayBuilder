@@ -24,11 +24,10 @@ const Perk: React.FC<perkComponent> = ({ perk, index, perkref, setHoveredCard, s
 
 	return (
 		<Container ref={perkref}>
-			
+
 			<Title>{perk.name} {perk.name === equippedPerk.name && '(EQUIPPED)'}</Title>
 
-			<CardWrapper onClick={event => {
-				event.preventDefault()
+			<CardWrapper onClick={() => {
 				if (selectedPerk.name !== perk.name) {
 					setSelectedPerk(perk)
 					return
@@ -48,7 +47,7 @@ const Perk: React.FC<perkComponent> = ({ perk, index, perkref, setHoveredCard, s
 							onMouseOver={() => setHoveredCard(card)}
 							onMouseLeave={() => setHoveredCard(null)}
 							selected={selectedPerk.name === perk.name}>
-							<CardBackground src={'images/perks/card.png'} selected={selectedPerk.name === perk.name}/>
+							<CardBackground src={'images/perks/card.png'} onMouseDown={event => event.preventDefault()} selected={selectedPerk.name === perk.name}/>
 							<CardIcon x={x} y={y}/>
 						</Card>
 					})

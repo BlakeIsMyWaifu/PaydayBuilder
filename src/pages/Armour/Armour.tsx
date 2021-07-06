@@ -65,21 +65,21 @@ export const Armour: React.FC = () => {
 
 	const [selectedArmour, setSelectedArmour] = useState<armourData>(equippedArmour)
 
-	const clickArmour = (armour: armourData) => armour.name === selectedArmour.name ? dispatch(changeArmour(armour)) : setSelectedArmour(armour)
-
 	return (
 		<Container title='Armour'>
 
 			<ItemContainer>
 				{
 					data.map(armour => {
-						return <Item key={armour.name} size={196} selected={armour.name === selectedArmour.name} onClick={event => {
-							event.preventDefault()
-							clickArmour(armour)
-						}}>
+						return <Item
+							key={armour.name}
+							size={196}
+							selected={armour.name === selectedArmour.name}
+							onClick={() => armour.name === selectedArmour.name ? dispatch(changeArmour(armour)) : setSelectedArmour(armour)}
+						>
 							<ItemName>{armour.name}</ItemName>
 							{ armour.name === equippedArmour.name && <ItemEquipped /> }
-							<ItemImage src={`images/armours/${armour.name}.png`} />
+							<ItemImage src={`images/armours/${armour.name}.png`} onMouseDown={event => event.preventDefault()} />
 						</Item>
 					})
 				}

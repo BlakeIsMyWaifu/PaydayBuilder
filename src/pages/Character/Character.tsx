@@ -15,21 +15,21 @@ const Character: React.FC = () => {
 
 	const [selectedCharacter, setSelectedCharacter] = useState<characterData>(equippedCharacter)
 
-	const clickCharacter = (character: characterData) => character.name === selectedCharacter.name ? dispatch(changeCharacter(character)) : setSelectedCharacter(character)
-
 	return (
 		<Container title='Character'>
 
 			<ItemContainer>
 				{
 					data.map(character => {
-						return <Item key={character.name} size={128} selected={character.name === selectedCharacter.name} onClick={event => {
-							event.preventDefault()
-							clickCharacter(character)
-						}}>
+						return <Item
+							key={character.name}
+							size={128}
+							selected={character.name === selectedCharacter.name}
+							onClick={() => character.name === selectedCharacter.name ? dispatch(changeCharacter(character)) : setSelectedCharacter(character)}
+						>
 							<ItemName color={itemColours[character.source.rarity]}>{character.name}</ItemName>
 							{ character.name === equippedCharacter.name && <ItemEquipped /> }
-							<ItemImage src={`images/masks/${character.image}.png`} />
+							<ItemImage src={`images/masks/${character.image}.png`} onMouseDown={event => event.preventDefault()} />
 						</Item>
 					})
 				}

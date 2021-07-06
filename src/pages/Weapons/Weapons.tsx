@@ -102,13 +102,16 @@ const Weapons: React.FC<weaponsComponent> = ({ slot }) => {
 			<ItemContainer>
 				{
 					Object.values(data[selectedTab]).map(weapon => {
-						return <Item key={weapon.name} width={192} height={96} selected={weapon.name === selectedWeapon.name} onClick={event => {
-							event.preventDefault()
-							weapon.name === selectedWeapon.name ? dispatch(changeWeapon({slot, weapon})) : setSeletectedWeapon(weapon)
-						}}>
+						return <Item
+							key={weapon.name}
+							width={192}
+							height={96}
+							selected={weapon.name === selectedWeapon.name}
+							onClick={() => weapon.name === selectedWeapon.name ? dispatch(changeWeapon({slot, weapon})) : setSeletectedWeapon(weapon)}
+						>
 							<ItemName color={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
 							{ weapon.name === equippedWeapon.name && <ItemEquipped /> }
-							<ItemImage src={`images/weapons/${weapon.image}.png`} />
+							<ItemImage src={`images/weapons/${weapon.image}.png`} onMouseDown={event => event.preventDefault()} />
 						</Item>
 					})
 				}
