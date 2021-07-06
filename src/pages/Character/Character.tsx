@@ -23,16 +23,13 @@ const Character: React.FC = () => {
 			<ItemContainer>
 				{
 					data.map(character => {
-						return <Item key={character.name} size={128} selected={character.name === selectedCharacter.name}>
+						return <Item key={character.name} size={128} selected={character.name === selectedCharacter.name} onMouseDown={event => {
+							event.preventDefault()
+							clickCharacter(character)
+						}}>
 							<ItemName color={itemColours[character.source.rarity]}>{character.name}</ItemName>
 							{ character.name === equippedCharacter.name && <ItemEquipped /> }
-							<ItemImage
-								src={`images/masks/${character.image}.png`}
-								onMouseDown={event => {
-									event.preventDefault()
-									clickCharacter(character)
-								}}
-							/>
+							<ItemImage src={`images/masks/${character.image}.png`} />
 						</Item>
 					})
 				}

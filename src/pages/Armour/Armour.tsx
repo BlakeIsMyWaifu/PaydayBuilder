@@ -73,16 +73,13 @@ export const Armour: React.FC = () => {
 			<ItemContainer>
 				{
 					data.map(armour => {
-						return <Item key={armour.name} size={196} selected={armour.name === selectedArmour.name}>
+						return <Item key={armour.name} size={196} selected={armour.name === selectedArmour.name} onMouseDown={event => {
+							event.preventDefault()
+							clickArmour(armour)
+						}}>
 							<ItemName>{armour.name}</ItemName>
 							{ armour.name === equippedArmour.name && <ItemEquipped /> }
-							<ItemImage
-								src={`images/armours/${armour.name}.png`}
-								onMouseDown={event => {
-									event.preventDefault()
-									clickArmour(armour)
-								}}
-							/>
+							<ItemImage src={`images/armours/${armour.name}.png`} />
 						</Item>
 					})
 				}

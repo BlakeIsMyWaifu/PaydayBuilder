@@ -84,8 +84,6 @@ const Weapons: React.FC<weaponsComponent> = ({ slot }) => {
 
 	const [selectedWeapon, setSeletectedWeapon] = useState(equippedWeapon)
 
-	const clickWeapon = (weapon: weaponData) => weapon.name === selectedWeapon.name ? dispatch(changeWeapon({slot, weapon})) : setSeletectedWeapon(weapon)
-
 	return (
 		<Container columns='3fr 1.5fr' rows='4rem 2rem 8fr 4rem' areas='"title filter" "weapontypes filter" "items info" "items back"' title={slot}>
 
@@ -104,14 +102,13 @@ const Weapons: React.FC<weaponsComponent> = ({ slot }) => {
 			<ItemContainer>
 				{
 					Object.values(data[selectedTab]).map(weapon => {
-						return <Item key={weapon.name} width={192} height={96}  selected={weapon.name === selectedWeapon.name}>
+						return <Item key={weapon.name} width={192} height={96} selected={weapon.name === selectedWeapon.name} onMouseDown={event => {
+							event.preventDefault()
+							weapon.name === selectedWeapon.name ? dispatch(changeWeapon({slot, weapon})) : setSeletectedWeapon(weapon)
+						}}>
 							<ItemName color={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
-								{weapon.name === equippedWeapon.name && <ItemEquipped />}
-								<ItemImage
-									src={`images/weapons/${weapon.image}.png`}
-									onClick={() => clickWeapon(weapon)}
-									onMouseDown={event => event.preventDefault()}
-								/>
+							{ weapon.name === equippedWeapon.name && <ItemEquipped /> }
+							<ItemImage src={`images/weapons/${weapon.image}.png`} />
 						</Item>
 					})
 				}

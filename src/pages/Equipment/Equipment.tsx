@@ -42,7 +42,20 @@ const Equipment: React.FC = () => {
 					data.map(equipment => {
 						const locked = equipment.name === 'Silenced Sentry Gun' && !engineeringUnlocked
 						const amount = getEquipmentAmount(equipment)
-						return <Item key={equipment.name} selected={equipment.name === selectedEquipment.name}>
+						return <Item key={equipment.name} selected={equipment.name === selectedEquipment.name} onMouseDown={(event: React.MouseEvent) => {
+							event.preventDefault()
+							if (equipment.name !== selectedEquipment.name) {
+								setSelectedEquipment(equipment)
+							} else {
+								if (event.button !== 0 && event.button !== 2) return
+								if (locked) return
+								const slot = event.button ? 'secondary' : 'primary'
+								if (slot === 'primary'&& equipment === equippedSecondary) dispatch(changeEquipment([null, 'secondary']))
+								if (slot === 'secondary' && jackOfAllTrades !== 'aced') return
+								if (slot === 'secondary' && equipment === equippedPrimary) return
+								dispatch(changeEquipment([equipment, slot]))
+							}
+						}}>
 							<ItemName color={itemColours[equipment.amount === amount ? 'normal' : 'dlc']}>{equipment.name} (x{amount.join('/x')})</ItemName>
 							{ equipment.name === equippedPrimary.name && <ItemEquipped> { jackOfAllTradesUnlocked ? 'Primary' : ''}</ItemEquipped> }
 							{ equipment.name === equippedSecondary?.name && <ItemEquipped> Secondary</ItemEquipped> }
@@ -51,20 +64,6 @@ const Equipment: React.FC = () => {
 								src={`images/equipment/${equipment.name}.png`}
 								locked={locked}
 								onContextMenu={event => event.preventDefault()}
-								onMouseDown={(event: React.MouseEvent) => {
-									event.preventDefault()
-									if (equipment.name !== selectedEquipment.name) {
-										setSelectedEquipment(equipment)
-									} else {
-										if (event.button !== 0 && event.button !== 2) return
-										if (locked) return
-										const slot = event.button ? 'secondary' : 'primary'
-										if (slot === 'primary'&& equipment === equippedSecondary) dispatch(changeEquipment([null, 'secondary']))
-										if (slot === 'secondary' && jackOfAllTrades !== 'aced') return
-										if (slot === 'secondary' && equipment === equippedPrimary) return
-										dispatch(changeEquipment([equipment, slot]))
-									}
-								}}
 							/>
 						</Item>
 					})

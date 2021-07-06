@@ -85,16 +85,13 @@ export const Melee: React.FC = () => {
 			<ItemContainer>
 				{
 					data.map(melee => {
-						return <Item key={melee.name} width={192} height={96} selected={melee.name === selectedMelee.name}>
+						return <Item key={melee.name} width={192} height={96} selected={melee.name === selectedMelee.name} onMouseDown={event => {
+							event.preventDefault()
+							clickMelee(melee)
+						}}>
 							<ItemName color={itemColours[melee.sourceType]}>{melee.name}</ItemName>
 							{ melee.name === equippedMelee.name && <ItemEquipped /> }
-							<ItemImage
-								src={`images/melees/${melee.image}.png`}
-								onMouseDown={event => {
-									event.preventDefault()
-									clickMelee(melee)
-								}}
-							/>
+							<ItemImage src={`images/melees/${melee.image}.png`} />
 						</Item>
 					})
 				}
