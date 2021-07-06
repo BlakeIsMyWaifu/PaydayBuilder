@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { red } from 'utils/colours'
 import corner from 'utils/corner'
 
 export const InfoContainer = styled.div`
@@ -31,6 +32,10 @@ export const InfoDescription = styled.h1<infoText>`
 	padding-top: 16px;
 	padding-bottom: 8px;
 	white-space: pre-line;
+`
+
+export const InfoRequirement = styled.h1`
+	color: ${red};
 `
 
 export const InfoUnlock = styled.h1`

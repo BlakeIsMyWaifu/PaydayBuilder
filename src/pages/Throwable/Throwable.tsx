@@ -1,8 +1,8 @@
 import { changeThrowable } from 'actions/weaponsAction'
 import Container from 'components/Container'
-import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
+import { InfoContainer, InfoDescription, InfoRequirement, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } from 'components/Item'
-import data, { throwableData } from 'data/weapons/throwables'
+import data from 'data/weapons/throwables'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 import { itemColours } from 'utils/colours'
@@ -47,6 +47,7 @@ const Throwable: React.FC = () => {
 
 			<InfoContainer>
 				<InfoTitle>{selectedThrowable.name}</InfoTitle>
+				{ selectedThrowable.perkDeck && selectedThrowable.perkDeck !== perkDeckName && <InfoRequirement>Requires the {selectedThrowable.perkDeck} perk deck equipped</InfoRequirement> }
 				<InfoDescription>{selectedThrowable.description.join('\n\n')}</InfoDescription>
 				<InfoUnlock color={itemColours[selectedThrowable.source.rarity]}>{selectedThrowable.source.name}</InfoUnlock>
 			</InfoContainer>
