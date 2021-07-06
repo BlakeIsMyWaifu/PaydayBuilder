@@ -156,8 +156,8 @@ const Home: React.FC = () => {
 				</Tab>
 
 				<ConfigWrapper>
-					<ConfigButton onMouseDown={() => setToggleSettings(!toggleSettings)}>[Settings]</ConfigButton>
-					<ConfigButton onMouseDown={() => dispatch({type: 'RESET'})}>[Reset Build]</ConfigButton>
+					<ConfigButton onClick={() => setToggleSettings(!toggleSettings)}>[Settings]</ConfigButton>
+					<ConfigButton onClick={() => dispatch({type: 'RESET'})}>[Reset Build]</ConfigButton>
 				</ConfigWrapper>
 
 			</Container>

@@ -44,10 +44,10 @@ const Equipment: React.FC = () => {
 						const amount = getEquipmentAmount(equipment)
 						return <Item key={equipment.name} selected={equipment.name === selectedEquipment.name} onMouseDown={(event: React.MouseEvent) => {
 							event.preventDefault()
+							if (event.button !== 0 && event.button !== 2) return
 							if (equipment.name !== selectedEquipment.name) {
 								setSelectedEquipment(equipment)
 							} else {
-								if (event.button !== 0 && event.button !== 2) return
 								if (locked) return
 								const slot = event.button ? 'secondary' : 'primary'
 								if (slot === 'primary'&& equipment === equippedSecondary) dispatch(changeEquipment([null, 'secondary']))

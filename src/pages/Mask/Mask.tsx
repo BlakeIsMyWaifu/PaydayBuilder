@@ -79,7 +79,7 @@ const Mask: React.FC = () => {
 						return <RarityTitle
 							key={rarity}
 							color={itemColours[rarity] || 'rainbow'}
-							onMouseDown={() => {
+							onClick={() => {
 								setSelectedTab(rarity)
 								itemContainerRef.current?.scrollTo(0, 0)
 							}}
@@ -97,7 +97,7 @@ const Mask: React.FC = () => {
 							<MaskWrapper key={collection}>
 								{
 									masks.map(mask => {
-										return <Item key={mask.name} size={128} selected={mask.name === selectedMask.name} onMouseDown={event => {
+										return <Item key={mask.name} size={128} selected={mask.name === selectedMask.name} onClick={event => {
 											event.preventDefault()
 											mask.name === selectedMask.name ? dispatch(changeMask(mask)) : setSelectedMask(mask)
 										}}>

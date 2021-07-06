@@ -27,7 +27,7 @@ const Perk: React.FC<perkComponent> = ({ perk, index, perkref, setHoveredCard, s
 			
 			<Title>{perk.name} {perk.name === equippedPerk.name && '(EQUIPPED)'}</Title>
 
-			<CardWrapper onMouseDown={event => {
+			<CardWrapper onClick={event => {
 				event.preventDefault()
 				if (selectedPerk.name !== perk.name) {
 					setSelectedPerk(perk)

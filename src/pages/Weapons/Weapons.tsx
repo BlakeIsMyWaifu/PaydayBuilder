@@ -102,7 +102,7 @@ const Weapons: React.FC<weaponsComponent> = ({ slot }) => {
 			<ItemContainer>
 				{
 					Object.values(data[selectedTab]).map(weapon => {
-						return <Item key={weapon.name} width={192} height={96} selected={weapon.name === selectedWeapon.name} onMouseDown={event => {
+						return <Item key={weapon.name} width={192} height={96} selected={weapon.name === selectedWeapon.name} onClick={event => {
 							event.preventDefault()
 							weapon.name === selectedWeapon.name ? dispatch(changeWeapon({slot, weapon})) : setSeletectedWeapon(weapon)
 						}}>

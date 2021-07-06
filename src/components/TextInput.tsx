@@ -100,7 +100,7 @@ const TextInput: React.FC<TextInputComponent> = ({ placeholder, callback }) => {
 	return (
 		<Container>
 			<Input type='text' placeholder={placeholder} onKeyDown={onInputEnter} ref={inputRef} />
-			<Button type='submit' onMouseDown={inputOnClick}>➜</Button>
+			<Button type='submit' onClick={inputOnClick}>➜</Button>
 		</Container>
 	)
 }

@@ -73,7 +73,7 @@ export const Info: React.FC<InfoComponent> = ({ tabs }) => {
 					Object.keys(tabs).map(title => {
 						return <InfoTabTitle
 							key={title}
-							onMouseDown={() => setCurrentTab(title)}
+							onClick={() => setCurrentTab(title)}
 							selected={currentTab === title}
 						>{title}</InfoTabTitle>
 					})

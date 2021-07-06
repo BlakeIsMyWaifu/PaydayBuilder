@@ -23,7 +23,7 @@ const Character: React.FC = () => {
 			<ItemContainer>
 				{
 					data.map(character => {
-						return <Item key={character.name} size={128} selected={character.name === selectedCharacter.name} onMouseDown={event => {
+						return <Item key={character.name} size={128} selected={character.name === selectedCharacter.name} onClick={event => {
 							event.preventDefault()
 							clickCharacter(character)
 						}}>

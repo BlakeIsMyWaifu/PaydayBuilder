@@ -70,7 +70,7 @@ const Container: React.FC<area> = ({
 			{children}
 
 			{
-				backButton && <BackWrapper onMouseDown={event => event.preventDefault()}>
+				backButton && <BackWrapper onClick={event => event.preventDefault()}>
 					<BackLink to='/'>
 						<BackText>Back</BackText>
 					</BackLink>
