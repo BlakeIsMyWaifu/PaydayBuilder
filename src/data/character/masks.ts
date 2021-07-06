@@ -3646,7 +3646,7 @@ const masks: maskData[] = [
 			'Activate Night Vision Mode by holding down the Fire Mode button.'
 		],
 		collection: 'Gage Spec Ops Pack DLC',
-		rarity: 'Free',
+		rarity: 'Paid',
 		unlock: 'THIS IS A GAGE SPEC OPS PACK ITEM!',
 		cost: 'Unlocked through Side Jobs'
 	},
@@ -3734,7 +3734,7 @@ const masks: maskData[] = [
 			'Scarface came to the US with nothing more than two empty hands and a bad attitude, the darkness in his heart matched only by the brilliance of his criminal mind. His mask tells the story, complete with the trail of blood he left in his wake as he began to make his mark.'
 		],
 		collection: 'Scarface Character Pack DLC',
-		rarity: 'Free',
+		rarity: 'Paid',
 		unlock: 'THIS IS A SCARFACE CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
@@ -3746,7 +3746,7 @@ const masks: maskData[] = [
 			'Never liked how the original one turned out? This is your chance to change history.'
 		],
 		collection: 'Scarface Character Pack DLC',
-		rarity: 'Free',
+		rarity: 'Paid',
 		unlock: 'THIS IS A SCARFACE CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
@@ -3905,7 +3905,7 @@ const masks: maskData[] = [
 			'Do dragons laugh? For Real? They\'re usually such cranky bastards, even if some of them have nice manners. Still, imagine you\'re on the receiving end of a heister wearing this, gunning at you with a big, fat hand-cannon.'
 		],
 		collection: 'Border Crossing Heist DLC',
-		rarity: 'Free',
+		rarity: 'Paid',
 		unlock: 'THIS IS A DRAGON PACK ITEM!',
 		cost: 'Free'
 	},
@@ -3916,7 +3916,7 @@ const masks: maskData[] = [
 			'There\'s probably a song based on the name of this mask out there somewhere. All those even syllables make for a catchy rhythm, don\'t they?'
 		],
 		collection: 'Border Crossing Heist DLC',
-		rarity: 'Free',
+		rarity: 'Paid',
 		unlock: 'THIS IS A DRAGON PACK ITEM!',
 		cost: 'Free'
 	},
@@ -3927,7 +3927,7 @@ const masks: maskData[] = [
 			'The label on this says it\'s great for those situations when you\'re all stressed out and need a bit of Feng Shui to center yourself. But note the fine print: \'The manufacturer takes no responsibility for its use, misuse or resulting incarceration!\''
 		],
 		collection: 'Border Crossing Heist DLC',
-		rarity: 'Free',
+		rarity: 'Paid',
 		unlock: 'THIS IS A DRAGON PACK ITEM!',
 		cost: 'Free'
 	},
@@ -3938,7 +3938,7 @@ const masks: maskData[] = [
 			'If the dragon is shouting, does that make the tiger roar? Usually, making a loud statement during a heist can be detrimental to its success. But you know, sometimes you just gotta roll with it because it\'s cool, so go ahead... treat yo\'self.'
 		],
 		collection: 'Border Crossing Heist DLC',
-		rarity: 'Free',
+		rarity: 'Paid',
 		unlock: 'THIS IS A DRAGON PACK ITEM!',
 		cost: 'Free'
 	},
@@ -3950,7 +3950,7 @@ const masks: maskData[] = [
 			'It\'s said that he once had escaped from a mental institution. He now leads a life of crime.'
 		],
 		collection: 'Twisted Metal DLC',
-		rarity: 'Free',
+		rarity: 'Paid',
 		unlock: '',
 		cost: '$10,250'
 	},
@@ -3963,7 +3963,7 @@ const masks: maskData[] = [
 			'We at OVERKILL salute you for your loyalty and patience!'
 		],
 		collection: 'Thespian Mask Pack DLC',
-		rarity: 'Free',
+		rarity: 'Paid',
 		unlock: 'THIS IS A THESPIAN MASK PACK ITEM!',
 		cost: '$6,750'
 	},

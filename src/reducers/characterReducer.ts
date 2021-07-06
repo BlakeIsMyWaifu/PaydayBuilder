@@ -12,22 +12,7 @@ const characterReducer = (state = defaultstate, action: any) => {
 			const mask: maskData = action.payload
 			return {
 				...state,
-				mask: {
-					...state.mask,
-					equipped: mask
-				}
-			}
-		case getType(actions.toggleMaskFilter):
-			const filter: string = action.payload
-			return {
-				...state,
-				mask: {
-					...state.mask,
-					filter: {
-						...state.mask.filter,
-						[filter]: !state.mask.filter[filter]
-					}
-				}
+				mask
 			}
 		case getType(actions.changeCharacter):
 			const character: characterData = action.payload

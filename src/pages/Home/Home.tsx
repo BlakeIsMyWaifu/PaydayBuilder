@@ -62,10 +62,10 @@ const Home: React.FC = () => {
 					<SelectorWrapper>
 
 						<Selector title='mask' setHoverInfo={setHoverInfo} infoData={{
-								title: mask.equipped.name,
-								description: mask.equipped.description
+								title: mask.name,
+								description: mask.description
 							}}>
-							<Image src={`images/masks/${mask.equipped.image}.png`} />
+							<Image src={`images/masks/${mask.image}.png`} />
 						</Selector>
 
 						<Selector title='character' setHoverInfo={setHoverInfo} infoData={{

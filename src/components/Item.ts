@@ -30,6 +30,7 @@ export const ItemEquipped = styled.h1`
 	top: 5px;
 	left: 8px;
 	font-size: 0.8rem;
+	z-index: 10;
 	&::before {
 		content: 'Equipped';
 	}
@@ -37,12 +38,12 @@ export const ItemEquipped = styled.h1`
 
 export const ItemName = styled.h1`
 	position: absolute;
-	direction: rtl;
 	top: 5px;
 	right: 8px;
 	font-size: 0.8rem;
 	color: ${props => props.color};
 	z-index: 5;
+	white-space: pre-line;
 `
 
 interface itemImage {

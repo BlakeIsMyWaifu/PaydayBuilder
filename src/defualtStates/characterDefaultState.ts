@@ -4,12 +4,7 @@ import equipment, { equipmentData } from 'data/character/equipment'
 import masks, { maskData } from 'data/character/masks'
 
 export interface characterState {
-	mask: {
-		equipped: maskData;
-		filter: {
-			[key: string]: boolean;
-		}
-	};
+	mask: maskData;
 	character: characterData;
 	armour: armourData;
 	equipment: {
@@ -19,17 +14,7 @@ export interface characterState {
 }
 
 const characterDefaultState: characterState = {
-	mask: {
-		equipped: masks[0],
-		filter: {
-			normal: false,
-			community: false,
-			dlc: false,
-			event: false,
-			collaboration: false,
-			infamous: false
-		}
-	},
+	mask: masks[0],
 	character: characters[0],
 	armour: armours[0],
 	equipment: {

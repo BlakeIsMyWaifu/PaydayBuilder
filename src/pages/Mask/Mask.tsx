@@ -1,101 +1,109 @@
-import { changeMask, toggleMaskFilter } from 'actions/characterAction'
+import { changeMask } from 'actions/characterAction'
 import Container from 'components/Container'
-import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
-import { Item, ItemEquipped, ItemName } from 'components/Item'
+import Info, { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
+import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import data, { maskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { createRef, useRef, useState } from 'react'
 import { itemColours } from 'utils/colours'
-import scrollHorizontalDiv from 'utils/scrollHorizontalDiv'
 
-import { CollectionTitle, CollectionTitles, FilterContainer, FilterText, FilterTitle, FiltersWrapper, InfoCost, ItemContainer, ItemImage, MaskCollection, MaskCollectionTitle, MaskWrapper } from './Mask-Elements'
+import { CollectionTitle, CollectionsContainer, InfoCost, ItemContainer, MaskCollection, MaskCollectionTitle, MaskWrapper, RarityContainer, RarityTitle } from './Mask-Elements'
 
-interface collections {
-	[key: string]: maskData[];
+const collections = (() => {
+	let out: Record<string, maskData[]> = {}
+	data.forEach(mask => {
+		let collection = out[mask.collection]
+		out[mask.collection] = collection ? [...collection, mask] : [mask]
+	})
+	return out
+})()
+
+interface MaskTabComponent {
+	selectedMask: maskData;
+}
+
+const MaskTab: React.FC<MaskTabComponent> = ({ selectedMask }) => {
+	return (
+		<InfoContainer>
+			<InfoTitle>{selectedMask.name}</InfoTitle>
+			<InfoDescription>{selectedMask.description.join('\n\n')}</InfoDescription>
+			<InfoUnlock color={itemColours[selectedMask.rarity]}>{selectedMask.unlock}</InfoUnlock>
+			<InfoCost>{selectedMask.cost}</InfoCost>
+		</InfoContainer>
+	)
+}
+
+interface CollectionsTabComponent {
+	selectedTab: string;
+	collectionRefs: React.MutableRefObject<React.RefObject<HTMLDivElement>[]>;
+}
+
+const CollectionsTab: React.FC<CollectionsTabComponent> = ({ selectedTab, collectionRefs }) => {
+	return (
+		<InfoContainer>
+			<InfoTitle>Collections</InfoTitle>
+			<CollectionsContainer>
+				{
+					Object.keys(collections).map((collection, i) => {
+						if (selectedTab !== collections[collection][0].rarity && selectedTab !== 'All') return
+						return <CollectionTitle
+							key={collection}
+							color={itemColours[collections[collection][0].rarity]}
+							onClick={() => collectionRefs.current[i].current?.scrollIntoView({ behavior: 'smooth' })}
+						>{collection}</CollectionTitle>
+					})
+				}
+			</CollectionsContainer>
+		</InfoContainer>
+	)
 }
 
 const Mask: React.FC = () => {
 
 	const dispatch = useAppDispatch()
-	
-	const equippedMask = useAppSelector(state => state.character.mask.equipped)
 
+	const equippedMask = useAppSelector(state => state.character.mask)
 	const [selectedMask, setSelectedMask] = useState<maskData>(equippedMask)
 
-	const clickMask = (mask: maskData) => mask.name === selectedMask.name ? dispatch(changeMask(mask)) : setSelectedMask(mask)
+	const [selectedTab, setSelectedTab] = useState('All')
 
-	const collections = (() => {
-		let out: collections = {}
-		data.forEach(mask => {
-			let collection = out[mask.collection]
-			out[mask.collection] = collection ? [...collection, mask] : [mask]
-		})
-		return out
-	})()
-
-	const scrollRef = useRef<HTMLDivElement>(null)
-
+	const itemContainerRef = useRef<HTMLDivElement>(null)
 	const collectionRefs = useRef(Array.from({length: Object.keys(collections).length}, () => createRef<HTMLDivElement>()))
 
-	const scrollToCollection = (i: number) => {
-		const ref = collectionRefs.current[i].current
-		ref?.scrollIntoView({ behavior: 'smooth' })
-	}
-
-	const filters = useAppSelector(state => state.character.mask.filter)
-
 	return (
-		<Container rows='4rem 2rem 8fr 4rem' areas='"title filter" "collectiontitles filter" "items info" "items back"' title='Mask'>
+		<Container rows='4rem 2rem 8fr 4rem' areas='"title title" "rarity infotabs" "items info" "items back"' title='Mask'>
 
-			<CollectionTitles ref={scrollRef} onWheel={e => scrollHorizontalDiv(e, scrollRef)}>
+			<RarityContainer>
 				{
-					Object.keys(collections).map((collection, i) => {
-						if (filters[collections[collection][0].rarity]) return
-						return <CollectionTitle
-							key={collection}
-							color={itemColours[collections[collection][0].rarity]}
-							onClick={() => scrollToCollection(i)}
-						>{collection}</CollectionTitle>
+					['All','Community', 'Free', 'Paid', 'Event', 'Collaboration', 'Infamous'].map(rarity => {
+						return <RarityTitle
+							key={rarity}
+							color={itemColours[rarity] || 'rainbow'}
+							onMouseDown={() => {
+								setSelectedTab(rarity)
+								itemContainerRef.current?.scrollTo(0, 0)
+							}}
+						>{rarity === 'Paid' ? 'DLC' : rarity}</RarityTitle>
 					})
 				}
-			</CollectionTitles>
+			</RarityContainer>
 
-			<FilterContainer>
-				<FilterTitle>Filters</FilterTitle>
-				<FiltersWrapper>
-					{
-						['Free', 'Community', 'Paid', 'Infamous', 'Event', 'Collaboration'].map(type => {
-							return <FilterText
-								key={type}
-								color={itemColours[type]}
-								onClick={() => dispatch(toggleMaskFilter(type))}
-								typeFilter={filters[type]}
-							>{type}</FilterText>
-						})
-					}
-				</FiltersWrapper>
-			</FilterContainer>
-
-			<ItemContainer>
+			<ItemContainer ref={itemContainerRef}>
 				{
-					Object.keys(collections).map((collection, i) => {
-						const masks = collections[collection]
-						if (filters[masks[0].rarity]) return
+					Object.entries(collections).map(([collection, masks], i) => {
+						if (selectedTab !== masks[0].rarity && selectedTab !== 'All') return
 						return <MaskCollection key={collection} ref={collectionRefs.current[i]}>
 							<MaskCollectionTitle color={itemColours[masks[0].rarity]}>{collection}</MaskCollectionTitle>
 							<MaskWrapper key={collection}>
 								{
 									masks.map(mask => {
-										return <Item key={mask.name} size={96} selected={mask.name === selectedMask.name}>
-											<ItemName color={itemColours[mask.rarity]}>{mask.name}</ItemName>
+										return <Item key={mask.name} size={128} selected={mask.name === selectedMask.name} onMouseDown={event => {
+											event.preventDefault()
+											mask.name === selectedMask.name ? dispatch(changeMask(mask)) : setSelectedMask(mask)
+										}}>
+											<ItemName color={itemColours[mask.rarity]}>{mask.name.replaceAll(' ', '\n')}</ItemName>
 											{ mask.name === equippedMask.name && <ItemEquipped /> }
-											<ItemImage
-												src={`images/masks/${mask.image}.png`}
-												onMouseDown={event => {
-													event.preventDefault()
-													clickMask(mask)
-												}}
-											/>
+											<ItemImage src={`images/masks/${mask.image}.png`} />
 										</Item>
 									})
 								}
@@ -105,12 +113,10 @@ const Mask: React.FC = () => {
 				}
 			</ItemContainer>
 
-			<InfoContainer>
-				<InfoTitle>{selectedMask.name}</InfoTitle>
-				<InfoDescription>{selectedMask.description.join('\n\n')}</InfoDescription>
-				<InfoUnlock color={itemColours[selectedMask.rarity]}>{selectedMask.unlock}</InfoUnlock>
-				<InfoCost>{selectedMask.cost}</InfoCost>
-			</InfoContainer>
+			<Info tabs={{
+				mask: <MaskTab selectedMask={selectedMask} />,
+				collections: <CollectionsTab selectedTab={selectedTab} collectionRefs={collectionRefs} />
+			}} />
 
 		</Container>
 	)

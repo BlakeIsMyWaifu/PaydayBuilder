@@ -1,48 +1,43 @@
-import styled from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import corner from 'utils/corner'
 
-export const CollectionTitles = styled.div`
-	grid-area: collectiontitles;
+export const RarityContainer = styled.div`
+	grid-area: rarity;
 	display: flex;
+	gap: 1rem;
 	overflow-x: hidden;
 `
 
-export const CollectionTitle = styled.h1`
-	padding-right: 2rem;
+const rainbow = keyframes`
+	0% {
+		color: #3BAEFE;
+	}
+	18% {
+		color: #FFD400;
+	}
+	36% {
+		color: #FFF;
+	}
+	54% {
+		color: #FF9100;
+	}
+	72% {
+		color: #FE5D63;
+	}
+	90% {
+		color: #FF1AFF;
+	}
+	100% {
+		color: #3BAEFE;
+	}
+`
+
+export const RarityTitle = styled.h1`
 	font-size: 1.6rem;
 	cursor: pointer;
 	white-space: nowrap;
 	color: ${props => props.color};
-	&:last-child {
-		padding-right: 0;
-	}
-`
-
-export const FilterContainer = styled.div`
-	grid-area: filter;
-`
-
-export const FilterTitle = styled.h1`
-	font-size: 2rem;
-	text-align: center;
-`
-
-export const FiltersWrapper = styled.div`
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(3 1fr);
-`
-
-interface filterText {
-	typeFilter: boolean;
-}
-
-export const FilterText = styled.h1<filterText>`
-	font-size: 1.2rem;
-	direction: rtl;
-	cursor: pointer;
-	color: ${props => props.color};
-	text-decoration: ${props => props.typeFilter ? 'line-through' : 'none'};
+	animation: ${props => props.color === 'rainbow' && css`${rainbow}`} 4s linear 0s infinite;
 `
 
 export const ItemContainer = styled.div`
@@ -72,16 +67,23 @@ export const MaskWrapper = styled.div`
 	flex-wrap: wrap;
 `
 
-interface itemImage {
-	selected?: boolean;
-}
-
-export const ItemImage = styled.img<itemImage>`
-	width: 96px;
-	height: 96px;
-	${props => props.selected && corner};
-`
-
 export const InfoCost = styled.p`
 	text-transform: none;
+`
+
+export const CollectionsContainer = styled.div`
+	padding-top: 16px;
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+	overflow-x: hidden;
+`
+
+export const CollectionTitle = styled.div`
+	font-size: 1.2rem;
+	cursor: pointer;
+	color: ${props => props.color};
+	&:hover::before {
+		content: '> ';
+	}
 `
