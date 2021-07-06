@@ -1,10 +1,12 @@
+import content, { contentData } from 'data/source/downloadableContent'
+import source, { sourceData } from 'data/source/miscSources'
+
 export interface throwableData {
 	name: string;
 	description: string[];
 	image: string;
 	reputation: number;
-	source: string;
-	sourceType: 'normal' | 'dlc' | 'community' | 'event' | 'infamous' | 'collaboration';
+	source: contentData | sourceData;
 	type: ['Projectile' | 'Grenade' | 'Consumable', string];
 	perkDeck?: string;
 	stats: projectile | grenade | consumable;
@@ -50,8 +52,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'dada_com',
 		reputation: 1,
-		source: 'THIS IS A COMMUNITY ITEM!',
-		sourceType: 'community',
+		source: source.Community,
 		type: ['Grenade', 'Fragmentation Grenade'],
 		stats: {
 			damage: 1600,
@@ -69,8 +70,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'fir_com',
 		reputation: 1,
-		source: 'THIS IS A COMMUNITY ITEM!',
-		sourceType: 'community',
+		source: source.Community,
 		type: ['Grenade', 'Incendiary'],
 		stats: {
 			damage: 30,
@@ -97,8 +97,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'frag_com',
 		reputation: 1,
-		source: '',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		type: ['Grenade', 'Fragmentation Grenade'],
 		stats: {
 			damage: 1600,
@@ -117,8 +116,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'wpn_prj_ace',
 		reputation: 31,
-		source: 'THIS IS A COMMUNITY ITEM!',
-		sourceType: 'community',
+		source: source.Community,
 		type: ['Projectile', 'Projectile'],
 		stats: {
 			damage: 40,
@@ -136,8 +134,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'concussion',
 		reputation: 1,
-		source: '',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		type: ['Grenade', 'Stun Grenade'],
 		stats: {
 			damage: 0, // + stun
@@ -155,8 +152,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'frag',
 		reputation: 0,
-		source: 'THIS IS A GAGE WEAPON PACK #01 ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Weapon Pack #01'],
 		type: ['Grenade', 'Fragmentation Grenade'],
 		stats: {
 			damage: 1600,
@@ -174,8 +170,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'molotov',
 		reputation: 0,
-		source: 'THIS IS A BBQ WEAPON PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['The Butcher\'s BBQ Pack'],
 		type: ['Grenade', 'Improvised Incendiary Bomb'],
 		stats: {
 			damage: 30,
@@ -202,8 +197,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'dynamite',
 		reputation: 0,
-		source: 'THIS IS A WESTERN WEAPON PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['The Butcher\'s Western Pack'],
 		type: ['Grenade', 'Explosive Material'],
 		stats: {
 			damage: 1600,
@@ -222,8 +216,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'wpn_prj_four',
 		reputation: 25,
-		source: 'THIS IS A GAGE NINJA PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Ninja Pack'],
 		type: ['Projectile', 'Projectile'],
 		stats: {
 			damage: 100,
@@ -248,8 +241,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'wpn_prj_jav',
 		reputation: 41,
-		source: 'THIS IS A GAGE CHIVALRY PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Chivalry Pack'],
 		type: ['Projectile', 'Projectile'],
 		stats: {
 			damage: 3250,
@@ -267,8 +259,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'wpn_prj_target',
 		reputation: 34,
-		source: 'THIS IS A JOHN WICK WEAPON PACK ITEM',
-		sourceType: 'dlc',
+		source: content['John Wick Weapon Pack'],
 		type: ['Projectile', 'Projectile'],
 		stats: {
 			damage: 1100,
@@ -286,8 +277,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'wpn_prj_hur',
 		reputation: 41,
-		source: 'THIS IS A BIKER HEIST PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Biker Character Pack'],
 		type: ['Projectile', 'Projectile'],
 		stats: {
 			damage: 1100,
@@ -305,8 +295,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'wpn_gre_electric',
 		reputation: 0,
-		source: 'THIS IS A JIU FENG SMUGGLER PACK 2 ITEM!',
-		sourceType: 'dlc',
+		source: content['Jiu Feng Smuggler Pack 2'],
 		type: ['Grenade', 'Electric Grenade'],
 		stats: {
 			damage: 600, // + shock
@@ -324,8 +313,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'damage_control',
 		reputation: 0,
-		source: '',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		type: ['Consumable', 'Alcohol Flask'],
 		perkDeck: 'Stoic',
 		stats: {
@@ -340,8 +328,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'pocket_ecm_jammer',
 		reputation: 0,
-		source: '',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		type: ['Consumable', 'Electronic Countermeasure Device'],
 		perkDeck: 'Hacker',
 		stats: {
@@ -356,8 +343,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'smoke_screen_grenade',
 		reputation: 0,
-		source: '',
-		sourceType: 'normal',
+		source: content['Sangres Character Pack'],
 		type: ['Consumable', 'Smoke Bomb'],
 		perkDeck: 'Sicario',
 		stats: {
@@ -372,8 +358,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'tag_team',
 		reputation: 0,
-		source: 'THIS IS A H3H3 CHARACTER PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['h3h3 Character Pack'],
 		type: ['Consumable', 'Electronic Cigarette'],
 		perkDeck: 'Tag Team',
 		stats: {
@@ -388,8 +373,7 @@ const throwable: throwableData[] = [
 		],
 		image: 'chico_injector',
 		reputation: 0,
-		source: 'THIS IS A SCARFACE CHARACTER PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Scarface Character Pack'],
 		type: ['Consumable', 'Hypodermic Stim'],
 		perkDeck: 'Kingpin',
 		stats: {

@@ -11,6 +11,11 @@ interface source {
 	'Infamous': sourceData;
 	'Community': sourceData;
 	'Reservoir Dogs': sourceData;
+	'Spring Break 2018': sourceData;
+	'Meles Weapon Pack': sourceData;
+	'The Search For Kento': sourceData;
+	'RAID: World War II Community': sourceData;
+	'Ownership of Hotline Miami 2 Digital Special': sourceData;
 }
 
 const miscSources: source = {
@@ -31,8 +36,33 @@ const miscSources: source = {
 	},
 	'Reservoir Dogs': {
 		name: 'Reservoir Dogs',
-		rarity: 'Free',
+		rarity: 'Paid',
 		type: 'Heist'
+	},
+	'Spring Break 2018': {
+		name: 'Spring Break 2018',
+		rarity: 'Paid',
+		type: 'Weapon'
+	},
+	'Meles Weapon Pack': {
+		name: 'Meles Weapon Pack',
+		rarity: 'Event',
+		type: 'Weapon'
+	},
+	'The Search For Kento': {
+		name: 'The Search For Kento',
+		rarity: 'Event',
+		type: 'Weapon'
+	},
+	'RAID: World War II Community': {
+		name: 'RAID: World War II Community',
+		rarity: 'Community',
+		type: 'Weapon'
+	},
+	'Ownership of Hotline Miami 2 Digital Special': {
+		name: 'Ownership of Hotline Miami 2 Digital Special',
+		rarity: 'Collaboration',
+		type: 'Weapon'
 	}
 }
 

@@ -33,7 +33,7 @@ const Throwable: React.FC = () => {
 								dispatch(changeThrowable(throwable))
 							}
 						}}>
-							<ItemName color={itemColours[throwable.sourceType]}>{throwable.name}</ItemName>
+							<ItemName color={itemColours[throwable.source.rarity]}>{throwable.name}</ItemName>
 							{ locked && <LockedIcon /> }
 							{ throwable.name === equippedThrowable.name && <ItemEquipped /> }
 							<ItemImage
@@ -48,7 +48,7 @@ const Throwable: React.FC = () => {
 			<InfoContainer>
 				<InfoTitle>{selectedThrowable.name}</InfoTitle>
 				<InfoDescription>{selectedThrowable.description.join('\n\n')}</InfoDescription>
-				<InfoUnlock color={itemColours[selectedThrowable.sourceType]}>{selectedThrowable.source}</InfoUnlock>
+				<InfoUnlock color={itemColours[selectedThrowable.source.rarity]}>{selectedThrowable.source.name}</InfoUnlock>
 			</InfoContainer>
 
 		</Container>

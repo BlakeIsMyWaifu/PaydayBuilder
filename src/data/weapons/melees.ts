@@ -1,9 +1,11 @@
+import content, { contentData } from 'data/source/downloadableContent'
+import source, { sourceData } from 'data/source/miscSources'
+
 export interface meleeData {
 	name: string;
 	weaponType: ['Weapon' | 'Fists' | 'Knife' | 'Axe' | 'Blunt' | 'Sword' | 'Flag' | null, 'Blunt' | 'Sharp' | null];
 	reputation: number;
-	sourceType: 'normal' | 'dlc' | 'community' | 'event' | 'infamous' | 'collaboration';
-	source: string;
+	source: contentData | sourceData;
 	image: string;
 	stats: meleeStats;
 	description?: string;
@@ -27,8 +29,7 @@ const melees: meleeData[] = [
 		name: 'Weapon Butt',
 		weaponType: ['Weapon', 'Blunt'],
 		reputation: 0,
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'weapon',
 		stats: {
 			damage: [30, 30],
@@ -45,8 +46,7 @@ const melees: meleeData[] = [
 		name: 'Fists',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 0,
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'fists',
 		stats: {
 			damage: [30, 55],
@@ -63,8 +63,7 @@ const melees: meleeData[] = [
 		name: '350K Brass Knuckles',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 0,
-		source: 'THIS IS A COMMUNITY ITEM!',
-		sourceType: 'community',
+		source: source.Community,
 		image: 'brass_knuckles',
 		stats: {
 			damage: [30, 55],
@@ -81,8 +80,7 @@ const melees: meleeData[] = [
 		name: 'Ursa Tanto Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 0,
-		source: 'THIS IS A COMMUNITY ITEM!',
-		sourceType: 'community',
+		source: source.Community,
 		image: 'kabartanto',
 		stats: {
 			damage: [20, 80],
@@ -99,8 +97,7 @@ const melees: meleeData[] = [
 		name: 'Nova\'s Shank',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 0,
-		source: 'THIS IS A COMMUNITY ITEM!',
-		sourceType: 'community',
+		source: source.Community,
 		image: 'toothbrush',
 		stats: {
 			damage: [30, 80],
@@ -117,8 +114,7 @@ const melees: meleeData[] = [
 		name: 'URSA Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 0,
-		source: 'THIS IS A GAGE WEAPON PACK #02 ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Weapon Pack #02'],
 		image: 'kabar',
 		stats: {
 			damage: [30, 80],
@@ -135,8 +131,7 @@ const melees: meleeData[] = [
 		name: '50 Blessing Briefcase',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 0,
-		source: 'OWN THE HOTLINE MIAMI GAME ON STEAM TO UNLOCK!',
-		sourceType: 'collaboration',
+		source: content['Hotline Miami'],
 		image: 'briefcase',
 		stats: {
 			damage: [30, 55],
@@ -153,8 +148,7 @@ const melees: meleeData[] = [
 		name: 'Swagger Stick',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 0,
-		source: 'THIS IS A GAGE HISTORICAL PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Historical Pack'],
 		image: 'swagger',
 		stats: {
 			damage: [30, 90],
@@ -171,8 +165,7 @@ const melees: meleeData[] = [
 		name: 'Tactical Flashlight',
 		weaponType: ['Knife', 'Blunt'],
 		reputation: 0,
-		source: 'THIS IS A SPRING BREAK 2018 ITEM!',
-		sourceType: 'dlc',
+		source: source['Spring Break 2018'],
 		image: 'aziz',
 		stats: {
 			damage: [30, 80],
@@ -189,8 +182,7 @@ const melees: meleeData[] = [
 		name: 'Alabama Razor',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 0,
-		source: 'THIS IS A RESERVOIR DOGS ITEM!',
-		sourceType: 'dlc',
+		source: source['Reservoir Dogs'],
 		image: 'clean',
 		stats: {
 			damage: [30, 80],
@@ -207,8 +199,7 @@ const melees: meleeData[] = [
 		name: 'Comically Large Spoon of Gold',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 0,
-		source: 'THIS IS A MELES WEAPON PACK ITEM!',
-		sourceType: 'event',
+		source: source['Meles Weapon Pack'],
 		image: 'spoon_gold',
 		stats: {
 			damage: [70, 450],
@@ -227,8 +218,7 @@ const melees: meleeData[] = [
 		name: 'Pounder', // Pounder Nail Gun
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 1,
-		source: 'THIS IS A WOLF PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Wolf Pack'],
 		image: 'nin',
 		stats: {
 			damage: [70, 450],
@@ -245,8 +235,7 @@ const melees: meleeData[] = [
 		name: 'Comically Large Spoon',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 2,
-		source: 'THIS IS A MELES WEAPON PACK ITEM!',
-		sourceType: 'event',
+		source: source['Meles Weapon Pack'],
 		image: 'spoon',
 		stats: {
 			damage: [40, 250],
@@ -263,8 +252,7 @@ const melees: meleeData[] = [
 		name: 'Motherforker', // The Motherforker
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 3,
-		source: 'THIS IS A BBQ WEAPON PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['The Butcher\'s BBQ Pack'],
 		image: 'fork',
 		stats: {
 			damage: [30, 80],
@@ -281,8 +269,7 @@ const melees: meleeData[] = [
 		name: 'Spatula',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 3,
-		source: 'THIS IS A BBQ WEAPON PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['The Butcher\'s BBQ Pack'],
 		image: 'spatula',
 		stats: {
 			damage: [30, 55],
@@ -299,8 +286,7 @@ const melees: meleeData[] = [
 		name: 'K.L.A.S Shovel',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 4,
-		source: 'THIS IS A GAGE SHOTGUN PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Shotgun Pack'],
 		image: 'shovel',
 		stats: {
 			damage: [20, 40],
@@ -317,8 +303,7 @@ const melees: meleeData[] = [
 		name: 'Money Bundle',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 7,
-		source: 'THIS IS A COMMUNITY ITEM!',
-		sourceType: 'community',
+		source: source.Community,
 		image: 'moneybundle',
 		stats: {
 			damage: [30, 55],
@@ -335,8 +320,7 @@ const melees: meleeData[] = [
 		name: 'Empty Palm Kata',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 8,
-		source: 'THIS IS A GAGE NINJA PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Ninja Pack'],
 		image: 'fight',
 		stats: {
 			damage: [30, 55],
@@ -353,8 +337,7 @@ const melees: meleeData[] = [
 		name: 'Bolt Cutters',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 10,
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'cutters',
 		stats: {
 			damage: [30, 90],
@@ -371,8 +354,7 @@ const melees: meleeData[] = [
 		name: 'Shawn\'s Shears',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 10,
-		source: 'THIS IS A GOAT SUMULATOR ITEM!',
-		sourceType: 'dlc',
+		source: content['The Goat Simulator Heist'],
 		image: 'shawn',
 		stats: {
 			damage: [30, 80],
@@ -389,8 +371,7 @@ const melees: meleeData[] = [
 		name: 'Utility Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 12,
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'boxcutter',
 		stats: {
 			damage: [30, 80],
@@ -407,8 +388,7 @@ const melees: meleeData[] = [
 		name: 'Microphone',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 13,
-		source: 'THIS IS A THE ALESSO HIEST PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['The Alesso Heist'],
 		image: 'microphone',
 		stats: {
 			damage: [30, 55],
@@ -425,8 +405,7 @@ const melees: meleeData[] = [
 		name: 'Selfie-Stick',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 13,
-		source: 'THIS IS A POINT BREAK ITEM!',
-		sourceType: 'dlc',
+		source: content['The Point Break Heists'],
 		image: 'selfie',
 		stats: {
 			damage: [30, 90],
@@ -443,8 +422,7 @@ const melees: meleeData[] = [
 		name: 'Bayonet Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 14,
-		source: 'THIS IS A GAGE ASSUALT PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Assault Pack'],
 		image: 'bayonet',
 		stats: {
 			damage: [20, 80],
@@ -461,8 +439,7 @@ const melees: meleeData[] = [
 		name: 'Machete',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 14,
-		source: 'THIS IS A POINT BREAK ITEM!',
-		sourceType: 'dlc',
+		source: content['The Point Break Heists'],
 		image: 'gator',
 		stats: {
 			damage: [30, 80],
@@ -479,8 +456,7 @@ const melees: meleeData[] = [
 		name: 'Chain Whip',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 15,
-		source: 'THIS IS A BIKER CHARACTER PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Biker Character Pack'],
 		image: 'road',
 		stats: {
 			damage: [70, 450],
@@ -497,8 +473,7 @@ const melees: meleeData[] = [
 		name: 'Electrical Brass Knuckles',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 16,
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'zeus',
 		stats: {
 			damage: [20, 20],
@@ -518,8 +493,7 @@ const melees: meleeData[] = [
 		name: 'Ice Pick',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 16,
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'iceaxe',
 		stats: {
 			damage: [70, 450],
@@ -536,8 +510,7 @@ const melees: meleeData[] = [
 		name: 'Rezokye',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 16,
-		source: 'THIS IS A GAGE RUSSIAN WEAPON PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Russian Weapon Pack'],
 		image: 'oxide',
 		stats: {
 			damage: [70, 450],
@@ -554,8 +527,7 @@ const melees: meleeData[] = [
 		name: 'The Pen',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 16,
-		source: 'THIS IS A SEARCH FOR KENTO ITEM!',
-		sourceType: 'event',
+		source: source['The Search For Kento'],
 		image: 'sword',
 		stats: {
 			damage: [30, 80],
@@ -572,8 +544,7 @@ const melees: meleeData[] = [
 		name: 'Telescopic Baton',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 17,
-		source: 'THIS IS A GAGE SHOTGUN PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Shotgun Pack'],
 		image: 'baton',
 		stats: {
 			damage: [30, 90],
@@ -590,8 +561,7 @@ const melees: meleeData[] = [
 		name: 'Jackpot',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 17,
-		source: 'THIS IS A GOLDEN CASINO ITEM!',
-		sourceType: 'dlc',
+		source: content['The Golden Grin Casino Heist'],
 		image: 'slot_lever',
 		stats: {
 			damage: [30, 90],
@@ -607,9 +577,8 @@ const melees: meleeData[] = [
 	{
 		name: 'El Ritmo',
 		weaponType: [null, null],
-		reputation: -1,
-		source: 'THIS IS A SAN MARÍN BANK HEIST ITEM!',
-		sourceType: 'dlc',
+		reputation: 0,
+		source: content['San Martín Bank Heist'],
 		image: 'chac',
 		stats: {
 			damage: [30, 55],
@@ -626,8 +595,7 @@ const melees: meleeData[] = [
 		name: 'Stainless Steel Syringe',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 18,
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'fear',
 		stats: {
 			damage: [30, 80],
@@ -647,8 +615,7 @@ const melees: meleeData[] = [
 		name: 'Kento\'s Tanto',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 18,
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'hauteur',
 		stats: {
 			damage: [70, 450],
@@ -665,8 +632,7 @@ const melees: meleeData[] = [
 		name: 'Monkey Wrench',
 		weaponType: ['Blunt', 'Blunt'],
 		reputation: 18,
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'shock',
 		stats: {
 			damage: [30, 90],
@@ -683,8 +649,7 @@ const melees: meleeData[] = [
 		name: 'Baseball Bat',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 18,
-		source: 'THIS IS A HOTLINE MIAMI DLC ITEM!',
-		sourceType: 'dlc',
+		source: content['Hotline Miami'],
 		image: 'baseballbat',
 		stats: {
 			damage: [30, 90],
@@ -701,8 +666,7 @@ const melees: meleeData[] = [
 		name: 'Classic Baton',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 18,
-		source: 'THIS IS A THE ALESSO HEIST PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['The Alesso Heist'],
 		image: 'oldbaton',
 		stats: {
 			damage: [30, 90],
@@ -719,8 +683,7 @@ const melees: meleeData[] = [
 		name: 'Hockey Stick',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 18,
-		source: 'THIS IS A SOKOL CHARACTER PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Sokol Character Pack'],
 		image: 'hockey',
 		stats: {
 			damage: [30, 90],
@@ -737,8 +700,7 @@ const melees: meleeData[] = [
 		name: 'Two Handed Great Ruler',
 		weaponType: ['Sword', 'Sharp'],
 		reputation: 18,
-		source: 'THIS IS A H3H3 CHARACTER PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['h3h3 Character Pack'],
 		image: 'meter',
 		stats: {
 			damage: [70, 450],
@@ -755,8 +717,7 @@ const melees: meleeData[] = [
 		name: 'Specialist Knives',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 19,
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'ballistic',
 		stats: {
 			damage: [30, 80],
@@ -773,8 +734,7 @@ const melees: meleeData[] = [
 		name: 'Diving Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 19,
-		source: 'THIS IS A POINT BREAK ITEM!',
-		sourceType: 'dlc',
+		source: content['The Point Break Heists'],
 		image: 'pugio',
 		stats: {
 			damage: [30, 80],
@@ -791,8 +751,7 @@ const melees: meleeData[] = [
 		name: 'El Verdugo',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 20,
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'agave',
 		stats: {
 			damage: [70, 450],
@@ -809,8 +768,7 @@ const melees: meleeData[] = [
 		name: 'Hackaton',
 		weaponType: ['Blunt', 'Blunt'],
 		reputation: 20,
-		source: 'THIS IS A JOY CHARACTER PACK ITEM!',
-		sourceType: 'dlc',
+		source: source['Base Game'],
 		image: 'happy',
 		stats: {
 			damage: [30, 90],
@@ -827,8 +785,7 @@ const melees: meleeData[] = [
 		name: 'Krieger Blade',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 21,
-		source: 'THIS IS A GAGE WEAPON PACK #02 ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Weapon Pack #02'],
 		image: 'kampfmesser',
 		stats: {
 			damage: [30, 80],
@@ -845,8 +802,7 @@ const melees: meleeData[] = [
 		name: 'Buckler Shield',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 21,
-		source: 'THIS IS A GAGE CHIVALRY PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Chivalry Pack'],
 		image: 'buck',
 		stats: {
 			damage: [30, 55],
@@ -863,8 +819,7 @@ const melees: meleeData[] = [
 		name: 'Wing Butterfly Knife', // Wing
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 21, // 21 & 35?
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'wing',
 		stats: {
 			damage: [30, 80],
@@ -881,8 +836,7 @@ const melees: meleeData[] = [
 		name: 'You\'re Mine',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 22,
-		source: 'THIS IS A WESTERN WEAPON PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['The Butcher\'s Western Pack'],
 		image: 'branding_iron',
 		stats: {
 			damage: [30, 90],
@@ -899,8 +853,7 @@ const melees: meleeData[] = [
 		name: 'Metal Detector',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 22,
-		source: 'THIS IS A THE ALESSO HEIST DLC ITEM!',
-		sourceType: 'dlc',
+		source: content['The Alesso Heist'],
 		image: 'detector',
 		stats: {
 			damage: [30, 55],
@@ -917,8 +870,7 @@ const melees: meleeData[] = [
 		name: 'Croupier\'s Rake',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 22,
-		source: 'THIS IS A GOLDEN GRIN CASINO ITEM!',
-		sourceType: 'dlc',
+		source: content['The Golden Grin Casino Heist'],
 		image: 'croupier_rake',
 		stats: {
 			damage: [30, 90],
@@ -935,8 +887,7 @@ const melees: meleeData[] = [
 		name: 'Kazaguruma',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 23,
-		source: 'THIS IS A SHADOW WARRIOR ITEM!',
-		sourceType: 'dlc',
+		source: content['Shadow Warrior Collaboration'],
 		image: 'ostry',
 		stats: {
 			damage: [30, 80],
@@ -953,8 +904,7 @@ const melees: meleeData[] = [
 		name: 'Compact Hatchet',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 23,
-		source: 'THIS IS A GAGE ASSAULT PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Assault Pack'],
 		image: 'bullseye',
 		stats: {
 			damage: [30, 80],
@@ -971,8 +921,7 @@ const melees: meleeData[] = [
 		name: 'Lumber Lite L2',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 23,
-		source: 'THIS IS A SCARFACE CHARACTER PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Scarface Character Pack'],
 		image: 'cs',
 		stats: {
 			damage: [70, 450],
@@ -989,8 +938,7 @@ const melees: meleeData[] = [
 		name: 'Hotline 8000x',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 23,
-		source: 'THIS IS A SCARFACE HEIST PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Scarface Heist'],
 		image: 'brick',
 		stats: {
 			damage: [30, 80],
@@ -1007,8 +955,7 @@ const melees: meleeData[] = [
 		name: 'Potato Masher',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 24,
-		source: 'THIS IS A GAGE HISTORICAL PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Historical Pack'],
 		image: 'model24',
 		stats: {
 			damage: [30, 90],
@@ -1025,8 +972,7 @@ const melees: meleeData[] = [
 		name: 'Scalper Tomahawk',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 24,
-		source: 'THIS IS A WESTERN WEAPON PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['The Butcher\'s Western Pack'],
 		image: 'scalper',
 		stats: {
 			damage: [30, 80],
@@ -1043,8 +989,7 @@ const melees: meleeData[] = [
 		name: 'Switchblade',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 24,
-		source: 'THIS IS A GOLDEN GRIN CASINO ITEM!',
-		sourceType: 'dlc',
+		source: content['The Golden Grin Casino Heist'],
 		image: 'switchblade',
 		stats: {
 			damage: [30, 80],
@@ -1061,8 +1006,7 @@ const melees: meleeData[] = [
 		name: 'Knuckle Dagger',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 25,
-		source: 'THIS IS A RAID: WORLD WAR II COMMUNITY ITEM!',
-		sourceType: 'community',
+		source: source['RAID: World War II Community'],
 		image: 'grip',
 		stats: {
 			damage: [30, 80],
@@ -1079,8 +1023,7 @@ const melees: meleeData[] = [
 		name: 'OVERKILL Boxing Gloves',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 25,
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'boxing_gloves',
 		stats: {
 			damage: [30, 55],
@@ -1097,8 +1040,7 @@ const melees: meleeData[] = [
 		name: 'Push Daggers',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 25,
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'push',
 		stats: {
 			damage: [30, 80],
@@ -1115,8 +1057,7 @@ const melees: meleeData[] = [
 		name: 'Leather Sap',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 50,  // 50?
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'sap',
 		stats: {
 			damage: [20, 40],
@@ -1133,8 +1074,7 @@ const melees: meleeData[] = [
 		name: 'Dragan\'s Cleaver Knife',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 25,
-		source: 'THIS IS A DRAGAN CHARACTER PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Dragan Character Pack'],
 		image: 'meat_cleaver',
 		stats: {
 			damage: [30, 80],
@@ -1151,8 +1091,7 @@ const melees: meleeData[] = [
 		name: 'Shinsakuto Katana',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 26,
-		source: 'THIS IS A YAKUZA CHARACTER PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Yakuza Character Pack'],
 		image: 'sandsteel',
 		stats: {
 			damage: [70, 450],
@@ -1169,8 +1108,7 @@ const melees: meleeData[] = [
 		name: 'Okinawan Style Sai',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 27,
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'twins',
 		stats: {
 			damage: [30, 80],
@@ -1187,8 +1125,7 @@ const melees: meleeData[] = [
 		name: 'Pitchfork',
 		weaponType: ['Flag', 'Sharp'],
 		reputation: 27,
-		source: 'THIS IS A GOAT SIMULATOR ITEM!',
-		sourceType: 'dlc',
+		source: content['The Goat Simulator Heist'],
 		image: 'pitchfork',
 		stats: {
 			damage: [70, 450],
@@ -1205,8 +1142,7 @@ const melees: meleeData[] = [
 		name: 'Arkansas Toothpick',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 28,
-		source: 'THIS IS A WESTERN WEAPON PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['The Butcher\'s Western Pack'],
 		image: 'bowie',
 		stats: {
 			damage: [30, 80],
@@ -1223,8 +1159,7 @@ const melees: meleeData[] = [
 		name: 'Microphone Stand',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 28,
-		source: 'THIS IS A THE ALESSO HEIST ITEM!',
-		sourceType: 'dlc',
+		source: content['The Alesso Heist'],
 		image: 'micstand',
 		stats: {
 			damage: [30, 90],
@@ -1241,8 +1176,7 @@ const melees: meleeData[] = [
 		name: 'Psycho Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 31,
-		source: 'THIS IS A COMMUNITY ITEM!',
-		sourceType: 'community',
+		source: source.Community,
 		image: 'chef',
 		stats: {
 			damage: [30, 80],
@@ -1259,8 +1193,7 @@ const melees: meleeData[] = [
 		name: 'X-46 Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 32,
-		source: 'THIS IS A GAGE ASSAULT PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Assault Pack'],
 		image: 'x46',
 		stats: {
 			damage: [30, 80],
@@ -1277,8 +1210,7 @@ const melees: meleeData[] = [
 		name: 'Talons',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 32,
-		source: 'THIS IS A GAGE NINJA PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Ninja Pack'],
 		image: 'tiger',
 		stats: {
 			damage: [30, 80],
@@ -1295,8 +1227,7 @@ const melees: meleeData[] = [
 		name: 'Bearded Axe',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 33,
-		source: 'THIS IS A GAGE CHIVALRY PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Chivalry Pack'],
 		image: 'beardy',
 		stats: {
 			damage: [70, 450],
@@ -1313,8 +1244,7 @@ const melees: meleeData[] = [
 		name: 'Hook',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 33,
-		source: 'THIS IS A JOHN WICK HEISTS ITEM!',
-		sourceType: 'dlc',
+		source: content['John Wick Heists'],
 		image: 'catch',
 		stats: {
 			damage: [30, 80],
@@ -1331,8 +1261,7 @@ const melees: meleeData[] = [
 		name: 'Cleaver Knife',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 34,
-		source: 'THIS IS A HOTLINE MIAMI PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Hotline Miami'],
 		image: 'cleaver',
 		stats: {
 			damage: [30, 80],
@@ -1349,8 +1278,7 @@ const melees: meleeData[] = [
 		name: 'Buzzer',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 34,
-		source: 'THIS IS A GOLDEN CASINO ITEM!',
-		sourceType: 'dlc',
+		source: content['The Golden Grin Casino Heist'],
 		image: 'taser',
 		stats: {
 			damage: [20, 20],
@@ -1370,8 +1298,7 @@ const melees: meleeData[] = [
 		name: 'Gold Fever',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 34,
-		source: 'THIS IS A WESTERN WEAPON PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['The Butcher\'s Western Pack'],
 		image: 'mining_pick',
 		stats: {
 			damage: [70, 450],
@@ -1388,8 +1315,7 @@ const melees: meleeData[] = [
 		name: 'Carpenter\'s Delight',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 37,
-		source: 'REQUIRES OWNERSHIP OF HOTLINE MIAMI 2 DIGITAL SPECIAL EDITION ON STEAM.',
-		sourceType: 'collaboration',
+		source: source['Ownership of Hotline Miami 2 Digital Special'],
 		image: 'hammer',
 		stats: {
 			damage: [20, 40],
@@ -1406,8 +1332,7 @@ const melees: meleeData[] = [
 		name: 'Clover\'s Shillelagh',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 37,
-		source: 'THIS IS A CLOVER CHARACTER PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Clover Character Pack'],
 		image: 'shillelagh',
 		stats: {
 			damage: [30, 90],
@@ -1424,8 +1349,7 @@ const melees: meleeData[] = [
 		name: 'Shepheard\'s Cane',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 37,
-		source: 'THIS IS A GOAT SIMULATOR ITEM!',
-		sourceType: 'dlc',
+		source: content['The Goat Simulator Heist'],
 		image: 'stick',
 		stats: {
 			damage: [30, 90],
@@ -1442,8 +1366,7 @@ const melees: meleeData[] = [
 		name: 'Scout Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 38,
-		source: 'THIS IS A GOAT SIMULATOR ITEM!',
-		sourceType: 'dlc',
+		source: content['The Goat Simulator Heist'],
 		image: 'scoutknife',
 		stats: {
 			damage: [30, 80],
@@ -1460,8 +1383,7 @@ const melees: meleeData[] = [
 		name: 'Berger Combat Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 41,
-		source: 'THIS IS A GAGE WEAPON PACK #02 ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Weapon Pack #02'],
 		image: 'gerber',
 		stats: {
 			damage: [30, 80],
@@ -1478,8 +1400,7 @@ const melees: meleeData[] = [
 		name: 'Trench Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 41,
-		source: 'THIS IS A GAGE HISTORICAL PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Historical Pack'],
 		image: 'fairbair',
 		stats: {
 			damage: [30, 80],
@@ -1496,8 +1417,7 @@ const melees: meleeData[] = [
 		name: 'Survival Tomahawk',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 42,
-		source: 'THIS IS A GAGE SHOTGUN PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Shotgun Pack'],
 		image: 'tomahawk',
 		stats: {
 			damage: [30, 80],
@@ -1514,8 +1434,7 @@ const melees: meleeData[] = [
 		name: 'Morning Star',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 43,
-		source: 'THIS IS A GAGE CHIVALRY PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Chivalry Pack'],
 		image: 'morning',
 		stats: {
 			damage: [20, 40],
@@ -1532,8 +1451,7 @@ const melees: meleeData[] = [
 		name: 'Poker',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 44,
-		source: 'THIS IS A BBQ WEAPON PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['The Butcher\'s BBQ Pack'],
 		image: 'poker',
 		stats: {
 			damage: [30, 90],
@@ -1550,8 +1468,7 @@ const melees: meleeData[] = [
 		name: 'Lucille Baseball Bat',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 45,
-		source: 'THIS IS A COMMUNITY ITEM!',
-		sourceType: 'community',
+		source: source.Community,
 		image: 'barbedwire',
 		stats: {
 			damage: [30, 90],
@@ -1568,8 +1485,7 @@ const melees: meleeData[] = [
 		name: 'Great Sword',
 		weaponType: ['Sword', 'Sharp'],
 		reputation: 46,
-		source: 'THIS IS A GAGE CHIVALRY PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Chivalry Pack'],
 		image: 'great',
 		stats: {
 			damage: [70, 450],
@@ -1586,8 +1502,7 @@ const melees: meleeData[] = [
 		name: 'Rivertown Glen Bottle',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 47,
-		source: 'THIS IS A COMMUNITY ITEM!',
-		sourceType: 'community',
+		source: source.Community,
 		image: 'whiskey',
 		stats: {
 			damage: [30, 55],
@@ -1604,8 +1519,7 @@ const melees: meleeData[] = [
 		name: 'The Spear of Freedom',
 		weaponType: ['Flag', 'Sharp'],
 		reputation: 47,
-		source: 'THIS IS A GAGE HISTORICAL PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Historical Pack'],
 		image: 'freedom',
 		stats: {
 			damage: [70, 450],
@@ -1622,8 +1536,7 @@ const melees: meleeData[] = [
 		name: 'Ding Dong Breaching Tool',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 48,
-		source: 'THIS IS A GAGE ASSAULT PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Assault Pack'],
 		image: 'dingdong',
 		stats: {
 			damage: [20, 40],
@@ -1640,8 +1553,7 @@ const melees: meleeData[] = [
 		name: 'Tenderizer',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 48,
-		source: 'THIS IS A BBQ WEAPON PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['The Butcher\'s BBQ Pack'],
 		image: 'tenderizer',
 		stats: {
 			damage: [20, 40],
@@ -1658,8 +1570,7 @@ const melees: meleeData[] = [
 		name: 'Machete Knife',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 51,
-		source: 'THIS IS A HOTLINE MIAMI DLC ITEM!',
-		sourceType: 'dlc',
+		source: content['Hotline Miami'],
 		image: 'machete',
 		stats: {
 			damage: [30, 80],
@@ -1676,8 +1587,7 @@ const melees: meleeData[] = [
 		name: 'Utility Machete',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 54,
-		source: 'THIS IS A GAGE SHOTGUN PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Shotgun Pack'],
 		image: 'becker',
 		stats: {
 			damage: [30, 80],
@@ -1694,8 +1604,7 @@ const melees: meleeData[] = [
 		name: 'Kunai Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 54,
-		source: 'THIS IS A GAGE NINJA PACK ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Ninja Pack'],
 		image: 'cqc',
 		stats: {
 			damage: [30, 80],
@@ -1715,8 +1624,7 @@ const melees: meleeData[] = [
 		name: 'Trautman Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 61,
-		source: 'THIS IS A GAGE WEAPON PACK #02 ITEM!',
-		sourceType: 'dlc',
+		source: content['Gage Weapon Pack #02'],
 		image: 'rambo',
 		stats: {
 			damage: [30, 80],
@@ -1733,8 +1641,7 @@ const melees: meleeData[] = [
 		name: 'Fire Axe',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 71,
-		source: 'Base Game',
-		sourceType: 'normal',
+		source: source['Base Game'],
 		image: 'fireaxe',
 		stats: {
 			damage: [70, 450],
@@ -1751,8 +1658,7 @@ const melees: meleeData[] = [
 		name: 'Alpha Mauler',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 0,
-		source: 'THIS IS AN ALIENWARE ALPHA ITEM!',
-		sourceType: 'event',
+		source: content['Alienware Alpha Mauler'],
 		image: 'alien_maul',
 		stats: {
 			damage: [20, 40],

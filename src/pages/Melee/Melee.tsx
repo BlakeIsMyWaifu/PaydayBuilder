@@ -89,7 +89,7 @@ export const Melee: React.FC = () => {
 							event.preventDefault()
 							clickMelee(melee)
 						}}>
-							<ItemName color={itemColours[melee.sourceType]}>{melee.name}</ItemName>
+							<ItemName color={itemColours[melee.source.rarity]}>{melee.name}</ItemName>
 							{ melee.name === equippedMelee.name && <ItemEquipped /> }
 							<ItemImage src={`images/melees/${melee.image}.png`} />
 						</Item>
@@ -100,7 +100,7 @@ export const Melee: React.FC = () => {
 			<InfoContainer>
 				<InfoTitle>{selectedMelee.name}</InfoTitle>
 				<MeleeStatsTable selectedMelee={selectedMelee.stats} equippedMelee={selectedMelee.name !== equippedMelee.name ? equippedMelee.stats : undefined} />
-				<InfoUnlock color={itemColours[selectedMelee.sourceType]}>{selectedMelee.source}</InfoUnlock>
+				<InfoUnlock color={itemColours[selectedMelee.source.rarity]}>{selectedMelee.source.name}</InfoUnlock>
 				<InfoDescription>{selectedMelee.description}</InfoDescription>
 			</InfoContainer>
 
