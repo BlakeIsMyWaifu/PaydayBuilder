@@ -35,7 +35,7 @@ const Title = styled.h1`
 	font-size: 4rem;
 `
 
-const BackContainer = styled.div`
+const BackWrapper = styled.div`
 	grid-area: back;
 `
 
@@ -44,7 +44,6 @@ const BackLink = styled(LinkR)`
 `
 
 const BackText = styled.p`
-	direction: rtl;
 	color: ${blue};
 	position: absolute;
 	bottom: 0;
@@ -71,11 +70,11 @@ const Container: React.FC<area> = ({
 			{children}
 
 			{
-				backButton && <BackContainer>
+				backButton && <BackWrapper onMouseDown={event => event.preventDefault()}>
 					<BackLink to='/'>
 						<BackText>Back</BackText>
 					</BackLink>
-				</BackContainer>
+				</BackWrapper>
 			}
 
 		</Area>
