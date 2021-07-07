@@ -3,6 +3,7 @@ import './App.css'
 import Background from 'components/Background'
 import Armour from 'pages/Armour'
 import Character from 'pages/Character'
+import CrewManagement from 'pages/CrewManagement'
 import Equipment from 'pages/Equipment'
 import Home from 'pages/Home'
 import Mask from 'pages/Mask'
@@ -17,7 +18,7 @@ import { isDev } from 'utils/isDev'
 
 const App: React.FC = () => {
 	return (
-		<div onContextMenu={e => isDev() ? null : e.preventDefault()}>
+		<div onContextMenu={event => isDev() ? null : event.preventDefault()}>
 			<Background />
 			<MemoryRouter>
 				<Switch>
@@ -34,6 +35,7 @@ const App: React.FC = () => {
 
 					<Route path='/skills' component={Skills} />
 					<Route path='/perkdeck' component={PerkDeck} />
+					<Route path='/crewmanagement' component={CrewManagement} />
 				</Switch>
 			</MemoryRouter>
 		</div>

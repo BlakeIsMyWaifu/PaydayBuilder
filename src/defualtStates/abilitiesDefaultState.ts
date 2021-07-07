@@ -1,14 +1,29 @@
+import abilities from 'data/abilities/crewAbilities'
+import boosts from 'data/abilities/crewBoosts'
 import data, { perk } from 'data/abilities/perks'
+import characters from 'data/character/characters'
+import masks from 'data/character/masks'
+import assaultRifles from 'data/weapons/guns/primary/assaultRifles'
+import { CrewData } from 'pages/CrewManagement/CrewManagement'
 
 export interface abilitiesState {
 	perkdeck: perk;
-	crewmangement: null;
+	crewmanagement: [CrewData, CrewData, CrewData];
 	infamy: null;
 }
 
+const defaultCrew = (i: number): CrewData => ({
+	mask: masks[0],
+	character: characters[i],
+	outfit: null,
+	weapon: assaultRifles['AMCAR Rifle'],
+	ability: Object.values(abilities)[i],
+	boost: Object.values(boosts)[i]
+})
+
 const abilitiesDefaultState: abilitiesState = {
 	perkdeck: data[0],
-	crewmangement: null,
+	crewmanagement: [defaultCrew(0), defaultCrew(1), defaultCrew(2)],
 	infamy: null
 }
 

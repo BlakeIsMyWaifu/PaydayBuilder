@@ -148,7 +148,7 @@ const Home: React.FC = () => {
 							<PerkDeckImage x={192} y={(perkDeckIndex + 1) * 48} />
 						</Selector>
 		
-						<Selector title='crew mangement' setHoverInfo={setHoverInfo} infoData={null} />
+						<Selector title='crew management' setHoverInfo={setHoverInfo} infoData={null} />
 
 						<Selector title='infamy' setHoverInfo={setHoverInfo} infoData={null} />
 
