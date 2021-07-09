@@ -1,16 +1,16 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { weaponData } from '../weaponTypes'
+import { WeaponData } from '../weaponTypes'
 
 interface shotgunsList {
-	'Locomotive 12G Shotgun': weaponData;
-	'GSPS 12G Shotgun': weaponData;
-	'Goliath 12G Shotgun': weaponData;
-	'Grimm 12G Shotgun': weaponData;
-	'Street Sweeper Shotgun': weaponData;
-	'The Judge Shotgun': weaponData;
-	'Claire 12G Shotgun': weaponData;
+	'Locomotive 12G Shotgun': WeaponData;
+	'GSPS 12G Shotgun': WeaponData;
+	'Goliath 12G Shotgun': WeaponData;
+	'Grimm 12G Shotgun': WeaponData;
+	'Street Sweeper Shotgun': WeaponData;
+	'The Judge Shotgun': WeaponData;
+	'Claire 12G Shotgun': WeaponData;
 }
 
 const shotguns: shotgunsList = {

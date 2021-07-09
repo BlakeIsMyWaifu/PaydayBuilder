@@ -4,7 +4,7 @@ import { CrewAbility } from 'data/abilities/crewAbilities'
 import { CrewBoost } from 'data/abilities/crewBoosts'
 import { characterData } from 'data/character/characters'
 import { maskData } from 'data/character/masks'
-import { weaponData } from 'data/weapons/guns/weaponTypes'
+import { WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppSelector } from 'hooks'
 import React from 'react'
 
@@ -15,7 +15,7 @@ export interface CrewData {
 	mask: maskData;
 	character: characterData;
 	outfit: null;
-	weapon: weaponData;
+	weapon: WeaponData;
 	ability: CrewAbility | null;
 	boost: CrewBoost | null;
 }

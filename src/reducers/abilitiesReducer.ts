@@ -2,7 +2,7 @@ import actions from 'actions/abilitiesAction'
 import { perk } from 'data/abilities/perks'
 import { characterData } from 'data/character/characters'
 import { maskData } from 'data/character/masks'
-import { weaponData } from 'data/weapons/guns/weaponTypes'
+import { WeaponData } from 'data/weapons/guns/weaponTypes'
 import defaultState from 'defualtStates/abilitiesDefaultState'
 import { getType } from 'typesafe-actions'
 
@@ -33,7 +33,7 @@ const abilitiesReducer = (state = defaultState, action: Record<'type' | 'payload
 				outfit
 			}
 		case getType(actions.changeCrewWeapon):
-			const weapon: weaponData = action.payload
+			const weapon: WeaponData = action.payload
 			return {
 				...state,
 				weapon

@@ -1,38 +1,38 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { weaponData } from '../weaponTypes'
+import { WeaponData } from '../weaponTypes'
 
 export interface pistolList {
-	'Interceptor 45 Pistol': weaponData;
-	'Chimano 88 Pistol': weaponData;
-	'Gruber Kurz Pistol': weaponData;
-	'Signature .40 Pistol': weaponData;
-	'Crosskill Pistol': weaponData;
-	'Bernetti 9 Pistol': weaponData;
-	'Bronco .44 Pistol': weaponData;
-	'Crosskill Chunky Compact Pistol': weaponData;
-	'White Streak Pistol': weaponData;
-	'Baby Deagle': weaponData;
-	'M13 9mm Pistol': weaponData;
-	'Chimano Custom Pistol': weaponData;
-	'Broomstick Pistol': weaponData;
-	'Parabellum Pistol': weaponData;
-	'5/7 AP Pistol': weaponData;
-	'Castigo .44 Revolver': weaponData;
-	'Contractor Pistol': weaponData;
-	'Frenchman Model 87 Revolver': weaponData;
-	'Chimano Compact Pistol': weaponData;
-	'Crosskill Guard Pistol': weaponData;
-	'LEO Pistol': weaponData;
-	'STRYK 18c Pistol': weaponData;
-	'Bernetti Auto Pistol': weaponData;
-	'Czech 92 Pistol': weaponData;
-	'Igor Automatik Pistol': weaponData;
-	'HOLT 9mm Pistol': weaponData;
-	'Peacemaker .45 Revolver': weaponData;
-	'Matever .357 Revolver': weaponData;
-	'Deagle Pistol': weaponData;
+	'Interceptor 45 Pistol': WeaponData;
+	'Chimano 88 Pistol': WeaponData;
+	'Gruber Kurz Pistol': WeaponData;
+	'Signature .40 Pistol': WeaponData;
+	'Crosskill Pistol': WeaponData;
+	'Bernetti 9 Pistol': WeaponData;
+	'Bronco .44 Pistol': WeaponData;
+	'Crosskill Chunky Compact Pistol': WeaponData;
+	'White Streak Pistol': WeaponData;
+	'Baby Deagle': WeaponData;
+	'M13 9mm Pistol': WeaponData;
+	'Chimano Custom Pistol': WeaponData;
+	'Broomstick Pistol': WeaponData;
+	'Parabellum Pistol': WeaponData;
+	'5/7 AP Pistol': WeaponData;
+	'Castigo .44 Revolver': WeaponData;
+	'Contractor Pistol': WeaponData;
+	'Frenchman Model 87 Revolver': WeaponData;
+	'Chimano Compact Pistol': WeaponData;
+	'Crosskill Guard Pistol': WeaponData;
+	'LEO Pistol': WeaponData;
+	'STRYK 18c Pistol': WeaponData;
+	'Bernetti Auto Pistol': WeaponData;
+	'Czech 92 Pistol': WeaponData;
+	'Igor Automatik Pistol': WeaponData;
+	'HOLT 9mm Pistol': WeaponData;
+	'Peacemaker .45 Revolver': WeaponData;
+	'Matever .357 Revolver': WeaponData;
+	'Deagle Pistol': WeaponData;
 }
 
 const pistols: pistolList = {

@@ -1,22 +1,22 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { weaponData } from '../weaponTypes'
+import { WeaponData } from '../weaponTypes'
 
 interface snipersList {
-	'Rattlesnake Sniper Rifle': weaponData;
-	'R700 Sniper Rifle': weaponData;
-	'Bernetti Rangehitter Sniper Rifle': weaponData;
-	'Káng Arms X1 Sniper Rifle': weaponData;
-	'Platypus 70 Sniper Rifle': weaponData;
-	'Lebensauger .308 Sniper Rifle': weaponData;
-	'Desertfox Sniper Rifle': weaponData;
-	'Contractor .308 Sniper Rifle': weaponData;
-	'R93 Sniper Rifle': weaponData;
-	'Repeater 1874 Sniper Rifle': weaponData;
-	'Grom Sniper Rifle': weaponData;
-	'Nagant Sniper Rifle': weaponData;
-	'Thanatos .50 cal Sniper Rifle': weaponData;
+	'Rattlesnake Sniper Rifle': WeaponData;
+	'R700 Sniper Rifle': WeaponData;
+	'Bernetti Rangehitter Sniper Rifle': WeaponData;
+	'Káng Arms X1 Sniper Rifle': WeaponData;
+	'Platypus 70 Sniper Rifle': WeaponData;
+	'Lebensauger .308 Sniper Rifle': WeaponData;
+	'Desertfox Sniper Rifle': WeaponData;
+	'Contractor .308 Sniper Rifle': WeaponData;
+	'R93 Sniper Rifle': WeaponData;
+	'Repeater 1874 Sniper Rifle': WeaponData;
+	'Grom Sniper Rifle': WeaponData;
+	'Nagant Sniper Rifle': WeaponData;
+	'Thanatos .50 cal Sniper Rifle': WeaponData;
 }
 
 const snipers: snipersList = {

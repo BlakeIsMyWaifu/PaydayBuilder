@@ -1,20 +1,20 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { weaponData } from '../weaponTypes'
+import { WeaponData } from '../weaponTypes'
 
 export interface shotgunsList {
-	'Predator 12G Shotgun': weaponData;
-	'Breaker 12G Shotgun': weaponData;
-	'Reinfeld 880 Shotgun': weaponData;
-	'Mosconi 12G Tactical Shotgun': weaponData;
-	'M1014 Shotgun': weaponData;
-	'Raven Shotgun': weaponData;
-	'IZHMA 12G Shotgun': weaponData;
-	'Reinfeld 88 Shotgun': weaponData;
-	'Mosconi 12G Shotgun': weaponData;
-	'Joceline O/U 12G Shotgun': weaponData;
-	'Steakout 12G Shotgun': weaponData;
+	'Predator 12G Shotgun': WeaponData;
+	'Breaker 12G Shotgun': WeaponData;
+	'Reinfeld 880 Shotgun': WeaponData;
+	'Mosconi 12G Tactical Shotgun': WeaponData;
+	'M1014 Shotgun': WeaponData;
+	'Raven Shotgun': WeaponData;
+	'IZHMA 12G Shotgun': WeaponData;
+	'Reinfeld 88 Shotgun': WeaponData;
+	'Mosconi 12G Shotgun': WeaponData;
+	'Joceline O/U 12G Shotgun': WeaponData;
+	'Steakout 12G Shotgun': WeaponData;
 }
 
 const shotguns: shotgunsList = {

@@ -1,17 +1,17 @@
 import assaultRifles from 'data/weapons/guns/primary/assaultRifles'
 import pistols from 'data/weapons/guns/secondary/pistols'
-import { weaponData } from 'data/weapons/guns/weaponTypes'
+import { WeaponData } from 'data/weapons/guns/weaponTypes'
 import melee, { meleeData } from 'data/weapons/melees'
 import throwable, { throwableData } from 'data/weapons/throwables'
 
 export interface weaponsState {
 	primary: {
-		equipped: weaponData;
-		saved: weaponData[];
+		equipped: WeaponData;
+		saved: WeaponData[];
 	};
 	secondary: {
-		equipped: weaponData;
-		saved: weaponData[];
+		equipped: WeaponData;
+		saved: WeaponData[];
 	};
 	throwable: throwableData;
 	melee: meleeData;

@@ -1,17 +1,17 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { weaponData } from '../weaponTypes'
+import { WeaponData } from '../weaponTypes'
 
 interface specialsList {
-	'Pistol Crossbow': weaponData;
-	'Compact 40mm Grenade Launcher': weaponData;
-	'HRL-7 Rocket Launcher': weaponData;
-	'China Puff 40mm Grenade Launcher': weaponData;
-	'Commando 101 Rocket Launcher': weaponData;
-	'MA-17 Flamethrower': weaponData;
-	'Arbiter Grenade Launcher': weaponData;
-	'OVE9000 Saw': weaponData;
+	'Pistol Crossbow': WeaponData;
+	'Compact 40mm Grenade Launcher': WeaponData;
+	'HRL-7 Rocket Launcher': WeaponData;
+	'China Puff 40mm Grenade Launcher': WeaponData;
+	'Commando 101 Rocket Launcher': WeaponData;
+	'MA-17 Flamethrower': WeaponData;
+	'Arbiter Grenade Launcher': WeaponData;
+	'OVE9000 Saw': WeaponData;
 }
 
 const specials: specialsList = {

@@ -1,15 +1,15 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { weaponData } from '../weaponTypes'
+import { WeaponData } from '../weaponTypes'
 
 interface lightMachineGunList {
-	'RPK Light Machine Gun': weaponData;
-	'KSP 58 Light Machine Gun': weaponData;
-	'M60 Light Machine Gun': weaponData;
-	'KSP Light Machine Gun': weaponData;
-	'Buzzsaw 42 Light Machine Gun': weaponData;
-	'Brenner-21 Light Machine Gun': weaponData;
+	'RPK Light Machine Gun': WeaponData;
+	'KSP 58 Light Machine Gun': WeaponData;
+	'M60 Light Machine Gun': WeaponData;
+	'KSP Light Machine Gun': WeaponData;
+	'Buzzsaw 42 Light Machine Gun': WeaponData;
+	'Brenner-21 Light Machine Gun': WeaponData;
 }
 
 const lightMachineGuns: lightMachineGunList = {

@@ -5,7 +5,7 @@ import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'componen
 import { TableCompare, TableEquipped } from 'components/Table'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
-import { weaponData, weaponStats } from 'data/weapons/guns/weaponTypes'
+import { WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 import { blue, itemColours } from 'utils/colours'
@@ -14,13 +14,13 @@ import { WeaponType, WeaponTypes } from './Weapons-Elements'
 
 interface weaponsStatsTable {
 	showExtraStats: boolean;
-	selectedWeapon: weaponData;
-	equippedWeapon?: weaponData;
+	selectedWeapon: WeaponData;
+	equippedWeapon?: WeaponData;
 }
 
 export const WeaponsStatsTable: React.FC<weaponsStatsTable> = ({ showExtraStats, selectedWeapon, equippedWeapon }) => {
 
-	const baseStats = (weapon: weaponData) => {
+	const baseStats = (weapon: WeaponData) => {
 		if (!showExtraStats) return weapon.stats
 
 		let extra = weapon.extraStats
@@ -38,8 +38,8 @@ export const WeaponsStatsTable: React.FC<weaponsStatsTable> = ({ showExtraStats,
 		return ({ ...weapon.stats, ...extraStats })
 	}
 
-	const additionalStats = (weapon: weaponData) => {
-		let stats: weaponStats = {
+	const additionalStats = (weapon: WeaponData) => {
+		let stats: WeaponStats = {
 			magazine: 0,
 			totalAmmo: 0,
 			rateOfFire: 0,

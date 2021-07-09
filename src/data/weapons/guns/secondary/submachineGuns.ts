@@ -1,33 +1,33 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { weaponData } from '../weaponTypes'
+import { WeaponData } from '../weaponTypes'
 
 export interface submachineGunList {
-	'Swedish K Submachine Gun': weaponData;
-	'SpecOps Submachine Gun': weaponData;
-	'Mark 10 Submachine Gun': weaponData;
-	'CR 805B Submachine Gun': weaponData;
-	'AK Gen 21 Tactical Submachine Gun': weaponData;
-	'Jacket\'s Piece': weaponData;
-	'Compact-5 Submachine Gun': weaponData;
-	'Chicago Typewriter Submachine Gun': weaponData;
-	'Miyaka 10 Special Submachine Gun': weaponData;
-	'Cobra Submachine Gun': weaponData;
-	'CMP Submachine Gun': weaponData;
-	'Para Submachine Gun': weaponData;
-	'Micro Uzi Submachine Gun': weaponData;
-	'Signature Submachine Gun': weaponData;
-	'Jackal Submachine Gun': weaponData;
-	'MP40 Submachine Gun': weaponData;
-	'Heather Submachine Gun': weaponData;
-	'Krinkov Submachine Gun': weaponData;
-	'Blaster 9mm Submachine Gun': weaponData;
-	'Kobus 90 Submachine Gun': weaponData;
-	'Kross Vertex Submachine Gun': weaponData;
-	'Tatonka Submachine Gun': weaponData;
-	'Patchett L2A1 Submachine Gun': weaponData;
-	'Uzi Submachine Gun': weaponData;
+	'Swedish K Submachine Gun': WeaponData;
+	'SpecOps Submachine Gun': WeaponData;
+	'Mark 10 Submachine Gun': WeaponData;
+	'CR 805B Submachine Gun': WeaponData;
+	'AK Gen 21 Tactical Submachine Gun': WeaponData;
+	'Jacket\'s Piece': WeaponData;
+	'Compact-5 Submachine Gun': WeaponData;
+	'Chicago Typewriter Submachine Gun': WeaponData;
+	'Miyaka 10 Special Submachine Gun': WeaponData;
+	'Cobra Submachine Gun': WeaponData;
+	'CMP Submachine Gun': WeaponData;
+	'Para Submachine Gun': WeaponData;
+	'Micro Uzi Submachine Gun': WeaponData;
+	'Signature Submachine Gun': WeaponData;
+	'Jackal Submachine Gun': WeaponData;
+	'MP40 Submachine Gun': WeaponData;
+	'Heather Submachine Gun': WeaponData;
+	'Krinkov Submachine Gun': WeaponData;
+	'Blaster 9mm Submachine Gun': WeaponData;
+	'Kobus 90 Submachine Gun': WeaponData;
+	'Kross Vertex Submachine Gun': WeaponData;
+	'Tatonka Submachine Gun': WeaponData;
+	'Patchett L2A1 Submachine Gun': WeaponData;
+	'Uzi Submachine Gun': WeaponData;
 }
 
 const submachineGuns: submachineGunList = {

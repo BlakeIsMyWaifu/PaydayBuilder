@@ -1,12 +1,12 @@
 import { CHANGEMELEE, CHANGETHROWABLE, CHANGEWEAPON, RESETWEAPON } from 'constants/weaponsConstant'
-import { weaponData } from 'data/weapons/guns/weaponTypes'
+import { WeaponData } from 'data/weapons/guns/weaponTypes'
 import { meleeData } from 'data/weapons/melees'
 import { throwableData } from 'data/weapons/throwables'
 import { createAction } from 'typesafe-actions'
 
 interface weaponChangeAction {
 	slot: 'primary' | 'secondary';
-	weapon: weaponData;
+	weapon: WeaponData;
 }
 
 export const changeWeapon = createAction(CHANGEWEAPON)<weaponChangeAction>()

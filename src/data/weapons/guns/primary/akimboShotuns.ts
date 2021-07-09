@@ -1,11 +1,11 @@
 import source from 'data/source/miscSources'
 
-import { weaponData } from '../weaponTypes'
+import { WeaponData } from '../weaponTypes'
 
 interface akimboShotunsList {
-	'Akimbo Goliath 12G Shotguns': weaponData;
-	'Brothers Grimm 12G Shotguns': weaponData;
-	'Akimbo Judge Shotguns': weaponData;
+	'Akimbo Goliath 12G Shotguns': WeaponData;
+	'Brothers Grimm 12G Shotguns': WeaponData;
+	'Akimbo Judge Shotguns': WeaponData;
 }
 
 const akimboShotuns: akimboShotunsList = {

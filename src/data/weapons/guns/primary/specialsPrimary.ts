@@ -1,21 +1,21 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { weaponData } from '../weaponTypes'
+import { WeaponData } from '../weaponTypes'
 
 interface specialsList {
-	'OVE9000 Saw': weaponData;
-	'Plainsrider Bow': weaponData;
-	'Light Crossbow': weaponData;
-	'Airbow': weaponData;
-	'English Longbow': weaponData;
-	'XL 5.56 Microgun': weaponData;
-	'DECA Technologies Compound Bow': weaponData;
-	'Vulcan Minigun': weaponData;
-	'Heavy Crossbow': weaponData;
-	'Piglet Grenade Launcher': weaponData;
-	'Flamethrower Mk.1': weaponData;
-	'GL40 Grenade Launcher': weaponData;
+	'OVE9000 Saw': WeaponData;
+	'Plainsrider Bow': WeaponData;
+	'Light Crossbow': WeaponData;
+	'Airbow': WeaponData;
+	'English Longbow': WeaponData;
+	'XL 5.56 Microgun': WeaponData;
+	'DECA Technologies Compound Bow': WeaponData;
+	'Vulcan Minigun': WeaponData;
+	'Heavy Crossbow': WeaponData;
+	'Piglet Grenade Launcher': WeaponData;
+	'Flamethrower Mk.1': WeaponData;
+	'GL40 Grenade Launcher': WeaponData;
 }
 
 const specials: specialsList = {

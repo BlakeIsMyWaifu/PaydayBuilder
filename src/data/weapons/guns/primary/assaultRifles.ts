@@ -1,36 +1,36 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { weaponData } from '../weaponTypes'
+import { WeaponData } from '../weaponTypes'
 
 export interface assaultRiflesList {
-	'AMCAR Rifle': weaponData;
-	'Commando 553 Rifle': weaponData;
-	'Eagle Heavy Rifle': weaponData;
-	'Union 5.56 Rifle': weaponData;
-	'AK Rifle': weaponData;
-	'CAR-4 Rifle': weaponData;
-	'UAR Rifle': weaponData;
-	'KETCHNOV Byk-1 Assault Rifle': weaponData;
-	'Cavity 9mm': weaponData;
-	'AK.762': weaponData;
-	'JP36 Rifle': weaponData;
-	'AK17 Rifle': weaponData;
-	'Golden AK.762 Rifle': weaponData;
-	'Bootleg Rifle': weaponData;
-	'Queen\'s Wrath Rifle': weaponData;
-	'Galant Rifle': weaponData;
-	'M308 Rifle': weaponData;
-	'Clarion Rifle': weaponData;
-	'Lion\'s Roar Rifle': weaponData;
-	'Valkyria Rifle': weaponData;
-	'AK5 Rifle': weaponData;
-	'Gecko 7.62 Rifle': weaponData;
-	'Tempest-21 Rifle': weaponData;
-	'AMR-16 Rifle': weaponData;
-	'Little Friend 7.62 Assault Rifle': weaponData;
-	'Falcon Rifle': weaponData;
-	'Gewehr 3 Rifle': weaponData;
+	'AMCAR Rifle': WeaponData;
+	'Commando 553 Rifle': WeaponData;
+	'Eagle Heavy Rifle': WeaponData;
+	'Union 5.56 Rifle': WeaponData;
+	'AK Rifle': WeaponData;
+	'CAR-4 Rifle': WeaponData;
+	'UAR Rifle': WeaponData;
+	'KETCHNOV Byk-1 Assault Rifle': WeaponData;
+	'Cavity 9mm': WeaponData;
+	'AK.762': WeaponData;
+	'JP36 Rifle': WeaponData;
+	'AK17 Rifle': WeaponData;
+	'Golden AK.762 Rifle': WeaponData;
+	'Bootleg Rifle': WeaponData;
+	'Queen\'s Wrath Rifle': WeaponData;
+	'Galant Rifle': WeaponData;
+	'M308 Rifle': WeaponData;
+	'Clarion Rifle': WeaponData;
+	'Lion\'s Roar Rifle': WeaponData;
+	'Valkyria Rifle': WeaponData;
+	'AK5 Rifle': WeaponData;
+	'Gecko 7.62 Rifle': WeaponData;
+	'Tempest-21 Rifle': WeaponData;
+	'AMR-16 Rifle': WeaponData;
+	'Little Friend 7.62 Assault Rifle': WeaponData;
+	'Falcon Rifle': WeaponData;
+	'Gewehr 3 Rifle': WeaponData;
 }
 
 const assaultRifles: assaultRiflesList = {

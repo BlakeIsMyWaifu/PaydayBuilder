@@ -4,9 +4,9 @@ import lightMachineGuns from './primary/lightMachineGuns'
 import shotguns from './primary/shotgunsPrimary'
 import snipers from './primary/snipers'
 import specials from './primary/specialsPrimary'
-import { weaponData } from './weaponTypes'
+import { WeaponData } from './weaponTypes'
 
-const primary: Record<string, weaponData[]> = {
+const primary: Record<string, WeaponData[]> = {
 	'Assault Rifle': Object.values(assaultRifles),
 	'Shotgun': Object.values(shotguns),
 	'LMG': Object.values(lightMachineGuns),
