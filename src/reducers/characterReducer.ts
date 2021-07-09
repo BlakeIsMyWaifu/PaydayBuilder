@@ -6,7 +6,7 @@ import { maskData } from 'data/character/masks'
 import defaultstate from 'defualtStates/characterDefaultState'
 import { getType } from 'typesafe-actions'
 
-const characterReducer = (state = defaultstate, action: any) => {
+const characterReducer = (state = defaultstate, action: Record<'type' | 'payload', any>) => {
 	switch (action.type) {
 		case getType(actions.changeMask):
 			const mask: maskData = action.payload

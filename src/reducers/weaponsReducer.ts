@@ -4,7 +4,7 @@ import { throwableData } from 'data/weapons/throwables'
 import defaultState from 'defualtStates/weaponsDefaultState'
 import { getType } from 'typesafe-actions'
 
-const weaponReducer = (state = defaultState, action: any) => {
+const weaponReducer = (state = defaultState, action: Record<'type' | 'payload', any>) => {
 	switch (action.type) {
 		case getType(actions.changeWeapon):
 			const { slot, weapon } = action.payload

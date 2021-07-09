@@ -1,7 +1,7 @@
-import { trees } from 'defualtStates/skillsDefaultState'
+import { subtrees } from 'defualtStates/skillsDefaultState'
 import { useAppSelector } from 'hooks'
 
-export default (tree: string, trees?: trees) => {
+export default (tree: string, trees?: Record<string, subtrees>) => {
 
 	trees = trees || useAppSelector(state => state.skills.trees)
 

@@ -8,11 +8,7 @@ export const red = '#FE5D63'
 export const dim = 'rgba(0, 0, 0, 0.3)'
 export const dimBlue = 'rgba(15, 99, 159, 0.3)'
 
-interface itemColoursInterface {
-	[key: string]: string;
-}
-
-export const itemColours: itemColoursInterface = {
+export const itemColours: Record<string, string> = {
 	'Pre-order': '#fff',
 	Free: '#fff',
 	Community: '#3baefe',

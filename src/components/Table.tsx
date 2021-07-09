@@ -47,12 +47,8 @@ export const Data = styled.td`
 `
 
 interface tableEquipped {
-	baseStats: {
-		[key: string]: any;
-	};
-	additionalStats: {
-		[key: string]: any;
-	};
+	baseStats: Record<string, any>;
+	additionalStats: Record<string, any>;
 }
 
 const colourCompare = (valueOne: number, valueTwo: number) => valueOne !== valueTwo ? (valueOne < valueTwo ? red : green) : '#fff'
@@ -113,18 +109,10 @@ export const TableEquipped: React.FC<tableEquipped> = ({ baseStats, additionalSt
 }
 
 interface tableCompare {
-	equippedStats: {
-		[key: string]: any;
-	};
-	selectedStats: {
-		[key: string]: any;
-	};
-	equippedAdditional: {
-		[key: string]: any;
-	};
-	selectedAdditional: {
-		[key: string]: any;
-	};
+	equippedStats: Record<string, any>;
+	selectedStats: Record<string, any>;
+	equippedAdditional: Record<string, any>;
+	selectedAdditional: Record<string, any>;
 }
 
 export const TableCompare: React.FC<tableCompare> = ({ equippedStats, selectedStats, equippedAdditional, selectedAdditional }) => {

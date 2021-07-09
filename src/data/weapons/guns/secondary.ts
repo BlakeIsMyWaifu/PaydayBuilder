@@ -2,9 +2,9 @@ import pistols from './secondary/pistols'
 import shotguns from './secondary/shotgunsSecondary'
 import specials from './secondary/specialsSecondary'
 import submachineGuns from './secondary/submachineGuns'
-import { weaponTypes } from './weaponTypes'
+import { weaponData } from './weaponTypes'
 
-const secondary: weaponTypes = {
+const secondary: Record<string, weaponData[]> = {
 	'Pistol': Object.values(pistols),
 	'Submachine Gun': Object.values(submachineGuns),
 	'Special': Object.values(specials),

@@ -2,29 +2,21 @@ import data, { skillData, treeNames } from 'data/abilities/skills'
 
 export interface skillsState {
 	points: number;
-	trees: trees;
+	trees: Record<string, subtrees>;
 }
 
-export interface trees {
-	[key: string]: subtrees;
-}
-
-interface subtrees {
+export interface subtrees {
 	[key: string]: {
 		tier: number;
 		points: number;
-		upgrades: upgrades;
+		upgrades: Record<string, skillUpgradeTypes>;
 	};
-}
-
-export interface upgrades {
-	[key: string]: skillUpgradeTypes;
 }
 
 export type skillUpgradeTypes = 'locked' | 'available' | 'basic' | 'aced';
 
-const getTrees = (): trees => {
-	let out: trees = {}
+const getTrees = (): Record<string, subtrees> => {
+	let out: Record<string, subtrees> = {}
 	Object.keys(data).forEach((tree: any) => {
 		let t: treeNames = tree
 		out[tree] = getSubtrees(t)
@@ -44,7 +36,7 @@ const getSubtrees = (tree: treeNames): subtrees => {
 	return out
 }
 
-const getUpgrades = (subtree: skillData[]): upgrades => Object.assign({}, ...subtree.map(skill => ({[skill.name]: skill.tier === 1 ? 'available' : 'locked'})))
+const getUpgrades = (subtree: skillData[]): Record<string, skillUpgradeTypes> => Object.assign({}, ...subtree.map(skill => ({[skill.name]: skill.tier === 1 ? 'available' : 'locked'})))
 
 const skillsDefaultState: skillsState = {
 	points: 120,

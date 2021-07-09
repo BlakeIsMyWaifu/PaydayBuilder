@@ -62,9 +62,7 @@ export const InfoTabTitle = styled.h1<infoTabTitle>`
 `
 
 interface InfoComponent {
-	tabs: {
-		[key: string]: React.ReactNode;
-	}
+	tabs: Record<string, React.ReactNode>;
 }
 
 export const Info: React.FC<InfoComponent> = ({ tabs }) => {

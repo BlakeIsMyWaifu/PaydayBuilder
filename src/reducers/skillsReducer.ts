@@ -1,5 +1,5 @@
 import actions, { skillChangeAction } from 'actions/skillsAction'
-import defaultstate, { upgrades } from 'defualtStates/skillsDefaultState'
+import defaultstate, { skillUpgradeTypes } from 'defualtStates/skillsDefaultState'
 import { getType } from 'typesafe-actions'
 import skillTreePoints from 'utils/skillTreePoints'
 
@@ -14,7 +14,7 @@ const tierCost = [0, 1, 3, 16]
 
 const skillTierIndex = [1, 2, 2, 3, 3, 4]
 
-const skills = (state = defaultstate, action: any) => {
+const skills = (state = defaultstate, action: Record<'type' | 'payload', any>) => {
 	switch (action.type) {
 		case getType(actions.changeSkillState):
 			const { tree, subtree, skill, oldLevel, direction }: skillChangeAction = action.payload
@@ -35,7 +35,7 @@ const skills = (state = defaultstate, action: any) => {
 				if (points < tierCost[newTier]) break
 			}
 
-			let unlocked: upgrades = {}
+			let unlocked: Record<string, skillUpgradeTypes> = {}
 			if (newTier !== currentSubtree.tier) {
 				const skills = Object.keys(currentSubtree.upgrades)
 				for (let i = 0; i < 6; i++) {
