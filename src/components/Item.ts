@@ -48,12 +48,14 @@ export const ItemName = styled.h1`
 
 interface itemImage {
 	locked?: boolean;
+	leftFacing?: boolean;
 }
 
 export const ItemImage = styled.img<itemImage>`
 	width: 100%;
 	height: 100%;
 	filter: brightness(${props => props.locked ? 0.2 : 1});
+	${props => props.leftFacing && 'transform: scaleX(-1)'};
 `
 
 export const LockedIcon = styled.div`

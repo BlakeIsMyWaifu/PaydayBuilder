@@ -50,6 +50,8 @@ const abilitiesReducer = (state = defaultState, action: Record<'type' | 'payload
 				...state,
 				boost
 			}
+		case getType(actions.resetAbilities):
+			return defaultState
 		default:
 			return state
 	}

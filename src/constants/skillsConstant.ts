@@ -1,3 +1,3 @@
-export const RESETALL = 'skills/RESETALL'
+export const RESETSKILLS = 'skills/RESET'
 export const RESETTREE = 'skills/RESETTREE'
 export const CHANGESKILLSTATE = 'skills/CHANGESKILLSTATE'

@@ -1,4 +1,4 @@
-import { CHANGEMELEE, CHANGETHROWABLE, CHANGEWEAPON } from 'constants/weaponsConstant'
+import { CHANGEMELEE, CHANGETHROWABLE, CHANGEWEAPON, RESETWEAPON } from 'constants/weaponsConstant'
 import { weaponData } from 'data/weapons/guns/weaponTypes'
 import { meleeData } from 'data/weapons/melees'
 import { throwableData } from 'data/weapons/throwables'
@@ -13,4 +13,6 @@ export const changeWeapon = createAction(CHANGEWEAPON)<weaponChangeAction>()
 export const changeThrowable = createAction(CHANGETHROWABLE)<throwableData>()
 export const changeMelee = createAction(CHANGEMELEE)<meleeData>()
 
-export default { changeWeapon, changeThrowable, changeMelee }
+export const resetWeapon = createAction(RESETWEAPON)<void>()
+
+export default { changeWeapon, changeThrowable, changeMelee, resetWeapon }

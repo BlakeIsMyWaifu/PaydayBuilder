@@ -74,8 +74,9 @@ export const Melee: React.FC = () => {
 	const dispatch = useAppDispatch()
 
 	const equippedMelee = useAppSelector(state => state.weapons.melee)
-
 	const [selectedMelee, setSelectedMelee] = useState(equippedMelee)
+
+	const leftFacing = useAppSelector(state => state.settings.leftFacing)
 
 	return (
 		<Container title='Melee'>
@@ -92,7 +93,7 @@ export const Melee: React.FC = () => {
 						>
 							<ItemName color={itemColours[melee.source.rarity]}>{melee.name}</ItemName>
 							{ melee.name === equippedMelee.name && <ItemEquipped /> }
-							<ItemImage src={`images/melees/${melee.image}.png`} onMouseDown={event => event.preventDefault()} />
+							<ItemImage src={`images/melees/${melee.image}.png`} leftFacing={leftFacing} onMouseDown={event => event.preventDefault()} />
 						</Item>
 					})
 				}

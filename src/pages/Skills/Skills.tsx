@@ -1,5 +1,5 @@
 import { changeEquipment } from 'actions/characterAction'
-import { resetAll, resetTree } from 'actions/skillsAction'
+import { resetSkills, resetTree } from 'actions/skillsAction'
 import Container from 'components/Container'
 import data, { treeData, treeNames } from 'data/abilities/skills'
 import { skillData } from 'data/abilities/skills'
@@ -39,7 +39,7 @@ const Skills: React.FC = () => {
 			if (event.key === 'f') {
 				dispatch(resetTree(currentTree.name))
 			} else if (event.key === 'r') {
-				dispatch(resetAll())
+				dispatch(resetSkills())
 			}
 		}
 		window.addEventListener('keydown', handleKeys)

@@ -1,4 +1,4 @@
-import { CHANGEARMOUR, CHANGECHARACTER, CHANGEEQUIPMENT, CHANGEMASK } from 'constants/characterConstant'
+import { CHANGEARMOUR, CHANGECHARACTER, CHANGEEQUIPMENT, CHANGEMASK, RESETCHARACTER } from 'constants/characterConstant'
 import { armourData } from 'data/character/armours'
 import { characterData } from 'data/character/characters'
 import { equipmentData } from 'data/character/equipment'
@@ -10,4 +10,6 @@ export const changeCharacter = createAction(CHANGECHARACTER)<characterData>()
 export const changeArmour = createAction(CHANGEARMOUR)<armourData>()
 export const changeEquipment = createAction(CHANGEEQUIPMENT)<[equipmentData | null, 'primary' | 'secondary']>()
 
-export default { changeMask, changeCharacter, changeArmour, changeEquipment }
+export const resetCharacter = createAction(RESETCHARACTER)<void>()
+
+export default { changeMask, changeCharacter, changeArmour, changeEquipment, resetCharacter }

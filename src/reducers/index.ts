@@ -2,12 +2,14 @@ import { combineReducers } from 'redux';
 
 import abilities from './abilitiesReducer'
 import character from './characterReducer'
+import settings from './settingsReducer'
 import skills from './skillsReducer'
 import weapons from './weaponsReducer'
 
 const allReducers = combineReducers({
 	abilities,
 	character,
+	settings,
 	skills,
 	weapons
 })

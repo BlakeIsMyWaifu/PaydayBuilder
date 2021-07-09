@@ -44,7 +44,11 @@ export const SelectorWrapper = styled.div`
 	${corner};
 `
 
-export const Image = styled.img`
+interface image {
+	leftFacing?: boolean;
+}
+
+export const Image = styled.img<image>`
 	height: auto;
 	max-height: calc(100% - 32px);
 	width: auto;
@@ -52,6 +56,7 @@ export const Image = styled.img`
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	${props => props.leftFacing && 'transform: scaleX(-1)'};
 `
 
 export const EquipmentContainer = styled.div`

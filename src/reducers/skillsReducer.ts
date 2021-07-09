@@ -66,7 +66,7 @@ const skills = (state = defaultstate, action: any) => {
 					}
 				}
 			}
-		case getType(actions.resetAll):
+		case getType(actions.resetSkills):
 			return defaultstate
 		case getType(actions.resetTree): {
 			const tree: string = action.payload

@@ -1,13 +1,21 @@
+import { changeLeftFacing } from 'actions/settingsAction'
+import CheckboxInput from 'components/CheckboxInput'
+import { useAppDispatch, useAppSelector } from 'hooks'
 import React from 'react'
 
 import BuildIO from '../BuildIO/BuildIO'
-import { Container, Setting, SettingsTitle, Title } from './SettingsPanel-Elements'
+import { Container, Setting, SettingsSingleLine, SettingsTitle, Title } from './SettingsPanel-Elements'
 
 interface SettingsPanelComponent {
 	toggleSettings: boolean;
 }
 
 const SettingsPanel: React.FC<SettingsPanelComponent> = ({ toggleSettings }) => {
+
+	const dispatch = useAppDispatch()
+
+	const { leftFacing } = useAppSelector(state => state.settings)
+
 	return (
 		<Container toggle={toggleSettings}>
 
@@ -17,6 +25,11 @@ const SettingsPanel: React.FC<SettingsPanelComponent> = ({ toggleSettings }) => 
 				<SettingsTitle>Import from pd2builder</SettingsTitle>
 				<BuildIO />
 			</Setting>
+
+			<SettingsSingleLine>
+				<SettingsTitle>Left Facing Weapons</SettingsTitle>
+				<CheckboxInput defaultState={leftFacing} callback={isToggled => dispatch(changeLeftFacing(isToggled))}/>
+			</SettingsSingleLine>
 
 		</Container>
 	)

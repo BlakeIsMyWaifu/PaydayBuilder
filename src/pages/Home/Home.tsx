@@ -1,3 +1,7 @@
+import { resetAbilities } from 'actions/abilitiesAction'
+import { resetCharacter } from 'actions/characterAction'
+import { resetSkills } from 'actions/skillsAction'
+import { resetWeapon } from 'actions/weaponsAction'
 import Container from 'components/Container'
 import { InfoDescription, InfoTitle } from 'components/Info'
 import perkData from 'data/abilities/perks'
@@ -21,11 +25,10 @@ export interface hoverInfo {
 
 const Home: React.FC = () => {
 
-	const { mask, character, armour, equipment } = useAppSelector(state => state.character)
-
-	const { primary, secondary, throwable, melee } = useAppSelector(state => state.weapons)
-
 	const dispatch = useAppDispatch()
+
+	const { mask, character, armour, equipment } = useAppSelector(state => state.character)
+	const { primary, secondary, throwable, melee } = useAppSelector(state => state.weapons)
 
 	const [hoverInfo, setHoverInfo] = useState<hoverInfo | null>(null)
 
@@ -33,6 +36,7 @@ const Home: React.FC = () => {
 	const perkDeckIndex = perkData.indexOf(perkData.find(perk => perk.name === perkDeck.name) || perkData[0])
 
 	const [toggleSettings, setToggleSettings] = useState(false)
+	const leftFacing = useAppSelector(state => state.settings.leftFacing)
 
 	return (
 		<>
@@ -105,14 +109,14 @@ const Home: React.FC = () => {
 							title: primary.equipped.name,
 							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={primary.equipped} />
 						}}>
-							<Image src={`images/weapons/${primary.equipped.image}.png`} />
+							<Image src={`images/weapons/${primary.equipped.image}.png`} leftFacing={leftFacing} />
 						</Selector>
 
 						<Selector title='secondary' setHoverInfo={setHoverInfo} infoData={{
 							title: secondary.equipped.name,
 							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={secondary.equipped} />
 						}}>
-							<Image src={`images/weapons/${secondary.equipped.image}.png`} />
+							<Image src={`images/weapons/${secondary.equipped.image}.png`} leftFacing={leftFacing} />
 						</Selector>
 
 						<Selector title='throwable' setHoverInfo={setHoverInfo} infoData={{
@@ -126,7 +130,7 @@ const Home: React.FC = () => {
 								title: melee.name,
 								table: <MeleeStatsTable selectedMelee={melee.stats} />
 							}}>
-							<Image src={`images/melees/${melee.image}.png`} />
+							<Image src={`images/melees/${melee.image}.png`} leftFacing={leftFacing} />
 						</Selector>
 
 					</SelectorWrapper>
@@ -157,7 +161,12 @@ const Home: React.FC = () => {
 
 				<ConfigWrapper>
 					<ConfigButton onClick={() => setToggleSettings(!toggleSettings)}>[Settings]</ConfigButton>
-					<ConfigButton onClick={() => dispatch({type: 'RESET'})}>[Reset Build]</ConfigButton>
+					<ConfigButton onClick={() => {
+						dispatch(resetAbilities())
+						dispatch(resetCharacter())
+						dispatch(resetSkills())
+						dispatch(resetWeapon())
+					}}>[Reset Build]</ConfigButton>
 				</ConfigWrapper>
 
 			</Container>

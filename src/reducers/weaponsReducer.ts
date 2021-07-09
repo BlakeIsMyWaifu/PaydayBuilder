@@ -26,6 +26,8 @@ const weaponReducer = (state = defaultState, action: any) => {
 				...state,
 				melee
 			}
+		case getType(actions.resetWeapon):
+			return defaultState
 		default:
 			return state
 	}

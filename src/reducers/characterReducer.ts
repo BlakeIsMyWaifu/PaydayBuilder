@@ -35,6 +35,8 @@ const characterReducer = (state = defaultstate, action: any) => {
 					[slot]: equipment
 				}
 			}
+		case getType(actions.resetCharacter):
+			return defaultstate
 		default:
 			return state
 	}

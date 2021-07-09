@@ -79,10 +79,11 @@ const Weapons: React.FC<weaponsComponent> = ({ slot }) => {
 	const dispatch = useAppDispatch()
 
 	const equippedWeapon = useAppSelector(state => state.weapons[slot].equipped)
+	const [selectedWeapon, setSeletectedWeapon] = useState(equippedWeapon)
+
+	const leftFacing = useAppSelector(state => state.settings.leftFacing)
 
 	const [selectedTab, setSeletectTab] = useState<string>(equippedWeapon.weaponType)
-
-	const [selectedWeapon, setSeletectedWeapon] = useState(equippedWeapon)
 
 	return (
 		<Container columns='3fr 1.5fr' rows='4rem 2rem 8fr 4rem' areas='"title filter" "weapontypes filter" "items info" "items back"' title={slot}>
@@ -111,7 +112,7 @@ const Weapons: React.FC<weaponsComponent> = ({ slot }) => {
 						>
 							<ItemName color={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
 							{ weapon.name === equippedWeapon.name && <ItemEquipped /> }
-							<ItemImage src={`images/weapons/${weapon.image}.png`} onMouseDown={event => event.preventDefault()} />
+							<ItemImage src={`images/weapons/${weapon.image}.png`} leftFacing={leftFacing} onMouseDown={event => event.preventDefault()} />
 						</Item>
 					})
 				}
