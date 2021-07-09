@@ -48,15 +48,22 @@ export interface WeaponExtraStats {
 	damageModifier: [number, number] | null;
 }
 
-type SpecialEffect = 'Silences Weapon';
+type ModificationSlot = 'Ammunition' | 'Barrel' | 'Barrel Ext' | 'Boost' | 'Custom' | 'Foregrip' | 'Gadget' | 'Grip' | 'Sight' | 'Stock' | 'Upper Reciever';
+type Packages = 'Green Mantis' | 'Yellow Bull' | 'Red Spider' | 'Blue Eagle' | 'Purple Snake';
 
 export interface WeaponModification<ModificationName> {
 	name: ModificationName;
 	image: string;
-	slot: 'Barrel Ext';
+	slot: ModificationSlot;
 	source: sourceData | contentData;
 	cost: number;
-	acquisition?: ['package' | 'achievement', string];
+	acquisition?: {
+		package?: Packages;
+		achievement?: string;
+		bonus?: number;
+		infinite?: true;
+	}
+	specialEffect?: string[];
 	stats: {
 		magazine?: number;
 		totalAmmo?: number;
@@ -67,7 +74,6 @@ export interface WeaponModification<ModificationName> {
 		concealment?: number;
 		threat?: number;
 	};
-	specialEffect?: SpecialEffect[];
 	compatibleWeapons: {
 		type?: WeaponType[];
 		list?: WeaponData[];
