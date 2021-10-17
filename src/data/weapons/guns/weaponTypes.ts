@@ -80,7 +80,7 @@ export interface WeaponModification<ModificationName> {
 	}
 }
 
-type StatBoost = 'accuracy' | 'concealment' | 'damage' | 'income' | 'stability' | 'total ammo' ;
+type StatBoost = 'accuracy' | 'concealment' | 'damage' | 'income' | 'stability' | 'total ammo';
 
 interface WeaponSkin {
 	name: string;
@@ -88,4 +88,11 @@ interface WeaponSkin {
 	rarity: 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary';
 	statBoost: [number, StatBoost] | [[number, StatBoost], [number, StatBoost]];
 	safe: string;
+}
+
+export interface Weapon {
+	id: number;
+	weapon: WeaponData;
+	modifications: WeaponModification<string>[];
+	name?: string;
 }

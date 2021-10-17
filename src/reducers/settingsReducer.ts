@@ -6,7 +6,6 @@ const settingsReducer = (state = defaultState, action: Record<'type' | 'payload'
 	switch (action.type) {
 		case getType(actions.changeLeftFacing):
 			const leftFacing: boolean = action.payload
-			console.log(leftFacing)
 			return {
 				...state,
 				leftFacing

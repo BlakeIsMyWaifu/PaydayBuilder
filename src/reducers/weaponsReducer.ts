@@ -10,9 +10,7 @@ const weaponReducer = (state = defaultState, action: Record<'type' | 'payload', 
 			const { slot, weapon } = action.payload
 			return {
 				...state,
-				[slot]: {
-					equipped: weapon
-				}
+				[slot]: weapon
 			}
 		case getType(actions.changeThrowable):
 			const throwable: throwableData = action.payload
