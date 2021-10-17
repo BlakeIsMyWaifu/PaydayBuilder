@@ -5,4 +5,9 @@ export const changeLeftFacing = createAction(CHANGELEFTFACING)<boolean>()
 
 export const resetSettings = createAction(RESETSETTINGS)<void>()
 
-export default { changeLeftFacing, resetSettings }
+const settingsActions = {
+	changeLeftFacing,
+	resetSettings
+}
+
+export default settingsActions

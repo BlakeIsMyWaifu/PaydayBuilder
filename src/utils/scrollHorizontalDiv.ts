@@ -1,4 +1,4 @@
-export default (event: React.WheelEvent, ref: React.RefObject<HTMLDivElement>) => {
+const scrollHorizontalDiv = (event: React.WheelEvent, ref: React.RefObject<HTMLDivElement>) => {
 	const div = ref.current
 	if (!div) return
 	const containerScrollPosition = div.scrollLeft
@@ -8,3 +8,5 @@ export default (event: React.WheelEvent, ref: React.RefObject<HTMLDivElement>) =
 		behavior: 'auto'
 	})
 }
+
+export default scrollHorizontalDiv

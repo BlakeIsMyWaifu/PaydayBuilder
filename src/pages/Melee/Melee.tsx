@@ -3,7 +3,7 @@ import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { TableCompare, TableEquipped } from 'components/Table'
-import data, { meleeData, meleeStats } from 'data/weapons/melees'
+import data, { meleeStats } from 'data/weapons/melees'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 import { itemColours } from 'utils/colours'
@@ -55,7 +55,7 @@ export const MeleeStatsTable: React.FC<meleeStatsTable> = ({ selectedMelee, equi
 	}
 
 	return (
-		equippedMelee ? 
+		equippedMelee ?
 			<TableCompare
 				equippedStats={baseStats(equippedMelee)}
 				selectedStats={baseStats(selectedMelee)}
@@ -92,7 +92,7 @@ export const Melee: React.FC = () => {
 							onClick={() => melee.name === selectedMelee.name ? dispatch(changeMelee(melee)) : setSelectedMelee(melee)}
 						>
 							<ItemName color={itemColours[melee.source.rarity]}>{melee.name}</ItemName>
-							{ melee.name === equippedMelee.name && <ItemEquipped /> }
+							{melee.name === equippedMelee.name && <ItemEquipped />}
 							<ItemImage src={`images/melees/${melee.image}.png`} leftFacing={leftFacing} onMouseDown={event => event.preventDefault()} />
 						</Item>
 					})

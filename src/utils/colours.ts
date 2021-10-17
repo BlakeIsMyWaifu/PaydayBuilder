@@ -20,4 +20,16 @@ export const itemColours: Record<string, string> = {
 	Bundle: '#80ff00'
 }
 
-export default { grey, blue, red, dim, itemColours }
+const colours = {
+	raisinBlack,
+	grey,
+	lightgrey,
+	blue,
+	green,
+	red,
+	dim,
+	dimBlue,
+	itemColours
+}
+
+export default colours

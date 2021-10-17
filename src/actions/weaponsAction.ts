@@ -14,4 +14,11 @@ export const changeMelee = createAction(CHANGEMELEE)<meleeData>()
 
 export const resetWeapon = createAction(RESETWEAPON)<void>()
 
-export default { changeWeapon, changeThrowable, changeMelee, resetWeapon }
+const weaponsActions = {
+	changeWeapon,
+	changeThrowable,
+	changeMelee,
+	resetWeapon
+}
+
+export default weaponsActions

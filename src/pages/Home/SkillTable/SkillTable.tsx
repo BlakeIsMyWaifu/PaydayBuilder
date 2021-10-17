@@ -2,7 +2,7 @@ import { Data, Head, Label, Row, Table } from 'components/Table'
 import data from 'data/abilities/skills'
 import { useAppSelector } from 'hooks'
 import React from 'react'
-import { blue, dim, dimBlue, grey } from 'utils/colours'
+import { blue, dimBlue, grey } from 'utils/colours'
 
 const SkillTable: React.FC = () => {
 

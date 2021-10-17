@@ -117,7 +117,7 @@ interface tableCompare {
 
 export const TableCompare: React.FC<tableCompare> = ({ equippedStats, selectedStats, equippedAdditional, selectedAdditional }) => {
 
-	const stats = [...Object.keys(equippedStats), ...Object.keys(selectedStats)].filter((label, i, arr) => arr.indexOf(label) == i)
+	const stats = [...Object.keys(equippedStats), ...Object.keys(selectedStats)].filter((label, i, arr) => arr.indexOf(label) === i)
 
 	return (
 		<Table>

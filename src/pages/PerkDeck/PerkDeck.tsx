@@ -16,7 +16,7 @@ const PerkDeck: React.FC = () => {
 
 	const perkWrapperRef = useRef<HTMLDivElement>(null)
 
-	const perkRefs = useRef(Array.from({length: data.length}, () => createRef<HTMLDivElement>()))
+	const perkRefs = useRef(Array.from({ length: data.length }, () => createRef<HTMLDivElement>()))
 
 	const scrollToPerk = (i: number, behavior: 'smooth' | 'auto') => {
 		const container = perkWrapperRef.current
@@ -39,7 +39,7 @@ const PerkDeck: React.FC = () => {
 	useEffect(() => {
 		const currentEquippedIndex = data.indexOf(data.find(perk => perk.name === equippedPerk.name) || data[0])
 		scrollToPerk(currentEquippedIndex, 'auto')
-	}, [throwable])
+	}, [throwable, equippedPerk])
 
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title title" "perkdecknames ." "items info" "items back"' title='Perk Deck'>

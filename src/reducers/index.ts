@@ -16,4 +16,6 @@ const allReducers = combineReducers({
 	weapons
 })
 
-export default (state: any, action: any) => allReducers(action.type === 'RESET' ? undefined : state, action)
+const resetAll = (state: any, action: any) => allReducers(action.type === 'RESET' ? undefined : state, action)
+
+export default resetAll

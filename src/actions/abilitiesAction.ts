@@ -16,7 +16,7 @@ export const changeCrewBoost = createAction(CHANGECREWBOOST)<[number, null]>()
 
 export const resetAbilities = createAction(RESETABILITIES)<void>()
 
-export default {
+const abilitiesActions = {
 	changePerkdeck,
 	changeCrewMask,
 	changeCrewCharacter,
@@ -26,3 +26,5 @@ export default {
 	changeCrewBoost,
 	resetAbilities
 }
+
+export default abilitiesActions

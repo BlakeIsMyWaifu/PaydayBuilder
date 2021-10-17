@@ -15,4 +15,10 @@ export const changeSkillState = createAction(CHANGESKILLSTATE)<skillChangeAction
 export const resetSkills = createAction(RESETSKILLS)<void>()
 export const resetTree = createAction(RESETTREE)<string>()
 
-export default { changeSkillState, resetSkills, resetTree }
+const skillsActions = {
+	changeSkillState,
+	resetSkills,
+	resetTree
+}
+
+export default skillsActions

@@ -51,7 +51,8 @@ const Skills: React.FC = () => {
 		return () => {
 			window.removeEventListener('keydown', handleKeys)
 		}
-	}, [currentTree, jackOfAllTrades, engineering])
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [currentTree, jackOfAllTrades, engineering, equippedEquipment])
 
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"' title='Skills'>
@@ -65,9 +66,9 @@ const Skills: React.FC = () => {
 			</TreeNamesWrapper>
 
 			<Tree onWheel={scrollTrees}>
-				<Subtree tree={currentTree} subtree={currentTree.subtrees[0]} setSkillHovered={setSkillHovered}/>
-				<Subtree tree={currentTree} subtree={currentTree.subtrees[1]} setSkillHovered={setSkillHovered}/>
-				<Subtree tree={currentTree} subtree={currentTree.subtrees[2]} setSkillHovered={setSkillHovered}/>
+				<Subtree tree={currentTree} subtree={currentTree.subtrees[0]} setSkillHovered={setSkillHovered} />
+				<Subtree tree={currentTree} subtree={currentTree.subtrees[1]} setSkillHovered={setSkillHovered} />
+				<Subtree tree={currentTree} subtree={currentTree.subtrees[2]} setSkillHovered={setSkillHovered} />
 			</Tree>
 
 			<SubtreeLabelWrapper>
@@ -76,11 +77,11 @@ const Skills: React.FC = () => {
 				<SubtreeLabel>{currentTree.subtrees[2].name.replaceAll('_', ' ')}</SubtreeLabel>
 			</SubtreeLabelWrapper>
 
-			<Reset tree={currentTree.name}/>
+			<Reset tree={currentTree.name} />
 
 			<Points />
 
-			<Info skill={skillHovered}/>
+			<Info skill={skillHovered} />
 
 		</Container>
 	)

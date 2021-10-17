@@ -45,7 +45,7 @@ const CollectionsTab: React.FC<CollectionsTabComponent> = ({ selectedTab, collec
 			<CollectionsContainer>
 				{
 					Object.keys(collections).map((collection, i) => {
-						if (selectedTab !== collections[collection][0].rarity && selectedTab !== 'All') return
+						if (selectedTab !== collections[collection][0].rarity && selectedTab !== 'All') return <></>
 						return <CollectionTitle
 							key={collection}
 							color={itemColours[collections[collection][0].rarity]}
@@ -68,14 +68,14 @@ const Mask: React.FC = () => {
 	const [selectedTab, setSelectedTab] = useState('All')
 
 	const itemContainerRef = useRef<HTMLDivElement>(null)
-	const collectionRefs = useRef(Array.from({length: Object.keys(collections).length}, () => createRef<HTMLDivElement>()))
+	const collectionRefs = useRef(Array.from({ length: Object.keys(collections).length }, () => createRef<HTMLDivElement>()))
 
 	return (
 		<Container rows='4rem 2rem 8fr 4rem' areas='"title title" "rarity infotabs" "items info" "items back"' title='Mask'>
 
 			<RarityContainer>
 				{
-					['All','Community', 'Free', 'Paid', 'Event', 'Collaboration', 'Infamous'].map(rarity => {
+					['All', 'Community', 'Free', 'Paid', 'Event', 'Collaboration', 'Infamous'].map(rarity => {
 						return <RarityTitle
 							key={rarity}
 							color={itemColours[rarity] || 'rainbow'}
@@ -91,7 +91,7 @@ const Mask: React.FC = () => {
 			<ItemContainer ref={itemContainerRef}>
 				{
 					Object.entries(collections).map(([collection, masks], i) => {
-						if (selectedTab !== masks[0].rarity && selectedTab !== 'All') return
+						if (selectedTab !== masks[0].rarity && selectedTab !== 'All') return <></>
 						return <MaskCollection key={collection} ref={collectionRefs.current[i]}>
 							<MaskCollectionTitle color={itemColours[masks[0].rarity]}>{collection}</MaskCollectionTitle>
 							<MaskWrapper key={collection}>
@@ -104,7 +104,7 @@ const Mask: React.FC = () => {
 											onClick={() => mask.name === selectedMask.name ? dispatch(changeMask(mask)) : setSelectedMask(mask)}
 										>
 											<ItemName color={itemColours[mask.rarity]}>{mask.name.replaceAll(' ', '\n')}</ItemName>
-											{ mask.name === equippedMask.name && <ItemEquipped /> }
+											{mask.name === equippedMask.name && <ItemEquipped />}
 											<ItemImage src={`images/masks/${mask.image}.png`} onMouseDown={event => event.preventDefault()} />
 										</Item>
 									})

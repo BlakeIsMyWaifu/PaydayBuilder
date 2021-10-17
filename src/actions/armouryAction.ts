@@ -16,4 +16,10 @@ export const addWeapon = createAction(ADDWEAPON)<AddWeaponAction>()
 export const removeWeapon = createAction(REMOVEWEAPON)<RemoveWeaponAction>()
 export const resetArmoury = createAction(RESETARMOURY)<void>()
 
-export default { addWeapon, removeWeapon, resetArmoury }
+const armouryActions = {
+	addWeapon,
+	removeWeapon,
+	resetArmoury
+}
+
+export default armouryActions

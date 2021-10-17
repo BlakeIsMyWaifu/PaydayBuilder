@@ -1,9 +1,11 @@
 import { subtrees } from 'defualtStates/skillsDefaultState'
 import { useAppSelector } from 'hooks'
 
-export default (tree: string, trees?: Record<string, subtrees>) => {
+const SkillTreePoints = (tree: string, trees?: Record<string, subtrees>) => {
 
-	trees = trees || useAppSelector(state => state.skills.trees)
+	const currentTrees = useAppSelector(state => state.skills.trees)
+
+	trees = trees || currentTrees
 
 	let treePoints = 0
 	for (let subtree in trees[tree]) {
@@ -12,3 +14,5 @@ export default (tree: string, trees?: Record<string, subtrees>) => {
 
 	return treePoints
 }
+
+export default SkillTreePoints

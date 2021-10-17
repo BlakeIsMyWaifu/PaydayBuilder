@@ -12,4 +12,12 @@ export const changeEquipment = createAction(CHANGEEQUIPMENT)<[equipmentData | nu
 
 export const resetCharacter = createAction(RESETCHARACTER)<void>()
 
-export default { changeMask, changeCharacter, changeArmour, changeEquipment, resetCharacter }
+const characterActions = {
+	changeMask,
+	changeCharacter,
+	changeArmour,
+	changeEquipment,
+	resetCharacter
+}
+
+export default characterActions
