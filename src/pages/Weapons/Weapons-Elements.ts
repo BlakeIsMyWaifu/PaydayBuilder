@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { blue } from 'utils/colours'
 
 export const WeaponTypes = styled.div`
 	grid-area: weapontypes;
@@ -22,6 +23,20 @@ export const ActionsContainer = styled.div`
 `
 
 export const ActionsText = styled.p`
+	font-size: 1.6rem;
+	text-align: end;
+	cursor: pointer;
+	&:hover {
+		color: #fff;
+	}
+`
+
+export const ResetContainer = styled.div`
+	grid-area: resetarmoury;
+`
+
+export const ResetText = styled.p`
+	color: ${blue};
 	font-size: 1.6rem;
 	text-align: end;
 	cursor: pointer;

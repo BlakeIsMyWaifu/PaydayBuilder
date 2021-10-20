@@ -2,19 +2,21 @@ import { ADDWEAPON, REMOVEWEAPON, RESETARMOURY } from 'constants/armouryConstant
 import { WeaponData } from 'data/weapons/guns/weaponTypes'
 import { createAction } from 'typesafe-actions'
 
+type slot = 'primary' | 'secondary';
+
 interface AddWeaponAction {
-	slot: 'primary' | 'secondary';
+	slot: slot;
 	weapon: WeaponData;
 }
 
 interface RemoveWeaponAction {
-	slot: 'primary' | 'secondary';
+	slot: slot;
 	id: number;
 }
 
 export const addWeapon = createAction(ADDWEAPON)<AddWeaponAction>()
 export const removeWeapon = createAction(REMOVEWEAPON)<RemoveWeaponAction>()
-export const resetArmoury = createAction(RESETARMOURY)<void>()
+export const resetArmoury = createAction(RESETARMOURY)<slot>()
 
 const armouryActions = {
 	addWeapon,

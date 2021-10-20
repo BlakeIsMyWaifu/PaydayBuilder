@@ -31,7 +31,11 @@ const armouryReducer = (state = defaultState, action: Record<'type' | 'payload',
 				[removeSlot]: newState
 			}
 		case getType(actions.resetArmoury):
-			return defaultState
+			const slot: 'primary' | 'secondary' = action.payload
+			return {
+				...state,
+				[slot]: defaultState[slot]
+			}
 		default:
 			return state
 	}

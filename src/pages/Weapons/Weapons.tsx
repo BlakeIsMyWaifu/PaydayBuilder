@@ -1,7 +1,6 @@
-import { addWeapon, removeWeapon } from 'actions/armouryAction'
+import { addWeapon, removeWeapon, resetArmoury } from 'actions/armouryAction'
 import { changeWeapon } from 'actions/weaponsAction'
 import Container from 'components/Container'
-import { InfoContainer, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
@@ -9,8 +8,8 @@ import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 import { blue, itemColours } from 'utils/colours'
 
-import { ActionsContainer, ActionsText, WeaponType, WeaponTypes } from './Weapons-Elements'
-import WeaponsStatsTable from './WeaponStatsTable'
+import WeaponInfo from './WeaponInfo/WeaponInfo'
+import { ActionsContainer, ActionsText, ResetContainer, ResetText, WeaponType, WeaponTypes } from './Weapons-Elements'
 
 interface WeaponsComponent {
 	slot: 'primary' | 'secondary';
@@ -43,7 +42,7 @@ const Weapons: React.FC<WeaponsComponent> = ({ slot }) => {
 	}
 
 	return (
-		<Container columns='3fr 1.5fr' rows='4rem 2rem 8fr 3rem 4rem' areas='"title filter" "weapontypes filter" "items info" "items actions" "items back"' title={slot}>
+		<Container columns='3fr 1.5fr' rows='4rem 2rem 8fr 3rem 4rem' areas='"title resetarmoury" "weapontypes filter" "items info" "items actions" "items back"' title={slot}>
 
 			<WeaponTypes>
 				<WeaponType color={'saved' === selectedTab ? '#fff' : blue} onClick={() => setSeletectTab('saved')}>Saved</WeaponType>
@@ -61,21 +60,21 @@ const Weapons: React.FC<WeaponsComponent> = ({ slot }) => {
 			<ItemContainer>
 				{
 					selectedTab === 'saved' ?
-						Object.values(armoury).map((weapon, i) => {
+						Object.values(armoury).map(({ id, weapon }, i) => {
 							if (i === 0) return <></>
 							return <Item
-								key={`${weapon.name}-${weapon.id}`}
+								key={`${weapon.name}-${id}`}
 								width={192}
 								height={96}
-								selected={selectedArmoury === weapon.id}
-								onClick={() => selectedArmoury === weapon.id ? dispatch(changeWeapon({ slot, weapon: weapon.id })) : (() => {
-									setSelectedArmoury(weapon.id)
-									setSelectedWeapon(weapon.weapon)
+								selected={selectedArmoury === id}
+								onClick={() => selectedArmoury === id ? dispatch(changeWeapon({ slot, weapon: id })) : (() => {
+									setSelectedArmoury(id)
+									setSelectedWeapon(weapon)
 								})()}
 							>
-								{equippedWeaponId === weapon.id && <ItemEquipped />}
-								<ItemName color={itemColours[weapon.weapon.source.rarity]}>{weapon.name}</ItemName>
-								<ItemImage src={`images/weapons/${weapon.weapon.image}.png`} leftFacing={leftFacing} onMouseDown={event => event.preventDefault()} />
+								{equippedWeaponId === id && <ItemEquipped />}
+								<ItemName color={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
+								<ItemImage src={`images/weapons/${weapon.image}.png`} leftFacing={leftFacing} onMouseDown={event => event.preventDefault()} />
 							</Item>
 						}) :
 						Object.values(data[selectedTab]).map(weapon => {
@@ -93,16 +92,23 @@ const Weapons: React.FC<WeaponsComponent> = ({ slot }) => {
 				}
 			</ItemContainer>
 
-			<InfoContainer>
-				<InfoTitle>{selectedWeapon.name}</InfoTitle>
-				<InfoSubtitle>Value ${selectedWeapon.cost.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}</InfoSubtitle>
-				<WeaponsStatsTable showExtraStats={true} selectedWeapon={selectedWeapon} equippedWeapon={selectedWeapon.name !== equippedWeapon.name ? equippedWeapon : undefined} />
-				<InfoUnlock color={itemColours[selectedWeapon.source.rarity]}>{selectedWeapon.source.name}</InfoUnlock>
-			</InfoContainer>
+			<ResetContainer>
+				<ResetText onClick={() => {
+					setSelectedArmoury(0)
+					dispatch(changeWeapon({ slot, weapon: 0 }))
+					dispatch(resetArmoury(slot))
+				}}>Delete All Saved</ResetText>
+			</ResetContainer>
+
+			{
+				selectedTab === 'saved' ?
+					selectedArmoury !== 0 && <WeaponInfo selectedWeapon={armoury[selectedArmoury].weapon} equippedWeapon={armoury[selectedArmoury].id === equippedWeaponId ? undefined : equippedWeapon} /> :
+					<WeaponInfo selectedWeapon={selectedWeapon} equippedWeapon={equippedWeapon} />
+			}
 
 			<ActionsContainer>
 				{
-					selectedTab === 'saved' ?
+					selectedTab === 'saved' ? selectedArmoury !== 0 &&
 						<ActionsText onClick={() => {
 							if (Object.keys(armoury).length === 1) return
 							dispatch(removeWeapon({ slot, id: selectedArmoury }))
