@@ -22,7 +22,7 @@ const defaultCrew = (i: number): CrewData => ({
 })
 
 const abilitiesDefaultState: abilitiesState = {
-	perkdeck: data[0],
+	perkdeck: Object.values(data)[0],
 	crewmanagement: [defaultCrew(0), defaultCrew(1), defaultCrew(2)],
 	infamy: null
 }

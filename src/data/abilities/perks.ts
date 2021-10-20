@@ -1,6 +1,29 @@
 import content, { contentData } from 'data/source/downloadableContent'
 import source, { sourceData } from 'data/source/miscSources'
 
+type perkDeckList =
+	'Crew Chief' |
+	'Muscle' |
+	'Armorer' |
+	'Rogue' |
+	'Crook' |
+	'Hitman' |
+	'Burglar' |
+	'Infiltrator' |
+	'Sociopath' |
+	'Gambler' |
+	'Grinder' |
+	'Yakuza' |
+	'Ex-President' |
+	'Maniac' |
+	'Anarchist' |
+	'Biker' |
+	'Kingpin' |
+	'Sicario' |
+	'Stoic' |
+	'Tag Team' |
+	'Hacker';
+
 export interface perk {
 	name: string;
 	description: string[];
@@ -69,8 +92,8 @@ const commonCards: card[] = [
 	}
 ]
 
-const perks: perk[] = [
-	{
+var perkDecks: Record<perkDeckList, perk> = {
+	'Crew Chief': {
 		name: 'Crew Chief',
 		description: [
 			'The Crew Chief. also known as the Caporegime, is the head of a branch of an organized crime syndicate. The Crew Chief commands a crew of soldiers and reports directly to a boss or an underboss.',
@@ -164,7 +187,7 @@ const perks: perk[] = [
 		],
 		source: source['Base Game']
 	},
-	{
+	'Muscle': {
 		name: 'Muscle',
 		description: [
 			'The Muscle is a tough guy who uses violence to send messages from his Mafia superioris. They are the backbone of any criminal organization.',
@@ -245,7 +268,7 @@ const perks: perk[] = [
 		],
 		source: source['Base Game']
 	},
-	{
+	'Armorer': {
 		name: 'Armorer',
 		description: [
 			'The Armorer was formerly a profession within the military. The armorer\'s job is to maintain, repair and improve armors.',
@@ -338,7 +361,7 @@ const perks: perk[] = [
 		],
 		source: source['Base Game']
 	},
-	{
+	'Rogue': {
 		name: 'Rogue',
 		description: [
 			'The Rogue is a stealthy criminal, capable of sneaky tricks and deadly force. Versatile and deceptive, the Rogue is hired to do anything from pickpocketing, to burglaries and con jobs.',
@@ -397,7 +420,7 @@ const perks: perk[] = [
 			{
 				name: 'Killer Instinct',
 				description: [
-					'All your weapons have a 25% chance to pierce enemy armor.','Increases weapon swapping speed by 80%'
+					'All your weapons have a 25% chance to pierce enemy armor.', 'Increases weapon swapping speed by 80%'
 				],
 				vr_description: 'The dash effect is now from 1% up to a maximum of 10%.',
 				stats: [
@@ -411,7 +434,7 @@ const perks: perk[] = [
 		],
 		source: source['Base Game']
 	},
-	{
+	'Hitman': {
 		name: 'Hitman',
 		description: [
 			'The Hitman is a professional killer from the criminal underworld who excels at close and ranged combat.',
@@ -494,7 +517,7 @@ const perks: perk[] = [
 		],
 		source: content['John Wick Character Pack']
 	},
-	{
+	'Crook': {
 		name: 'Crook',
 		description: [
 			'The Crook is a versatile criminal. The term is as old as crime itself.',
@@ -622,7 +645,7 @@ const perks: perk[] = [
 		],
 		source: content['Old Hoxton Character Pack']
 	},
-	{
+	'Burglar': {
 		name: 'Burglar',
 		description: [
 			'The natural dexterity of the Burglar has benefits beyond merely breaking and entering. Being nimble allows the Burglar to pick locks, bag bodies and answer pagers faster. They are aslo harder to hit in combat. They stay alive by staying out of the way.',
@@ -694,7 +717,7 @@ const perks: perk[] = [
 		],
 		source: content['Clover Character Pack']
 	},
-	{
+	'Infiltrator': {
 		name: 'Infiltrator',
 		description: [
 			'The Infiltrator is an agent hired by a government or large criminal organization to obtain information about its enemies, or by a corporation to obtain industrial secrets from its competitors.',
@@ -740,7 +763,7 @@ const perks: perk[] = [
 		],
 		source: content['Dragan Character Pack']
 	},
-	{
+	'Sociopath': {
 		name: 'Sociopath',
 		description: [
 			'The Sociopath is known to be one of the most effective type of criminals. Where he is effective, he is also difficult to deal with, which is why larger organizations avoid him.',
@@ -808,7 +831,7 @@ const perks: perk[] = [
 		],
 		source: content['Jacket Character Pack']
 	},
-	{
+	'Gambler': {
 		name: 'Gambler',
 		description: [
 			'Heading into the furnace of battle requires skill, hardness and more than a little luck. Some people just have it.',
@@ -873,7 +896,7 @@ const perks: perk[] = [
 		],
 		source: content['Bonnie Character Pack']
 	},
-	{
+	'Grinder': {
 		name: 'Grinder',
 		description: [
 			'A typical grinder is a hard working individual, able to take control of difficult situations and turn them around.',
@@ -930,7 +953,7 @@ const perks: perk[] = [
 		],
 		source: content['Sokol Character Pack']
 	},
-	{
+	'Yakuza': {
 		name: 'Yakuza',
 		description: [
 			'The Yakuza are one of the most feared crime syndicates in the world. Ruled by the ninkyo and lead by the Oyabun, the Yakuza are known for their strict code of conduct, organized nature and the tattoos that cover their entire bodies.',
@@ -976,7 +999,7 @@ const perks: perk[] = [
 		],
 		source: content['Yakuza Character Pack']
 	},
-	{
+	'Ex-President': {
 		name: 'Ex-President',
 		description: [
 			'The Ex-Presidents are one of the most daring heisting crews out there. Great risk takers and brothers in arms. Their lack of fear for their own mortality brought them together and made them as successful as they are.',
@@ -1053,7 +1076,7 @@ const perks: perk[] = [
 		],
 		source: content['Bodhi Character Pack']
 	},
-	{
+	'Maniac': {
 		name: 'Maniac',
 		description: [
 			'The Maniac Perk Deck is the embodiment of crazy and to never accept bad odds in moments of danger. By pushing through and constantly deal damage, your fellow heisters will be granted a temporary shield making all of you feel Jimmy\'s invulnerable spirit.'
@@ -1099,7 +1122,7 @@ const perks: perk[] = [
 		],
 		source: content['Jimmy Character Pack']
 	},
-	{
+	'Anarchist': {
 		name: 'Anarchist',
 		description: [
 			'The Anarchist refuses to acknowledge the arbitrary laws imposed by traditional authority. Kings, queens and presidents hold no sway over the Anarchist mind. Fly free and make your own rules is the motto. This refusal to abide by established truths enables the Anarchist to go where others cannot, employing unconventional tactics to slip through the cracks and reach seemingly impossible objectives.'
@@ -1184,7 +1207,7 @@ const perks: perk[] = [
 		],
 		source: content['Sydney Character Pack']
 	},
-	{
+	'Biker': {
 		name: 'Biker',
 		description: [
 			'Biker gangs are feared all over the world, and the biggest clubs are common household names. To be a biker you need to be tough and loyal, and know that the rules of the club are absolute. Bikers are known to be ruthless and violent people, and they are never afraid to challenge anyone that dare to cross them.',
@@ -1229,7 +1252,7 @@ const perks: perk[] = [
 		],
 		source: content['Biker Character Pack']
 	},
-	{
+	'Kingpin': {
 		name: 'Kingpin',
 		description: [
 			'The Kingpin is the boss, an autocrat whose every whim must be obeyed. But you gotta get the money first. Then when you get the money, you get the power. Remember, the only thing in this world that gives orders...is balls.'
@@ -1307,7 +1330,7 @@ const perks: perk[] = [
 		source: content['Scarface Character Pack'],
 		throwable: 'Injector'
 	},
-	{
+	'Sicario': {
 		name: 'Sicario',
 		description: [
 			'The Sicario is a must in every drug cartel. Someone who takes care of all types of problems in a most lethal way. The Sicario never ducks out of a fight, they get the job done - without hesitation or fear.'
@@ -1361,7 +1384,7 @@ const perks: perk[] = [
 		source: content['Sangres Character Pack'],
 		throwable: 'Smoke Bomb'
 	},
-	{
+	'Stoic': {
 		name: 'Stoic',
 		description: [
 			'You are an unbreakable wall of resolve and calm. Discipline of the mind helps the Stoic overcome situations that would make others fall crying into shaking heaps. Combinations of breathing and physical reaction-control learned from buddhist monks will let you keep going long enough to finish the job, no matter what he enemy throws at you.'
@@ -1423,7 +1446,7 @@ const perks: perk[] = [
 		source: source['Base Game'],
 		throwable: 'Stoic\'s Hip Flask'
 	},
-	{
+	'Tag Team': {
 		name: 'Tag Team',
 		description: [
 			'Some way that experiences are best when shared, even in the case of performance-enhancing aerosol dispensers! For that special heister you like, this is something to bond over while you\'re looting bank vaults and taking care of business.'
@@ -1487,7 +1510,7 @@ const perks: perk[] = [
 		source: content['h3h3 Character Pack'],
 		throwable: 'Gas Dispenser'
 	},
-	{
+	'Hacker': {
 		name: 'Hacker',
 		description: [
 			'Using your sharp mind and gear, you can bring any security system to its knees with the push of a button. You are never caught unaware by a camera or security guard, but if things do go awry, you can just as easily brute-force your way into enemy comms to deliver a nasty surprise for anyone listening.'
@@ -1508,7 +1531,7 @@ const perks: perk[] = [
 				description: [
 					'You gain 20% more health.'
 				],
-				
+
 				stats: [
 					{
 						type: 'hp',
@@ -1539,13 +1562,14 @@ const perks: perk[] = [
 		source: source['Base Game'],
 		throwable: 'Pocket ECM'
 	}
-].map(perkdeck => {
-	let cards: any[] = []
-	for (let i = 0; i < 9; i++) {
-		cards.push(i % 2 ?  commonCards[~~(i / 2)] : perkdeck.cards[~~(i / 2)])
-	}
-	perkdeck.cards = cards
-	return perkdeck
-})
+}
 
-export default perks
+for (const [key, value] of Object.entries(perkDecks)) {
+	let cards: card[] = []
+	for (let i = 0; i < 9; i++) {
+		cards.push(i % 2 ? commonCards[~~(i / 2)] : value.cards[~~(i / 2)])
+	}
+	perkDecks[key as perkDeckList].cards = cards
+}
+
+export default perkDecks

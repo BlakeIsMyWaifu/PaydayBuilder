@@ -37,10 +37,10 @@ const BuildIO: React.FC = () => {
 	const loadBuildFromIterable = (input: string) => {
 		if (!input) return
 		const parameters = new URLSearchParams(input.replace('https://pd2builder.netlify.app/?', ''))
-		dispatch({type: 'RESET'})
+		dispatch({ type: 'RESET' })
 		for (const [key, value] of parameters) {
 			const decompressed = decompressData(value)
-			switch(key) {
+			switch (key) {
 				case 's':
 					loadSkills(decompressed)
 					break
@@ -87,7 +87,7 @@ const BuildIO: React.FC = () => {
 							oldLevel: 'available',
 							direction: 'upgrade'
 						}))
-						
+
 						if (skillAcedBit !== 0) {
 							dispatch(changeSkillState({
 								tree: treeName,
@@ -106,7 +106,7 @@ const BuildIO: React.FC = () => {
 	}
 
 	const loadPerkDeck = (perkIndex: number) => {
-		dispatch(changePerkdeck(perkData[perkIndex]))
+		dispatch(changePerkdeck(Object.values(perkData)[perkIndex]))
 	}
 
 	const loadArmour = (armourIndex: number) => {
@@ -124,7 +124,7 @@ const BuildIO: React.FC = () => {
 	const loadEquipment = (equipment: string) => {
 		const primaryEquipment = parseInt(equipment.substr(0, 1))
 		const secondaryEquipment = parseInt(equipment.length > 1 ? equipment.substr(1, 1) : '0')
-		
+
 		dispatch(changeEquipment([equipmentData[primaryEquipment], 'primary']))
 		if (secondaryEquipment) dispatch(changeEquipment([equipmentData[secondaryEquipment], 'secondary']))
 	}

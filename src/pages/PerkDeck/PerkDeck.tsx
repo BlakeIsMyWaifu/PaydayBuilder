@@ -16,7 +16,7 @@ const PerkDeck: React.FC = () => {
 
 	const perkWrapperRef = useRef<HTMLDivElement>(null)
 
-	const perkRefs = useRef(Array.from({ length: data.length }, () => createRef<HTMLDivElement>()))
+	const perkRefs = useRef(Array.from({ length: Object.keys(data).length }, () => createRef<HTMLDivElement>()))
 
 	const scrollToPerk = (i: number, behavior: 'smooth' | 'auto') => {
 		const container = perkWrapperRef.current
@@ -34,19 +34,18 @@ const PerkDeck: React.FC = () => {
 
 	const [selectedPerk, setSelectedPerk] = useState(equippedPerk)
 
-	const throwable = useAppSelector(state => state.weapons.throwable)
-
 	useEffect(() => {
-		const currentEquippedIndex = data.indexOf(data.find(perk => perk.name === equippedPerk.name) || data[0])
+		const currentEquippedIndex = Object.keys(data).indexOf(equippedPerk.name)
 		scrollToPerk(currentEquippedIndex, 'auto')
-	}, [throwable, equippedPerk])
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title title" "perkdecknames ." "items info" "items back"' title='Perk Deck'>
 
 			<PerkDeckNamesContainer ref={scrollRef} onWheel={event => scrollHorizontalDiv(event, scrollRef)}>
 				{
-					data.map((perkdeck, i) => {
+					Object.values(data).map((perkdeck, i) => {
 						return <PerkDeckName
 							key={perkdeck.name}
 							onClick={() => scrollToPerk(i, 'smooth')}
@@ -58,7 +57,7 @@ const PerkDeck: React.FC = () => {
 
 			<ItemContainer ref={perkWrapperRef}>
 				{
-					data.map((perkdeck, i) => {
+					Object.values(data).map((perkdeck, i) => {
 						return <Perk
 							perkref={perkRefs.current[i]}
 							key={perkdeck.name}

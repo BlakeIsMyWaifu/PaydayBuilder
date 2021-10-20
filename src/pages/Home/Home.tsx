@@ -34,7 +34,7 @@ const Home: React.FC = () => {
 	const [hoverInfo, setHoverInfo] = useState<hoverInfo | null>(null)
 
 	const perkDeck = useAppSelector(state => state.abilities.perkdeck)
-	const perkDeckIndex = perkData.indexOf(perkData.find(perk => perk.name === perkDeck.name) || perkData[0])
+	const perkDeckIndex = Object.keys(perkData).indexOf(perkDeck.name)
 
 	const [toggleSettings, setToggleSettings] = useState(false)
 	const leftFacing = useAppSelector(state => state.settings.leftFacing)
