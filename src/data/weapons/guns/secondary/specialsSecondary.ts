@@ -3,18 +3,17 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-interface specialsList {
-	'Pistol Crossbow': WeaponData;
-	'Compact 40mm Grenade Launcher': WeaponData;
-	'HRL-7 Rocket Launcher': WeaponData;
-	'China Puff 40mm Grenade Launcher': WeaponData;
-	'Commando 101 Rocket Launcher': WeaponData;
-	'MA-17 Flamethrower': WeaponData;
-	'Arbiter Grenade Launcher': WeaponData;
-	'OVE9000 Saw': WeaponData;
-}
+type SecondarySpecialList =
+	'Pistol Crossbow' |
+	'Compact 40mm Grenade Launcher' |
+	'HRL-7 Rocket Launcher' |
+	'China Puff 40mm Grenade Launcher' |
+	'Commando 101 Rocket Launcher' |
+	'MA-17 Flamethrower' |
+	'Arbiter Grenade Launcher' |
+	'OVE9000 Saw';
 
-const specials: specialsList = {
+const specials: Record<SecondarySpecialList, WeaponData> = {
 	'Pistol Crossbow': {
 		name: 'Pistol Crowssbow',
 		image: 'hunter',
@@ -142,7 +141,7 @@ const specials: specialsList = {
 		inventorySlot: 'secondary',
 		reputation: 41,
 		weaponType: 'Special',
-		firingMode:'Single Shot',
+		firingMode: 'Single Shot',
 		cost: 920e3,
 		stats: {
 			magazine: 4,

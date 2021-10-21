@@ -3,22 +3,21 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-interface specialsList {
-	'OVE9000 Saw': WeaponData;
-	'Plainsrider Bow': WeaponData;
-	'Light Crossbow': WeaponData;
-	'Airbow': WeaponData;
-	'English Longbow': WeaponData;
-	'XL 5.56 Microgun': WeaponData;
-	'DECA Technologies Compound Bow': WeaponData;
-	'Vulcan Minigun': WeaponData;
-	'Heavy Crossbow': WeaponData;
-	'Piglet Grenade Launcher': WeaponData;
-	'Flamethrower Mk.1': WeaponData;
-	'GL40 Grenade Launcher': WeaponData;
-}
+type PrimarySpecialList =
+	'OVE9000 Saw' |
+	'Plainsrider Bow' |
+	'Light Crossbow' |
+	'Airbow' |
+	'English Longbow' |
+	'XL 5.56 Microgun' |
+	'DECA Technologies Compound Bow' |
+	'Vulcan Minigun' |
+	'Heavy Crossbow' |
+	'Piglet Grenade Launcher' |
+	'Flamethrower Mk.1' |
+	'GL40 Grenade Launcher';
 
-const specials: specialsList = {
+const specials: Record<PrimarySpecialList, WeaponData> = {
 	'OVE9000 Saw': {
 		name: 'OVE9000 Saw',
 		image: 'saw',

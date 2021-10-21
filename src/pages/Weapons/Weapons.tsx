@@ -1,9 +1,11 @@
 import { addWeapon, removeWeapon, resetArmoury } from 'actions/armouryAction'
 import { changeWeapon } from 'actions/weaponsAction'
 import Container from 'components/Container'
+import { InfoContainer } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
+import { WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 import { blue, itemColours } from 'utils/colours'
@@ -17,7 +19,7 @@ interface WeaponsComponent {
 
 const Weapons: React.FC<WeaponsComponent> = ({ slot }) => {
 
-	const data = slot === 'primary' ? primary : secondary
+	const data: Record<string, Record<string, WeaponData>> = slot === 'primary' ? primary : secondary
 
 	const dispatch = useAppDispatch()
 
@@ -77,7 +79,7 @@ const Weapons: React.FC<WeaponsComponent> = ({ slot }) => {
 								<ItemImage src={`images/weapons/${weapon.image}.png`} leftFacing={leftFacing} onMouseDown={event => event.preventDefault()} />
 							</Item>
 						}) :
-						Object.values(data[selectedTab]).map(weapon => {
+						Object.values(Object.values<WeaponData>(data[selectedTab])).map(weapon => {
 							return <Item
 								key={weapon.name}
 								width={192}
@@ -100,11 +102,13 @@ const Weapons: React.FC<WeaponsComponent> = ({ slot }) => {
 				}}>Delete All Saved</ResetText>
 			</ResetContainer>
 
-			{
-				selectedTab === 'saved' ?
-					selectedArmoury !== 0 && <WeaponInfo selectedWeapon={armoury[selectedArmoury].weapon} equippedWeapon={armoury[selectedArmoury].id === equippedWeaponId ? undefined : equippedWeapon} /> :
-					<WeaponInfo selectedWeapon={selectedWeapon} equippedWeapon={equippedWeapon} />
-			}
+			<InfoContainer>
+				{
+					selectedTab === 'saved' ?
+						selectedArmoury !== 0 && <WeaponInfo selectedWeapon={armoury[selectedArmoury].weapon} equippedWeapon={armoury[selectedArmoury].id === equippedWeaponId ? undefined : equippedWeapon} /> :
+						<WeaponInfo selectedWeapon={selectedWeapon} equippedWeapon={equippedWeapon} />
+				}
+			</InfoContainer>
 
 			<ActionsContainer>
 				{

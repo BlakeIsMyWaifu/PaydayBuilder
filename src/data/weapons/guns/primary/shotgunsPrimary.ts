@@ -3,21 +3,20 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-export interface shotgunsList {
-	'Predator 12G Shotgun': WeaponData;
-	'Breaker 12G Shotgun': WeaponData;
-	'Reinfeld 880 Shotgun': WeaponData;
-	'Mosconi 12G Tactical Shotgun': WeaponData;
-	'M1014 Shotgun': WeaponData;
-	'Raven Shotgun': WeaponData;
-	'IZHMA 12G Shotgun': WeaponData;
-	'Reinfeld 88 Shotgun': WeaponData;
-	'Mosconi 12G Shotgun': WeaponData;
-	'Joceline O/U 12G Shotgun': WeaponData;
-	'Steakout 12G Shotgun': WeaponData;
-}
+type PrimaryShotgunList =
+	'Predator 12G Shotgun' |
+	'Breaker 12G Shotgun' |
+	'Reinfeld 880 Shotgun' |
+	'Mosconi 12G Tactical Shotgun' |
+	'M1014 Shotgun' |
+	'Raven Shotgun' |
+	'IZHMA 12G Shotgun' |
+	'Reinfeld 88 Shotgun' |
+	'Mosconi 12G Shotgun' |
+	'Joceline O/U 12G Shotgun' |
+	'Steakout 12G Shotgun';
 
-const shotguns: shotgunsList = {
+const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 	'Predator 12G Shotgun': {
 		name: 'Predator 12G Shotgun',
 		image: 'spas12',

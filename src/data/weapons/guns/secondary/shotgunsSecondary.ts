@@ -3,17 +3,16 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-interface shotgunsList {
-	'Locomotive 12G Shotgun': WeaponData;
-	'GSPS 12G Shotgun': WeaponData;
-	'Goliath 12G Shotgun': WeaponData;
-	'Grimm 12G Shotgun': WeaponData;
-	'Street Sweeper Shotgun': WeaponData;
-	'The Judge Shotgun': WeaponData;
-	'Claire 12G Shotgun': WeaponData;
-}
+type SecondaryShotgunList =
+	'Locomotive 12G Shotgun' |
+	'GSPS 12G Shotgun' |
+	'Goliath 12G Shotgun' |
+	'Grimm 12G Shotgun' |
+	'Street Sweeper Shotgun' |
+	'The Judge Shotgun' |
+	'Claire 12G Shotgun';
 
-const shotguns: shotgunsList = {
+const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 	'Locomotive 12G Shotgun': {
 		name: 'Locomotive 12G Shotgun',
 		image: 'serbu',

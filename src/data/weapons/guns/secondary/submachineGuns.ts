@@ -3,34 +3,33 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-export interface submachineGunList {
-	'Swedish K Submachine Gun': WeaponData;
-	'SpecOps Submachine Gun': WeaponData;
-	'Mark 10 Submachine Gun': WeaponData;
-	'CR 805B Submachine Gun': WeaponData;
-	'AK Gen 21 Tactical Submachine Gun': WeaponData;
-	'Jacket\'s Piece': WeaponData;
-	'Compact-5 Submachine Gun': WeaponData;
-	'Chicago Typewriter Submachine Gun': WeaponData;
-	'Miyaka 10 Special Submachine Gun': WeaponData;
-	'Cobra Submachine Gun': WeaponData;
-	'CMP Submachine Gun': WeaponData;
-	'Para Submachine Gun': WeaponData;
-	'Micro Uzi Submachine Gun': WeaponData;
-	'Signature Submachine Gun': WeaponData;
-	'Jackal Submachine Gun': WeaponData;
-	'MP40 Submachine Gun': WeaponData;
-	'Heather Submachine Gun': WeaponData;
-	'Krinkov Submachine Gun': WeaponData;
-	'Blaster 9mm Submachine Gun': WeaponData;
-	'Kobus 90 Submachine Gun': WeaponData;
-	'Kross Vertex Submachine Gun': WeaponData;
-	'Tatonka Submachine Gun': WeaponData;
-	'Patchett L2A1 Submachine Gun': WeaponData;
-	'Uzi Submachine Gun': WeaponData;
-}
+type SubmachineGunList =
+	'Swedish K Submachine Gun' |
+	'SpecOps Submachine Gun' |
+	'Mark 10 Submachine Gun' |
+	'CR 805B Submachine Gun' |
+	'AK Gen 21 Tactical Submachine Gun' |
+	'Jacket\'s Piece' |
+	'Compact-5 Submachine Gun' |
+	'Chicago Typewriter Submachine Gun' |
+	'Miyaka 10 Special Submachine Gun' |
+	'Cobra Submachine Gun' |
+	'CMP Submachine Gun' |
+	'Para Submachine Gun' |
+	'Micro Uzi Submachine Gun' |
+	'Signature Submachine Gun' |
+	'Jackal Submachine Gun' |
+	'MP40 Submachine Gun' |
+	'Heather Submachine Gun' |
+	'Krinkov Submachine Gun' |
+	'Blaster 9mm Submachine Gun' |
+	'Kobus 90 Submachine Gun' |
+	'Kross Vertex Submachine Gun' |
+	'Tatonka Submachine Gun' |
+	'Patchett L2A1 Submachine Gun' |
+	'Uzi Submachine Gun';
 
-const submachineGuns: submachineGunList = {
+const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 	'Swedish K Submachine Gun': {
 		name: 'Swedish K Submachine Gun',
 		image: 'm45',

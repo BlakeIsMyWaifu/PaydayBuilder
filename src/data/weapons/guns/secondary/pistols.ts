@@ -3,39 +3,38 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-export interface pistolList {
-	'Interceptor 45 Pistol': WeaponData;
-	'Chimano 88 Pistol': WeaponData;
-	'Gruber Kurz Pistol': WeaponData;
-	'Signature .40 Pistol': WeaponData;
-	'Crosskill Pistol': WeaponData;
-	'Bernetti 9 Pistol': WeaponData;
-	'Bronco .44 Pistol': WeaponData;
-	'Crosskill Chunky Compact Pistol': WeaponData;
-	'White Streak Pistol': WeaponData;
-	'Baby Deagle': WeaponData;
-	'M13 9mm Pistol': WeaponData;
-	'Chimano Custom Pistol': WeaponData;
-	'Broomstick Pistol': WeaponData;
-	'Parabellum Pistol': WeaponData;
-	'5/7 AP Pistol': WeaponData;
-	'Castigo .44 Revolver': WeaponData;
-	'Contractor Pistol': WeaponData;
-	'Frenchman Model 87 Revolver': WeaponData;
-	'Chimano Compact Pistol': WeaponData;
-	'Crosskill Guard Pistol': WeaponData;
-	'LEO Pistol': WeaponData;
-	'STRYK 18c Pistol': WeaponData;
-	'Bernetti Auto Pistol': WeaponData;
-	'Czech 92 Pistol': WeaponData;
-	'Igor Automatik Pistol': WeaponData;
-	'HOLT 9mm Pistol': WeaponData;
-	'Peacemaker .45 Revolver': WeaponData;
-	'Matever .357 Revolver': WeaponData;
-	'Deagle Pistol': WeaponData;
-}
+type PistolList =
+	'Interceptor 45 Pistol' |
+	'Chimano 88 Pistol' |
+	'Gruber Kurz Pistol' |
+	'Signature .40 Pistol' |
+	'Crosskill Pistol' |
+	'Bernetti 9 Pistol' |
+	'Bronco .44 Pistol' |
+	'Crosskill Chunky Compact Pistol' |
+	'White Streak Pistol' |
+	'Baby Deagle' |
+	'M13 9mm Pistol' |
+	'Chimano Custom Pistol' |
+	'Broomstick Pistol' |
+	'Parabellum Pistol' |
+	'5/7 AP Pistol' |
+	'Castigo .44 Revolver' |
+	'Contractor Pistol' |
+	'Frenchman Model 87 Revolver' |
+	'Chimano Compact Pistol' |
+	'Crosskill Guard Pistol' |
+	'LEO Pistol' |
+	'STRYK 18c Pistol' |
+	'Bernetti Auto Pistol' |
+	'Czech 92 Pistol' |
+	'Igor Automatik Pistol' |
+	'HOLT 9mm Pistol' |
+	'Peacemaker .45 Revolver' |
+	'Matever .357 Revolver' |
+	'Deagle Pistol';
 
-const pistols: pistolList = {
+const pistols: Record<PistolList, WeaponData> = {
 	'Interceptor 45 Pistol': {
 		name: 'Interceptor 45 Pistol',
 		image: 'usp',
@@ -716,7 +715,7 @@ const pistols: pistolList = {
 			threat: 10
 		},
 		extraStats: {
-			tacticalReload:  1.47,
+			tacticalReload: 1.47,
 			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.95, 6.83],

@@ -3,37 +3,36 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-export interface assaultRiflesList {
-	'AMCAR Rifle': WeaponData;
-	'Commando 553 Rifle': WeaponData;
-	'Eagle Heavy Rifle': WeaponData;
-	'Union 5.56 Rifle': WeaponData;
-	'AK Rifle': WeaponData;
-	'CAR-4 Rifle': WeaponData;
-	'UAR Rifle': WeaponData;
-	'KETCHNOV Byk-1 Assault Rifle': WeaponData;
-	'Cavity 9mm': WeaponData;
-	'AK.762': WeaponData;
-	'JP36 Rifle': WeaponData;
-	'AK17 Rifle': WeaponData;
-	'Golden AK.762 Rifle': WeaponData;
-	'Bootleg Rifle': WeaponData;
-	'Queen\'s Wrath Rifle': WeaponData;
-	'Galant Rifle': WeaponData;
-	'M308 Rifle': WeaponData;
-	'Clarion Rifle': WeaponData;
-	'Lion\'s Roar Rifle': WeaponData;
-	'Valkyria Rifle': WeaponData;
-	'AK5 Rifle': WeaponData;
-	'Gecko 7.62 Rifle': WeaponData;
-	'Tempest-21 Rifle': WeaponData;
-	'AMR-16 Rifle': WeaponData;
-	'Little Friend 7.62 Assault Rifle': WeaponData;
-	'Falcon Rifle': WeaponData;
-	'Gewehr 3 Rifle': WeaponData;
-}
+type AssaultRifleList =
+	'AMCAR Rifle' |
+	'Commando 553 Rifle' |
+	'Eagle Heavy Rifle' |
+	'Union 5.56 Rifle' |
+	'AK Rifle' |
+	'CAR-4 Rifle' |
+	'UAR Rifle' |
+	'KETCHNOV Byk-1 Assault Rifle' |
+	'Cavity 9mm' |
+	'AK.762' |
+	'JP36 Rifle' |
+	'AK17 Rifle' |
+	'Golden AK.762 Rifle' |
+	'Bootleg Rifle' |
+	'Queen\'s Wrath Rifle' |
+	'Galant Rifle' |
+	'M308 Rifle' |
+	'Clarion Rifle' |
+	'Lion\'s Roar Rifle' |
+	'Valkyria Rifle' |
+	'AK5 Rifle' |
+	'Gecko 7.62 Rifle' |
+	'Tempest-21 Rifle' |
+	'AMR-16 Rifle' |
+	'Little Friend 7.62 Assault Rifle' |
+	'Falcon Rifle' |
+	'Gewehr 3 Rifle';
 
-const assaultRifles: assaultRiflesList = {
+const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 	'AMCAR Rifle': {
 		name: 'AMCAR Rifle',
 		image: 'amcar',

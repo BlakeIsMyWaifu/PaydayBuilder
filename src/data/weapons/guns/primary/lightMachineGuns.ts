@@ -3,16 +3,15 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-interface lightMachineGunList {
-	'RPK Light Machine Gun': WeaponData;
-	'KSP 58 Light Machine Gun': WeaponData;
-	'M60 Light Machine Gun': WeaponData;
-	'KSP Light Machine Gun': WeaponData;
-	'Buzzsaw 42 Light Machine Gun': WeaponData;
-	'Brenner-21 Light Machine Gun': WeaponData;
-}
+type LightMachineGunList =
+	'RPK Light Machine Gun' |
+	'KSP 58 Light Machine Gun' |
+	'M60 Light Machine Gun' |
+	'KSP Light Machine Gun' |
+	'Buzzsaw 42 Light Machine Gun' |
+	'Brenner-21 Light Machine Gun';
 
-const lightMachineGuns: lightMachineGunList = {
+const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 	'RPK Light Machine Gun': {
 		name: 'RPK Light Machine Gun',
 		image: 'rpk',

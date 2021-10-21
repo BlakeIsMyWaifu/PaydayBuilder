@@ -3,23 +3,22 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-interface snipersList {
-	'Rattlesnake Sniper Rifle': WeaponData;
-	'R700 Sniper Rifle': WeaponData;
-	'Bernetti Rangehitter Sniper Rifle': WeaponData;
-	'Káng Arms X1 Sniper Rifle': WeaponData;
-	'Platypus 70 Sniper Rifle': WeaponData;
-	'Lebensauger .308 Sniper Rifle': WeaponData;
-	'Desertfox Sniper Rifle': WeaponData;
-	'Contractor .308 Sniper Rifle': WeaponData;
-	'R93 Sniper Rifle': WeaponData;
-	'Repeater 1874 Sniper Rifle': WeaponData;
-	'Grom Sniper Rifle': WeaponData;
-	'Nagant Sniper Rifle': WeaponData;
-	'Thanatos .50 cal Sniper Rifle': WeaponData;
-}
+type SniperList =
+	'Rattlesnake Sniper Rifle' |
+	'R700 Sniper Rifle' |
+	'Bernetti Rangehitter Sniper Rifle' |
+	'Káng Arms X1 Sniper Rifle' |
+	'Platypus 70 Sniper Rifle' |
+	'Lebensauger .308 Sniper Rifle' |
+	'Desertfox Sniper Rifle' |
+	'Contractor .308 Sniper Rifle' |
+	'R93 Sniper Rifle' |
+	'Repeater 1874 Sniper Rifle' |
+	'Grom Sniper Rifle' |
+	'Nagant Sniper Rifle' |
+	'Thanatos .50 cal Sniper Rifle';
 
-const snipers: snipersList = {
+const snipers: Record<SniperList, WeaponData> = {
 	'Rattlesnake Sniper Rifle': {
 		name: 'Rattlesnake Sniper Rifle',
 		image: 'msr',

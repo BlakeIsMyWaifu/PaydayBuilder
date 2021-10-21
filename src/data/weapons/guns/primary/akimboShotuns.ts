@@ -2,13 +2,12 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-interface akimboShotunsList {
-	'Akimbo Goliath 12G Shotguns': WeaponData;
-	'Brothers Grimm 12G Shotguns': WeaponData;
-	'Akimbo Judge Shotguns': WeaponData;
-}
+type AkimboShotunsList =
+	'Akimbo Goliath 12G Shotguns' |
+	'Brothers Grimm 12G Shotguns' |
+	'Akimbo Judge Shotguns';
 
-const akimboShotuns: akimboShotunsList = {
+const akimboShotuns: Record<AkimboShotunsList, WeaponData> = {
 	'Akimbo Goliath 12G Shotguns': {
 		name: 'Akimbo Goliath 12G Shotguns',
 		image: 'x_rota',
