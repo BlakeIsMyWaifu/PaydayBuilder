@@ -1,5 +1,5 @@
 import actions from 'actions/settingsAction'
-import defaultState from 'defualtStates/settingsDefaultState'
+import defaultState from 'defaultStates/settingsDefaultState'
 import { getType } from 'typesafe-actions'
 
 const settingsReducer = (state = defaultState, action: Record<'type' | 'payload', any>) => {

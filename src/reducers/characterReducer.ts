@@ -3,7 +3,7 @@ import { armourData } from 'data/character/armours'
 import { characterData } from 'data/character/characters'
 import { equipmentData } from 'data/character/equipment'
 import { maskData } from 'data/character/masks'
-import defaultstate from 'defualtStates/characterDefaultState'
+import defaultstate from 'defaultStates/characterDefaultState'
 import { getType } from 'typesafe-actions'
 
 const characterReducer = (state = defaultstate, action: Record<'type' | 'payload', any>) => {

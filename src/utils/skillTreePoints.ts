@@ -1,4 +1,4 @@
-import { subtrees } from 'defualtStates/skillsDefaultState'
+import { subtrees } from 'defaultStates/skillsDefaultState'
 import { useAppSelector } from 'hooks'
 
 const SkillTreePoints = (tree: string, trees?: Record<string, subtrees>) => {

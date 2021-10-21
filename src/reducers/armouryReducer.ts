@@ -1,6 +1,6 @@
 import actions from 'actions/armouryAction'
 import { Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
-import defaultState from 'defualtStates/armouryDefaultState'
+import defaultState from 'defaultStates/armouryDefaultState'
 import { getType } from 'typesafe-actions'
 
 const armouryReducer = (state = defaultState, action: Record<'type' | 'payload', any>) => {

@@ -1,6 +1,6 @@
 import { CHANGESKILLSTATE, RESETSKILLS, RESETTREE } from 'constants/skillsConstant'
 import { skillData } from 'data/abilities/skills'
-import { skillUpgradeTypes } from 'defualtStates/skillsDefaultState'
+import { skillUpgradeTypes } from 'defaultStates/skillsDefaultState'
 import { createAction } from 'typesafe-actions'
 
 export interface skillChangeAction {

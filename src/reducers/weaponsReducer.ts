@@ -1,7 +1,7 @@
 import actions from 'actions/weaponsAction'
 import { meleeData } from 'data/weapons/melees'
 import { throwableData } from 'data/weapons/throwables'
-import defaultState from 'defualtStates/weaponsDefaultState'
+import defaultState from 'defaultStates/weaponsDefaultState'
 import { getType } from 'typesafe-actions'
 
 const weaponReducer = (state = defaultState, action: Record<'type' | 'payload', any>) => {
