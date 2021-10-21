@@ -11,7 +11,7 @@ import { MeleeStatsTable } from 'pages/Melee'
 import WeaponsStatsTable from 'pages/Weapons/WeaponStatsTable'
 import React, { ReactElement, useState } from 'react'
 
-import { ConfigButton, ConfigWrapper, EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle } from './Home-Elements'
+import { ConfigButton, ConfigWrapper, EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle, VersionText, VersionWrapper } from './Home-Elements'
 import Selector from './Selector'
 import SelectorSkills from './Selector/SelectorSkills'
 import SettingsPanel from './SettingsPanel'
@@ -42,7 +42,7 @@ const Home: React.FC = () => {
 	return (
 		<>
 			<SettingsPanel toggleSettings={toggleSettings} />
-			<Container columns='2fr 1fr 1fr 1fr' rows='calc(100% - 3rem) 3rem' areas='"stats character weapons abilities" ". config config config"' backButton={false}>
+			<Container columns='2fr 1fr 1fr 1fr' rows='calc(100% - 3rem) 3rem' areas='"stats character weapons abilities" "version config config config"' backButton={false}>
 
 				<Tab id='stats'>
 					<TabTitle direction='ltr'>Inventory</TabTitle>
@@ -169,6 +169,10 @@ const Home: React.FC = () => {
 						dispatch(resetWeapon())
 					}}>[Reset Build]</ConfigButton>
 				</ConfigWrapper>
+
+				<VersionWrapper>
+					<VersionText>Latest Update: 207</VersionText>
+				</VersionWrapper>
 
 			</Container>
 		</>

@@ -94,3 +94,16 @@ export const ConfigButton = styled.p`
 		color: white;
 	}
 `
+
+export const VersionWrapper = styled.div`
+	grid-area: version;
+	position: relative;
+`
+
+export const VersionText = styled.p`
+	font-size: 1.2rem;
+	color: white;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+`
