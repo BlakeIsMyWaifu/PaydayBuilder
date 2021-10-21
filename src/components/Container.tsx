@@ -65,13 +65,13 @@ const Container: React.FC<area> = ({
 	return (
 		<Area columns={columns} rows={rows} areas={areas}>
 
-			{ title && <Title>{title}</Title> }
+			{title && <Title>{title}</Title>}
 
 			{children}
 
 			{
-				backButton && <BackWrapper onClick={event => event.preventDefault()}>
-					<BackLink to='/'>
+				backButton && <BackWrapper>
+					<BackLink to='/' onMouseDown={event => event.preventDefault()}>
 						<BackText>Back</BackText>
 					</BackLink>
 				</BackWrapper>
