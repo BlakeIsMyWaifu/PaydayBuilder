@@ -1,7 +1,74 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { WeaponData } from '../weaponTypes'
+import barrel from '../modifications/barrel'
+import barrelExt, { BarrelExtModificationsList } from '../modifications/barrelExt';
+import boost, { BoostModificationsList } from '../modifications/boost';
+import custom, { CustomModificationsList } from '../modifications/custom';
+import extra from '../modifications/extra';
+import foregrip from '../modifications/foregrip';
+import gadget, { GadgetModificationsList } from '../modifications/gadget';
+import grip from '../modifications/grip';
+import sight, { SightModificationsList } from '../modifications/sight';
+import stock from '../modifications/stock';
+import upperReciever from '../modifications/upperReceiver';
+import { WeaponData, WeaponModification } from '../weaponTypes'
+
+const mainBarrelExt: WeaponModification<BarrelExtModificationsList>[] = [
+	barrelExt['Low Profile Suppressor'],
+	barrelExt['Medium Suppressor'],
+	barrelExt['The Bigger The Better Suppressor'],
+	barrelExt['Stubby Compensator'],
+	barrelExt['The Tank Compensator'],
+	barrelExt['Fire Breather Nozzle'],
+	barrelExt['Tactical Compensator'],
+	barrelExt['Competitor\'s Compensator'],
+	barrelExt['Funnel of Fun Nozzle'],
+	barrelExt['Ported Compensator']
+]
+
+const mainBoost: WeaponModification<BoostModificationsList>[] = [
+	boost.Concealment,
+	boost.Stability,
+	boost.Accuracy,
+	boost['Team Boost']
+]
+
+const mainCustom: WeaponModification<CustomModificationsList>[] = [
+	custom['Single Fire'],
+	custom['Auto Fire']
+]
+
+const mainGadget: WeaponModification<GadgetModificationsList>[] = [
+	gadget['Assault Light'],
+	gadget['Tactical Laser Module'],
+	gadget['Compact Laser Module'],
+	gadget['Military Laser Module'],
+	gadget['LED Combo'],
+	gadget['Riktpunkt 45 degree Sight'],
+	gadget['45 degree red-dot sight'],
+	gadget['45 Degree Ironsights']
+]
+
+const mainSight: WeaponModification<SightModificationsList>[] = [
+	sight['The Professional\'s Choice Sight'],
+	sight['Surgeon Sight'],
+	sight['See More Sight'],
+	sight['Combat Sight'],
+	sight['Speculator Sight'],
+	sight['Trigonom Sight'],
+	sight['Holographic Sight'],
+	sight['Compact Holosight'],
+	sight['Solar Sight'],
+	sight['Military Red Dot Sight (1)'],
+	sight['Military Red Dot Sight (2)'],
+	sight['Milspec Scope'],
+	sight['Acough Optic Scope'],
+	sight['Compact Profile Sight'],
+	sight['Maelstrom Sight'],
+	sight['Advanced Combat Sight'],
+	sight['Reconnaissance Sight']
+]
 
 type AssaultRifleList =
 	'AMCAR Rifle' |
@@ -61,6 +128,49 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [0.66, 0.88],
 			spread: 3.84,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			Barrel: [
+				barrel['AK Slavic Dragon Barrel'],
+				barrel['Modern Barrel'],
+				barrel['DMR Kit (AK)']
+			],
+			'Barrel Ext': [
+				...mainBarrelExt,
+				barrelExt['PBS Suppressor']
+			],
+			Boost: mainBoost,
+			Custom: mainCustom,
+			Extra: [
+				extra['Scope Mount']
+			],
+			Foregrip: [
+				foregrip['Railed Wooden Grip'],
+				foregrip['The Tactical Russian Handguard'],
+				foregrip['Battleproven Handguard'],
+				foregrip['Lightweight Rail'],
+				foregrip['Crabs Rail'],
+				foregrip['Keymod Rail']
+			],
+			Gadget: mainGadget,
+			Grip: [
+				grip['AK Rubber Grip'],
+				grip['AK Plastic Grip'],
+				grip['AK Wood Grip'],
+				grip['Aluminum Grip']
+			],
+			Sight: mainSight,
+			Stock: [
+				stock['Standard Stock'],
+				stock['Tactical Stock'],
+				stock['Skeletal Stock'],
+				stock['Wooden Sniper Stock'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['Classic Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			]
 		}
 	},
 	'Commando 553 Rifle': {
@@ -91,6 +201,34 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [0.96, 1.28],
 			spread: 3.84,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			Barrel: [
+				barrel['Long Barrel (Commando)']
+			],
+			'Barrel Ext': mainBarrelExt,
+			Boost: mainBoost,
+			Custom: mainCustom,
+			Foregrip: [
+				foregrip['Enhanced Foregrip'],
+				foregrip['Railed Foregrip']
+			],
+			Gadget: mainGadget,
+			Grip: [
+				grip['Enhanced Grip']
+			],
+			Sight: mainSight,
+			Stock: [
+				stock['Tactical Stock'],
+				stock['Enhanced Stock'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			],
+			'Upper Reciever': [
+				upperReciever['Heat Treated Body']
+			]
 		}
 	},
 	'Eagle Heavy Rifle': {

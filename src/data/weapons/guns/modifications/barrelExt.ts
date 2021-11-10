@@ -1,9 +1,19 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
+import assaultRifles from '../primary/assaultRifles'
+import lightMachineGuns from '../primary/lightMachineGuns'
+import shotguns from '../primary/shotgunsPrimary'
 import snipers from '../primary/snipers'
 import pistols from '../secondary/pistols'
-import { WeaponData, WeaponModification } from '../weaponTypes'
+import submachineGuns from '../secondary/submachineGuns'
+import { WeaponData, WeaponModificationList } from '../weaponTypes'
+
+const autoGuns: WeaponData[] = [
+	Object.values(assaultRifles),
+	Object.values(submachineGuns),
+	Object.values(lightMachineGuns)
+].flat()
 
 const mainPistols: WeaponData[] = [
 	pistols['Interceptor 45 Pistol'],
@@ -28,7 +38,15 @@ const mainPistols: WeaponData[] = [
 	pistols['Crosskill Chunky Compact Pistol']
 ]
 
-type BarrelExtModificationsList =
+const mainPistolsWithBroomstick = [
+	...mainPistols,
+	pistols['Broomstick Pistol']
+]
+
+export type BarrelExtModificationsList =
+	// Assault Rifles
+	// Submachine Guns
+	// Light Machine Guns
 	'Low Profile Suppressor' |
 	'Medium Suppressor' |
 	'The Bigger The Better Suppressor' |
@@ -39,19 +57,24 @@ type BarrelExtModificationsList =
 	'Competitor\'s Compensator' |
 	'Funnel of Fun Nozzle' |
 	'Ported Compensator' |
+	// Misc
+	'PBS Suppressor' |
 
+	// Shotguns
 	'Shark Teeth Nozzle' |
 	'The Silent Killer Suppressor' |
 	'King\'s Crown Compensator' |
 	'Shh!' |
 	'Donald\'s Horizontal Leveller' |
 
+	// Snipers
 	'Beak Suppressor' |
 	'Sniper Suppressor' |
 	'Langer Barrel' |
 	'Gedämpfter Barrel' |
 	'Contractor Silencer' |
 
+	// Pistols
 	'IPSC Compensator' |
 	'Facepunch Compensator' |
 	'Flash Hider' |
@@ -78,7 +101,7 @@ type BarrelExtModificationsList =
 	'Velocity .40' |
 	'Damper.L 44 Nozzle'
 
-const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModification<BarrelExtModificationsList>> = {
+const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 	'Low Profile Suppressor': {
 		name: 'Low Profile Suppressor',
 		image: 'wpn_fps_upg_ns_ass_smg_small',
@@ -90,13 +113,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			damage: -5,
 			threat: 16.8
 		},
-		compatibleWeapons: {
-			type: [
-				'Assault Rifle',
-				'Submachine Gun',
-				'LMG'
-			]
-		}
+		compatibleWeapons: autoGuns
 	},
 	'Medium Suppressor': {
 		name: 'Medium Suppressor',
@@ -111,13 +128,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -2,
 			threat: -16.8
 		},
-		compatibleWeapons: {
-			type: [
-				'Assault Rifle',
-				'Submachine Gun',
-				'LMG'
-			]
-		}
+		compatibleWeapons: autoGuns
 	},
 	'The Bigger The Better Suppressor': {
 		name: 'The Bigger The Better Suppressor',
@@ -133,13 +144,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -3,
 			threat: 16.8
 		},
-		compatibleWeapons: {
-			type: [
-				'Assault Rifle',
-				'Submachine Gun',
-				'LMG'
-			]
-		}
+		compatibleWeapons: autoGuns
 	},
 	'Stubby Compensator': {
 		name: 'Stubby Compensator',
@@ -152,13 +157,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			stability: 12,
 			threat: 6
 		},
-		compatibleWeapons: {
-			type: [
-				'Assault Rifle',
-				'Submachine Gun',
-				'LMG'
-			]
-		}
+		compatibleWeapons: autoGuns
 	},
 	'The Tank Compensator': {
 		name: 'The Tank Compensator',
@@ -172,13 +171,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -1,
 			threat: 8
 		},
-		compatibleWeapons: {
-			type: [
-				'Assault Rifle',
-				'Submachine Gun',
-				'LMG'
-			]
-		}
+		compatibleWeapons: autoGuns
 	},
 	'Fire Breather Nozzle': {
 		name: 'Fire Breather Nozzle',
@@ -192,13 +185,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -2,
 			threat: 14
 		},
-		compatibleWeapons: {
-			type: [
-				'Assault Rifle',
-				'Submachine Gun',
-				'LMG'
-			]
-		}
+		compatibleWeapons: autoGuns
 	},
 	'Tactical Compensator': {
 		name: 'Tactical Compensator',
@@ -215,13 +202,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			stability: -4,
 			concealment: -2
 		},
-		compatibleWeapons: {
-			type: [
-				'Assault Rifle',
-				'Submachine Gun',
-				'LMG'
-			]
-		}
+		compatibleWeapons: autoGuns
 	},
 	'Competitor\'s Compensator': {
 		name: 'Competitor\'s Compensator',
@@ -239,13 +220,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -2,
 			threat: 6
 		},
-		compatibleWeapons: {
-			type: [
-				'Assault Rifle',
-				'Submachine Gun',
-				'LMG'
-			]
-		}
+		compatibleWeapons: autoGuns
 	},
 	'Funnel of Fun Nozzle': {
 		name: 'Funnel of Fun Nozzle',
@@ -262,13 +237,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -2,
 			threat: 14
 		},
-		compatibleWeapons: {
-			type: [
-				'Assault Rifle',
-				'Submachine Gun',
-				'LMG'
-			]
-		}
+		compatibleWeapons: autoGuns
 	},
 	'Ported Compensator': {
 		name: 'Ported Compensator',
@@ -285,13 +254,31 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			stability: -8,
 			concealment: -1
 		},
-		compatibleWeapons: {
-			type: [
-				'Assault Rifle',
-				'Submachine Gun',
-				'LMG'
-			]
-		}
+		compatibleWeapons: autoGuns
+	},
+	'PBS Suppressor': {
+		name: 'PBS Suppressor',
+		image: 'wpn_fps_upg_ns_ass_pbs1',
+		slot: 'Barrel Ext',
+		source: content['The Butcher\'s AK/CAR Mod Pack'],
+		cost: 9e3,
+		acquisition: {
+			achievement: '$1.8M Speedrun'
+		},
+		stats: {
+			stability: 4,
+			concealment: -5,
+			threat: -22
+		},
+		compatibleWeapons: [
+			assaultRifles['AK Rifle'],
+			assaultRifles['AK.762'],
+			submachineGuns['Krinkov Submachine Gun'],
+			assaultRifles['AK17 Rifle'],
+			lightMachineGuns['RPK Light Machine Gun'],
+			submachineGuns['Tatonka Submachine Gun'],
+			assaultRifles['Golden AK.762 Rifle']
+		]
 	},
 	'Shark Teeth Nozzle': {
 		name: 'Shark Teeth Nozzle',
@@ -306,11 +293,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -2,
 			threat: 6
 		},
-		compatibleWeapons: {
-			type: [
-				'Shotgun'
-			]
-		}
+		compatibleWeapons: Object.values(shotguns)
 	},
 	'The Silent Killer Suppressor': {
 		name: 'The Silent Killer Suppressor',
@@ -325,11 +308,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -2,
 			threat: -22
 		},
-		compatibleWeapons: {
-			type: [
-				'Shotgun'
-			]
-		}
+		compatibleWeapons: Object.values(shotguns)
 	},
 	'King\'s Crown Compensator': {
 		name: 'King\'s Crown Compensator',
@@ -346,11 +325,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -2,
 			threat: 18.8
 		},
-		compatibleWeapons: {
-			type: [
-				'Shotgun'
-			]
-		}
+		compatibleWeapons: Object.values(shotguns)
 	},
 	'Shh!': {
 		name: 'Shh!',
@@ -369,11 +344,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -4,
 			threat: -22
 		},
-		compatibleWeapons: {
-			type: [
-				'Shotgun'
-			]
-		}
+		compatibleWeapons: Object.values(shotguns)
 	},
 	'Donald\'s Horizontal Leveller': {
 		name: 'Donald\'s Horizontal Leveller',
@@ -390,11 +361,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			stability: 8,
 			concealment: -2
 		},
-		compatibleWeapons: {
-			type: [
-				'Shotgun'
-			]
-		}
+		compatibleWeapons: Object.values(shotguns)
 	},
 	'Beak Suppressor': {
 		name: 'Beak Suppressor',
@@ -409,11 +376,9 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -2,
 			threat: -22
 		},
-		compatibleWeapons: {
-			list: [
-				snipers['Platypus 70 Sniper Rifle']
-			]
-		}
+		compatibleWeapons: [
+			snipers['Platypus 70 Sniper Rifle']
+		]
 	},
 	'Sniper Suppressor': {
 		name: 'Sniper Suppressor',
@@ -432,11 +397,9 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -2,
 			threat: -22
 		},
-		compatibleWeapons: {
-			list: [
-				snipers['Rattlesnake Sniper Rifle']
-			]
-		}
+		compatibleWeapons: [
+			snipers['Rattlesnake Sniper Rifle']
+		]
 	},
 	'Langer Barrel': {
 		name: 'Langer Barrel',
@@ -448,11 +411,9 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			accuracy: 4,
 			concealment: -3
 		},
-		compatibleWeapons: {
-			list: [
-				snipers['Lebensauger .308 Sniper Rifle']
-			]
-		}
+		compatibleWeapons: [
+			snipers['Lebensauger .308 Sniper Rifle']
+		]
 	},
 	'Gedämpfter Barrel': {
 		name: 'Gedämpfter Barrel',
@@ -468,11 +429,9 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -2,
 			threat: -18
 		},
-		compatibleWeapons: {
-			list: [
-				snipers['Lebensauger .308 Sniper Rifle']
-			]
-		}
+		compatibleWeapons: [
+			snipers['Lebensauger .308 Sniper Rifle']
+		]
 	},
 	'Contractor Silencer': {
 		name: 'Contractor Silencer',
@@ -487,11 +446,9 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -2,
 			threat: -18
 		},
-		compatibleWeapons: {
-			list: [
-				snipers['Contractor .308 Sniper Rifle']
-			]
-		}
+		compatibleWeapons: [
+			snipers['Contractor .308 Sniper Rifle']
+		]
 	},
 	'IPSC Compensator': {
 		name: 'IPSC Compensator',
@@ -504,9 +461,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			stability: -4,
 			concealment: -1
 		},
-		compatibleWeapons: {
-			list: mainPistols
-		}
+		compatibleWeapons: mainPistols
 	},
 	'Facepunch Compensator': {
 		name: 'Facepunch Compensator',
@@ -520,12 +475,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			stability: 8,
 			concealment: -1
 		},
-		compatibleWeapons: {
-			list: [
-				...mainPistols,
-				pistols['Broomstick Pistol']
-			]
-		}
+		compatibleWeapons: mainPistolsWithBroomstick
 	},
 	'Flash Hider': {
 		name: 'Flash Hider',
@@ -541,12 +491,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			accuracy: -4,
 			stability: 12
 		},
-		compatibleWeapons: {
-			list: [
-				...mainPistols,
-				pistols['Broomstick Pistol']
-			]
-		}
+		compatibleWeapons: mainPistolsWithBroomstick
 	},
 	'Roctec Suppressor': {
 		name: 'Roctec Suppressor',
@@ -561,12 +506,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -1,
 			threat: -24
 		},
-		compatibleWeapons: {
-			list: [
-				...mainPistols,
-				pistols['Broomstick Pistol']
-			]
-		}
+		compatibleWeapons: mainPistolsWithBroomstick
 	},
 	'Champion\'s Suppressor': {
 		name: 'Champion\'s Suppressor',
@@ -582,12 +522,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -2,
 			threat: -24
 		},
-		compatibleWeapons: {
-			list: [
-				...mainPistols,
-				pistols['Broomstick Pistol']
-			]
-		}
+		compatibleWeapons: mainPistolsWithBroomstick
 	},
 	'Standard Issue Suppressor': {
 		name: 'Standard Issue Suppressor',
@@ -605,12 +540,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -2,
 			threat: -24
 		},
-		compatibleWeapons: {
-			list: [
-				...mainPistols,
-				pistols['Broomstick Pistol']
-			]
-		}
+		compatibleWeapons: mainPistolsWithBroomstick
 	},
 	'Size Doesn\'t Matter Suppressor': {
 		name: 'Size Doesn\'t Matter Suppressor',
@@ -623,12 +553,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			damage: -4,
 			threat: -24
 		},
-		compatibleWeapons: {
-			list: [
-				...mainPistols,
-				pistols['Broomstick Pistol']
-			]
-		}
+		compatibleWeapons: mainPistolsWithBroomstick
 	},
 	'Monolith Suppressor': {
 		name: 'Monolith Suppressor',
@@ -643,12 +568,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -3,
 			threat: -24
 		},
-		compatibleWeapons: {
-			list: [
-				...mainPistols,
-				pistols['Broomstick Pistol']
-			]
-		}
+		compatibleWeapons: mainPistolsWithBroomstick
 	},
 	'Asepsis Suppressor': {
 		name: 'Asepsis Suppressor',
@@ -666,12 +586,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -2,
 			threat: -24
 		},
-		compatibleWeapons: {
-			list: [
-				...mainPistols,
-				pistols['Broomstick Pistol']
-			]
-		}
+		compatibleWeapons: mainPistolsWithBroomstick
 	},
 	'Budget Suppressor': {
 		name: 'Budget Suppressor',
@@ -689,12 +604,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -3,
 			threat: -24
 		},
-		compatibleWeapons: {
-			list: [
-				...mainPistols,
-				pistols['Broomstick Pistol']
-			]
-		}
+		compatibleWeapons: mainPistolsWithBroomstick
 	},
 	'Jungle Ninja Suppressor': {
 		name: 'Jungle Ninja Suppressor',
@@ -712,12 +622,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -5,
 			threat: -24
 		},
-		compatibleWeapons: {
-			list: [
-				...mainPistols,
-				pistols['Broomstick Pistol']
-			]
-		}
+		compatibleWeapons: mainPistolsWithBroomstick
 	},
 	'Hurricane Compensator': {
 		name: 'Hurricane Compensator',
@@ -735,12 +640,7 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -1,
 			threat: -24
 		},
-		compatibleWeapons: {
-			list: [
-				...mainPistols,
-				pistols['Broomstick Pistol']
-			]
-		}
+		compatibleWeapons: mainPistolsWithBroomstick
 	},
 	'Ventilated .45': {
 		name: 'Ventilated .45',
@@ -754,11 +654,9 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -1,
 			threat: 5
 		},
-		compatibleWeapons: {
-			list: [
-				pistols['Interceptor 45 Pistol']
-			]
-		}
+		compatibleWeapons: [
+			pistols['Interceptor 45 Pistol']
+		]
 	},
 	'Velocity .45': {
 		name: 'Velocity .45',
@@ -771,11 +669,9 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			stability: 8,
 			concealment: -1
 		},
-		compatibleWeapons: {
-			list: [
-				pistols['Interceptor 45 Pistol']
-			]
-		}
+		compatibleWeapons: [
+			pistols['Interceptor 45 Pistol']
+		]
 	},
 	'Ventilated Compensator': {
 		name: 'Ventilated Compensator',
@@ -789,12 +685,10 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -1,
 			threat: 5
 		},
-		compatibleWeapons: {
-			list: [
-				pistols['STRYK 18c Pistol'],
-				pistols['Chimano Custom Pistol']
-			]
-		}
+		compatibleWeapons: [
+			pistols['STRYK 18c Pistol'],
+			pistols['Chimano Custom Pistol']
+		]
 	},
 	'Velocity Compensator': {
 		name: 'Velocity Compensator',
@@ -808,12 +702,10 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -1,
 			threat: 1
 		},
-		compatibleWeapons: {
-			list: [
-				pistols['STRYK 18c Pistol'],
-				pistols['Chimano Custom Pistol']
-			]
-		}
+		compatibleWeapons: [
+			pistols['STRYK 18c Pistol'],
+			pistols['Chimano Custom Pistol']
+		]
 	},
 	'Aggressor Comensator': {
 		name: 'Aggressor Comensator',
@@ -827,11 +719,9 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -1,
 			threat: 1
 		},
-		compatibleWeapons: {
-			list: [
-				pistols['Crosskill Pistol']
-			]
-		}
+		compatibleWeapons: [
+			pistols['Crosskill Pistol']
+		]
 	},
 	'Punisher Compensator': {
 		name: 'Punisher Compensator',
@@ -845,11 +735,9 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -1,
 			threat: 10
 		},
-		compatibleWeapons: {
-			list: [
-				pistols['Crosskill Pistol']
-			]
-		}
+		compatibleWeapons: [
+			pistols['Crosskill Pistol']
+		]
 	},
 	'The Competitor Compensator': {
 		name: 'The Competitor Compensator',
@@ -862,11 +750,9 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -1,
 			threat: 6
 		},
-		compatibleWeapons: {
-			list: [
-				pistols['Bernetti 9 Pistol']
-			]
-		}
+		compatibleWeapons: [
+			pistols['Bernetti 9 Pistol']
+		]
 	},
 	'The Professional Compensator': {
 		name: 'The Professional Compensator',
@@ -880,11 +766,9 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			stability: 4,
 			concealment: -2
 		},
-		compatibleWeapons: {
-			list: [
-				pistols['Bernetti 9 Pistol']
-			]
-		}
+		compatibleWeapons: [
+			pistols['Bernetti 9 Pistol']
+		]
 	},
 	'La Femme Compensator': {
 		name: 'La Femme Compensator',
@@ -898,11 +782,9 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -1,
 			threat: 13
 		},
-		compatibleWeapons: {
-			list: [
-				pistols['Deagle Pistol']
-			]
-		}
+		compatibleWeapons: [
+			pistols['Deagle Pistol']
+		]
 	},
 	'OVERKILL Compensator': {
 		name: 'OVERKILL Compensator',
@@ -915,11 +797,9 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			stability: 8,
 			concealment: -2
 		},
-		compatibleWeapons: {
-			list: [
-				pistols['Deagle Pistol']
-			]
-		}
+		compatibleWeapons: [
+			pistols['Deagle Pistol']
+		]
 	},
 	'Ventilated .40': {
 		name: 'Ventilated .40',
@@ -933,11 +813,9 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			concealment: -1,
 			threat: 5
 		},
-		compatibleWeapons: {
-			list: [
-				pistols['Signature .40 Pistol']
-			]
-		}
+		compatibleWeapons: [
+			pistols['Signature .40 Pistol']
+		]
 	},
 	'Velocity .40': {
 		name: 'Velocity .40',
@@ -950,11 +828,9 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			stability: 8,
 			concealment: -1
 		},
-		compatibleWeapons: {
-			list: [
-				pistols['Signature .40 Pistol']
-			]
-		}
+		compatibleWeapons: [
+			pistols['Signature .40 Pistol']
+		]
 	},
 	'Damper.L 44 Nozzle': {
 		name: 'Damper.L 44 Nozzle',
@@ -971,12 +847,10 @@ const assaultRiflesModifications: Record<BarrelExtModificationsList, WeaponModif
 			stability: 8,
 			concealment: -1
 		},
-		compatibleWeapons: {
-			list: [
-				pistols['Broomstick Pistol']
-			]
-		}
+		compatibleWeapons: [
+			pistols['Broomstick Pistol']
+		]
 	}
 }
 
-export default assaultRiflesModifications
+export default barrelExt
