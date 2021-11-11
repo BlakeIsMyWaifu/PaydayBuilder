@@ -15,7 +15,7 @@ type PrimarySpecialList =
 	'Heavy Crossbow' |
 	'Piglet Grenade Launcher' |
 	'Flamethrower Mk.1' |
-	'GL40 Grenade Launcher';
+	'GL40 Grenade Launcher'
 
 const specials: Record<PrimarySpecialList, WeaponData> = {
 	'OVE9000 Saw': {

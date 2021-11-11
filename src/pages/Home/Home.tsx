@@ -17,7 +17,7 @@ import SelectorSkills from './Selector/SelectorSkills'
 import SettingsPanel from './SettingsPanel'
 import SkillTable from './SkillTable'
 
-export interface hoverInfo {
+export interface HoverInfo {
 	title: string;
 	description?: string[];
 	table?: ReactElement;
@@ -31,7 +31,7 @@ const Home: React.FC = () => {
 	const { primary, secondary, throwable, melee } = useAppSelector(state => state.weapons)
 	const armoury = useAppSelector(state => state.armoury)
 
-	const [hoverInfo, setHoverInfo] = useState<hoverInfo | null>(null)
+	const [hoverInfo, setHoverInfo] = useState<HoverInfo | null>(null)
 
 	const perkDeck = useAppSelector(state => state.abilities.perkdeck)
 	const perkDeckIndex = Object.keys(perkData).indexOf(perkDeck.name)

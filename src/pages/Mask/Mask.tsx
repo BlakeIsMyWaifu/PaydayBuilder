@@ -2,7 +2,7 @@ import { changeMask } from 'actions/characterAction'
 import Container from 'components/Container'
 import Info, { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item'
-import data, { maskData } from 'data/character/masks'
+import data, { MaskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { createRef, useRef, useState } from 'react'
 import { itemColours } from 'utils/colours'
@@ -10,19 +10,19 @@ import { itemColours } from 'utils/colours'
 import { CollectionTitle, CollectionsContainer, InfoCost, ItemContainer, MaskCollection, MaskCollectionTitle, MaskWrapper, RarityContainer, RarityTitle } from './Mask-Elements'
 
 const collections = (() => {
-	let out: Record<string, maskData[]> = {}
+	const out: Record<string, MaskData[]> = {}
 	data.forEach(mask => {
-		let collection = out[mask.collection]
+		const collection = out[mask.collection]
 		out[mask.collection] = collection ? [...collection, mask] : [mask]
 	})
 	return out
 })()
 
-interface MaskTabComponent {
-	selectedMask: maskData;
+interface MaskTabProps {
+	selectedMask: MaskData;
 }
 
-const MaskTab: React.FC<MaskTabComponent> = ({ selectedMask }) => {
+const MaskTab: React.FC<MaskTabProps> = ({ selectedMask }) => {
 	return (
 		<InfoContainer>
 			<InfoTitle>{selectedMask.name}</InfoTitle>
@@ -33,12 +33,12 @@ const MaskTab: React.FC<MaskTabComponent> = ({ selectedMask }) => {
 	)
 }
 
-interface CollectionsTabComponent {
+interface CollectionsTabProps {
 	selectedTab: string;
 	collectionRefs: React.MutableRefObject<React.RefObject<HTMLDivElement>[]>;
 }
 
-const CollectionsTab: React.FC<CollectionsTabComponent> = ({ selectedTab, collectionRefs }) => {
+const CollectionsTab: React.FC<CollectionsTabProps> = ({ selectedTab, collectionRefs }) => {
 	return (
 		<InfoContainer>
 			<InfoTitle>Collections</InfoTitle>
@@ -63,7 +63,7 @@ const Mask: React.FC = () => {
 	const dispatch = useAppDispatch()
 
 	const equippedMask = useAppSelector(state => state.character.mask)
-	const [selectedMask, setSelectedMask] = useState<maskData>(equippedMask)
+	const [selectedMask, setSelectedMask] = useState<MaskData>(equippedMask)
 
 	const [selectedTab, setSelectedTab] = useState('All')
 

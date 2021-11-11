@@ -1,19 +1,19 @@
-import armours, { armourData } from 'data/character/armours'
-import characters, { characterData } from 'data/character/characters'
-import equipment, { equipmentData } from 'data/character/equipment'
-import masks, { maskData } from 'data/character/masks'
+import armours, { ArmourData } from 'data/character/armours'
+import characters, { CharacterData } from 'data/character/characters'
+import equipment, { EquipmentData } from 'data/character/equipment'
+import masks, { MaskData } from 'data/character/masks'
 
-export interface characterState {
-	mask: maskData;
-	character: characterData;
-	armour: armourData;
+export interface CharacterState {
+	mask: MaskData;
+	character: CharacterData;
+	armour: ArmourData;
 	equipment: {
-		primary: equipmentData;
-		secondary: equipmentData | null;
+		primary: EquipmentData;
+		secondary: EquipmentData | null;
 	};
 }
 
-const characterDefaultState: characterState = {
+const characterDefaultState: CharacterState = {
 	mask: masks[0],
 	character: characters[0],
 	armour: armours[0],

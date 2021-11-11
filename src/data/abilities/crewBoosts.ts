@@ -11,7 +11,7 @@ type CrewBoostsList =
 	'Healer' |
 	'Concealer' |
 	'Stockpiler' |
-	'Accelerator';
+	'Accelerator'
 
 const boosts: Record<CrewBoostsList, CrewBoost> = {
 	Reinforcer: {

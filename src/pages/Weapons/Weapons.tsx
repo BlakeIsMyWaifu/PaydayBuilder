@@ -13,11 +13,11 @@ import { blue, itemColours } from 'utils/colours'
 import WeaponInfo from './WeaponInfo/WeaponInfo'
 import { ActionsContainer, ActionsText, ResetContainer, ResetText, WeaponType, WeaponTypes } from './Weapons-Elements'
 
-interface WeaponsComponent {
+interface WeaponsProps {
 	slot: 'primary' | 'secondary';
 }
 
-const Weapons: React.FC<WeaponsComponent> = ({ slot }) => {
+const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 
 	const data: Record<string, Record<string, WeaponData>> = slot === 'primary' ? primary : secondary
 

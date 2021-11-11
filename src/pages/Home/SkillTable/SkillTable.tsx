@@ -1,5 +1,5 @@
 import { Data, Head, Label, Row, Table } from 'components/Table'
-import data from 'data/abilities/skills'
+import skills from 'data/abilities/skills'
 import { useAppSelector } from 'hooks'
 import React from 'react'
 import { blue, dimBlue, grey } from 'utils/colours'
@@ -20,7 +20,7 @@ const SkillTable: React.FC = () => {
 			</thead>
 			<tbody>
 				{
-					Object.keys(data).map(tree => {
+					Object.keys(skills).map(tree => {
 						const subtree = Object.values(trees[tree])
 						let treePoints = 0
 						let basicAmount = 0

@@ -46,14 +46,14 @@ export const Data = styled.td`
 	}
 `
 
-interface tableEquipped {
+interface TableEquippedProps {
 	baseStats: Record<string, any>;
 	additionalStats: Record<string, any>;
 }
 
 const colourCompare = (valueOne: number, valueTwo: number) => valueOne !== valueTwo ? (valueOne < valueTwo ? red : green) : '#fff'
 
-export const TableEquipped: React.FC<tableEquipped> = ({ baseStats, additionalStats }) => {
+export const TableEquipped: React.FC<TableEquippedProps> = ({ baseStats, additionalStats }) => {
 
 	const isArrayZeros = (arr: number[]) => arr.reduce((a, b) => a + b)
 
@@ -108,14 +108,14 @@ export const TableEquipped: React.FC<tableEquipped> = ({ baseStats, additionalSt
 	)
 }
 
-interface tableCompare {
+interface TableCompareProps {
 	equippedStats: Record<string, any>;
 	selectedStats: Record<string, any>;
 	equippedAdditional: Record<string, any>;
 	selectedAdditional: Record<string, any>;
 }
 
-export const TableCompare: React.FC<tableCompare> = ({ equippedStats, selectedStats, equippedAdditional, selectedAdditional }) => {
+export const TableCompare: React.FC<TableCompareProps> = ({ equippedStats, selectedStats, equippedAdditional, selectedAdditional }) => {
 
 	const stats = [...Object.keys(equippedStats), ...Object.keys(selectedStats)].filter((label, i, arr) => arr.indexOf(label) === i)
 

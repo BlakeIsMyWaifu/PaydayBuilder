@@ -3,18 +3,18 @@ import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { TableCompare, TableEquipped } from 'components/Table'
-import data, { armourData, armourStats } from 'data/character/armours'
+import data, { ArmourData, ArmourStats } from 'data/character/armours'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 
-interface armourStatsTable {
-	selectedArmour: armourData;
-	equippedArmour?: armourData;
+interface ArmourStatsTable {
+	selectedArmour: ArmourData;
+	equippedArmour?: ArmourData;
 }
 
-export const ArmourStatsTable: React.FC<armourStatsTable> = ({ selectedArmour, equippedArmour }) => {
+export const ArmourStatsTable: React.FC<ArmourStatsTable> = ({ selectedArmour, equippedArmour }) => {
 
-	const baseStats = ({ armour, concealment, speed, dodge, steadiness, stamina }: armourStats) => {
+	const baseStats = ({ armour, concealment, speed, dodge, steadiness, stamina }: ArmourStats) => {
 		return ({ armour, health: 230, concealment, speed, dodge, steadiness, stamina })
 	}
 
@@ -22,10 +22,10 @@ export const ArmourStatsTable: React.FC<armourStatsTable> = ({ selectedArmour, e
 	const innerPockets = useAppSelector(state => state.skills.trees.ghost.artful_dodger.upgrades['Inner Pockets'])
 	const ironMan = useAppSelector(state => state.skills.trees.enforcer.tank.upgrades['Iron Man'])
 
-	const additionalStats = (armour: armourData) => {
+	const additionalStats = (armour: ArmourData) => {
 		const hasBallistic = armour.name.includes('Ballistic Vest')
 
-		let stats = {
+		const stats = {
 			armour: 0,
 			health: 0,
 			concealment: 0,
@@ -40,20 +40,20 @@ export const ArmourStatsTable: React.FC<armourStatsTable> = ({ selectedArmour, e
 		stats.concealment += innerPockets === 'aced' && hasBallistic ? 5 : 1 // +1 from blending in perk
 
 		return stats
-	}	
+	}
 
 	return (
-		equippedArmour ? 
-		<TableCompare
-			equippedStats={baseStats(equippedArmour.stats)}
-			selectedStats={baseStats(selectedArmour.stats)}
-			equippedAdditional={additionalStats(equippedArmour)}
-			selectedAdditional={additionalStats(selectedArmour)}
-		/> :
-		<TableEquipped
-			baseStats={baseStats(selectedArmour.stats)}
-			additionalStats={additionalStats(selectedArmour)}
-		/>
+		equippedArmour ?
+			<TableCompare
+				equippedStats={baseStats(equippedArmour.stats)}
+				selectedStats={baseStats(selectedArmour.stats)}
+				equippedAdditional={additionalStats(equippedArmour)}
+				selectedAdditional={additionalStats(selectedArmour)}
+			/> :
+			<TableEquipped
+				baseStats={baseStats(selectedArmour.stats)}
+				additionalStats={additionalStats(selectedArmour)}
+			/>
 	)
 }
 
@@ -63,7 +63,7 @@ export const Armour: React.FC = () => {
 
 	const equippedArmour = useAppSelector(state => state.character.armour)
 
-	const [selectedArmour, setSelectedArmour] = useState<armourData>(equippedArmour)
+	const [selectedArmour, setSelectedArmour] = useState<ArmourData>(equippedArmour)
 
 	return (
 		<Container title='Armour'>
@@ -78,7 +78,7 @@ export const Armour: React.FC = () => {
 							onClick={() => armour.name === selectedArmour.name ? dispatch(changeArmour(armour)) : setSelectedArmour(armour)}
 						>
 							<ItemName>{armour.name}</ItemName>
-							{ armour.name === equippedArmour.name && <ItemEquipped /> }
+							{armour.name === equippedArmour.name && <ItemEquipped />}
 							<ItemImage src={`images/armours/${armour.name}.png`} onMouseDown={event => event.preventDefault()} />
 						</Item>
 					})

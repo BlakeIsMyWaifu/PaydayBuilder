@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { raisinBlack } from 'utils/colours'
 
-interface container {
+interface ContainerProps {
 	toggle: boolean;
 }
 
-export const Container = styled.div<container>`
+export const Container = styled.div<ContainerProps>`
 	grid-area: settings;
 	position: absolute;
 	width: calc(40% - 40px);

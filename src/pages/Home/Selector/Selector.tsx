@@ -1,16 +1,16 @@
 import React from 'react'
 
-import { hoverInfo } from '../Home'
+import { HoverInfo } from '../Home'
 import { Container, Link, Title } from './Selector-Elements'
 
-interface selectorComponent {
+interface SelectorProps {
 	title: string;
 	children?: React.ReactNode;
-	infoData: hoverInfo | null;
-	setHoverInfo: React.Dispatch<React.SetStateAction<hoverInfo | null>>;
+	infoData: HoverInfo | null;
+	setHoverInfo: React.Dispatch<React.SetStateAction<HoverInfo | null>>;
 }
 
-const Selector: React.FC<selectorComponent> = ({ title, children, infoData, setHoverInfo }) => {
+const Selector: React.FC<SelectorProps> = ({ title, children, infoData, setHoverInfo }) => {
 	return (
 		<Link to={`/${title.replaceAll(' ', '')}`} onMouseDown={event => event.preventDefault()} onMouseEnter={() => setHoverInfo(infoData)} onMouseLeave={() => setHoverInfo(null)}>
 			<Container>

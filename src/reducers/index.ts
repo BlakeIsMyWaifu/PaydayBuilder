@@ -1,4 +1,10 @@
-import { combineReducers } from 'redux';
+import { AbilitiesState } from 'defaultStates/abilitiesDefaultState'
+import { ArmouryState } from 'defaultStates/armouryDefaultState'
+import { CharacterState } from 'defaultStates/characterDefaultState'
+import { SettingsState } from 'defaultStates/settingsDefaultState'
+import { SkillsState } from 'defaultStates/skillsDefaultState'
+import { WeaponsState } from 'defaultStates/weaponsDefaultState'
+import { CombinedState, combineReducers } from 'redux'
 
 import abilities from './abilitiesReducer'
 import armoury from './armouryReducer'
@@ -16,6 +22,15 @@ const allReducers = combineReducers({
 	weapons
 })
 
-const resetAll = (state: any, action: any) => allReducers(action.type === 'RESET' ? undefined : state, action)
+type ResetAll = CombinedState<{
+	abilities: AbilitiesState;
+	armoury: ArmouryState;
+	character: CharacterState;
+	settings: SettingsState;
+	skills: SkillsState;
+	weapons: WeaponsState;
+}>
+
+const resetAll = (state: any, action: any): ResetAll => allReducers(action.type === 'RESET' ? undefined : state, action)
 
 export default resetAll

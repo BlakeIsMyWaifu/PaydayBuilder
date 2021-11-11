@@ -1,19 +1,19 @@
 import keybinds from 'data/keybinds'
 
-export interface equipmentData {
+export interface EquipmentData {
 	name: string;
 	amount: number[];
-	upgrade: equipmentUpgradeData[];
+	upgrade: EquipmentUpgradeData[];
 	description: string[];
 }
 
-interface equipmentUpgradeData {
+interface EquipmentUpgradeData {
 	amount: number[];
 	skillPath: [string, string, string];
 	skillState: 'basic' | 'aced';
 }
 
-const equipment: equipmentData[] = [
+const equipment: EquipmentData[] = [
 	{
 		name: 'Ammo Bag',
 		amount: [1],

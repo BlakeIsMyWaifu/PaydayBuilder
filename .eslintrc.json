@@ -15,7 +15,16 @@
 	"rules": {
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
-		"react/prop-types": "off"
+		"react/prop-types": "off",
+		"@typescript-eslint/no-unused-vars": [
+			1,
+			{
+				"vars": "all",
+				"args": "after-used",
+				"argsIgnorePattern": "^_",
+				"varsIgnorePattern": "^React$"
+			}
+		]
 	},
 	"settings": {
 		"react": {

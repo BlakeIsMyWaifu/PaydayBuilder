@@ -1,9 +1,9 @@
 import actions from 'actions/armouryAction'
 import { Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
-import defaultState from 'defaultStates/armouryDefaultState'
+import defaultState, { ArmouryState } from 'defaultStates/armouryDefaultState'
 import { getType } from 'typesafe-actions'
 
-const armouryReducer = (state = defaultState, action: Record<'type' | 'payload', any>) => {
+const armouryReducer = (state = defaultState, action: Record<'type' | 'payload', any>): ArmouryState => {
 	switch (action.type) {
 		case getType(actions.addWeapon):
 			const addSlot: 'primary' | 'secondary' = action.payload.slot

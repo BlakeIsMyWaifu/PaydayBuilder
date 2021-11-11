@@ -3,17 +3,16 @@ import { Link as LinkR } from 'react-router-dom'
 import styled from 'styled-components'
 import { blue } from 'utils/colours'
 
-interface area {
+interface AreaProps {
 	columns?: string;
 	rows?: string;
 	areas?: string;
 	title?: string;
 	backButton?: boolean;
 	children?: React.ReactNode;
-	ref?: React.MutableRefObject<any>;
 }
 
-const Area = styled.div<area>`
+const Area = styled.div<AreaProps>`
 	position: absolute;
 	width: calc(100% - 16px);
 	height: calc(100% - 16px);
@@ -54,7 +53,7 @@ const BackText = styled.p`
 	}
 `
 
-const Container: React.FC<area> = ({
+const Container: React.FC<AreaProps> = ({
 	columns = '3fr 1fr',
 	rows = '4rem 8fr 4rem',
 	areas = '"title title" "items info" "items back"',

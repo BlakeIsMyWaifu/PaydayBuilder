@@ -1,19 +1,20 @@
 import { TableCompare, TableEquipped } from 'components/Table'
 import { WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
+import React from 'react'
 
-interface WeaponsStatsTableComponent {
+interface WeaponsStatsTableProps {
 	showExtraStats: boolean;
 	selectedWeapon: WeaponData;
 	equippedWeapon?: WeaponData;
 }
 
-const WeaponsStatsTable: React.FC<WeaponsStatsTableComponent> = ({ showExtraStats, selectedWeapon, equippedWeapon }) => {
+const WeaponsStatsTable: React.FC<WeaponsStatsTableProps> = ({ showExtraStats, selectedWeapon, equippedWeapon }) => {
 
 	const baseStats = (weapon: WeaponData) => {
 		if (!showExtraStats) return weapon.stats
 
-		let extra = weapon.extraStats
-		let extraStats = {
+		const extra = weapon.extraStats
+		const extraStats = {
 			tacticalReload: extra.tacticalReload ? (typeof extra.tacticalReload === 'number' ? `${extra.tacticalReload}s` : `${extra.tacticalReload[0]}s | ${extra.tacticalReload[1]}s`) : '',
 			reload: `${extra.reload}s`,
 			equipDelays: `${extra.equipDelays[0]}s | ${extra.equipDelays[1]}s`,
@@ -27,8 +28,9 @@ const WeaponsStatsTable: React.FC<WeaponsStatsTableComponent> = ({ showExtraStat
 		return ({ ...weapon.stats, ...extraStats })
 	}
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const additionalStats = (weapon: WeaponData) => {
-		let stats: WeaponStats = {
+		const stats: WeaponStats = {
 			magazine: 0,
 			totalAmmo: 0,
 			rateOfFire: 0,

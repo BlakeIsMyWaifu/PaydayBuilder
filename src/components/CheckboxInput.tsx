@@ -61,18 +61,18 @@ const Input = styled.input`
 	}
 `
 
-interface CheckboxInputComponent {
+interface CheckboxInputProps {
 	defaultState: boolean;
 	callback: (isToggled: boolean) => void;
 }
 
-const CheckboxInput: React.FC<CheckboxInputComponent> = ({ defaultState, callback }) => {
+const CheckboxInput: React.FC<CheckboxInputProps> = ({ defaultState, callback }) => {
 
 	const [isToggled, setIsToggled] = useState(defaultState)
 
 	return (
 		<Container>
-			<Input type='checkbox' checked={isToggled} onChange={() => {}} />
+			<Input type='checkbox' checked={isToggled} />
 			<Label onClick={() => {
 				setIsToggled(!isToggled)
 				callback(!isToggled)

@@ -1,17 +1,17 @@
-import { skillData, subtreeData, treeData } from 'data/abilities/skills'
+import { SkillData, SubtreeData, TreeData } from 'data/abilities/skills'
 import { useAppSelector } from 'hooks'
 import React from 'react'
 
 import Skill from './Skill'
 import { Background, Container, Tier, TierWrapper } from './Subtree-Elements'
 
-interface subtreeComponent {
-	tree: treeData;
-	subtree: subtreeData;
-	setSkillHovered: React.Dispatch<React.SetStateAction<skillData | null>>;
+interface SubtreeProps {
+	tree: TreeData;
+	subtree: SubtreeData;
+	setSkillHovered: React.Dispatch<React.SetStateAction<SkillData | null>>;
 }
 
-const Subtree: React.FC<subtreeComponent> = ({ tree, subtree, setSkillHovered }) => {
+const Subtree: React.FC<SubtreeProps> = ({ tree, subtree, setSkillHovered }) => {
 
 	const { points, tier } = useAppSelector(state => state.skills.trees[tree.name][subtree.name])
 
@@ -26,28 +26,28 @@ const Subtree: React.FC<subtreeComponent> = ({ tree, subtree, setSkillHovered })
 	return (
 		<Container>
 
-			<Background src={'images/skills/background.png'} onMouseDown={event => event.preventDefault()} height={backgroundBarHeight()}/>
+			<Background src={'images/skills/background.png'} onMouseDown={event => event.preventDefault()} height={backgroundBarHeight()} />
 
 			<TierWrapper>
 				<Tier>
-					<Skill tree={tree} subtree={subtree} skill={skills[5]} setSkillHovered={setSkillHovered}/>
+					<Skill tree={tree} subtree={subtree} skill={skills[5]} setSkillHovered={setSkillHovered} />
 				</Tier>
 
 				<Tier>
-					<Skill tree={tree} subtree={subtree} skill={skills[4]} setSkillHovered={setSkillHovered}/>
-					<Skill tree={tree} subtree={subtree} skill={skills[3]} setSkillHovered={setSkillHovered}/>
+					<Skill tree={tree} subtree={subtree} skill={skills[4]} setSkillHovered={setSkillHovered} />
+					<Skill tree={tree} subtree={subtree} skill={skills[3]} setSkillHovered={setSkillHovered} />
 				</Tier>
 
 				<Tier>
-					<Skill tree={tree} subtree={subtree} skill={skills[2]} setSkillHovered={setSkillHovered}/>
-					<Skill tree={tree} subtree={subtree} skill={skills[1]} setSkillHovered={setSkillHovered}/>
+					<Skill tree={tree} subtree={subtree} skill={skills[2]} setSkillHovered={setSkillHovered} />
+					<Skill tree={tree} subtree={subtree} skill={skills[1]} setSkillHovered={setSkillHovered} />
 				</Tier>
 
 				<Tier>
-					<Skill tree={tree} subtree={subtree} skill={skills[0]} setSkillHovered={setSkillHovered}/>
+					<Skill tree={tree} subtree={subtree} skill={skills[0]} setSkillHovered={setSkillHovered} />
 				</Tier>
 			</TierWrapper>
-			
+
 		</Container>
 	)
 }

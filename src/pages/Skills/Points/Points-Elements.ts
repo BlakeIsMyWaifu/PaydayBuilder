@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-export interface pointsContainer {
+interface ContainerProps {
 	colour: string
 }
 
-export const Container = styled.div<pointsContainer>`
+export const Container = styled.div<ContainerProps>`
 	grid-area: points;
 	color: ${props => props.colour};
 	font-size: 1.8rem;

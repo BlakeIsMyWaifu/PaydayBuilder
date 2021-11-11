@@ -73,12 +73,12 @@ const Button = styled.button`
 	}
 `
 
-interface TextInputComponent {
+interface TextInputProps {
 	placeholder: string;
 	callback: (input: string) => void;
 }
 
-const TextInput: React.FC<TextInputComponent> = ({ placeholder, callback }) => {
+const TextInput: React.FC<TextInputProps> = ({ placeholder, callback }) => {
 
 	const inputRef = useRef<HTMLInputElement>(null)
 

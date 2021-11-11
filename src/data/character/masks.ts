@@ -1,16 +1,16 @@
-import { contentRarity } from "data/source/downloadableContent"
+import { ContentRarity } from "data/source/downloadableContent"
 
-export interface maskData {
+export interface MaskData {
 	name: string;
 	image: string;
 	description: string[];
 	collection: string;
-	rarity: contentRarity;
+	rarity: ContentRarity;
 	unlock: string;
 	cost: string;
 }
 
-const masks: maskData[] = [
+const masks: MaskData[] = [
 	{
 		name: 'Preferred Character',
 		image: 'character_locked',

@@ -4,11 +4,11 @@ import React from 'react'
 
 import { Container, ResetText } from './Reset-Elements'
 
-interface reset {
+interface ResetProps {
 	tree: string
 }
 
-const Reset: React.FC<reset> = ({ tree }) => {
+const Reset: React.FC<ResetProps> = ({ tree }) => {
 
 	const dispatch = useAppDispatch()
 

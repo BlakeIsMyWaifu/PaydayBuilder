@@ -2,16 +2,16 @@ import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
 import barrel from '../modifications/barrel'
-import barrelExt, { BarrelExtModificationsList } from '../modifications/barrelExt';
-import boost, { BoostModificationsList } from '../modifications/boost';
-import custom, { CustomModificationsList } from '../modifications/custom';
-import extra from '../modifications/extra';
-import foregrip from '../modifications/foregrip';
-import gadget, { GadgetModificationsList } from '../modifications/gadget';
-import grip from '../modifications/grip';
-import sight, { SightModificationsList } from '../modifications/sight';
-import stock from '../modifications/stock';
-import upperReciever from '../modifications/upperReceiver';
+import barrelExt, { BarrelExtModificationsList } from '../modifications/barrelExt'
+import boost, { BoostModificationsList } from '../modifications/boost'
+import custom, { CustomModificationsList } from '../modifications/custom'
+import extra from '../modifications/extra'
+import foregrip from '../modifications/foregrip'
+import gadget, { GadgetModificationsList } from '../modifications/gadget'
+import grip from '../modifications/grip'
+import sight, { SightModificationsList } from '../modifications/sight'
+import stock from '../modifications/stock'
+import upperReciever from '../modifications/upperReceiver'
 import { WeaponData, WeaponModification } from '../weaponTypes'
 
 const mainBarrelExt: WeaponModification<BarrelExtModificationsList>[] = [
@@ -97,7 +97,7 @@ type AssaultRifleList =
 	'AMR-16 Rifle' |
 	'Little Friend 7.62 Assault Rifle' |
 	'Falcon Rifle' |
-	'Gewehr 3 Rifle';
+	'Gewehr 3 Rifle'
 
 const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 	'AMCAR Rifle': {

@@ -5,12 +5,12 @@ import { itemColours } from 'utils/colours'
 
 import WeaponsStatsTable from '../WeaponStatsTable/WeaponStatsTable'
 
-interface WeaponInfoComponent {
+interface WeaponInfoProps {
 	selectedWeapon: WeaponData;
 	equippedWeapon?: WeaponData;
 }
 
-const WeaponInfo: React.FC<WeaponInfoComponent> = ({ selectedWeapon, equippedWeapon }) => {
+const WeaponInfo: React.FC<WeaponInfoProps> = ({ selectedWeapon, equippedWeapon }) => {
 	return (
 		<>
 			<InfoTitle>{selectedWeapon.name}</InfoTitle>

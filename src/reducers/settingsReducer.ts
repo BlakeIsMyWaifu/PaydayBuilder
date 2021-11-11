@@ -1,8 +1,8 @@
 import actions from 'actions/settingsAction'
-import defaultState from 'defaultStates/settingsDefaultState'
+import defaultState, { SettingsState } from 'defaultStates/settingsDefaultState'
 import { getType } from 'typesafe-actions'
 
-const settingsReducer = (state = defaultState, action: Record<'type' | 'payload', any>) => {
+const settingsReducer = (state = defaultState, action: Record<'type' | 'payload', any>): SettingsState => {
 	switch (action.type) {
 		case getType(actions.changeLeftFacing):
 			const leftFacing: boolean = action.payload

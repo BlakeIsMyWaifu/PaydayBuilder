@@ -1,7 +1,7 @@
-import content, { contentData } from 'data/source/downloadableContent'
-import source, { sourceData } from 'data/source/miscSources'
+import content, { ContentData } from 'data/source/downloadableContent'
+import source, { SourceData } from 'data/source/miscSources'
 
-type perkDeckList =
+type PerkDeckList =
 	'Crew Chief' |
 	'Muscle' |
 	'Armorer' |
@@ -22,17 +22,17 @@ type perkDeckList =
 	'Sicario' |
 	'Stoic' |
 	'Tag Team' |
-	'Hacker';
+	'Hacker'
 
-export interface perk {
+export interface Perk {
 	name: string;
 	description: string[];
-	cards: card[];
-	source: contentData | sourceData;
+	cards: PerkCard[];
+	source: ContentData | SourceData;
 	throwable?: string;
 }
 
-export interface card {
+export interface PerkCard {
 	name: string;
 	description: string[];
 	vr_description?: string;
@@ -48,7 +48,7 @@ interface stat {
 	arguments?: string[];
 }
 
-const commonCards: card[] = [
+const commonCards: PerkCard[] = [
 	{
 		name: 'Helmet Popping',
 		description: [
@@ -92,7 +92,7 @@ const commonCards: card[] = [
 	}
 ]
 
-var perkDecks: Record<perkDeckList, perk> = {
+const perkDecks: Record<PerkDeckList, Perk> = {
 	'Crew Chief': {
 		name: 'Crew Chief',
 		description: [
@@ -1565,11 +1565,11 @@ var perkDecks: Record<perkDeckList, perk> = {
 }
 
 for (const [key, value] of Object.entries(perkDecks)) {
-	let cards: card[] = []
+	const cards: PerkCard[] = []
 	for (let i = 0; i < 9; i++) {
 		cards.push(i % 2 ? commonCards[~~(i / 2)] : value.cards[~~(i / 2)])
 	}
-	perkDecks[key as perkDeckList].cards = cards
+	perkDecks[key as PerkDeckList].cards = cards
 }
 
 export default perkDecks

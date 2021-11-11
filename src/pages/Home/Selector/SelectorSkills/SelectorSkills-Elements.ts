@@ -24,11 +24,11 @@ export const SkillsCard = styled.div`
 	border-radius: 6px;
 `
 
-export interface skillsAmount {
+export interface SkillsAmountProps {
 	colour: string
 }
 
-export const SkillsAmount = styled.h1<skillsAmount>`
+export const SkillsAmount = styled.h1<SkillsAmountProps>`
 	font-size: 1.5rem;
 	text-align: center;
 	color: ${props => props.colour};

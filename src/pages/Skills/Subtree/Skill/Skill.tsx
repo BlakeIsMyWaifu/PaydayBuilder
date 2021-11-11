@@ -1,19 +1,19 @@
 import { changeSkillState } from 'actions/skillsAction'
-import { skillData, subtreeData, treeData } from 'data/abilities/skills'
+import { SkillData, SubtreeData, TreeData } from 'data/abilities/skills'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 import { grey } from 'utils/colours'
 
 import { Aced, Container, Icon, Label, Locked, SkillIcon } from './Skill-Elements'
 
-interface skillComponent {
-	tree: treeData;
-	subtree: subtreeData;
-	skill: skillData;
-	setSkillHovered: React.Dispatch<React.SetStateAction<skillData | null>>;
+interface SkillProps {
+	tree: TreeData;
+	subtree: SubtreeData;
+	skill: SkillData;
+	setSkillHovered: React.Dispatch<React.SetStateAction<SkillData | null>>;
 }
 
-const Skill: React.FC<skillComponent> = ({ tree, subtree, skill, setSkillHovered }) => {
+const Skill: React.FC<SkillProps> = ({ tree, subtree, skill, setSkillHovered }) => {
 
 	const dispatch = useAppDispatch()
 
@@ -46,8 +46,8 @@ const Skill: React.FC<skillComponent> = ({ tree, subtree, skill, setSkillHovered
 
 		if (event.button) {
 			const highestTier = Math.max.apply(null, Object.entries(subtreeState.upgrades)
-				.filter(([skillName, skillState]) => skillState === 'basic' || skillState === 'aced')
-				.map(([skillName, skillState]) => subtree.upgrades.find(skill => skill.name === skillName)?.tier || 1))
+				.filter(([_skillName, skillState]) => skillState === 'basic' || skillState === 'aced')
+				.map(([skillName, _skillState]) => subtree.upgrades.find(skill => skill.name === skillName)?.tier || 1))
 
 			if ((skill.tier === 1 && highestTier > 1) && skillState === 'basic') {
 				setRedFlash(true)
@@ -58,12 +58,12 @@ const Skill: React.FC<skillComponent> = ({ tree, subtree, skill, setSkillHovered
 				const reduceThing = (arr: number[]) => arr.length ? arr.reduce((a, b) => a + b) : 0
 				const highestTierPointsTotal = reduceThing(Object.entries(subtreeState.upgrades)
 					.filter((_, i) => subtree.upgrades[i].tier === highestTier)
-					.map(([skillName, skillState], i) => {
+					.map(([skillName, skillState]) => {
 						const skillTier = subtree.upgrades.find(skill => skill.name === skillName)?.tier || 1
 						return skillState === 'basic' ? skillTier : (skillState === 'aced' ? skillTier + acedCost[skillTier] : 0)
 					})
 				)
-	
+
 				const notHighestTierPointsTotal = subtreeState.points - highestTierPointsTotal
 				const removeSkillCost = skillState === 'basic' ? skill.tier : acedCost[skill.tier]
 
@@ -96,8 +96,8 @@ const Skill: React.FC<skillComponent> = ({ tree, subtree, skill, setSkillHovered
 			onContextMenu={event => event.preventDefault()}
 			onMouseDown={clickSkills}>
 			<Icon>
-				{ skillState === 'locked' && <Locked /> }
-				{ skillState === 'aced' && <Aced /> }
+				{skillState === 'locked' && <Locked />}
+				{skillState === 'aced' && <Aced />}
 				<SkillIcon x={skill.pos[0]} y={skill.pos[1]} state={skillState} redFlash={redFlash} onAnimationEnd={() => setRedFlash(false)} />
 			</Icon>
 			<Label redFlash={redFlash} color={skillState === 'locked' ? grey : '#fff'}>{skill.name}</Label>

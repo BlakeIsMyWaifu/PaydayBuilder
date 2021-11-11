@@ -10,11 +10,11 @@ export const Tab = styled.div<tab>`
 	grid-area: ${(props) => props.id};
 `
 
-interface tabtitle {
+interface TabtitleProps {
 	direction: 'ltr' | 'rtl'
 }
 
-export const TabTitle = styled.h1<tabtitle>`
+export const TabTitle = styled.h1<TabtitleProps>`
 	direction: ${props => props.direction};
 	font-size: 20px;
 `
@@ -44,11 +44,11 @@ export const SelectorWrapper = styled.div`
 	${corner};
 `
 
-interface image {
+interface ImageProps {
 	leftFacing?: boolean;
 }
 
-export const Image = styled.img<image>`
+export const Image = styled.img<ImageProps>`
 	height: auto;
 	max-height: calc(100% - 32px);
 	width: auto;
@@ -64,12 +64,12 @@ export const EquipmentContainer = styled.div`
 	flex-direction: row;
 `
 
-interface perkDeckImage {
+interface PerkDeckImageProps {
 	x: number;
 	y: number;
 }
 
-export const PerkDeckImage = styled.div<perkDeckImage>`
+export const PerkDeckImage = styled.div<PerkDeckImageProps>`
 	background-position-x: calc((${props => props.x}% / 192) * 100) !important;
 	background-position-y: calc((${props => props.y}% / 1008) * 100) !important;
 	background: url('/images/perks/perks.png') 0 0 no-repeat;

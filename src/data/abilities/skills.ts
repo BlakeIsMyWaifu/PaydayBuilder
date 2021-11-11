@@ -1,24 +1,16 @@
-export interface skillsData {
-	mastermind: treeData;
-	enforcer: treeData;
-	technician: treeData;
-	ghost: treeData;
-	fugitive: treeData;
+export type TreeNames = 'mastermind' | 'enforcer' | 'technician' | 'ghost' | 'fugitive'
+
+export interface TreeData {
+	name: TreeNames;
+	subtrees: SubtreeData[];
 }
 
-export type treeNames = 'mastermind' | 'enforcer' | 'technician' | 'ghost' | 'fugitive'
-
-export interface treeData {
-	name: treeNames;
-	subtrees: subtreeData[];
-}
-
-export interface subtreeData {
+export interface SubtreeData {
 	name: string;
-	upgrades: skillData[];
+	upgrades: SkillData[];
 }
 
-export interface skillData {
+export interface SkillData {
 	name: string;
 	description: string[];
 	vr_description?: string;
@@ -26,7 +18,7 @@ export interface skillData {
 	tier: 1 | 2 | 3 | 4;
 }
 
-const data: skillsData = {
+const skills: Record<TreeNames, TreeData> = {
 	mastermind: {
 		name: 'mastermind',
 		subtrees: [
@@ -214,67 +206,67 @@ const data: skillsData = {
 			{
 				name: 'shotgunner',
 				upgrades: [
-				{
-					name: 'Underdog',
-					description: [
-						'When three or more enemies within 10 meters are targeting you, you receive a 15% damage bonus that lasts for 7 seconds.',
-						'When three or more enemies within 18 meters are targeting you, you also receive a 10% damage reduction that lasts for 7 seconds.\nNote: Does not apply to melee damage, throwables, grenade launchers or rocket launchers.'
-					],
-					pos: [160, 80],
-					tier: 1
-				},
-				{
-					name: 'Shotgun CQB',
-					description: [
-						'You reload Shotguns 15% faster.',
-						'You reload Shotguns 35% faster. You gain a 125% increased steel sight zoom speed when using Shotguns.'
-					],
-					vr_description: 'Addition in VR:\tACE: Every kill while aiming down sight will regenerate 2% stamina.',
-					pos: [640, 560],
-					tier: 2
-				},
-				{
-					name: 'Shotgun Impact',
-					description: [
-						'Your weapon stability with all shotguns is increased by 8. You deal 5% more damage with Shotguns.',
-						'You deal an additional 10% more damage with shotguns.'
-					],
-					pos: [320, 80],
-					tier: 2
-				},
-				{
-					name: 'Far Away',
-					description: [
-						'Your accuracy bonus while aiming down sights with Shotguns is increased by 40%.',
-						'You gain a 50% increased effective range with Shotguns when aiming down sights.'
-					],
-					pos: [640, 400],
-					tier: 3
-				},
-				{
-					name: 'Close By',
-					description: [
-						'You can now hip-fire with your Shotguns while sprinting.',
-						'Your rate of fire is increased by 35% while firing from the hip with single shot Shotguns. Sotguns with magazines have their magazine sizes increased by 15 shells'
-					],
-					vr_description: 'Addition in VR:\tBASIC: After dashing the player kills have a 100% chance to fear enemies within 8 meters of the player for 1 up to a maximum of 3 seconds depending on the amount of stamina consumed by the jump.',
-					pos: [640, 480],
-					tier: 3
-				},
-				{
-					name: 'Overkill',
-					description: [
-						'When you kill an enemy with a Shotgun or the OVE9000 portable saw, you receive 75% damage increase for 20 seconds.',
-						'The damage bonus now applies to all weapons. Skill must still be activated using a Shotgun or the OVE9000 portable saw. Your weapon swap speed is increased by 80%.\nNote: Does not apply to melee damage, throwables, grenade launchers or rocket launchers.'
-					],
-					pos: [240, 160],
-					tier: 4
-				}
+					{
+						name: 'Underdog',
+						description: [
+							'When three or more enemies within 10 meters are targeting you, you receive a 15% damage bonus that lasts for 7 seconds.',
+							'When three or more enemies within 18 meters are targeting you, you also receive a 10% damage reduction that lasts for 7 seconds.\nNote: Does not apply to melee damage, throwables, grenade launchers or rocket launchers.'
+						],
+						pos: [160, 80],
+						tier: 1
+					},
+					{
+						name: 'Shotgun CQB',
+						description: [
+							'You reload Shotguns 15% faster.',
+							'You reload Shotguns 35% faster. You gain a 125% increased steel sight zoom speed when using Shotguns.'
+						],
+						vr_description: 'Addition in VR:\tACE: Every kill while aiming down sight will regenerate 2% stamina.',
+						pos: [640, 560],
+						tier: 2
+					},
+					{
+						name: 'Shotgun Impact',
+						description: [
+							'Your weapon stability with all shotguns is increased by 8. You deal 5% more damage with Shotguns.',
+							'You deal an additional 10% more damage with shotguns.'
+						],
+						pos: [320, 80],
+						tier: 2
+					},
+					{
+						name: 'Far Away',
+						description: [
+							'Your accuracy bonus while aiming down sights with Shotguns is increased by 40%.',
+							'You gain a 50% increased effective range with Shotguns when aiming down sights.'
+						],
+						pos: [640, 400],
+						tier: 3
+					},
+					{
+						name: 'Close By',
+						description: [
+							'You can now hip-fire with your Shotguns while sprinting.',
+							'Your rate of fire is increased by 35% while firing from the hip with single shot Shotguns. Sotguns with magazines have their magazine sizes increased by 15 shells'
+						],
+						vr_description: 'Addition in VR:\tBASIC: After dashing the player kills have a 100% chance to fear enemies within 8 meters of the player for 1 up to a maximum of 3 seconds depending on the amount of stamina consumed by the jump.',
+						pos: [640, 480],
+						tier: 3
+					},
+					{
+						name: 'Overkill',
+						description: [
+							'When you kill an enemy with a Shotgun or the OVE9000 portable saw, you receive 75% damage increase for 20 seconds.',
+							'The damage bonus now applies to all weapons. Skill must still be activated using a Shotgun or the OVE9000 portable saw. Your weapon swap speed is increased by 80%.\nNote: Does not apply to melee damage, throwables, grenade launchers or rocket launchers.'
+						],
+						pos: [240, 160],
+						tier: 4
+					}
 				],
 			},
 			{
 				name: 'tank',
-				upgrades:[
+				upgrades: [
 					{
 						name: 'Resilience',
 						description: [
@@ -398,60 +390,60 @@ const data: skillsData = {
 			{
 				name: 'engineer',
 				upgrades: [
-				{
-					name: 'Third Law',
-					description: [
-						'The cost of deploying a sentry gun is reduced by 5%.',
-						'Your sentry guns gain a protective shield.'
-					],
-					pos: [720, 0],
-					tier: 1
-				},
-				{
-					name: 'Sentry Targeting Package',
-					description: [
-						'Your sentry guns gain a 100% increase in accuracy.',
-						'Your sentry guns rotation speed is increased by 150%. Your sentry guns also have 50% more ammunition.'
-					],
-					pos: [720, 80],
-					tier: 2
-				},
-				{
-					name: 'Eco Sentry',
-					description: [
-						'The cost of deploying a sentry gun is reduced by 5%.',
-						'Your sentry guns gain 150% increased health.'
-					],
-					pos: [720, 160],
-					tier: 2
-				},
-				{
-					name: 'Engineering',
-					description: [
-						'You can now select a less noisy version of the sentry guns, making them much less likely to be targeted by enemies.',
-						'You can now toggle AP rounds on your sentry guns, lowering the rate of fire by 75%, but increasing damage by 250% and allowing it to pierce through enemies and shields.'
-					],
-					pos: [720, 240],
-					tier: 3
-				},
-				{
-					name: 'Jack of All Trades',
-					description: [
-						'You deploy and interact with all deployable 100% faster.',
-						'You can now equip a secondary deployable to bring with you. If your deployable is equipped as a secondary deployable, you can only bring half of what you should bring if it was equipped as a primary deployable.'
-					],
-					pos: [720, 320],
-					tier: 3
-				},
-				{
-					name: 'Tower Defense',
-					description: [
-						'You can now carry 1 extra sentry gun.',
-						'You can now carry an additional 2 extra sentry guns.'
-					],
-					pos: [720, 400],
-					tier: 4
-				}
+					{
+						name: 'Third Law',
+						description: [
+							'The cost of deploying a sentry gun is reduced by 5%.',
+							'Your sentry guns gain a protective shield.'
+						],
+						pos: [720, 0],
+						tier: 1
+					},
+					{
+						name: 'Sentry Targeting Package',
+						description: [
+							'Your sentry guns gain a 100% increase in accuracy.',
+							'Your sentry guns rotation speed is increased by 150%. Your sentry guns also have 50% more ammunition.'
+						],
+						pos: [720, 80],
+						tier: 2
+					},
+					{
+						name: 'Eco Sentry',
+						description: [
+							'The cost of deploying a sentry gun is reduced by 5%.',
+							'Your sentry guns gain 150% increased health.'
+						],
+						pos: [720, 160],
+						tier: 2
+					},
+					{
+						name: 'Engineering',
+						description: [
+							'You can now select a less noisy version of the sentry guns, making them much less likely to be targeted by enemies.',
+							'You can now toggle AP rounds on your sentry guns, lowering the rate of fire by 75%, but increasing damage by 250% and allowing it to pierce through enemies and shields.'
+						],
+						pos: [720, 240],
+						tier: 3
+					},
+					{
+						name: 'Jack of All Trades',
+						description: [
+							'You deploy and interact with all deployable 100% faster.',
+							'You can now equip a secondary deployable to bring with you. If your deployable is equipped as a secondary deployable, you can only bring half of what you should bring if it was equipped as a primary deployable.'
+						],
+						pos: [720, 320],
+						tier: 3
+					},
+					{
+						name: 'Tower Defense',
+						description: [
+							'You can now carry 1 extra sentry gun.',
+							'You can now carry an additional 2 extra sentry guns.'
+						],
+						pos: [720, 400],
+						tier: 4
+					}
 				],
 			},
 			{
@@ -582,60 +574,60 @@ const data: skillsData = {
 			{
 				name: 'shinobi',
 				upgrades: [
-				{
-					name: 'Chamaleon',
-					description: [
-						'Increases the time before you start getting detected by 25% while in casing mode. You can also mark enemies while in casing mode.',
-						'You can pick up items while in casing mode. You can also gain 30% more value to items and cash that you pick up.'
-					],
-					pos: [400, 240],
-					tier: 1
-				},
-				{
-					name: 'Cleaner',
-					description: [
-						'You gain 1 additional body bag in your inventory. Also increases the body bag inventory space to 3.',
-						'You gain the ability to place 2 body bags cases.'
-					],
-					pos: [560, 160],
-					tier: 2
-				},
-				{
-					name: 'Sixth Sense',
-					description: [
-						'You gain the ability to automatically mark enemies within a 10 meter radius around you after standing still for 3.5 seconds while in stealth.',
-						'You gain access to all insider assets. Cleaning costs after killing a civilian is reduced by 75%.'
-					],
-					pos: [480, 800],
-					tier: 2
-				},
-				{
-					name: 'Nimble',
-					description: [
-						'You gain the ability to disable 1 camera from detecting you and your crew. Effect lasts for 25 seconds.',
-						'You lockpick 100% faster. You also gain the ability to lockpick safes.'
-					],
-					pos: [800, 320],
-					tier: 3
-				},
-				{
-					name: 'ECM Overdrive',
-					description: [
-						'Your ECM jammer and feedback duration is increased by 25%.',
-						'Your ECM jammer can now also be used to open certain electronic doors.'
-					],
-					pos: [480, 240],
-					tier: 3
-				},
-				{
-					name: 'ECM Specialist',
-					description: [
-						'You can now place 2 ECM jammers instead of just one.',
-						'The ECM jammer duration is increased by an additional 25% and the ECM feedback duration lasts 25% longer. Pagers are delayed by the ECM jammers.'
-					],
-					pos: [240, 320],
-					tier: 4
-				}
+					{
+						name: 'Chamaleon',
+						description: [
+							'Increases the time before you start getting detected by 25% while in casing mode. You can also mark enemies while in casing mode.',
+							'You can pick up items while in casing mode. You can also gain 30% more value to items and cash that you pick up.'
+						],
+						pos: [400, 240],
+						tier: 1
+					},
+					{
+						name: 'Cleaner',
+						description: [
+							'You gain 1 additional body bag in your inventory. Also increases the body bag inventory space to 3.',
+							'You gain the ability to place 2 body bags cases.'
+						],
+						pos: [560, 160],
+						tier: 2
+					},
+					{
+						name: 'Sixth Sense',
+						description: [
+							'You gain the ability to automatically mark enemies within a 10 meter radius around you after standing still for 3.5 seconds while in stealth.',
+							'You gain access to all insider assets. Cleaning costs after killing a civilian is reduced by 75%.'
+						],
+						pos: [480, 800],
+						tier: 2
+					},
+					{
+						name: 'Nimble',
+						description: [
+							'You gain the ability to disable 1 camera from detecting you and your crew. Effect lasts for 25 seconds.',
+							'You lockpick 100% faster. You also gain the ability to lockpick safes.'
+						],
+						pos: [800, 320],
+						tier: 3
+					},
+					{
+						name: 'ECM Overdrive',
+						description: [
+							'Your ECM jammer and feedback duration is increased by 25%.',
+							'Your ECM jammer can now also be used to open certain electronic doors.'
+						],
+						pos: [480, 240],
+						tier: 3
+					},
+					{
+						name: 'ECM Specialist',
+						description: [
+							'You can now place 2 ECM jammers instead of just one.',
+							'The ECM jammer duration is increased by an additional 25% and the ECM feedback duration lasts 25% longer. Pagers are delayed by the ECM jammers.'
+						],
+						pos: [240, 320],
+						tier: 4
+					}
 				],
 			},
 			{
@@ -767,60 +759,60 @@ const data: skillsData = {
 			{
 				name: 'gunslinger',
 				upgrades: [
-				{
-					name: 'Equilibrium',
-					description: [
-						'Decreases the time it takes to draw end holster pistols by 33%.',
-						'You gain 8 weapon accuracy with all pistols.'
-					],
-					pos: [240, 720],
-					tier: 1
-				},
-				{
-					name: 'Gun Nut',
-					description: [
-						'Your pistoll magazine sizes are increased by 5 bullets.',
-						'You gain a 50% increased rate of fire with pistols.'
-					],
-					pos: [880, 0],
-					tier: 2
-				},
-				{
-					name: 'Akimbo',
-					description: [
-						'Your Akimbo weapons\' stability penalty is reduced by 8.',
-						'Your Akimbo weapons\' stability penalty is reduced by an additional 8 and they also have 50% increased ammo capacity.'
-					],
-					pos: [240, 880],
-					tier: 2
-				},
-				{
-					name: 'One Handed Talent',
-					description: [
-						'The base damage of all pistols is increased by 5.',
-						'The base damage of all pistols is increased by an additional 10 damage.'
-					],
-					pos: [560, 880],
-					tier: 3
-				},
-				{
-					name: 'Desperado',
-					description: [
-						'Each successful pistol hit gives you a 10% accuracy bonus for 10% and you can stack it 4 times.',
-						'You reload 50% faster.'
-					],
-					pos: [880, 80],
-					tier: 3
-				},
-				{
-					name: 'Trigger Happy',
-					description: [
-						'For every hit with a pistol you gain a 120% damage boost that lasts for 2 seconds.\tStacks up to 1 time.',
-						'Increases the damage boost duration to 4 seconds.'
-					],
-					pos: [880, 160],
-					tier: 4
-				}
+					{
+						name: 'Equilibrium',
+						description: [
+							'Decreases the time it takes to draw end holster pistols by 33%.',
+							'You gain 8 weapon accuracy with all pistols.'
+						],
+						pos: [240, 720],
+						tier: 1
+					},
+					{
+						name: 'Gun Nut',
+						description: [
+							'Your pistoll magazine sizes are increased by 5 bullets.',
+							'You gain a 50% increased rate of fire with pistols.'
+						],
+						pos: [880, 0],
+						tier: 2
+					},
+					{
+						name: 'Akimbo',
+						description: [
+							'Your Akimbo weapons\' stability penalty is reduced by 8.',
+							'Your Akimbo weapons\' stability penalty is reduced by an additional 8 and they also have 50% increased ammo capacity.'
+						],
+						pos: [240, 880],
+						tier: 2
+					},
+					{
+						name: 'One Handed Talent',
+						description: [
+							'The base damage of all pistols is increased by 5.',
+							'The base damage of all pistols is increased by an additional 10 damage.'
+						],
+						pos: [560, 880],
+						tier: 3
+					},
+					{
+						name: 'Desperado',
+						description: [
+							'Each successful pistol hit gives you a 10% accuracy bonus for 10% and you can stack it 4 times.',
+							'You reload 50% faster.'
+						],
+						pos: [880, 80],
+						tier: 3
+					},
+					{
+						name: 'Trigger Happy',
+						description: [
+							'For every hit with a pistol you gain a 120% damage boost that lasts for 2 seconds.\tStacks up to 1 time.',
+							'Increases the damage boost duration to 4 seconds.'
+						],
+						pos: [880, 160],
+						tier: 4
+					}
 				],
 			},
 			{
@@ -945,4 +937,4 @@ const data: skillsData = {
 	}
 }
 
-export default data
+export default skills

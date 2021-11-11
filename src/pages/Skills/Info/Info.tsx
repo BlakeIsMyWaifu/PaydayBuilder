@@ -1,14 +1,14 @@
 import { InfoContainer, InfoTitle } from 'components/Info'
-import { skillData } from 'data/abilities/skills'
+import { SkillData } from 'data/abilities/skills'
 import React from 'react'
 
 import { InfoCost, InfoCostNumber, InfoCostText, InfoSkill } from './Info-Elements'
 
-interface info {
-	skill: skillData | null;
+interface InfoProps {
+	skill: SkillData | null;
 }
 
-const Info: React.FC<info> = ({ skill }) => {
+const Info: React.FC<InfoProps> = ({ skill }) => {
 
 	const acedCost = {
 		1: 3,

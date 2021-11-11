@@ -1,16 +1,16 @@
-import content, { contentData } from 'data/source/downloadableContent'
-import source, { sourceData } from 'data/source/miscSources'
+import content, { ContentData } from 'data/source/downloadableContent'
+import source, { SourceData } from 'data/source/miscSources'
 
-export interface characterData {
+export interface CharacterData {
 	name: string;
 	age: number | string;
 	description: string[];
 	image: string;
 	nationality: string;
-	source: contentData | sourceData;
+	source: ContentData | SourceData;
 }
 
-const characters: characterData[] = [
+const characters: CharacterData[] = [
 	{
 		name: 'Dallas',
 		age: 44,
@@ -87,7 +87,7 @@ const characters: characterData[] = [
 		source: content['Clover Character Pack']
 	},
 	{
-		name:  'Dragan',
+		name: 'Dragan',
 		age: 45,
 		description: [
 			'Dragan may be a former cop, but he\'s a former Croatian cop, which means his methods make the MPDC look like timid babysitters. He was brought to America and accepted into the Payday Gang as a favor to The Butcher. While there were some early suspicions regarding his true loyalties, his ability and commitment are indisputable.'

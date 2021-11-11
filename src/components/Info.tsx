@@ -12,21 +12,21 @@ export const InfoContainer = styled.div`
 	${corner};
 `
 
-interface infoText {
+interface InfoTextProps {
 	uppercase?: boolean;
 }
 
-export const InfoTitle = styled.h1<infoText>`
+export const InfoTitle = styled.h1<InfoTextProps>`
 	text-transform: ${props => props.uppercase ? 'uppercase ' : 'none'};
 	font-size: 2rem;
 `
 
-export const InfoSubtitle = styled.h1<infoText>`
+export const InfoSubtitle = styled.h1<InfoTextProps>`
 	text-transform: ${props => props.uppercase ? 'uppercase ' : 'none'};
 	font-size: 1rem;
 `
 
-export const InfoDescription = styled.h1<infoText>`
+export const InfoDescription = styled.h1<InfoTextProps>`
 	text-transform: ${props => props.uppercase ? 'uppercase ' : 'none'};
 	font-size: 1.2rem;
 	padding-top: 16px;
@@ -49,11 +49,11 @@ export const InfoTabTitles = styled.div`
 	justify-content: space-evenly;
 `
 
-interface infoTabTitle {
+interface InfoTabTitleProps {
 	selected: boolean;
 }
 
-export const InfoTabTitle = styled.h1<infoTabTitle>`
+export const InfoTabTitle = styled.h1<InfoTabTitleProps>`
 	font-size: 2rem;
 	cursor: pointer;
 	padding: 0 6px;
@@ -61,11 +61,11 @@ export const InfoTabTitle = styled.h1<infoTabTitle>`
 	background-color: ${props => props.selected && 'white'};
 `
 
-interface InfoComponent {
+interface InfoProps {
 	tabs: Record<string, React.ReactNode>;
 }
 
-export const Info: React.FC<InfoComponent> = ({ tabs }) => {
+export const Info: React.FC<InfoProps> = ({ tabs }) => {
 
 	const [currentTab, setCurrentTab] = useState<string>(Object.keys(tabs)[0])
 
@@ -83,7 +83,7 @@ export const Info: React.FC<InfoComponent> = ({ tabs }) => {
 				}
 			</InfoTabTitles>
 
-			{ tabs[currentTab] }
+			{tabs[currentTab]}
 		</>
 	)
 }

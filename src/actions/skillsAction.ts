@@ -1,17 +1,17 @@
 import { CHANGESKILLSTATE, RESETSKILLS, RESETTREE } from 'constants/skillsConstant'
-import { skillData } from 'data/abilities/skills'
-import { skillUpgradeTypes } from 'defaultStates/skillsDefaultState'
+import { SkillData } from 'data/abilities/skills'
+import { SkillUpgradeTypes } from 'defaultStates/skillsDefaultState'
 import { createAction } from 'typesafe-actions'
 
-export interface skillChangeAction {
+export interface SkillChangeAction {
 	tree: string;
 	subtree: string;
-	skill: skillData;
-	oldLevel: skillUpgradeTypes;
+	skill: SkillData;
+	oldLevel: SkillUpgradeTypes;
 	direction: 'upgrade' | 'downgrade';
 }
 
-export const changeSkillState = createAction(CHANGESKILLSTATE)<skillChangeAction>()
+export const changeSkillState = createAction(CHANGESKILLSTATE)<SkillChangeAction>()
 export const resetSkills = createAction(RESETSKILLS)<void>()
 export const resetTree = createAction(RESETTREE)<string>()
 

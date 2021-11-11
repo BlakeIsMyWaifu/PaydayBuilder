@@ -1,12 +1,12 @@
-import { contentData } from 'data/source/downloadableContent'
-import { sourceData } from 'data/source/miscSources'
+import { ContentData } from 'data/source/downloadableContent'
+import { SourceData } from 'data/source/miscSources'
 
 type WeaponType = 'Assault Rifle' | 'Shotgun' | 'LMG' | 'Sniper' | 'Akimbo Pistol' | 'Akimbo Shotgun' | 'Special' | 'Pistol' | 'Submachine Gun'
 
 export interface WeaponData {
 	name: string;
 	image: string;
-	source: sourceData | contentData;
+	source: SourceData | ContentData;
 	inventorySlot: 'primary' | 'secondary';
 	reputation: number;
 	weaponType: WeaponType;
@@ -47,7 +47,7 @@ export interface WeaponModification<ModificationName> {
 	name: ModificationName;
 	image: string;
 	slot: ModificationSlot;
-	source: sourceData | contentData;
+	source: SourceData | ContentData;
 	cost: number;
 	acquisition?: {
 		package?: Packages;

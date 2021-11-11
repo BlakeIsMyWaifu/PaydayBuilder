@@ -16,7 +16,7 @@ type SniperList =
 	'Repeater 1874 Sniper Rifle' |
 	'Grom Sniper Rifle' |
 	'Nagant Sniper Rifle' |
-	'Thanatos .50 cal Sniper Rifle';
+	'Thanatos .50 cal Sniper Rifle'
 
 const snipers: Record<SniperList, WeaponData> = {
 	'Rattlesnake Sniper Rifle': {

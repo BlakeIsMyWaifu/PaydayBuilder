@@ -2,7 +2,7 @@ import { changeEquipment } from 'actions/characterAction'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import { ItemEquipped, ItemName, LockedIcon } from 'components/Item'
-import data, { equipmentData } from 'data/character/equipment'
+import data, { EquipmentData } from 'data/character/equipment'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 import { itemColours } from 'utils/colours'
@@ -15,11 +15,11 @@ const Equipment: React.FC = () => {
 
 	const { primary: equippedPrimary, secondary: equippedSecondary } = useAppSelector(state => state.character.equipment)
 
-	const [selectedEquipment, setSelectedEquipment] = useState<equipmentData>(equippedPrimary)
+	const [selectedEquipment, setSelectedEquipment] = useState<EquipmentData>(equippedPrimary)
 
 	const skillTrees = useAppSelector(state => state.skills.trees)
 
-	const getEquipmentAmount = (equipment: equipmentData) => {
+	const getEquipmentAmount = (equipment: EquipmentData) => {
 		let outAmount: number[] = equipment.amount
 		equipment.upgrade.forEach(({ amount, skillPath, skillState }) => {
 			const [tree, subtree, skill] = skillPath
@@ -32,7 +32,7 @@ const Equipment: React.FC = () => {
 	const jackOfAllTrades = skillTrees.technician.engineer.upgrades['Jack of All Trades']
 	const jackOfAllTradesUnlocked = jackOfAllTrades === 'aced'
 	const engineeringState = skillTrees.technician.engineer.upgrades.Engineering
-	const engineeringUnlocked = engineeringState  === 'basic' || engineeringState === 'aced'
+	const engineeringUnlocked = engineeringState === 'basic' || engineeringState === 'aced'
 
 	return (
 		<Container rows='4rem 8fr 3rem 4rem' areas={`"title title" "wrapper info" "wrapper ${jackOfAllTradesUnlocked ? 'equipinfo' : 'info'}" "wrapper back"`} title='Equipment'>
@@ -50,16 +50,16 @@ const Equipment: React.FC = () => {
 							} else {
 								if (locked) return
 								const slot = event.button ? 'secondary' : 'primary'
-								if (slot === 'primary'&& equipment === equippedSecondary) dispatch(changeEquipment([null, 'secondary']))
+								if (slot === 'primary' && equipment === equippedSecondary) dispatch(changeEquipment([null, 'secondary']))
 								if (slot === 'secondary' && jackOfAllTrades !== 'aced') return
 								if (slot === 'secondary' && equipment === equippedPrimary) return
 								dispatch(changeEquipment([equipment, slot]))
 							}
 						}}>
 							<ItemName color={itemColours[equipment.amount === amount ? 'normal' : 'dlc']}>{equipment.name} (x{amount.join('/x')})</ItemName>
-							{ equipment.name === equippedPrimary.name && <ItemEquipped> { jackOfAllTradesUnlocked ? 'Primary' : ''}</ItemEquipped> }
-							{ equipment.name === equippedSecondary?.name && <ItemEquipped> Secondary</ItemEquipped> }
-							{ locked && <LockedIcon /> }
+							{equipment.name === equippedPrimary.name && <ItemEquipped> {jackOfAllTradesUnlocked ? 'Primary' : ''}</ItemEquipped>}
+							{equipment.name === equippedSecondary?.name && <ItemEquipped> Secondary</ItemEquipped>}
+							{locked && <LockedIcon />}
 							<EquipementImage
 								src={`images/equipment/${equipment.name}.png`}
 								locked={locked}

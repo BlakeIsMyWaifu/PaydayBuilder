@@ -1,11 +1,11 @@
-export interface armourData {
+export interface ArmourData {
 	name: string;
 	desciption: string[];
 	reputation: number;
-	stats: armourStats
+	stats: ArmourStats
 }
 
-export interface armourStats {
+export interface ArmourStats {
 	armour: number;
 	concealment: number;
 	dodge: number;
@@ -14,7 +14,7 @@ export interface armourStats {
 	steadiness: number;
 }
 
-const armour: armourData[] = [
+const armour: ArmourData[] = [
 	{
 		name: 'Two-Piece Suit',
 		desciption: [

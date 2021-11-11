@@ -1,6 +1,6 @@
-import { createStore } from 'redux';
+import { compose, createStore } from 'redux'
 
-import allReducers from './reducers';
+import allReducers from './reducers'
 
 const saveToLocalStorage = (state: any) => {
 	const serializedState = JSON.stringify(state)
@@ -12,7 +12,11 @@ const loadFromLocalStorage = () => {
 	return serializedState ? JSON.parse(serializedState) : undefined
 }
 
-const global: any = window
+interface Global extends Window {
+	__REDUX_DEVTOOLS_EXTENSION__?: typeof compose;
+}
+
+const global: Global = window
 const store = createStore(
 	allReducers,
 	loadFromLocalStorage(),

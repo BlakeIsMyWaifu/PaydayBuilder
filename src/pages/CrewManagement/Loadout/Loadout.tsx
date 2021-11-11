@@ -3,12 +3,12 @@ import React from 'react'
 import { CrewData } from '../CrewManagement'
 import { Container, Item, ItemContainer, ItemIcon, ItemTitle, LoadoutNumber } from './Loadout-Elements'
 
-interface LoadoutComponent {
+interface LoadoutProps {
 	data: CrewData;
 	index: 1 | 2 | 3;
 }
 
-const Loadout: React.FC<LoadoutComponent> = ({ data, index }) => {
+const Loadout: React.FC<LoadoutProps> = ({ data, index }) => {
 	return (
 		<Container>
 

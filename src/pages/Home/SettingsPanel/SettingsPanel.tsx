@@ -6,11 +6,11 @@ import React from 'react'
 import BuildIO from '../BuildIO/BuildIO'
 import { Container, Setting, SettingsSingleLine, SettingsTitle, Title } from './SettingsPanel-Elements'
 
-interface SettingsPanelComponent {
+interface SettingsPanelProps {
 	toggleSettings: boolean;
 }
 
-const SettingsPanel: React.FC<SettingsPanelComponent> = ({ toggleSettings }) => {
+const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings }) => {
 
 	const dispatch = useAppDispatch()
 

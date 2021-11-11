@@ -8,7 +8,7 @@ type CrewAbilityList =
 	'Quick' |
 	'Inspiring' |
 	'Sharpeyed' |
-	'Piercing';
+	'Piercing'
 
 const abilities: Record<CrewAbilityList, CrewAbility> = {
 	Quick: {

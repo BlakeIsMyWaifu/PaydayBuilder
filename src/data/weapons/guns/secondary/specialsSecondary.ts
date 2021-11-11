@@ -11,7 +11,7 @@ type SecondarySpecialList =
 	'Commando 101 Rocket Launcher' |
 	'MA-17 Flamethrower' |
 	'Arbiter Grenade Launcher' |
-	'OVE9000 Saw';
+	'OVE9000 Saw'
 
 const specials: Record<SecondarySpecialList, WeaponData> = {
 	'Pistol Crossbow': {

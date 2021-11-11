@@ -1,4 +1,4 @@
-const scrollHorizontalDiv = (event: React.WheelEvent, ref: React.RefObject<HTMLDivElement>) => {
+const scrollHorizontalDiv = (event: React.WheelEvent, ref: React.RefObject<HTMLDivElement>): void => {
 	const div = ref.current
 	if (!div) return
 	const containerScrollPosition = div.scrollLeft

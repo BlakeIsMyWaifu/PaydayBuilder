@@ -9,7 +9,7 @@ type LightMachineGunList =
 	'M60 Light Machine Gun' |
 	'KSP Light Machine Gun' |
 	'Buzzsaw 42 Light Machine Gun' |
-	'Brenner-21 Light Machine Gun';
+	'Brenner-21 Light Machine Gun'
 
 const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 	'RPK Light Machine Gun': {

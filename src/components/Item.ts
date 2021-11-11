@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import corner from 'utils/corner';
+import styled from 'styled-components'
+import corner from 'utils/corner'
 
 export const ItemContainer = styled.div`
 	grid-area: items;
@@ -11,14 +11,14 @@ export const ItemContainer = styled.div`
 	${corner};
 `
 
-interface item {
+interface ItemProps {
 	width?: number;
 	height?: number;
 	size?: number;
 	selected: boolean;
 }
 
-export const Item = styled.div<item>`
+export const Item = styled.div<ItemProps>`
 	position: relative;
 	width: ${props => props.width || props.size || 128}px;
 	height: ${props => props.height || props.size || 128}px;
@@ -46,12 +46,12 @@ export const ItemName = styled.h1`
 	white-space: pre-line;
 `
 
-interface itemImage {
+interface ItemImageProps {
 	locked?: boolean;
 	leftFacing?: boolean;
 }
 
-export const ItemImage = styled.img<itemImage>`
+export const ItemImage = styled.img<ItemImageProps>`
 	width: 100%;
 	height: 100%;
 	filter: brightness(${props => props.locked ? 0.2 : 1});

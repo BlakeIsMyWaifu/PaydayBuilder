@@ -35,14 +35,14 @@ export const Aced = styled.div`
 	position: absolute;
 `
 
-interface icon {
+interface SkillIconProps {
 	x: number;
 	y: number;
 	state: string;
 	redFlash: boolean;
 }
 
-let redFlash = keyframes`
+const redFlash = keyframes`
 	25% {
 		transform: rotate(3deg);
 		filter: hue-rotate(180deg);
@@ -61,7 +61,7 @@ let redFlash = keyframes`
 	}
 `
 
-export const SkillIcon = styled.div<icon>`
+export const SkillIcon = styled.div<SkillIconProps>`
 	background-position-x: calc((${props => props.x}% / 880) * 100) !important;
 	background-position-y: calc((${props => props.y}% / 960) * 100) !important;
 	background: url('/images/skills/skills.png') 0 0 no-repeat;
@@ -78,11 +78,11 @@ export const SkillIcon = styled.div<icon>`
 	animation: ${props => props.redFlash ? css`${redFlash} 0.25s 1` : ''};
 `
 
-interface label {
+interface LabelProps {
 	redFlash: boolean;
 }
 
-export const Label = styled.p<label>`
+export const Label = styled.p<LabelProps>`
 	color: ${props => props.redFlash ? red : props.color};
 	text-align: center;
 `

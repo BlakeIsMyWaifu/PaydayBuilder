@@ -1,18 +1,18 @@
-import content, { contentData } from 'data/source/downloadableContent'
-import source, { sourceData } from 'data/source/miscSources'
+import content, { ContentData } from 'data/source/downloadableContent'
+import source, { SourceData } from 'data/source/miscSources'
 
-export interface throwableData {
+export interface ThrowableData {
 	name: string;
 	description: string[];
 	image: string;
 	reputation: number;
-	source: contentData | sourceData;
+	source: ContentData | SourceData;
 	type: ['Projectile' | 'Grenade' | 'Consumable', string];
 	perkDeck?: string;
-	stats: projectile | grenade | consumable;
+	stats: Projectile | Grenade | Consumable;
 }
 
-interface projectile {
+interface Projectile {
 	damage: number;
 	capacity: number;
 	speed: number;
@@ -21,7 +21,7 @@ interface projectile {
 	unequipDelay: number;
 }
 
-interface grenade {
+interface Grenade {
 	damage: number;
 	capacity: number;
 	throwDelay: number;
@@ -39,12 +39,12 @@ interface grenade {
 	};
 }
 
-interface consumable {
+interface Consumable {
 	capacity: number;
 	cooldown: number;
 }
 
-const throwable: throwableData[] = [
+const throwable: ThrowableData[] = [
 	{
 		name: 'Matryoshka Grenade',
 		description: [

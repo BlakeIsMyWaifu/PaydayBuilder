@@ -32,7 +32,7 @@ type PistolList =
 	'HOLT 9mm Pistol' |
 	'Peacemaker .45 Revolver' |
 	'Matever .357 Revolver' |
-	'Deagle Pistol';
+	'Deagle Pistol'
 
 const pistols: Record<PistolList, WeaponData> = {
 	'Interceptor 45 Pistol': {

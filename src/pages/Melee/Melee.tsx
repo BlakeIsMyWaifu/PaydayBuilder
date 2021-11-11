@@ -3,22 +3,22 @@ import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { TableCompare, TableEquipped } from 'components/Table'
-import data, { meleeStats } from 'data/weapons/melees'
+import data, { MeleeStats } from 'data/weapons/melees'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 import { itemColours } from 'utils/colours'
 
-interface meleeStatsTable {
-	selectedMelee: meleeStats;
-	equippedMelee?: meleeStats;
+interface MeleeStatsTable {
+	selectedMelee: MeleeStats;
+	equippedMelee?: MeleeStats;
 }
 
-export const MeleeStatsTable: React.FC<meleeStatsTable> = ({ selectedMelee, equippedMelee }) => {
+export const MeleeStatsTable: React.FC<MeleeStatsTable> = ({ selectedMelee, equippedMelee }) => {
 
-	const baseStats = (meleeStats: meleeStats) => {
+	const baseStats = (meleeStats: MeleeStats) => {
 		const toTwoDecimal = (number: number) => +(Math.round(number * 100) / 100).toFixed(2)
 		const { damage, knockdown, chargeTime, range, concealment, specialType, specialTime } = meleeStats
-		let stats: meleeStats = {
+		const stats: MeleeStats = {
 			damage, knockdown, chargeTime, range, concealment,
 			attackDelay: toTwoDecimal(meleeStats.attackDelay),
 			cooldown: toTwoDecimal(meleeStats.cooldown),
@@ -34,8 +34,8 @@ export const MeleeStatsTable: React.FC<meleeStatsTable> = ({ selectedMelee, equi
 	const innerPockets = useAppSelector(state => state.skills.trees.ghost.artful_dodger.upgrades['Inner Pockets'])
 	const pumpingIron = useAppSelector(state => state.skills.trees.fugitive.brawler.upgrades['Pumping Iron'])
 
-	const additionalStats = (meleeStats: meleeStats) => {
-		let stats = {
+	const additionalStats = (meleeStats: MeleeStats) => {
+		const stats: MeleeStats = {
 			damage: [0, 0],
 			knockdown: [0, 0],
 			chargeTime: 0,
@@ -49,7 +49,7 @@ export const MeleeStatsTable: React.FC<meleeStatsTable> = ({ selectedMelee, equi
 		}
 
 		stats.concealment += innerPockets === 'basic' || innerPockets === 'aced' ? 2 : 0
-		stats.damage = pumpingIron === 'aced' ? [...meleeStats.damage].map(num => num * 2) : stats.damage
+		stats.damage = pumpingIron === 'aced' ? [meleeStats.damage[0] << 1, meleeStats.damage[1] << 1] : stats.damage
 
 		return stats
 	}

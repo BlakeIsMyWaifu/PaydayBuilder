@@ -14,7 +14,7 @@ type PrimaryShotgunList =
 	'Reinfeld 88 Shotgun' |
 	'Mosconi 12G Shotgun' |
 	'Joceline O/U 12G Shotgun' |
-	'Steakout 12G Shotgun';
+	'Steakout 12G Shotgun'
 
 const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 	'Predator 12G Shotgun': {

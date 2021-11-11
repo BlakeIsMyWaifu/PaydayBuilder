@@ -1,10 +1,10 @@
 import actions from 'actions/weaponsAction'
-import { meleeData } from 'data/weapons/melees'
-import { throwableData } from 'data/weapons/throwables'
-import defaultState from 'defaultStates/weaponsDefaultState'
+import { MeleeData } from 'data/weapons/melees'
+import { ThrowableData } from 'data/weapons/throwables'
+import defaultState, { WeaponsState } from 'defaultStates/weaponsDefaultState'
 import { getType } from 'typesafe-actions'
 
-const weaponReducer = (state = defaultState, action: Record<'type' | 'payload', any>) => {
+const weaponReducer = (state = defaultState, action: Record<'type' | 'payload', any>): WeaponsState => {
 	switch (action.type) {
 		case getType(actions.changeWeapon):
 			const { slot, weapon } = action.payload
@@ -13,13 +13,13 @@ const weaponReducer = (state = defaultState, action: Record<'type' | 'payload', 
 				[slot]: weapon
 			}
 		case getType(actions.changeThrowable):
-			const throwable: throwableData = action.payload
+			const throwable: ThrowableData = action.payload
 			return {
 				...state,
 				throwable
 			}
 		case getType(actions.changeMelee):
-			const melee: meleeData = action.payload
+			const melee: MeleeData = action.payload
 			return {
 				...state,
 				melee

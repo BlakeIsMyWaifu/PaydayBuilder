@@ -1,17 +1,17 @@
-import content, { contentData } from 'data/source/downloadableContent'
-import source, { sourceData } from 'data/source/miscSources'
+import content, { ContentData } from 'data/source/downloadableContent'
+import source, { SourceData } from 'data/source/miscSources'
 
-export interface meleeData {
+export interface MeleeData {
 	name: string;
 	weaponType: ['Weapon' | 'Fists' | 'Knife' | 'Axe' | 'Blunt' | 'Sword' | 'Flag' | null, 'Blunt' | 'Sharp' | null];
 	reputation: number;
-	source: contentData | sourceData;
+	source: ContentData | SourceData;
 	image: string;
-	stats: meleeStats;
+	stats: MeleeStats;
 	description?: string;
 }
 
-export interface meleeStats {
+export interface MeleeStats {
 	damage: [number, number];
 	knockdown: [number, number];
 	chargeTime: number;
@@ -20,11 +20,11 @@ export interface meleeStats {
 	attackDelay: number;
 	cooldown: number;
 	unequipDelay: number;
-	specialType?: string;
-	specialTime?: string;
+	specialType?: string | null;
+	specialTime?: string | null;
 }
 
-const melees: meleeData[] = [
+const melees: MeleeData[] = [
 	{
 		name: 'Weapon Butt',
 		weaponType: ['Weapon', 'Blunt'],

@@ -1,23 +1,23 @@
 import { changePerkdeck } from 'actions/abilitiesAction'
 import { changeThrowable } from 'actions/weaponsAction'
-import { card, perk } from 'data/abilities/perks'
+import { PerkCard, Perk } from 'data/abilities/perks'
 import throwableData from 'data/weapons/throwables'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React from 'react'
 
 import { Card, CardBackground, CardIcon, CardWrapper, Container, Title } from './Perk-Elements'
 
-interface perkComponent {
-	perk: perk;
+interface PerkProps {
+	perk: Perk;
 	index: number;
 	perkref: React.RefObject<HTMLDivElement>;
-	setHoveredCard: React.Dispatch<React.SetStateAction<card | null>>;
-	selectedPerk: perk;
-	setSelectedPerk: React.Dispatch<React.SetStateAction<perk>>;
+	setHoveredCard: React.Dispatch<React.SetStateAction<PerkCard | null>>;
+	selectedPerk: Perk;
+	setSelectedPerk: React.Dispatch<React.SetStateAction<Perk>>;
 }
 
-const Perk: React.FC<perkComponent> = ({ perk, index, perkref, setHoveredCard, selectedPerk, setSelectedPerk }) => {
-	
+const Perk: React.FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPerk, setSelectedPerk }) => {
+
 	const dispatch = useAppDispatch()
 
 	const equippedPerk = useAppSelector(state => state.abilities.perkdeck)
@@ -47,8 +47,8 @@ const Perk: React.FC<perkComponent> = ({ perk, index, perkref, setHoveredCard, s
 							onMouseOver={() => setHoveredCard(card)}
 							onMouseLeave={() => setHoveredCard(null)}
 							selected={selectedPerk.name === perk.name}>
-							<CardBackground src={'images/perks/card.png'} onMouseDown={event => event.preventDefault()} selected={selectedPerk.name === perk.name}/>
-							<CardIcon x={x} y={y}/>
+							<CardBackground src={'images/perks/card.png'} onMouseDown={event => event.preventDefault()} selected={selectedPerk.name === perk.name} />
+							<CardIcon x={x} y={y} />
 						</Card>
 					})
 				}

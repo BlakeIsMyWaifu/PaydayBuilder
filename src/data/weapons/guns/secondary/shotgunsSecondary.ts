@@ -10,7 +10,7 @@ type SecondaryShotgunList =
 	'Grimm 12G Shotgun' |
 	'Street Sweeper Shotgun' |
 	'The Judge Shotgun' |
-	'Claire 12G Shotgun';
+	'Claire 12G Shotgun'
 
 const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 	'Locomotive 12G Shotgun': {

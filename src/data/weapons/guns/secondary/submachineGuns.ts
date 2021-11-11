@@ -27,7 +27,7 @@ type SubmachineGunList =
 	'Kross Vertex Submachine Gun' |
 	'Tatonka Submachine Gun' |
 	'Patchett L2A1 Submachine Gun' |
-	'Uzi Submachine Gun';
+	'Uzi Submachine Gun'
 
 const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 	'Swedish K Submachine Gun': {

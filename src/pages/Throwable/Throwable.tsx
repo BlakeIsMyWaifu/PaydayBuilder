@@ -24,7 +24,7 @@ const Throwable: React.FC = () => {
 				{
 					data.map(throwable => {
 						const locked = !!(throwable.perkDeck && perkDeckName !== throwable.perkDeck)
-						return <Item key={throwable.name} width={192} height={96} selected={throwable.name === selectedThrowable.name} onClick={event => {
+						return <Item key={throwable.name} width={192} height={96} selected={throwable.name === selectedThrowable.name} onClick={() => {
 							if (throwable.name !== selectedThrowable.name) {
 								setSelectedThrowable(throwable)
 							} else {
@@ -33,8 +33,8 @@ const Throwable: React.FC = () => {
 							}
 						}}>
 							<ItemName color={itemColours[throwable.source.rarity]}>{throwable.name}</ItemName>
-							{ locked && <LockedIcon /> }
-							{ throwable.name === equippedThrowable.name && <ItemEquipped /> }
+							{locked && <LockedIcon />}
+							{throwable.name === equippedThrowable.name && <ItemEquipped />}
 							<ItemImage
 								src={`images/throwables/${throwable.image}.png`}
 								locked={locked}
@@ -47,7 +47,7 @@ const Throwable: React.FC = () => {
 
 			<InfoContainer>
 				<InfoTitle>{selectedThrowable.name}</InfoTitle>
-				{ selectedThrowable.perkDeck && selectedThrowable.perkDeck !== perkDeckName && <InfoRequirement>Requires the {selectedThrowable.perkDeck} perk deck equipped</InfoRequirement> }
+				{selectedThrowable.perkDeck && selectedThrowable.perkDeck !== perkDeckName && <InfoRequirement>Requires the {selectedThrowable.perkDeck} perk deck equipped</InfoRequirement>}
 				<InfoDescription>{selectedThrowable.description.join('\n\n')}</InfoDescription>
 				<InfoUnlock color={itemColours[selectedThrowable.source.rarity]}>{selectedThrowable.source.name}</InfoUnlock>
 			</InfoContainer>

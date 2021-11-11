@@ -1,8 +1,8 @@
 import { changeEquipment } from 'actions/characterAction'
 import { resetSkills, resetTree } from 'actions/skillsAction'
 import Container from 'components/Container'
-import data, { treeData, treeNames } from 'data/abilities/skills'
-import { skillData } from 'data/abilities/skills'
+import skills, { TreeData, TreeNames } from 'data/abilities/skills'
+import { SkillData } from 'data/abilities/skills'
 import equipmentData from 'data/character/equipment'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useEffect, useState } from 'react'
@@ -17,17 +17,17 @@ const Skills: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const [currentTree, setCurrentTree] = useState<treeData>(data.mastermind)
+	const [currentTree, setCurrentTree] = useState<TreeData>(skills.mastermind)
 
-	const [skillHovered, setSkillHovered] = useState<skillData | null>(null)
+	const [skillHovered, setSkillHovered] = useState<SkillData | null>(null)
 
 	const scrollTrees = (event: React.WheelEvent) => {
 		const direction = event.deltaY < 0 ? -1 : 1
-		const order: treeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
+		const order: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
 		let index = order.indexOf(currentTree.name)
 		index += direction
 		index = index < 0 ? 0 : index > 4 ? 4 : index
-		setCurrentTree(data[order[index]])
+		setCurrentTree(skills[order[index]])
 	}
 
 	const jackOfAllTrades = useAppSelector(state => state.skills.trees.technician.engineer.upgrades['Jack of All Trades'])
@@ -58,11 +58,11 @@ const Skills: React.FC = () => {
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"' title='Skills'>
 
 			<TreeNamesWrapper onWheel={scrollTrees}>
-				<TreeName onClick={() => setCurrentTree(data.mastermind)}>Mastermind</TreeName>
-				<TreeName onClick={() => setCurrentTree(data.enforcer)}>Enforcer</TreeName>
-				<TreeName onClick={() => setCurrentTree(data.technician)}>Technician</TreeName>
-				<TreeName onClick={() => setCurrentTree(data.ghost)}>Ghost</TreeName>
-				<TreeName onClick={() => setCurrentTree(data.fugitive)}>Fugitive</TreeName>
+				<TreeName onClick={() => setCurrentTree(skills.mastermind)}>Mastermind</TreeName>
+				<TreeName onClick={() => setCurrentTree(skills.enforcer)}>Enforcer</TreeName>
+				<TreeName onClick={() => setCurrentTree(skills.technician)}>Technician</TreeName>
+				<TreeName onClick={() => setCurrentTree(skills.ghost)}>Ghost</TreeName>
+				<TreeName onClick={() => setCurrentTree(skills.fugitive)}>Fugitive</TreeName>
 			</TreeNamesWrapper>
 
 			<Tree onWheel={scrollTrees}>

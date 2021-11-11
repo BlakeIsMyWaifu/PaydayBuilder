@@ -4,7 +4,7 @@ import { changeSkillState } from 'actions/skillsAction'
 import { changeThrowable } from 'actions/weaponsAction'
 import TextInput from 'components/TextInput'
 import perkData from 'data/abilities/perks'
-import skillsData, { treeNames } from 'data/abilities/skills'
+import skillsData, { TreeNames } from 'data/abilities/skills'
 import armourData from 'data/character/armours'
 import equipmentData from 'data/character/equipment'
 import throwableData from 'data/weapons/throwables'
@@ -61,7 +61,7 @@ const BuildIO: React.FC = () => {
 
 	const loadSkills = (skills: string) => {
 
-		const trees: treeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
+		const trees: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
 
 		trees.forEach((treeName) => {
 			Object.values(skillsData[treeName].subtrees).forEach(subtree => {

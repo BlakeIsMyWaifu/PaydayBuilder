@@ -1,14 +1,14 @@
-import melee, { meleeData } from 'data/weapons/melees'
-import throwable, { throwableData } from 'data/weapons/throwables'
+import melee, { MeleeData } from 'data/weapons/melees'
+import throwable, { ThrowableData } from 'data/weapons/throwables'
 
-export interface weaponsState {
+export interface WeaponsState {
 	primary: number;
 	secondary: number;
-	throwable: throwableData;
-	melee: meleeData;
+	throwable: ThrowableData;
+	melee: MeleeData;
 }
 
-const weaponsDefaultState: weaponsState = {
+const weaponsDefaultState: WeaponsState = {
 	primary: 0,
 	secondary: 0,
 	throwable: throwable[5],

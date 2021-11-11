@@ -1,5 +1,5 @@
 import skillData from 'data/abilities/skills'
-import { hoverInfo } from 'pages/Home/Home'
+import { HoverInfo } from 'pages/Home/Home'
 import React from 'react'
 import { grey } from 'utils/colours'
 import skillTreePoints from 'utils/skillTreePoints'
@@ -7,12 +7,12 @@ import skillTreePoints from 'utils/skillTreePoints'
 import Selector from '../Selector'
 import { SkillWrapper, SkillsAmount, SkillsCard, SkillsContainer } from './SelectorSkills-Elements'
 
-interface selectorSkillComponent {
-	infoData: hoverInfo | null;
-	setHoverInfo: React.Dispatch<React.SetStateAction<hoverInfo | null>>;
+interface SelectorSkillProps {
+	infoData: HoverInfo | null;
+	setHoverInfo: React.Dispatch<React.SetStateAction<HoverInfo | null>>;
 }
 
-const SelectorSkills: React.FC<selectorSkillComponent> = ({ infoData, setHoverInfo }) => {
+const SelectorSkills: React.FC<SelectorSkillProps> = ({ infoData, setHoverInfo }) => {
 	return (
 		<Selector title='skills' setHoverInfo={setHoverInfo} infoData={infoData} >
 			{

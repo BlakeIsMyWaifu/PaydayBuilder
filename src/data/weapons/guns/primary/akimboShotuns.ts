@@ -5,7 +5,7 @@ import { WeaponData } from '../weaponTypes'
 type AkimboShotunsList =
 	'Akimbo Goliath 12G Shotguns' |
 	'Brothers Grimm 12G Shotguns' |
-	'Akimbo Judge Shotguns';
+	'Akimbo Judge Shotguns'
 
 const akimboShotuns: Record<AkimboShotunsList, WeaponData> = {
 	'Akimbo Goliath 12G Shotguns': {

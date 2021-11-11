@@ -1,7 +1,7 @@
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import { ItemContainer } from 'components/Item'
-import data, { card } from 'data/abilities/perks'
+import data, { PerkCard } from 'data/abilities/perks'
 import { useAppSelector } from 'hooks'
 import React, { createRef, useEffect, useRef, useState } from 'react'
 import { blue } from 'utils/colours'
@@ -28,7 +28,7 @@ const PerkDeck: React.FC = () => {
 		})
 	}
 
-	const [hoveredCard, setHoveredCard] = useState<card | null>(null)
+	const [hoveredCard, setHoveredCard] = useState<PerkCard | null>(null)
 
 	const equippedPerk = useAppSelector(state => state.abilities.perkdeck)
 

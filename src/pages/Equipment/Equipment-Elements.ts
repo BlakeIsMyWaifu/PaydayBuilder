@@ -11,23 +11,22 @@ export const EquipmentWrapper = styled.div`
 	grid-gap: 12px;
 `
 
-interface item {
+interface ItemProps {
 	selected: boolean;
 }
 
-
-export const Item = styled.div<item>`
+export const Item = styled.div<ItemProps>`
 	position: relative;
 	width: 100%;
 	height: 100%;
 	${props => props.selected && corner};
 `
 
-interface equipementImage {
+interface EquipementImageProps {
 	locked: boolean;
 }
 
-export const EquipementImage = styled.img<equipementImage>`
+export const EquipementImage = styled.img<EquipementImageProps>`
 	width: auto;
 	height: 100%;
 	position: relative;

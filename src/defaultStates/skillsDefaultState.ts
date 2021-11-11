@@ -1,32 +1,32 @@
-import data, { skillData, treeNames } from 'data/abilities/skills'
+import skills, { SkillData, TreeNames } from 'data/abilities/skills'
 
-export interface skillsState {
+export interface SkillsState {
 	points: number;
-	trees: Record<string, subtrees>;
+	trees: Record<string, Subtrees>;
 }
 
-export interface subtrees {
+export interface Subtrees {
 	[key: string]: {
 		tier: number;
 		points: number;
-		upgrades: Record<string, skillUpgradeTypes>;
+		upgrades: Record<string, SkillUpgradeTypes>;
 	};
 }
 
-export type skillUpgradeTypes = 'locked' | 'available' | 'basic' | 'aced';
+export type SkillUpgradeTypes = 'locked' | 'available' | 'basic' | 'aced'
 
-const getTrees = (): Record<string, subtrees> => {
-	let out: Record<string, subtrees> = {}
-	Object.keys(data).forEach((tree: any) => {
-		let t: treeNames = tree
+const getTrees = (): Record<string, Subtrees> => {
+	const out: Record<string, Subtrees> = {};
+	(Object.keys(skills) as Array<keyof typeof skills>).forEach((tree: TreeNames) => {
+		const t: TreeNames = tree
 		out[tree] = getSubtrees(t)
 	})
 	return out
 }
 
-const getSubtrees = (tree: treeNames): subtrees => {
-	let out: subtrees = {}
-	data[tree].subtrees.forEach(subtree => {
+const getSubtrees = (tree: TreeNames): Subtrees => {
+	const out: Subtrees = {}
+	skills[tree].subtrees.forEach(subtree => {
 		out[subtree.name] = {
 			tier: 1,
 			points: 0,
@@ -36,9 +36,9 @@ const getSubtrees = (tree: treeNames): subtrees => {
 	return out
 }
 
-const getUpgrades = (subtree: skillData[]): Record<string, skillUpgradeTypes> => Object.assign({}, ...subtree.map(skill => ({[skill.name]: skill.tier === 1 ? 'available' : 'locked'})))
+const getUpgrades = (subtree: SkillData[]): Record<string, SkillUpgradeTypes> => Object.assign({}, ...subtree.map(skill => ({ [skill.name]: skill.tier === 1 ? 'available' : 'locked' })))
 
-const skillsDefaultState: skillsState = {
+const skillsDefaultState: SkillsState = {
 	points: 120,
 	trees: getTrees()
 }

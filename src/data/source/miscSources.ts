@@ -1,24 +1,23 @@
-import { contentRarity, contentType } from "./downloadableContent"
+import { ContentRarity, ContentType } from "./downloadableContent"
 
-export interface sourceData {
+export interface SourceData {
 	name: string;
-	rarity: contentRarity;
-	type: contentType;
+	rarity: ContentRarity;
+	type: ContentType;
 }
 
-interface source {
-	'Base Game': sourceData;
-	'Infamous': sourceData;
-	'Community': sourceData;
-	'Reservoir Dogs': sourceData;
-	'Spring Break 2018': sourceData;
-	'Meles Weapon Pack': sourceData;
-	'The Search For Kento': sourceData;
-	'RAID: World War II Community': sourceData;
-	'Ownership of Hotline Miami 2 Digital Special': sourceData;
-}
+type SourceList =
+	'Base Game' |
+	'Infamous' |
+	'Community' |
+	'Reservoir Dogs' |
+	'Spring Break 2018' |
+	'Meles Weapon Pack' |
+	'The Search For Kento' |
+	'RAID: World War II Community' |
+	'Ownership of Hotline Miami 2 Digital Special'
 
-const miscSources: source = {
+const miscSources: Record<SourceList, SourceData> = {
 	'Base Game': {
 		name: 'Base Game',
 		rarity: 'Free',

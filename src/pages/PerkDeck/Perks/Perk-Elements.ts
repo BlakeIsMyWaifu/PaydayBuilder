@@ -15,11 +15,11 @@ export const CardWrapper = styled.div`
 	justify-content: space-evenly;
 `
 
-interface cardBackground {
+interface CardProps {
 	selected: boolean;
 }
 
-export const Card = styled.div<cardBackground>`
+export const Card = styled.div<CardProps>`
 	height: 92px;
 	width: 64px;
 	position: relative;
@@ -28,20 +28,24 @@ export const Card = styled.div<cardBackground>`
 	&:hover {
 		${corner}
 	}
-`
+	`
 
-export const CardBackground = styled.img<cardBackground>`
+interface CardBackgroundProps {
+	selected: boolean;
+}
+
+export const CardBackground = styled.img<CardBackgroundProps>`
 	height: 100%;
 	width: 100%;
 	opacity: ${props => props.selected ? 1 : 0.5};
 `
 
-interface cardIcon {
+interface CardIconProps {
 	x: number;
 	y: number;
 }
 
-export const CardIcon = styled.div<cardIcon>`
+export const CardIcon = styled.div<CardIconProps>`
 	background-position-x: calc((${props => props.x}% / 192) * 100) !important;
 	background-position-y: calc((${props => props.y}% / 1008) * 100) !important;
 	background: url('/images/perks/perks.png') 0 0 no-repeat;
