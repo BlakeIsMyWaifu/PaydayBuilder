@@ -1,6 +1,6 @@
 import { changePerkdeck } from 'actions/abilitiesAction'
 import { changeThrowable } from 'actions/weaponsAction'
-import { PerkCard, Perk } from 'data/abilities/perks'
+import { PerkCard, PerkData } from 'data/abilities/perks'
 import throwableData from 'data/weapons/throwables'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React from 'react'
@@ -8,12 +8,12 @@ import React from 'react'
 import { Card, CardBackground, CardIcon, CardWrapper, Container, Title } from './Perk-Elements'
 
 interface PerkProps {
-	perk: Perk;
+	perk: PerkData;
 	index: number;
 	perkref: React.RefObject<HTMLDivElement>;
 	setHoveredCard: React.Dispatch<React.SetStateAction<PerkCard | null>>;
-	selectedPerk: Perk;
-	setSelectedPerk: React.Dispatch<React.SetStateAction<Perk>>;
+	selectedPerk: PerkData;
+	setSelectedPerk: React.Dispatch<React.SetStateAction<PerkData>>;
 }
 
 const Perk: React.FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPerk, setSelectedPerk }) => {

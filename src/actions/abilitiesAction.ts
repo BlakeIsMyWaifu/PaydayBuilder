@@ -1,11 +1,11 @@
 import { CHANGECREWABILITY, CHANGECREWBOOST, CHANGECREWCHARACTER, CHANGECREWMASK, CHANGECREWOUTFIT, CHANGECREWWEAPON, CHANGEPERKDECK, RESETABILITIES } from 'constants/abilitiesConstant'
-import { Perk } from 'data/abilities/perks'
+import { PerkData } from 'data/abilities/perks'
 import { CharacterData } from 'data/character/characters'
 import { MaskData } from 'data/character/masks'
 import { WeaponData } from 'data/weapons/guns/weaponTypes'
 import { createAction } from 'typesafe-actions'
 
-export const changePerkdeck = createAction(CHANGEPERKDECK)<Perk>()
+export const changePerkdeck = createAction(CHANGEPERKDECK)<PerkData>()
 
 export const changeCrewMask = createAction(CHANGECREWMASK)<[number, MaskData]>()
 export const changeCrewCharacter = createAction(CHANGECREWCHARACTER)<[number, CharacterData]>()

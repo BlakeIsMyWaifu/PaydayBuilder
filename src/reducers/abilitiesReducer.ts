@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import actions from 'actions/abilitiesAction'
-import { Perk } from 'data/abilities/perks'
+import { PerkData } from 'data/abilities/perks'
 import { CharacterData } from 'data/character/characters'
 import { MaskData } from 'data/character/masks'
 import { WeaponData } from 'data/weapons/guns/weaponTypes'
@@ -11,7 +11,7 @@ import { getType } from 'typesafe-actions'
 const abilitiesReducer = (state = defaultState, action: Record<'type' | 'payload', any>): AbilitiesState => {
 	switch (action.type) {
 		case getType(actions.changePerkdeck):
-			const perkdeck: Perk = action.payload
+			const perkdeck: PerkData = action.payload
 			return {
 				...state,
 				perkdeck

@@ -24,7 +24,7 @@ type PerkDeckList =
 	'Tag Team' |
 	'Hacker'
 
-export interface Perk {
+export interface PerkData {
 	name: string;
 	description: string[];
 	cards: PerkCard[];
@@ -92,7 +92,7 @@ const commonCards: PerkCard[] = [
 	}
 ]
 
-const perkDecks: Record<PerkDeckList, Perk> = {
+const perkDecks: Record<PerkDeckList, PerkData> = {
 	'Crew Chief': {
 		name: 'Crew Chief',
 		description: [

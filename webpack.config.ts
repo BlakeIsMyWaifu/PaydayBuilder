@@ -3,17 +3,30 @@ import 'webpack-dev-server'
 import path from 'path'
 
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
+import CircularDependencyPlugin from 'circular-dependency-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
-import { Configuration, Plugin } from 'webpack'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import { Configuration, WebpackPluginInstance } from 'webpack'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
-const plugins: Plugin[] = [
+const plugins: WebpackPluginInstance[] = [
 	new ForkTsCheckerWebpackPlugin({
 		async: false,
 		eslint: {
 			files: './src/**/*'
 		}
+	}),
+	new HtmlWebpackPlugin({
+		template: 'public/index.html',
+		favicon: 'public/favicon.ico'
+	}),
+	new CircularDependencyPlugin({
+		exclude: /a\.js|node_modules/,
+		include: /src/,
+		failOnError: true,
+		allowAsyncCycles: false,
+		cwd: process.cwd()
 	})
 ]
 if (isDevelopment) {
@@ -38,20 +51,36 @@ const config: Configuration = {
 						]
 					}
 				}
+			},
+			{
+				test: /\.css$/,
+				use: [
+					'style-loader',
+					'css-loader'
+				]
 			}
 		]
 	},
 	resolve: {
-		extensions: ['.tsx', '.ts', '.jsx', '.js']
+		extensions: ['.tsx', '.ts', '.jsx', '.js'],
+		modules: [
+			'node_modules',
+			path.resolve(__dirname + '/src')
+		],
+		alias: {
+			src: path.resolve(__dirname + '/src')
+		}
 	},
 	output: {
 		path: path.resolve(__dirname, 'build'),
-		filename: 'bundle.js'
+		filename: 'bundle.js',
+		publicPath: '/'
 	},
 	devServer: {
 		static: path.join(__dirname, 'build'),
-		compress: true,
+		historyApiFallback: true,
 		port: 4000,
+		open: true,
 		hot: true
 	},
 	plugins

@@ -13,7 +13,7 @@ import Skills from 'pages/Skills'
 import Throwable from 'pages/Throwable'
 import Weapons from 'pages/Weapons'
 import React from 'react'
-import { MemoryRouter, Route, Switch } from 'react-router'
+import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { isDev } from 'utils/isDev'
 
 const App: React.FC = () => {
@@ -21,22 +21,22 @@ const App: React.FC = () => {
 		<div onContextMenu={event => isDev() ? null : event.preventDefault()}>
 			<Background />
 			<MemoryRouter>
-				<Switch>
-					<Route exact path='/' component={Home} />
-					<Route path='/mask' component={Mask} />
-					<Route path='/character' component={Character} />
-					<Route path='/armour' component={Armour} />
-					<Route path='/equipment' component={Equipment} />
+				<Routes>
+					<Route path='/' element={<Home />} />
+					<Route path='/mask' element={<Mask />} />
+					<Route path='/character' element={<Character />} />
+					<Route path='/armour' element={<Armour />} />
+					<Route path='/equipment' element={<Equipment />} />
 
-					<Route path='/primary' render={() => <Weapons slot='primary' />} />
-					<Route path='/secondary' render={() => <Weapons slot='secondary' />} />
-					<Route path='/throwable' component={Throwable} />
-					<Route path='/melee' component={Melee} />
+					<Route path='/primary' element={<Weapons slot='primary' />} />
+					<Route path='/secondary' element={<Weapons slot='secondary' />} />
+					<Route path='/throwable' element={<Throwable />} />
+					<Route path='/melee' element={<Melee />} />
 
-					<Route path='/skills' component={Skills} />
-					<Route path='/perkdeck' component={PerkDeck} />
-					<Route path='/crewmanagement' component={CrewManagement} />
-				</Switch>
+					<Route path='/skills' element={<Skills />} />
+					<Route path='/perkdeck' element={<PerkDeck />} />
+					<Route path='/crewmanagement' element={<CrewManagement />} />
+				</Routes>
 			</MemoryRouter>
 		</div>
 	)

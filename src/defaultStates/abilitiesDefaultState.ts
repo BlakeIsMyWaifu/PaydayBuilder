@@ -1,13 +1,13 @@
 import abilities from 'data/abilities/crewAbilities'
 import boosts from 'data/abilities/crewBoosts'
-import data, { Perk } from 'data/abilities/perks'
+import data, { PerkData } from 'data/abilities/perks'
 import characters from 'data/character/characters'
 import masks from 'data/character/masks'
 import assaultRifles from 'data/weapons/guns/primary/assaultRifles'
 import { CrewData } from 'pages/CrewManagement/CrewManagement'
 
 export interface AbilitiesState {
-	perkdeck: Perk;
+	perkdeck: PerkData;
 	crewmanagement: [CrewData, CrewData, CrewData];
 	infamy: null;
 }
