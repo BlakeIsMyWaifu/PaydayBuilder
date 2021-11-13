@@ -1,7 +1,7 @@
 import 'webpack-dev-server'
 
 import path from 'path'
-
+import CopyPlugin from 'copy-webpack-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import CircularDependencyPlugin from 'circular-dependency-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
@@ -27,6 +27,14 @@ const plugins: WebpackPluginInstance[] = [
 		failOnError: true,
 		allowAsyncCycles: false,
 		cwd: process.cwd()
+	}),
+	new CopyPlugin({
+		patterns: [
+			{
+				from: 'public/images',
+				to: 'images'
+			}
+		]
 	})
 ]
 if (isDevelopment) {
