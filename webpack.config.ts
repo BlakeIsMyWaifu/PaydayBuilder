@@ -1,14 +1,27 @@
 import 'webpack-dev-server'
 
 import path from 'path'
-import CopyPlugin from 'copy-webpack-plugin'
+
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import CircularDependencyPlugin from 'circular-dependency-plugin'
+import CopyPlugin from 'copy-webpack-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { Configuration, WebpackPluginInstance } from 'webpack'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
+
+const copyPluginPatterns: CopyPlugin.ObjectPattern[] = [
+	{
+		from: 'public/images',
+		to: 'images'
+	}
+]
+if (!isDevelopment) {
+	copyPluginPatterns.push({
+		from: 'public/CNAME'
+	})
+}
 
 const plugins: WebpackPluginInstance[] = [
 	new ForkTsCheckerWebpackPlugin({
@@ -29,12 +42,7 @@ const plugins: WebpackPluginInstance[] = [
 		cwd: process.cwd()
 	}),
 	new CopyPlugin({
-		patterns: [
-			{
-				from: 'public/images',
-				to: 'images'
-			}
-		]
+		patterns: copyPluginPatterns
 	})
 ]
 if (isDevelopment) {

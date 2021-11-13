@@ -4,8 +4,8 @@
   "description": "Payday 2 Build Helper Website",
   "homepage": ".",
   "scripts": {
-    "start": "webpack server --hot --open",
-    "build": "webpack --mode production",
+    "start": "webpack server --node-env=development --hot --open",
+    "build": "webpack --node-env=production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build -r https://github.com/BlakeIsMyWaifu/PaydayBuilder.git"
   },
