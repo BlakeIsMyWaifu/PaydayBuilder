@@ -1,16 +1,18 @@
 import content from 'data/source/downloadableContent'
 
-import assaultRifles from '../primary/assaultRifles'
-import submachineGuns from '../secondary/submachineGuns'
-import { WeaponData, WeaponModificationList } from '../weaponTypes'
+import { CompatibleWeapons, WeaponModificationList } from '../weaponTypes'
 
-const AKRifles: WeaponData[] = [
-	assaultRifles['AK Rifle'],
-	assaultRifles['AK.762'],
-	submachineGuns['Krinkov Submachine Gun'],
-	assaultRifles['AK17 Rifle'],
-	assaultRifles['Golden AK.762 Rifle']
-]
+const AKRifles: CompatibleWeapons = {
+	assaultRifle: [
+		'AK Rifle',
+		'AK.762',
+		'Golden AK.762 Rifle',
+		'AK17 Rifle'
+	],
+	submachineGun: [
+		'Krinkov Submachine Gun'
+	]
+}
 
 export type MagazineModificationsList =
 	'AK Quadstacked Mag' |
@@ -71,25 +73,29 @@ const magazine: WeaponModificationList<MagazineModificationsList> = {
 		},
 		specialEffect: ['RELOAD -1.9'],
 		stats: {},
-		compatibleWeapons: [
-			assaultRifles['JP36 Rifle'],
-			assaultRifles['UAR Rifle'],
-			assaultRifles['AK Rifle'],
-			assaultRifles['AK.762'],
-			assaultRifles['Golden AK.762 Rifle'],
-			assaultRifles['AK17 Rifle'],
-			submachineGuns['Krinkov Submachine Gun'],
-			assaultRifles['CAR-4 Rifle'],
-			assaultRifles['AMCAR Rifle'],
-			assaultRifles['AMR-16 Rifle'],
-			assaultRifles['AK5 Rifle'],
-			assaultRifles['Queen\'s Wrath Rifle'],
-			submachineGuns['CR 805B Submachine Gun'],
-			submachineGuns['Para Submachine Gun'],
-			submachineGuns['Heather Submachine Gun'],
-			submachineGuns['Mark 10 Submachine Gun'],
-			submachineGuns['Kobus 90 Submachine Gun']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'JP36 Rifle',
+				'UAR Rifle',
+				'AK Rifle',
+				'AK.762',
+				'Golden AK.762 Rifle',
+				'AK17 Rifle',
+				'CAR-4 Rifle',
+				'AMCAR Rifle',
+				'AMR-16 Rifle',
+				'AK5 Rifle',
+				'Queen\'s Wrath Rifle'
+			],
+			submachineGun: [
+				'Krinkov Submachine Gun',
+				'CR 805B Submachine Gun',
+				'Para Submachine Gun',
+				'Heather Submachine Gun',
+				'Mark 10 Submachine Gun',
+				'Kobus 90 Submachine Gun'
+			]
+		}
 	}
 }
 

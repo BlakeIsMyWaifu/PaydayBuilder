@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-type SubmachineGunList =
+export type SubmachineGunList =
 	'Swedish K Submachine Gun' |
 	'SpecOps Submachine Gun' |
 	'Mark 10 Submachine Gun' |

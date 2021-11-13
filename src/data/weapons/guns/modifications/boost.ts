@@ -1,13 +1,18 @@
 import source from 'data/source/miscSources'
+import { akimboShotgunList, assaultRifleList, lightMachineGunList, pistolList, shotgunList, sniperList, specialList, submachineGunList } from '../gunList'
 
-import primary from '../primary'
-import secondary from '../secondary'
-import { WeaponData, WeaponModificationList } from '../weaponTypes'
+import { WeaponModificationList, CompatibleWeapons } from '../weaponTypes'
 
-const allWeapons: WeaponData[] = [
-	Object.values(primary),
-	Object.values(secondary)
-].map(record => Object.values(record)).flat()
+const allWeapons: CompatibleWeapons = {
+	assaultRifle: assaultRifleList,
+	shotgun: shotgunList,
+	lightMachineGun: lightMachineGunList,
+	sniper: sniperList,
+	akimboShotgun: akimboShotgunList,
+	special: specialList,
+	pistol: pistolList,
+	submachineGun: submachineGunList
+}
 
 export type BoostModificationsList =
 	'Concealment' |

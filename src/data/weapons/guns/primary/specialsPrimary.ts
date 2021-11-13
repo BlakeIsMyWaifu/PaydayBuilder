@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-type PrimarySpecialList =
+export type PrimarySpecialList =
 	'OVE9000 Saw' |
 	'Plainsrider Bow' |
 	'Light Crossbow' |

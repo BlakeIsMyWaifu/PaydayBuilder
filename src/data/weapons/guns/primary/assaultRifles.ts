@@ -70,7 +70,7 @@ const mainSight: WeaponModification<SightModificationsList>[] = [
 	sight['Reconnaissance Sight']
 ]
 
-type AssaultRifleList =
+export type AssaultRifleList =
 	'AMCAR Rifle' |
 	'Commando 553 Rifle' |
 	'Eagle Heavy Rifle' |

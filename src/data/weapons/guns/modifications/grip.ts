@@ -1,21 +1,25 @@
 import content from 'data/source/downloadableContent'
 
-import assaultRifles from '../primary/assaultRifles'
-import lightMachineGuns from '../primary/lightMachineGuns'
-import shotguns from '../primary/shotgunsPrimary'
-import submachineGuns from '../secondary/submachineGuns'
-import { WeaponData, WeaponModificationList } from '../weaponTypes'
+import { CompatibleWeapons, WeaponModificationList } from '../weaponTypes'
 
-const AKRifles: WeaponData[] = [
-	assaultRifles['AK Rifle'],
-	assaultRifles['AK.762'],
-	submachineGuns['Krinkov Submachine Gun'],
-	shotguns['IZHMA 12G Shotgun'],
-	assaultRifles['AK17 Rifle'],
-	submachineGuns['Tatonka Submachine Gun'],
-	lightMachineGuns['RPK Light Machine Gun'],
-	assaultRifles['Golden AK.762 Rifle']
-]
+const AKRifles: CompatibleWeapons = {
+	assaultRifle: [
+		'AK Rifle',
+		'AK.762',
+		'Golden AK.762 Rifle',
+		'AK17 Rifle'
+	],
+	shotgun: [
+		'IZHMA 12G Shotgun'
+	],
+	lightMachineGun: [
+		'RPK Light Machine Gun'
+	],
+	submachineGun: [
+		'Krinkov Submachine Gun',
+		'Tatonka Submachine Gun'
+	]
+}
 
 export type GripModificationsList =
 	// AK Rifles
@@ -98,9 +102,11 @@ const grip: WeaponModificationList<GripModificationsList> = {
 			stability: 8,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			assaultRifles['Commando 553 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Commando 553 Rifle'
+			]
+		}
 	}
 }
 

@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-type SecondarySpecialList =
+export type SecondarySpecialList =
 	'Pistol Crossbow' |
 	'Compact 40mm Grenade Launcher' |
 	'HRL-7 Rocket Launcher' |

@@ -1,50 +1,53 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
+import { assaultRifleList, submachineGunList } from '../gunList'
 
-import assaultRifles from '../primary/assaultRifles'
-import primaryShotguns from '../primary/shotgunsPrimary'
-import snipers from '../primary/snipers'
-import primarySpecials from '../primary/specialsPrimary'
-import pistols from '../secondary/pistols'
-import secondaryShotguns from '../secondary/shotgunsSecondary'
-import secondarySpecials from '../secondary/specialsSecondary'
-import submachineGuns from '../secondary/submachineGuns'
-import { WeaponData, WeaponModificationList } from '../weaponTypes'
+import { CompatibleWeapons, WeaponModificationList } from '../weaponTypes'
 
-const mainGuns: WeaponData[] = [
-	...Object.values(assaultRifles),
-	primaryShotguns['Predator 12G Shotgun'],
-	primaryShotguns['Reinfeld 880 Shotgun'],
-	primaryShotguns['IZHMA 12G Shotgun'],
-	primaryShotguns['M1014 Shotgun'],
-	primaryShotguns['Raven Shotgun'],
-	primaryShotguns['Steakout 12G Shotgun'],
-	primaryShotguns['Breaker 12G Shotgun'],
-	primaryShotguns['Reinfeld 88 Shotgun'],
-	primaryShotguns['Mosconi 12G Tactical Shotgun'],
-	snipers['Platypus 70 Sniper Rifle'],
-	snipers['Rattlesnake Sniper Rifle'],
-	snipers['R93 Sniper Rifle'],
-	snipers['Thanatos .50 cal Sniper Rifle'],
-	snipers['Nagant Sniper Rifle'],
-	snipers['Lebensauger .308 Sniper Rifle'],
-	snipers['Desertfox Sniper Rifle'],
-	snipers['Contractor .308 Sniper Rifle'],
-	snipers['Grom Sniper Rifle'],
-	snipers['R700 Sniper Rifle'],
-	snipers['Bernetti Rangehitter Sniper Rifle'],
-	primarySpecials['Piglet Grenade Launcher'],
-	pistols['Bronco .44 Pistol'],
-	pistols['Deagle Pistol'],
-	...Object.values(submachineGuns),
-	secondaryShotguns['The Judge Shotgun'],
-	secondaryShotguns['Locomotive 12G Shotgun'],
-	secondaryShotguns['Goliath 12G Shotgun'],
-	secondaryShotguns['Grimm 12G Shotgun'],
-	secondaryShotguns['Street Sweeper Shotgun'],
-	secondarySpecials['Arbiter Grenade Launcher'],
-	secondarySpecials['HRL-7 Rocket Launcher']
-]
+const mainGuns: CompatibleWeapons = {
+	assaultRifle: assaultRifleList,
+	shotgun: [
+		// primary
+		'Predator 12G Shotgun',
+		'Reinfeld 880 Shotgun',
+		'IZHMA 12G Shotgun',
+		'M1014 Shotgun',
+		'Raven Shotgun',
+		'Steakout 12G Shotgun',
+		'Breaker 12G Shotgun',
+		'Reinfeld 88 Shotgun',
+		'Mosconi 12G Tactical Shotgun',
+		// secondary
+		'The Judge Shotgun',
+		'Locomotive 12G Shotgun',
+		'Goliath 12G Shotgun',
+		'Grimm 12G Shotgun',
+		'Street Sweeper Shotgun'
+	],
+	sniper: [
+		'Platypus 70 Sniper Rifle',
+		'Rattlesnake Sniper Rifle',
+		'R93 Sniper Rifle',
+		'Thanatos .50 cal Sniper Rifle',
+		'Nagant Sniper Rifle',
+		'Lebensauger .308 Sniper Rifle',
+		'Desertfox Sniper Rifle',
+		'Contractor .308 Sniper Rifle',
+		'Grom Sniper Rifle',
+		'R700 Sniper Rifle',
+		'Bernetti Rangehitter Sniper Rifle'
+	],
+	special: [
+		'Piglet Grenade Launcher',
+		'Arbiter Grenade Launcher',
+		'HRL-7 Rocket Launcher'
+	],
+	pistol: [
+		'Bronco .44 Pistol',
+		'Deagle Pistol'
+	],
+	submachineGun: submachineGunList
+}
 
 export type SightModificationsList =
 	// main guns

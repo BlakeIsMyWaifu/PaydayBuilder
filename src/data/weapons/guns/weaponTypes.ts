@@ -1,7 +1,18 @@
 import { ContentData } from 'data/source/downloadableContent'
 import { SourceData } from 'data/source/miscSources'
 
-type WeaponType = 'Assault Rifle' | 'Shotgun' | 'LMG' | 'Sniper' | 'Akimbo Pistol' | 'Akimbo Shotgun' | 'Special' | 'Pistol' | 'Submachine Gun'
+import { AkimboShotunsList } from './primary/akimboShotuns'
+import { AssaultRifleList } from './primary/assaultRifles'
+import { LightMachineGunList } from './primary/lightMachineGuns'
+import { PrimaryShotgunList } from './primary/shotgunsPrimary'
+import { SniperList } from './primary/snipers'
+import { PrimarySpecialList } from './primary/specialsPrimary'
+import { PistolList } from './secondary/pistols'
+import { SecondaryShotgunList } from './secondary/shotgunsSecondary'
+import { SecondarySpecialList } from './secondary/specialsSecondary'
+import { SubmachineGunList } from './secondary/submachineGuns'
+
+type WeaponType = 'Assault Rifle' | 'Shotgun' | 'LMG' | 'Sniper' | 'Akimbo Pistol' | 'Akimbo Shotgun' | 'Akimbo SMG' | 'Special' | 'Pistol' | 'Submachine Gun'
 
 export interface WeaponData {
 	name: string;
@@ -43,6 +54,19 @@ export interface WeaponExtraStats {
 type ModificationSlot = 'Ammunition' | 'Barrel' | 'Barrel Ext' | 'Boost' | 'Custom' | 'Extra' | 'Foregrip' | 'Gadget' | 'Grip' | 'Magazine' | 'Sight' | 'Stock' | 'Upper Reciever'
 type Packages = 'Green Mantis' | 'Yellow Bull' | 'Red Spider' | 'Blue Eagle' | 'Purple Snake'
 
+export interface CompatibleWeapons {
+	assaultRifle?: AssaultRifleList[];
+	shotgun?: (PrimaryShotgunList | SecondaryShotgunList)[];
+	lightMachineGun?: LightMachineGunList[];
+	sniper?: SniperList[];
+	akimboPistol?: null[];
+	akimboShotgun?: AkimboShotunsList[];
+	akimboSubmachineGun?: null[];
+	special?: (PrimarySpecialList | SecondarySpecialList)[];
+	pistol?: PistolList[];
+	submachineGun?: SubmachineGunList[];
+}
+
 export interface WeaponModification<ModificationName> {
 	name: ModificationName;
 	image: string;
@@ -66,7 +90,7 @@ export interface WeaponModification<ModificationName> {
 		concealment?: number;
 		threat?: number;
 	};
-	compatibleWeapons: WeaponData[];
+	compatibleWeapons: CompatibleWeapons;
 	incompatibleSlot?: ModificationSlot[];
 }
 

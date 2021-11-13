@@ -1,16 +1,6 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import akimboShotuns from '../primary/akimboShotuns'
-import assaultRifles from '../primary/assaultRifles'
-import lightMachineGuns from '../primary/lightMachineGuns'
-import primaryShotguns from '../primary/shotgunsPrimary'
-import snipers from '../primary/snipers'
-import primarySpecials from '../primary/specialsPrimary'
-import pistols from '../secondary/pistols'
-import secondaryShotguns from '../secondary/shotgunsSecondary'
-import secondarySpecials from '../secondary/specialsSecondary'
-import submachineGuns from '../secondary/submachineGuns'
 import { WeaponModificationList } from '../weaponTypes'
 
 export type BarrelModificationsList =
@@ -281,11 +271,13 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -8,
 			concealment: 1
 		},
-		compatibleWeapons: [
-			assaultRifles['AK Rifle'],
-			assaultRifles['AK.762'],
-			assaultRifles['Golden AK.762 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'AK Rifle',
+				'AK.762',
+				'Golden AK.762 Rifle'
+			]
+		}
 	},
 	'Modern Barrel': {
 		name: 'Modern Barrel',
@@ -300,11 +292,13 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			damage: 2,
 			concealment: 1
 		},
-		compatibleWeapons: [
-			assaultRifles['AK Rifle'],
-			assaultRifles['AK.762'],
-			assaultRifles['Golden AK.762 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'AK Rifle',
+				'AK.762',
+				'Golden AK.762 Rifle'
+			]
+		}
 	},
 	'DMR Kit (AK)': {
 		name: 'DMR Kit (AK)',
@@ -322,11 +316,13 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -12,
 			concealment: -4
 		},
-		compatibleWeapons: [
-			assaultRifles['AK Rifle'],
-			assaultRifles['AK.762'],
-			assaultRifles['Golden AK.762 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'AK Rifle',
+				'AK.762',
+				'Golden AK.762 Rifle'
+			]
+		}
 	},
 	'Long Barrel (CAR)': {
 		name: 'Long Barrel (CAR)',
@@ -339,10 +335,12 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			assaultRifles['CAR-4 Rifle'],
-			assaultRifles['AMR-16 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'CAR-4 Rifle',
+				'AMR-16 Rifle'
+			]
+		}
 	},
 	'Short Barrel (CAR)': {
 		name: 'Short Barrel (CAR)',
@@ -354,9 +352,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -4,
 			concealment: 2
 		},
-		compatibleWeapons: [
-			assaultRifles['CAR-4 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'CAR-4 Rifle'
+			]
+		}
 	},
 	'Stealth Barrel': {
 		name: 'Stealth Barrel',
@@ -372,9 +372,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: 1,
 			threat: -16.8
 		},
-		compatibleWeapons: [
-			assaultRifles['CAR-4 Rifle']
-		],
+		compatibleWeapons: {
+			assaultRifle: [
+				'CAR-4 Rifle'
+			]
+		},
 		incompatibleSlot: ['Barrel Ext']
 	},
 	'DMR Kit (CAR)': {
@@ -394,10 +396,12 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -40,
 			concealment: -4
 		},
-		compatibleWeapons: [
-			assaultRifles['CAR-4 Rifle'],
-			assaultRifles['AMR-16 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'CAR-4 Rifle',
+				'AMR-16 Rifle'
+			]
+		}
 	},
 	'Short Barrel (UAR)': {
 		name: 'Short Barrel (UAR)',
@@ -410,9 +414,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 8,
 			concealment: 2
 		},
-		compatibleWeapons: [
-			assaultRifles['UAR Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'UAR Rifle'
+			]
+		}
 	},
 	'Long Barrel (UAR)': {
 		name: 'Long Barrel (UAR)',
@@ -426,9 +432,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: -3
 		},
-		compatibleWeapons: [
-			assaultRifles['UAR Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'UAR Rifle'
+			]
+		}
 	},
 	'CQB Barrel (AK5)': {
 		name: 'CQB Barrel (AK5)',
@@ -441,9 +449,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 4,
 			concealment: 2
 		},
-		compatibleWeapons: [
-			assaultRifles['AK5 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'AK5 Rifle'
+			]
+		}
 	},
 	'Long Barrel (Commando)': {
 		name: 'Long Barrel (Commando)',
@@ -456,9 +466,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 4,
 			concealment: -4
 		},
-		compatibleWeapons: [
-			assaultRifles['Commando 553 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Commando 553 Rifle'
+			]
+		}
 	},
 	'Short Barrel (Eagle Heavy)': {
 		name: 'Short Barrel (Eagle Heavy)',
@@ -472,9 +484,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: 3,
 			threat: 4
 		},
-		compatibleWeapons: [
-			assaultRifles['Eagle Heavy Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Eagle Heavy Rifle'
+			]
+		}
 	},
 	'Long Barrel (Eagle Heavy)': {
 		name: 'Long Barrel (Eagle Heavy)',
@@ -486,9 +500,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 8,
 			concealment: -3
 		},
-		compatibleWeapons: [
-			assaultRifles['Eagle Heavy Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Eagle Heavy Rifle'
+			]
+		}
 	},
 	'CQB Foregrip (Falcon)': {
 		name: 'CQB Foregrip (Falcon)',
@@ -504,9 +520,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -4,
 			concealment: 6
 		},
-		compatibleWeapons: [
-			assaultRifles['Falcon Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Falcon Rifle'
+			]
+		}
 	},
 	'Retro Foregrip': {
 		name: 'Retro Foregrip',
@@ -522,9 +540,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 8,
 			concealment: -1
 		},
-		compatibleWeapons: [
-			assaultRifles['Falcon Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Falcon Rifle'
+			]
+		}
 	},
 	'Marksman Foregrip': {
 		name: 'Marksman Foregrip',
@@ -541,9 +561,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			assaultRifles['Falcon Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Falcon Rifle'
+			]
+		}
 	},
 	'Wooden Foregrip': {
 		name: 'Wooden Foregrip',
@@ -559,9 +581,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			assaultRifles['Falcon Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Falcon Rifle'
+			]
+		}
 	},
 	'Long Barrel (Clarion)': {
 		name: 'Long Barrel (Clarion)',
@@ -577,9 +601,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: -1
 		},
-		compatibleWeapons: [
-			assaultRifles['Clarion Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Clarion Rifle'
+			]
+		}
 	},
 	'Short Barrel (Clarion)': {
 		name: 'Short Barrel (Clarion)',
@@ -596,9 +622,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -4,
 			concealment: 2
 		},
-		compatibleWeapons: [
-			assaultRifles['Clarion Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Clarion Rifle'
+			]
+		}
 	},
 	'Sniper Barrel': {
 		name: 'Sniper Barrel',
@@ -615,9 +643,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			assaultRifles['Clarion Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Clarion Rifle'
+			]
+		}
 	},
 	'Suppressed Barrel (Clarion)': {
 		name: 'Suppressed Barrel (Clarion)',
@@ -634,9 +664,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -1,
 			threat: -16.8
 		},
-		compatibleWeapons: [
-			assaultRifles['Clarion Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Clarion Rifle'
+			]
+		}
 	},
 	'Fabulous Foregrip': {
 		name: 'Fabulous Foregrip',
@@ -652,9 +684,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 8,
 			concealment: -1
 		},
-		compatibleWeapons: [
-			assaultRifles['Gecko 7.62 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Gecko 7.62 Rifle'
+			]
+		}
 	},
 	'CQB Foregrip (Gecko)': {
 		name: 'CQB Foregrip (Gecko)',
@@ -671,9 +705,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -4,
 			concealment: 4
 		},
-		compatibleWeapons: [
-			assaultRifles['Gecko 7.62 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Gecko 7.62 Rifle'
+			]
+		}
 	},
 	'Light Foregrip': {
 		name: 'Light Foregrip',
@@ -688,9 +724,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			damage: 1,
 			concealment: 1
 		},
-		compatibleWeapons: [
-			assaultRifles['Gecko 7.62 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Gecko 7.62 Rifle'
+			]
+		}
 	},
 	'Sniper Foregrip': {
 		name: 'Sniper Foregrip',
@@ -706,9 +744,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			assaultRifles['Gecko 7.62 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Gecko 7.62 Rifle'
+			]
+		}
 	},
 	'Assault Kit': {
 		name: 'Assault Kit',
@@ -727,9 +767,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 20,
 			concealment: 4
 		},
-		compatibleWeapons: [
-			assaultRifles['Gewehr 3 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Gewehr 3 Rifle'
+			]
+		}
 	},
 	'DMR Kit (Gewehr)': {
 		name: 'DMR Kit (Gewehr)',
@@ -752,9 +794,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			assaultRifles['Gewehr 3 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Gewehr 3 Rifle'
+			]
+		}
 	},
 	'Prodigious Barrel': {
 		name: 'Prodigious Barrel',
@@ -766,9 +810,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 4,
 			concealment: -3
 		},
-		compatibleWeapons: [
-			assaultRifles['Queen\'s Wrath Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Queen\'s Wrath Rifle'
+			]
+		}
 	},
 	'Diminutive Barrel': {
 		name: 'Diminutive Barrel',
@@ -779,9 +825,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 		stats: {
 			concealment: 3
 		},
-		compatibleWeapons: [
-			assaultRifles['Queen\'s Wrath Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Queen\'s Wrath Rifle'
+			]
+		}
 	},
 	'CQB Barrel (Lion\'s Roar)': {
 		name: 'CQB Barrel (Lion\'s Roar)',
@@ -794,9 +842,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: 3
 		},
-		compatibleWeapons: [
-			assaultRifles['Lion\'s Roar Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Lion\'s Roar Rifle'
+			]
+		}
 	},
 	'Precision Barrel': {
 		name: 'Precision Barrel',
@@ -808,9 +858,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 8,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			assaultRifles['Lion\'s Roar Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Lion\'s Roar Rifle'
+			]
+		}
 	},
 	'Silenced Barrel (Lion\'s Roar)': {
 		name: 'Silenced Barrel (Lion\'s Roar)',
@@ -824,9 +876,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 12,
 			threat: -18
 		},
-		compatibleWeapons: [
-			assaultRifles['Lion\'s Roar Rifle']
-		],
+		compatibleWeapons: {
+			assaultRifle: [
+				'Lion\'s Roar Rifle'
+			]
+		},
 		incompatibleSlot: ['Barrel Ext']
 	},
 	'Prototype Barrel (Valkyria)': {
@@ -843,9 +897,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -4,
 			concealment: 2
 		},
-		compatibleWeapons: [
-			assaultRifles['Valkyria Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Valkyria Rifle'
+			]
+		}
 	},
 	'AML Barrel': {
 		name: 'AML Barrel',
@@ -861,9 +917,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 12,
 			concealment: -3
 		},
-		compatibleWeapons: [
-			assaultRifles['Bootleg Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Bootleg Rifle'
+			]
+		}
 	},
 	'Short Barrel (Union)': {
 		name: 'Short Barrel (Union)',
@@ -875,9 +933,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -8,
 			concealment: 3
 		},
-		compatibleWeapons: [
-			assaultRifles['Union 5.56 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Union 5.56 Rifle'
+			]
+		}
 	},
 	'Tanker Barrel': {
 		name: 'Tanker Barrel',
@@ -889,9 +949,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -16,
 			concealment: 4
 		},
-		compatibleWeapons: [
-			assaultRifles['Galant Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Galant Rifle'
+			]
+		}
 	},
 	'Extended Mag': {
 		name: 'Extended Mag',
@@ -904,9 +966,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: -1
 		},
-		compatibleWeapons: [
-			primaryShotguns['Predator 12G Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'Predator 12G Shotgun'
+			]
+		}
 	},
 	'Sawed Off Barrel (Joceline)': {
 		name: 'Sawed Off Barrel (Joceline)',
@@ -919,9 +983,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -12,
 			concealment: 10
 		},
-		compatibleWeapons: [
-			primaryShotguns['Joceline O/U 12G Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'Joceline O/U 12G Shotgun'
+			]
+		}
 	},
 	'Short Barrel (IZHMA)': {
 		name: 'Short Barrel (IZHMA)',
@@ -937,9 +1003,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -4,
 			concealment: 4
 		},
-		compatibleWeapons: [
-			primaryShotguns['IZHMA 12G Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'IZHMA 12G Shotgun'
+			]
+		}
 	},
 	'Short Barrel (M1014)': {
 		name: 'Short Barrel (M1014)',
@@ -957,9 +1025,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -8,
 			concealment: 6
 		},
-		compatibleWeapons: [
-			primaryShotguns['M1014 Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'M1014 Shotgun'
+			]
+		}
 	},
 	'Long Barrel (M1014)': {
 		name: 'Long Barrel (M1014)',
@@ -976,9 +1046,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			primaryShotguns['M1014 Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'M1014 Shotgun'
+			]
+		}
 	},
 	'Short Barrel (Raven)': {
 		name: 'Short Barrel (Raven)',
@@ -996,9 +1068,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -8,
 			concealment: 4
 		},
-		compatibleWeapons: [
-			primaryShotguns['Raven Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'Raven Shotgun'
+			]
+		}
 	},
 	'Long Barrel (Raven)': {
 		name: 'Long Barrel (Raven)',
@@ -1015,9 +1089,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			primaryShotguns['Raven Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'Raven Shotgun'
+			]
+		}
 	},
 	'Long Barrel (Steakout)': {
 		name: 'Long Barrel (Steakout)',
@@ -1033,9 +1109,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 8,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			primaryShotguns['Steakout 12G Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'Steakout 12G Shotgun'
+			]
+		}
 	},
 	'Suppressed Barrel (Steakout)': {
 		name: 'Suppressed Barrel (Steakout)',
@@ -1054,9 +1132,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -2,
 			threat: -22
 		},
-		compatibleWeapons: [
-			primaryShotguns['Steakout 12G Shotgun']
-		],
+		compatibleWeapons: {
+			shotgun: [
+				'Steakout 12G Shotgun'
+			]
+		},
 		incompatibleSlot: ['Barrel Ext']
 	},
 	'Huntsman Barrel': {
@@ -1070,9 +1150,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			primaryShotguns['Reinfeld 88 Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'Reinfeld 88 Shotgun'
+			]
+		}
 	},
 	'Ventilated Barrel': {
 		name: 'Ventilated Barrel',
@@ -1084,9 +1166,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -8,
 			concealment: 2
 		},
-		compatibleWeapons: [
-			primaryShotguns['Reinfeld 88 Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'Reinfeld 88 Shotgun'
+			]
+		}
 	},
 	'CE Extender': {
 		name: 'CE Extender',
@@ -1100,9 +1184,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: -1
 		},
-		compatibleWeapons: [
-			primaryShotguns['Mosconi 12G Tactical Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'Mosconi 12G Tactical Shotgun'
+			]
+		}
 	},
 	'CE Muffler': {
 		name: 'CE Muffler',
@@ -1116,9 +1202,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -1,
 			threat: -22
 		},
-		compatibleWeapons: [
-			primaryShotguns['Mosconi 12G Tactical Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'Mosconi 12G Tactical Shotgun'
+			]
+		}
 	},
 	'Short Barrel (Goliath)': {
 		name: 'Short Barrel (Goliath)',
@@ -1130,10 +1218,14 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -8,
 			concealment: 3
 		},
-		compatibleWeapons: [
-			akimboShotuns['Akimbo Goliath 12G Shotguns'],
-			secondaryShotguns['Goliath 12G Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'Goliath 12G Shotgun'
+			],
+			akimboShotgun: [
+				'Akimbo Goliath 12G Shotguns'
+			]
+		}
 	},
 	'Silenced Barrel (Goliath)': {
 		name: 'Silenced Barrel (Goliath)',
@@ -1149,10 +1241,14 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -1,
 			threat: -22
 		},
-		compatibleWeapons: [
-			akimboShotuns['Akimbo Goliath 12G Shotguns'],
-			secondaryShotguns['Goliath 12G Shotgun']
-		],
+		compatibleWeapons: {
+			shotgun: [
+				'Goliath 12G Shotgun'
+			],
+			akimboShotgun: [
+				'Akimbo Goliath 12G Shotguns'
+			]
+		},
 		incompatibleSlot: ['Barrel Ext']
 	},
 	'Long Barrel (Rattlesnake)': {
@@ -1168,9 +1264,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 4,
 			concealment: -3
 		},
-		compatibleWeapons: [
-			snipers['Rattlesnake Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Rattlesnake Sniper Rifle'
+			]
+		}
 	},
 	'Short Barrel (R93)': {
 		name: 'Short Barrel (R93)',
@@ -1186,9 +1284,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 8,
 			concealment: 3
 		},
-		compatibleWeapons: [
-			snipers['R93 Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'R93 Sniper Rifle'
+			]
+		}
 	},
 	'Compensated Suppressor': {
 		name: 'Compensated Suppressor',
@@ -1207,9 +1307,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -1,
 			threat: -23
 		},
-		compatibleWeapons: [
-			snipers['R93 Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'R93 Sniper Rifle'
+			]
+		}
 	},
 	'Tank Buster Barrel': {
 		name: 'Tank Buster Barrel',
@@ -1225,9 +1327,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -4,
 			threat: 60
 		},
-		compatibleWeapons: [
-			snipers['Thanatos .50 cal Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Thanatos .50 cal Sniper Rifle'
+			]
+		}
 	},
 	'CQB Barrel (Thanatos)': {
 		name: 'CQB Barrel (Thanatos)',
@@ -1242,9 +1346,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -12,
 			concealment: 3
 		},
-		compatibleWeapons: [
-			snipers['Thanatos .50 cal Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Thanatos .50 cal Sniper Rifle'
+			]
+		}
 	},
 	'Suppressed Barrel (Thanatos)': {
 		name: 'Suppressed Barrel (Thanatos)',
@@ -1261,9 +1367,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 8,
 			threat: -27
 		},
-		compatibleWeapons: [
-			snipers['Thanatos .50 cal Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Thanatos .50 cal Sniper Rifle'
+			]
+		}
 	},
 	'Short Barrel (Nagant)': {
 		name: 'Short Barrel (Nagant)',
@@ -1278,9 +1386,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -4,
 			concealment: 3
 		},
-		compatibleWeapons: [
-			snipers['Nagant Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Nagant Sniper Rifle'
+			]
+		}
 	},
 	'Long Barrel (Nagant)': {
 		name: 'Long Barrel (Nagant)',
@@ -1295,9 +1405,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 8,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			snipers['Nagant Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Nagant Sniper Rifle'
+			]
+		}
 	},
 	'Silenced Barrel (Nagant)': {
 		name: 'Silenced Barrel (Nagant)',
@@ -1316,9 +1428,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -2,
 			threat: -22
 		},
-		compatibleWeapons: [
-			snipers['Nagant Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Nagant Sniper Rifle'
+			]
+		}
 	},
 	'Long Range Barrel': {
 		name: 'Long Range Barrel',
@@ -1333,9 +1447,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			snipers['Repeater 1874 Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Repeater 1874 Sniper Rifle'
+			]
+		}
 	},
 	'Outlaw\'s Silenced Barrel': {
 		name: 'Outlaw\'s Silenced Barrel',
@@ -1354,9 +1470,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -2,
 			threat: -22
 		},
-		compatibleWeapons: [
-			snipers['Repeater 1874 Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Repeater 1874 Sniper Rifle'
+			]
+		}
 	},
 	'Long Barrel (Desertfox)': {
 		name: 'Long Barrel (Desertfox)',
@@ -1371,9 +1489,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 12,
 			concealment: -3
 		},
-		compatibleWeapons: [
-			snipers['Desertfox Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Desertfox Sniper Rifle'
+			]
+		}
 	},
 	'Silenced Barrel (Desertfox)': {
 		name: 'Silenced Barrel (Desertfox)',
@@ -1392,9 +1512,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -1,
 			threat: -22
 		},
-		compatibleWeapons: [
-			snipers['Desertfox Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Desertfox Sniper Rifle'
+			]
+		}
 	},
 	'Grievky Compensator': {
 		name: 'Grievky Compensator',
@@ -1406,9 +1528,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 8,
 			stability: 8
 		},
-		compatibleWeapons: [
-			snipers['Grom Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Grom Sniper Rifle'
+			]
+		}
 	},
 	'Tikho Barrel': {
 		name: 'Tikho Barrel',
@@ -1423,9 +1547,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			threat: -18
 		},
-		compatibleWeapons: [
-			snipers['Grom Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Grom Sniper Rifle'
+			]
+		}
 	},
 	'Short Barrel (R700)': {
 		name: 'Short Barrel (R700)',
@@ -1441,9 +1567,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -4,
 			concealment: 3
 		},
-		compatibleWeapons: [
-			snipers['R700 Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'R700 Sniper Rifle'
+			]
+		}
 	},
 	'Medium Barrel (R700)': {
 		name: 'Medium Barrel (R700)',
@@ -1461,9 +1589,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -1,
 			threat: -22
 		},
-		compatibleWeapons: [
-			snipers['R700 Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'R700 Sniper Rifle'
+			]
+		}
 	},
 	'Deep Range Barrel': {
 		name: 'Deep Range Barrel',
@@ -1476,9 +1606,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: -3
 		},
-		compatibleWeapons: [
-			snipers['Bernetti Rangehitter Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Bernetti Rangehitter Sniper Rifle'
+			]
+		}
 	},
 	'Wind Whistler Barrel': {
 		name: 'Wind Whistler Barrel',
@@ -1494,9 +1626,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -1,
 			threat: -22
 		},
-		compatibleWeapons: [
-			snipers['Bernetti Rangehitter Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Bernetti Rangehitter Sniper Rifle'
+			]
+		}
 	},
 	'Short Barrel (KSP 58)': {
 		name: 'Short Barrel (KSP 58)',
@@ -1510,9 +1644,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 		stats: {
 			concealment: 2
 		},
-		compatibleWeapons: [
-			lightMachineGuns['KSP 58 Light Machine Gun']
-		]
+		compatibleWeapons: {
+			lightMachineGun: [
+				'KSP Light Machine Gun'
+			]
+		}
 	},
 	'Long Barrel (KSP)': {
 		name: 'Long Barrel (KSP)',
@@ -1526,9 +1662,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			lightMachineGuns['KSP Light Machine Gun']
-		]
+		compatibleWeapons: {
+			lightMachineGun: [
+				'KSP Light Machine Gun'
+			]
+		}
 	},
 	'Long Barrel (Brenner)': {
 		name: 'Long Barrel (Brenner)',
@@ -1542,9 +1680,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			lightMachineGuns['Brenner-21 Light Machine Gun']
-		]
+		compatibleWeapons: {
+			lightMachineGun: [
+				'Brenner-21 Light Machine Gun'
+			]
+		}
 	},
 	'Light Barrel': {
 		name: 'Light Barrel',
@@ -1560,9 +1700,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 8,
 			stability: 8
 		},
-		compatibleWeapons: [
-			lightMachineGuns['Buzzsaw 42 Light Machine Gun']
-		]
+		compatibleWeapons: {
+			lightMachineGun: [
+				'Buzzsaw 42 Light Machine Gun'
+			]
+		}
 	},
 	'Heatsinked Suppressed Barrel (Buzzsaw)': {
 		name: 'Heatsinked Suppressed Barrel (Buzzsaw)',
@@ -1578,9 +1720,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			threat: -23
 		},
-		compatibleWeapons: [
-			lightMachineGuns['Buzzsaw 42 Light Machine Gun']
-		],
+		compatibleWeapons: {
+			lightMachineGun: [
+				'Buzzsaw 42 Light Machine Gun'
+			]
+		},
 		incompatibleSlot: ['Barrel Ext']
 	},
 	'Pirate Barrel': {
@@ -1597,9 +1741,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -8,
 			concealment: 4
 		},
-		compatibleWeapons: [
-			primarySpecials['GL40 Grenade Launcher']
-		]
+		compatibleWeapons: {
+			special: [
+				'GL40 Grenade Launcher'
+			]
+		}
 	},
 	'Aerial Assault Barrel': {
 		name: 'Aerial Assault Barrel',
@@ -1615,9 +1761,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -12,
 			concealment: -3
 		},
-		compatibleWeapons: [
-			primarySpecials['Vulcan Minigun']
-		]
+		compatibleWeapons: {
+			special: [
+				'Vulcan Minigun'
+			]
+		}
 	},
 	'The Stump Barrel': {
 		name: 'The Stump Barrel',
@@ -1633,9 +1781,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 12,
 			concealment: 3
 		},
-		compatibleWeapons: [
-			primarySpecials['Vulcan Minigun']
-		]
+		compatibleWeapons: {
+			special: [
+				'Vulcan Minigun'
+			]
+		}
 	},
 	'Short Barrel (Piglet)': {
 		name: 'Short Barrel (Piglet)',
@@ -1651,9 +1801,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 20,
 			concealment: 2
 		},
-		compatibleWeapons: [
-			primarySpecials['Piglet Grenade Launcher']
-		]
+		compatibleWeapons: {
+			special: [
+				'Piglet Grenade Launcher'
+			]
+		}
 	},
 	'Prototype Barrel (White Streak)': {
 		name: 'Prototype Barrel (White Streak)',
@@ -1668,9 +1820,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 4,
 			concealment: -1
 		},
-		compatibleWeapons: [
-			pistols['White Streak Pistol']
-		],
+		compatibleWeapons: {
+			pistol: [
+				'White Streak Pistol'
+			]
+		},
 		incompatibleSlot: [] // Suppressors
 	},
 	'Threaded Barrel (M13)': {
@@ -1684,9 +1838,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -4,
 			concealment: -1
 		},
-		compatibleWeapons: [
-			pistols['M13 9mm Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'M13 9mm Pistol'
+			]
+		}
 	},
 	'Pesante Barrel': {
 		name: 'Pesante Barrel',
@@ -1698,9 +1854,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			pistols['Matever .357 Revolver']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Matever .357 Revolver'
+			]
+		}
 	},
 	'Medio Barrel': {
 		name: 'Medio Barrel',
@@ -1712,9 +1870,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -4,
 			concealment: 2
 		},
-		compatibleWeapons: [
-			pistols['Matever .357 Revolver']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Matever .357 Revolver'
+			]
+		}
 	},
 	'Pisccolo Barrel': {
 		name: 'Pisccolo Barrel',
@@ -1726,9 +1886,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -8,
 			concealment: 4
 		},
-		compatibleWeapons: [
-			pistols['Matever .357 Revolver']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Matever .357 Revolver'
+			]
+		}
 	},
 	'Ported Barrel': {
 		name: 'Ported Barrel',
@@ -1739,9 +1901,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 		stats: {
 			accuracy: 4
 		},
-		compatibleWeapons: [
-			pistols['Baby Deagle']
-		],
+		compatibleWeapons: {
+			pistol: [
+				'Baby Deagle'
+			]
+		},
 		incompatibleSlot: ['Barrel Ext']
 	},
 	'Threaded Barrel (Baby Deagle)': {
@@ -1753,9 +1917,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 		stats: {
 			stability: 4
 		},
-		compatibleWeapons: [
-			pistols['Baby Deagle']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Baby Deagle'
+			]
+		}
 	},
 	'Weller Barrel': {
 		name: 'Weller Barrel',
@@ -1772,9 +1938,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -5,
 			threat: 14
 		},
-		compatibleWeapons: [
-			pistols['Bernetti Auto Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Bernetti Auto Pistol'
+			]
+		}
 	},
 	'Sicario Barrel': {
 		name: 'Sicario Barrel',
@@ -1790,9 +1958,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -2,
 			threat: 2
 		},
-		compatibleWeapons: [
-			pistols['Czech 92 Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Czech 92 Pistol'
+			]
+		}
 	},
 	'Tirador Barrel': {
 		name: 'Tirador Barrel',
@@ -1805,9 +1975,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -2,
 			threat: 2
 		},
-		compatibleWeapons: [
-			pistols['Igor Automatik Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Igor Automatik Pistol'
+			]
+		}
 	},
 	'Opera Long Barrel': {
 		name: 'Opera Long Barrel',
@@ -1820,9 +1992,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 8,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			pistols['Frenchman Model 87 Revolver']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Frenchman Model 87 Revolver'
+			]
+		}
 	},
 	'Napoleon Barrel': {
 		name: 'Napoleon Barrel',
@@ -1834,9 +2008,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -4,
 			concealment: 2
 		},
-		compatibleWeapons: [
-			pistols['Frenchman Model 87 Revolver']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Frenchman Model 87 Revolver'
+			]
+		}
 	},
 	'Stubby Barrel': {
 		name: 'Stubby Barrel',
@@ -1848,9 +2024,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -4,
 			concealment: 3
 		},
-		compatibleWeapons: [
-			submachineGuns['Chicago Typewriter Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'Chicago Typewriter Submachine Gun'
+			]
+		}
 	},
 	'Long Barrel (Chicago Typewriter)': {
 		name: 'Long Barrel (Chicago Typewriter)',
@@ -1862,9 +2040,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 4,
 			concealment: -3
 		},
-		compatibleWeapons: [
-			submachineGuns['Chicago Typewriter Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'Chicago Typewriter Submachine Gun'
+			]
+		}
 	},
 	'Medium Barrel (Para)': {
 		name: 'Medium Barrel (Para)',
@@ -1876,9 +2056,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 4,
 			concealment: -1
 		},
-		compatibleWeapons: [
-			submachineGuns['Para Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'Para Submachine Gun'
+			]
+		}
 	},
 	'Long Barrel (Kobus)': {
 		name: 'Long Barrel (Kobus)',
@@ -1892,9 +2074,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 12,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			submachineGuns['Kobus 90 Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'Kobus 90 Submachine Gun'
+			]
+		}
 	},
 	'Civilian Market Barrel': {
 		name: 'Civilian Market Barrel',
@@ -1911,9 +2095,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -8,
 			concealment: -4
 		},
-		compatibleWeapons: [
-			submachineGuns['Kobus 90 Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'Kobus 90 Submachine Gun'
+			]
+		}
 	},
 	'Mall Ninja Barrel': {
 		name: 'Mall Ninja Barrel',
@@ -1929,9 +2115,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 12,
 			threat: -18
 		},
-		compatibleWeapons: [
-			submachineGuns['Kobus 90 Submachine Gun']
-		],
+		compatibleWeapons: {
+			submachineGun: [
+				'Kobus 90 Submachine Gun'
+			]
+		},
 		incompatibleSlot: ['Barrel Ext']
 	},
 	'Grease Barrel': {
@@ -1944,9 +2132,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -8,
 			concealment: 3
 		},
-		compatibleWeapons: [
-			submachineGuns['Swedish K Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'Swedish K Submachine Gun'
+			]
+		}
 	},
 	'Swedish Barrel': {
 		name: 'Swedish Barrel',
@@ -1958,9 +2148,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 4,
 			concealment: -1
 		},
-		compatibleWeapons: [
-			submachineGuns['Swedish K Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'Swedish K Submachine Gun'
+			]
+		}
 	},
 	'Short Barrel (Blaster)': {
 		name: 'Short Barrel (Blaster)',
@@ -1976,9 +2168,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: 3
 		},
-		compatibleWeapons: [
-			submachineGuns['Blaster 9mm Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'Blaster 9mm Submachine Gun'
+			]
+		}
 	},
 	'Ghetto Blaster': {
 		name: 'Ghetto Blaster',
@@ -1994,9 +2188,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -8,
 			concealment: -3
 		},
-		compatibleWeapons: [
-			submachineGuns['Blaster 9mm Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'Blaster 9mm Submachine Gun'
+			]
+		}
 	},
 	'Long Barrel (Patchett)': {
 		name: 'Long Barrel (Patchett)',
@@ -2013,9 +2209,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			submachineGuns['Patchett L2A1 Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'Patchett L2A1 Submachine Gun'
+			]
+		}
 	},
 	'Short Barrel (Patchett)': {
 		name: 'Short Barrel (Patchett)',
@@ -2032,9 +2230,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: 1
 		},
-		compatibleWeapons: [
-			submachineGuns['Patchett L2A1 Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'Patchett L2A1 Submachine Gun'
+			]
+		}
 	},
 	'Heatsinked Suppressed Barrel (Patchett)': {
 		name: 'Heatsinked Suppressed Barrel (Patchett)',
@@ -2052,9 +2252,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -1,
 			threat: -18
 		},
-		compatibleWeapons: [
-			submachineGuns['Patchett L2A1 Submachine Gun']
-		],
+		compatibleWeapons: {
+			submachineGun: [
+				'Patchett L2A1 Submachine Gun'
+			]
+		},
 		incompatibleSlot: ['Barrel Ext']
 	},
 	'Suppressed Barrel (Patchett)': {
@@ -2073,9 +2275,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -2,
 			threat: -18
 		},
-		compatibleWeapons: [
-			submachineGuns['Patchett L2A1 Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'Patchett L2A1 Submachine Gun'
+			]
+		}
 	},
 	'Custom Barrel': {
 		name: 'Custom Barrel',
@@ -2090,9 +2294,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: 4,
 			concealment: -1
 		},
-		compatibleWeapons: [
-			submachineGuns['Micro Uzi Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'Micro Uzi Submachine Gun'
+			]
+		}
 	},
 	'Medium Barrel (CR)': {
 		name: 'Medium Barrel (CR)',
@@ -2104,9 +2310,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -4,
 			concealment: 2
 		},
-		compatibleWeapons: [
-			submachineGuns['CR 805B Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'CR 805B Submachine Gun'
+			]
+		}
 	},
 	'Short Barrel (CR)': {
 		name: 'Short Barrel (CR)',
@@ -2118,9 +2326,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -12,
 			concealment: 5
 		},
-		compatibleWeapons: [
-			submachineGuns['CR 805B Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'CR 805B Submachine Gun'
+			]
+		}
 	},
 	'MG8 Precision Barrel': {
 		name: 'MG8 Precision Barrel',
@@ -2133,9 +2343,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			submachineGuns['AK Gen 21 Tactical Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'AK Gen 21 Tactical Submachine Gun'
+			]
+		}
 	},
 	'BY90 Wide Suppressor': {
 		name: 'BY90 Wide Suppressor',
@@ -2149,9 +2361,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -1,
 			threat: -16.8
 		},
-		compatibleWeapons: [
-			submachineGuns['AK Gen 21 Tactical Submachine Gun']
-		]
+		compatibleWeapons: {
+			submachineGun: [
+				'AK Gen 21 Tactical Submachine Gun'
+			]
+		}
 	},
 	'Sawed Off Barrel (Claire)': {
 		name: 'Sawed Off Barrel (Claire)',
@@ -2164,9 +2378,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -16,
 			concealment: 10
 		},
-		compatibleWeapons: [
-			secondaryShotguns['Claire 12G Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'Claire 12G Shotgun'
+			]
+		}
 	},
 	'Long Barrel (Street Sweeper)': {
 		name: 'Long Barrel (Street Sweeper)',
@@ -2182,9 +2398,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			secondaryShotguns['Street Sweeper Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'Claire 12G Shotgun'
+			]
+		}
 	},
 	'Suppressed Barrel (Street Sweeper)': {
 		name: 'Suppressed Barrel (Street Sweeper)',
@@ -2203,9 +2421,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			concealment: -2,
 			threat: -22
 		},
-		compatibleWeapons: [
-			secondaryShotguns['Street Sweeper Shotgun']
-		],
+		compatibleWeapons: {
+			shotgun: [
+				'Street Sweeper Shotgun'
+			]
+		},
 		incompatibleSlot: ['Barrel Ext']
 	},
 	'Riot Barrel': {
@@ -2218,9 +2438,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			accuracy: -8,
 			concealment: 2
 		},
-		compatibleWeapons: [
-			secondaryShotguns['GSPS 12G Shotgun']
-		]
+		compatibleWeapons: {
+			shotgun: [
+				'GSPS 12G Shotgun'
+			]
+		}
 	},
 	'Carbon Limb': {
 		name: 'Carbon Limb',
@@ -2234,9 +2456,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 		stats: {
 			concealment: 1
 		},
-		compatibleWeapons: [
-			secondarySpecials['Pistol Crossbow']
-		]
+		compatibleWeapons: {
+			special: [
+				'Pistol Crossbow'
+			]
+		}
 	},
 	'Skeletal Limb': {
 		name: 'Skeletal Limb',
@@ -2250,9 +2474,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 		stats: {
 			concealment: 1
 		},
-		compatibleWeapons: [
-			secondarySpecials['Pistol Crossbow']
-		]
+		compatibleWeapons: {
+			special: [
+				'Pistol Crossbow'
+			]
+		}
 	},
 	'Bombardier Barrel': {
 		name: 'Bombardier Barrel',
@@ -2268,9 +2494,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: -4,
 			concealment: 2
 		},
-		compatibleWeapons: [
-			secondarySpecials['Arbiter Grenade Launcher']
-		]
+		compatibleWeapons: {
+			special: [
+				'Arbiter Grenade Launcher'
+			]
+		}
 	},
 	'Long Barrel (Arbiter)': {
 		name: 'Long Barrel (Arbiter)',
@@ -2286,9 +2514,11 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			stability: 4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			secondarySpecials['Arbiter Grenade Launcher']
-		]
+		compatibleWeapons: {
+			special: [
+				'Arbiter Grenade Launcher'
+			]
+		}
 	}
 }
 

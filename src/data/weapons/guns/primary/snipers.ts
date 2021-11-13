@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-type SniperList =
+export type SniperList =
 	'Rattlesnake Sniper Rifle' |
 	'R700 Sniper Rifle' |
 	'Bernetti Rangehitter Sniper Rifle' |

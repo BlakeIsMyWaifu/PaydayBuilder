@@ -1,37 +1,42 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import assaultRifles from '../primary/assaultRifles'
-import lightMachineGuns from '../primary/lightMachineGuns'
-import primaryShotguns from '../primary/shotgunsPrimary'
-import snipers from '../primary/snipers'
-import primarySpecials from '../primary/specialsPrimary'
-import secondaryShotguns from '../secondary/shotgunsSecondary'
-import submachineGuns from '../secondary/submachineGuns'
-import { WeaponData, WeaponModificationList } from '../weaponTypes'
+import { CompatibleWeapons, WeaponModificationList } from '../weaponTypes'
 
-const mainGuns: WeaponData[] = [
-	assaultRifles['AK Rifle'],
-	assaultRifles['AK.762'],
-	assaultRifles['Golden AK.762 Rifle'],
-	assaultRifles['AK17 Rifle'],
-	assaultRifles['AMCAR Rifle'],
-	assaultRifles['CAR-4 Rifle'],
-	assaultRifles['AMR-16 Rifle'],
-	assaultRifles['Bootleg Rifle'],
-	assaultRifles['Commando 553 Rifle'],
-	primaryShotguns['Reinfeld 880 Shotgun'],
-	primaryShotguns['IZHMA 12G Shotgun'],
-	snipers['Contractor .308 Sniper Rifle'],
-	lightMachineGuns['KSP Light Machine Gun'],
-	lightMachineGuns['RPK Light Machine Gun'],
-	primarySpecials['Piglet Grenade Launcher'],
-	submachineGuns['Para Submachine Gun'],
-	submachineGuns['Krinkov Submachine Gun'],
-	submachineGuns['Jacket\'s Piece'],
-	submachineGuns['Kross Vertex Submachine Gun'],
-	secondaryShotguns['Locomotive 12G Shotgun']
-]
+const mainGuns: CompatibleWeapons = {
+	assaultRifle: [
+		'AK Rifle',
+		'AK.762',
+		'Golden AK.762 Rifle',
+		'AK17 Rifle',
+		'AMCAR Rifle',
+		'CAR-4 Rifle',
+		'AMR-16 Rifle',
+		'Bootleg Rifle',
+		'Commando 553 Rifle'
+	],
+	shotgun: [
+		'Reinfeld 880 Shotgun',
+		'IZHMA 12G Shotgun',
+		'Locomotive 12G Shotgun'
+	],
+	sniper: [
+		'Contractor .308 Sniper Rifle'
+	],
+	lightMachineGun: [
+		'KSP Light Machine Gun',
+		'RPK Light Machine Gun'
+	],
+	special: [
+		'Piglet Grenade Launcher'
+	],
+	submachineGun: [
+		'Para Submachine Gun',
+		'Krinkov Submachine Gun',
+		'Jacket\'s Piece',
+		'Kross Vertex Submachine Gun'
+	]
+}
 
 export type StockModificationsList =
 	'Standard Stock' |
@@ -57,20 +62,28 @@ const stock: WeaponModificationList<StockModificationsList> = {
 			stability: 4,
 			concealment: -1
 		},
-		compatibleWeapons: [
-			assaultRifles['AK Rifle'],
-			assaultRifles['AK.762'],
-			assaultRifles['Golden AK.762 Rifle'],
-			primaryShotguns['Reinfeld 880 Shotgun'],
-			primaryShotguns['IZHMA 12G Shotgun'],
-			lightMachineGuns['RPK Light Machine Gun'],
-			lightMachineGuns['KSP Light Machine Gun'],
-			submachineGuns['Para Submachine Gun'],
-			submachineGuns['Krinkov Submachine Gun'],
-			submachineGuns['Jacket\'s Piece'],
-			submachineGuns['Kross Vertex Submachine Gun'],
-			secondaryShotguns['Locomotive 12G Shotgun']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'AK Rifle',
+				'AK.762',
+				'Golden AK.762 Rifle'
+			],
+			shotgun: [
+				'Reinfeld 880 Shotgun',
+				'IZHMA 12G Shotgun',
+				'Locomotive 12G Shotgun'
+			],
+			lightMachineGun: [
+				'RPK Light Machine Gun',
+				'KSP Light Machine Gun'
+			],
+			submachineGun: [
+				'Para Submachine Gun',
+				'Krinkov Submachine Gun',
+				'Jacket\'s Piece',
+				'Kross Vertex Submachine Gun'
+			]
+		}
 	},
 	'Tactical Stock': {
 		name: 'Tactical Stock',
@@ -94,12 +107,18 @@ const stock: WeaponModificationList<StockModificationsList> = {
 			stability: -4,
 			concealment: 2
 		},
-		compatibleWeapons: [
-			assaultRifles['AK.762'],
-			assaultRifles['Golden AK.762 Rifle'],
-			primaryShotguns['IZHMA 12G Shotgun'],
-			submachineGuns['Krinkov Submachine Gun']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'AK.762',
+				'Golden AK.762 Rifle'
+			],
+			shotgun: [
+				'IZHMA 12G Shotgun'
+			],
+			submachineGun: [
+				'Krinkov Submachine Gun'
+			]
+		}
 	},
 	'Wooden Sniper Stock': {
 		name: 'Wooden Sniper Stock',
@@ -111,13 +130,19 @@ const stock: WeaponModificationList<StockModificationsList> = {
 			accuracy: 12,
 			concealment: -3
 		},
-		compatibleWeapons: [
-			assaultRifles['AK Rifle'],
-			assaultRifles['AK.762'],
-			assaultRifles['Golden AK.762 Rifle'],
-			primaryShotguns['IZHMA 12G Shotgun'],
-			submachineGuns['Krinkov Submachine Gun']
-		],
+		compatibleWeapons: {
+			assaultRifle: [
+				'AK Rifle',
+				'AK.762',
+				'Golden AK.762 Rifle'
+			],
+			shotgun: [
+				'IZHMA 12G Shotgun'
+			],
+			submachineGun: [
+				'Krinkov Submachine Gun'
+			]
+		},
 		incompatibleSlot: ['Grip']
 	},
 	'Wide Stock': {
@@ -165,14 +190,22 @@ const stock: WeaponModificationList<StockModificationsList> = {
 			stability: 12,
 			concealment: -4
 		},
-		compatibleWeapons: [
-			assaultRifles['AK Rifle'],
-			assaultRifles['AK.762'],
-			assaultRifles['Golden AK.762 Rifle'],
-			primaryShotguns['IZHMA 12G Shotgun'],
-			lightMachineGuns['RPK Light Machine Gun'],
-			submachineGuns['Krinkov Submachine Gun']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'AK Rifle',
+				'AK.762',
+				'Golden AK.762 Rifle'
+			],
+			shotgun: [
+				'IZHMA 12G Shotgun'
+			],
+			lightMachineGun: [
+				'RPK Light Machine Gun'
+			],
+			submachineGun: [
+				'Krinkov Submachine Gun'
+			]
+		}
 	},
 	'2 Piece Stock': {
 		name: '2 Piece Stock',
@@ -211,9 +244,11 @@ const stock: WeaponModificationList<StockModificationsList> = {
 			stability: 8,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			assaultRifles['Commando 553 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Commando 553 Rifle'
+			]
+		}
 	}
 }
 

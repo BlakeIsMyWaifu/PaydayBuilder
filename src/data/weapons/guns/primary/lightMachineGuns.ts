@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-type LightMachineGunList =
+export type LightMachineGunList =
 	'RPK Light Machine Gun' |
 	'KSP 58 Light Machine Gun' |
 	'M60 Light Machine Gun' |

@@ -1,8 +1,5 @@
 import content from 'data/source/downloadableContent'
 
-import assaultRifles from '../primary/assaultRifles'
-import primaryShotguns from '../primary/shotgunsPrimary'
-import submachineGuns from '../secondary/submachineGuns'
 import { WeaponModificationList } from '../weaponTypes'
 
 export type ExtraModificationsList =
@@ -24,13 +21,19 @@ const extra: WeaponModificationList<ExtraModificationsList> = {
 			stability: 4,
 			concealment: -1
 		},
-		compatibleWeapons: [
-			assaultRifles['AK Rifle'],
-			assaultRifles['AK.762'],
-			assaultRifles['Golden AK.762 Rifle'],
-			primaryShotguns['IZHMA 12G Shotgun'],
-			submachineGuns['Krinkov Submachine Gun']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'AK Rifle',
+				'AK.762',
+				'Golden AK.762 Rifle'
+			],
+			shotgun: [
+				'IZHMA 12G Shotgun'
+			],
+			submachineGun: [
+				'Krinkov Submachine Gun'
+			]
+		}
 	}
 }
 

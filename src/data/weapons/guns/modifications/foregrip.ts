@@ -1,14 +1,15 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import assaultRifles from '../primary/assaultRifles'
-import { WeaponData, WeaponModificationList } from '../weaponTypes'
+import { CompatibleWeapons, WeaponModificationList } from '../weaponTypes'
 
-const AKRifles: WeaponData[] = [
-	assaultRifles['AK Rifle'],
-	assaultRifles['AK.762'],
-	assaultRifles['Golden AK.762 Rifle']
-]
+const AKRifles: CompatibleWeapons = {
+	assaultRifle: [
+		'AK Rifle',
+		'AK.762',
+		'Golden AK.762 Rifle'
+	]
+}
 
 export type ForegripModificationsList =
 	// AK Rifle, AK.762, Golden AK.762
@@ -121,9 +122,11 @@ const foregrip: WeaponModificationList<ForegripModificationsList> = {
 			accuracy: 4,
 			concealment: -4
 		},
-		compatibleWeapons: [
-			assaultRifles['Commando 553 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Commando 553 Rifle'
+			]
+		}
 	},
 	'Railed Foregrip': {
 		name: 'Railed Foregrip',
@@ -135,9 +138,11 @@ const foregrip: WeaponModificationList<ForegripModificationsList> = {
 			stability: 20,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			assaultRifles['Commando 553 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Commando 553 Rifle'
+			]
+		}
 	}
 }
 

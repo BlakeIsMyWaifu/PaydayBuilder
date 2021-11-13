@@ -1,61 +1,64 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
+import { akimboShotgunList, assaultRifleList, lightMachineGunList } from '../gunList'
 
-import akimboShotuns from '../primary/akimboShotuns'
-import assaultRifles from '../primary/assaultRifles'
-import lightMachineGuns from '../primary/lightMachineGuns'
-import primaryShotguns from '../primary/shotgunsPrimary'
-import snipers from '../primary/snipers'
-import primarySpecials from '../primary/specialsPrimary'
-import secondaryShotguns from '../secondary/shotgunsSecondary'
-import secondarySpecials from '../secondary/specialsSecondary'
-import { WeaponData, WeaponModificationList } from '../weaponTypes'
+import { CompatibleWeapons, WeaponModificationList } from '../weaponTypes'
 
-const mainSnipers: WeaponData[] = [
-	snipers['Platypus 70 Sniper Rifle'],
-	snipers['Rattlesnake Sniper Rifle'],
-	snipers['R93 Sniper Rifle'],
-	snipers['Thanatos .50 cal Sniper Rifle'],
-	snipers['Nagant Sniper Rifle'],
-	snipers['Lebensauger .308 Sniper Rifle'],
-	snipers['Desertfox Sniper Rifle'],
-	snipers['Contractor .308 Sniper Rifle'],
-	snipers['Grom Sniper Rifle'],
-	snipers['R700 Sniper Rifle'],
-	snipers['Bernetti Rangehitter Sniper Rifle']
-]
+const mainSnipers: CompatibleWeapons = {
+	sniper: [
+		'Platypus 70 Sniper Rifle',
+		'Rattlesnake Sniper Rifle',
+		'R93 Sniper Rifle',
+		'Thanatos .50 cal Sniper Rifle',
+		'Nagant Sniper Rifle',
+		'Lebensauger .308 Sniper Rifle',
+		'Desertfox Sniper Rifle',
+		'Contractor .308 Sniper Rifle',
+		'Grom Sniper Rifle',
+		'R700 Sniper Rifle',
+		'Bernetti Rangehitter Sniper Rifle'
+	]
+}
 
-const mainGuns: WeaponData[] = [
-	...Object.values(assaultRifles),
-	primaryShotguns['Predator 12G Shotgun'],
-	primaryShotguns['Reinfeld 880 Shotgun'],
-	primaryShotguns['IZHMA 12G Shotgun'],
-	primaryShotguns['M1014 Shotgun'],
-	primaryShotguns['Raven Shotgun'],
-	primaryShotguns['Steakout 12G Shotgun'],
-	primaryShotguns['Breaker 12G Shotgun'],
-	primaryShotguns['Reinfeld 88 Shotgun'],
-	primaryShotguns['Mosconi 12G Tactical Shotgun'],
-	...Object.values(akimboShotuns),
-	...mainSnipers,
-	...Object.values(lightMachineGuns),
-	primarySpecials['Vulcan Minigun'],
-	primarySpecials['Piglet Grenade Launcher'],
-	secondaryShotguns['The Judge Shotgun'],
-	secondaryShotguns['Locomotive 12G Shotgun'],
-	secondaryShotguns['Goliath 12G Shotgun'],
-	secondaryShotguns['Grimm 12G Shotgun'],
-	secondaryShotguns['Street Sweeper Shotgun'],
-	secondaryShotguns['GSPS 12G Shotgun'],
-	secondarySpecials['Arbiter Grenade Launcher']
-]
+const mainGuns: CompatibleWeapons = {
+	assaultRifle: assaultRifleList,
+	shotgun: [
+		// primary
+		'Predator 12G Shotgun',
+		'Reinfeld 880 Shotgun',
+		'IZHMA 12G Shotgun',
+		'M1014 Shotgun',
+		'Raven Shotgun',
+		'Steakout 12G Shotgun',
+		'Breaker 12G Shotgun',
+		'Reinfeld 88 Shotgun',
+		'Mosconi 12G Tactical Shotgun',
+		// secondary
+		'The Judge Shotgun',
+		'Locomotive 12G Shotgun',
+		'Goliath 12G Shotgun',
+		'Grimm 12G Shotgun',
+		'Street Sweeper Shotgun',
+		'GSPS 12G Shotgun',
+	],
+	akimboShotgun: akimboShotgunList,
+	sniper: Object.values(mainSnipers),
+	lightMachineGun: lightMachineGunList,
+	special: [
+		'Vulcan Minigun',
+		'Piglet Grenade Launcher',
+		'Arbiter Grenade Launcher'
+	]
+}
 
-const gunsWithSights: WeaponData[] = [
-	...Object.values(assaultRifles),
-	...mainSnipers,
-	secondarySpecials['Arbiter Grenade Launcher'],
-	secondarySpecials['HRL-7 Rocket Launcher']
-]
+const gunsWithSights: CompatibleWeapons = {
+	assaultRifle: assaultRifleList,
+	sniper: Object.values(mainSnipers),
+	special: [
+		'Arbiter Grenade Launcher',
+		'HRL-7 Rocket Launcher'
+	]
+}
 
 export type GadgetModificationsList =
 	// main guns

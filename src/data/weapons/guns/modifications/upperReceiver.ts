@@ -1,6 +1,5 @@
 import content from 'data/source/downloadableContent'
 
-import assaultRifles from '../primary/assaultRifles'
 import { WeaponModificationList } from '../weaponTypes'
 
 export type UpperReceiverModificationsList =
@@ -19,9 +18,11 @@ const upperReciever: WeaponModificationList<UpperReceiverModificationsList> = {
 			accuracy: -4,
 			concealment: 4
 		},
-		compatibleWeapons: [
-			assaultRifles['Commando 553 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'Commando 553 Rifle'
+			]
+		}
 	}
 }
 

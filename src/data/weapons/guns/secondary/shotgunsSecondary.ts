@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-type SecondaryShotgunList =
+export type SecondaryShotgunList =
 	'Locomotive 12G Shotgun' |
 	'GSPS 12G Shotgun' |
 	'Goliath 12G Shotgun' |

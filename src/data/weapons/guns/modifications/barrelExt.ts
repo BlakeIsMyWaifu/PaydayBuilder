@@ -1,47 +1,46 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
+import { assaultRifleList, lightMachineGunList, shotgunList, submachineGunList } from '../gunList'
 
-import assaultRifles from '../primary/assaultRifles'
-import lightMachineGuns from '../primary/lightMachineGuns'
-import shotguns from '../primary/shotgunsPrimary'
-import snipers from '../primary/snipers'
-import pistols from '../secondary/pistols'
-import submachineGuns from '../secondary/submachineGuns'
-import { WeaponData, WeaponModificationList } from '../weaponTypes'
+import { CompatibleWeapons, WeaponModificationList } from '../weaponTypes'
 
-const autoGuns: WeaponData[] = [
-	Object.values(assaultRifles),
-	Object.values(submachineGuns),
-	Object.values(lightMachineGuns)
-].flat()
+const autoGuns: CompatibleWeapons = {
+	assaultRifle: assaultRifleList,
+	submachineGun: submachineGunList,
+	lightMachineGun: lightMachineGunList
+}
 
-const mainPistols: WeaponData[] = [
-	pistols['Interceptor 45 Pistol'],
-	pistols['Chimano Custom Pistol'],
-	pistols['Chimano Compact Pistol'],
-	pistols['Chimano 88 Pistol'],
-	pistols['Crosskill Pistol'],
-	pistols['Bernetti 9 Pistol'],
-	pistols['Bronco .44 Pistol'],
-	pistols['White Streak Pistol'],
-	pistols['STRYK 18c Pistol'],
-	pistols['Deagle Pistol'],
-	pistols['M13 9mm Pistol'],
-	pistols['Gruber Kurz Pistol'],
-	pistols['Signature .40 Pistol'],
-	pistols['LEO Pistol'],
-	pistols['Baby Deagle'],
-	pistols['Bernetti Auto Pistol'],
-	pistols['Czech 92 Pistol'],
-	pistols['Igor Automatik Pistol'],
-	pistols['HOLT 9mm Pistol'],
-	pistols['Crosskill Chunky Compact Pistol']
-]
+const mainPistols: CompatibleWeapons = {
+	pistol: [
+		'Interceptor 45 Pistol',
+		'Chimano Custom Pistol',
+		'Chimano Compact Pistol',
+		'Chimano 88 Pistol',
+		'Crosskill Pistol',
+		'Bernetti 9 Pistol',
+		'Bronco .44 Pistol',
+		'White Streak Pistol',
+		'STRYK 18c Pistol',
+		'Deagle Pistol',
+		'M13 9mm Pistol',
+		'Gruber Kurz Pistol',
+		'Signature .40 Pistol',
+		'LEO Pistol',
+		'Baby Deagle',
+		'Bernetti Auto Pistol',
+		'Czech 92 Pistol',
+		'Igor Automatik Pistol',
+		'HOLT 9mm Pistol',
+		'Crosskill Chunky Compact Pistol'
+	]
+}
 
-const mainPistolsWithBroomstick = [
-	...mainPistols,
-	pistols['Broomstick Pistol']
-]
+const mainPistolsWithBroomstick: CompatibleWeapons = {
+	pistol: [
+		...Object.values(mainPistols),
+		'Broomstick Pistol'
+	]
+}
 
 export type BarrelExtModificationsList =
 	// Assault Rifles
@@ -270,15 +269,21 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -5,
 			threat: -22
 		},
-		compatibleWeapons: [
-			assaultRifles['AK Rifle'],
-			assaultRifles['AK.762'],
-			submachineGuns['Krinkov Submachine Gun'],
-			assaultRifles['AK17 Rifle'],
-			lightMachineGuns['RPK Light Machine Gun'],
-			submachineGuns['Tatonka Submachine Gun'],
-			assaultRifles['Golden AK.762 Rifle']
-		]
+		compatibleWeapons: {
+			assaultRifle: [
+				'AK Rifle',
+				'AK.762',
+				'Golden AK.762 Rifle',
+				'AK17 Rifle'
+			],
+			lightMachineGun: [
+				'RPK Light Machine Gun'
+			],
+			submachineGun: [
+				'Krinkov Submachine Gun',
+				'Tatonka Submachine Gun'
+			]
+		}
 	},
 	'Shark Teeth Nozzle': {
 		name: 'Shark Teeth Nozzle',
@@ -293,7 +298,9 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -2,
 			threat: 6
 		},
-		compatibleWeapons: Object.values(shotguns)
+		compatibleWeapons: {
+			shotgun: shotgunList
+		}
 	},
 	'The Silent Killer Suppressor': {
 		name: 'The Silent Killer Suppressor',
@@ -308,7 +315,9 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -2,
 			threat: -22
 		},
-		compatibleWeapons: Object.values(shotguns)
+		compatibleWeapons: {
+			shotgun: shotgunList
+		}
 	},
 	'King\'s Crown Compensator': {
 		name: 'King\'s Crown Compensator',
@@ -325,7 +334,9 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -2,
 			threat: 18.8
 		},
-		compatibleWeapons: Object.values(shotguns)
+		compatibleWeapons: {
+			shotgun: shotgunList
+		}
 	},
 	'Shh!': {
 		name: 'Shh!',
@@ -344,7 +355,9 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -4,
 			threat: -22
 		},
-		compatibleWeapons: Object.values(shotguns)
+		compatibleWeapons: {
+			shotgun: shotgunList
+		}
 	},
 	'Donald\'s Horizontal Leveller': {
 		name: 'Donald\'s Horizontal Leveller',
@@ -361,7 +374,9 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			stability: 8,
 			concealment: -2
 		},
-		compatibleWeapons: Object.values(shotguns)
+		compatibleWeapons: {
+			shotgun: shotgunList
+		}
 	},
 	'Beak Suppressor': {
 		name: 'Beak Suppressor',
@@ -376,9 +391,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -2,
 			threat: -22
 		},
-		compatibleWeapons: [
-			snipers['Platypus 70 Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Platypus 70 Sniper Rifle'
+			]
+		}
 	},
 	'Sniper Suppressor': {
 		name: 'Sniper Suppressor',
@@ -397,9 +414,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -2,
 			threat: -22
 		},
-		compatibleWeapons: [
-			snipers['Rattlesnake Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Rattlesnake Sniper Rifle'
+			]
+		}
 	},
 	'Langer Barrel': {
 		name: 'Langer Barrel',
@@ -411,9 +430,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			accuracy: 4,
 			concealment: -3
 		},
-		compatibleWeapons: [
-			snipers['Lebensauger .308 Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Lebensauger .308 Sniper Rifle'
+			]
+		}
 	},
 	'Gedämpfter Barrel': {
 		name: 'Gedämpfter Barrel',
@@ -429,9 +450,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -2,
 			threat: -18
 		},
-		compatibleWeapons: [
-			snipers['Lebensauger .308 Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Lebensauger .308 Sniper Rifle'
+			]
+		}
 	},
 	'Contractor Silencer': {
 		name: 'Contractor Silencer',
@@ -446,9 +469,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -2,
 			threat: -18
 		},
-		compatibleWeapons: [
-			snipers['Contractor .308 Sniper Rifle']
-		]
+		compatibleWeapons: {
+			sniper: [
+				'Contractor .308 Sniper Rifle'
+			]
+		}
 	},
 	'IPSC Compensator': {
 		name: 'IPSC Compensator',
@@ -654,9 +679,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -1,
 			threat: 5
 		},
-		compatibleWeapons: [
-			pistols['Interceptor 45 Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Interceptor 45 Pistol'
+			]
+		}
 	},
 	'Velocity .45': {
 		name: 'Velocity .45',
@@ -669,9 +696,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			stability: 8,
 			concealment: -1
 		},
-		compatibleWeapons: [
-			pistols['Interceptor 45 Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Interceptor 45 Pistol'
+			]
+		}
 	},
 	'Ventilated Compensator': {
 		name: 'Ventilated Compensator',
@@ -685,10 +714,12 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -1,
 			threat: 5
 		},
-		compatibleWeapons: [
-			pistols['STRYK 18c Pistol'],
-			pistols['Chimano Custom Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'STRYK 18c Pistol',
+				'Chimano Custom Pistol'
+			]
+		}
 	},
 	'Velocity Compensator': {
 		name: 'Velocity Compensator',
@@ -702,10 +733,12 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -1,
 			threat: 1
 		},
-		compatibleWeapons: [
-			pistols['STRYK 18c Pistol'],
-			pistols['Chimano Custom Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'STRYK 18c Pistol',
+				'Chimano Custom Pistol'
+			]
+		}
 	},
 	'Aggressor Comensator': {
 		name: 'Aggressor Comensator',
@@ -719,9 +752,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -1,
 			threat: 1
 		},
-		compatibleWeapons: [
-			pistols['Crosskill Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Crosskill Pistol'
+			]
+		}
 	},
 	'Punisher Compensator': {
 		name: 'Punisher Compensator',
@@ -735,9 +770,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -1,
 			threat: 10
 		},
-		compatibleWeapons: [
-			pistols['Crosskill Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Crosskill Pistol'
+			]
+		}
 	},
 	'The Competitor Compensator': {
 		name: 'The Competitor Compensator',
@@ -750,9 +787,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -1,
 			threat: 6
 		},
-		compatibleWeapons: [
-			pistols['Bernetti 9 Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Bernetti 9 Pistol'
+			]
+		}
 	},
 	'The Professional Compensator': {
 		name: 'The Professional Compensator',
@@ -766,9 +805,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			stability: 4,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			pistols['Bernetti 9 Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Bernetti 9 Pistol'
+			]
+		}
 	},
 	'La Femme Compensator': {
 		name: 'La Femme Compensator',
@@ -782,9 +823,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -1,
 			threat: 13
 		},
-		compatibleWeapons: [
-			pistols['Deagle Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Deagle Pistol'
+			]
+		}
 	},
 	'OVERKILL Compensator': {
 		name: 'OVERKILL Compensator',
@@ -797,9 +840,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			stability: 8,
 			concealment: -2
 		},
-		compatibleWeapons: [
-			pistols['Deagle Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Deagle Pistol'
+			]
+		}
 	},
 	'Ventilated .40': {
 		name: 'Ventilated .40',
@@ -813,9 +858,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			concealment: -1,
 			threat: 5
 		},
-		compatibleWeapons: [
-			pistols['Signature .40 Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Signature .40 Pistol'
+			]
+		}
 	},
 	'Velocity .40': {
 		name: 'Velocity .40',
@@ -828,9 +875,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			stability: 8,
 			concealment: -1
 		},
-		compatibleWeapons: [
-			pistols['Signature .40 Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Signature .40 Pistol'
+			]
+		}
 	},
 	'Damper.L 44 Nozzle': {
 		name: 'Damper.L 44 Nozzle',
@@ -847,9 +896,11 @@ const barrelExt: WeaponModificationList<BarrelExtModificationsList> = {
 			stability: 8,
 			concealment: -1
 		},
-		compatibleWeapons: [
-			pistols['Broomstick Pistol']
-		]
+		compatibleWeapons: {
+			pistol: [
+				'Broomstick Pistol'
+			]
+		}
 	}
 }
 

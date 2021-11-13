@@ -1,11 +1,12 @@
 import content from 'data/source/downloadableContent'
 
-import assaultRifles from '../primary/assaultRifles'
-import { WeaponData, WeaponModificationList } from '../weaponTypes'
+import { CompatibleWeapons, WeaponModificationList } from '../weaponTypes'
 
-const fireModeWeapons: WeaponData[] = [
-	assaultRifles['Golden AK.762 Rifle']
-]
+const fireModeWeapons: CompatibleWeapons = {
+	assaultRifle: [
+		'Golden AK.762 Rifle'
+	]
+}
 
 export type CustomModificationsList =
 	'Single Fire' |

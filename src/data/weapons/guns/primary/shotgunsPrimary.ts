@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-type PrimaryShotgunList =
+export type PrimaryShotgunList =
 	'Predator 12G Shotgun' |
 	'Breaker 12G Shotgun' |
 	'Reinfeld 880 Shotgun' |

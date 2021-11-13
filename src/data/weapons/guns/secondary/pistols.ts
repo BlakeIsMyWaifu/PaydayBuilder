@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-type PistolList =
+export type PistolList =
 	'Interceptor 45 Pistol' |
 	'Chimano 88 Pistol' |
 	'Gruber Kurz Pistol' |

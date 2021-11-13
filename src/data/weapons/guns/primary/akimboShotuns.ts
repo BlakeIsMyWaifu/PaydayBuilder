@@ -2,7 +2,7 @@ import source from 'data/source/miscSources'
 
 import { WeaponData } from '../weaponTypes'
 
-type AkimboShotunsList =
+export type AkimboShotunsList =
 	'Akimbo Goliath 12G Shotguns' |
 	'Brothers Grimm 12G Shotguns' |
 	'Akimbo Judge Shotguns'
