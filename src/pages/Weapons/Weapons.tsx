@@ -7,7 +7,7 @@ import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
 import { WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks'
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import { blue, itemColours } from 'utils/colours'
 
 import WeaponInfo from './WeaponInfo/WeaponInfo'
@@ -63,7 +63,7 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 				{
 					selectedTab === 'saved' ?
 						Object.values(armoury).map(({ id, weapon }, i) => {
-							if (i === 0) return <></>
+							if (i === 0) return <Fragment key={'fragment'}></Fragment>
 							return <Item
 								key={`${weapon.name}-${id}`}
 								width={192}

@@ -43,7 +43,9 @@ const Skills: React.FC = () => {
 			}
 		}
 		window.addEventListener('keydown', handleKeys)
-		if (jackOfAllTrades !== 'aced') dispatch(changeEquipment([null, 'secondary']))
+		if (jackOfAllTrades !== 'aced' && equippedEquipment.secondary) {
+			dispatch(changeEquipment([null, 'secondary']))
+		}
 		if (engineering !== 'basic' && engineering !== 'aced') {
 			if (equippedEquipment.primary.name === 'Silenced Sentry Gun') dispatch(changeEquipment([equipmentData[0], 'primary']))
 			if (equippedEquipment.secondary?.name === 'Silenced Sentry Gun') dispatch(changeEquipment([null, 'secondary']))
@@ -51,8 +53,7 @@ const Skills: React.FC = () => {
 		return () => {
 			window.removeEventListener('keydown', handleKeys)
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [currentTree, jackOfAllTrades, engineering, equippedEquipment])
+	}, [currentTree, jackOfAllTrades, engineering, equippedEquipment, dispatch])
 
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"' title='Skills'>
