@@ -34,7 +34,7 @@ const CrewManagement: React.FC = () => {
 			</LoadoutContainer>
 
 			<InfoContainer>
-				<InfoTitle>Temp</InfoTitle>
+				<InfoTitle>Work in progress</InfoTitle>
 			</InfoContainer>
 		</Container>
 	)

@@ -16,6 +16,7 @@ const Melee = lazy(() => import('pages/Melee'))
 const Skills = lazy(() => import('pages/Skills'))
 const PerkDeck = lazy(() => import('pages/PerkDeck'))
 const CrewManagement = lazy(() => import('pages/CrewManagement'))
+const Infamy = lazy(() => import('pages/Infamy'))
 
 const AppRoutes: React.FC = () => {
 	return (
@@ -37,6 +38,7 @@ const AppRoutes: React.FC = () => {
 					<Route path='/skills' element={<Skills />} />
 					<Route path='/perkdeck' element={<PerkDeck />} />
 					<Route path='/crewmanagement' element={<CrewManagement />} />
+					<Route path='/infamy' element={<Infamy />} />
 				</Routes>
 			</Suspense>
 		</Router>
