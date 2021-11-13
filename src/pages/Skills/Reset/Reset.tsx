@@ -1,11 +1,12 @@
 import { resetSkills, resetTree } from 'actions/skillsAction'
+import { TreeNames } from 'data/abilities/skills'
 import { useAppDispatch } from 'hooks'
 import React from 'react'
 
 import { Container, ResetText } from './Reset-Elements'
 
 interface ResetProps {
-	tree: string
+	tree: TreeNames
 }
 
 const Reset: React.FC<ResetProps> = ({ tree }) => {

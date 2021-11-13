@@ -1,4 +1,5 @@
 import actions, { SkillChangeAction } from 'actions/skillsAction'
+import { TreeNames } from 'data/abilities/skills'
 import defaultstate, { SkillUpgradeTypes, SkillsState } from 'defaultStates/skillsDefaultState'
 import { getType } from 'typesafe-actions'
 import skillTreePoints from 'utils/skillTreePoints'
@@ -70,7 +71,7 @@ const skills = (state = defaultstate, action: Record<'type' | 'payload', any>): 
 		case getType(actions.resetSkills):
 			return defaultstate
 		case getType(actions.resetTree): {
-			const tree: string = action.payload
+			const tree: TreeNames = action.payload
 			return {
 				points: state.points + skillTreePoints(tree, state.trees),
 				trees: {

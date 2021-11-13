@@ -21,13 +21,14 @@ const Skills: React.FC = () => {
 
 	const [skillHovered, setSkillHovered] = useState<SkillData | null>(null)
 
+	const treeNameOrder: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
+
 	const scrollTrees = (event: React.WheelEvent) => {
 		const direction = event.deltaY < 0 ? -1 : 1
-		const order: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
-		let index = order.indexOf(currentTree.name)
+		let index = treeNameOrder.indexOf(currentTree.name)
 		index += direction
 		index = index < 0 ? 0 : index > 4 ? 4 : index
-		setCurrentTree(skills[order[index]])
+		setCurrentTree(skills[treeNameOrder[index]])
 	}
 
 	const jackOfAllTrades = useAppSelector(state => state.skills.trees.technician.engineer.upgrades['Jack of All Trades'])
@@ -59,23 +60,36 @@ const Skills: React.FC = () => {
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"' title='Skills'>
 
 			<TreeNamesWrapper onWheel={scrollTrees}>
-				<TreeName onClick={() => setCurrentTree(skills.mastermind)}>Mastermind</TreeName>
-				<TreeName onClick={() => setCurrentTree(skills.enforcer)}>Enforcer</TreeName>
-				<TreeName onClick={() => setCurrentTree(skills.technician)}>Technician</TreeName>
-				<TreeName onClick={() => setCurrentTree(skills.ghost)}>Ghost</TreeName>
-				<TreeName onClick={() => setCurrentTree(skills.fugitive)}>Fugitive</TreeName>
+				{
+					treeNameOrder.map(treeName => {
+						return <TreeName
+							key={treeName}
+							onClick={() => setCurrentTree(skills[treeName])}
+							active={treeName === currentTree.name}
+						>{treeName}</TreeName>
+					})
+				}
 			</TreeNamesWrapper>
 
 			<Tree onWheel={scrollTrees}>
-				<Subtree tree={currentTree} subtree={currentTree.subtrees[0]} setSkillHovered={setSkillHovered} />
-				<Subtree tree={currentTree} subtree={currentTree.subtrees[1]} setSkillHovered={setSkillHovered} />
-				<Subtree tree={currentTree} subtree={currentTree.subtrees[2]} setSkillHovered={setSkillHovered} />
+				{
+					currentTree.subtrees.map(subtree => {
+						return <Subtree
+							key={subtree.name}
+							tree={currentTree}
+							subtree={subtree}
+							setSkillHovered={setSkillHovered}
+						/>
+					})
+				}
 			</Tree>
 
 			<SubtreeLabelWrapper>
-				<SubtreeLabel>{currentTree.subtrees[0].name.replaceAll('_', ' ')}</SubtreeLabel>
-				<SubtreeLabel>{currentTree.subtrees[1].name.replaceAll('_', ' ')}</SubtreeLabel>
-				<SubtreeLabel>{currentTree.subtrees[2].name.replaceAll('_', ' ')}</SubtreeLabel>
+				{
+					currentTree.subtrees.map(subtree => {
+						return <SubtreeLabel key={subtree.name}>{subtree.name.replaceAll('_', ' ')}</SubtreeLabel>
+					})
+				}
 			</SubtreeLabelWrapper>
 
 			<Reset tree={currentTree.name} />

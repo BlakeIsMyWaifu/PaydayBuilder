@@ -4,12 +4,20 @@ import { blue } from 'utils/colours'
 export const TreeNamesWrapper = styled.div`
 	grid-area: treenames;
 	display: flex;
+	gap: 1.5rem;
 `
 
-export const TreeName = styled.h1`
-	padding-right: 2rem;
+interface TreeNameProps {
+	active: boolean;
+}
+
+export const TreeName = styled.p<TreeNameProps>`
+	padding: 0 6px;
 	font-size: 1.6rem;
 	cursor: pointer;
+	color: ${props => props.active && 'black'};
+	text-shadow: ${props => props.active && 'none'};
+	background-color: ${props => props.active && 'white'};
 `
 
 export const Tree = styled.div`

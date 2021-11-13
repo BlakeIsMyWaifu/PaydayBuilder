@@ -1,4 +1,5 @@
 import skillData from 'data/abilities/skills'
+import { useAppSelector } from 'hooks'
 import { HoverInfo } from 'pages/Home/Home'
 import React from 'react'
 import { grey } from 'utils/colours'
@@ -13,13 +14,16 @@ interface SelectorSkillProps {
 }
 
 const SelectorSkills: React.FC<SelectorSkillProps> = ({ infoData, setHoverInfo }) => {
+
+	const currentTrees = useAppSelector(state => state.skills.trees)
+
 	return (
 		<Selector title='skills' setHoverInfo={setHoverInfo} infoData={infoData} >
 			{
 				<SkillsContainer>
 					{
 						Object.keys(skillData).map(tree => {
-							const treePoints = skillTreePoints(tree)
+							const treePoints = skillTreePoints(tree, currentTrees)
 							return <SkillWrapper key={tree}>
 								<SkillsCard />
 								<SkillsAmount colour={treePoints ? '#fff' : grey}>{treePoints}</SkillsAmount>
