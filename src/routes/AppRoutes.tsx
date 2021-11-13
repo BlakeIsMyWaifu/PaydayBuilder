@@ -1,3 +1,4 @@
+import Loader from 'components/Loader'
 import React, { Suspense, lazy } from 'react'
 import { Route, MemoryRouter as Router, Routes } from 'react-router-dom'
 
@@ -19,15 +20,7 @@ const CrewManagement = lazy(() => import('pages/CrewManagement'))
 const AppRoutes: React.FC = () => {
 	return (
 		<Router>
-			<Suspense fallback={
-				<div>
-					<p style={{
-						color: 'white'
-					}}>
-						Loading . . .
-					</p>
-				</div>
-			}>
+			<Suspense fallback={<Loader />}>
 				<Routes>
 					<Route path='/' element={<Home />} />
 
