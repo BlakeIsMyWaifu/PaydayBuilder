@@ -72,7 +72,7 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({ defaultState, callback })
 
 	return (
 		<Container>
-			<Input type='checkbox' checked={isToggled} />
+			<Input type='checkbox' checked={isToggled} readOnly />
 			<Label onClick={() => {
 				setIsToggled(!isToggled)
 				callback(!isToggled)
