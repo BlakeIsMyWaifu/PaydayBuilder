@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link as LinkR } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { blue } from 'utils/colours'
 
@@ -10,6 +10,7 @@ interface AreaProps {
 	title?: string;
 	backButton?: boolean;
 	children?: React.ReactNode;
+	backLocation?: string;
 }
 
 const Area = styled.div<AreaProps>`
@@ -38,7 +39,7 @@ const BackWrapper = styled.div`
 	grid-area: back;
 `
 
-const BackLink = styled(LinkR)`
+const BackLink = styled(Link)`
 	text-decoration: none;
 `
 
@@ -59,7 +60,8 @@ const Container: React.FC<AreaProps> = ({
 	areas = '"title title" "items info" "items back"',
 	title,
 	backButton = true,
-	children
+	children,
+	backLocation = '/'
 }) => {
 	return (
 		<Area columns={columns} rows={rows} areas={areas}>
@@ -70,7 +72,7 @@ const Container: React.FC<AreaProps> = ({
 
 			{
 				backButton && <BackWrapper>
-					<BackLink to='/' onMouseDown={event => event.preventDefault()}>
+					<BackLink to={backLocation} onMouseDown={event => event.preventDefault()}>
 						<BackText>Back</BackText>
 					</BackLink>
 				</BackWrapper>

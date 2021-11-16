@@ -1,8 +1,8 @@
-import { Link as LinkRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { blue, dim } from 'utils/colours'
 
-export const Link = styled(LinkRouter)`
+export const SelectorLink = styled(Link)`
 	text-decoration: none;
 `
 

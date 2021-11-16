@@ -18,19 +18,6 @@ export const WeaponType = styled.h1`
 	}
 `
 
-export const ActionsContainer = styled.div`
-	grid-area: actions;
-`
-
-export const ActionsText = styled.p`
-	font-size: 1.6rem;
-	text-align: end;
-	cursor: pointer;
-	&:hover {
-		color: #fff;
-	}
-`
-
 export const ResetContainer = styled.div`
 	grid-area: resetarmoury;
 `

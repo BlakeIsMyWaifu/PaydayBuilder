@@ -10,6 +10,7 @@ const Armour = lazy(() => import('pages/Armour'))
 const Equipment = lazy(() => import('pages/Equipment'))
 
 const Weapons = lazy(() => import('pages/Weapons'))
+const Blackmarket = lazy(() => import('pages/Blackmarket'))
 const Throwable = lazy(() => import('pages/Throwable'))
 const Melee = lazy(() => import('pages/Melee'))
 
@@ -32,6 +33,7 @@ const AppRoutes: React.FC = () => {
 
 					<Route path='/primary' element={<Weapons slot='primary' />} />
 					<Route path='/secondary' element={<Weapons slot='secondary' />} />
+					<Route path='/blackmarket/:slot/:id' element={<Blackmarket />} />
 					<Route path='/throwable' element={<Throwable />} />
 					<Route path='/melee' element={<Melee />} />
 

@@ -3,18 +3,20 @@ import { changeWeapon } from 'actions/weaponsAction'
 import Container from 'components/Container'
 import { InfoContainer } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
+import { ActionText, ActionsContainer } from 'components/ItemAction'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
-import { WeaponData } from 'data/weapons/guns/weaponTypes'
+import { Slot, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { Fragment, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { blue, itemColours } from 'utils/colours'
 
 import WeaponInfo from './WeaponInfo/WeaponInfo'
-import { ActionsContainer, ActionsText, ResetContainer, ResetText, WeaponType, WeaponTypes } from './Weapons-Elements'
+import { ResetContainer, ResetText, WeaponType, WeaponTypes } from './Weapons-Elements'
 
 interface WeaponsProps {
-	slot: 'primary' | 'secondary';
+	slot: Slot;
 }
 
 const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
@@ -113,15 +115,20 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 			<ActionsContainer>
 				{
 					selectedTab === 'saved' ? selectedArmoury !== 0 &&
-						<ActionsText onClick={() => {
-							if (Object.keys(armoury).length === 1) return
-							dispatch(removeWeapon({ slot, id: selectedArmoury }))
-							setSelectedArmoury(0)
-							if (equippedWeaponId === selectedArmoury) {
-								dispatch(changeWeapon({ slot, weapon: Object.values(armoury)[0].id }))
-							}
-						}}>Delete Weapon</ActionsText> :
-						<ActionsText onClick={addWeaponHelper}>Save Weapon</ActionsText>
+						<>
+							<Link to={`/blackmarket/${slot}/${selectedArmoury}`} style={{ textDecoration: 'none' }}>
+								<ActionText>Mod Weapon</ActionText>
+							</Link>
+							<ActionText onClick={() => {
+								if (Object.keys(armoury).length === 1) return
+								dispatch(removeWeapon({ slot, id: selectedArmoury }))
+								setSelectedArmoury(0)
+								if (equippedWeaponId === selectedArmoury) {
+									dispatch(changeWeapon({ slot, weapon: Object.values(armoury)[0].id }))
+								}
+							}}>Delete Weapon</ActionText>
+						</> :
+						<ActionText onClick={addWeaponHelper}>Save Weapon</ActionText>
 				}
 			</ActionsContainer>
 

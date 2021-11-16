@@ -1,41 +1,86 @@
-import actions from 'actions/armouryAction'
-import { Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
+import actions, { AddWeaponAction, ChangeModAction, FindWeapon, RemoveModAction } from 'actions/armouryAction'
+import { Slot, Weapon } from 'data/weapons/guns/weaponTypes'
 import defaultState, { ArmouryState } from 'defaultStates/armouryDefaultState'
 import { getType } from 'typesafe-actions'
 
 const armouryReducer = (state = defaultState, action: Record<'type' | 'payload', any>): ArmouryState => {
-	switch (action.type) {
-		case getType(actions.addWeapon):
-			const addSlot: 'primary' | 'secondary' = action.payload.slot
-			const weaponData: WeaponData = action.payload.weapon
-			const nextNum = Math.max(0, ...Object.keys(state[addSlot]).map(num => +num)) + 1
-			const weapon: Weapon = {
-				id: nextNum,
-				weapon: weaponData,
-				modifications: []
+
+	const addWeapon = ({ slot, weapon }: AddWeaponAction): ArmouryState => {
+		const nextNum = Math.max(0, ...Object.keys(state[slot]).map(num => +num)) + 1
+		const newWeapon: Weapon = {
+			id: nextNum,
+			weapon,
+			modifications: {}
+		}
+		return {
+			...state,
+			[slot]: {
+				...state[slot],
+				[nextNum]: newWeapon
 			}
-			return {
-				...state,
-				[addSlot]: {
-					...state[addSlot],
-					[nextNum]: weapon
+		}
+	}
+
+	const removeWeapon = ({ slot, id }: FindWeapon): ArmouryState => {
+		const newState = { ...state[slot] }
+		delete newState[id]
+		return {
+			...state,
+			[slot]: newState
+		}
+	}
+
+	const resetArmoury = (slot: Slot): ArmouryState => {
+		return {
+			...state,
+			[slot]: defaultState[slot]
+		}
+	}
+
+	const changeMod = ({ slot, id, newMod }: ChangeModAction): ArmouryState => {
+		return {
+			...state,
+			[slot]: {
+				...state[slot],
+				[id]: {
+					...state[slot][id],
+					modifications: {
+						...state[slot][id].modifications,
+						[newMod.slot]: newMod
+					}
 				}
 			}
+		}
+	}
+
+	const removeMod = ({ slot, id, modSlot }: RemoveModAction): ArmouryState => {
+		const newState = { ...state[slot][id].modifications }
+		delete newState[modSlot]
+		return {
+			...state,
+			[slot]: {
+				...state[slot],
+				[id]: {
+					...state[slot][id],
+					modifications: {
+						newState
+					}
+				}
+			}
+		}
+	}
+
+	switch (action.type) {
+		case getType(actions.addWeapon):
+			return addWeapon(action.payload)
 		case getType(actions.removeWeapon):
-			const removeSlot: 'primary' | 'secondary' = action.payload.slot
-			const index: number = action.payload.id
-			const newState = { ...state[removeSlot] }
-			delete newState[index]
-			return {
-				...state,
-				[removeSlot]: newState
-			}
+			return removeWeapon(action.payload)
 		case getType(actions.resetArmoury):
-			const slot: 'primary' | 'secondary' = action.payload
-			return {
-				...state,
-				[slot]: defaultState[slot]
-			}
+			return resetArmoury(action.payload)
+		case getType(actions.changeMod):
+			return changeMod(action.payload)
+		case getType(actions.removeMod):
+			return removeMod(action.payload)
 		default:
 			return state
 	}

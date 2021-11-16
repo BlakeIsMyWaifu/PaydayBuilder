@@ -12,6 +12,8 @@ import { SecondaryShotgunList } from './secondary/shotgunsSecondary'
 import { SecondarySpecialList } from './secondary/specialsSecondary'
 import { SubmachineGunList } from './secondary/submachineGuns'
 
+export type Slot = 'primary' | 'secondary'
+
 type WeaponType = 'Assault Rifle' | 'Shotgun' | 'LMG' | 'Sniper' | 'Akimbo Pistol' | 'Akimbo Shotgun' | 'Akimbo SMG' | 'Special' | 'Pistol' | 'Submachine Gun'
 
 export interface WeaponData {
@@ -51,7 +53,7 @@ export interface WeaponExtraStats {
 	damageModifier: [number, number] | null;
 }
 
-type ModificationSlot = 'Ammunition' | 'Barrel' | 'Barrel Ext' | 'Boost' | 'Custom' | 'Extra' | 'Foregrip' | 'Gadget' | 'Grip' | 'Magazine' | 'Sight' | 'Stock' | 'Upper Reciever'
+export type ModificationSlot = 'Ammunition' | 'Barrel' | 'Barrel Ext' | 'Boost' | 'Custom' | 'Extra' | 'Foregrip' | 'Gadget' | 'Grip' | 'Magazine' | 'Sight' | 'Stock' | 'Upper Reciever'
 type Packages = 'Green Mantis' | 'Yellow Bull' | 'Red Spider' | 'Blue Eagle' | 'Purple Snake'
 
 export interface CompatibleWeapons {
@@ -109,6 +111,6 @@ interface WeaponSkin {
 export interface Weapon {
 	id: number;
 	weapon: WeaponData;
-	modifications: WeaponModification<string>[];
+	modifications: Partial<Record<ModificationSlot, WeaponModification<string>>>;
 	name?: string;
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { HoverInfo } from '../Home'
-import { Container, Link, Title } from './Selector-Elements'
+import { Container, SelectorLink, Title } from './Selector-Elements'
 
 interface SelectorProps {
 	title: string;
@@ -12,12 +12,12 @@ interface SelectorProps {
 
 const Selector: React.FC<SelectorProps> = ({ title, children, infoData, setHoverInfo }) => {
 	return (
-		<Link to={`/${title.replaceAll(' ', '')}`} onMouseDown={event => event.preventDefault()} onMouseEnter={() => setHoverInfo(infoData)} onMouseLeave={() => setHoverInfo(null)}>
+		<SelectorLink to={`/${title.replaceAll(' ', '')}`} onMouseDown={event => event.preventDefault()} onMouseEnter={() => setHoverInfo(infoData)} onMouseLeave={() => setHoverInfo(null)}>
 			<Container>
 				<Title>{title}</Title>
 				{children}
 			</Container>
-		</Link>
+		</SelectorLink>
 	)
 }
 
