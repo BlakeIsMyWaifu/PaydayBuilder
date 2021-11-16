@@ -1,6 +1,7 @@
 import { changeEquipment } from 'actions/characterAction'
 import { resetSkills, resetTree } from 'actions/skillsAction'
 import Container from 'components/Container'
+import { HorizontalBar } from 'components/HorizontalActionBar'
 import skills, { TreeData, TreeNames } from 'data/abilities/skills'
 import { SkillData } from 'data/abilities/skills'
 import equipmentData from 'data/character/equipment'
@@ -10,7 +11,7 @@ import React, { useEffect, useState } from 'react'
 import Info from './Info'
 import Points from './Points'
 import Reset from './Reset'
-import { SubtreeLabel, SubtreeLabelWrapper, Tree, TreeName, TreeNamesWrapper } from './Skills-Elements'
+import { SubtreeLabel, SubtreeLabelWrapper, Tree, TreeName } from './Skills-Elements'
 import Subtree from './Subtree'
 
 const Skills: React.FC = () => {
@@ -57,9 +58,9 @@ const Skills: React.FC = () => {
 	}, [currentTree, jackOfAllTrades, engineering, equippedEquipment, dispatch])
 
 	return (
-		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "treenames points" "skills info" "subtreelabels back"' title='Skills'>
+		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "horizontalbar points" "skills info" "subtreelabels back"' title='Skills'>
 
-			<TreeNamesWrapper onWheel={scrollTrees}>
+			<HorizontalBar onWheel={scrollTrees}>
 				{
 					treeNameOrder.map(treeName => {
 						return <TreeName
@@ -69,7 +70,7 @@ const Skills: React.FC = () => {
 						>{treeName}</TreeName>
 					})
 				}
-			</TreeNamesWrapper>
+			</HorizontalBar>
 
 			<Tree onWheel={scrollTrees}>
 				{

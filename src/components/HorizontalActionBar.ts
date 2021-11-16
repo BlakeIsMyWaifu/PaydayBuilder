@@ -16,7 +16,4 @@ export const HorizontalItem = styled.p`
 	cursor: pointer;
 	white-space: nowrap;
 	color: ${props => props.color};
-	&:last-child {
-		padding-right: 0;
-	}
 `

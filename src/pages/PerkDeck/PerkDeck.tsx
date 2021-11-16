@@ -1,4 +1,5 @@
 import Container from 'components/Container'
+import { HorizontalBar, HorizontalItem } from 'components/HorizontalActionBar'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import { ItemContainer } from 'components/Item'
 import data, { PerkCard } from 'data/abilities/perks'
@@ -7,7 +8,6 @@ import React, { createRef, useEffect, useRef, useState } from 'react'
 import { blue } from 'utils/colours'
 import scrollHorizontalDiv from 'utils/scrollHorizontalDiv'
 
-import { PerkDeckName, PerkDeckNamesContainer } from './PerkDeck-Elements'
 import Perk from './Perks'
 
 const PerkDeck: React.FC = () => {
@@ -41,19 +41,19 @@ const PerkDeck: React.FC = () => {
 	}, [])
 
 	return (
-		<Container rows='4rem 2rem 7fr 4rem' areas='"title title" "perkdecknames ." "items info" "items back"' title='Perk Deck'>
+		<Container rows='4rem 2rem 7fr 4rem' areas='"title title" "horizontalbar ." "items info" "items back"' title='Perk Deck'>
 
-			<PerkDeckNamesContainer ref={scrollRef} onWheel={event => scrollHorizontalDiv(event, scrollRef)}>
+			<HorizontalBar ref={scrollRef} onWheel={event => scrollHorizontalDiv(event, scrollRef)}>
 				{
 					Object.values(data).map((perkdeck, i) => {
-						return <PerkDeckName
+						return <HorizontalItem
 							key={perkdeck.name}
 							onClick={() => scrollToPerk(i, 'smooth')}
 							color={perkdeck.name === equippedPerk.name ? '#fff' : blue}
-						>{perkdeck.name}</PerkDeckName>
+						>{perkdeck.name}</HorizontalItem>
 					})
 				}
-			</PerkDeckNamesContainer>
+			</HorizontalBar>
 
 			<ItemContainer ref={perkWrapperRef}>
 				{

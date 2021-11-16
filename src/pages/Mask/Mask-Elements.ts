@@ -1,12 +1,6 @@
+import { HorizontalItem } from 'components/HorizontalActionBar'
 import styled, { css, keyframes } from 'styled-components'
 import corner from 'utils/corner'
-
-export const RarityContainer = styled.div`
-	grid-area: rarity;
-	display: flex;
-	gap: 1rem;
-	overflow-x: hidden;
-`
 
 const rainbow = keyframes`
 	0% {
@@ -32,11 +26,7 @@ const rainbow = keyframes`
 	}
 `
 
-export const RarityTitle = styled.h1`
-	font-size: 1.6rem;
-	cursor: pointer;
-	white-space: nowrap;
-	color: ${props => props.color};
+export const RarityTitle = styled(HorizontalItem)`
 	animation: ${props => props.color === 'rainbow' && css`${rainbow}`} 4s linear 0s infinite;
 `
 

@@ -1,12 +1,6 @@
 import styled from 'styled-components'
 import { blue } from 'utils/colours'
 
-export const TreeNamesWrapper = styled.div`
-	grid-area: treenames;
-	display: flex;
-	gap: 1.5rem;
-`
-
 interface TreeNameProps {
 	active: boolean;
 }

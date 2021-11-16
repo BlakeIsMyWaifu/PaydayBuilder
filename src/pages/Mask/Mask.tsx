@@ -1,5 +1,6 @@
 import { changeMask } from 'actions/characterAction'
 import Container from 'components/Container'
+import { HorizontalBar } from 'components/HorizontalActionBar'
 import Info, { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import data, { MaskData } from 'data/character/masks'
@@ -7,7 +8,7 @@ import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { createRef, useRef, useState } from 'react'
 import { itemColours } from 'utils/colours'
 
-import { CollectionTitle, CollectionsContainer, InfoCost, ItemContainer, MaskCollection, MaskCollectionTitle, MaskWrapper, RarityContainer, RarityTitle } from './Mask-Elements'
+import { CollectionTitle, CollectionsContainer, InfoCost, ItemContainer, MaskCollection, MaskCollectionTitle, MaskWrapper, RarityTitle } from './Mask-Elements'
 
 const collections = (() => {
 	const out: Record<string, MaskData[]> = {}
@@ -71,9 +72,9 @@ const Mask: React.FC = () => {
 	const collectionRefs = useRef(Array.from({ length: Object.keys(collections).length }, () => createRef<HTMLDivElement>()))
 
 	return (
-		<Container rows='4rem 2rem 8fr 4rem' areas='"title title" "rarity infotabs" "items info" "items back"' title='Mask'>
+		<Container rows='4rem 2rem 8fr 4rem' areas='"title title" "horizontalbar infotabs" "items info" "items back"' title='Mask'>
 
-			<RarityContainer>
+			<HorizontalBar>
 				{
 					['All', 'Community', 'Free', 'Paid', 'Event', 'Collaboration', 'Infamous'].map(rarity => {
 						return <RarityTitle
@@ -86,7 +87,7 @@ const Mask: React.FC = () => {
 						>{rarity === 'Paid' ? 'DLC' : rarity}</RarityTitle>
 					})
 				}
-			</RarityContainer>
+			</HorizontalBar>
 
 			<ItemContainer ref={itemContainerRef}>
 				{
