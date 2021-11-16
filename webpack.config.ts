@@ -8,6 +8,7 @@ import CopyPlugin from 'copy-webpack-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { Configuration, WebpackPluginInstance } from 'webpack'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -47,6 +48,9 @@ const plugins: WebpackPluginInstance[] = [
 ]
 if (isDevelopment) {
 	plugins.push(new ReactRefreshWebpackPlugin())
+	plugins.push(new BundleAnalyzerPlugin({
+		openAnalyzer: false
+	}))
 }
 
 const config: Configuration = {
