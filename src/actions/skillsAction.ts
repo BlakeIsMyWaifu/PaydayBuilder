@@ -3,7 +3,7 @@ import { SkillData } from 'data/abilities/skills'
 import { SkillUpgradeTypes } from 'defaultStates/skillsDefaultState'
 import { createAction } from 'typesafe-actions'
 
-export interface SkillChangeAction {
+export interface ChangeSkillStateAction {
 	tree: string;
 	subtree: string;
 	skill: SkillData;
@@ -11,7 +11,7 @@ export interface SkillChangeAction {
 	direction: 'upgrade' | 'downgrade';
 }
 
-export const changeSkillState = createAction(CHANGESKILLSTATE)<SkillChangeAction>()
+export const changeSkillState = createAction(CHANGESKILLSTATE)<ChangeSkillStateAction>()
 export const resetSkills = createAction(RESETSKILLS)<void>()
 export const resetTree = createAction(RESETTREE)<string>()
 

@@ -3,12 +3,12 @@ import { MeleeData } from 'data/weapons/melees'
 import { ThrowableData } from 'data/weapons/throwables'
 import { createAction } from 'typesafe-actions'
 
-interface WeaponChangeAction {
+export interface ChangeWeaponAction {
 	slot: 'primary' | 'secondary';
 	weapon: number;
 }
 
-export const changeWeapon = createAction(CHANGEWEAPON)<WeaponChangeAction>()
+export const changeWeapon = createAction(CHANGEWEAPON)<ChangeWeaponAction>()
 export const changeThrowable = createAction(CHANGETHROWABLE)<ThrowableData>()
 export const changeMelee = createAction(CHANGEMELEE)<MeleeData>()
 

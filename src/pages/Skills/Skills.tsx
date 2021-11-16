@@ -45,11 +45,11 @@ const Skills: React.FC = () => {
 		}
 		window.addEventListener('keydown', handleKeys)
 		if (jackOfAllTrades !== 'aced' && equippedEquipment.secondary) {
-			dispatch(changeEquipment([null, 'secondary']))
+			dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
 		}
 		if (engineering !== 'basic' && engineering !== 'aced') {
-			if (equippedEquipment.primary.name === 'Silenced Sentry Gun') dispatch(changeEquipment([equipmentData[0], 'primary']))
-			if (equippedEquipment.secondary?.name === 'Silenced Sentry Gun') dispatch(changeEquipment([null, 'secondary']))
+			if (equippedEquipment.primary.name === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: equipmentData[0], slot: 'primary' }))
+			if (equippedEquipment.secondary?.name === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
 		}
 		return () => {
 			window.removeEventListener('keydown', handleKeys)

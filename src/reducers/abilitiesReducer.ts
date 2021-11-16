@@ -9,13 +9,19 @@ import defaultState, { AbilitiesState } from 'defaultStates/abilitiesDefaultStat
 import { getType } from 'typesafe-actions'
 
 const abilitiesReducer = (state = defaultState, action: Record<'type' | 'payload', any>): AbilitiesState => {
+
+	const changePerkdeck = (perkdeck: PerkData): AbilitiesState => {
+		return {
+			...state,
+			perkdeck
+		}
+	}
+
 	switch (action.type) {
 		case getType(actions.changePerkdeck):
-			const perkdeck: PerkData = action.payload
-			return {
-				...state,
-				perkdeck
-			}
+			return changePerkdeck(action.payload)
+
+		// WIP Crew Management
 		case getType(actions.changeCrewMask):
 			const mask: MaskData = action.payload
 			return {

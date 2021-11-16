@@ -50,10 +50,10 @@ const Equipment: React.FC = () => {
 							} else {
 								if (locked) return
 								const slot = event.button ? 'secondary' : 'primary'
-								if (slot === 'primary' && equipment === equippedSecondary) dispatch(changeEquipment([null, 'secondary']))
+								if (slot === 'primary' && equipment === equippedSecondary) dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
 								if (slot === 'secondary' && jackOfAllTrades !== 'aced') return
 								if (slot === 'secondary' && equipment === equippedPrimary) return
-								dispatch(changeEquipment([equipment, slot]))
+								dispatch(changeEquipment({ equipment, slot }))
 							}
 						}}>
 							<ItemName color={itemColours[equipment.amount === amount ? 'normal' : 'dlc']}>{equipment.name} (x{amount.join('/x')})</ItemName>
@@ -84,7 +84,7 @@ const Equipment: React.FC = () => {
 				)
 			}
 
-		</Container>
+		</Container >
 	)
 }
 

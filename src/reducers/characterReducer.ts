@@ -1,40 +1,52 @@
-import actions from 'actions/characterAction'
+import actions, { ChangeEquipmentAction } from 'actions/characterAction'
 import { ArmourData } from 'data/character/armours'
 import { CharacterData } from 'data/character/characters'
-import { EquipmentData } from 'data/character/equipment'
 import { MaskData } from 'data/character/masks'
 import defaultstate, { CharacterState } from 'defaultStates/characterDefaultState'
 import { getType } from 'typesafe-actions'
 
 const characterReducer = (state = defaultstate, action: Record<'type' | 'payload', any>): CharacterState => {
+
+	const changeMask = (mask: MaskData): CharacterState => {
+		return {
+			...state,
+			mask
+		}
+	}
+
+	const changeCharacter = (character: CharacterData): CharacterState => {
+		return {
+			...state,
+			character
+		}
+	}
+
+	const changeArmour = (armour: ArmourData): CharacterState => {
+		return {
+			...state,
+			armour
+		}
+	}
+
+	const changeEquipment = ({ equipment, slot }: ChangeEquipmentAction): CharacterState => {
+		return {
+			...state,
+			equipment: {
+				...state.equipment,
+				[slot]: equipment
+			}
+		}
+	}
+
 	switch (action.type) {
 		case getType(actions.changeMask):
-			const mask: MaskData = action.payload
-			return {
-				...state,
-				mask
-			}
+			return changeMask(action.payload)
 		case getType(actions.changeCharacter):
-			const character: CharacterData = action.payload
-			return {
-				...state,
-				character
-			}
+			return changeCharacter(action.payload)
 		case getType(actions.changeArmour):
-			const armour: ArmourData = action.payload
-			return {
-				...state,
-				armour
-			}
+			return changeArmour(action.payload)
 		case getType(actions.changeEquipment):
-			const [equipment, slot]: [EquipmentData, 'primary' | 'secondary'] = action.payload
-			return {
-				...state,
-				equipment: {
-					...state.equipment,
-					[slot]: equipment
-				}
-			}
+			return changeEquipment(action.payload)
 		case getType(actions.resetCharacter):
 			return defaultstate
 		default:

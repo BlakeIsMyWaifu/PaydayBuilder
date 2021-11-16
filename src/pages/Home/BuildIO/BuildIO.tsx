@@ -125,8 +125,8 @@ const BuildIO: React.FC = () => {
 		const primaryEquipment = parseInt(equipment.substr(0, 1))
 		const secondaryEquipment = parseInt(equipment.length > 1 ? equipment.substr(1, 1) : '0')
 
-		dispatch(changeEquipment([equipmentData[primaryEquipment], 'primary']))
-		if (secondaryEquipment) dispatch(changeEquipment([equipmentData[secondaryEquipment], 'secondary']))
+		dispatch(changeEquipment({ equipment: equipmentData[primaryEquipment], slot: 'primary' }))
+		if (secondaryEquipment) dispatch(changeEquipment({ equipment: equipmentData[secondaryEquipment], slot: 'secondary' }))
 	}
 
 	return (
