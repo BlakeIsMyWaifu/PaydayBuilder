@@ -1,10 +1,58 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { WeaponData } from '../weaponTypes'
+import barrel from '../modifications/barrel'
+import barrelExt, { BarrelExtModificationsList } from '../modifications/barrelExt'
+import boost, { BoostModificationsList } from '../modifications/boost'
+import extra from '../modifications/extra'
+import gadget, { GadgetModificationsList } from '../modifications/gadget'
+import grip from '../modifications/grip'
+import lowerReciver from '../modifications/lowerReceiver'
+import magazine from '../modifications/magazine'
+import sight, { SightModificationsList } from '../modifications/sight'
+import slide from '../modifications/slide'
+import stock from '../modifications/stock'
+import upperReciever from '../modifications/upperReceiver'
+import { Modification, WeaponData } from '../weaponTypes'
+
+const mainBarrelExt: Modification<BarrelExtModificationsList>[] = [
+	barrelExt['IPSC Compensator'],
+	barrelExt['Facepunch Compensator'],
+	barrelExt['Flash Hider'],
+	barrelExt['Roctec Suppressor'],
+	barrelExt['Champion\'s Suppressor'],
+	barrelExt['Standard Issue Suppressor'],
+	barrelExt['Size Doesn\'t Matter Suppressor'],
+	barrelExt['Monolith Suppressor'],
+	barrelExt['Asepsis Suppressor'],
+	barrelExt['Budget Suppressor'],
+	barrelExt['Jungle Ninja Suppressor'],
+	barrelExt['Hurricane Compensator']
+]
+
+const mainBoost: Modification<BoostModificationsList>[] = [
+	boost.Concealment,
+	boost.Stability,
+	boost.Accuracy,
+	boost['Team Boost']
+]
+
+const mainGadget: Modification<GadgetModificationsList>[] = [
+	gadget['Tactical Pistol Light'],
+	gadget['Pocket Laser'],
+	gadget['Micro Laser'],
+	gadget['Combined Module'],
+	gadget['Polymer Flashlight']
+]
+
+const mainSight: Modification<SightModificationsList>[] = [
+	sight['Pistol Red Dot Sight'],
+	sight['SKOLD Micro Reflex Sight'],
+	sight['Riktpunkt Holosight']
+]
 
 export type PistolList =
-	'Interceptor 45 Pistol' |
+	'Interceptor .45 Pistol' |
 	'Chimano 88 Pistol' |
 	'Gruber Kurz Pistol' |
 	'Signature .40 Pistol' |
@@ -35,8 +83,8 @@ export type PistolList =
 	'Deagle Pistol'
 
 const pistols: Record<PistolList, WeaponData> = {
-	'Interceptor 45 Pistol': {
-		name: 'Interceptor 45 Pistol',
+	'Interceptor .45 Pistol': {
+		name: 'Interceptor .45 Pistol',
 		image: 'usp',
 		source: source.Community,
 		inventorySlot: 'secondary',
@@ -63,6 +111,24 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [1.8, 2.7],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Ventilated .45'],
+				barrelExt['Velocity .45']
+			],
+			boost: mainBoost,
+			gadget: mainGadget,
+			magazine: [
+				magazine['Extended Mag. (Interceptor)'],
+				magazine['I want more Magazine!']
+			],
+			sight: mainSight,
+			slide: [
+				slide['Expert Slide'],
+				slide['Match Slide']
+			]
 		}
 	},
 	'Chimano 88 Pistol': {
@@ -93,6 +159,19 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [1.56, 2.34],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			grip: [
+				grip['Laser Grip (Chimano)'],
+				grip['Platypus Grip']
+			],
+			magazine: [
+				magazine['Extended Mag. (Chimano)']
+			],
+			sight: mainSight
 		}
 	},
 	'Gruber Kurz Pistol': {
@@ -123,6 +202,21 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [1.56, 2.34],
 			spread: 3.36,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: [
+				...mainBoost,
+				boost['Concealment (Extra)']
+			],
+			gadget: mainGadget,
+			grip: [
+				grip['Laser Grip (Gruber Kurz)']
+			],
+			sight: mainSight,
+			slide: [
+				slide['Long Slide (Gruber Kurz)']
+			]
 		}
 	},
 	'Signature .40 Pistol': {
@@ -153,6 +247,26 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [1.8, 2.7],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Ventilated .40'],
+				barrelExt['Velocity .40']
+			],
+			boost: mainBoost,
+			gadget: mainGadget,
+			grip: [
+				grip['Ergo Grip (Signature .40)']
+			],
+			magazine: [
+				magazine['Extended Mag. (Signature .40)']
+			],
+			sight: mainSight,
+			slide: [
+				slide['Two Tone Slide'],
+				slide['Long Slide (Signature .40)']
+			]
 		}
 	},
 	'Crosskill Pistol': {
@@ -183,6 +297,32 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [1.8, 2.7],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Aggressor Comensator'],
+				barrelExt['Punisher Compensator']
+			],
+			boost: mainBoost,
+			gadget: mainGadget,
+			grip: [
+				grip['Ergo Grip (Crosskill)'],
+				grip['Bling Grip (Crosskill)'],
+				grip['Engraved Crosskill Grips']
+			],
+			magazine: [
+				magazine['12rnd Mag.'],
+				magazine['Magazine with Ameritude!']
+			],
+			sight: [
+				sight['Marksman Sight'],
+				...mainSight
+			],
+			slide: [
+				slide['Vented Slide'],
+				slide['Long Vented Slide']
+			]
 		}
 	},
 	'Bernetti 9 Pistol': {
@@ -213,6 +353,35 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [1.56, 2.34],
 			spread: 2.64,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['The Competitor Compensator'],
+				barrelExt['The Professional Compensator']
+			],
+			boost: [
+				...mainBoost,
+				boost['Concealment (Extra)']
+			],
+			gadget: mainGadget,
+			grip: [
+				grip['Ergo Grip (Bernetti 9)'],
+				grip['Engraved Bernetti Grips']
+			],
+			magazine: [
+				magazine['Extended Mag. (Bernetti 9)']
+			],
+			sight: [
+				sight['Marksman Sight'],
+				...mainSight
+			],
+			lowerReciever: [
+				lowerReciver['Custom Titanium Frame']
+			],
+			upperReciever: [
+				upperReciever['The Elite Slide']
+			]
 		}
 	},
 	'Bronco .44 Pistol': {
@@ -243,6 +412,53 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [3.24, 4.86],
 			spread: 1.44,
 			damageModifier: [1.0, 0.8]
+		},
+		modifications: {
+			barrelExt: [
+				barrelExt['Flash Hider']
+			],
+			boost: [
+				...mainBoost,
+				boost['Concealment (Extra)']
+			],
+			extra: [
+				extra['Bronco Scope Mount']
+			],
+			gadget: [
+				gadget['Riktpunkt Magnifier Gadget'],
+				gadget['Signature Magnifier Gadget']
+			],
+			grip: [
+				grip['Ergo Wooden Grip']
+			],
+			sight: [
+				sight['The Professional\'s Choice Sight'],
+				sight['Surgeon Sight'],
+				sight['See More Sight'],
+				sight['Combat Sight'],
+				sight['Speculator Sight'],
+				sight['Trigonom Sight'],
+				sight['Holographic Sight'],
+				sight['Compact Holosight'],
+				sight['Solar Sight'],
+				sight['Military Red Dot Sight (1)'],
+				sight['Military Red Dot Sight (2)'],
+				sight['Milspec Scope'],
+				sight['Acough Optic Scope'],
+				sight['Compact Profile Sight'],
+				sight['Maelstrom Sight'],
+				sight['Advanced Combat Sight'],
+				sight['Reconnaissance Sight']
+			],
+			slide: [
+				slide['Aggressor Barrel'],
+				slide['Pocket Surprise Barrel'],
+				slide['Ventilated Barrel'],
+				slide['Overcompensating Barrel']
+			],
+			upperReciever: [
+				upperReciever['Slimline Body']
+			]
 		}
 	},
 	'Crosskill Chunky Compact Pistol': {
@@ -273,6 +489,19 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [3.2, 3.6],
 			spread: 2.16,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			magazine: [
+				magazine['Crosskill Long Mag']
+			],
+			sight: mainSight,
+			slide: [
+				slide['Chunky Hunter Barrel'],
+				slide['Crosskill Platinum Bull Slide']
+			]
 		}
 	},
 	'White Streak Pistol': {
@@ -303,6 +532,18 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [2.4, 3.6],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['Prototype Barrel (White Streak)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			magazine: [
+				magazine['Extended Magazine (White Streak)']
+			],
+			sight: mainSight
 		}
 	},
 	'Baby Deagle': {
@@ -333,6 +574,22 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [2.4, 3.6],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['Ported Barrel'],
+				barrel['Threaded Barrel (Baby Deagle)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			grip: [
+				grip['Spike Grip']
+			],
+			lowerReciever: [
+				lowerReciver['Spike Kit']
+			],
+			sight: mainSight
 		}
 	},
 	'M13 9mm Pistol': {
@@ -363,6 +620,17 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [1.92, 2.88],
 			spread: 3.36,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['Threaded Barrel (M13)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			grip: [
+				grip['Wooden Grip (M13)']
+			],
+			sight: mainSight
 		}
 	},
 	'Chimano Custom Pistol': {
@@ -393,6 +661,27 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [1.8, 2.7],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Ventilated Compensator'],
+				barrelExt['Velocity Compensator']
+			],
+			boost: mainBoost,
+			gadget: mainGadget,
+			grip: [
+				grip['Laser Grip (Chimano)'],
+				grip['Platypus Grip'],
+				grip['Ergo Grip (STRYK / Chimano Custom)']
+			],
+			magazine: [
+				magazine['Extended Mag. (Chimano)']
+			],
+			sight: mainSight,
+			slide: [
+				slide['Long Slide (Chimano Custom)']
+			]
 		}
 	},
 	'Broomstick Pistol': {
@@ -423,6 +712,27 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [1.56, 2.34],
 			spread: 1.2,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Damper.L 44 Nozzle']
+			],
+			boost: mainBoost,
+			gadget: mainGadget,
+			magazine: [
+				magazine['High Capacity Mag']
+			],
+			sight: [
+				sight['Barrel Sight 44'],
+				...mainSight
+			],
+			slide: [
+				slide['Precision Barrel (Broomstick)']
+			],
+			stock: [
+				stock['Holster Stock']
+			]
 		}
 	},
 	'Parabellum Pistol': {
@@ -453,6 +763,17 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [2.64, 3.96],
 			spread: 1.44,
 			damageModifier: [1.0, 0.8]
+		},
+		modifications: {
+			barrel: [
+				barrel['Reinforced Barrel'],
+				barrel['Short Barrel (Parabellum)']
+			],
+			boost: mainBoost,
+			grip: [
+				grip['Engraved Grip']
+			],
+			sight: mainSight
 		}
 	},
 	'5/7 AP Pistol': {
@@ -483,6 +804,18 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [2.28, 3.42],
 			spread: 3.12,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['TiN Treated Barrel']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			magazine: [
+				magazine['Extended Magazine (5/7 AP)']
+			],
+			sight: mainSight
 		}
 	},
 	'Castigo .44 Revolver': {
@@ -513,6 +846,16 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [3.24, 4.86],
 			spread: 1.44,
 			damageModifier: [1.0, 0.8]
+		},
+		modifications: {
+			barrel: [
+				barrel['Diablo Barrel']
+			],
+			boost: mainBoost,
+			grip: [
+				grip['Carnival Grip'],
+				grip['Cruz Grip']
+			]
 		}
 	},
 	'Contractor Pistol': {
@@ -543,6 +886,21 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [1.56, 2.34],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Contractor Compensator']
+			],
+			boost: mainBoost,
+			gadget: mainGadget,
+			magazine: [
+				magazine['Extended Magazine (Contractor)']
+			],
+			sight: [
+				sight['Tritium Sights'],
+				...mainSight
+			]
 		}
 	},
 	'Frenchman Model 87 Revolver': {
@@ -573,6 +931,16 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [3.36, 2.73],
 			spread: 1.44,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['Opera Long Barrel'],
+				barrel['Napoleon Barrel']
+			],
+			boost: mainBoost,
+			grip: [
+				grip['Mule Bone Grip']
+			]
 		}
 	},
 	'Chimano Compact Pistol': {
@@ -603,6 +971,26 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [1.56, 2.34],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			grip: [
+				grip['Laser Grip (Chimano)'],
+				grip['Platypus Grip']
+			],
+			lowerReciever: [
+				lowerReciver['Striking Body Kit']
+			],
+			magazine: [
+				magazine['Striking Mag'],
+				magazine['Extended Mag. (Chimano)']
+			],
+			sight: mainSight,
+			slide: [
+				slide['Striking Slide']
+			]
 		}
 	},
 	'Crosskill Guard Pistol': {
@@ -633,6 +1021,22 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [1.56, 2.34],
 			spread: 2.16,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			grip: [
+				grip['Blinged Grip'],
+				grip['Ergonomic Grip (Crosskill Guard)']
+			],
+			magazine: [
+				magazine['Extended Mag (Crosskill Guard)']
+			],
+			sight: mainSight,
+			slide: [
+				slide['Milled Slide']
+			]
 		}
 	},
 	'LEO Pistol': {
@@ -663,6 +1067,19 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [1.8, 2.7],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			magazine: [
+				magazine['Extended Mag (LEO)']
+			],
+			sight: mainSight,
+			slide: [
+				slide['Custom Slide'],
+				slide['Long Slide (LEO)']
+			]
 		}
 	},
 	'STRYK 18c Pistol': {
@@ -693,6 +1110,27 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [0.42, 0.56],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Ventilated Compensator'],
+				barrelExt['Velocity Compensator']
+			],
+			boost: mainBoost,
+			gadget: mainGadget,
+			grip: [
+				grip['Laser Grip (Chimano)'],
+				grip['Platypus Grip'],
+				grip['Ergo Grip (STRYK / Chimano Custom)']
+			],
+			magazine: [
+				magazine['Extended Mag. (Chimano)']
+			],
+			sight: mainSight,
+			stock: [
+				stock.Stock
+			]
 		}
 	},
 	'Bernetti Auto Pistol': {
@@ -723,6 +1161,25 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [0.48, 0.6],
 			spread: 3.6,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['Weller Barrel']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			grip: [
+				grip['Cartel Grip (Bernetti Auto)'],
+				grip['Weller Grip']
+			],
+			magazine: [
+				magazine['Extended Magazine (Bernetti Auto)']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Federales Stock (Bernetti Auto)']
+			]
 		}
 	},
 	'Czech 92 Pistol': {
@@ -753,6 +1210,18 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [0.65, 0.52],
 			spread: 2.4,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['Sicario Barrel']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			grip: [
+				grip['Cartel Grip (Czech)'],
+				grip['Sicario Grip']
+			]
 		}
 	},
 	'Igor Automatik Pistol': {
@@ -783,6 +1252,25 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [0.63, 0.84],
 			spread: 2.64,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['Tirador Barrel']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			grip: [
+				grip['Federales Grip'],
+				grip['Cartel Grip (Igor)']
+			],
+			magazine: [
+				magazine['Extended Magazine (Igor)']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Federales Stock (Igor)']
+			]
 		}
 	},
 	'HOLT 9mm Pistol': {
@@ -813,6 +1301,19 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [1.32, 1.98],
 			spread: 2.4,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			grip: [
+				grip['Ergonomic Grip (HOLT)'],
+				grip['Bling Grip (HOLT)']
+			],
+			magazine: [
+				magazine['Extended Magazine (HOLT)']
+			],
+			sight: mainSight
 		}
 	},
 	'Peacemaker .45 Revolver': {
@@ -843,6 +1344,19 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [7.25, 7.5],
 			spread: 0.96,
 			damageModifier: [1.0, 0.8]
+		},
+		modifications: {
+			boost: mainBoost,
+			grip: [
+				grip['Grand Grip']
+			],
+			slide: [
+				slide['Precision Barrel (Peacemaker)'],
+				slide['Shootout Barrel']
+			],
+			stock: [
+				stock['Ol´ Ben\'s Stock']
+			]
 		}
 	},
 	'Matever .357 Revolver': {
@@ -873,6 +1387,18 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [3.0, 4.5],
 			spread: 0.96,
 			damageModifier: [1.0, 0.8]
+		},
+		modifications: {
+			barrel: [
+				barrel['Pesante Barrel'],
+				barrel['Medio Barrel'],
+				barrel['Pisccolo Barrel']
+			],
+			boost: mainBoost,
+			gadget: mainGadget,
+			grip: [
+				grip['Noir Grip']
+			]
 		}
 	},
 	'Deagle Pistol': {
@@ -903,6 +1429,30 @@ const pistols: Record<PistolList, WeaponData> = {
 			recoilVertical: [2.52, 3.78],
 			spread: 1.44,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['La Femme Compensator'],
+				barrelExt['OVERKILL Compensator']
+			],
+			boost: mainBoost,
+			extra: [
+				extra['Deagle Scope Mount']
+			],
+			gadget: mainGadget,
+			grip: [
+				grip['Ergo Grip (Deagle)'],
+				grip['Bling Grip (Deagle)']
+			],
+			magazine: [
+				magazine['Extended Mag. (Deagle)']
+			],
+			sight: mainSight,
+			slide: [
+				slide['Long Barrel'],
+				slide['Custom Milled Barrel']
+			]
 		}
 	}
 }

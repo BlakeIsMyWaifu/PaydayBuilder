@@ -1,7 +1,54 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { WeaponData } from '../weaponTypes'
+import ammunition from '../modifications/ammunition'
+import barrel from '../modifications/barrel'
+import boost, { BoostModificationsList } from '../modifications/boost'
+import extra from '../modifications/extra'
+import gadget, { GadgetModificationsList } from '../modifications/gadget'
+import grip from '../modifications/grip'
+import lowerReciver from '../modifications/lowerReceiver'
+import magazine from '../modifications/magazine'
+import sight, { SightModificationsList } from '../modifications/sight'
+import stock from '../modifications/stock'
+import upperReciever from '../modifications/upperReceiver'
+import { Modification, WeaponData } from '../weaponTypes'
+
+const mainBoost: Modification<BoostModificationsList>[] = [
+	boost.Concealment,
+	boost.Stability,
+	boost.Accuracy,
+	boost['Team Boost']
+]
+
+const mainBoostTotalAmmo: Modification<BoostModificationsList>[] = [
+	...mainBoost,
+	boost['Total Ammo (Main)']
+]
+
+const mainGadget: Modification<GadgetModificationsList>[] = [
+	gadget['Assault Light'],
+	gadget['Tactical Laser Module'],
+	gadget['Compact Laser Module'],
+	gadget['Military Laser Module'],
+	gadget['LED Combo']
+]
+
+const mainSight: Modification<SightModificationsList>[] = [
+	sight['The Professional\'s Choice Sight'],
+	sight['Surgeon Sight'],
+	sight['See More Sight'],
+	sight['Combat Sight'],
+	sight['Speculator Sight'],
+	sight['Trigonom Sight'],
+	sight['Holographic Sight'],
+	sight['Compact Holosight'],
+	sight['Solar Sight'],
+	sight['Military Red Dot Sight (1)'],
+	sight['Military Red Dot Sight (2)'],
+	sight['Milspec Scope'],
+	sight['Acough Optic Scope']
+]
 
 export type PrimarySpecialList =
 	'OVE9000 Saw' |
@@ -46,6 +93,17 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			recoilVertical: [2.4, -2.4],
 			spread: null,
 			damageModifier: null
+		},
+		modifications: {
+			boost: mainBoostTotalAmmo,
+			lowerReciever: [
+				lowerReciver['Silent Motor'],
+				lowerReciver['Fast Motor']
+			],
+			magazine: [
+				magazine['Durable Blade'],
+				magazine['Sharp Blade']
+			]
 		}
 	},
 	'Plainsrider Bow': {
@@ -76,6 +134,16 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			recoilVertical: [1.74, 1.8],
 			spread: 0.24,
 			damageModifier: null
+		},
+		modifications: {
+			ammunition: [
+				ammunition['Explosive Arrows (Plainsrider)'],
+				ammunition['Poisoned Arrows (Plainsrider)']
+			],
+			boost: [
+				...mainBoostTotalAmmo,
+				boost['Total Ammo (Plainsrider)']
+			]
 		}
 	},
 	'Light Crossbow': {
@@ -106,6 +174,13 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			recoilVertical: [-0.12, 0.24],
 			spread: 0.17,
 			damageModifier: null
+		},
+		modifications: {
+			ammunition: [
+				ammunition['Explosive Bolt (Light Crossbow)'],
+				ammunition['Poison Bolt (Light Crossbow)']
+			],
+			boost: mainBoostTotalAmmo
 		}
 	},
 	'Airbow': {
@@ -136,6 +211,17 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			recoilVertical: [-0.18, 0.36],
 			spread: 0.67,
 			damageModifier: null
+		},
+		modifications: {
+			ammunition: [
+				ammunition['Explosive Arrow (Airbow)'],
+				ammunition['Poison Arrow (Airbow)']
+			],
+			boost: mainBoostTotalAmmo,
+			sight: mainSight,
+			stock: [
+				stock['Light Stock (Airbow)']
+			]
 		}
 	},
 	'English Longbow': {
@@ -166,6 +252,13 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			recoilVertical: [1.74, 1.8],
 			spread: 0.24,
 			damageModifier: null
+		},
+		modifications: {
+			ammunition: [
+				ammunition['Explosive Arrow (English Longbow)'],
+				ammunition['Poison Arrow (English Longbow)']
+			],
+			boost: mainBoostTotalAmmo
 		}
 	},
 	'XL 5.56 Microgun': {
@@ -196,6 +289,15 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			recoilVertical: [-0.12, 0.24],
 			spread: 4.08,
 			damageModifier: null
+		},
+		modifications: {
+			boost: mainBoostTotalAmmo,
+			gadget: mainGadget,
+			upperReciever: [
+				upperReciever['Heat Sink Barrel'],
+				upperReciever['XS Heat Sink Barrel'],
+				upperReciever['XS Barrel']
+			]
 		}
 	},
 	'DECA Technologies Compound Bow': {
@@ -226,6 +328,27 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			recoilVertical: [1.08, 1.2],
 			spread: 0.24,
 			damageModifier: null
+		},
+		modifications: {
+			ammunition: [
+				ammunition['Explosive Arrow (DECA)'],
+				ammunition['Poison Arrow (DECA)']
+			],
+			boost: mainBoostTotalAmmo,
+			grip: [
+				grip['Wooden Grip (DECA)'],
+				grip['Ergonomic Grip (DECA)']
+			],
+			sight: [
+				...mainSight,
+				sight['Compact Profile Sight'],
+				sight['Maelstrom Sight'],
+				sight['Advanced Combat Sight'],
+				sight['Reconnaissance Sight']
+			],
+			upperReciever: [
+				upperReciever['Tactical Frame']
+			]
 		}
 	},
 	'Vulcan Minigun': {
@@ -256,6 +379,17 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			recoilVertical: [-0.12, 0.24],
 			spread: 4.08,
 			damageModifier: null
+		},
+		modifications: {
+			barrel: [
+				barrel['Aerial Assault Barrel'],
+				barrel['The Stump Barrel']
+			],
+			boost: mainBoostTotalAmmo,
+			extra: [
+				extra['I\'ll Take Half That Kit']
+			],
+			gadget: mainGadget
 		}
 	},
 	'Heavy Crossbow': {
@@ -286,6 +420,13 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			recoilVertical: [-0.12, 0.24],
 			spread: 0.17,
 			damageModifier: null
+		},
+		modifications: {
+			ammunition: [
+				ammunition['Explosive Bolt (Heavy Crossbow)'],
+				ammunition['Poison Bolt (Heavy Crossbow)']
+			],
+			boost: mainBoostTotalAmmo
 		}
 	},
 	'Piglet Grenade Launcher': {
@@ -316,6 +457,35 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			recoilVertical: [1.74, 1.8],
 			spread: 0.24,
 			damageModifier: null
+		},
+		modifications: {
+			ammunition: [
+				ammunition['Incendiary Round']
+			],
+			barrel: [
+				barrel['Short Barrel (Piglet)']
+			],
+			boost: mainBoost,
+			gadget: [
+				...mainGadget,
+				gadget['Riktpunkt Magnifier Gadget'],
+				gadget['Signature Magnifier Gadget']
+			],
+			sight: [
+				...mainSight,
+				sight['Compact Profile Sight'],
+				sight['Maelstrom Sight'],
+				sight['Advanced Combat Sight'],
+				sight['Reconnaissance Sight']
+			],
+			stock: [
+				stock['Tactical Stock (Main)'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['2 Piece Stock'],
+				stock['No Stock (Piglet)'],
+				stock['Contractor Stock']
+			]
 		}
 	},
 	'Flamethrower Mk.1': {
@@ -346,6 +516,16 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			recoilVertical: [0.0, 0.0],
 			spread: 6.0,
 			damageModifier: null
+		},
+		modifications: {
+			boost: [
+				...mainBoostTotalAmmo,
+				boost['Damage (Flamethrower)']
+			],
+			magazine: [
+				magazine.Rare,
+				magazine['Well Done']
+			]
 		}
 	},
 	'GL40 Grenade Launcher': {
@@ -376,6 +556,18 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			recoilVertical: [1.74, 1.8],
 			spread: 0.24,
 			damageModifier: null
+		},
+		modifications: {
+			ammunition: [
+				ammunition['Incendiary Round']
+			],
+			barrel: [
+				barrel['Pirate Barrel']
+			],
+			boost: mainBoost,
+			stock: [
+				stock['Sawed-off Stock']
+			]
 		}
 	}
 }

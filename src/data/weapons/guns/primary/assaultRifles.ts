@@ -9,12 +9,14 @@ import extra from '../modifications/extra'
 import foregrip from '../modifications/foregrip'
 import gadget, { GadgetModificationsList } from '../modifications/gadget'
 import grip from '../modifications/grip'
+import lowerReciver from '../modifications/lowerReceiver'
+import magazine from '../modifications/magazine'
 import sight, { SightModificationsList } from '../modifications/sight'
 import stock from '../modifications/stock'
 import upperReciever from '../modifications/upperReceiver'
-import { WeaponData, WeaponModification } from '../weaponTypes'
+import { Modification, WeaponData } from '../weaponTypes'
 
-const mainBarrelExt: WeaponModification<BarrelExtModificationsList>[] = [
+const mainBarrelExt: Modification<BarrelExtModificationsList>[] = [
 	barrelExt['Low Profile Suppressor'],
 	barrelExt['Medium Suppressor'],
 	barrelExt['The Bigger The Better Suppressor'],
@@ -27,19 +29,19 @@ const mainBarrelExt: WeaponModification<BarrelExtModificationsList>[] = [
 	barrelExt['Ported Compensator']
 ]
 
-const mainBoost: WeaponModification<BoostModificationsList>[] = [
+const mainBoost: Modification<BoostModificationsList>[] = [
 	boost.Concealment,
 	boost.Stability,
 	boost.Accuracy,
 	boost['Team Boost']
 ]
 
-const mainCustom: WeaponModification<CustomModificationsList>[] = [
+const mainCustom: Modification<CustomModificationsList>[] = [
 	custom['Single Fire'],
 	custom['Auto Fire']
 ]
 
-const mainGadget: WeaponModification<GadgetModificationsList>[] = [
+const mainGadget: Modification<GadgetModificationsList>[] = [
 	gadget['Assault Light'],
 	gadget['Tactical Laser Module'],
 	gadget['Compact Laser Module'],
@@ -50,7 +52,13 @@ const mainGadget: WeaponModification<GadgetModificationsList>[] = [
 	gadget['45 Degree Ironsights']
 ]
 
-const mainSight: WeaponModification<SightModificationsList>[] = [
+const mainGadgetMagnifier: Modification<GadgetModificationsList>[] = [
+	...mainGadget,
+	gadget['Riktpunkt Magnifier Gadget'],
+	gadget['Signature Magnifier Gadget']
+]
+
+const mainSight: Modification<SightModificationsList>[] = [
 	sight['The Professional\'s Choice Sight'],
 	sight['Surgeon Sight'],
 	sight['See More Sight'],
@@ -130,44 +138,20 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			damageModifier: [1.0, 1.0]
 		},
 		modifications: {
-			Barrel: [
-				barrel['AK Slavic Dragon Barrel'],
-				barrel['Modern Barrel'],
-				barrel['DMR Kit (AK)']
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadgetMagnifier,
+			magazine: [
+				magazine['Milspec Mag.'],
+				magazine['CAR Quadstacked Mag'],
+				magazine['L5 Magazine'],
+				magazine['Speed Pull Magazine']
 			],
-			'Barrel Ext': [
-				...mainBarrelExt,
-				barrelExt['PBS Suppressor']
-			],
-			Boost: mainBoost,
-			Custom: mainCustom,
-			Extra: [
-				extra['Scope Mount']
-			],
-			Foregrip: [
-				foregrip['Railed Wooden Grip'],
-				foregrip['The Tactical Russian Handguard'],
-				foregrip['Battleproven Handguard'],
-				foregrip['Lightweight Rail'],
-				foregrip['Crabs Rail'],
-				foregrip['Keymod Rail']
-			],
-			Gadget: mainGadget,
-			Grip: [
-				grip['AK Rubber Grip'],
-				grip['AK Plastic Grip'],
-				grip['AK Wood Grip'],
-				grip['Aluminum Grip']
-			],
-			Sight: mainSight,
-			Stock: [
-				stock['Standard Stock'],
-				stock['Tactical Stock'],
-				stock['Skeletal Stock'],
-				stock['Wooden Sniper Stock'],
+			sight: mainSight,
+			stock: [
 				stock['Wide Stock'],
 				stock['War-Torn Stock'],
-				stock['Classic Stock'],
 				stock['2 Piece Stock'],
 				stock['Contractor Stock']
 			]
@@ -203,30 +187,30 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			damageModifier: [1.0, 1.0]
 		},
 		modifications: {
-			Barrel: [
+			barrel: [
 				barrel['Long Barrel (Commando)']
 			],
-			'Barrel Ext': mainBarrelExt,
-			Boost: mainBoost,
-			Custom: mainCustom,
-			Foregrip: [
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			foregrip: [
 				foregrip['Enhanced Foregrip'],
-				foregrip['Railed Foregrip']
+				foregrip['Railed Foregrip (Commando)']
 			],
-			Gadget: mainGadget,
-			Grip: [
+			gadget: mainGadgetMagnifier,
+			grip: [
 				grip['Enhanced Grip']
 			],
-			Sight: mainSight,
-			Stock: [
-				stock['Tactical Stock'],
+			sight: mainSight,
+			stock: [
+				stock['Tactical Stock (Main)'],
 				stock['Enhanced Stock'],
 				stock['Wide Stock'],
 				stock['War-Torn Stock'],
 				stock['2 Piece Stock'],
 				stock['Contractor Stock']
 			],
-			'Upper Reciever': [
+			upperReciever: [
 				upperReciever['Heat Treated Body']
 			]
 		}
@@ -259,6 +243,29 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [1.14, 1.52],
 			spread: 1.68,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['Short Barrel (Eagle Heavy)'],
+				barrel['Long Barrel (Eagle Heavy)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			foregrip: [
+				foregrip['Rail Extension']
+			],
+			gadget: mainGadgetMagnifier,
+			grip: [
+				grip['Ergo Grip (Main)'],
+				grip['Pro Grip'],
+				grip['Straight Grip'],
+				grip['Contractor Grip']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Sniper Stock (Eagle Heavy)']
+			]
 		}
 	},
 	'Union 5.56 Rifle': {
@@ -289,6 +296,27 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [0.78, 1.04],
 			spread: 1.92,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['Short Barrel (Union)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadgetMagnifier,
+			magazine: [
+				magazine['Vintage Mag.'],
+				magazine['Tactical Mag.'],
+				magazine['CAR Quadstacked Mag'],
+				magazine['Expert Mag'],
+				magazine['L5 Magazine'],
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight,
+			lowerReciever: [
+				lowerReciver['Dunes Tactical Receiver']
+			]
 		}
 	},
 	'AK Rifle': {
@@ -319,6 +347,54 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [0.9, 1.2],
 			spread: 3.12,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['AK Slavic Dragon Barrel'],
+				barrel['Modern Barrel'],
+				barrel['DMR Kit (AK)']
+			],
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['PBS Suppressor']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			extra: [
+				extra['Scope Mount (AK)']
+			],
+			foregrip: [
+				foregrip['Railed Wooden Grip'],
+				foregrip['The Tactical Russian Handguard'],
+				foregrip['Battleproven Handguard'],
+				foregrip['Lightweight Rail'],
+				foregrip['Crabs Rail'],
+				foregrip['Keymod Rail']
+			],
+			gadget: mainGadgetMagnifier,
+			grip: [
+				grip['AK Rubber Grip'],
+				grip['AK Plastic Grip'],
+				grip['AK Wood Grip'],
+				grip['Aluminum Grip']
+			],
+			magazine: [
+				magazine['AK Quadstacked Mag'],
+				magazine['Low Drag Magazine'],
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Standard Stock (Main)'],
+				stock['Tactical Stock (Main)'],
+				stock['Folding Stock'],
+				stock['Wooden Sniper Stock'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['Classic Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			]
 		}
 	},
 	'CAR-4 Rifle': {
@@ -349,6 +425,57 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [0.9, 1.2],
 			spread: 3.36,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['Long Barrel (CAR)'],
+				barrel['Short Barrel (CAR)'],
+				barrel['Stealth Barrel'],
+				barrel['DMR Kit (CAR)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			foregrip: [
+				foregrip['Aftermarket Special Handguard'],
+				foregrip['Competition Foregrip'],
+				foregrip['Gazelle Rail'],
+				foregrip['OVAL Foregrip'],
+				foregrip['E.M.O. Foregrip']
+			],
+			gadget: mainGadgetMagnifier,
+			grip: [
+				grip['Ergo Grip (Main)'],
+				grip['Pro Grip'],
+				grip['Rubber Grip'],
+				grip['Straight Grip'],
+				grip['Contractor Grip']
+			],
+			lowerReciever: [
+				lowerReciver['THRUST Lower Receiver']
+			],
+			magazine: [
+				magazine['Vintage Mag.'],
+				magazine['Tactical Mag.'],
+				magazine['CAR Quadstacked Mag'],
+				magazine['Expert Mag'],
+				magazine['L5 Magazine'],
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Tactical Stock (Main)'],
+				stock['Folding Stock'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			],
+			upperReciever: [
+				upperReciever['Exotique Receiver'],
+				upperReciever['LW Upper Receiver'],
+				upperReciever['THRUST Upper Receiver']
+			]
 		}
 	},
 	'UAR Rifle': {
@@ -379,6 +506,26 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [1.2, 1.6],
 			spread: 2.16,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['Short Barrel (UAR)'],
+				barrel['Long Barrel (UAR)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			extra: [
+				extra['A3 Tactical Foregrip']
+			],
+			gadget: mainGadgetMagnifier,
+			lowerReciever: [
+				lowerReciver['Raptor Polymer Body']
+			],
+			magazine: [
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight
 		}
 	},
 	'KETCHNOV Byk-1 Assault Rifle': {
@@ -409,7 +556,8 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [1.19, 1.53],
 			spread: 1.68,
 			damageModifier: [1.0, 1.0]
-		}
+		},
+		modifications: {}
 	},
 	'Cavity 9mm': {
 		name: 'Cavity 9mm',
@@ -439,6 +587,17 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [1.32, 1.76],
 			spread: 1.68,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			foregrip: [
+				foregrip['Appalachian Foregrip'],
+				foregrip['Delabarre Foregrip'],
+				foregrip['Tooth Fairy Suppressor']
+			],
+			gadget: mainGadgetMagnifier,
+			sight: mainSight
 		}
 	},
 	'AK.762': {
@@ -469,6 +628,51 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [1.14, 1.52],
 			spread: 2.4,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['AK Slavic Dragon Barrel'],
+				barrel['Modern Barrel'],
+				barrel['DMR Kit (AK)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			extra: [
+				extra['Scope Mount (AK)']
+			],
+			foregrip: [
+				foregrip['Railed Wooden Grip'],
+				foregrip['The Tactical Russian Handguard'],
+				foregrip['Battleproven Handguard'],
+				foregrip['Lightweight Rail'],
+				foregrip['Crabs Rail'],
+				foregrip['Keymod Rail']
+			],
+			gadget: mainGadget,
+			grip: [
+				grip['AK Rubber Grip'],
+				grip['AK Plastic Grip'],
+				grip['AK Wood Grip'],
+				grip['Aluminum Grip']
+			],
+			magazine: [
+				magazine['AK Quadstacked Mag'],
+				magazine['Low Drag Magazine'],
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Standard Stock (Main)'],
+				stock['Tactical Stock (Main)'],
+				stock['Skeletal Stock (Main)'],
+				stock['Wooden Sniper Stock'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['Classic Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			]
 		}
 	},
 	'JP36 Rifle': {
@@ -499,6 +703,25 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [0.84, 1.12],
 			spread: 3.6,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			foregrip: [
+				foregrip['Compact Foregrip'],
+				foregrip['Polizei Special Foregrip'],
+				foregrip['JP36 Long Foregrip']
+			],
+			gadget: mainGadgetMagnifier,
+			magazine: [
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Solid Stock (JP36)'],
+				stock['Sniper Stock (JP36)']
+			]
 		}
 	},
 	'AK17 Rifle': {
@@ -529,6 +752,31 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [0.9, 1.2],
 			spread: 2.4,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadgetMagnifier,
+			grip: [
+				grip['AK Rubber Grip'],
+				grip['AK Plastic Grip'],
+				grip['AK Wood Grip'],
+				grip['Aluminum Grip']
+			],
+			magazine: [
+				magazine['AK Quadstacked Mag'],
+				magazine['Low Drag Magazine'],
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Tactical Stock (Main)'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			]
 		}
 	},
 	'Golden AK.762 Rifle': {
@@ -559,6 +807,51 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [1.14, 1.52],
 			spread: 2.4,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['AK Slavic Dragon Barrel'],
+				barrel['Modern Barrel'],
+				barrel['DMR Kit (AK)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			extra: [
+				extra['Scope Mount (AK)']
+			],
+			foregrip: [
+				foregrip['Railed Wooden Grip'],
+				foregrip['The Tactical Russian Handguard'],
+				foregrip['Battleproven Handguard'],
+				foregrip['Lightweight Rail'],
+				foregrip['Crabs Rail'],
+				foregrip['Keymod Rail']
+			],
+			gadget: mainGadget,
+			grip: [
+				grip['AK Rubber Grip'],
+				grip['AK Plastic Grip'],
+				grip['AK Wood Grip'],
+				grip['Aluminum Grip']
+			],
+			magazine: [
+				magazine['AK Quadstacked Mag'],
+				magazine['Low Drag Magazine'],
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Standard Stock (Main)'],
+				stock['Tactical Stock (Main)'],
+				stock['Skeletal Stock (Main)'],
+				stock['Wooden Sniper Stock'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['Classic Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			]
 		}
 	},
 	'Bootleg Rifle': {
@@ -589,6 +882,31 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [1.02, 1.36],
 			spread: 4.56,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['AML Barrel']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadgetMagnifier,
+			grip: [
+				grip['Ergo Grip (Main)'],
+				grip['Pro Grip'],
+				grip['Rubber Grip'],
+				grip['Straight Grip'],
+				grip['Contractor Grip']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Tactical Stock (Main)'],
+				stock['Folding Stock'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			]
 		}
 	},
 	'Queen\'s Wrath Rifle': {
@@ -619,6 +937,31 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [1.2, 1.65],
 			spread: 2.16,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['Prodigious Barrel'],
+				barrel['Diminutive Barrel']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			foregrip: [
+				foregrip['Versatile Foregrip']
+			],
+			gadget: mainGadgetMagnifier,
+			grip: [
+				grip['Delightful Grip']
+			],
+			magazine: [
+				magazine['Vintage Mag.'],
+				magazine['Tactical Mag.'],
+				magazine['CAR Quadstacked Mag'],
+				magazine['Expert Mag'],
+				magazine['L5 Magazine'],
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight
 		}
 	},
 	'Galant Rifle': {
@@ -649,6 +992,21 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [1.26, 1.68],
 			spread: 0.96,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['Tanker Barrel']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			foregrip: [
+				foregrip['Custom Foregrip']
+			],
+			gadget: mainGadgetMagnifier,
+			sight: mainSight,
+			stock: [
+				stock['Magpouch Stock']
+			]
 		}
 	},
 	'M308 Rifle': {
@@ -679,6 +1037,21 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [1.26, 1.68],
 			spread: 0.96,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			extra: [
+				extra['Scope Mount (M308)']
+			],
+			gadget: mainGadgetMagnifier,
+			sight: mainSight,
+			stock: [
+				stock['Abraham Body'],
+				stock['Jaeger Body'],
+				stock['B-Team Stock']
+			]
 		}
 	},
 	'Clarion Rifle': {
@@ -709,6 +1082,22 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [0.78, 1.04],
 			spread: 3.84,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['Long Barrel (Clarion)'],
+				barrel['Short Barrel (Clarion)'],
+				barrel['Sniper Barrel'],
+				barrel['Suppressed Barrel (Clarion)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadgetMagnifier,
+			grip: [
+				grip['G2 Grip']
+			],
+			sight: mainSight
 		}
 	},
 	'Lion\'s Roar Rifle': {
@@ -739,6 +1128,18 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [0.84, 1.12],
 			spread: 2.4,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['CQB Barrel (Lion\'s Roar)'],
+				barrel['Precision Barrel'],
+				barrel['Silenced Barrel (Lion\'s Roar)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadgetMagnifier,
+			sight: mainSight
 		}
 	},
 	'Valkyria Rifle': {
@@ -769,6 +1170,18 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [0.84, 1.12],
 			spread: 2.64,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['Prototype Barrel (Valkyria)']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			sight: mainSight,
+			stock: [
+				stock['Solid Stock (Valkyria)']
+			]
 		}
 	},
 	'AK5 Rifle': {
@@ -799,6 +1212,32 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [0.9, 1.2],
 			spread: 2.4,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['CQB Barrel (AK5)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			foregrip: [
+				foregrip['Karbin Ceres Handguard'],
+				foregrip['Belgian Heat Handguard']
+			],
+			gadget: mainGadgetMagnifier,
+			magazine: [
+				magazine['Vintage Mag.'],
+				magazine['Tactical Mag.'],
+				magazine['CAR Quadstacked Mag'],
+				magazine['Expert Mag'],
+				magazine['L5 Magazine'],
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Bertil Stock'],
+				stock['Caesar Stock']
+			]
 		}
 	},
 	'Gecko 7.62 Rifle': {
@@ -829,6 +1268,30 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [0.78, 1.04],
 			spread: 3.12,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['Fabulous Foregrip'],
+				barrel['CQB Foregrip (Gecko)'],
+				barrel['Light Foregrip'],
+				barrel['Sniper Foregrip']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadgetMagnifier,
+			grip: [
+				grip['Sniper Grip']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Fabulous Stock'],
+				stock['Light Stock (Gecko)'],
+				stock['Plastic Stock (Gecko)'],
+				stock['Skeletal Stock (Gecko)'],
+				stock['Sniper Stock (Gecko)'],
+				stock['Wooden Stock (Gecko)']
+			]
 		}
 	},
 	'Tempest-21 Rifle': {
@@ -859,6 +1322,21 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [0.68, 1.02],
 			spread: 2.4,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadgetMagnifier,
+			magazine: [
+				magazine['Vintage Mag.'],
+				magazine['Tactical Mag.'],
+				magazine['CAR Quadstacked Mag'],
+				magazine['Expert Mag'],
+				magazine['L5 Magazine'],
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight
 		}
 	},
 	'AMR-16 Rifle': {
@@ -889,6 +1367,51 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [0.88, 1.32],
 			spread: 2.64,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['Long Barrel (CAR)'],
+				barrel['DMR Kit (CAR)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			foregrip: [
+				foregrip['Tactical Handguard'],
+				foregrip['Blast From The Past Handguard'],
+				foregrip['Long Ergo Foregrip']
+			],
+			gadget: mainGadgetMagnifier,
+			grip: [
+				grip['Ergo Grip (Main)'],
+				grip['Pro Grip'],
+				grip['Rubber Grip'],
+				grip['Straight Grip'],
+				grip['Contractor Grip']
+			],
+			lowerReciever: [
+				lowerReciver['THRUST Lower Receiver']
+			],
+			magazine: [
+				magazine['Milspec Mag.'],
+				magazine['Tactical Mag.'],
+				magazine['CAR Quadstacked Mag'],
+				magazine['Expert Mag'],
+				magazine['L5 Magazine'],
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			],
+			upperReciever: [
+				upperReciever['Exotique Receiver'],
+				upperReciever['LW Upper Receiver'],
+				upperReciever['THRUST Upper Receiver']
+			]
 		}
 	},
 	'Little Friend 7.62 Assault Rifle': {
@@ -919,6 +1442,13 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [1.14, 1.52],
 			spread: 1.68,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadgetMagnifier,
+			sight: mainSight
 		}
 	},
 	'Falcon Rifle': {
@@ -949,6 +1479,30 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [1.14, 1.52],
 			spread: 1.92,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['CQB Foregrip (Falcon)'],
+				barrel['Retro Foregrip'],
+				barrel['Marksman Foregrip'],
+				barrel['Wooden Foregrip']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadgetMagnifier,
+			grip: [
+				grip['Tactical Grip']
+			],
+			magazine: [
+				magazine['Extended Magzine (Falcon)']
+			],
+			sight: mainSight,
+			stock: [
+				stock['CQB Stock'],
+				stock['Marksman Stock'],
+				stock['Wooden Stock (Falcon)']
+			]
 		}
 	},
 	'Gewehr 3 Rifle': {
@@ -979,6 +1533,31 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			recoilVertical: [1.08, 1.44],
 			spread: 1.92,
 			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['Assault Kit'],
+				barrel['DMR Kit (Gewehr)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			foregrip: [
+				foregrip['Precision Foregrip'],
+				foregrip['Tactical Foregrip (Gewehr)'],
+				foregrip['Wooden Foregrip'],
+				foregrip['Plastic Foregrip']
+			],
+			gadget: mainGadgetMagnifier,
+			grip: [
+				grip['Retro Grip'],
+				grip['Precision Grip']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Precision Stock'],
+				stock['Wooden Stock (Gewehr)']
+			]
 		}
 	}
 }

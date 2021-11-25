@@ -1,8 +1,8 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
-import { assaultRifleList, submachineGunList } from '../gunList'
 
-import { CompatibleWeapons, WeaponModificationList } from '../weaponTypes'
+import { assaultRifleList, submachineGunList } from '../gunList'
+import { CompatibleWeapons, ModificationList } from '../weaponTypes'
 
 const mainGuns: CompatibleWeapons = {
 	assaultRifle: assaultRifleList,
@@ -49,8 +49,52 @@ const mainGuns: CompatibleWeapons = {
 	submachineGun: submachineGunList
 }
 
+const mainSnipers: CompatibleWeapons = {
+	sniper: [
+		'Platypus 70 Sniper Rifle',
+		'Rattlesnake Sniper Rifle',
+		'R93 Sniper Rifle',
+		'Thanatos .50 cal Sniper Rifle',
+		'Nagant Sniper Rifle',
+		'Lebensauger .308 Sniper Rifle',
+		'Desertfox Sniper Rifle',
+		'Contractor .308 Sniper Rifle',
+		'Grom Sniper Rifle',
+		'R700 Sniper Rifle',
+		'Bernetti Rangehitter Sniper Rifle'
+	]
+}
+
+const mainPistols: CompatibleWeapons = {
+	pistol: [
+		'Chimano 88 Pistol',
+		'Crosskill Pistol',
+		'Bernetti 9 Pistol',
+		'White Streak Pistol',
+		'Parabellum Pistol',
+		'Crosskill Guard Pistol',
+		'STRYK 18c Pistol',
+		'Deagle Pistol',
+		'M13 9mm Pistol',
+		'Gruber Kurz Pistol',
+		'Signature .40 Pistol',
+		'Baby Deagle',
+		'Contractor Pistol',
+		'LEO Pistol',
+		'Broomstick Pistol',
+		'Bernetti Auto Pistol',
+		'Czech 92 Pistol',
+		'Igor Automatik Pistol',
+		'HOLT 9mm Pistol',
+		'Interceptor .45 Pistol',
+		'Chimano Custom Pistol',
+		'5/7 AP Pistol',
+		'Chimano Compact Pistol'
+	]
+}
+
 export type SightModificationsList =
-	// main guns
+	// Main guns
 	'The Professional\'s Choice Sight' |
 	'Surgeon Sight' |
 	'See More Sight' |
@@ -67,13 +111,34 @@ export type SightModificationsList =
 	'Compact Profile Sight' |
 	'Maelstrom Sight' |
 	'Advanced Combat Sight' |
-	'Reconnaissance Sight'
+	'Reconnaissance Sight' |
 
-const sight: WeaponModificationList<SightModificationsList> = {
+	// Snipers
+	'Theia Magnified Scope' |
+	'Box Buddy Sight' |
+
+	// Repeater 1874
+	'A5 Scope' |
+
+	// Pistols
+	'Pistol Red Dot Sight' |
+	'SKOLD Micro Reflex Sight' |
+	'Riktpunkt Holosight' |
+
+	// Bernetti 9, Crosskill, Deagle
+	'Marksman Sight' |
+
+	// Broomstick
+	'Barrel Sight 44' |
+
+	// Contractor
+	'Tritium Sights'
+
+const sight: ModificationList<SightModificationsList> = {
 	'The Professional\'s Choice Sight': {
 		name: 'The Professional\'s Choice Sight',
 		image: 'wpn_fps_upg_o_t1micro',
-		slot: 'Sight',
+		slot: 'sight',
 		source: source['Base Game'],
 		cost: 21e3,
 		stats: {
@@ -85,7 +150,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'Surgeon Sight': {
 		name: 'Surgeon Sight',
 		image: 'wpn_fps_upg_o_docter',
-		slot: 'Sight',
+		slot: 'sight',
 		source: source['Base Game'],
 		cost: 36e3,
 		stats: {
@@ -97,7 +162,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'See More Sight': {
 		name: 'See More Sight',
 		image: 'wpn_fps_upg_o_cmore',
-		slot: 'Sight',
+		slot: 'sight',
 		source: content['Armored Transport'],
 		cost: 43200,
 		stats: {
@@ -109,7 +174,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'Combat Sight': {
 		name: 'Combat Sight',
 		image: 'wpn_fps_upg_o_cs',
-		slot: 'Sight',
+		slot: 'sight',
 		source: content['Gage Mod Courier'],
 		cost: 0,
 		acquisition: {
@@ -124,7 +189,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'Speculator Sight': {
 		name: 'Speculator Sight',
 		image: 'wpn_fps_upg_o_reflex',
-		slot: 'Sight',
+		slot: 'sight',
 		source: content['Gage Mod Courier'],
 		cost: 0,
 		acquisition: {
@@ -139,7 +204,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'Trigonom Sight': {
 		name: 'Trigonom Sight',
 		image: 'wpn_fps_upg_o_rx01',
-		slot: 'Sight',
+		slot: 'sight',
 		source: content['Gage Mod Courier'],
 		cost: 0,
 		acquisition: {
@@ -154,7 +219,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'Holographic Sight': {
 		name: 'Holographic Sight',
 		image: 'wpn_fps_upg_o_eotech',
-		slot: 'Sight',
+		slot: 'sight',
 		source: source['Base Game'],
 		cost: 21e3,
 		stats: {
@@ -166,7 +231,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'Compact Holosight': {
 		name: 'Compact Holosight',
 		image: 'wpn_fps_upg_o_eotech_xps',
-		slot: 'Sight',
+		slot: 'sight',
 		source: content['Gage Mod Courier'],
 		cost: 0,
 		acquisition: {
@@ -181,7 +246,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'Solar Sight': {
 		name: 'Solar Sight',
 		image: 'wpn_fps_upg_o_rx30',
-		slot: 'Sight',
+		slot: 'sight',
 		source: content['Gage Mod Courier'],
 		cost: 0,
 		acquisition: {
@@ -196,7 +261,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'Military Red Dot Sight (1)': {
 		name: 'Military Red Dot Sight (1)',
 		image: 'wpn_fps_upg_o_aimpoint_2',
-		slot: 'Sight',
+		slot: 'sight',
 		source: content.Lootbag,
 		cost: 9e3,
 		acquisition: {
@@ -211,7 +276,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'Military Red Dot Sight (2)': {
 		name: 'Military Red Dot Sight (2)',
 		image: 'wpn_fps_upg_o_aimpoint',
-		slot: 'Sight',
+		slot: 'sight',
 		source: source['Base Game'],
 		cost: 62e3,
 		stats: {
@@ -223,7 +288,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'Milspec Scope': {
 		name: 'Milspec Scope',
 		image: 'wpn_fps_upg_o_specter',
-		slot: 'Sight',
+		slot: 'sight',
 		source: source['Base Game'],
 		cost: 62e3,
 		stats: {
@@ -235,7 +300,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'Acough Optic Scope': {
 		name: 'Acough Optic Scope',
 		image: 'wpn_fps_upg_o_acog',
-		slot: 'Sight',
+		slot: 'sight',
 		source: source['Base Game'],
 		cost: 44e3,
 		acquisition: {
@@ -250,7 +315,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'Compact Profile Sight': {
 		name: 'Compact Profile Sight',
 		image: 'wpn_fps_upg_o_fc1',
-		slot: 'Sight',
+		slot: 'sight',
 		source: content['Cartel Optics Mod Pack'],
 		cost: 62e3,
 		stats: {
@@ -261,7 +326,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'Maelstrom Sight': {
 		name: 'Maelstrom Sight',
 		image: 'wpn_fps_upg_o_uh',
-		slot: 'Sight',
+		slot: 'sight',
 		source: content['Cartel Optics Mod Pack'],
 		cost: 62e3,
 		stats: {
@@ -273,7 +338,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'Advanced Combat Sight': {
 		name: 'Advanced Combat Sight',
 		image: 'wpn_fps_upg_o_bmg',
-		slot: 'Sight',
+		slot: 'sight',
 		source: content['Cartel Optics Mod Pack'],
 		cost: 62e3,
 		stats: {
@@ -285,7 +350,7 @@ const sight: WeaponModificationList<SightModificationsList> = {
 	'Reconnaissance Sight': {
 		name: 'Reconnaissance Sight',
 		image: 'wpn_fps_upg_o_spot',
-		slot: 'Sight',
+		slot: 'sight',
 		source: content['Gage Spec Ops Pack'],
 		cost: 62e3,
 		acquisition: {
@@ -297,6 +362,152 @@ const sight: WeaponModificationList<SightModificationsList> = {
 			concealment: -3
 		},
 		compatibleWeapons: mainGuns
+	},
+	'Theia Magnified Scope': {
+		name: 'Theia Magnified Scope',
+		image: 'wpn_fps_upg_o_leupold',
+		slot: 'sight',
+		source: content['Gage Sniper Pack'],
+		cost: 49600,
+		acquisition: {
+			achievement: 'Didn\'t See That Coming Did You?'
+		},
+		specialEffect: [
+			'Auto-Tagger',
+			'Range Finder'
+		],
+		stats: {
+			stability: 4,
+			concealment: -3
+		},
+		compatibleWeapons: mainSnipers
+	},
+	'Box Buddy Sight': {
+		name: 'Box Buddy Sight',
+		image: 'wpn_fps_upg_o_box',
+		slot: 'sight',
+		source: content['Gage Spec Ops Pack'],
+		cost: 62e3,
+		acquisition: {
+			infinite: true
+		},
+		stats: {
+			stability: 4,
+			concealment: -3
+		},
+		compatibleWeapons: mainSnipers
+	},
+	'A5 Scope': {
+		name: 'A5 Scope',
+		image: 'wpn_fps_snp_winchester_sniper_scope',
+		slot: 'sight',
+		source: content['The Butcher\'s Western Pack'],
+		cost: 0,
+		acquisition: {
+			bonus: 1
+		},
+		stats: {
+			stability: 4,
+			concealment: -3
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Repeater 1874 Sniper Rifle'
+			]
+		}
+	},
+	'Pistol Red Dot Sight': {
+		name: 'Pistol Red Dot Sight',
+		image: 'wpn_fps_upg_o_rmr',
+		slot: 'sight',
+		source: content['Gage Mod Courier'],
+		cost: 0,
+		acquisition: {
+			package: 'Purple Snake'
+		},
+		stats: {
+			accuracy: 4,
+			concealment: -1
+		},
+		compatibleWeapons: mainPistols
+	},
+	'SKOLD Micro Reflex Sight': {
+		name: 'SKOLD Micro Reflex Sight',
+		image: 'wpn_fps_upg_o_rms',
+		slot: 'sight',
+		source: content['Cartel Optics Mod Pack'],
+		cost: 44e3,
+		stats: {
+			accuracy: 4,
+			concealment: -1
+		},
+		compatibleWeapons: mainPistols
+	},
+	'Riktpunkt Holosight': {
+		name: 'Riktpunkt Holosight',
+		image: 'wpn_fps_upg_o_rikt',
+		slot: 'sight',
+		source: content['Cartel Optics Mod Pack'],
+		cost: 44e3,
+		stats: {
+			accuracy: 4,
+			concealment: -1
+		},
+		compatibleWeapons: mainPistols
+	},
+	'Marksman Sight': {
+		name: 'Marksman Sight',
+		image: 'wpn_upg_o_marksmansight_rear',
+		slot: 'sight',
+		source: source['Base Game'],
+		cost: 36e3,
+		stats: {
+			accuracy: 4,
+			stability: 4
+		},
+		compatibleWeapons: {
+			pistol: [
+				'Bernetti 9 Pistol',
+				'Crosskill Pistol',
+				'Deagle Pistol'
+			]
+		}
+	},
+	'Barrel Sight 44': {
+		name: 'Barrel Sight 44',
+		image: 'wpn_fps_pis_c96_sight',
+		slot: 'sight',
+		source: content['Gage Historical Pack'],
+		cost: 9e3,
+		acquisition: {
+			achievement: 'Special Operations Execution'
+		},
+		stats: {
+			concealment: -2
+		},
+		compatibleWeapons: {
+			pistol: [
+				'Broomstick Pistol'
+			]
+		}
+	},
+	'Tritium Sights': {
+		name: 'Tritium Sights',
+		image: 'wpn_fps_pis_packrat_o_expert',
+		slot: 'sight',
+		source: content['John Wick Weapon Pack'],
+		cost: 9e3,
+		acquisition: {
+			infinite: true
+		},
+		stats: {
+			accuracy: 4
+		},
+		compatibleWeapons: {
+			pistol: [
+				'Contractor Pistol'
+			]
+		}
 	}
 }
 

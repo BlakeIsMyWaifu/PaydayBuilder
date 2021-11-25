@@ -1,6 +1,6 @@
 import content from 'data/source/downloadableContent'
 
-import { CompatibleWeapons, WeaponModificationList } from '../weaponTypes'
+import { CompatibleWeapons, ModificationList } from '../weaponTypes'
 
 const fireModeWeapons: CompatibleWeapons = {
 	assaultRifle: [
@@ -12,11 +12,11 @@ export type CustomModificationsList =
 	'Single Fire' |
 	'Auto Fire'
 
-const custom: WeaponModificationList<CustomModificationsList> = {
+const custom: ModificationList<CustomModificationsList> = {
 	'Single Fire': {
 		name: 'Single Fire',
 		image: 'wpn_fps_upg_i_singlefire',
-		slot: 'Custom',
+		slot: 'custom',
 		source: content['Gage Weapon Pack #01'],
 		cost: 50400,
 		acquisition: {
@@ -32,7 +32,7 @@ const custom: WeaponModificationList<CustomModificationsList> = {
 	'Auto Fire': {
 		name: 'Auto Fire',
 		image: 'wpn_fps_upg_i_autofire',
-		slot: 'Custom',
+		slot: 'custom',
 		source: content['Gage Weapon Pack #01'],
 		cost: 86800,
 		acquisition: {

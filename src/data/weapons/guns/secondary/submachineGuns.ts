@@ -1,7 +1,74 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { WeaponData } from '../weaponTypes'
+import barrel from '../modifications/barrel'
+import barrelExt, { BarrelExtModificationsList } from '../modifications/barrelExt'
+import boost, { BoostModificationsList } from '../modifications/boost'
+import custom, { CustomModificationsList } from '../modifications/custom'
+import extra from '../modifications/extra'
+import foregrip from '../modifications/foregrip'
+import gadget, { GadgetModificationsList } from '../modifications/gadget'
+import grip from '../modifications/grip'
+import lowerReciver from '../modifications/lowerReceiver'
+import magazine from '../modifications/magazine'
+import sight, { SightModificationsList } from '../modifications/sight'
+import stock from '../modifications/stock'
+import upperReciever from '../modifications/upperReceiver'
+import verticalGrip from '../modifications/verticalGrip'
+import { Modification, WeaponData } from '../weaponTypes'
+
+const mainBarrelExt: Modification<BarrelExtModificationsList>[] = [
+	barrelExt['Low Profile Suppressor'],
+	barrelExt['Medium Suppressor'],
+	barrelExt['The Bigger The Better Suppressor'],
+	barrelExt['Stubby Compensator'],
+	barrelExt['The Tank Compensator'],
+	barrelExt['Fire Breather Nozzle'],
+	barrelExt['Tactical Compensator'],
+	barrelExt['Competitor\'s Compensator'],
+	barrelExt['Funnel of Fun Nozzle'],
+	barrelExt['Ported Compensator']
+]
+
+const mainBoost: Modification<BoostModificationsList>[] = [
+	boost.Concealment,
+	boost.Stability,
+	boost.Accuracy,
+	boost['Team Boost']
+]
+
+const mainCustom: Modification<CustomModificationsList>[] = [
+	custom['Single Fire'],
+	custom['Auto Fire']
+]
+
+const mainGadget: Modification<GadgetModificationsList>[] = [
+	gadget['Assault Light'],
+	gadget['Tactical Laser Module'],
+	gadget['Compact Laser Module'],
+	gadget['Military Laser Module'],
+	gadget['LED Combo']
+]
+
+const mainSight: Modification<SightModificationsList>[] = [
+	sight['The Professional\'s Choice Sight'],
+	sight['Surgeon Sight'],
+	sight['See More Sight'],
+	sight['Combat Sight'],
+	sight['Speculator Sight'],
+	sight['Trigonom Sight'],
+	sight['Holographic Sight'],
+	sight['Compact Holosight'],
+	sight['Solar Sight'],
+	sight['Military Red Dot Sight (1)'],
+	sight['Military Red Dot Sight (2)'],
+	sight['Milspec Scope'],
+	sight['Acough Optic Scope'],
+	sight['Compact Profile Sight'],
+	sight['Maelstrom Sight'],
+	sight['Advanced Combat Sight'],
+	sight['Reconnaissance Sight']
+]
 
 export type SubmachineGunList =
 	'Swedish K Submachine Gun' |
@@ -58,6 +125,29 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [-2.04, 2.04],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['Grease Barrel'],
+				barrel['Swedish Barrel']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			grip: [
+				grip['Ergo Grip (Swedish)'],
+				grip['Bling Grip (Swedish)']
+			],
+			magazine: [
+				magazine['Extended Mag. (Swedish)']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Folded Stock (Swedish)']
+			],
+			upperReciever: [
+				upperReciever['Swedish Body']
+			]
 		}
 	},
 	'SpecOps Submachine Gun': {
@@ -88,6 +178,22 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [0.66, 0.88],
 			spread: 2.16,
 			damageModifier: [1.0, 0.6]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Suppressed Barrel']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			magazine: [
+				magazine['Extended Mag. (SpecOps)']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Unfolded Stock (SpecOps)']
+			]
 		}
 	},
 	'Mark 10 Submachine Gun': {
@@ -118,6 +224,30 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [0.84, 1.2],
 			spread: 3.12,
 			damageModifier: [1.0, 0.6]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Werbell\'s Suppressor'],
+				barrelExt['Slotted Barrel Extension']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			extra: [
+				extra['Railed Handguard']
+			],
+			gadget: mainGadget,
+			lowerReciever: [
+				lowerReciver['Custom Built Frame']
+			],
+			magazine: [
+				magazine['Extended Mag. (Mark 10)'],
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Skeletal Stock (Mark 10)']
+			]
 		}
 	},
 	'CR 805B Submachine Gun': {
@@ -148,6 +278,25 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [-0.66, 1.32],
 			spread: 1.68,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['Medium Barrel (CR)'],
+				barrel['Short Barrel (CR)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			magazine: [
+				magazine['Vintage Mag.'],
+				magazine['Tactical Mag.'],
+				magazine['CAR Quadstacked Mag'],
+				magazine['Expert Mag'],
+				magazine['L5 Magazine'],
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight
 		}
 	},
 	'AK Gen 21 Tactical Submachine Gun': {
@@ -178,6 +327,29 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [0.55, 0.77],
 			spread: 2.16,
 			damageModifier: [1.0, 0.6]
+		},
+		modifications: {
+			barrel: [
+				barrel['MG8 Precision Barrel'],
+				barrel['BY90 Wide Suppressor']
+			],
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['PBS Suppressor']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			grip: [
+				grip['AK Rubber Grip'],
+				grip['AK Plastic Grip'],
+				grip['AK Wood Grip'],
+				grip['Aluminum Grip']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Bull Stock']
+			]
 		}
 	},
 	'Jacket\'s Piece': {
@@ -208,6 +380,28 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [-0.66, 1.32],
 			spread: 2.88,
 			damageModifier: [1.0, 0.6]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Werbell\'s Suppressor'],
+				barrelExt['Slotted Barrel Extension']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			sight: mainSight,
+			stock: [
+				stock['Standard Stock (Main)'],
+				stock['Tactical Stock (Main)'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			],
+			upperReciever: [
+				upperReciever['80\'s Calling']
+			]
 		}
 	},
 	'Compact-5 Submachine Gun': {
@@ -238,6 +432,27 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [0.48, 0.64],
 			spread: 3.36,
 			damageModifier: [1.0, 0.5]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			foregrip: [
+				foregrip['Sehr Kurze Barrel'],
+				foregrip['Polizei Tactical Barrel'],
+				foregrip['The Ninja Barrel'],
+				foregrip['Enlightened Foregrip']
+			],
+			gadget: mainGadget,
+			magazine: [
+				magazine['Straight Magazine']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Adjustable Stock'],
+				stock['Bare Essentials Stock'],
+				stock['Spartan Stock']
+			]
 		}
 	},
 	'Chicago Typewriter Submachine Gun': {
@@ -268,6 +483,26 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [0.33, 1.65],
 			spread: 3.12,
 			damageModifier: [1.0, 0.6]
+		},
+		modifications: {
+			barrel: [
+				barrel['Stubby Barrel'],
+				barrel['Long Barrel (Chicago Typewriter)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			foregrip: [
+				foregrip['Discrete Foregrip']
+			],
+			gadget: mainGadget,
+			grip: [
+				grip['Discrete Grip']
+			],
+			sight: mainSight,
+			stock: [
+				stock['QD Sling Stock'],
+				stock['Discrete Stock (Chicago Typewriter)']
+			]
 		}
 	},
 	'Miyaka 10 Special Submachine Gun': {
@@ -298,7 +533,8 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [-0.14, 0.84],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
-		}
+		},
+		modifications: {}
 	},
 	'Cobra Submachine Gun': {
 		name: 'Cobra Submachine Gun',
@@ -328,6 +564,27 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [0.66, 0.88],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt.Suppressor
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			grip: [
+				grip['Ergo Grip (Cobra)'],
+				grip['Wooden Grip (Cobra)']
+			],
+			magazine: [
+				magazine['Extended Mag (Cobra)']
+			],
+			sight: mainSight,
+			stock: [
+				stock['No Stock (Cobra)'],
+				stock['Unfolded Stock (Cobra)']
+			]
 		}
 	},
 	'CMP Submachine Gun': {
@@ -358,6 +615,22 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [-1.08, 1.08],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Tactical Suppressor']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			magazine: [
+				magazine['Extended Mag. (CMP)']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Skeletal Stock (CMP)']
+			]
 		}
 	},
 	'Para Submachine Gun': {
@@ -388,6 +661,52 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [0.72, 0.96],
 			spread: 3.36,
 			damageModifier: [1.0, 0.6]
+		},
+		modifications: {
+			barrel: [
+				barrel['Medium Barrel (Para)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			foregrip: [
+				foregrip['Railed Handguard'],
+				foregrip['Aftermarket Shorty']
+			],
+			gadget: mainGadget,
+			grip: [
+				grip['Ergo Grip (Main)'],
+				grip['Pro Grip'],
+				grip['Rubber Grip'],
+				grip['Straight Grip'],
+				grip['Contractor Grip']
+			],
+			lowerReciever: [
+				lowerReciver['THRUST Lower Receiver']
+			],
+			magazine: [
+				magazine['Milspec Mag.'],
+				magazine['Tactical Mag.'],
+				magazine['CAR Quadstacked Mag'],
+				magazine['Expert Mag'],
+				magazine['L5 Magazine'],
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Standard Stock (Main)'],
+				stock['Tactical Stock (Main)'],
+				stock['Shorter Than Short Stock'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			],
+			upperReciever: [
+				upperReciever['Exotique Receiver'],
+				upperReciever['LW Upper Receiver'],
+				upperReciever['THRUST Upper Receiver']
+			]
 		}
 	},
 	'Micro Uzi Submachine Gun': {
@@ -418,6 +737,24 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [-0.09, 0.54],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
+		},
+		modifications: {
+			barrel: [
+				barrel['Custom Barrel']
+			],
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Futomaki Suppressor'],
+				barrelExt['Maki Suppressor'],
+				barrelExt['Spring Suppressor']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			stock: [
+				stock['No Stock (Micro Uzi)'],
+				stock['Unfolded Stock (Micro Uzi)']
+			]
 		}
 	},
 	'Signature Submachine Gun': {
@@ -448,6 +785,26 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [-0.34, 0.68],
 			spread: 3.36,
 			damageModifier: [1.0, 0.5]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			foregrip: [
+				foregrip['Short Foregrip (Signature)']
+			],
+			gadget: mainGadget,
+			magazine: [
+				magazine['Extended Magazine (Signature)']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Tactical Stock (Main)'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['2 Piece Stock'],
+				stock['No Stock (Signature)']
+			]
 		}
 	},
 	'Jackal Submachine Gun': {
@@ -478,6 +835,30 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [-0.3, 0.6],
 			spread: 2.4,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['Civilian Barrel']
+			],
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Silentgear Silencer']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			magazine: [
+				magazine['Extended Magazine (Jackal)'],
+				magazine['Short Magazine (Jackal)']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Civilian Stock'],
+				stock['Folded Stock (Jackal)']
+			],
+			verticalGrip: [
+				verticalGrip['Twinkle Grip']
+			]
 		}
 	},
 	'MP40 Submachine Gun': {
@@ -508,6 +889,15 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [-2.04, 2.04],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			sight: mainSight,
+			stock: [
+				stock['Folded Stock (MP40)']
+			]
 		}
 	},
 	'Heather Submachine Gun': {
@@ -538,6 +928,22 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [-0.45, 0.9],
 			spread: 2.88,
 			damageModifier: [1.0, 0.6]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Tishina Suppressor']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			magazine: [
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Unfolded Stock (Heather)']
+			]
 		}
 	},
 	'Krinkov Submachine Gun': {
@@ -568,6 +974,45 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [1.02, 1.36],
 			spread: 2.4,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['PBS Suppressor']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			extra: [
+				extra['Scope Mount (AK)']
+			],
+			foregrip: [
+				foregrip['Moscow Special Rail'],
+				foregrip['Aluminum Foregrip']
+			],
+			gadget: mainGadget,
+			grip: [
+				grip['AK Rubber Grip'],
+				grip['AK Plastic Grip'],
+				grip['AK Wood Grip'],
+				grip['Aluminum Grip']
+			],
+			magazine: [
+				magazine['AK Quadstacked Mag'],
+				magazine['Low Drag Magazine'],
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Standard Stock (Main)'],
+				stock['Tactical Stock (Main)'],
+				stock['Skeletal Stock (Main)'],
+				stock['Wooden Sniper Stock'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['Classic Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			]
 		}
 	},
 	'Blaster 9mm Submachine Gun': {
@@ -598,6 +1043,23 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [0.54, 0.72],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
+		},
+		modifications: {
+			barrel: [
+				barrel['Short Barrel (Blaster)'],
+				barrel['Ghetto Blaster']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			magazine: [
+				magazine['Extended Mag (Blaster)']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Just Bend It']
+			]
 		}
 	},
 	'Kobus 90 Submachine Gun': {
@@ -628,6 +1090,24 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [0.78, 1.04],
 			spread: 2.88,
 			damageModifier: [1.0, 0.6]
+		},
+		modifications: {
+			barrel: [
+				barrel['Long Barrel (Kobus)'],
+				barrel['Civilian Market Barrel'],
+				barrel['Mall Ninja Barrel']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			lowerReciever: [
+				lowerReciver['Custom Assault Frame']
+			],
+			magazine: [
+				magazine['Speed Pull Magazine']
+			],
+			sight: mainSight
 		}
 	},
 	'Kross Vertex Submachine Gun': {
@@ -658,6 +1138,25 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [-0.18, 0.36],
 			spread: 2.88,
 			damageModifier: [1.0, 0.6]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['HPS Suppressor'],
+				barrelExt['Precision Barrel']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			sight: mainSight,
+			stock: [
+				stock['Standard Stock (Main)'],
+				stock['Tactical Stock (Main)'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			]
 		}
 	},
 	'Tatonka Submachine Gun': {
@@ -688,6 +1187,22 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [-0.3, 0.6],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['PBS Suppressor']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			grip: [
+				grip['AK Rubber Grip'],
+				grip['AK Plastic Grip'],
+				grip['AK Wood Grip'],
+				grip['Aluminum Grip']
+			],
+			sight: mainSight
 		}
 	},
 	'Patchett L2A1 Submachine Gun': {
@@ -718,6 +1233,28 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [0.54, 0.72],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['Long Barrel (Patchett)'],
+				barrel['Short Barrel (Patchett)'],
+				barrel['Heatsinked Suppressed Barrel (Patchett)'],
+				barrel['Suppressed Barrel (Patchett)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			magazine: [
+				magazine['Extended Mag (Patchett)'],
+				magazine['Short Mag (Patchett)']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Folded Stock (Patchett)'],
+				stock['No Stock (Patchett)'],
+				stock['Solid Stock (Patchett)']
+			]
 		}
 	},
 	'Uzi Submachine Gun': {
@@ -748,6 +1285,24 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			recoilVertical: [0.66, 0.88],
 			spread: 2.88,
 			damageModifier: [1.0, 0.5]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Silent Death']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			foregrip: [
+				foregrip['Tactical Foregrip (Uzi)']
+			],
+			gadget: mainGadget,
+			sight: mainSight,
+			stock: [
+				stock['Ergonomic Stock'],
+				stock['Solid Stock (Uzi)'],
+				stock['Folded Stock (Uzi)']
+			]
 		}
 	}
 }

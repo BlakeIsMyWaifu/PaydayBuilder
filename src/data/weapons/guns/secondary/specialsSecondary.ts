@@ -1,7 +1,56 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
+import ammunition from '../modifications/ammunition'
+import barrel from '../modifications/barrel'
+import boost, { BoostModificationsList } from '../modifications/boost'
+import gadget, { GadgetModificationsList } from '../modifications/gadget'
+import grip from '../modifications/grip'
+import lowerReciver from '../modifications/lowerReceiver'
+import magazine from '../modifications/magazine'
+import sight, { SightModificationsList } from '../modifications/sight'
+import stock from '../modifications/stock'
 
-import { WeaponData } from '../weaponTypes'
+import { Modification, WeaponData } from '../weaponTypes'
+
+const mainBoost: Modification<BoostModificationsList>[] = [
+	boost.Concealment,
+	boost.Stability,
+	boost.Accuracy,
+	boost['Team Boost']
+]
+
+const mainBoostTotalAmmo: Modification<BoostModificationsList>[] = [
+	...mainBoost,
+	boost['Total Ammo (Main)']
+]
+
+const mainGadget: Modification<GadgetModificationsList>[] = [
+	gadget['Assault Light'],
+	gadget['Tactical Laser Module'],
+	gadget['Compact Laser Module'],
+	gadget['Military Laser Module'],
+	gadget['LED Combo']
+]
+
+const mainSight: Modification<SightModificationsList>[] = [
+	sight['The Professional\'s Choice Sight'],
+	sight['Surgeon Sight'],
+	sight['See More Sight'],
+	sight['Combat Sight'],
+	sight['Speculator Sight'],
+	sight['Trigonom Sight'],
+	sight['Holographic Sight'],
+	sight['Compact Holosight'],
+	sight['Solar Sight'],
+	sight['Military Red Dot Sight (1)'],
+	sight['Military Red Dot Sight (2)'],
+	sight['Milspec Scope'],
+	sight['Acough Optic Scope'],
+	sight['Compact Profile Sight'],
+	sight['Maelstrom Sight'],
+	sight['Advanced Combat Sight'],
+	sight['Reconnaissance Sight']
+]
 
 export type SecondarySpecialList =
 	'Pistol Crossbow' |
@@ -42,6 +91,26 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			recoilVertical: [-0.1, 0.2],
 			spread: 0.17,
 			damageModifier: null
+		},
+		modifications: {
+			ammunition: [
+				ammunition['Explosive Bolts (Pistol Crossbow)'],
+				ammunition['Poisoned Bolts (Pistol Crossbow)']
+			],
+			barrel: [
+				barrel['Carbon Limb'],
+				barrel['Skeletal Limb']
+			],
+			boost: mainBoostTotalAmmo,
+			grip: [
+				grip['Camo Grip'],
+				grip['Walnut Grip']
+			],
+			sight: [
+				sight['Pistol Red Dot Sight'],
+				sight['SKOLD Micro Reflex Sight'],
+				sight['Riktpunkt Holosight']
+			]
 		}
 	},
 	'Compact 40mm Grenade Launcher': {
@@ -72,6 +141,14 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			recoilVertical: [2.03, 2.1],
 			spread: 0.96,
 			damageModifier: null
+		},
+		modifications: {
+			ammunition: [
+				ammunition['Incendiary Round']
+			],
+			boost: mainBoost,
+			gadget: mainGadget,
+			sight: mainSight
 		}
 	},
 	'HRL-7 Rocket Launcher': {
@@ -102,6 +179,13 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			recoilVertical: [1.45, 1.5],
 			spread: 0.24,
 			damageModifier: null
+		},
+		modifications: {
+			boost: mainBoost,
+			gadget: [
+				gadget['Riktpunkt Magnifier Gadget']
+			],
+			sight: mainSight
 		}
 	},
 	'China Puff 40mm Grenade Launcher': {
@@ -132,6 +216,15 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			recoilVertical: [1.45, 1.5],
 			spread: 0.24,
 			damageModifier: null
+		},
+		modifications: {
+			ammunition: [
+				ammunition['Incendiary Round']
+			],
+			boost: mainBoost,
+			stock: [
+				stock['Riot Stock']
+			]
 		}
 	},
 	'Commando 101 Rocket Launcher': {
@@ -162,6 +255,9 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			recoilVertical: [1.45, 1.5],
 			spread: 0.24,
 			damageModifier: null
+		},
+		modifications: {
+			boost: mainBoost
 		}
 	},
 	'MA-17 Flamethrower': {
@@ -192,6 +288,17 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			recoilVertical: [0.0, 0.0],
 			spread: 6.0,
 			damageModifier: null
+		},
+		modifications: {
+			barrel: [
+				barrel['Merlin Nozzle']
+			],
+			boost: mainBoostTotalAmmo,
+			gadget: mainGadget,
+			magazine: [
+				magazine['High Temperature Mixture'],
+				magazine['Low Temperature Mixture']
+			]
 		}
 	},
 	'Arbiter Grenade Launcher': {
@@ -222,6 +329,22 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			recoilVertical: [1.45, 1.5],
 			spread: 0.24,
 			damageModifier: null
+		},
+		modifications: {
+			ammunition: [
+				ammunition['Incendiary Round']
+			],
+			barrel: [
+				barrel['Bombardier Barrel'],
+				barrel['Long Barrel (Arbiter)']
+			],
+			boost: mainBoost,
+			gadget: [
+				...mainGadget,
+				gadget['Riktpunkt Magnifier Gadget'],
+				gadget['Signature Magnifier Gadget']
+			],
+			sight: mainSight
 		}
 	},
 	'OVE9000 Saw': {
@@ -252,6 +375,17 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			recoilVertical: [2.2, -2.2],
 			spread: null,
 			damageModifier: null
+		},
+		modifications: {
+			boost: mainBoostTotalAmmo,
+			lowerReciever: [
+				lowerReciver['Silent Motor'],
+				lowerReciver['Fast Motor']
+			],
+			magazine: [
+				magazine['Durable Blade'],
+				magazine['Sharp Blade']
+			]
 		}
 	}
 }

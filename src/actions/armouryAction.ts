@@ -1,5 +1,5 @@
 import { ADDWEAPON, CHANGEMOD, REMOVEMOD, REMOVEWEAPON, RESETARMOURY } from 'constants/armouryConstant'
-import { ModificationSlot, Slot, WeaponData, WeaponModification } from 'data/weapons/guns/weaponTypes'
+import { Modification, ModificationSlot, Slot, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { createAction } from 'typesafe-actions'
 
 export interface FindWeapon {
@@ -13,7 +13,7 @@ export interface AddWeaponAction {
 }
 
 export interface ChangeModAction extends FindWeapon {
-	newMod: WeaponModification<string>;
+	newMod: Modification<string>;
 }
 
 export interface RemoveModAction extends FindWeapon {

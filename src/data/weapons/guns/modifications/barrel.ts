@@ -1,7 +1,7 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { WeaponModificationList } from '../weaponTypes'
+import { ModificationList } from '../weaponTypes'
 
 export type BarrelModificationsList =
 	// AK Rifle, AK.762, Golden AK.762
@@ -94,6 +94,13 @@ export type BarrelModificationsList =
 	// Steakout 12G
 	'Long Barrel (Steakout)' |
 	'Suppressed Barrel (Steakout)' |
+
+	// Breaker 12G
+	'Long Barrel (Breaker)' |
+	'Short Barrel (Breaker)' |
+
+	// Mosconi 12G
+	'Road Warrior Barrel' |
 
 	// Reinfeld 88
 	'Huntsman Barrel' |
@@ -199,6 +206,16 @@ export type BarrelModificationsList =
 	'Opera Long Barrel' |
 	'Napoleon Barrel' |
 
+	// Parabellum
+	'Reinforced Barrel' |
+	'Short Barrel (Parabellum)' |
+
+	// 5/7 AP
+	'TiN Treated Barrel' |
+
+	// Castigo .44
+	'Diablo Barrel' |
+
 	// Chicago Typewriter
 	'Stubby Barrel' |
 	'Long Barrel (Chicago Typewriter)' |
@@ -228,6 +245,9 @@ export type BarrelModificationsList =
 	// Micro Uzi
 	'Custom Barrel' |
 
+	// Jackal
+	'Civilian Barrel' |
+
 	// CR 805B
 	'Medium Barrel (CR)' |
 	'Short Barrel (CR)' |
@@ -252,15 +272,18 @@ export type BarrelModificationsList =
 	'Carbon Limb' |
 	'Skeletal Limb' |
 
+	// MA-17 Flamethrower
+	'Merlin Nozzle' |
+
 	// Arbiter
 	'Bombardier Barrel' |
 	'Long Barrel (Arbiter)'
 
-const barrel: WeaponModificationList<BarrelModificationsList> = {
+const barrel: ModificationList<BarrelModificationsList> = {
 	'AK Slavic Dragon Barrel': {
 		name: 'AK Slavic Dragon Barrel',
 		image: 'wpn_fps_upg_ak_b_draco',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Mod Courier'],
 		cost: 0,
 		acquisition: {
@@ -282,7 +305,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Modern Barrel': {
 		name: 'Modern Barrel',
 		image: 'wpn_fps_upg_ak_b_ak105',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -303,7 +326,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'DMR Kit (AK)': {
 		name: 'DMR Kit (AK)',
 		image: 'wpn_fps_upg_ass_ak_b_zastava',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source['Base Game'],
 		cost: 9e3,
 		acquisition: {
@@ -327,7 +350,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (CAR)': {
 		name: 'Long Barrel (CAR)',
 		image: 'wpn_fps_m4_uupg_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source['Base Game'],
 		cost: 28e3,
 		stats: {
@@ -345,7 +368,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (CAR)': {
 		name: 'Short Barrel (CAR)',
 		image: 'wpn_fps_m4_uupg_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source['Base Game'],
 		cost: 36e3,
 		stats: {
@@ -361,7 +384,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Stealth Barrel': {
 		name: 'Stealth Barrel',
 		image: 'wpn_fps_m4_uupg_b_sd',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source['Base Game'],
 		cost: 44e3,
 		specialEffect: ['Silences Weapon'],
@@ -377,12 +400,12 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 				'CAR-4 Rifle'
 			]
 		},
-		incompatibleSlot: ['Barrel Ext']
+		incompatibleSlot: ['barrelExt']
 	},
 	'DMR Kit (CAR)': {
 		name: 'DMR Kit (CAR)',
 		image: 'wpn_fps_upg_ass_m4_b_beowulf',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -406,7 +429,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (UAR)': {
 		name: 'Short Barrel (UAR)',
 		image: 'wpn_fps_aug_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source['Base Game'],
 		cost: 36e3,
 		stats: {
@@ -423,7 +446,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (UAR)': {
 		name: 'Long Barrel (UAR)',
 		image: 'wpn_fps_aug_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source['Base Game'],
 		cost: 53e3,
 		stats: {
@@ -441,7 +464,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'CQB Barrel (AK5)': {
 		name: 'CQB Barrel (AK5)',
 		image: 'wpn_fps_ass_ak5_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 9e3,
 		stats: {
@@ -458,7 +481,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (Commando)': {
 		name: 'Long Barrel (Commando)',
 		image: 'wpn_fps_ass_s552_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Armored Transport'],
 		cost: 52800,
 		stats: {
@@ -475,7 +498,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (Eagle Heavy)': {
 		name: 'Short Barrel (Eagle Heavy)',
 		image: 'wpn_fps_ass_scar_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Weapon Pack #01'],
 		cost: 29400,
 		stats: {
@@ -493,7 +516,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (Eagle Heavy)': {
 		name: 'Long Barrel (Eagle Heavy)',
 		image: 'wpn_fps_ass_scar_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Weapon Pack #01'],
 		cost: 39200,
 		stats: {
@@ -509,7 +532,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'CQB Foregrip (Falcon)': {
 		name: 'CQB Foregrip (Falcon)',
 		image: 'wpn_fps_ass_fal_fg_01',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Big Bank Heist'],
 		cost: 11200,
 		acquisition: {
@@ -529,7 +552,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Retro Foregrip': {
 		name: 'Retro Foregrip',
 		image: 'wpn_fps_ass_fal_fg_03',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Big Bank Heist'],
 		cost: 11200,
 		acquisition: {
@@ -549,7 +572,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Marksman Foregrip': {
 		name: 'Marksman Foregrip',
 		image: 'wpn_fps_ass_fal_fg_04',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Big Bank Heist'],
 		cost: 11200,
 		acquisition: {
@@ -570,7 +593,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Wooden Foregrip': {
 		name: 'Wooden Foregrip',
 		image: 'wpn_fps_ass_fal_fg_wood',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Big Bank Heist'],
 		cost: 11200,
 		acquisition: {
@@ -590,7 +613,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (Clarion)': {
 		name: 'Long Barrel (Clarion)',
 		image: 'wpn_fps_ass_famas_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
 		acquisition: {
@@ -610,7 +633,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (Clarion)': {
 		name: 'Short Barrel (Clarion)',
 		image: 'wpn_fps_ass_famas_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
 		acquisition: {
@@ -631,7 +654,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Sniper Barrel': {
 		name: 'Sniper Barrel',
 		image: 'wpn_fps_ass_famas_b_sniper',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
 		acquisition: {
@@ -652,7 +675,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Suppressed Barrel (Clarion)': {
 		name: 'Suppressed Barrel (Clarion)',
 		image: 'wpn_fps_ass_famas_b_suppressed',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Assault Pack'],
 		cost: 28e3,
 		acquisition: {
@@ -673,7 +696,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Fabulous Foregrip': {
 		name: 'Fabulous Foregrip',
 		image: 'wpn_fps_ass_galil_fg_fab',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
 		acquisition: {
@@ -693,7 +716,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'CQB Foregrip (Gecko)': {
 		name: 'CQB Foregrip (Gecko)',
 		image: 'wpn_fps_ass_galil_fg_mar',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
 		acquisition: {
@@ -714,7 +737,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Light Foregrip': {
 		name: 'Light Foregrip',
 		image: 'wpn_fps_ass_galil_fg_sar',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
 		acquisition: {
@@ -733,7 +756,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Sniper Foregrip': {
 		name: 'Sniper Foregrip',
 		image: 'wpn_fps_ass_galil_fg_sniper',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
 		acquisition: {
@@ -753,7 +776,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Assault Kit': {
 		name: 'Assault Kit',
 		image: 'wpn_fps_ass_g3_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
 		acquisition: {
@@ -776,7 +799,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'DMR Kit (Gewehr)': {
 		name: 'DMR Kit (Gewehr)',
 		image: 'wpn_fps_ass_g3_b_sniper',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
 		acquisition: {
@@ -803,7 +826,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Prodigious Barrel': {
 		name: 'Prodigious Barrel',
 		image: 'wpn_fps_ass_l85a2_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Clover Character Pack'],
 		cost: 9e3,
 		stats: {
@@ -819,7 +842,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Diminutive Barrel': {
 		name: 'Diminutive Barrel',
 		image: 'wpn_fps_ass_l85a2_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Clover Character Pack'],
 		cost: 9e3,
 		stats: {
@@ -834,7 +857,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'CQB Barrel (Lion\'s Roar)': {
 		name: 'CQB Barrel (Lion\'s Roar)',
 		image: 'wpn_fps_ass_vhs_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Dragan Character Pack'],
 		cost: 9e3,
 		stats: {
@@ -851,7 +874,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Precision Barrel': {
 		name: 'Precision Barrel',
 		image: 'wpn_fps_ass_vhs_b_sniper',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Dragan Character Pack'],
 		cost: 9e3,
 		stats: {
@@ -867,7 +890,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Silenced Barrel (Lion\'s Roar)': {
 		name: 'Silenced Barrel (Lion\'s Roar)',
 		image: 'wpn_fps_ass_vhs_b_silenced',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Dragan Character Pack'],
 		cost: 14e3,
 		specialEffect: ['Silences Weapon'],
@@ -881,12 +904,12 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 				'Lion\'s Roar Rifle'
 			]
 		},
-		incompatibleSlot: ['Barrel Ext']
+		incompatibleSlot: ['barrelExt']
 	},
 	'Prototype Barrel (Valkyria)': {
 		name: 'Prototype Barrel (Valkyria)',
 		image: 'wpn_fps_ass_asval_b_proto',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Sokol Character Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -906,7 +929,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'AML Barrel': {
 		name: 'AML Barrel',
 		image: 'wpn_fps_ass_tecci_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Sydney Character Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -926,7 +949,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (Union)': {
 		name: 'Short Barrel (Union)',
 		image: 'wpn_fps_corgi_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source['Base Game'],
 		cost: 9e3,
 		stats: {
@@ -942,7 +965,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Tanker Barrel': {
 		name: 'Tanker Barrel',
 		image: 'wpn_fps_ass_ching_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['WW2 Weapon Pack'],
 		cost: 9e3,
 		stats: {
@@ -958,7 +981,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Extended Mag': {
 		name: 'Extended Mag',
 		image: 'wpn_fps_sho_b_spas12_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source.Community,
 		cost: 9e3,
 		stats: {
@@ -975,7 +998,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Sawed Off Barrel (Joceline)': {
 		name: 'Sawed Off Barrel (Joceline)',
 		image: 'wpn_fps_shot_b682_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source.Community,
 		cost: 9e3,
 		stats: {
@@ -992,7 +1015,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (IZHMA)': {
 		name: 'Short Barrel (IZHMA)',
 		image: 'wpn_fps_sho_saiga_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Spec Ops Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -1012,7 +1035,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (M1014)': {
 		name: 'Short Barrel (M1014)',
 		image: 'wpn_fps_sho_ben_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Shotgun Pack'],
 		cost: 36e3,
 		acquisition: {
@@ -1034,7 +1057,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (M1014)': {
 		name: 'Long Barrel (M1014)',
 		image: 'wpn_fps_sho_ben_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Shotgun Pack'],
 		cost: 62e3,
 		acquisition: {
@@ -1055,7 +1078,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (Raven)': {
 		name: 'Short Barrel (Raven)',
 		image: 'wpn_fps_sho_ksg_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Shotgun Pack'],
 		cost: 36e3,
 		acquisition: {
@@ -1077,7 +1100,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (Raven)': {
 		name: 'Long Barrel (Raven)',
 		image: 'wpn_fps_sho_ksg_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Shotgun Pack'],
 		cost: 53e3,
 		acquisition: {
@@ -1098,7 +1121,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (Steakout)': {
 		name: 'Long Barrel (Steakout)',
 		image: 'wpn_fps_sho_aa12_barrel_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Butcher\'s BBQ Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -1118,7 +1141,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Suppressed Barrel (Steakout)': {
 		name: 'Suppressed Barrel (Steakout)',
 		image: 'wpn_fps_sho_aa12_barrel_silenced',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Butcher\'s BBQ Pack'],
 		cost: 36e3,
 		acquisition: {
@@ -1137,12 +1160,63 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 				'Steakout 12G Shotgun'
 			]
 		},
-		incompatibleSlot: ['Barrel Ext']
+		incompatibleSlot: ['barrelExt']
+	},
+	'Long Barrel (Breaker)': {
+		name: 'Long Barrel (Breaker)',
+		image: 'wpn_fps_sho_boot_b_long',
+		slot: 'barrel',
+		source: content['Biker Character Pack'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			stability: 4,
+			concealment: -3
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Breaker 12G Shotgun'
+			]
+		}
+	},
+	'Road Warrior Barrel': {
+		name: 'Road Warrior Barrel',
+		image: 'wpn_fps_shot_huntsman_b_short',
+		slot: 'barrel',
+		source: source['Base Game'],
+		cost: 80e3,
+		stats: {
+			accuracy: -16,
+			stability: -16,
+			concealment: 10
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Mosconi 12G Shotgun'
+			]
+		}
+	},
+	'Short Barrel (Breaker)': {
+		name: 'Short Barrel (Breaker)',
+		image: 'wpn_fps_sho_boot_b_short',
+		slot: 'barrel',
+		source: content['Biker Character Pack'],
+		cost: 9e3,
+		stats: {
+			accuracy: -4,
+			stability: -4,
+			concealment: 3
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Breaker 12G Shotgun'
+			]
+		}
 	},
 	'Huntsman Barrel': {
 		name: 'Huntsman Barrel',
 		image: 'wpn_fps_sho_m1897_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gunslinger Weapon Pack'],
 		cost: 9e3,
 		stats: {
@@ -1159,7 +1233,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Ventilated Barrel': {
 		name: 'Ventilated Barrel',
 		image: 'wpn_fps_sho_m1897_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gunslinger Weapon Pack'],
 		cost: 9e3,
 		stats: {
@@ -1175,7 +1249,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'CE Extender': {
 		name: 'CE Extender',
 		image: 'wpn_fps_sho_m590_b_xxx',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Jiu Feng Smuggler Pack'],
 		cost: 9e3,
 		stats: {
@@ -1193,7 +1267,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'CE Muffler': {
 		name: 'CE Muffler',
 		image: 'wpn_fps_sho_m590_b_xxx___',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Jiu Feng Smuggler Pack'],
 		cost: 9e3,
 		specialEffect: ['Silences Weapon'],
@@ -1211,7 +1285,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (Goliath)': {
 		name: 'Short Barrel (Goliath)',
 		image: 'wpn_fps_sho_rota_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source['Base Game'],
 		cost: 9e3,
 		stats: {
@@ -1230,7 +1304,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Silenced Barrel (Goliath)': {
 		name: 'Silenced Barrel (Goliath)',
 		image: 'wpn_fps_sho_rota_b_silencer',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source['Base Game'],
 		cost: 44e3,
 		specialEffect: ['Silences Weapon'],
@@ -1249,12 +1323,12 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 				'Akimbo Goliath 12G Shotguns'
 			]
 		},
-		incompatibleSlot: ['Barrel Ext']
+		incompatibleSlot: ['barrelExt']
 	},
 	'Long Barrel (Rattlesnake)': {
 		name: 'Long Barrel (Rattlesnake)',
 		image: 'wpn_fps_snp_msr_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Sniper Pack'],
 		cost: 7200,
 		acquisition: {
@@ -1273,7 +1347,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (R93)': {
 		name: 'Short Barrel (R93)',
 		image: 'wpn_fps_snp_r93_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Sniper Pack'],
 		cost: 7200,
 		acquisition: {
@@ -1293,7 +1367,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Compensated Suppressor': {
 		name: 'Compensated Suppressor',
 		image: 'wpn_fps_snp_r93_b_suppressed',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Sniper Pack'],
 		cost: 22400,
 		acquisition: {
@@ -1316,7 +1390,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Tank Buster Barrel': {
 		name: 'Tank Buster Barrel',
 		image: 'wpn_fps_snp_m95_barrel_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Sniper Pack'],
 		cost: 7200,
 		acquisition: {
@@ -1336,7 +1410,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'CQB Barrel (Thanatos)': {
 		name: 'CQB Barrel (Thanatos)',
 		image: 'wpn_fps_snp_m95_barrel_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Sniper Pack'],
 		cost: 7200,
 		acquisition: {
@@ -1355,7 +1429,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Suppressed Barrel (Thanatos)': {
 		name: 'Suppressed Barrel (Thanatos)',
 		image: 'wpn_fps_snp_m95_barrel_suppressed',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Sniper Pack'],
 		cost: 35200,
 		acquisition: {
@@ -1376,7 +1450,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (Nagant)': {
 		name: 'Short Barrel (Nagant)',
 		image: 'wpn_fps_snp_mosin_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -1395,7 +1469,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (Nagant)': {
 		name: 'Long Barrel (Nagant)',
 		image: 'wpn_fps_snp_mosin_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -1414,7 +1488,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Silenced Barrel (Nagant)': {
 		name: 'Silenced Barrel (Nagant)',
 		image: 'wpn_fps_snp_mosin_b_sniper',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Historical Pack'],
 		cost: 44e3,
 		acquisition: {
@@ -1437,7 +1511,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Range Barrel': {
 		name: 'Long Range Barrel',
 		image: 'wpn_fps_snp_winchester_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Butcher\'s Western Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -1456,7 +1530,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Outlaw\'s Silenced Barrel': {
 		name: 'Outlaw\'s Silenced Barrel',
 		image: 'wpn_fps_snp_winchester_b_suppressed',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Butcher\'s Western Pack'],
 		cost: 44e3,
 		acquisition: {
@@ -1479,7 +1553,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (Desertfox)': {
 		name: 'Long Barrel (Desertfox)',
 		image: 'wpn_fps_snp_desertfox_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['John Wick Weapon Pack'],
 		cost: 21e3,
 		acquisition: {
@@ -1498,7 +1572,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Silenced Barrel (Desertfox)': {
 		name: 'Silenced Barrel (Desertfox)',
 		image: 'wpn_fps_snp_desertfox_b_silencer',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['John Wick Weapon Pack'],
 		cost: 44e3,
 		acquisition: {
@@ -1521,7 +1595,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Grievky Compensator': {
 		name: 'Grievky Compensator',
 		image: 'wpn_fps_snp_siltstone_ns_variation_b',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Russian Weapon Pack'],
 		cost: 9e3,
 		stats: {
@@ -1537,7 +1611,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Tikho Barrel': {
 		name: 'Tikho Barrel',
 		image: 'wpn_fps_snp_siltstone_b_silenced',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Russian Weapon Pack'],
 		cost: 44e3,
 		specialEffect: ['Silences Weapon'],
@@ -1556,7 +1630,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (R700)': {
 		name: 'Short Barrel (R700)',
 		image: 'wpn_fps_snp_r700_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Fugitive Weapon Pack'],
 		cost: 14e3,
 		acquisition: {
@@ -1576,7 +1650,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Medium Barrel (R700)': {
 		name: 'Medium Barrel (R700)',
 		image: 'wpn_fps_snp_r700_b_medium',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Fugitive Weapon Pack'],
 		cost: 44e3,
 		acquisition: {
@@ -1598,7 +1672,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Deep Range Barrel': {
 		name: 'Deep Range Barrel',
 		image: 'wpn_fps_snp_sbl_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gunslinger Weapon Pack'],
 		cost: 9e3,
 		stats: {
@@ -1615,7 +1689,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Wind Whistler Barrel': {
 		name: 'Wind Whistler Barrel',
 		image: 'wpn_fps_snp_sbl_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gunslinger Weapon Pack'],
 		cost: 44e3,
 		specialEffect: ['Silences Weapon'],
@@ -1635,7 +1709,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (KSP 58)': {
 		name: 'Short Barrel (KSP 58)',
 		image: 'wpn_fps_lmg_par_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source['Base Game'],
 		cost: 0,
 		acquisition: {
@@ -1653,7 +1727,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (KSP)': {
 		name: 'Long Barrel (KSP)',
 		image: 'wpn_fps_lmg_m249_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Weapon Pack #02'],
 		cost: 50400,
 		stats: {
@@ -1671,7 +1745,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (Brenner)': {
 		name: 'Long Barrel (Brenner)',
 		image: 'wpn_fps_lmg_hk21_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Weapon Pack #02'],
 		cost: 28e3,
 		stats: {
@@ -1689,7 +1763,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Light Barrel': {
 		name: 'Light Barrel',
 		image: 'wpn_fps_lmg_mg42_b_mg34',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -1709,7 +1783,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Heatsinked Suppressed Barrel (Buzzsaw)': {
 		name: 'Heatsinked Suppressed Barrel (Buzzsaw)',
 		image: 'wpn_fps_lmg_mg42_b_vg38',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Historical Pack'],
 		cost: 28e3,
 		acquisition: {
@@ -1725,12 +1799,12 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 				'Buzzsaw 42 Light Machine Gun'
 			]
 		},
-		incompatibleSlot: ['Barrel Ext']
+		incompatibleSlot: ['barrelExt']
 	},
 	'Pirate Barrel': {
 		name: 'Pirate Barrel',
 		image: 'wpn_fps_gre_m79_barrel_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Assault Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -1750,7 +1824,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Aerial Assault Barrel': {
 		name: 'Aerial Assault Barrel',
 		image: 'wpn_fps_lmg_m134_barrel_extreme',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The OVERKILL Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -1770,7 +1844,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'The Stump Barrel': {
 		name: 'The Stump Barrel',
 		image: 'wpn_fps_lmg_m134_barrel_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The OVERKILL Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -1790,7 +1864,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (Piglet)': {
 		name: 'Short Barrel (Piglet)',
 		image: 'wpn_fps_gre_m32_barrel_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Butcher\'s BBQ Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -1810,7 +1884,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Prototype Barrel (White Streak)': {
 		name: 'Prototype Barrel (White Streak)',
 		image: 'wpn_fps_pis_pl14_b_comp',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source['Base Game'],
 		cost: 9e3,
 		acquisition: {
@@ -1830,7 +1904,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Threaded Barrel (M13)': {
 		name: 'Threaded Barrel (M13)',
 		image: 'wpn_fps_pis_legacy_b_threaded',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source['Base Game'],
 		cost: 9e3,
 		stats: {
@@ -1847,7 +1921,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Pesante Barrel': {
 		name: 'Pesante Barrel',
 		image: 'wpn_fps_pis_2006m_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Alesso Heist'],
 		cost: 9e3,
 		stats: {
@@ -1863,7 +1937,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Medio Barrel': {
 		name: 'Medio Barrel',
 		image: 'wpn_fps_pis_2006m_b_medium',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Alesso Heist'],
 		cost: 9e3,
 		stats: {
@@ -1879,7 +1953,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Pisccolo Barrel': {
 		name: 'Pisccolo Barrel',
 		image: 'wpn_fps_pis_2006m_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Alesso Heist'],
 		cost: 9e3,
 		stats: {
@@ -1895,7 +1969,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Ported Barrel': {
 		name: 'Ported Barrel',
 		image: 'wpn_fps_pis_sparrow_b_comp',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Point Break Heists'],
 		cost: 9e3,
 		stats: {
@@ -1906,12 +1980,12 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 				'Baby Deagle'
 			]
 		},
-		incompatibleSlot: ['Barrel Ext']
+		incompatibleSlot: ['barrelExt']
 	},
 	'Threaded Barrel (Baby Deagle)': {
 		name: 'Threaded Barrel (Baby Deagle)',
 		image: 'wpn_fps_pis_sparrow_b_threaded',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Point Break Heists'],
 		cost: 9e3,
 		stats: {
@@ -1926,7 +2000,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Weller Barrel': {
 		name: 'Weller Barrel',
 		image: 'wpn_fps_pis_beer_b_robo',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Federales Weapon Pack'],
 		cost: 62e3,
 		acquisition: {
@@ -1947,7 +2021,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Sicario Barrel': {
 		name: 'Sicario Barrel',
 		image: 'wpn_fps_pis_czech_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Federales Weapon Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -1967,7 +2041,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Tirador Barrel': {
 		name: 'Tirador Barrel',
 		image: 'wpn_fps_pis_stech_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Federales Weapon Pack'],
 		cost: 36e3,
 		stats: {
@@ -1984,7 +2058,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Opera Long Barrel': {
 		name: 'Opera Long Barrel',
 		image: 'wpn_fps_pis_model3_bar_xxx',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gunslinger Weapon Pack'],
 		cost: 9e3,
 		stats: {
@@ -2001,7 +2075,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Napoleon Barrel': {
 		name: 'Napoleon Barrel',
 		image: 'wpn_fps_pis_model3_bar_xxx__',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gunslinger Weapon Pack'],
 		cost: 9e3,
 		stats: {
@@ -2014,10 +2088,72 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			]
 		}
 	},
+	'Reinforced Barrel': {
+		name: 'Reinforced Barrel',
+		image: 'wpn_fps_pis_breech_b_reinforced',
+		slot: 'barrel',
+		source: content['WW2 Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			accuracy: 8
+		},
+		compatibleWeapons: {
+			pistol: [
+				'Parabellum Pistol'
+			]
+		}
+	},
+	'Short Barrel (Parabellum)': {
+		name: 'Short Barrel (Parabellum)',
+		image: 'wpn_fps_pis_breech_b_short',
+		slot: 'barrel',
+		source: content['WW2 Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			accuracy: -8,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			pistol: [
+				'Parabellum Pistol'
+			]
+		}
+	},
+	'TiN Treated Barrel': {
+		name: 'TiN Treated Barrel',
+		image: 'wpn_fps_pis_lemming_b_nitride',
+		slot: 'barrel',
+		source: source.Community,
+		cost: 21e3,
+		stats: {
+			accuracy: 4,
+			stability: 4
+		},
+		compatibleWeapons: {
+			pistol: [
+				'5/7 AP Pistol'
+			]
+		}
+	},
+	'Diablo Barrel': {
+		name: 'Diablo Barrel',
+		image: 'wpn_fps_pis_chinchilla_b_satan',
+		slot: 'barrel',
+		source: source['Base Game'],
+		cost: 9e3,
+		stats: {
+			accuracy: 8
+		},
+		compatibleWeapons: {
+			pistol: [
+				'Castigo .44 Revolver'
+			]
+		}
+	},
 	'Stubby Barrel': {
 		name: 'Stubby Barrel',
 		image: 'wpn_fps_smg_thompson_barrel_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source.Community,
 		cost: 14e3,
 		stats: {
@@ -2033,7 +2169,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (Chicago Typewriter)': {
 		name: 'Long Barrel (Chicago Typewriter)',
 		image: 'wpn_fps_smg_thompson_barrel_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source.Community,
 		cost: 28e3,
 		stats: {
@@ -2049,7 +2185,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Medium Barrel (Para)': {
 		name: 'Medium Barrel (Para)',
 		image: 'wpn_fps_m4_uupg_b_medium',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source['Base Game'],
 		cost: 9e3,
 		stats: {
@@ -2065,7 +2201,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (Kobus)': {
 		name: 'Long Barrel (Kobus)',
 		image: 'wpn_fps_smg_p90_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source['Base Game'],
 		cost: 62e3,
 		stats: {
@@ -2083,7 +2219,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Civilian Market Barrel': {
 		name: 'Civilian Market Barrel',
 		image: 'wpn_fps_smg_p90_b_civilian',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 9e3,
 		acquisition: {
@@ -2104,7 +2240,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Mall Ninja Barrel': {
 		name: 'Mall Ninja Barrel',
 		image: 'wpn_fps_smg_p90_b_ninja',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 14e3,
 		acquisition: {
@@ -2120,12 +2256,12 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 				'Kobus 90 Submachine Gun'
 			]
 		},
-		incompatibleSlot: ['Barrel Ext']
+		incompatibleSlot: ['barrelExt']
 	},
 	'Grease Barrel': {
 		name: 'Grease Barrel',
 		image: 'wpn_fps_smg_m45_b_small',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Armored Transport'],
 		cost: 16800,
 		stats: {
@@ -2141,7 +2277,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Swedish Barrel': {
 		name: 'Swedish Barrel',
 		image: 'wpn_fps_smg_m45_b_green',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Armored Transport'],
 		cost: 25200,
 		stats: {
@@ -2157,7 +2293,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (Blaster)': {
 		name: 'Short Barrel (Blaster)',
 		image: 'wpn_fps_smg_tec9_b_standard',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Hotline Miami'],
 		cost: 21e3,
 		acquisition: {
@@ -2177,7 +2313,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Ghetto Blaster': {
 		name: 'Ghetto Blaster',
 		image: 'wpn_fps_smg_tec9_ns_ext',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Hotline Miami'],
 		cost: 36e3,
 		acquisition: {
@@ -2197,7 +2333,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (Patchett)': {
 		name: 'Long Barrel (Patchett)',
 		image: 'wpn_fps_smg_sterling_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -2218,7 +2354,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (Patchett)': {
 		name: 'Short Barrel (Patchett)',
 		image: 'wpn_fps_smg_sterling_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -2239,7 +2375,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Heatsinked Suppressed Barrel (Patchett)': {
 		name: 'Heatsinked Suppressed Barrel (Patchett)',
 		image: 'wpn_fps_smg_sterling_b_e11',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Historical Pack'],
 		cost: 28e3,
 		acquisition: {
@@ -2257,12 +2393,12 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 				'Patchett L2A1 Submachine Gun'
 			]
 		},
-		incompatibleSlot: ['Barrel Ext']
+		incompatibleSlot: ['barrelExt']
 	},
 	'Suppressed Barrel (Patchett)': {
 		name: 'Suppressed Barrel (Patchett)',
 		image: 'wpn_fps_smg_sterling_b_suppressed',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Historical Pack'],
 		cost: 28e3,
 		acquisition: {
@@ -2284,7 +2420,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Custom Barrel': {
 		name: 'Custom Barrel',
 		image: 'wpn_fps_smg_baka_b_comp',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Yakuza Character Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -2300,10 +2436,29 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			]
 		}
 	},
+	'Civilian Barrel': {
+		name: 'Civilian Barrel',
+		image: 'wpn_fps_smg_schakal_b_civil',
+		slot: 'barrel',
+		source: content['John Wick Weapon Pack'],
+		cost: 9e3,
+		acquisition: {
+			infinite: true
+		},
+		stats: {
+			accuracy: 4,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			submachineGun: [
+				'Jackal Submachine Gun'
+			]
+		}
+	},
 	'Medium Barrel (CR)': {
 		name: 'Medium Barrel (CR)',
 		image: 'wpn_fps_smg_hajk_b_medium',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Biker Heist'],
 		cost: 9e3,
 		stats: {
@@ -2319,7 +2474,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Short Barrel (CR)': {
 		name: 'Short Barrel (CR)',
 		image: 'wpn_fps_smg_hajk_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Biker Heist'],
 		cost: 9e3,
 		stats: {
@@ -2335,7 +2490,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'MG8 Precision Barrel': {
 		name: 'MG8 Precision Barrel',
 		image: 'wpn_fps_smg_vityaz_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Jiu Feng Smuggler Pack'],
 		cost: 9e3,
 		stats: {
@@ -2352,7 +2507,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'BY90 Wide Suppressor': {
 		name: 'BY90 Wide Suppressor',
 		image: 'wpn_fps_smg_vityaz_b_xxx',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Jiu Feng Smuggler Pack'],
 		cost: 9e3,
 		specialEffect: ['Silences Weapon'],
@@ -2370,7 +2525,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Sawed Off Barrel (Claire)': {
 		name: 'Sawed Off Barrel (Claire)',
 		image: 'wpn_fps_shot_coach_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: source.Community,
 		cost: 9e3,
 		stats: {
@@ -2387,7 +2542,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Long Barrel (Street Sweeper)': {
 		name: 'Long Barrel (Street Sweeper)',
 		image: 'wpn_fps_sho_striker_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Shotgun Pack'],
 		cost: 21e3,
 		acquisition: {
@@ -2407,7 +2562,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Suppressed Barrel (Street Sweeper)': {
 		name: 'Suppressed Barrel (Street Sweeper)',
 		image: 'wpn_fps_sho_striker_b_suppressed',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Shotgun Pack'],
 		cost: 36e3,
 		acquisition: {
@@ -2426,12 +2581,12 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 				'Street Sweeper Shotgun'
 			]
 		},
-		incompatibleSlot: ['Barrel Ext']
+		incompatibleSlot: ['barrelExt']
 	},
 	'Riot Barrel': {
 		name: 'Riot Barrel',
 		image: 'wpn_fps_shot_m37_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['The Goat Simulator Heist'],
 		cost: 9e3,
 		stats: {
@@ -2447,7 +2602,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Carbon Limb': {
 		name: 'Carbon Limb',
 		image: 'wpn_fps_shot_m37_b_short',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Ninja Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -2465,7 +2620,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Skeletal Limb': {
 		name: 'Skeletal Limb',
 		image: 'wpn_fps_bow_hunter_b_skeletal',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Ninja Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -2483,7 +2638,7 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 	'Bombardier Barrel': {
 		name: 'Bombardier Barrel',
 		image: 'wpn_fps_gre_arbiter_b_comp',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Spec Ops Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -2500,10 +2655,26 @@ const barrel: WeaponModificationList<BarrelModificationsList> = {
 			]
 		}
 	},
+	'Merlin Nozzle': {
+		name: 'Merlin Nozzle',
+		image: 'wpn_fps_fla_system_b_wtf',
+		slot: 'barrel',
+		source: source['Base Game'],
+		cost: 9e3,
+		stats: {
+			totalAmmo: -350,
+			concealment: 5
+		},
+		compatibleWeapons: {
+			special: [
+				'MA-17 Flamethrower'
+			]
+		}
+	},
 	'Long Barrel (Arbiter)': {
 		name: 'Long Barrel (Arbiter)',
 		image: 'wpn_fps_gre_arbiter_b_long',
-		slot: 'Barrel',
+		slot: 'barrel',
 		source: content['Gage Spec Ops Pack'],
 		cost: 9e3,
 		acquisition: {

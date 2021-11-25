@@ -3,7 +3,7 @@ import Container from 'components/Container'
 import { HorizontalBar, HorizontalItem } from 'components/HorizontalActionBar'
 import { InfoContainer } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
-import { ModificationSlot, Slot, Weapon, WeaponData, WeaponModification } from 'data/weapons/guns/weaponTypes'
+import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 import { useParams } from 'react-router'
@@ -26,7 +26,7 @@ const WeaponChecker: React.FC = () => {
 	const weapon = getWeapon(slot, id)
 
 	return weapon ? (
-		<Blackmarket slot={(slot as Slot)} id={id ? +id : 0} weapon={weapon.weapon} modifications={weapon.modifications}></Blackmarket>
+		<Blackmarket slot={(slot as Slot)} id={id ? +id : 0} weapon={weapon.weapon} equippedModifications={weapon.modifications}></Blackmarket>
 	) : (
 		<Container title='Blackmarket'>
 			<h1>Error, invalid weapon</h1>
@@ -38,16 +38,16 @@ interface BlackmarketProps {
 	slot: Slot;
 	id: number;
 	weapon: WeaponData;
-	modifications?: Partial<Record<ModificationSlot, WeaponModification<string>>>;
+	equippedModifications: Partial<Record<ModificationSlot, Modification<string>>>;
 }
 
-const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modifications }) => {
+const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, equippedModifications }) => {
 
 	const dispatch = useAppDispatch()
 
 	const [selectedTab, setSelectedTab] = useState<string | null>(weapon.modifications ? Object.keys(weapon.modifications)[0] : null)
 
-	const [selectedItem, setSelectedItem] = useState<WeaponModification<string> | null>(null)
+	const [selectedItem, setSelectedItem] = useState<Modification<string> | null>(null)
 
 	const equidModHelper = (): void => {
 		if (!selectedItem) return
@@ -63,7 +63,7 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 
 			<HorizontalBar>
 				{
-					weapon.modifications && Object.keys(weapon.modifications).map((type) => {
+					Object.keys(weapon.modifications).map((type) => {
 						return <HorizontalItem
 							key={type}
 							color={selectedTab === type ? '#fff' : blue}
@@ -76,7 +76,7 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 
 			<ItemContainer>
 				{
-					weapon.modifications && Object.values(weapon.modifications[(selectedTab as ModificationSlot)] || {}).map(mod => {
+					Object.values(weapon.modifications[(selectedTab as ModificationSlot)] || {}).map((mod: Modification<string>) => {
 						return <Item
 							key={mod.name}
 							width={192}
@@ -84,7 +84,7 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 							selected={selectedItem?.name === mod.name}
 							onClick={() => selectedItem?.name === mod.name ? equidModHelper() : setSelectedItem(mod)}
 						>
-							{mod.name === modifications?.[mod.slot]?.name && <ItemEquipped />}
+							{mod.name === equippedModifications[mod.slot]?.name && <ItemEquipped />}
 							<ItemName color={itemColours[mod.source.rarity]}>{mod.name}</ItemName>
 							<ItemImage src={`images/modifications/${mod.slot.replaceAll(' ', '')}/${mod.image}.webp`} />
 						</Item>

@@ -1,7 +1,43 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { WeaponData } from '../weaponTypes'
+import barrel from '../modifications/barrel'
+import barrelExt, { BarrelExtModificationsList } from '../modifications/barrelExt'
+import bipod from '../modifications/bipod'
+import boost, { BoostModificationsList } from '../modifications/boost'
+import foregrip from '../modifications/foregrip'
+import gadget, { GadgetModificationsList } from '../modifications/gadget'
+import grip from '../modifications/grip'
+import stock from '../modifications/stock'
+import { Modification, WeaponData } from '../weaponTypes'
+
+const mainBarrelExt: Modification<BarrelExtModificationsList>[] = [
+	barrelExt['Low Profile Suppressor'],
+	barrelExt['Medium Suppressor'],
+	barrelExt['The Bigger The Better Suppressor'],
+	barrelExt['Stubby Compensator'],
+	barrelExt['The Tank Compensator'],
+	barrelExt['Fire Breather Nozzle'],
+	barrelExt['Tactical Compensator'],
+	barrelExt['Competitor\'s Compensator'],
+	barrelExt['Funnel of Fun Nozzle'],
+	barrelExt['Ported Compensator']
+]
+
+const mainBoost: Modification<BoostModificationsList>[] = [
+	boost.Concealment,
+	boost.Stability,
+	boost.Accuracy,
+	boost['Team Boost']
+]
+
+const mainGadget: Modification<GadgetModificationsList>[] = [
+	gadget['Assault Light'],
+	gadget['Tactical Laser Module'],
+	gadget['Compact Laser Module'],
+	gadget['Military Laser Module'],
+	gadget['LED Combo']
+]
 
 export type LightMachineGunList =
 	'RPK Light Machine Gun' |
@@ -40,6 +76,37 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			recoilVertical: [-0.56, 2.24],
 			spread: 4.32,
 			damageModifier: [1.0, 0.8]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['PBS Suppressor']
+			],
+			bipod: [
+				bipod['Lion\'s Bipod']
+			],
+			boost: mainBoost,
+			foregrip: [
+				foregrip['Tactical Foregrip (RPK)']
+			],
+			gadget: mainGadget,
+			grip: [
+				grip['AK Rubber Grip'],
+				grip['AK Plastic Grip'],
+				grip['AK Wood Grip'],
+				grip['Aluminum Grip']
+			],
+			stock: [
+				stock['Standard Stock (Main)'],
+				stock['Tactical Stock (Main)'],
+				stock['Folding Stock'],
+				stock['Plastic Stock (RPK)'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['Classic Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			]
 		}
 	},
 	'KSP 58 Light Machine Gun': {
@@ -70,6 +137,19 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			recoilVertical: [-0.46, 1.84],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['Short Barrel (KSP 58)']
+			],
+			barrelExt: mainBarrelExt,
+			bipod: [
+				bipod['Lion\'s Bipod']
+			],
+			gadget: mainGadget,
+			stock: [
+				stock['Plastic Stock (KSP 58)']
+			]
 		}
 	},
 	'M60 Light Machine Gun': {
@@ -100,7 +180,8 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			recoilVertical: [-0.5, 2],
 			spread: 3.12,
 			damageModifier: [1.0, 0.8]
-		}
+		},
+		modifications: {}
 	},
 	'KSP Light Machine Gun': {
 		name: 'KSP Light Machine Gun',
@@ -130,6 +211,29 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			recoilVertical: [-0.46, 1.84],
 			spread: 3.12,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['Long Barrel (KSP)']
+			],
+			barrelExt: mainBarrelExt,
+			bipod: [
+				bipod['Lion\'s Bipod']
+			],
+			boost: mainBoost,
+			foregrip: [
+				foregrip['Railed Foregrip (KSP)']
+			],
+			gadget: mainGadget,
+			stock: [
+				stock['Standard Stock (Main)'],
+				stock['Tactical Stock (Main)'],
+				stock['Solid Stock (KSP)'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			]
 		}
 	},
 	'Buzzsaw 42 Light Machine Gun': {
@@ -160,6 +264,18 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			recoilVertical: [-0.46, 1.84],
 			spread: 3.12,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['Light Barrel'],
+				barrel['Heatsinked Suppressed Barrel (Buzzsaw)']
+			],
+			barrelExt: mainBarrelExt,
+			bipod: [
+				bipod['Lion\'s Bipod']
+			],
+			boost: mainBoost,
+			gadget: mainGadget
 		}
 	},
 	'Brenner-21 Light Machine Gun': {
@@ -190,6 +306,23 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			recoilVertical: [1.12, 2.24],
 			spread: 3.84,
 			damageModifier: [1.0, 0.8]
+		},
+		modifications: {
+			barrel: [
+				barrel['Long Barrel (Brenner)']
+			],
+			barrelExt: mainBarrelExt,
+			bipod: [
+				bipod['Lion\'s Bipod']
+			],
+			boost: mainBoost,
+			foregrip: [
+				foregrip['Short Foregrip (Brenner)']
+			],
+			gadget: mainGadget,
+			grip: [
+				grip['Ergo Grip (Brenner)']
+			]
 		}
 	}
 }

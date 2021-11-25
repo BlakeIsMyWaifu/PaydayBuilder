@@ -1,6 +1,48 @@
 import source from 'data/source/miscSources'
 
-import { WeaponData } from '../weaponTypes'
+import ammunition, { AmmunitionModificationsList } from '../modifications/ammunition'
+import barrel from '../modifications/barrel'
+import barrelExt, { BarrelExtModificationsList } from '../modifications/barrelExt'
+import boost, { BoostModificationsList } from '../modifications/boost'
+import custom from '../modifications/custom'
+import foregrip from '../modifications/foregrip'
+import gadget, { GadgetModificationsList } from '../modifications/gadget'
+import lowerReciver from '../modifications/lowerReceiver'
+import magazine from '../modifications/magazine'
+import { Modification, WeaponData } from '../weaponTypes'
+
+const mainAmmunition: Modification<AmmunitionModificationsList>[] = [
+	ammunition['000 Buckshot (Community)'],
+	ammunition['000 Buckshot (DLC)'],
+	ammunition['HE Round'],
+	ammunition.Flechette,
+	ammunition['AP Slug'],
+	ammunition['Dragon\'s Breath Round']
+]
+
+const mainBarrelExt: Modification<BarrelExtModificationsList>[] = [
+	barrelExt['Shark Teeth Nozzle'],
+	barrelExt['The Silent Killer Suppressor'],
+	barrelExt['King\'s Crown Compensator'],
+	barrelExt['Shh!'],
+	barrelExt['Donald\'s Horizontal Leveller']
+]
+
+const mainBoost: Modification<BoostModificationsList>[] = [
+	boost.Concealment,
+	boost.Stability,
+	boost.Accuracy,
+	boost['Accuracy (- Shotguns)'],
+	boost['Team Boost']
+]
+
+const mainGadget: Modification<GadgetModificationsList>[] = [
+	gadget['Assault Light'],
+	gadget['Tactical Laser Module'],
+	gadget['Compact Laser Module'],
+	gadget['Military Laser Module'],
+	gadget['LED Combo']
+]
 
 export type AkimboShotunsList =
 	'Akimbo Goliath 12G Shotguns' |
@@ -36,6 +78,16 @@ const akimboShotuns: Record<AkimboShotunsList, WeaponData> = {
 			recoilVertical: [3.92, 3.36],
 			spread: 2.64,
 			damageModifier: [1.0, 0.6]
+		},
+		modifications: {
+			ammunition: mainAmmunition,
+			barrel: [
+				barrel['Short Barrel (Goliath)'],
+				barrel['Silenced Barrel (Goliath)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget
 		}
 	},
 	'Brothers Grimm 12G Shotguns': {
@@ -66,6 +118,22 @@ const akimboShotuns: Record<AkimboShotunsList, WeaponData> = {
 			recoilVertical: [3.78, 3.24],
 			spread: 5.28,
 			damageModifier: [1.0, 0.5]
+		},
+		modifications: {
+			ammunition: mainAmmunition,
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: [
+				custom['Single Fire'],
+				custom['Auto Fire']
+			],
+			foregrip: [
+				foregrip['Little Brother Foregrip']
+			],
+			gadget: mainGadget,
+			magazine: [
+				magazine['Big Brother Magazine']
+			]
 		}
 	},
 	'Akimbo Judge Shotguns': {
@@ -96,6 +164,15 @@ const akimboShotuns: Record<AkimboShotunsList, WeaponData> = {
 			recoilVertical: [4.2, 3.6],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			ammunition: mainAmmunition,
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			lowerReciever: [
+				lowerReciver['Custom Reinforced Frame']
+			]
 		}
 	}
 }

@@ -1,7 +1,85 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { WeaponData } from '../weaponTypes'
+import ammunition, { AmmunitionModificationsList } from '../modifications/ammunition'
+import barrel from '../modifications/barrel'
+import barrelExt, { BarrelExtModificationsList } from '../modifications/barrelExt'
+import boost, { BoostModificationsList } from '../modifications/boost'
+import custom, { CustomModificationsList } from '../modifications/custom'
+import extra from '../modifications/extra'
+import foregrip from '../modifications/foregrip'
+import gadget, { GadgetModificationsList } from '../modifications/gadget'
+import grip from '../modifications/grip'
+import lowerReciver from '../modifications/lowerReceiver'
+import magazine from '../modifications/magazine'
+import sight, { SightModificationsList } from '../modifications/sight'
+import stock from '../modifications/stock'
+import upperReciever from '../modifications/upperReceiver'
+import { Modification, WeaponData } from '../weaponTypes'
+
+const mainAmmunition: Modification<AmmunitionModificationsList>[] = [
+	ammunition['000 Buckshot (Community)'],
+	ammunition['000 Buckshot (DLC)'],
+	ammunition['HE Round'],
+	ammunition.Flechette,
+	ammunition['AP Slug'],
+	ammunition['Dragon\'s Breath Round']
+]
+
+const mainBarrelExt: Modification<BarrelExtModificationsList>[] = [
+	barrelExt['Shark Teeth Nozzle'],
+	barrelExt['The Silent Killer Suppressor'],
+	barrelExt['King\'s Crown Compensator'],
+	barrelExt['Shh!'],
+	barrelExt['Donald\'s Horizontal Leveller']
+]
+
+const mainBoost: Modification<BoostModificationsList>[] = [
+	boost.Concealment,
+	boost.Stability,
+	boost.Accuracy,
+	boost['Accuracy (- Shotguns)'],
+	boost['Team Boost']
+]
+
+const mainCustom: Modification<CustomModificationsList>[] = [
+	custom['Single Fire'],
+	custom['Auto Fire']
+]
+
+const mainGadget: Modification<GadgetModificationsList>[] = [
+	gadget['Assault Light'],
+	gadget['Tactical Laser Module'],
+	gadget['Compact Laser Module'],
+	gadget['Military Laser Module'],
+	gadget['LED Combo']
+]
+
+const mainGadgetMagnifier: Modification<GadgetModificationsList>[] = [
+	...mainGadget,
+	gadget['Riktpunkt Magnifier Gadget'],
+	gadget['Signature Magnifier Gadget']
+]
+
+const mainSight: Modification<SightModificationsList>[] = [
+	sight['The Professional\'s Choice Sight'],
+	sight['Surgeon Sight'],
+	sight['See More Sight'],
+	sight['Combat Sight'],
+	sight['Speculator Sight'],
+	sight['Trigonom Sight'],
+	sight['Holographic Sight'],
+	sight['Compact Holosight'],
+	sight['Solar Sight'],
+	sight['Military Red Dot Sight (1)'],
+	sight['Military Red Dot Sight (2)'],
+	sight['Milspec Scope'],
+	sight['Acough Optic Scope'],
+	sight['Compact Profile Sight'],
+	sight['Maelstrom Sight'],
+	sight['Advanced Combat Sight'],
+	sight['Reconnaissance Sight']
+]
 
 export type PrimaryShotgunList =
 	'Predator 12G Shotgun' |
@@ -45,6 +123,21 @@ const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 			recoilVertical: [3.42, 2.85],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
+		},
+		modifications: {
+			ammunition: mainAmmunition,
+			barrel: [
+				barrel['Extended Mag']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadgetMagnifier,
+			sight: mainSight,
+			stock: [
+				stock['Folded Stock (Predator)'],
+				stock['Solid Stock (Predator)'],
+				stock['No Stock (Predator)']
+			]
 		}
 	},
 	'Breaker 12G Shotgun': {
@@ -75,6 +168,22 @@ const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 			recoilVertical: [4.37, 4.6],
 			spread: 3.12,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			ammunition: mainAmmunition,
+			barrelExt: mainBarrelExt,
+			barrel: [
+				barrel['Long Barrel (Breaker)'],
+				barrel['Short Barrel (Breaker)']
+			],
+			boost: mainBoost,
+			gadget: mainGadget,
+			lowerReciever: [
+				lowerReciver['Treated Body']
+			],
+			stock: [
+				stock['Long Stock']
+			]
 		}
 	},
 	'Reinfeld 880 Shotgun': {
@@ -105,6 +214,41 @@ const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 			recoilVertical: [4.18, 4.4],
 			spread: 3.6,
 			damageModifier: [1.0, 0.6]
+		},
+		modifications: {
+			ammunition: mainAmmunition,
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			foregrip: [
+				foregrip['Zombie Hunter Pump']
+			],
+			gadget: mainGadgetMagnifier,
+			grip: [
+				grip['Ergo Grip (Main)'],
+				grip['Pro Grip'],
+				grip['Rubber Grip'],
+				grip['Straight Grip'],
+				grip['Contractor Grip']
+			],
+			magazine: [
+				magazine['Extended Mag. (Reinfeld 880)']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Standard Stock (Main)'],
+				stock['Short Enough Stock'],
+				stock['Tactical Stock (Main)'],
+				stock['Short Enough Tactical Stock'],
+				stock['Government Issue Tactical Stock'],
+				stock['Muldon Stock'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			],
+			upperReciever: [
+				upperReciever['Shell Rack']
+			]
 		}
 	},
 	'Mosconi 12G Tactical Shotgun': {
@@ -135,6 +279,27 @@ const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 			recoilVertical: [4.62, 4.84],
 			spread: 3.84,
 			damageModifier: [1.0, 0.6]
+		},
+		modifications: {
+			ammunition: mainAmmunition,
+			barrel: [
+				barrel['CE Extender'],
+				barrel['CE Muffler']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadgetMagnifier,
+			grip: [
+				grip['Ergo Grip (Main)'],
+				grip['Pro Grip'],
+				grip['Rubber Grip'],
+				grip['Straight Grip'],
+				grip['Titanium Skeleton Grip']
+			],
+			lowerReciever: [
+				lowerReciver['CE Rail Stabilizer']
+			],
+			sight: mainSight
 		}
 	},
 	'M1014 Shotgun': {
@@ -165,6 +330,21 @@ const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 			recoilVertical: [3.61, 3.8],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
+		},
+		modifications: {
+			ammunition: mainAmmunition,
+			barrel: [
+				barrel['Short Barrel (M1014)'],
+				barrel['Long Barrel (M1014)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadgetMagnifier,
+			sight: mainSight,
+			stock: [
+				stock['Collapsed Stock'],
+				stock['Tactical Stock (M1014)']
+			]
 		}
 	},
 	'Raven Shotgun': {
@@ -195,6 +375,17 @@ const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 			recoilVertical: [3.61, 3.8],
 			spread: 3.36,
 			damageModifier: [1.0, 0.6]
+		},
+		modifications: {
+			ammunition: mainAmmunition,
+			barrel: [
+				barrel['Short Barrel (Raven)'],
+				barrel['Long Barrel (Raven)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadgetMagnifier,
+			sight: mainSight
 		}
 	},
 	'IZHMA 12G Shotgun': {
@@ -225,6 +416,44 @@ const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 			recoilVertical: [3.61, 3.8],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
+		},
+		modifications: {
+			ammunition: mainAmmunition,
+			barrel: [
+				barrel['Short Barrel (IZHMA)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			extra: [
+				extra['Scope Mount (AK)']
+			],
+			foregrip: [
+				foregrip['The Tactical Russian Rail'],
+				foregrip['Hollow Handle']
+			],
+			gadget: mainGadget,
+			grip: [
+				grip['AK Rubber Grip'],
+				grip['AK Plastic Grip'],
+				grip['AK Wood Grip'],
+				grip['Aluminum Grip']
+			],
+			magazine: [
+				magazine['Big Brother Magazine']
+			],
+			sight: mainSight,
+			stock: [
+				stock['Standard Stock (Main)'],
+				stock['Tactical Stock (Main)'],
+				stock['Skeletal Stock (Main)'],
+				stock['Wooden Sniper Stock'],
+				stock['Wide Stock'],
+				stock['War-Torn Stock'],
+				stock['Classic Stock'],
+				stock['2 Piece Stock'],
+				stock['Contractor Stock']
+			]
 		}
 	},
 	'Reinfeld 88 Shotgun': {
@@ -255,6 +484,19 @@ const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 			recoilVertical: [4.41, 4.62],
 			spread: 3.6,
 			damageModifier: [1.0, 0.6]
+		},
+		modifications: {
+			ammunition: mainAmmunition,
+			barrel: [
+				barrel['Huntsman Barrel'],
+				barrel['Ventilated Barrel']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			stock: [
+				stock['Artisan Stock']
+			]
 		}
 	},
 	'Mosconi 12G Shotgun': {
@@ -285,6 +527,16 @@ const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 			recoilVertical: [6.09, 6.3],
 			spread: 2.4,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			ammunition: mainAmmunition,
+			boost: mainBoost,
+			barrel: [
+				barrel['Road Warrior Barrel']
+			],
+			stock: [
+				stock['Gangsta Special Stock']
+			]
 		}
 	},
 	'Joceline O/U 12G Shotgun': {
@@ -315,6 +567,17 @@ const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 			recoilVertical: [6.67, 6.9],
 			spread: 2.4,
 			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			ammunition: mainAmmunition,
+			boost: mainBoost,
+			barrel: [
+				barrel['Sawed Off Barrel (Joceline)']
+			],
+			stock: [
+				stock['Luxurious Ammo Pouch'],
+				stock['Wrist Wrecker Stock']
+			]
 		}
 	},
 	'Steakout 12G Shotgun': {
@@ -345,6 +608,21 @@ const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 			recoilVertical: [3.61, 3.8],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
+		},
+		modifications: {
+			ammunition: mainAmmunition,
+			barrel: [
+				barrel['Long Barrel (Steakout)'],
+				barrel['Suppressed Barrel (Steakout)']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadgetMagnifier,
+			magazine: [
+				magazine['Drum Mag']
+			],
+			sight: mainSight
 		}
 	}
 }

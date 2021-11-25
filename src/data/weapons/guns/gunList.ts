@@ -119,7 +119,7 @@ export const specialList: (PrimarySpecialList | SecondarySpecialList)[] = [
 ]
 
 export const pistolList: PistolList[] = [
-	'Interceptor 45 Pistol',
+	'Interceptor .45 Pistol',
 	'Chimano 88 Pistol',
 	'Gruber Kurz Pistol',
 	'Signature .40 Pistol',
