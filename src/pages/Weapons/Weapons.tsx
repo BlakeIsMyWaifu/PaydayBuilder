@@ -2,7 +2,6 @@ import { addWeapon, removeWeapon, resetArmoury } from 'actions/armouryAction'
 import { changeWeapon } from 'actions/weaponsAction'
 import Container from 'components/Container'
 import { HorizontalBar, HorizontalItem } from 'components/HorizontalActionBar'
-import { InfoContainer } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { ActionText, ActionsContainer } from 'components/ItemAction'
 import primary from 'data/weapons/guns/primary'
@@ -105,20 +104,18 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 				}}>Delete All Saved</ResetText>
 			</ResetContainer>
 
-			<InfoContainer>
-				{
-					selectedTab === 'saved' ?
-						selectedArmoury !== 0 && <WeaponInfo selectedWeapon={armoury[selectedArmoury].weapon} equippedWeapon={armoury[selectedArmoury].id === equippedWeaponId ? undefined : equippedWeapon} /> :
-						<WeaponInfo selectedWeapon={selectedWeapon} equippedWeapon={equippedWeapon} />
-				}
-			</InfoContainer>
+			{
+				selectedTab === 'saved' ?
+					selectedArmoury !== 0 && <WeaponInfo selectedWeapon={armoury[selectedArmoury].weapon} equippedWeapon={armoury[selectedArmoury].id === equippedWeaponId ? undefined : equippedWeapon} /> :
+					<WeaponInfo selectedWeapon={selectedWeapon} equippedWeapon={equippedWeapon} />
+			}
 
 			<ActionsContainer>
 				{
 					selectedTab === 'saved' ? selectedArmoury !== 0 &&
 						<>
 							<Link to={`/blackmarket/${slot}/${selectedArmoury}`} style={{ textDecoration: 'none' }}>
-								<ActionText>Mod Weapon</ActionText>
+								<ActionText>Modify Weapon</ActionText>
 							</Link>
 							<ActionText onClick={() => {
 								if (Object.keys(armoury).length === 1) return

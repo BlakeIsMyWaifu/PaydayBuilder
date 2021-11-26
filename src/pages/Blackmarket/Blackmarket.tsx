@@ -1,13 +1,16 @@
-import { changeMod } from 'actions/armouryAction'
+import { changeMod, removeMod } from 'actions/armouryAction'
 import Container from 'components/Container'
 import { HorizontalBar, HorizontalItem } from 'components/HorizontalActionBar'
-import { InfoContainer } from 'components/Info'
+import { InfoContainer, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
+import { ActionText, ActionsContainer } from 'components/ItemAction'
 import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 import { useParams } from 'react-router'
 import { blue, itemColours } from 'utils/colours'
+
+import BlackmarketStatsTable from './BlackmarketStatsTable'
 
 const WeaponChecker: React.FC = () => {
 
@@ -45,9 +48,9 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, equippedMod
 
 	const dispatch = useAppDispatch()
 
-	const [selectedTab, setSelectedTab] = useState<string | null>(weapon.modifications ? Object.keys(weapon.modifications)[0] : null)
+	const [selectedTab, setSelectedTab] = useState<ModificationSlot>(Object.keys(weapon.modifications)[0] as ModificationSlot)
 
-	const [selectedItem, setSelectedItem] = useState<Modification<string> | null>(null)
+	const [selectedItem, setSelectedItem] = useState<Modification<string>>(equippedModifications[selectedTab] || weapon.modifications[selectedTab]?.[0] || weapon.modifications.boost[0])
 
 	const equidModHelper = (): void => {
 		if (!selectedItem) return
@@ -58,8 +61,18 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, equippedMod
 		}))
 	}
 
+	const changeTab = (tab: ModificationSlot): void => {
+		if (selectedTab === tab) return
+		const equipedItem = equippedModifications[tab]
+		const firstItem = Object.values(weapon.modifications[tab] || {})[0]
+		setSelectedItem(equipedItem || firstItem as Modification<string>)
+		setSelectedTab(tab)
+	}
+
+	const fixItemName = (name: string): string => name.split(' (')[0]
+
 	return (
-		<Container rows='4rem 2rem 8fr 4rem' areas='"title title" "horizontalbar ." "items info" "items back"' title={`Blackmarket - ${weapon.name}`} backLocation={`/${slot}`}>
+		<Container rows='4rem 2rem 8fr 1.5rem 4rem' areas='"title title" "horizontalbar ." "items info" "items actions" "items back"' title={`Blackmarket - ${weapon.name}`} backLocation={`/${slot}`}>
 
 			<HorizontalBar>
 				{
@@ -68,7 +81,7 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, equippedMod
 							key={type}
 							color={selectedTab === type ? '#fff' : blue}
 							onClick={() => {
-								setSelectedTab(type)
+								changeTab(type as ModificationSlot)
 							}}>{type}</HorizontalItem>
 					})
 				}
@@ -81,11 +94,11 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, equippedMod
 							key={mod.name}
 							width={192}
 							height={96}
-							selected={selectedItem?.name === mod.name}
-							onClick={() => selectedItem?.name === mod.name ? equidModHelper() : setSelectedItem(mod)}
+							selected={selectedItem.name === mod.name}
+							onClick={() => selectedItem.name === mod.name ? equidModHelper() : setSelectedItem(mod)}
 						>
 							{mod.name === equippedModifications[mod.slot]?.name && <ItemEquipped />}
-							<ItemName color={itemColours[mod.source.rarity]}>{mod.name}</ItemName>
+							<ItemName color={itemColours[mod.source.rarity]}>{fixItemName(mod.name)}</ItemName>
 							<ItemImage src={`images/modifications/${mod.slot.replaceAll(' ', '')}/${mod.image}.webp`} />
 						</Item>
 					})
@@ -93,8 +106,30 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, equippedMod
 			</ItemContainer>
 
 			<InfoContainer>
-
+				<InfoTitle>{fixItemName(selectedItem.name)}</InfoTitle>
+				<BlackmarketStatsTable weapon={weapon} selectedItem={selectedItem} equippedMod={equippedModifications[selectedTab]} />
+				<InfoUnlock color={itemColours[selectedItem.source.rarity]}>{selectedItem.source.name}</InfoUnlock>
 			</InfoContainer>
+
+			<ActionsContainer>
+				{
+					selectedItem === equippedModifications[selectedItem.slot] ?
+						<ActionText onClick={() => {
+							dispatch(removeMod({
+								slot,
+								id,
+								modSlot: selectedItem.slot
+							}))
+						}}>Remove Modification</ActionText> :
+						<ActionText onClick={() => {
+							dispatch(changeMod({
+								slot,
+								id,
+								newMod: selectedItem
+							}))
+						}}>Craft Modification</ActionText>
+				}
+			</ActionsContainer>
 
 		</Container>
 	)

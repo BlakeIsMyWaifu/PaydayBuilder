@@ -534,7 +534,9 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
 		},
-		modifications: {}
+		modifications: {
+			boost: mainBoost
+		}
 	},
 	'Cobra Submachine Gun': {
 		name: 'Cobra Submachine Gun',

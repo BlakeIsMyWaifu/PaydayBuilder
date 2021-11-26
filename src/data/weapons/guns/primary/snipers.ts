@@ -230,7 +230,9 @@ const snipers: Record<SniperList, WeaponData> = {
 			spread: 1.2,
 			damageModifier: [1.0, 1.1]
 		},
-		modifications: {}
+		modifications: {
+			boost: mainBoost
+		}
 	},
 	'Platypus 70 Sniper Rifle': {
 		name: 'Platypus 70 Sniper Rifle',

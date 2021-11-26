@@ -557,7 +557,9 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			spread: 1.68,
 			damageModifier: [1.0, 1.0]
 		},
-		modifications: {}
+		modifications: {
+			boost: mainBoost
+		}
 	},
 	'Cavity 9mm': {
 		name: 'Cavity 9mm',

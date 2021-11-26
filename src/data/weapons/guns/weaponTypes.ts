@@ -40,7 +40,7 @@ export interface WeaponModifications {
 	barrelExt?: Modification<BarrelExtModificationsList>[];
 	bayonet?: Modification<BayonetModificationsList>[];
 	bipod?: Modification<BipodModificationsList>[];
-	boost?: Modification<BoostModificationsList>[];
+	boost: Modification<BoostModificationsList>[];
 	custom?: Modification<CustomModificationsList>[];
 	extra?: Modification<ExtraModificationsList>[];
 	foregrip?: Modification<ForegripModificationsList>[];
@@ -107,6 +107,17 @@ export interface CompatibleWeapons {
 	submachineGun?: SubmachineGunList[];
 }
 
+export interface ModificationStats {
+	totalAmmo?: number;
+	magazine?: number;
+	reload?: number;
+	damage?: number;
+	accuracy?: number;
+	stability?: number;
+	concealment?: number;
+	threat?: number;
+}
+
 export interface Modification<ModificationName> {
 	name: ModificationName;
 	image: string;
@@ -121,16 +132,7 @@ export interface Modification<ModificationName> {
 		coins?: number;
 	};
 	specialEffect?: string[];
-	stats: {
-		totalAmmo?: number;
-		magazine?: number;
-		reload?: number;
-		damage?: number;
-		accuracy?: number;
-		stability?: number;
-		concealment?: number;
-		threat?: number;
-	};
+	stats: ModificationStats;
 	compatibleWeapons: CompatibleWeapons;
 	incompatibleSlot?: ModificationSlot[];
 }

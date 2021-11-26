@@ -146,6 +146,7 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			bipod: [
 				bipod['Lion\'s Bipod']
 			],
+			boost: mainBoost,
 			gadget: mainGadget,
 			stock: [
 				stock['Plastic Stock (KSP 58)']
@@ -181,7 +182,9 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			spread: 3.12,
 			damageModifier: [1.0, 0.8]
 		},
-		modifications: {}
+		modifications: {
+			boost: mainBoost
+		}
 	},
 	'KSP Light Machine Gun': {
 		name: 'KSP Light Machine Gun',
