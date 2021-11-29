@@ -82,7 +82,7 @@ export const TableEquipped: React.FC<TableEquippedProps> = ({ baseStats, additio
 							{
 								typeof baseValue === 'number' && (
 									<>
-										<Data color={colourCompare(baseValue + skillValue + modValue, baseValue)}>{baseValue + skillValue + modValue}</Data>
+										<Data color={colourCompare(baseValue + skillValue + modValue, baseValue)}>{Math.round((baseValue + skillValue + modValue) * 10) / 10}</Data>
 										<Data>{baseValue}</Data>
 										{additionalStats.mod && (modValue ? (<Data color={sycamore}>{modValue > 0 ? `+${modValue}` : modValue}</Data>) : <Data />)}
 										{skillValue ? <Data color={blue}>{skillValue > 0 ? `+${skillValue}` : skillValue}</Data> : <Data />}
