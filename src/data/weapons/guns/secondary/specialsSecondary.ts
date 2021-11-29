@@ -1,5 +1,6 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
+
 import ammunition from '../modifications/ammunition'
 import barrel from '../modifications/barrel'
 import boost, { BoostModificationsList } from '../modifications/boost'
@@ -9,7 +10,6 @@ import lowerReciver from '../modifications/lowerReceiver'
 import magazine from '../modifications/magazine'
 import sight, { SightModificationsList } from '../modifications/sight'
 import stock from '../modifications/stock'
-
 import { Modification, WeaponData } from '../weaponTypes'
 
 const mainBoost: Modification<BoostModificationsList>[] = [
@@ -378,7 +378,7 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 		},
 		modifications: {
 			boost: mainBoostTotalAmmo,
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['Silent Motor'],
 				lowerReciver['Fast Motor']
 			],

@@ -50,8 +50,8 @@ export interface WeaponModifications {
 	sight?: Modification<SightModificationsList>[];
 	slide?: Modification<SlideModificationsList>[];
 	stock?: Modification<StockModificationsList>[];
-	upperReciever?: Modification<UpperReceiverModificationsList>[];
-	lowerReciever?: Modification<LowerReceiverModifications>[];
+	upperReceiver?: Modification<UpperReceiverModificationsList>[];
+	lowerReceiver?: Modification<LowerReceiverModifications>[];
 	verticalGrip?: Modification<VerticalGripModificationsList>[];
 }
 

@@ -178,7 +178,7 @@ const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 			],
 			boost: mainBoost,
 			gadget: mainGadget,
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['Treated Body']
 			],
 			stock: [
@@ -246,7 +246,7 @@ const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 				stock['2 Piece Stock'],
 				stock['Contractor Stock']
 			],
-			upperReciever: [
+			upperReceiver: [
 				upperReciever['Shell Rack']
 			]
 		}
@@ -296,7 +296,7 @@ const shotguns: Record<PrimaryShotgunList, WeaponData> = {
 				grip['Straight Grip'],
 				grip['Titanium Skeleton Grip']
 			],
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['CE Rail Stabilizer']
 			],
 			sight: mainSight

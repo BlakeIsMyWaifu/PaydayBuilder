@@ -45,7 +45,7 @@ const lowerReciver: ModificationList<LowerReceiverModifications> = {
 	'Dunes Tactical Receiver': {
 		name: 'Dunes Tactical Receiver',
 		image: 'wpn_fps_corgi_body_lower_strap',
-		slot: 'lowerReciever',
+		slot: 'lowerReceiver',
 		source: source['Base Game'],
 		cost: 9e3,
 		stats: {
@@ -61,7 +61,7 @@ const lowerReciver: ModificationList<LowerReceiverModifications> = {
 	'THRUST Lower Receiver': {
 		name: 'THRUST Lower Receiver',
 		image: 'wpn_fps_upg_ass_m4_lower_reciever_core',
-		slot: 'lowerReciever',
+		slot: 'lowerReceiver',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
 		acquisition: {
@@ -83,7 +83,7 @@ const lowerReciver: ModificationList<LowerReceiverModifications> = {
 	'Raptor Polymer Body': {
 		name: 'Raptor Polymer Body',
 		image: 'wpn_fps_aug_body_f90',
-		slot: 'lowerReciever',
+		slot: 'lowerReceiver',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 9e3,
 		acquisition: {
@@ -104,7 +104,7 @@ const lowerReciver: ModificationList<LowerReceiverModifications> = {
 	'Treated Body': {
 		name: 'Treated Body',
 		image: 'wpn_fps_sho_boot_body_exotic',
-		slot: 'lowerReciever',
+		slot: 'lowerReceiver',
 		source: content['Biker Character Pack'],
 		cost: 9e3,
 		stats: {
@@ -121,7 +121,7 @@ const lowerReciver: ModificationList<LowerReceiverModifications> = {
 	'CE Rail Stabilizer': {
 		name: 'CE Rail Stabilizer',
 		image: 'wpn_fps_sho_m590_lower_receiver_xxx',
-		slot: 'lowerReciever',
+		slot: 'lowerReceiver',
 		source: content['Jiu Feng Smuggler Pack'],
 		cost: 9e3,
 		stats: {
@@ -137,7 +137,7 @@ const lowerReciver: ModificationList<LowerReceiverModifications> = {
 	'Custom Reinforced Frame': {
 		name: 'Custom Reinforced Frame',
 		image: 'wpn_fps_pis_judge_body_modern',
-		slot: 'lowerReciever',
+		slot: 'lowerReceiver',
 		source: source['Base Game'],
 		cost: 12600,
 		acquisition: {
@@ -156,7 +156,7 @@ const lowerReciver: ModificationList<LowerReceiverModifications> = {
 	'Silent Motor': {
 		name: 'Silent Motor',
 		image: 'wpn_fps_saw_body_silent',
-		slot: 'lowerReciever',
+		slot: 'lowerReceiver',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 9e3,
 		acquisition: {
@@ -175,7 +175,7 @@ const lowerReciver: ModificationList<LowerReceiverModifications> = {
 	'Fast Motor': {
 		name: 'Fast Motor',
 		image: 'wpn_fps_saw_body_speed',
-		slot: 'lowerReciever',
+		slot: 'lowerReceiver',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 9e3,
 		acquisition: {
@@ -193,7 +193,7 @@ const lowerReciver: ModificationList<LowerReceiverModifications> = {
 	'Custom Titanium Frame': {
 		name: 'Custom Titanium Frame',
 		image: 'wpn_fps_pis_beretta_body_modern',
-		slot: 'lowerReciever',
+		slot: 'lowerReceiver',
 		source: source['Base Game'],
 		cost: 9e3,
 		acquisition: {
@@ -209,7 +209,7 @@ const lowerReciver: ModificationList<LowerReceiverModifications> = {
 	'Spike Kit': {
 		name: 'Spike Kit',
 		image: 'wpn_fps_pis_sparrow_body_941',
-		slot: 'lowerReciever',
+		slot: 'lowerReceiver',
 		source: content['The Point Break Heists'],
 		cost: 9e3,
 		stats: {
@@ -226,7 +226,7 @@ const lowerReciver: ModificationList<LowerReceiverModifications> = {
 	'Striking Body Kit': {
 		name: 'Striking Body Kit',
 		image: 'wpn_fps_pis_g26_body_custom',
-		slot: 'lowerReciever',
+		slot: 'lowerReceiver',
 		source: source.Community,
 		cost: 53e3,
 		stats: {
@@ -243,7 +243,7 @@ const lowerReciver: ModificationList<LowerReceiverModifications> = {
 	'Custom Built Frame': {
 		name: 'Custom Built Frame',
 		image: 'wpn_fps_smg_mac10_body_modern',
-		slot: 'lowerReciever',
+		slot: 'lowerReceiver',
 		source: source['Base Game'],
 		cost: 9e3,
 		acquisition: {
@@ -259,7 +259,7 @@ const lowerReciver: ModificationList<LowerReceiverModifications> = {
 	'Custom Assault Frame': {
 		name: 'Custom Assault Frame',
 		image: 'wpn_fps_smg_p90_body_boxy',
-		slot: 'lowerReciever',
+		slot: 'lowerReceiver',
 		source: source['Base Game'],
 		cost: 9e3,
 		acquisition: {

@@ -96,7 +96,7 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 		},
 		modifications: {
 			boost: mainBoostTotalAmmo,
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['Silent Motor'],
 				lowerReciver['Fast Motor']
 			],
@@ -293,7 +293,7 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 		modifications: {
 			boost: mainBoostTotalAmmo,
 			gadget: mainGadget,
-			upperReciever: [
+			upperReceiver: [
 				upperReciever['Heat Sink Barrel'],
 				upperReciever['XS Heat Sink Barrel'],
 				upperReciever['XS Barrel']
@@ -346,7 +346,7 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 				sight['Advanced Combat Sight'],
 				sight['Reconnaissance Sight']
 			],
-			upperReciever: [
+			upperReceiver: [
 				upperReciever['Tactical Frame']
 			]
 		}

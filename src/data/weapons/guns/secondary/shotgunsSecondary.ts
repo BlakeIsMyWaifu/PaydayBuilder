@@ -1,5 +1,6 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
+
 import ammunition, { AmmunitionModificationsList } from '../modifications/ammunition'
 import barrel from '../modifications/barrel'
 import barrelExt, { BarrelExtModificationsList } from '../modifications/barrelExt'
@@ -13,7 +14,6 @@ import magazine from '../modifications/magazine'
 import sight, { SightModificationsList } from '../modifications/sight'
 import stock from '../modifications/stock'
 import upperReciever from '../modifications/upperReceiver'
-
 import { Modification, WeaponData } from '../weaponTypes'
 
 const mainAmmunition: Modification<AmmunitionModificationsList>[] = [
@@ -142,7 +142,7 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 				stock['2 Piece Stock'],
 				stock['Contractor Stock']
 			],
-			upperReciever: [
+			upperReceiver: [
 				upperReciever['Shell Rack']
 			]
 		}
@@ -353,7 +353,7 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			boost: mainBoost,
 			gadget: mainGadgetMagnifier,
 			sight: mainSight,
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['Custom Reinforced Frame']
 			]
 		}

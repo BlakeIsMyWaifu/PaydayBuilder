@@ -170,7 +170,7 @@ const akimboShotuns: Record<AkimboShotunsList, WeaponData> = {
 			barrelExt: mainBarrelExt,
 			boost: mainBoost,
 			gadget: mainGadget,
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['Custom Reinforced Frame']
 			]
 		}

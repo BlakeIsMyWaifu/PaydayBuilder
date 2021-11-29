@@ -210,7 +210,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 				stock['2 Piece Stock'],
 				stock['Contractor Stock']
 			],
-			upperReciever: [
+			upperReceiver: [
 				upperReciever['Heat Treated Body']
 			]
 		}
@@ -314,7 +314,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 				magazine['Speed Pull Magazine']
 			],
 			sight: mainSight,
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['Dunes Tactical Receiver']
 			]
 		}
@@ -451,7 +451,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 				grip['Straight Grip'],
 				grip['Contractor Grip']
 			],
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['THRUST Lower Receiver']
 			],
 			magazine: [
@@ -471,7 +471,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 				stock['2 Piece Stock'],
 				stock['Contractor Stock']
 			],
-			upperReciever: [
+			upperReceiver: [
 				upperReciever['Exotique Receiver'],
 				upperReciever['LW Upper Receiver'],
 				upperReciever['THRUST Upper Receiver']
@@ -519,7 +519,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 				extra['A3 Tactical Foregrip']
 			],
 			gadget: mainGadgetMagnifier,
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['Raptor Polymer Body']
 			],
 			magazine: [
@@ -1391,7 +1391,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 				grip['Straight Grip'],
 				grip['Contractor Grip']
 			],
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['THRUST Lower Receiver']
 			],
 			magazine: [
@@ -1409,7 +1409,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 				stock['2 Piece Stock'],
 				stock['Contractor Stock']
 			],
-			upperReciever: [
+			upperReceiver: [
 				upperReciever['Exotique Receiver'],
 				upperReciever['LW Upper Receiver'],
 				upperReciever['THRUST Upper Receiver']

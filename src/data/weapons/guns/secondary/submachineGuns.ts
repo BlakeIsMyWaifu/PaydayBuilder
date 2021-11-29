@@ -145,7 +145,7 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			stock: [
 				stock['Folded Stock (Swedish)']
 			],
-			upperReciever: [
+			upperReceiver: [
 				upperReciever['Swedish Body']
 			]
 		}
@@ -237,7 +237,7 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 				extra['Railed Handguard']
 			],
 			gadget: mainGadget,
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['Custom Built Frame']
 			],
 			magazine: [
@@ -399,7 +399,7 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 				stock['2 Piece Stock'],
 				stock['Contractor Stock']
 			],
-			upperReciever: [
+			upperReceiver: [
 				upperReciever['80\'s Calling']
 			]
 		}
@@ -683,7 +683,7 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 				grip['Straight Grip'],
 				grip['Contractor Grip']
 			],
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['THRUST Lower Receiver']
 			],
 			magazine: [
@@ -704,7 +704,7 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 				stock['2 Piece Stock'],
 				stock['Contractor Stock']
 			],
-			upperReciever: [
+			upperReceiver: [
 				upperReciever['Exotique Receiver'],
 				upperReciever['LW Upper Receiver'],
 				upperReciever['THRUST Upper Receiver']
@@ -1103,7 +1103,7 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			boost: mainBoost,
 			custom: mainCustom,
 			gadget: mainGadget,
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['Custom Assault Frame']
 			],
 			magazine: [

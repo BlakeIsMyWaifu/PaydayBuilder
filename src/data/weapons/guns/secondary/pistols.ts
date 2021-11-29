@@ -376,10 +376,10 @@ const pistols: Record<PistolList, WeaponData> = {
 				sight['Marksman Sight'],
 				...mainSight
 			],
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['Custom Titanium Frame']
 			],
-			upperReciever: [
+			upperReceiver: [
 				upperReciever['The Elite Slide']
 			]
 		}
@@ -456,7 +456,7 @@ const pistols: Record<PistolList, WeaponData> = {
 				slide['Ventilated Barrel'],
 				slide['Overcompensating Barrel']
 			],
-			upperReciever: [
+			upperReceiver: [
 				upperReciever['Slimline Body']
 			]
 		}
@@ -586,7 +586,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			grip: [
 				grip['Spike Grip']
 			],
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['Spike Kit']
 			],
 			sight: mainSight
@@ -980,7 +980,7 @@ const pistols: Record<PistolList, WeaponData> = {
 				grip['Laser Grip (Chimano)'],
 				grip['Platypus Grip']
 			],
-			lowerReciever: [
+			lowerReceiver: [
 				lowerReciver['Striking Body Kit']
 			],
 			magazine: [
