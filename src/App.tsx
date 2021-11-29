@@ -5,6 +5,11 @@ import React from 'react'
 import AppRoutes from 'routes/AppRoutes'
 import { isDev } from 'utils/isDev'
 
+window.addEventListener('error', () => {
+	localStorage.clear()
+	window.location.reload()
+})
+
 const App: React.FC = () => {
 	return (
 		<div onContextMenu={event => isDev() ? null : event.preventDefault()}>
