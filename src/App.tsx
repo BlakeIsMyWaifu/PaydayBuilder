@@ -5,10 +5,12 @@ import React from 'react'
 import AppRoutes from 'routes/AppRoutes'
 import { isDev } from 'utils/isDev'
 
-window.addEventListener('error', () => {
-	localStorage.clear()
-	window.location.reload()
-})
+if (!isDev) {
+	window.addEventListener('error', () => {
+		localStorage.clear()
+		window.location.reload()
+	})
+}
 
 const App: React.FC = () => {
 	return (

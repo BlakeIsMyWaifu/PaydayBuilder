@@ -9,11 +9,11 @@ import custom from '../modifications/custom'
 import foregrip from '../modifications/foregrip'
 import gadget, { GadgetModificationsList } from '../modifications/gadget'
 import grip from '../modifications/grip'
-import lowerReciver from '../modifications/lowerReceiver'
+import lowerReceiver from '../modifications/lowerReceiver'
 import magazine from '../modifications/magazine'
 import sight, { SightModificationsList } from '../modifications/sight'
 import stock from '../modifications/stock'
-import upperReciever from '../modifications/upperReceiver'
+import upperReceiver from '../modifications/upperReceiver'
 import { Modification, WeaponData } from '../weaponTypes'
 
 const mainAmmunition: Modification<AmmunitionModificationsList>[] = [
@@ -143,7 +143,7 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 				stock['Contractor Stock']
 			],
 			upperReceiver: [
-				upperReciever['Shell Rack']
+				upperReceiver['Shell Rack']
 			]
 		}
 	},
@@ -354,7 +354,7 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			gadget: mainGadgetMagnifier,
 			sight: mainSight,
 			lowerReceiver: [
-				lowerReciver['Custom Reinforced Frame']
+				lowerReceiver['Custom Reinforced Frame']
 			]
 		}
 	},

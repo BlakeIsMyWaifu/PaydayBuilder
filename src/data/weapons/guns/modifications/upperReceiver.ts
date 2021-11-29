@@ -35,7 +35,7 @@ export type UpperReceiverModificationsList =
 	// Jacket's Piece
 	'80\'s Calling'
 
-const upperReciever: ModificationList<UpperReceiverModificationsList> = {
+const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'Heat Treated Body': {
 		name: 'Heat Treated Body',
 		image: 'wpn_fps_ass_s552_body_standard_black',
@@ -273,4 +273,4 @@ const upperReciever: ModificationList<UpperReceiverModificationsList> = {
 	}
 }
 
-export default upperReciever
+export default upperReceiver

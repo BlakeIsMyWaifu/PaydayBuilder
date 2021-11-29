@@ -7,12 +7,12 @@ import boost, { BoostModificationsList } from '../modifications/boost'
 import extra from '../modifications/extra'
 import gadget, { GadgetModificationsList } from '../modifications/gadget'
 import grip from '../modifications/grip'
-import lowerReciver from '../modifications/lowerReceiver'
+import lowerReceiver from '../modifications/lowerReceiver'
 import magazine from '../modifications/magazine'
 import sight, { SightModificationsList } from '../modifications/sight'
 import slide from '../modifications/slide'
 import stock from '../modifications/stock'
-import upperReciever from '../modifications/upperReceiver'
+import upperReceiver from '../modifications/upperReceiver'
 import { Modification, WeaponData } from '../weaponTypes'
 
 const mainBarrelExt: Modification<BarrelExtModificationsList>[] = [
@@ -377,10 +377,10 @@ const pistols: Record<PistolList, WeaponData> = {
 				...mainSight
 			],
 			lowerReceiver: [
-				lowerReciver['Custom Titanium Frame']
+				lowerReceiver['Custom Titanium Frame']
 			],
 			upperReceiver: [
-				upperReciever['The Elite Slide']
+				upperReceiver['The Elite Slide']
 			]
 		}
 	},
@@ -457,7 +457,7 @@ const pistols: Record<PistolList, WeaponData> = {
 				slide['Overcompensating Barrel']
 			],
 			upperReceiver: [
-				upperReciever['Slimline Body']
+				upperReceiver['Slimline Body']
 			]
 		}
 	},
@@ -587,7 +587,7 @@ const pistols: Record<PistolList, WeaponData> = {
 				grip['Spike Grip']
 			],
 			lowerReceiver: [
-				lowerReciver['Spike Kit']
+				lowerReceiver['Spike Kit']
 			],
 			sight: mainSight
 		}
@@ -981,7 +981,7 @@ const pistols: Record<PistolList, WeaponData> = {
 				grip['Platypus Grip']
 			],
 			lowerReceiver: [
-				lowerReciver['Striking Body Kit']
+				lowerReceiver['Striking Body Kit']
 			],
 			magazine: [
 				magazine['Striking Mag'],

@@ -41,7 +41,7 @@ export type LowerReceiverModifications =
 	// Kobus 90
 	'Custom Assault Frame'
 
-const lowerReciver: ModificationList<LowerReceiverModifications> = {
+const lowerReceiver: ModificationList<LowerReceiverModifications> = {
 	'Dunes Tactical Receiver': {
 		name: 'Dunes Tactical Receiver',
 		image: 'wpn_fps_corgi_body_lower_strap',
@@ -274,4 +274,4 @@ const lowerReciver: ModificationList<LowerReceiverModifications> = {
 	}
 }
 
-export default lowerReciver
+export default lowerReceiver

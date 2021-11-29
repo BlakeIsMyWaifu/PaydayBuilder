@@ -6,7 +6,7 @@ import barrel from '../modifications/barrel'
 import boost, { BoostModificationsList } from '../modifications/boost'
 import gadget, { GadgetModificationsList } from '../modifications/gadget'
 import grip from '../modifications/grip'
-import lowerReciver from '../modifications/lowerReceiver'
+import lowerReceiver from '../modifications/lowerReceiver'
 import magazine from '../modifications/magazine'
 import sight, { SightModificationsList } from '../modifications/sight'
 import stock from '../modifications/stock'
@@ -379,8 +379,8 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 		modifications: {
 			boost: mainBoostTotalAmmo,
 			lowerReceiver: [
-				lowerReciver['Silent Motor'],
-				lowerReciver['Fast Motor']
+				lowerReceiver['Silent Motor'],
+				lowerReceiver['Fast Motor']
 			],
 			magazine: [
 				magazine['Durable Blade'],

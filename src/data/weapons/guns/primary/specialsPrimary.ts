@@ -7,11 +7,11 @@ import boost, { BoostModificationsList } from '../modifications/boost'
 import extra from '../modifications/extra'
 import gadget, { GadgetModificationsList } from '../modifications/gadget'
 import grip from '../modifications/grip'
-import lowerReciver from '../modifications/lowerReceiver'
+import lowerReceiver from '../modifications/lowerReceiver'
 import magazine from '../modifications/magazine'
 import sight, { SightModificationsList } from '../modifications/sight'
 import stock from '../modifications/stock'
-import upperReciever from '../modifications/upperReceiver'
+import upperReceiver from '../modifications/upperReceiver'
 import { Modification, WeaponData } from '../weaponTypes'
 
 const mainBoost: Modification<BoostModificationsList>[] = [
@@ -97,8 +97,8 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 		modifications: {
 			boost: mainBoostTotalAmmo,
 			lowerReceiver: [
-				lowerReciver['Silent Motor'],
-				lowerReciver['Fast Motor']
+				lowerReceiver['Silent Motor'],
+				lowerReceiver['Fast Motor']
 			],
 			magazine: [
 				magazine['Durable Blade'],
@@ -294,9 +294,9 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			boost: mainBoostTotalAmmo,
 			gadget: mainGadget,
 			upperReceiver: [
-				upperReciever['Heat Sink Barrel'],
-				upperReciever['XS Heat Sink Barrel'],
-				upperReciever['XS Barrel']
+				upperReceiver['Heat Sink Barrel'],
+				upperReceiver['XS Heat Sink Barrel'],
+				upperReceiver['XS Barrel']
 			]
 		}
 	},
@@ -347,7 +347,7 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 				sight['Reconnaissance Sight']
 			],
 			upperReceiver: [
-				upperReciever['Tactical Frame']
+				upperReceiver['Tactical Frame']
 			]
 		}
 	},

@@ -7,7 +7,7 @@ import boost, { BoostModificationsList } from '../modifications/boost'
 import custom from '../modifications/custom'
 import foregrip from '../modifications/foregrip'
 import gadget, { GadgetModificationsList } from '../modifications/gadget'
-import lowerReciver from '../modifications/lowerReceiver'
+import lowerReceiver from '../modifications/lowerReceiver'
 import magazine from '../modifications/magazine'
 import { Modification, WeaponData } from '../weaponTypes'
 
@@ -171,7 +171,7 @@ const akimboShotuns: Record<AkimboShotunsList, WeaponData> = {
 			boost: mainBoost,
 			gadget: mainGadget,
 			lowerReceiver: [
-				lowerReciver['Custom Reinforced Frame']
+				lowerReceiver['Custom Reinforced Frame']
 			]
 		}
 	}

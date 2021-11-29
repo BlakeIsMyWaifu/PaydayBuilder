@@ -2,6 +2,7 @@ import { ModificationStats } from 'data/weapons/guns/weaponTypes'
 import React from 'react'
 import styled from 'styled-components'
 import { blue, dim, green, grey, lightgrey, red, sycamore } from 'utils/colours'
+import { oneDP } from 'utils/maths'
 
 export const Table = styled.table`
 	color: #fff;
@@ -153,8 +154,8 @@ export const TableCompare: React.FC<TableCompareProps> = ({ equippedStats, selec
 							{
 								typeof main === 'number' && (
 									<>
-										<Data color={colourCompare(numMain, numCompare)}>{numMain}</Data>
-										<Data color={colourCompare(numCompare, numMain)}>{numCompare}</Data>
+										<Data color={colourCompare(numMain, numCompare)}>{oneDP(numMain)}</Data>
+										<Data color={colourCompare(numCompare, numMain)}>{oneDP(numCompare)}</Data>
 									</>
 								)
 							}

@@ -1,0 +1,1 @@
+export const oneDP = (number: number) => Math.round(number * 10) / 10
