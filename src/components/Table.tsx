@@ -1,6 +1,7 @@
+import { ModificationStats } from 'data/weapons/guns/weaponTypes'
 import React from 'react'
 import styled from 'styled-components'
-import { blue, dim, green, grey, lightgrey, red } from 'utils/colours'
+import { blue, dim, green, grey, lightgrey, red, sycamore } from 'utils/colours'
 
 export const Table = styled.table`
 	color: #fff;
@@ -48,7 +49,10 @@ export const Data = styled.td`
 
 interface TableEquippedProps {
 	baseStats: Record<string, any>;
-	additionalStats: Record<string, any>;
+	additionalStats: {
+		skill: Record<string, any>;
+		mod?: ModificationStats;
+	}
 }
 
 const colourCompare = (valueOne: number, valueTwo: number) => valueOne !== valueTwo ? (valueOne < valueTwo ? red : green) : '#fff'
@@ -64,21 +68,24 @@ export const TableEquipped: React.FC<TableEquippedProps> = ({ baseStats, additio
 					<Head />
 					<Head>Total</Head>
 					<Head>Base</Head>
+					{additionalStats.mod && <Head color={sycamore}>Mod</Head>}
 					<Head color={blue}>Skill</Head>
 				</Row>
 			</thead>
 			<tbody>
 				{
 					Object.entries(baseStats).map(([stat, baseValue]) => {
-						const skillValue = additionalStats[stat]
+						const skillValue = additionalStats.skill[stat]
+						const modValue: number = additionalStats.mod?.[(stat as keyof ModificationStats)] || 0
 						return <Row key={stat}>
 							<Label>{stat}</Label>
 							{
 								typeof baseValue === 'number' && (
 									<>
-										<Data color={colourCompare(baseValue + skillValue, baseValue)}>{baseValue + skillValue}</Data>
+										<Data color={colourCompare(baseValue + skillValue + modValue, baseValue)}>{baseValue + skillValue + modValue}</Data>
 										<Data>{baseValue}</Data>
-										{skillValue ? <Data color={blue}>{skillValue > 0 ? '+' : ''}{skillValue}</Data> : <Data />}
+										{additionalStats.mod && (modValue ? (<Data color={sycamore}>{modValue > 0 ? `+${modValue}` : modValue}</Data>) : <Data />)}
+										{skillValue ? <Data color={blue}>{skillValue > 0 ? `+${skillValue}` : skillValue}</Data> : <Data />}
 									</>
 								)
 							}
@@ -97,6 +104,7 @@ export const TableEquipped: React.FC<TableEquippedProps> = ({ baseStats, additio
 										<Data>{baseValue}</Data>
 										<Data />
 										<Data />
+										{additionalStats.mod && <Data />}
 									</>
 								)
 							}

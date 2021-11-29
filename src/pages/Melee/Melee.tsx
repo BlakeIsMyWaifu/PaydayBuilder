@@ -34,7 +34,7 @@ export const MeleeStatsTable: React.FC<MeleeStatsTable> = ({ selectedMelee, equi
 	const innerPockets = useAppSelector(state => state.skills.trees.ghost.artful_dodger.upgrades['Inner Pockets'])
 	const pumpingIron = useAppSelector(state => state.skills.trees.fugitive.brawler.upgrades['Pumping Iron'])
 
-	const additionalStats = (meleeStats: MeleeStats) => {
+	const skillStats = (meleeStats: MeleeStats) => {
 		const stats: MeleeStats = {
 			damage: [0, 0],
 			knockdown: [0, 0],
@@ -59,12 +59,12 @@ export const MeleeStatsTable: React.FC<MeleeStatsTable> = ({ selectedMelee, equi
 			<TableCompare
 				equippedStats={baseStats(equippedMelee)}
 				selectedStats={baseStats(selectedMelee)}
-				equippedAdditional={additionalStats(equippedMelee)}
-				selectedAdditional={additionalStats(selectedMelee)}
+				equippedAdditional={skillStats(equippedMelee)}
+				selectedAdditional={skillStats(selectedMelee)}
 			/> :
 			<TableEquipped
 				baseStats={baseStats(selectedMelee)}
-				additionalStats={additionalStats(selectedMelee)}
+				additionalStats={{ skill: skillStats(selectedMelee) }}
 			/>
 	)
 }

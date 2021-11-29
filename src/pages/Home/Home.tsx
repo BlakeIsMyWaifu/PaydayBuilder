@@ -108,14 +108,14 @@ const Home: React.FC = () => {
 
 						<Selector title='primary' setHoverInfo={setHoverInfo} infoData={{
 							title: armoury.primary[primary].weapon.name,
-							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={armoury.primary[primary].weapon} />
+							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={armoury.primary[primary]} />
 						}}>
 							<Image src={`images/weapons/${armoury.primary[primary].weapon.image}.png`} leftFacing={leftFacing} />
 						</Selector>
 
 						<Selector title='secondary' setHoverInfo={setHoverInfo} infoData={{
 							title: armoury.secondary[secondary].weapon.name,
-							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={armoury.secondary[secondary].weapon} />
+							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={armoury.secondary[secondary]} />
 						}}>
 							<Image src={`images/weapons/${armoury.secondary[secondary].weapon.image}.png`} leftFacing={leftFacing} />
 						</Selector>

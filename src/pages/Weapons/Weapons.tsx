@@ -106,8 +106,8 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 
 			{
 				selectedTab === 'saved' ?
-					selectedArmoury !== 0 && <WeaponInfo selectedWeapon={armoury[selectedArmoury].weapon} equippedWeapon={armoury[selectedArmoury].id === equippedWeaponId ? undefined : equippedWeapon} /> :
-					<WeaponInfo selectedWeapon={selectedWeapon} equippedWeapon={equippedWeapon} />
+					selectedArmoury !== 0 && <WeaponInfo selectedWeapon={armoury[selectedArmoury]} equippedWeapon={armoury[selectedArmoury].id === equippedWeaponId ? undefined : armoury[equippedWeaponId]} /> :
+					<WeaponInfo selectedWeapon={armoury[selectedArmoury]} equippedWeapon={armoury[equippedWeaponId]} />
 			}
 
 			<ActionsContainer>

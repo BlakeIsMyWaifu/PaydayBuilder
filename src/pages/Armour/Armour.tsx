@@ -22,7 +22,7 @@ export const ArmourStatsTable: React.FC<ArmourStatsTable> = ({ selectedArmour, e
 	const innerPockets = useAppSelector(state => state.skills.trees.ghost.artful_dodger.upgrades['Inner Pockets'])
 	const ironMan = useAppSelector(state => state.skills.trees.enforcer.tank.upgrades['Iron Man'])
 
-	const additionalStats = (armour: ArmourData) => {
+	const skillStats = (armour: ArmourData) => {
 		const hasBallistic = armour.name.includes('Ballistic Vest')
 
 		const stats = {
@@ -47,12 +47,12 @@ export const ArmourStatsTable: React.FC<ArmourStatsTable> = ({ selectedArmour, e
 			<TableCompare
 				equippedStats={baseStats(equippedArmour.stats)}
 				selectedStats={baseStats(selectedArmour.stats)}
-				equippedAdditional={additionalStats(equippedArmour)}
-				selectedAdditional={additionalStats(selectedArmour)}
+				equippedAdditional={skillStats(equippedArmour)}
+				selectedAdditional={skillStats(selectedArmour)}
 			/> :
 			<TableEquipped
 				baseStats={baseStats(selectedArmour.stats)}
-				additionalStats={additionalStats(selectedArmour)}
+				additionalStats={{ skill: skillStats(selectedArmour) }}
 			/>
 	)
 }
