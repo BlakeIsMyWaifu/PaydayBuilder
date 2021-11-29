@@ -1,8 +1,8 @@
-import { ADDWEAPON, CHANGEMOD, REMOVEMOD, REMOVEWEAPON, RESETARMOURY } from 'constants/armouryConstant'
+import { ADDWEAPON, CHANGEMOD, REMOVEMOD, REMOVEWEAPON, RESETARMOURY, RESETWEAPONSMODS } from 'constants/armouryConstant'
 import { Modification, ModificationSlot, Slot, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { createAction } from 'typesafe-actions'
 
-export interface FindWeapon {
+export interface SelectWeapon {
 	slot: Slot;
 	id: number;
 }
@@ -12,26 +12,28 @@ export interface AddWeaponAction {
 	weapon: WeaponData;
 }
 
-export interface ChangeModAction extends FindWeapon {
+export interface ChangeModAction extends SelectWeapon {
 	newMod: Modification<string>;
 }
 
-export interface RemoveModAction extends FindWeapon {
+export interface RemoveModAction extends SelectWeapon {
 	modSlot: ModificationSlot;
 }
 
 export const addWeapon = createAction(ADDWEAPON)<AddWeaponAction>()
-export const removeWeapon = createAction(REMOVEWEAPON)<FindWeapon>()
+export const removeWeapon = createAction(REMOVEWEAPON)<SelectWeapon>()
 export const resetArmoury = createAction(RESETARMOURY)<Slot>()
 export const changeMod = createAction(CHANGEMOD)<ChangeModAction>()
 export const removeMod = createAction(REMOVEMOD)<RemoveModAction>()
+export const resetWeaponsMods = createAction(RESETWEAPONSMODS)<SelectWeapon>()
 
 const armouryActions = {
 	addWeapon,
 	removeWeapon,
 	resetArmoury,
 	changeMod,
-	removeMod
+	removeMod,
+	resetWeaponsMods
 }
 
 export default armouryActions

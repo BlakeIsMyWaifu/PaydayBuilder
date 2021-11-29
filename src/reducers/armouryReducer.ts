@@ -1,4 +1,4 @@
-import actions, { AddWeaponAction, ChangeModAction, FindWeapon, RemoveModAction } from 'actions/armouryAction'
+import actions, { AddWeaponAction, ChangeModAction, RemoveModAction, SelectWeapon } from 'actions/armouryAction'
 import { Slot, Weapon } from 'data/weapons/guns/weaponTypes'
 import defaultState, { ArmouryState } from 'defaultStates/armouryDefaultState'
 import { getType } from 'typesafe-actions'
@@ -21,7 +21,7 @@ const armouryReducer = (state = defaultState, action: Record<'type' | 'payload',
 		}
 	}
 
-	const removeWeapon = ({ slot, id }: FindWeapon): ArmouryState => {
+	const removeWeapon = ({ slot, id }: SelectWeapon): ArmouryState => {
 		const newState = { ...state[slot] }
 		delete newState[id]
 		return {
@@ -63,8 +63,21 @@ const armouryReducer = (state = defaultState, action: Record<'type' | 'payload',
 				[id]: {
 					...state[slot][id],
 					modifications: {
-						newState
+						...newState
 					}
+				}
+			}
+		}
+	}
+
+	const resetWeaponsMods = ({ slot, id }: SelectWeapon): ArmouryState => {
+		return {
+			...state,
+			[slot]: {
+				...state[slot],
+				[id]: {
+					...state[slot][id],
+					modifications: {}
 				}
 			}
 		}
@@ -81,6 +94,8 @@ const armouryReducer = (state = defaultState, action: Record<'type' | 'payload',
 			return changeMod(action.payload)
 		case getType(actions.removeMod):
 			return removeMod(action.payload)
+		case getType(actions.resetWeaponsMods):
+			return resetWeaponsMods(action.payload)
 		default:
 			return state
 	}

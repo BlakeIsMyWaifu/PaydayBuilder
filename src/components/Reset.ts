@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { blue } from 'utils/colours'
 
 export const ResetContainer = styled.div`
-	grid-area: resetarmoury;
+	grid-area: reset;
 `
 
 export const ResetText = styled.p`

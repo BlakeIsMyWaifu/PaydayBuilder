@@ -2,6 +2,7 @@ import { changeEquipment } from 'actions/characterAction'
 import { resetSkills, resetTree } from 'actions/skillsAction'
 import Container from 'components/Container'
 import { HorizontalBar } from 'components/HorizontalActionBar'
+import { ResetContainer, ResetText } from 'components/Reset'
 import skills, { TreeData, TreeNames } from 'data/abilities/skills'
 import { SkillData } from 'data/abilities/skills'
 import equipmentData from 'data/character/equipment'
@@ -10,7 +11,6 @@ import React, { useEffect, useState } from 'react'
 
 import Info from './Info'
 import Points from './Points'
-import Reset from './Reset'
 import { SubtreeLabel, SubtreeLabelWrapper, Tree, TreeName } from './Skills-Elements'
 import Subtree from './Subtree'
 
@@ -93,7 +93,10 @@ const Skills: React.FC = () => {
 				}
 			</SubtreeLabelWrapper>
 
-			<Reset tree={currentTree.name} />
+			<ResetContainer>
+				<ResetText onClick={() => dispatch(resetTree(currentTree.name))}>[F] Reset this tree</ResetText>
+				<ResetText onClick={() => dispatch(resetSkills())}>[R] Reset all trees</ResetText>
+			</ResetContainer>
 
 			<Points />
 

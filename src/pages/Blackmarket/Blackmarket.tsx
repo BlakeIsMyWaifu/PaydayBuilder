@@ -1,12 +1,13 @@
-import { changeMod, removeMod } from 'actions/armouryAction'
+import { changeMod, removeMod, resetWeaponsMods } from 'actions/armouryAction'
 import Container from 'components/Container'
 import { HorizontalBar, HorizontalItem } from 'components/HorizontalActionBar'
 import { InfoContainer, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { ActionText, ActionsContainer } from 'components/ItemAction'
-import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
+import { ResetContainer, ResetText } from 'components/Reset'
+import { Modification, ModificationSlot, Slot, Weapon, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { blue, itemColours } from 'utils/colours'
 
@@ -71,8 +72,24 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, equippedMod
 
 	const fixItemName = (name: string): string => name.split(' (')[0]
 
+	const getTotalStats = (weapon: WeaponData, modifications: Partial<Record<ModificationSlot, Modification<string>>>): WeaponStats => {
+		const baseStats = { ...weapon.stats }
+		Object.values(modifications).forEach(({ stats }) => {
+			Object.entries(stats).forEach(([label, value]) => {
+				baseStats[label as keyof WeaponStats] += value
+			})
+		})
+		return baseStats
+	}
+
+	const [totalStats, setTotalStats] = useState<WeaponStats>(() => getTotalStats(weapon, equippedModifications))
+
+	useEffect(() => {
+		setTotalStats(getTotalStats(weapon, equippedModifications))
+	}, [weapon, equippedModifications])
+
 	return (
-		<Container rows='4rem 2rem 8fr 1.5rem 4rem' areas='"title title" "horizontalbar ." "items info" "items actions" "items back"' title={`Blackmarket - ${weapon.name}`} backLocation={`/${slot}`}>
+		<Container rows='4rem 2rem 8fr 1.5rem 4rem' areas='"title reset" "horizontalbar ." "items info" "items actions" "items back"' title={`Blackmarket - ${weapon.name}`} backLocation={`/${slot}`}>
 
 			<HorizontalBar>
 				{
@@ -107,9 +124,13 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, equippedMod
 
 			<InfoContainer>
 				<InfoTitle>{fixItemName(selectedItem.name)}</InfoTitle>
-				<BlackmarketStatsTable weapon={weapon} selectedItem={selectedItem} equippedMod={equippedModifications[selectedTab]} />
+				<BlackmarketStatsTable weapon={weapon} totalStats={totalStats} selectedItem={selectedItem} equippedMod={equippedModifications[selectedTab]} />
 				<InfoUnlock color={itemColours[selectedItem.source.rarity]}>{selectedItem.source.name}</InfoUnlock>
 			</InfoContainer>
+
+			<ResetContainer>
+				<ResetText onClick={() => dispatch(resetWeaponsMods({ slot, id }))}>Reset all modifications</ResetText>
+			</ResetContainer>
 
 			<ActionsContainer>
 				{

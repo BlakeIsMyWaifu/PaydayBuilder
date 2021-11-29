@@ -4,6 +4,7 @@ import Container from 'components/Container'
 import { HorizontalBar, HorizontalItem } from 'components/HorizontalActionBar'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { ActionText, ActionsContainer } from 'components/ItemAction'
+import { ResetContainer, ResetText } from 'components/Reset'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
 import { Slot, WeaponData } from 'data/weapons/guns/weaponTypes'
@@ -13,7 +14,6 @@ import { Link } from 'react-router-dom'
 import { blue, itemColours } from 'utils/colours'
 
 import WeaponInfo from './WeaponInfo/WeaponInfo'
-import { ResetContainer, ResetText } from './Weapons-Elements'
 
 interface WeaponsProps {
 	slot: Slot;
@@ -46,7 +46,7 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 	}
 
 	return (
-		<Container columns='3fr 1.5fr' rows='4rem 2rem 8fr 3rem 4rem' areas='"title resetarmoury" "horizontalbar filter" "items info" "items actions" "items back"' title={slot}>
+		<Container columns='3fr 1.5fr' rows='4rem 2rem 8fr 3rem 4rem' areas='"title reset" "horizontalbar filter" "items info" "items actions" "items back"' title={slot}>
 
 			<HorizontalBar>
 				<HorizontalItem color={'saved' === selectedTab ? '#fff' : blue} onClick={() => setSeletectTab('saved')}>Saved</HorizontalItem>
