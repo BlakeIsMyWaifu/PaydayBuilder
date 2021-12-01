@@ -5,7 +5,7 @@ import Info, { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'com
 import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import data, { MaskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks'
-import React, { createRef, useRef, useState } from 'react'
+import React, { Fragment, createRef, useRef, useState } from 'react'
 import { itemColours } from 'utils/colours'
 
 import { CollectionTitle, CollectionsContainer, InfoCost, ItemContainer, MaskCollection, MaskCollectionTitle, MaskWrapper, RarityTitle } from './Mask-Elements'
@@ -92,7 +92,7 @@ const Mask: React.FC = () => {
 			<ItemContainer ref={itemContainerRef}>
 				{
 					Object.entries(collections).map(([collection, masks], i) => {
-						if (selectedTab !== masks[0].rarity && selectedTab !== 'All') return <></>
+						if (selectedTab !== masks[0].rarity && selectedTab !== 'All') return <Fragment key={collection}></Fragment>
 						return <MaskCollection key={collection} ref={collectionRefs.current[i]}>
 							<MaskCollectionTitle color={itemColours[masks[0].rarity]}>{collection}</MaskCollectionTitle>
 							<MaskWrapper key={collection}>
