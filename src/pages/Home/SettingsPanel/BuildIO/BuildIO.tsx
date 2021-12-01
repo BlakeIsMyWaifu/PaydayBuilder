@@ -21,7 +21,7 @@ const BuildIO: React.FC = () => {
 		return charString.indexOf(char)
 	}
 
-	const decompressData = (data: string) => {
+	const decompressData = (data: string): string => {
 		let decompressed = ''
 		for (let i = 0; i < data.length; i++) {
 			if (data.charAt(i + 1) === '-') {
@@ -34,7 +34,7 @@ const BuildIO: React.FC = () => {
 		return decompressed
 	}
 
-	const loadBuildFromIterable = (input: string) => {
+	const loadBuildFromIterable = (input: string): void => {
 		if (!input) return
 		const parameters = new URLSearchParams(input.replace('https://pd2builder.netlify.app/?', ''))
 		dispatch({ type: 'RESET' })
@@ -59,7 +59,7 @@ const BuildIO: React.FC = () => {
 		}
 	}
 
-	const loadSkills = (skills: string) => {
+	const loadSkills = (skills: string): void => {
 
 		const trees: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
 
@@ -105,23 +105,23 @@ const BuildIO: React.FC = () => {
 		})
 	}
 
-	const loadPerkDeck = (perkIndex: number) => {
+	const loadPerkDeck = (perkIndex: number): void => {
 		dispatch(changePerkdeck(Object.values(perkData)[perkIndex]))
 	}
 
-	const loadArmour = (armourIndex: number) => {
+	const loadArmour = (armourIndex: number): void => {
 		const armours = [...armourData];
 		[armours[1], armours[2]] = [armours[2], armours[1]]
 		dispatch(changeArmour(armours[armourIndex]))
 	}
 
-	const loadThrowable = (throwableIndex: number) => {
+	const loadThrowable = (throwableIndex: number): void => {
 		const shockerIndex = throwableData.findIndex(throwable => throwable.name === 'X1-ZAPer')
 		throwableData.splice(shockerIndex, 1)
 		dispatch(changeThrowable(throwableData[throwableIndex]))
 	}
 
-	const loadEquipment = (equipment: string) => {
+	const loadEquipment = (equipment: string): void => {
 		const primaryEquipment = parseInt(equipment.substr(0, 1))
 		const secondaryEquipment = parseInt(equipment.length > 1 ? equipment.substr(1, 1) : '0')
 

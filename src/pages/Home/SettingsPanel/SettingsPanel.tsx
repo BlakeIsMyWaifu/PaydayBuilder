@@ -3,7 +3,8 @@ import CheckboxInput from 'components/CheckboxInput'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React from 'react'
 
-import BuildIO from '../BuildIO/BuildIO'
+import BuildIO from './BuildIO'
+import JsonIO from './JsonIO/JsonIO'
 import { Container, Setting, SettingsSingleLine, SettingsTitle, Title } from './SettingsPanel-Elements'
 
 interface SettingsPanelProps {
@@ -26,9 +27,14 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings }) => {
 				<BuildIO />
 			</Setting>
 
+			<Setting>
+				<SettingsTitle>Import / Export JSON</SettingsTitle>
+				<JsonIO />
+			</Setting>
+
 			<SettingsSingleLine>
 				<SettingsTitle>Left Facing Weapons</SettingsTitle>
-				<CheckboxInput defaultState={leftFacing} callback={isToggled => dispatch(changeLeftFacing(isToggled))}/>
+				<CheckboxInput defaultState={leftFacing} callback={isToggled => dispatch(changeLeftFacing(isToggled))} />
 			</SettingsSingleLine>
 
 		</Container>
