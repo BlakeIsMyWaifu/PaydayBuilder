@@ -1,6 +1,8 @@
 import { TableCompare, TableEquipped } from 'components/Table'
-import { ModificationStats, Weapon, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
+import modificationList from 'data/weapons/guns/modificationList'
+import { ModificationSlot, ModificationStats, Weapon, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
 import React from 'react'
+import findWeapon from 'utils/findWeapon'
 
 interface WeaponsStatsTableProps {
 	showExtraStats: boolean;
@@ -29,7 +31,7 @@ const WeaponsStatsTable: React.FC<WeaponsStatsTableProps> = ({ showExtraStats, s
 	}
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const skillStats = (weapon: WeaponData): WeaponStats => {
+	const skillStats = (weapon: Weapon): WeaponStats => {
 		const stats: WeaponStats = {
 			magazine: 0,
 			totalAmmo: 0,
@@ -56,8 +58,9 @@ const WeaponsStatsTable: React.FC<WeaponsStatsTableProps> = ({ showExtraStats, s
 			threat: 0
 		}
 
-		Object.values(weapon.modifications).forEach(({ stats }) => {
-			Object.entries(stats).forEach(([label, stat]) => {
+		Object.entries(weapon.modifications).forEach(([type, modName]) => {
+			const modData = modificationList[(type as ModificationSlot)][modName]
+			Object.entries(modData.stats).forEach(([label, stat]) => {
 				baseStats[(label as keyof ModificationStats)] += stat
 			})
 		})
@@ -66,20 +69,20 @@ const WeaponsStatsTable: React.FC<WeaponsStatsTableProps> = ({ showExtraStats, s
 	}
 
 	const totalStats = (weapon: Weapon) => {
-		return { ...skillStats(weapon.weapon), ...modStats(weapon) }
+		return { ...skillStats(weapon), ...modStats(weapon) }
 	}
 
 	return (
 		equippedWeapon ?
 			<TableCompare
-				equippedStats={baseStats(equippedWeapon.weapon)}
-				selectedStats={baseStats(selectedWeapon.weapon)}
+				equippedStats={baseStats(findWeapon(equippedWeapon.weaponFind))}
+				selectedStats={baseStats(findWeapon(selectedWeapon.weaponFind))}
 				equippedAdditional={totalStats(equippedWeapon)}
 				selectedAdditional={totalStats(selectedWeapon)}
 			/> :
 			<TableEquipped
-				baseStats={baseStats(selectedWeapon.weapon)}
-				additionalStats={{ skill: skillStats(selectedWeapon.weapon), mod: modStats(selectedWeapon) }}
+				baseStats={baseStats(findWeapon(selectedWeapon.weaponFind))}
+				additionalStats={{ skill: skillStats(selectedWeapon), mod: modStats(selectedWeapon) }}
 			/>
 	)
 }

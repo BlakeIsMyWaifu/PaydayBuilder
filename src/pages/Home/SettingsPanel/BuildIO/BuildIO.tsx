@@ -3,11 +3,11 @@ import { changeArmour, changeEquipment } from 'actions/characterAction'
 import { changeSkillState } from 'actions/skillsAction'
 import { changeThrowable } from 'actions/weaponsAction'
 import TextInput from 'components/TextInput'
-import perkData from 'data/abilities/perks'
-import skillsData, { TreeNames } from 'data/abilities/skills'
-import armourData from 'data/character/armours'
-import equipmentData from 'data/character/equipment'
-import throwableData from 'data/weapons/throwables'
+import perkDecks from 'data/abilities/perks'
+import skills, { TreeNames } from 'data/abilities/skills'
+import armours from 'data/character/armours'
+import equipments from 'data/character/equipment'
+import throwables from 'data/weapons/throwables'
 import { useAppDispatch } from 'hooks'
 import React from 'react'
 
@@ -59,15 +59,15 @@ const BuildIO: React.FC = () => {
 		}
 	}
 
-	const loadSkills = (skills: string): void => {
+	const loadSkills = (skillsString: string): void => {
 
 		const trees: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
 
 		trees.forEach((treeName) => {
-			Object.values(skillsData[treeName].subtrees).forEach(subtree => {
+			Object.values(skills[treeName].subtrees).forEach(subtree => {
 
-				const subtreeBasicChar = decodeByte(skills.substr(0, 1))
-				const subtreeAcedChar = decodeByte(skills.substr(1, 1))
+				const subtreeBasicChar = decodeByte(skillsString.substr(0, 1))
+				const subtreeAcedChar = decodeByte(skillsString.substr(1, 1))
 				let mask = 1
 
 				const upgrades = [...subtree.upgrades];
@@ -100,33 +100,32 @@ const BuildIO: React.FC = () => {
 					}
 					mask = mask << 1
 				})
-				skills = skills.substr(2)
+				skillsString = skillsString.substr(2)
 			})
 		})
 	}
 
 	const loadPerkDeck = (perkIndex: number): void => {
-		dispatch(changePerkdeck(Object.values(perkData)[perkIndex]))
+		dispatch(changePerkdeck(Object.values(perkDecks)[perkIndex].name))
 	}
 
 	const loadArmour = (armourIndex: number): void => {
-		const armours = [...armourData];
-		[armours[1], armours[2]] = [armours[2], armours[1]]
-		dispatch(changeArmour(armours[armourIndex]))
+		const armoursList = Object.values(armours);
+		[armoursList[1], armoursList[2]] = [armoursList[2], armoursList[1]]
+		dispatch(changeArmour(armoursList[armourIndex].name))
 	}
 
 	const loadThrowable = (throwableIndex: number): void => {
-		const shockerIndex = throwableData.findIndex(throwable => throwable.name === 'X1-ZAPer')
-		throwableData.splice(shockerIndex, 1)
-		dispatch(changeThrowable(throwableData[throwableIndex]))
+		const throwablesFilted = Object.values(throwables).filter(throwable => throwable.name !== 'X1-ZAPer')
+		dispatch(changeThrowable(throwablesFilted[throwableIndex].name))
 	}
 
 	const loadEquipment = (equipment: string): void => {
 		const primaryEquipment = parseInt(equipment.substr(0, 1))
 		const secondaryEquipment = parseInt(equipment.length > 1 ? equipment.substr(1, 1) : '0')
 
-		dispatch(changeEquipment({ equipment: equipmentData[primaryEquipment], slot: 'primary' }))
-		if (secondaryEquipment) dispatch(changeEquipment({ equipment: equipmentData[secondaryEquipment], slot: 'secondary' }))
+		dispatch(changeEquipment({ equipment: equipments[primaryEquipment].name, slot: 'primary' }))
+		if (secondaryEquipment) dispatch(changeEquipment({ equipment: equipments[secondaryEquipment].name, slot: 'secondary' }))
 	}
 
 	return (

@@ -2,8 +2,9 @@ import { InfoContainer, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/I
 import { Weapon } from 'data/weapons/guns/weaponTypes'
 import React from 'react'
 import { itemColours } from 'utils/colours'
+import findWeapon from 'utils/findWeapon'
 
-import WeaponsStatsTable from '../WeaponStatsTable/WeaponStatsTable'
+import WeaponsStatsTable from '../WeaponStatsTable'
 
 interface WeaponInfoProps {
 	selectedWeapon: Weapon;
@@ -11,12 +12,13 @@ interface WeaponInfoProps {
 }
 
 const WeaponInfo: React.FC<WeaponInfoProps> = ({ selectedWeapon, equippedWeapon }) => {
+	const selectedWeaponData = findWeapon(selectedWeapon.weaponFind)
 	return (
 		<InfoContainer>
-			<InfoTitle>{selectedWeapon.weapon.name}</InfoTitle>
-			<InfoSubtitle>Value ${selectedWeapon.weapon.cost.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}</InfoSubtitle>
+			<InfoTitle>{selectedWeapon.weaponFind.name}</InfoTitle>
+			<InfoSubtitle>Value ${selectedWeaponData.cost.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}</InfoSubtitle>
 			<WeaponsStatsTable showExtraStats={true} selectedWeapon={selectedWeapon} equippedWeapon={equippedWeapon} />
-			<InfoUnlock color={itemColours[selectedWeapon.weapon.source.rarity]}>{selectedWeapon.weapon.source.name}</InfoUnlock>
+			<InfoUnlock color={itemColours[selectedWeaponData.source.rarity]}>{selectedWeaponData.source.name}</InfoUnlock>
 		</InfoContainer>
 	)
 }

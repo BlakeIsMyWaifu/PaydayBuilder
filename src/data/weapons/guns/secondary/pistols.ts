@@ -1134,7 +1134,7 @@ const pistols: Record<PistolList, WeaponData> = {
 		}
 	},
 	'Bernetti Auto Pistol': {
-		name: 'Bernetti Auo Pistol',
+		name: 'Bernetti Auto Pistol',
 		image: 'beer',
 		source: content['Federales Weapon Pack'],
 		inventorySlot: 'secondary',
@@ -1360,7 +1360,7 @@ const pistols: Record<PistolList, WeaponData> = {
 		}
 	},
 	'Matever .357 Revolver': {
-		name: 'Matever .357 Revoler',
+		name: 'Matever .357 Revolver',
 		image: 'mateba',
 		source: content['The Alesso Heist'],
 		inventorySlot: 'secondary',

@@ -1,6 +1,8 @@
 import content, { ContentData } from 'data/source/downloadableContent'
 import source, { SourceData } from 'data/source/miscSources'
 
+export type MeleeList = keyof typeof melees
+
 export interface MeleeData {
 	name: string;
 	weaponType: ['Weapon' | 'Fists' | 'Knife' | 'Axe' | 'Blunt' | 'Sword' | 'Flag' | null, 'Blunt' | 'Sharp' | null];
@@ -24,8 +26,8 @@ export interface MeleeStats {
 	specialTime?: string | null;
 }
 
-const melees: MeleeData[] = [
-	{
+const melees: Record<string, MeleeData> = {
+	'Weapon Butt': {
 		name: 'Weapon Butt',
 		weaponType: ['Weapon', 'Blunt'],
 		reputation: 0,
@@ -42,7 +44,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Fists': {
 		name: 'Fists',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 0,
@@ -59,7 +61,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.0
 		}
 	},
-	{
+	'350K Brass Knuckles': {
 		name: '350K Brass Knuckles',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 0,
@@ -76,7 +78,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.0
 		}
 	},
-	{
+	'Ursa Tanto Knife': {
 		name: 'Ursa Tanto Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 0,
@@ -93,7 +95,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Nova\'s Shank': {
 		name: 'Nova\'s Shank',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 0,
@@ -110,7 +112,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'URSA Knife': {
 		name: 'URSA Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 0,
@@ -127,7 +129,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'50 Blessing Briefcase': {
 		name: '50 Blessing Briefcase',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 0,
@@ -144,7 +146,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Swagger Stick': {
 		name: 'Swagger Stick',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 0,
@@ -161,7 +163,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Tactical Flashlight': {
 		name: 'Tactical Flashlight',
 		weaponType: ['Knife', 'Blunt'],
 		reputation: 0,
@@ -178,7 +180,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Alabama Razor': {
 		name: 'Alabama Razor',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 0,
@@ -195,7 +197,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Comically Large Spoon of Gold': {
 		name: 'Comically Large Spoon of Gold',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 0,
@@ -214,7 +216,7 @@ const melees: MeleeData[] = [
 			specialTime: '3.1'
 		}
 	},
-	{
+	'Pounder': {
 		name: 'Pounder', // Pounder Nail Gun
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 1,
@@ -231,7 +233,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Comically Large Spoon': {
 		name: 'Comically Large Spoon',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 2,
@@ -248,7 +250,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Motherforker': {
 		name: 'Motherforker', // The Motherforker
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 3,
@@ -265,7 +267,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Spatula': {
 		name: 'Spatula',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 3,
@@ -282,7 +284,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'K.L.A.S Shovel': {
 		name: 'K.L.A.S Shovel',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 4,
@@ -299,7 +301,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Money Bundle': {
 		name: 'Money Bundle',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 7,
@@ -316,7 +318,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Empty Palm Kata': {
 		name: 'Empty Palm Kata',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 8,
@@ -333,7 +335,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.1
 		}
 	},
-	{
+	'Bolt Cutters': {
 		name: 'Bolt Cutters',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 10,
@@ -350,7 +352,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Shawn\'s Shears': {
 		name: 'Shawn\'s Shears',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 10,
@@ -367,7 +369,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.8
 		}
 	},
-	{
+	'Utility Knife': {
 		name: 'Utility Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 12,
@@ -384,7 +386,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.5
 		}
 	},
-	{
+	'Microphone': {
 		name: 'Microphone',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 13,
@@ -401,7 +403,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.1
 		}
 	},
-	{
+	'Selfie-Stick': {
 		name: 'Selfie-Stick',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 13,
@@ -418,7 +420,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Bayonet Knife': {
 		name: 'Bayonet Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 14,
@@ -435,7 +437,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.0
 		}
 	},
-	{
+	'Machete': {
 		name: 'Machete',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 14,
@@ -452,7 +454,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Chain Whip': {
 		name: 'Chain Whip',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 15,
@@ -469,7 +471,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Electrical Brass Knuckles': {
 		name: 'Electrical Brass Knuckles',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 16,
@@ -489,7 +491,7 @@ const melees: MeleeData[] = [
 		},
 		description: 'Device that electrocutes and interrupts targets on touch'
 	},
-	{
+	'Ice Pick': {
 		name: 'Ice Pick',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 16,
@@ -506,7 +508,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Rezokye': {
 		name: 'Rezokye',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 16,
@@ -523,7 +525,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'The Pen': {
 		name: 'The Pen',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 16,
@@ -540,7 +542,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Telescopic Baton': {
 		name: 'Telescopic Baton',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 17,
@@ -557,7 +559,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Jackpot': {
 		name: 'Jackpot',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 17,
@@ -574,7 +576,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'El Ritmo': {
 		name: 'El Ritmo',
 		weaponType: [null, null],
 		reputation: 0,
@@ -591,7 +593,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Stainless Steel Syringe': {
 		name: 'Stainless Steel Syringe',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 18,
@@ -611,7 +613,7 @@ const melees: MeleeData[] = [
 		},
 		description: 'Syringe filled with poison that deals damage over time and has a chance to interrupt enemies.'
 	},
-	{
+	'Kento\'s Tanto': {
 		name: 'Kento\'s Tanto',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 18,
@@ -628,7 +630,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.1
 		}
 	},
-	{
+	'Monkey Wrench': {
 		name: 'Monkey Wrench',
 		weaponType: ['Blunt', 'Blunt'],
 		reputation: 18,
@@ -645,7 +647,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Baseball Bat': {
 		name: 'Baseball Bat',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 18,
@@ -662,7 +664,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Classic Baton': {
 		name: 'Classic Baton',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 18,
@@ -679,7 +681,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.1
 		}
 	},
-	{
+	'Hockey Stick': {
 		name: 'Hockey Stick',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 18,
@@ -696,7 +698,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.8
 		}
 	},
-	{
+	'Two Handed Great Ruler': {
 		name: 'Two Handed Great Ruler',
 		weaponType: ['Sword', 'Sharp'],
 		reputation: 18,
@@ -713,7 +715,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.5
 		}
 	},
-	{
+	'Specialist Knives': {
 		name: 'Specialist Knives',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 19,
@@ -730,7 +732,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Diving Knife': {
 		name: 'Diving Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 19,
@@ -747,7 +749,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.0
 		}
 	},
-	{
+	'El Verdugo': {
 		name: 'El Verdugo',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 20,
@@ -764,7 +766,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Hackaton': {
 		name: 'Hackaton',
 		weaponType: ['Blunt', 'Blunt'],
 		reputation: 20,
@@ -781,7 +783,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.7
 		}
 	},
-	{
+	'Krieger Blade': {
 		name: 'Krieger Blade',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 21,
@@ -798,7 +800,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Buckler Shield': {
 		name: 'Buckler Shield',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 21,
@@ -815,7 +817,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.4
 		}
 	},
-	{
+	'Wing Butterfly Knife': {
 		name: 'Wing Butterfly Knife', // Wing
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 21, // 21 & 35?
@@ -832,7 +834,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'You\'re Mine': {
 		name: 'You\'re Mine',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 22,
@@ -849,7 +851,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.1
 		}
 	},
-	{
+	'Metal Detector': {
 		name: 'Metal Detector',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 22,
@@ -866,7 +868,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.1
 		}
 	},
-	{
+	'Croupier\'s Rake': {
 		name: 'Croupier\'s Rake',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 22,
@@ -883,7 +885,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Kazaguruma': {
 		name: 'Kazaguruma',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 23,
@@ -900,7 +902,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Compact Hatchet': {
 		name: 'Compact Hatchet',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 23,
@@ -917,7 +919,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Lumber Lite L2': {
 		name: 'Lumber Lite L2',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 23,
@@ -934,7 +936,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Hotline 8000x': {
 		name: 'Hotline 8000x',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 23,
@@ -951,7 +953,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Potato Masher': {
 		name: 'Potato Masher',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 24,
@@ -968,7 +970,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Scalper Tomahawk': {
 		name: 'Scalper Tomahawk',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 24,
@@ -985,7 +987,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Switchblade': {
 		name: 'Switchblade',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 24,
@@ -1002,7 +1004,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.0
 		}
 	},
-	{
+	'Knuckle Dagger': {
 		name: 'Knuckle Dagger',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 25,
@@ -1019,7 +1021,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.7
 		}
 	},
-	{
+	'OVERKILL Boxing Gloves': {
 		name: 'OVERKILL Boxing Gloves',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 25,
@@ -1036,7 +1038,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.0
 		}
 	},
-	{
+	'Push Daggers': {
 		name: 'Push Daggers',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 25,
@@ -1053,7 +1055,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.0
 		}
 	},
-	{
+	'Leather Sap': {
 		name: 'Leather Sap',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 50,  // 50?
@@ -1070,7 +1072,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Dragan\'s Cleaver Knife': {
 		name: 'Dragan\'s Cleaver Knife',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 25,
@@ -1087,7 +1089,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Shinsakuto Katana': {
 		name: 'Shinsakuto Katana',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 26,
@@ -1104,7 +1106,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.0
 		}
 	},
-	{
+	'Okinawan Style Sai': {
 		name: 'Okinawan Style Sai',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 27,
@@ -1121,7 +1123,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Pitchfork': {
 		name: 'Pitchfork',
 		weaponType: ['Flag', 'Sharp'],
 		reputation: 27,
@@ -1138,7 +1140,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.8
 		}
 	},
-	{
+	'Arkansas Toothpick': {
 		name: 'Arkansas Toothpick',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 28,
@@ -1155,7 +1157,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.1
 		}
 	},
-	{
+	'Microphone Stand': {
 		name: 'Microphone Stand',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 28,
@@ -1172,7 +1174,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.8
 		}
 	},
-	{
+	'Psycho Knife': {
 		name: 'Psycho Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 31,
@@ -1189,7 +1191,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'X-46 Knife': {
 		name: 'X-46 Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 32,
@@ -1206,7 +1208,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Talons': {
 		name: 'Talons',
 		weaponType: ['Fists', 'Blunt'],
 		reputation: 32,
@@ -1223,7 +1225,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.0
 		}
 	},
-	{
+	'Bearded Axe': {
 		name: 'Bearded Axe',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 33,
@@ -1240,7 +1242,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.5
 		}
 	},
-	{
+	'Hook': {
 		name: 'Hook',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 33,
@@ -1257,7 +1259,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Cleaver Knife': {
 		name: 'Cleaver Knife',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 34,
@@ -1274,7 +1276,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Buzzer': {
 		name: 'Buzzer',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 34,
@@ -1294,7 +1296,7 @@ const melees: MeleeData[] = [
 		},
 		description: 'Device that electrocutes and interrupts targets on touch'
 	},
-	{
+	'Gold Fever': {
 		name: 'Gold Fever',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 34,
@@ -1311,7 +1313,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.1
 		}
 	},
-	{
+	'Carpenter\'s Delight': {
 		name: 'Carpenter\'s Delight',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 37,
@@ -1328,7 +1330,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Clover\'s Shillelagh': {
 		name: 'Clover\'s Shillelagh',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 37,
@@ -1345,7 +1347,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Shepheard\'s Cane': {
 		name: 'Shepheard\'s Cane',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 37,
@@ -1362,7 +1364,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.8
 		}
 	},
-	{
+	'Scout Knife': {
 		name: 'Scout Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 38,
@@ -1379,7 +1381,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Berger Combat Knife': {
 		name: 'Berger Combat Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 41,
@@ -1396,7 +1398,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.0
 		}
 	},
-	{
+	'Trench Knife': {
 		name: 'Trench Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 41,
@@ -1413,7 +1415,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Survival Tomahawk': {
 		name: 'Survival Tomahawk',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 42,
@@ -1430,7 +1432,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Morning Star': {
 		name: 'Morning Star',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 43,
@@ -1447,7 +1449,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.1
 		}
 	},
-	{
+	'Poker': {
 		name: 'Poker',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 44,
@@ -1464,7 +1466,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Lucille Baseball Bat': {
 		name: 'Lucille Baseball Bat',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 45,
@@ -1481,7 +1483,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Great Sword': {
 		name: 'Great Sword',
 		weaponType: ['Sword', 'Sharp'],
 		reputation: 46,
@@ -1498,7 +1500,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.5
 		}
 	},
-	{
+	'Rivertown Glen Bottle': {
 		name: 'Rivertown Glen Bottle',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 47,
@@ -1515,7 +1517,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'The Spear of Freedom': {
 		name: 'The Spear of Freedom',
 		weaponType: ['Flag', 'Sharp'],
 		reputation: 47,
@@ -1532,7 +1534,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.3
 		}
 	},
-	{
+	'Ding Dong Breaching Tool': {
 		name: 'Ding Dong Breaching Tool',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 48,
@@ -1549,7 +1551,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Tenderizer': {
 		name: 'Tenderizer',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 48,
@@ -1566,7 +1568,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	},
-	{
+	'Machete Knife': {
 		name: 'Machete Knife',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 51,
@@ -1583,7 +1585,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Utility Machete': {
 		name: 'Utility Machete',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 54,
@@ -1600,7 +1602,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 0.6
 		}
 	},
-	{
+	'Kunai Knife': {
 		name: 'Kunai Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 54,
@@ -1620,7 +1622,7 @@ const melees: MeleeData[] = [
 		},
 		description: 'Knife with a poisoned tip that deals damage over time and has a chance to interrupt enemies.'
 	},
-	{
+	'Trautman Knife': {
 		name: 'Trautman Knife',
 		weaponType: ['Knife', 'Sharp'],
 		reputation: 61,
@@ -1637,7 +1639,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.0
 		}
 	},
-	{
+	'Fire Axe': {
 		name: 'Fire Axe',
 		weaponType: ['Axe', 'Sharp'],
 		reputation: 71,
@@ -1654,7 +1656,7 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.8
 		}
 	},
-	{
+	'Alpha Mauler': {
 		name: 'Alpha Mauler',
 		weaponType: ['Axe', 'Blunt'],
 		reputation: 0,
@@ -1671,6 +1673,6 @@ const melees: MeleeData[] = [
 			unequipDelay: 1.2
 		}
 	}
-]
+}
 
 export default melees

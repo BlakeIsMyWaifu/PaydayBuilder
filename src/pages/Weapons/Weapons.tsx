@@ -12,6 +12,7 @@ import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { blue, itemColours } from 'utils/colours'
+import findWeapon from 'utils/findWeapon'
 
 import WeaponInfo from './WeaponInfo/WeaponInfo'
 
@@ -28,9 +29,9 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 	const armoury = useAppSelector(state => state.armoury[slot])
 
 	const equippedWeaponId = useAppSelector(state => state.weapons[slot])
-	const equippedWeapon = useAppSelector(state => state.armoury[slot][equippedWeaponId].weapon)
+	const equippedWeapon = findWeapon(useAppSelector(state => state.armoury[slot][equippedWeaponId].weaponFind))
 
-	const [selectedWeapon, setSelectedWeapon] = useState(equippedWeapon)
+	const [selectedWeapon, setSelectedWeapon] = useState<WeaponData>(equippedWeapon)
 	const [selectedArmoury, setSelectedArmoury] = useState<number>(armoury[equippedWeaponId].id)
 
 	const leftFacing = useAppSelector(state => state.settings.leftFacing)
@@ -64,8 +65,9 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 			<ItemContainer>
 				{
 					selectedTab === 'saved' ?
-						Object.values(armoury).map(({ id, weapon }, i) => {
+						Object.values(armoury).map(({ id, weaponFind: weaponFind }, i) => {
 							if (i === 0) return <Fragment key={'fragment'}></Fragment>
+							const weapon = findWeapon(weaponFind)
 							return <Item
 								key={`${weapon.name}-${id}`}
 								width={192}

@@ -3,7 +3,7 @@ export interface CrewBoost {
 	description: string;
 }
 
-type CrewBoostsList =
+export type CrewBoostsList =
 	'Reinforcer' |
 	'Protector' |
 	'Distractor' |

@@ -64,7 +64,7 @@ export type SecondarySpecialList =
 
 const specials: Record<SecondarySpecialList, WeaponData> = {
 	'Pistol Crossbow': {
-		name: 'Pistol Crowssbow',
+		name: 'Pistol Crossbow',
 		image: 'hunter',
 		source: content['Gage Ninja Pack'],
 		inventorySlot: 'secondary',

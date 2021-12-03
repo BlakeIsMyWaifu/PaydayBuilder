@@ -1,5 +1,7 @@
+export type ArmourList = keyof typeof armours
+
 export interface ArmourData {
-	name: string;
+	name: ArmourList;
 	desciption: string[];
 	reputation: number;
 	stats: ArmourStats
@@ -14,8 +16,8 @@ export interface ArmourStats {
 	steadiness: number;
 }
 
-const armour: ArmourData[] = [
-	{
+const armours: Record<string, ArmourData> = {
+	'Two-Piece Suit': {
 		name: 'Two-Piece Suit',
 		desciption: [
 			'No movement penalty, no visibility.',
@@ -33,7 +35,7 @@ const armour: ArmourData[] = [
 			steadiness: 11
 		}
 	},
-	{
+	'Ballistic Vest': {
 		name: 'Ballistic Vest',
 		desciption: [
 			'Little movement penalty, low visibility.',
@@ -50,7 +52,7 @@ const armour: ArmourData[] = [
 			steadiness: 12
 		}
 	},
-	{
+	'Lightweight Ballistic Vest': {
 		name: 'Lightweight Ballistic Vest',
 		desciption: [
 			'Little movement penalty, low visibility.',
@@ -67,7 +69,7 @@ const armour: ArmourData[] = [
 			steadiness: 11.5
 		}
 	},
-	{
+	'Heavy Ballistic Vest': {
 		name: 'Heavy Ballistic Vest',
 		desciption: [
 			'Small movement penalty, medium visibility.',
@@ -84,7 +86,7 @@ const armour: ArmourData[] = [
 			steadiness: 12.9,
 		}
 	},
-	{
+	'Flak Jacket': {
 		name: 'Flak Jacket',
 		desciption: [
 			'Medium movement penalty, medium visibility.',
@@ -102,7 +104,7 @@ const armour: ArmourData[] = [
 			steadiness: 13.8
 		}
 	},
-	{
+	'Combined Tactical Vest': {
 		name: 'Combined Tactical Vest',
 		desciption: [
 			'Medium movement penalty, high visibility.',
@@ -119,7 +121,7 @@ const armour: ArmourData[] = [
 			steadiness: 15.7
 		}
 	},
-	{
+	'Improved Combined Tactical Vest': {
 		name: 'Improved Combined Tactical Vest',
 		desciption: [
 			'Large movement penalty, high visibility.',
@@ -137,6 +139,6 @@ const armour: ArmourData[] = [
 			steadiness: 22
 		}
 	}
-]
+}
 
-export default armour
+export default armours

@@ -1,8 +1,10 @@
 import content, { ContentData } from 'data/source/downloadableContent'
 import source, { SourceData } from 'data/source/miscSources'
 
+export type CharacterList = keyof typeof characters
+
 export interface CharacterData {
-	name: string;
+	name: CharacterList;
 	age: number | string;
 	description: string[];
 	image: string;
@@ -10,8 +12,8 @@ export interface CharacterData {
 	source: ContentData | SourceData;
 }
 
-const characters: CharacterData[] = [
-	{
+const characters: Record<string, CharacterData> = {
+	'Dallas': {
 		name: 'Dallas',
 		age: 44,
 		description: [
@@ -22,7 +24,7 @@ const characters: CharacterData[] = [
 		nationality: 'American',
 		source: source['Base Game']
 	},
-	{
+	'Wolf': {
 		name: 'Wolf',
 		age: 34,
 		description: [
@@ -33,7 +35,7 @@ const characters: CharacterData[] = [
 		nationality: 'Swedish',
 		source: source['Base Game']
 	},
-	{
+	'Chains': {
 		name: 'Chains',
 		age: 37,
 		description: [
@@ -44,7 +46,7 @@ const characters: CharacterData[] = [
 		nationality: 'American',
 		source: source['Base Game']
 	},
-	{
+	'Houston': {
 		name: 'Houston',
 		age: 31,
 		description: [
@@ -54,7 +56,7 @@ const characters: CharacterData[] = [
 		nationality: 'Houston',
 		source: source['Base Game']
 	},
-	{
+	'Wick': {
 		name: 'Wick',
 		age: '40s',
 		description: [
@@ -65,7 +67,7 @@ const characters: CharacterData[] = [
 		nationality: 'American',
 		source: content['John Wick Character Pack']
 	},
-	{
+	'Hoxton': {
 		name: 'Hoxton',
 		age: 32,
 		description: [
@@ -76,7 +78,7 @@ const characters: CharacterData[] = [
 		nationality: 'English',
 		source: content['Old Hoxton Character Pack']
 	},
-	{
+	'Clover': {
 		name: 'Clover',
 		age: 27,
 		description: [
@@ -86,7 +88,7 @@ const characters: CharacterData[] = [
 		nationality: 'Irish',
 		source: content['Clover Character Pack']
 	},
-	{
+	'Dragan': {
 		name: 'Dragan',
 		age: 45,
 		description: [
@@ -96,7 +98,7 @@ const characters: CharacterData[] = [
 		nationality: 'Croatian',
 		source: content['Dragan Character Pack']
 	},
-	{
+	'Jacket': {
 		name: 'Jacket',
 		age: 'Unknown',
 		description: [
@@ -106,7 +108,7 @@ const characters: CharacterData[] = [
 		nationality: 'American',
 		source: content['Jacket Character Pack']
 	},
-	{
+	'Bonnie': {
 		name: 'Bonnie',
 		age: 43,
 		description: [
@@ -116,7 +118,7 @@ const characters: CharacterData[] = [
 		nationality: 'Scottish',
 		source: content['Bonnie Character Pack']
 	},
-	{
+	'Sokol': {
 		name: 'Sokol',
 		age: 25,
 		description: [
@@ -126,7 +128,7 @@ const characters: CharacterData[] = [
 		nationality: 'Sokol',
 		source: content['Sokol Character Pack']
 	},
-	{
+	'Jiro': {
 		name: 'Jiro',
 		age: 52,
 		description: [
@@ -136,7 +138,7 @@ const characters: CharacterData[] = [
 		nationality: 'Japanese',
 		source: content['Yakuza Character Pack']
 	},
-	{
+	'Bodhi': {
 		name: 'Bodhi',
 		age: 'Unknown',
 		description: [
@@ -146,7 +148,7 @@ const characters: CharacterData[] = [
 		nationality: 'Venezuelan',
 		source: content['Bodhi Character Pack']
 	},
-	{
+	'Jimmy': {
 		name: 'Jimmy',
 		age: 'Unknown',
 		description: [
@@ -156,7 +158,7 @@ const characters: CharacterData[] = [
 		nationality: 'Unknown',
 		source: content['Jimmy Character Pack']
 	},
-	{
+	'Sydney': {
 		name: 'Sydney',
 		age: 24,
 		description: [
@@ -166,7 +168,7 @@ const characters: CharacterData[] = [
 		nationality: 'Australian',
 		source: content['Sydney Character Pack']
 	},
-	{
+	'Rust': {
 		name: 'Rust',
 		age: 61,
 		description: [
@@ -176,7 +178,7 @@ const characters: CharacterData[] = [
 		nationality: 'American',
 		source: content['Biker Character Pack']
 	},
-	{
+	'Scarface': {
 		name: 'Scarface',
 		age: 'Unknown',
 		description: [
@@ -186,7 +188,7 @@ const characters: CharacterData[] = [
 		nationality: 'Cuban',
 		source: content['Scarface Character Pack']
 	},
-	{
+	'Sangres': {
 		name: 'Sangres',
 		age: 33,
 		description: [
@@ -196,7 +198,7 @@ const characters: CharacterData[] = [
 		nationality: 'Mexican',
 		source: content['Sangres Character Pack']
 	},
-	{
+	'Joy': {
 		name: 'Joy',
 		age: 22,
 		description: [
@@ -206,7 +208,7 @@ const characters: CharacterData[] = [
 		nationality: 'Japanese',
 		source: source['Base Game']
 	},
-	{
+	'Duke': {
 		name: 'Duke',
 		age: '50s',
 		description: [
@@ -216,7 +218,7 @@ const characters: CharacterData[] = [
 		nationality: 'North American',
 		source: source['Base Game']
 	},
-	{
+	'Ethan': {
 		name: 'Ethan',
 		age: 32,
 		description: [
@@ -226,7 +228,7 @@ const characters: CharacterData[] = [
 		nationality: 'American',
 		source: content['h3h3 Character Pack']
 	},
-	{
+	'Hila': {
 		name: 'Hila',
 		age: 29,
 		description: [
@@ -236,6 +238,6 @@ const characters: CharacterData[] = [
 		nationality: 'Israeli',
 		source: content['h3h3 Character Pack']
 	}
-]
+}
 
 export default characters

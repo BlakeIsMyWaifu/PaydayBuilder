@@ -1,5 +1,7 @@
 import { ContentRarity } from "data/source/downloadableContent"
 
+export type MaskList = keyof typeof masks
+
 export interface MaskData {
 	name: string;
 	image: string;
@@ -10,8 +12,8 @@ export interface MaskData {
 	cost: string;
 }
 
-const masks: MaskData[] = [
-	{
+const masks: Record<string, MaskData> = {
+	'Preferred Character': {
 		name: 'Preferred Character',
 		image: 'character_locked',
 		description: [
@@ -22,7 +24,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: ''
 	},
-	{
+	'Dallas': {
 		name: 'Dallas',
 		image: 'dallas',
 		description: [
@@ -33,7 +35,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
 	},
-	{
+	'Chains': {
 		name: 'Chains',
 		image: 'chains',
 		description: [
@@ -44,7 +46,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
 	},
-	{
+	'Hoxton': {
 		name: 'Hoxton',
 		image: 'hoxton',
 		description: [
@@ -55,7 +57,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
 	},
-	{
+	'Wolf': {
 		name: 'Wolf',
 		image: 'wolf',
 		description: [
@@ -66,7 +68,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
 	},
-	{
+	'Collateral': {
 		name: 'Collateral',
 		image: 'jw_shades',
 		description: [
@@ -79,7 +81,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
 	},
-	{
+	'Hoxton Reborn': {
 		name: 'Hoxton Reborn',
 		image: 'old_hoxton',
 		description: [
@@ -91,7 +93,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
 	},
-	{
+	'Clover': {
 		name: 'Clover',
 		image: 'msk_grizel',
 		description: [
@@ -102,7 +104,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A CLOVER CHARACTER PACK ITEM!',
 		cost: ''
 	},
-	{
+	'Dragan': {
 		name: 'Dragan',
 		image: 'dragan',
 		description: [
@@ -115,7 +117,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DRAGAN CHARACTER PACK ITEM!',
 		cost: ''
 	},
-	{
+	'Richard Returns': {
 		name: 'Richard Returns',
 		image: 'richard_returns',
 		description: [
@@ -126,7 +128,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HOTLINE MIAMI 2 DELUXE ITEM!',
 		cost: ''
 	},
-	{
+	'Bonnie': {
 		name: 'Bonnie',
 		image: 'bonnie',
 		description: [
@@ -137,7 +139,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
 	},
-	{
+	'Sokol': {
 		name: 'Sokol',
 		image: 'sokol',
 		description: [
@@ -148,7 +150,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SOKOL CHARACTER PACK ITEM!',
 		cost: ''
 	},
-	{
+	'Jiro': {
 		name: 'Jiro',
 		image: 'jiro',
 		description: [
@@ -159,7 +161,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A YAKUZA CHARACTER PACK ITEM!',
 		cost: ''
 	},
-	{
+	'Bodhi': {
 		name: 'Bodhi',
 		image: 'bodhi',
 		description: [
@@ -170,7 +172,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
 	},
-	{
+	'Jimmy': {
 		name: 'Jimmy',
 		image: 'jimmy_duct',
 		description: [
@@ -181,7 +183,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: ''
 	},
-	{
+	'Sydney': {
 		name: 'Sydney',
 		image: 'sydney',
 		description: [
@@ -192,7 +194,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SYDNEY CHARACTER PACK ITEM!',
 		cost: ''
 	},
-	{
+	'Rust': {
 		name: 'Rust',
 		image: 'rust',
 		description: [
@@ -203,7 +205,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A BIKER CHARACTER PACK ITEM!',
 		cost: ''
 	},
-	{
+	'Scarface': {
 		name: 'Scarface',
 		image: 'chc_terry',
 		description: [
@@ -214,7 +216,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SCARFACE CHARACTER PACK ITEM!',
 		cost: ''
 	},
-	{
+	'Sangres': {
 		name: 'Sangres',
 		image: 'max',
 		description: [
@@ -225,7 +227,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
 	},
-	{
+	'Duke': {
 		name: 'Duke',
 		image: 'myh',
 		description: [
@@ -237,7 +239,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
 	},
-	{
+	'Joy': {
 		name: 'Joy',
 		image: 'joy',
 		description: [
@@ -248,7 +250,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Ethan': {
 		name: 'Ethan',
 		image: 'ecp_male',
 		description: [
@@ -259,7 +261,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A h3h3 CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Hila': {
 		name: 'Hila',
 		image: 'ecp_female',
 		description: [
@@ -270,7 +272,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A h3h3 CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mark': {
 		name: 'Mark',
 		image: 'bear',
 		description: [
@@ -286,7 +288,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: '$7,250'
 	},
-	{
+	'Hockey Heat': {
 		name: 'Hockey Heat',
 		image: 'heat',
 		description: [
@@ -299,7 +301,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: '$9,000'
 	},
-	{
+	'Happy Santa': {
 		name: 'Happy Santa',
 		image: 'santa_happy',
 		description: [
@@ -311,7 +313,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: '$7,500'
 	},
-	{
+	'Peter': {
 		name: 'Peter',
 		image: 'unicorn',
 		description: [
@@ -323,7 +325,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Firestarter': {
 		name: 'Firestarter',
 		image: 'combusto',
 		description: [
@@ -335,7 +337,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Spackle': {
 		name: 'Spackle',
 		image: 'spackle',
 		description: [
@@ -347,7 +349,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Gumbo': {
 		name: 'Gumbo',
 		image: 'gumbo',
 		description: [
@@ -359,7 +361,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Smiley': {
 		name: 'Smiley',
 		image: 'smiley',
 		description: [
@@ -371,7 +373,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Reservoir Dog': {
 		name: 'Reservoir Dog',
 		image: 'wayfarer',
 		description: [
@@ -383,7 +385,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Terminator': {
 		name: 'Terminator',
 		image: 'stoneface',
 		description: [
@@ -395,7 +397,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mad Lion': {
 		name: 'Mad Lion',
 		image: 'crazy_lion',
 		description: [
@@ -408,7 +410,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Conquest': {
 		name: 'Conquest',
 		image: 'mig_conquest',
 		description: [
@@ -419,7 +421,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Death': {
 		name: 'Death',
 		image: 'mig_death',
 		description: [
@@ -430,7 +432,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Famine': {
 		name: 'Famine',
 		image: 'mig_famine',
 		description: [
@@ -441,7 +443,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'War': {
 		name: 'War',
 		image: 'mig_war',
 		description: [
@@ -452,7 +454,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Cat': {
 		name: 'The Cat',
 		image: 'fib_cat',
 		description: [
@@ -463,7 +465,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Fox': {
 		name: 'The Fox',
 		image: 'fib_fox',
 		description: [
@@ -474,7 +476,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Rabbit': {
 		name: 'The Rabbit',
 		image: 'fib_hare',
 		description: [
@@ -485,7 +487,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Mouse': {
 		name: 'The Mouse',
 		image: 'fib_mouse',
 		description: [
@@ -496,7 +498,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Golden Dallas': {
 		name: 'Golden Dallas',
 		image: 'dgm',
 		description: [
@@ -507,7 +509,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'A Proud Pilotka': {
 		name: 'A Proud Pilotka',
 		image: 'wmp_03',
 		description: [
@@ -518,7 +520,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Officer\'s Hat': {
 		name: 'The Officer\'s Hat',
 		image: 'wmp_04',
 		description: [
@@ -529,7 +531,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Survivor\'s Pilot Hat': {
 		name: 'The Survivor\'s Pilot Hat',
 		image: 'wmp_01',
 		description: [
@@ -540,7 +542,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Trophy Helmet': {
 		name: 'The Trophy Helmet',
 		image: 'wmp_02',
 		description: [
@@ -551,7 +553,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Golden Chains': {
 		name: 'Golden Chains',
 		image: 'gcm',
 		description: [
@@ -562,7 +564,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Golden Wolf': {
 		name: 'Golden Wolf',
 		image: 'gwm',
 		description: [
@@ -573,7 +575,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Golden Hoxton': {
 		name: 'Golden Hoxton',
 		image: 'ghx',
 		description: [
@@ -584,7 +586,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Golden Houston': {
 		name: 'Golden Houston',
 		image: 'ghm',
 		description: [
@@ -595,7 +597,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Devourer': {
 		name: 'Devourer',
 		image: 'devourer',
 		description: [
@@ -606,7 +608,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DEAD BY DAYLIGHT COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Unborn': {
 		name: 'Unborn',
 		image: 'unborn',
 		description: [
@@ -617,7 +619,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DEAD BY DAYLIGHT COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Blister Head': {
 		name: 'Blister Head',
 		image: 'dbd_04',
 		description: [
@@ -628,7 +630,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DEAD BY DAYLIGHT COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Clawer': {
 		name: 'The Clawer',
 		image: 'dbd_01',
 		description: [
@@ -639,7 +641,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DEAD BY DAYLIGHT COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Killer': {
 		name: 'The Killer',
 		image: 'dbd_slasher',
 		description: [
@@ -650,7 +652,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DEAD BY DAYLIGHT COMMUNITY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Planetary Tomb Guardian': {
 		name: 'Planetary Tomb Guardian',
 		image: 'solus',
 		description: [
@@ -661,7 +663,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A THE SOLUS PROJECT COMMUNITY ITEM!',
 		cost: ''
 	},
-	{
+	'Alienware': {
 		name: 'Alienware',
 		image: 'alienware',
 		description: [
@@ -673,7 +675,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'Baby Rhino': {
 		name: 'Baby Rhino',
 		image: 'babyrhino',
 		description: [
@@ -685,7 +687,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'The Big Lips': {
 		name: 'The Big Lips',
 		image: 'biglips',
 		description: [
@@ -698,7 +700,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'Blackhearted': {
 		name: 'Blackhearted',
 		image: 'mr_sinister',
 		description: [
@@ -710,7 +712,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$8,250'
 	},
-	{
+	'The Brainiac': {
 		name: 'The Brainiac',
 		image: 'brainiack',
 		description: [
@@ -722,7 +724,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$9,000'
 	},
-	{
+	'The Bullet': {
 		name: 'The Bullet',
 		image: 'bullet',
 		description: [
@@ -735,7 +737,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'Calaca': {
 		name: 'Calaca',
 		image: 'day_of_the_dead',
 		description: [
@@ -748,7 +750,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'The Cannula': {
 		name: 'The Cannula',
 		image: 'outlandish_a',
 		description: [
@@ -760,7 +762,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,000'
 	},
-	{
+	'The Crybaby': {
 		name: 'The Crybaby',
 		image: 'clowncry',
 		description: [
@@ -773,7 +775,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,500'
 	},
-	{
+	'The Dripper': {
 		name: 'The Dripper',
 		image: 'dripper',
 		description: [
@@ -786,7 +788,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$11,000'
 	},
-	{
+	'Doctor Crime': {
 		name: 'Doctor Crime',
 		image: 'irondoom',
 		description: [
@@ -799,7 +801,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'The Gagball': {
 		name: 'The Gagball',
 		image: 'gagball',
 		description: [
@@ -811,7 +813,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,500'
 	},
-	{
+	'Greek Tragedy': {
 		name: 'Greek Tragedy',
 		image: 'greek_tragedy',
 		description: [
@@ -824,7 +826,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$9,750'
 	},
-	{
+	'Hockey Mask': {
 		name: 'Hockey Mask',
 		image: 'hockey',
 		description: [
@@ -837,7 +839,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$8,250'
 	},
-	{
+	'The Hog': {
 		name: 'The Hog',
 		image: 'hog',
 		description: [
@@ -852,7 +854,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'The Horned Beast': {
 		name: 'The Horned Beast',
 		image: 'demon',
 		description: [
@@ -865,7 +867,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$13,500'
 	},
-	{
+	'The Jaw': {
 		name: 'The Jaw',
 		image: 'jaw',
 		description: [
@@ -877,7 +879,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,500'
 	},
-	{
+	'Kawaii': {
 		name: 'Kawaii',
 		image: 'kawaii',
 		description: [
@@ -890,7 +892,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'Kenneth': {
 		name: 'Kenneth',
 		image: 'demonictender',
 		description: [
@@ -903,7 +905,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'Mrs. Mannequin': {
 		name: 'Mrs. Mannequin',
 		image: 'rubber_female',
 		description: [
@@ -916,7 +918,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'Mr. Mannequin': {
 		name: 'Mr. Mannequin',
 		image: 'rubber_male',
 		description: [
@@ -929,7 +931,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'Mr. Sackcloth': {
 		name: 'Mr. Sackcloth',
 		image: 'scarecrow',
 		description: [
@@ -941,7 +943,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$9,750'
 	},
-	{
+	'Mr. Smooth': {
 		name: 'Mr. Smooth',
 		image: 'tounge',
 		description: [
@@ -954,7 +956,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,000'
 	},
-	{
+	'Monkey Business': {
 		name: 'Monkey Business',
 		image: 'monkeybiss',
 		description: [
@@ -966,7 +968,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$8,250'
 	},
-	{
+	'The Mummy': {
 		name: 'The Mummy',
 		image: 'mummy',
 		description: [
@@ -978,7 +980,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'Oni': {
 		name: 'Oni',
 		image: 'oni',
 		description: [
@@ -991,7 +993,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,500'
 	},
-	{
+	'The Outlander': {
 		name: 'The Outlander',
 		image: 'outlandish_b',
 		description: [
@@ -1003,7 +1005,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'The Perfect Stranger': {
 		name: 'The Perfect Stranger',
 		image: 'outlandish_c',
 		description: [
@@ -1015,7 +1017,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,500'
 	},
-	{
+	'The Pout': {
 		name: 'The Pout',
 		image: 'stonekisses',
 		description: [
@@ -1028,7 +1030,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,500'
 	},
-	{
+	'The Rage': {
 		name: 'The Rage',
 		image: 'buha',
 		description: [
@@ -1041,7 +1043,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$8,250'
 	},
-	{
+	'The Shogun': {
 		name: 'The Shogun',
 		image: 'shogun',
 		description: [
@@ -1054,7 +1056,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$9,000'
 	},
-	{
+	'The Shrunken Head': {
 		name: 'The Shrunken Head',
 		image: 'shrunken',
 		description: [
@@ -1066,7 +1068,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'The Starved': {
 		name: 'The Starved',
 		image: 'clown_56',
 		description: [
@@ -1078,7 +1080,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'The Troll': {
 		name: 'The Troll',
 		image: 'troll',
 		description: [
@@ -1090,7 +1092,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'The Undead': {
 		name: 'The Undead',
 		image: 'dawn_of_the_dead',
 		description: [
@@ -1103,7 +1105,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,000'
 	},
-	{
+	'The Vampire': {
 		name: 'The Vampire',
 		image: 'vampire',
 		description: [
@@ -1116,7 +1118,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,000'
 	},
-	{
+	'The Zipper': {
 		name: 'The Zipper',
 		image: 'zipper',
 		description: [
@@ -1128,7 +1130,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$8,250'
 	},
-	{
+	'The Zombie': {
 		name: 'The Zombie',
 		image: 'zombie',
 		description: [
@@ -1140,7 +1142,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$7,250'
 	},
-	{
+	'Almir\'s Beard': {
 		name: 'Almir\'s Beard',
 		image: 'almirs_beard',
 		description: [
@@ -1151,7 +1153,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked Unlocked via \'Riders On the Snowstorm\''
 	},
-	{
+	'Krampus': {
 		name: 'Krampus',
 		image: 'krampus',
 		description: [
@@ -1162,7 +1164,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'Cancelling Santa’s Christmas\''
 	},
-	{
+	'Mechanical Santa': {
 		name: 'Mechanical Santa',
 		image: 'robo_santa',
 		description: [
@@ -1173,7 +1175,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'Clasutrophobia\''
 	},
-	{
+	'Mrs. Claus': {
 		name: 'Mrs. Claus',
 		image: 'mrs_claus',
 		description: [
@@ -1184,7 +1186,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'Vlad’s Little Helpers\''
 	},
-	{
+	'The Strinch': {
 		name: 'The Strinch',
 		image: 'strinch',
 		description: [
@@ -1195,7 +1197,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'Stealing Christmas\''
 	},
-	{
+	'The Champ': {
 		name: 'The Champ',
 		image: 'champion_dallas',
 		description: [
@@ -1206,7 +1208,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'Knockout!\''
 	},
-	{
+	'The Tids': {
 		name: 'The Tids',
 		image: 'simpson',
 		description: [
@@ -1217,7 +1219,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'Gone in 240 Seconds\''
 	},
-	{
+	'Funnyman': {
 		name: 'Funnyman',
 		image: 'baitface',
 		description: [
@@ -1228,7 +1230,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'I Want to Get Away\''
 	},
-	{
+	'Dawg': {
 		name: 'Dawg',
 		image: 'dawg',
 		description: [
@@ -1239,7 +1241,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'Jump! Jump! Jump!\''
 	},
-	{
+	'No Me Gusta': {
 		name: 'No Me Gusta',
 		image: 'nomegusta',
 		description: [
@@ -1250,7 +1252,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'Bunnyhopping\''
 	},
-	{
+	'Rageface': {
 		name: 'Rageface',
 		image: 'rageface',
 		description: [
@@ -1261,7 +1263,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'I Never Asked For This\''
 	},
-	{
+	'Greedy the Elf': {
 		name: 'Greedy the Elf',
 		image: 'greedy_the_elf',
 		description: [
@@ -1272,7 +1274,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'Pumped Up and Jolly\''
 	},
-	{
+	'Rudelf': {
 		name: 'Rudelf',
 		image: 'rudeolph',
 		description: [
@@ -1283,7 +1285,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'Euro Bag Simulator\''
 	},
-	{
+	'Cloaker-san': {
 		name: 'Cloaker-san',
 		image: 'mad_goggles',
 		description: [
@@ -1295,7 +1297,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'Ghost Run\''
 	},
-	{
+	'Zero 68': {
 		name: 'Zero 68',
 		image: 'mad_mask',
 		description: [
@@ -1306,7 +1308,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'The Ground Is Too Cold\''
 	},
-	{
+	'Augmentation': {
 		name: 'Augmentation',
 		image: 'half_mask',
 		description: [
@@ -1317,7 +1319,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'The Pacifist\''
 	},
-	{
+	'Safety First': {
 		name: 'Safety First',
 		image: 'visor',
 		description: [
@@ -1328,7 +1330,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'Crazy Ivan\''
 	},
-	{
+	'Paycheck Chains': {
 		name: 'Paycheck Chains',
 		image: 'moon_paycheck_chains',
 		description: [
@@ -1339,7 +1341,7 @@ const masks: MaskData[] = [
 		unlock: '(sic) showed up. What crazy person would do that, right? But he picked the wrong vicious mongrel to mess with. The dog ended up biting everyone in the crew before they managed to escape the beast. News report(sic) after the robbery claimed the dog showed symptoms of rabies. Maybe Paycheck Chains will finally become as crazy as he wants to be...',
 		cost: 'Unlocked via \'Imitations\''
 	},
-	{
+	'Paycheck Dallas': {
 		name: 'Paycheck Dallas',
 		image: 'moon_paycheck_dallas',
 		description: [
@@ -1350,7 +1352,7 @@ const masks: MaskData[] = [
 		unlock: '(sic) all small changes(sic) from the register and run for the door. Probably blushing like a tomato behind that smiling neon mask.',
 		cost: 'Unlocked via \'Imitations\''
 	},
-	{
+	'Alces': {
 		name: 'Alces',
 		image: 'cmt_01',
 		description: [
@@ -1361,7 +1363,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'All the Gold in Brooklyn\''
 	},
-	{
+	'Canis Lupus': {
 		name: 'Canis Lupus',
 		image: 'cmt_02',
 		description: [
@@ -1372,7 +1374,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'All the Gold in Brooklyn\''
 	},
-	{
+	'Felis Lynx': {
 		name: 'Felis Lynx',
 		image: 'cmt_03',
 		description: [
@@ -1383,7 +1385,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'Obsessive Opening\''
 	},
-	{
+	'Ursus Maritimus': {
 		name: 'Ursus Maritimus',
 		image: 'cmt_04',
 		description: [
@@ -1394,7 +1396,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Unlocked via \'Obsessive Opening\''
 	},
-	{
+	'Baba Yaga': {
 		name: 'Baba Yaga',
 		image: 'baba_yaga',
 		description: [
@@ -1405,7 +1407,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Russian Hat': {
 		name: 'Russian Hat',
 		image: 'rus_hat',
 		description: [
@@ -1416,7 +1418,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Sputnik': {
 		name: 'Sputnik',
 		image: 'sputnik',
 		description: [
@@ -1427,7 +1429,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Tiara': {
 		name: 'Tiara',
 		image: 'tiara',
 		description: [
@@ -1438,7 +1440,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Vlad Armor': {
 		name: 'Vlad Armor',
 		image: 'vlad_armor',
 		description: [
@@ -1449,7 +1451,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Le Castle Vania': {
 		name: 'Le Castle Vania',
 		image: 'lcv',
 		description: [
@@ -1460,7 +1462,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Eggian': {
 		name: 'Eggian',
 		image: 'eggian',
 		description: [
@@ -1471,7 +1473,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Fatboy': {
 		name: 'Fatboy',
 		image: 'fatboy',
 		description: [
@@ -1482,7 +1484,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Oliver': {
 		name: 'Oliver',
 		image: 'oliver',
 		description: [
@@ -1493,7 +1495,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Pirate': {
 		name: 'Pirate',
 		image: 'pirate_skull',
 		description: [
@@ -1504,7 +1506,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Groucho': {
 		name: 'Groucho',
 		image: 'groucho_glasses',
 		description: [
@@ -1515,7 +1517,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Tinted Love': {
 		name: 'Tinted Love',
 		image: 'glasses_tinted_love',
 		description: [
@@ -1526,7 +1528,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Al Capone': {
 		name: 'Al Capone',
 		image: 'gti_al_capone',
 		description: [
@@ -1537,7 +1539,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Charles \'Lucky\' Luciano': {
 		name: 'Charles \'Lucky\' Luciano',
 		image: 'gti_bugsy',
 		description: [
@@ -1548,7 +1550,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'George \'Bugs\' Moran': {
 		name: 'George \'Bugs\' Moran',
 		image: 'gti_lucky_luciano',
 		description: [
@@ -1559,7 +1561,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Stephanie \'Madame\' St. Clair': {
 		name: 'Stephanie \'Madame\' St. Clair',
 		image: 'gti_madame_st_claire',
 		description: [
@@ -1570,7 +1572,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Commando': {
 		name: 'Commando',
 		image: 'nyck_beret',
 		description: [
@@ -1581,7 +1583,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Dawn Patrol': {
 		name: 'Dawn Patrol',
 		image: 'nyck_ace',
 		description: [
@@ -1592,7 +1594,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Martial Law': {
 		name: 'Martial Law',
 		image: 'nyck_cap',
 		description: [
@@ -1603,7 +1605,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Pickle Face': {
 		name: 'Pickle Face',
 		image: 'nyck_pickle',
 		description: [
@@ -1614,7 +1616,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'The Awkward Seal': {
 		name: 'The Awkward Seal',
 		image: 'urf_seal',
 		description: [
@@ -1625,7 +1627,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Black Beanie': {
 		name: 'Black Beanie',
 		image: 'bny_03',
 		description: [
@@ -1636,7 +1638,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Green Beanie': {
 		name: 'Green Beanie',
 		image: 'bny_02',
 		description: [
@@ -1647,7 +1649,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Navy Beanie': {
 		name: 'Navy Beanie',
 		image: 'bny_01',
 		description: [
@@ -1658,7 +1660,7 @@ const masks: MaskData[] = [
 		unlock: '(sic) to hear things like: \'SEND IN THE TAZERS!\', \'THIS IS THE POLICE, COME OUT WITH YOUR HANDS UP!\', or \'WHO ARE THESE GUYS, EX-MILITARY?!\'',
 		cost: 'Free'
 	},
-	{
+	'Red Beanie': {
 		name: 'Red Beanie',
 		image: 'bny_04',
 		description: [
@@ -1669,7 +1671,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Chains, The Weapons Expert': {
 		name: 'Chains, The Weapons Expert',
 		image: 'toon_03',
 		description: [
@@ -1680,7 +1682,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Dallas, The Chief': {
 		name: 'Dallas, The Chief',
 		image: 'toon_01',
 		description: [
@@ -1691,7 +1693,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Hoxton, The Infiltrator': {
 		name: 'Hoxton, The Infiltrator',
 		image: 'toon_04',
 		description: [
@@ -1702,7 +1704,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Wolf, The Maniac': {
 		name: 'Wolf, The Maniac',
 		image: 'toon_02',
 		description: [
@@ -1713,7 +1715,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Byrne': {
 		name: 'Byrne',
 		image: 'mp2_03',
 		description: [
@@ -1724,7 +1726,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Fluffedup': {
 		name: 'Fluffedup',
 		image: 'mp2_01',
 		description: [
@@ -1735,7 +1737,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Stoibs': {
 		name: 'Stoibs',
 		image: 'mp2_02',
 		description: [
@@ -1746,7 +1748,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Tempy': {
 		name: 'Tempy',
 		image: 'mp2_04',
 		description: [
@@ -1757,7 +1759,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Keelhauled Alex': {
 		name: 'Keelhauled Alex',
 		image: 'amp_02',
 		description: [
@@ -1768,7 +1770,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Nilam': {
 		name: 'Nilam',
 		image: 'amp_03',
 		description: [
@@ -1779,7 +1781,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'One-Eyed Jessicah': {
 		name: 'One-Eyed Jessicah',
 		image: 'amp_04',
 		description: [
@@ -1790,7 +1792,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Schneider': {
 		name: 'Schneider',
 		image: 'amp_01',
 		description: [
@@ -1801,7 +1803,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Kurgan\'s Gas Mask': {
 		name: 'Kurgan\'s Gas Mask',
 		image: 'jfr_03',
 		description: [],
@@ -1810,7 +1812,7 @@ const masks: MaskData[] = [
 		unlock: 'Kurgan doesn\'t wear the gas-mask to keep the fumes of war out. He wears it to keep the flames of fury in. Betrayed by his own side, Kurgan barely survived an ambush by armored flamers. Inside the mask, there is only the smell of his own immolated flesh, a constant reminder to trust no-one.',
 		cost: 'Unlocked through Side Job'
 	},
-	{
+	'Rivet\'s Bandana': {
 		name: 'Rivet\'s Bandana',
 		image: 'jfr_04',
 		description: [],
@@ -1819,7 +1821,7 @@ const masks: MaskData[] = [
 		unlock: 'Rivet is American, and Americans value tradition. From the office of the President, to the lowliest scum-sucker in the land, tradition matters. So if you\'re going to stick a gun in a chump\'s face and demand they \'hand it over\' you better damn well know your history. Like Jesse James, like Billy The Kid,(sic) you wear a bandana.',
 		cost: 'Unlocked through Side Job'
 	},
-	{
+	'Sterling\'s Beret': {
 		name: 'Sterling\'s Beret',
 		image: 'jfr_01',
 		description: [
@@ -1830,7 +1832,7 @@ const masks: MaskData[] = [
 		unlock: 'Sterling earned the beret and badge through hard-training and combat. The truth, however, is that he saw how it impressed a couple of young fillies at the Officers Club. An invitation to step outside, a few dirty punches and a knocked out Colonel later, and Sterling had his very own red beret. And a couple of fillies. Smashing!',
 		cost: 'Unlocked through Side Job'
 	},
-	{
+	'Wolfgang\'s Cap': {
 		name: 'Wolfgang\'s Cap',
 		image: 'jfr_02',
 		description: [
@@ -1841,7 +1843,7 @@ const masks: MaskData[] = [
 		unlock: 'Wolfgang. But this cap holds special meaning for him. It may surprise you that Wolfgang can truly love. Pinned inside is a picture of his beloved. For whom he fights the good fight.',
 		cost: 'Unlocked through Side Job'
 	},
-	{
+	'Retro Chains': {
 		name: 'Retro Chains',
 		image: 'cmo_04',
 		description: [
@@ -1852,7 +1854,7 @@ const masks: MaskData[] = [
 		unlock: '(sic) play by gaining the upperhand in a fight.',
 		cost: 'Free'
 	},
-	{
+	'Retro Dallas': {
 		name: 'Retro Dallas',
 		image: 'cmo_01',
 		description: [
@@ -1863,7 +1865,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Retro Hoxton': {
 		name: 'Retro Hoxton',
 		image: 'cmo_02',
 		description: [
@@ -1874,7 +1876,7 @@ const masks: MaskData[] = [
 		unlock: '(sic) him wrap his head around a problem and figure it out one step at a time with the clues given.',
 		cost: 'Free'
 	},
-	{
+	'Retro Wolf': {
 		name: 'Retro Wolf',
 		image: 'cmo_03',
 		description: [
@@ -1885,7 +1887,7 @@ const masks: MaskData[] = [
 		unlock: '(sic) for a heist. The more blood, gore and carnage the better. He prefers games that test your reaction and speed.(sic) Games where every second counts for your survival against a nearly endless horde of enemies.',
 		cost: 'Free'
 	},
-	{
+	'Z.A.M.S Helmet': {
 		name: 'Z.A.M.S Helmet',
 		image: 'mmj',
 		description: [
@@ -1896,7 +1898,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Rhubarb': {
 		name: 'Rhubarb',
 		image: 'kwm',
 		description: [
@@ -1908,7 +1910,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'PNV - BriteNite': {
 		name: 'PNV - BriteNite',
 		image: 'flm',
 		description: [
@@ -1920,7 +1922,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SPRING BREAK 2018 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Boxey': {
 		name: 'Boxey',
 		image: 'sdm_02',
 		description: [
@@ -1931,7 +1933,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SPRING BREAK 2018 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Crazy Lou': {
 		name: 'Crazy Lou',
 		image: 'sdm_04',
 		description: [
@@ -1942,7 +1944,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SPRING BREAK 2018 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Frou Frou': {
 		name: 'Frou Frou',
 		image: 'sdm_03',
 		description: [
@@ -1953,7 +1955,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SPRING BREAK 2018 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Klaus': {
 		name: 'Klaus',
 		image: 'sdm_01',
 		description: [
@@ -1964,7 +1966,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SPRING BREAK 2018 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Bird Brain': {
 		name: 'Bird Brain',
 		image: 'xm20_owl',
 		description: [
@@ -1975,7 +1977,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A CHRISTMAS 2020 UPDATE ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Hyena Two-Face': {
 		name: 'Hyena Two-Face',
 		image: 'xm20_dog',
 		description: [
@@ -1986,7 +1988,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A CHRISTMAS 2020 UPDATE ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mad Cat': {
 		name: 'Mad Cat',
 		image: 'xm20_jaguar',
 		description: [
@@ -1997,7 +1999,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A CHRISTMAS 2020 UPDATE ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mayan Mosaic Death': {
 		name: 'Mayan Mosaic Death',
 		image: 'xm20_serpent',
 		description: [
@@ -2008,7 +2010,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A CHRISTMAS 2020 UPDATE ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Relic Mask of the Body': {
 		name: 'Relic Mask of the Body',
 		image: 'msq_02',
 		description: [
@@ -2019,7 +2021,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A CHRISTMAS 2020 UPDATE ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Relic Mask of the Mind': {
 		name: 'Relic Mask of the Mind',
 		image: 'msq_04',
 		description: [
@@ -2030,7 +2032,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A CHRISTMAS 2020 UPDATE ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Relic Mask of the Soul': {
 		name: 'Relic Mask of the Soul',
 		image: 'msq_03',
 		description: [
@@ -2041,7 +2043,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A CHRISTMAS 2020 UPDATE ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Relic Mask of the Will': {
 		name: 'Relic Mask of the Will',
 		image: 'msq_01',
 		description: [
@@ -2052,7 +2054,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A CHRISTMAS 2020 UPDATE ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Tormentor': {
 		name: 'Tormentor',
 		image: 'tormentor',
 		description: [
@@ -2063,7 +2065,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'God Emperor': {
 		name: 'God Emperor',
 		image: 'win_donald_mega',
 		description: [
@@ -2076,7 +2078,7 @@ const masks: MaskData[] = [
 		unlock: 'OVERKILL salutes you!',
 		cost: 'Free'
 	},
-	{
+	'The 45th': {
 		name: 'The 45th',
 		image: 'win_donald',
 		description: [
@@ -2088,7 +2090,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'Fire Rooster': {
 		name: 'Fire Rooster',
 		image: 'yor',
 		description: [
@@ -2099,7 +2101,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'The 46th': {
 		name: 'The 46th',
 		image: 'biden',
 		description: [
@@ -2113,7 +2115,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Free'
 	},
-	{
+	'The Skull': {
 		name: 'The Skull',
 		image: 'skull',
 		description: [
@@ -2126,7 +2128,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A LOOT BAG ITEM!',
 		cost: '$6,750'
 	},
-	{
+	'Furious Santa': {
 		name: 'Furious Santa',
 		image: 'santa_mad',
 		description: [
@@ -2138,7 +2140,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A XMAS SOUNDTRACK ITEM!',
 		cost: '$7,500'
 	},
-	{
+	'Surprised Santa': {
 		name: 'Surprised Santa',
 		image: 'santa_surprise',
 		description: [
@@ -2150,7 +2152,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A XMAS SOUNDTRACK ITEM!',
 		cost: '$7,500'
 	},
-	{
+	'Tipsy Santa': {
 		name: 'Tipsy Santa',
 		image: 'santa_drunk',
 		description: [
@@ -2162,7 +2164,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A XMAS SOUNDTRACK ITEM!',
 		cost: '$7,500'
 	},
-	{
+	'The 37th': {
 		name: 'The 37th',
 		image: 'nixon',
 		description: [
@@ -2174,7 +2176,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ARMORED TRANSPORT ITEM!',
 		cost: '$10,800'
 	},
-	{
+	'The 42nd': {
 		name: 'The 42nd',
 		image: 'clinton',
 		description: [
@@ -2186,7 +2188,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ARMORED TRANSPORT ITEM!',
 		cost: '$10,800'
 	},
-	{
+	'The 43rd': {
 		name: 'The 43rd',
 		image: 'bush',
 		description: [
@@ -2198,7 +2200,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ARMORED TRANSPORT ITEM!',
 		cost: '$10,800'
 	},
-	{
+	'The 44th': {
 		name: 'The 44th',
 		image: 'obama',
 		description: [
@@ -2210,7 +2212,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ARMORED TRANSPORT ITEM!',
 		cost: '$10,800'
 	},
-	{
+	'Arnold': {
 		name: 'Arnold',
 		image: 'pitbull',
 		description: [
@@ -2223,7 +2225,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE WEAPON PACK #01 ITEM!',
 		cost: '$10,500'
 	},
-	{
+	'Chuck': {
 		name: 'Chuck',
 		image: 'eagle',
 		description: [
@@ -2236,7 +2238,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE WEAPON PACK #01 ITEM!',
 		cost: '$10,500'
 	},
-	{
+	'Dolph': {
 		name: 'Dolph',
 		image: 'goat',
 		description: [
@@ -2249,7 +2251,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE WEAPON PACK #01 ITEM!',
 		cost: '$10,500'
 	},
-	{
+	'Jean-Claude': {
 		name: 'Jean-Claude',
 		image: 'panda',
 		description: [
@@ -2262,7 +2264,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE WEAPON PACK #01 ITEM!',
 		cost: '$10,500'
 	},
-	{
+	'Alpha Force': {
 		name: 'Alpha Force',
 		image: 'gage_deltaforce',
 		description: [
@@ -2274,7 +2276,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE WEAPON PACK #02 ITEM!',
 		cost: '$13,500'
 	},
-	{
+	'Commander Crime': {
 		name: 'Commander Crime',
 		image: 'cloth_commander',
 		description: [
@@ -2287,7 +2289,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE WEAPON PACK #02 ITEM!',
 		cost: '$13,500'
 	},
-	{
+	'The Gage Blade': {
 		name: 'The Gage Blade',
 		image: 'gage_blade',
 		description: [
@@ -2299,7 +2301,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE WEAPON PACK #02 ITEM!',
 		cost: '$13,500'
 	},
-	{
+	'The Troubled War Veteran': {
 		name: 'The Troubled War Veteran',
 		image: 'gage_rambo',
 		description: [
@@ -2311,7 +2313,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE WEAPON PACK #02 ITEM!',
 		cost: '$13,500'
 	},
-	{
+	'Criminal Ambitions': {
 		name: 'Criminal Ambitions',
 		image: 'tcn',
 		description: [
@@ -2323,7 +2325,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A POETRY JAM ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Metalhead': {
 		name: 'Metalhead',
 		image: 'metalhead',
 		description: [
@@ -2336,7 +2338,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A POETRY JAM ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Optimist': {
 		name: 'The Optimist',
 		image: 'optimist_prime',
 		description: [
@@ -2351,7 +2353,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A POETRY JAM ITEM!',
 		cost: 'Free'
 	},
-	{
+	'War Face': {
 		name: 'War Face',
 		image: 'surprise',
 		description: [
@@ -2365,7 +2367,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A POETRY JAM ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Asilidae': {
 		name: 'Asilidae',
 		image: 'mantis',
 		description: [
@@ -2376,7 +2378,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE SNIPER PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Sphodromantis': {
 		name: 'Sphodromantis',
 		image: 'robberfly',
 		description: [
@@ -2388,7 +2390,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE SNIPER PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Tarantula': {
 		name: 'Tarantula',
 		image: 'spider',
 		description: [
@@ -2399,7 +2401,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE SNIPER PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Vespula': {
 		name: 'Vespula',
 		image: 'wasp',
 		description: [
@@ -2410,7 +2412,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE SNIPER PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'The 16th': {
 		name: 'The 16th',
 		image: 'lincoln',
 		description: [
@@ -2423,7 +2425,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A BIG BANK HEIST ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'The 18th': {
 		name: 'The 18th',
 		image: 'grant',
 		description: [
@@ -2436,7 +2438,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A BIG BANK HEIST ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'The 1st': {
 		name: 'The 1st',
 		image: 'washington',
 		description: [
@@ -2449,7 +2451,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A BIG BANK HEIST ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'The First American': {
 		name: 'The First American',
 		image: 'franklin',
 		description: [
@@ -2462,7 +2464,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A BIG BANK HEIST ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Clint': {
 		name: 'Clint',
 		image: 'skullmonkey',
 		description: [
@@ -2473,7 +2475,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE SHOTGUN PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'John': {
 		name: 'John',
 		image: 'mandril',
 		description: [
@@ -2484,7 +2486,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE SHOTGUN PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Rutger': {
 		name: 'Rutger',
 		image: 'orangutang',
 		description: [
@@ -2495,7 +2497,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE SHOTGUN PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Steven': {
 		name: 'Steven',
 		image: 'silverback',
 		description: [
@@ -2506,7 +2508,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE SHOTGUN PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Black Death': {
 		name: 'Black Death',
 		image: 'evil',
 		description: [
@@ -2518,7 +2520,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE ASSAULT PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Crow Goblin': {
 		name: 'Crow Goblin',
 		image: 'crowgoblin',
 		description: [
@@ -2530,7 +2532,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE ASSAULT PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Professor Wrath': {
 		name: 'Professor Wrath',
 		image: 'galax',
 		description: [
@@ -2542,7 +2544,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE ASSAULT PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Volt': {
 		name: 'Volt',
 		image: 'volt',
 		description: [
@@ -2554,7 +2556,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE ASSAULT PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Aubrey': {
 		name: 'Aubrey',
 		image: 'pig',
 		description: [
@@ -2567,7 +2569,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HOTLINE MIAMI DLC ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Dennis': {
 		name: 'Dennis',
 		image: 'white_wolf',
 		description: [
@@ -2580,7 +2582,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HOTLINE MIAMI DLC ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Graham': {
 		name: 'Graham',
 		image: 'rabbit',
 		description: [
@@ -2593,7 +2595,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HOTLINE MIAMI DLC ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Rasmus': {
 		name: 'Rasmus',
 		image: 'owl',
 		description: [
@@ -2606,7 +2608,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HOTLINE MIAMI DLC ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'British Bulldog': {
 		name: 'British Bulldog',
 		image: 'churchill',
 		description: [
@@ -2617,7 +2619,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE HISTORICAL PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Old Blood and Guts': {
 		name: 'Old Blood and Guts',
 		image: 'patton',
 		description: [
@@ -2629,7 +2631,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE HISTORICAL PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'The Constable': {
 		name: 'The Constable',
 		image: 'de_gaulle',
 		description: [
@@ -2640,7 +2642,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE HISTORICAL PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'The Red Bear': {
 		name: 'The Red Bear',
 		image: 'red_hurricane',
 		description: [
@@ -2651,7 +2653,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE HISTORICAL PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Anubis': {
 		name: 'Anubis',
 		image: 'anubis',
 		description: [
@@ -2662,7 +2664,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DIAMOND HEIST ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Medusa': {
 		name: 'Medusa',
 		image: 'medusa',
 		description: [
@@ -2673,7 +2675,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DIAMOND HEIST ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Pazuzu': {
 		name: 'Pazuzu',
 		image: 'pazuzu',
 		description: [
@@ -2684,7 +2686,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DIAMOND HEIST ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'The Cursed One': {
 		name: 'The Cursed One',
 		image: 'cursed_crown',
 		description: [
@@ -2695,7 +2697,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DIAMOND HEIST ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Clover---': {
 		name: 'Clover',
 		image: 'msk_grizel',
 		description: [
@@ -2706,7 +2708,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A CLOVER CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Clover Begins': {
 		name: 'Clover Begins',
 		image: 'grizel_clean',
 		description: [
@@ -2718,7 +2720,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A CLOVER CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Arch Nemesis': {
 		name: 'Arch Nemesis',
 		image: 'arch_nemesis',
 		description: [
@@ -2731,7 +2733,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GOTY EDITION ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Nun': {
 		name: 'The Nun',
 		image: 'nun_town',
 		description: [
@@ -2742,7 +2744,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HEIST BUNDLE ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Robo-Arnold': {
 		name: 'Robo-Arnold',
 		image: 'robo_arnold',
 		description: [
@@ -2753,7 +2755,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A WEAPON BUNDLE ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Butcher from Hell': {
 		name: 'The Butcher from Hell',
 		image: 'butcher',
 		description: [
@@ -2765,7 +2767,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A THE BOMB HEISTS ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Lady Butcher': {
 		name: 'Lady Butcher',
 		image: 'lady_butcher',
 		description: [
@@ -2776,7 +2778,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A THE BOMB HEISTS ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Tech Lion': {
 		name: 'Tech Lion',
 		image: 'tech_lion',
 		description: [
@@ -2788,7 +2790,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A THE BOMB HEISTS ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'The Doctor': {
 		name: 'The Doctor',
 		image: 'doctor',
 		description: [
@@ -2800,7 +2802,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A THE BOMB HEISTS ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Dragan---': {
 		name: 'Dragan',
 		image: 'dragan',
 		description: [
@@ -2813,7 +2815,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DRAGAN CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Dragan Begins': {
 		name: 'Dragan Begins',
 		image: 'dragan_begins',
 		description: [
@@ -2825,7 +2827,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DRAGAN CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Alfred': {
 		name: 'Alfred',
 		image: 'carnotaurus',
 		description: [
@@ -2836,7 +2838,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN AK/CAR MOD PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Pachy': {
 		name: 'Pachy',
 		image: 'pachy',
 		description: [
@@ -2847,7 +2849,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN AK/CAR MOD PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Timothy': {
 		name: 'Timothy',
 		image: 'triceratops',
 		description: [
@@ -2858,7 +2860,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN AK/CAR MOD PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Vincent': {
 		name: 'Vincent',
 		image: 'velociraptor',
 		description: [
@@ -2869,7 +2871,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN AK/CAR MOD PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'General Overkill': {
 		name: 'General Overkill',
 		image: 'the_overkill_mask',
 		description: [
@@ -2880,7 +2882,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A OVERKILL PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Chains': {
 		name: 'Mega Chains',
 		image: 'chains_glow',
 		description: [
@@ -2893,7 +2895,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Cthulhu': {
 		name: 'Mega Cthulhu',
 		image: 'megacthulhu',
 		description: [
@@ -2906,7 +2908,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Dallas': {
 		name: 'Mega Dallas',
 		image: 'dallas_glow',
 		description: [
@@ -2919,7 +2921,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Death Wish': {
 		name: 'Mega Death Wish',
 		image: 'cop_skull',
 		description: [
@@ -2932,7 +2934,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Doctor Crime': {
 		name: 'Mega Doctor Crime',
 		image: 'fab_mega_doctor',
 		description: [
@@ -2945,7 +2947,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Gage Blade': {
 		name: 'Mega Gage Blade',
 		image: 'cop_mega_gage_blade',
 		description: [
@@ -2958,7 +2960,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Grin': {
 		name: 'Mega Grin',
 		image: 'fab_mega_grin',
 		description: [
@@ -2971,7 +2973,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Hoxton': {
 		name: 'Mega Hoxton',
 		image: 'hoxton_glow',
 		description: [
@@ -2984,7 +2986,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Kawaii': {
 		name: 'Mega Kawaii',
 		image: 'cop_kawaii',
 		description: [
@@ -2997,7 +2999,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Kevin': {
 		name: 'Mega Kevin',
 		image: 'hunter',
 		description: [
@@ -3010,7 +3012,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Mark': {
 		name: 'Mega Mark',
 		image: 'fab_mega_mark',
 		description: [
@@ -3023,7 +3025,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Plague Doctor': {
 		name: 'Mega Plague Doctor',
 		image: 'cop_plague_doctor',
 		description: [
@@ -3036,7 +3038,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Watcher': {
 		name: 'Mega Watcher',
 		image: 'fab_mega_alien',
 		description: [
@@ -3049,7 +3051,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Wolf': {
 		name: 'Mega Wolf',
 		image: 'wolf_glow',
 		description: [
@@ -3062,7 +3064,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Firefighter\'s Helmet': {
 		name: 'Firefighter\'s Helmet',
 		image: 'firemask',
 		description: [
@@ -3073,7 +3075,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A BBQ WEAPON PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Graug': {
 		name: 'Graug',
 		image: 'firedemon',
 		description: [
@@ -3084,7 +3086,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A BBQ WEAPON PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'The Chef': {
 		name: 'The Chef',
 		image: 'chef_hat',
 		description: [
@@ -3095,7 +3097,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A BBQ WEAPON PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'The Gas Mask': {
 		name: 'The Gas Mask',
 		image: 'gasmask',
 		description: [
@@ -3106,7 +3108,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A BBQ WEAPON PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Apache Mystic': {
 		name: 'Apache Mystic',
 		image: 'kangee',
 		description: [
@@ -3117,7 +3119,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A WESTERN PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Desert Skull': {
 		name: 'Desert Skull',
 		image: 'bullskull',
 		description: [
@@ -3128,7 +3130,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A WESTERN PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Lone Heister': {
 		name: 'Lone Heister',
 		image: 'lone',
 		description: [
@@ -3139,7 +3141,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A WESTERN PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Wild West Classic': {
 		name: 'Wild West Classic',
 		image: 'bandit',
 		description: [
@@ -3150,7 +3152,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A WESTERN PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Boombox': {
 		name: 'Boombox',
 		image: 'boombox',
 		description: [
@@ -3161,7 +3163,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A THE ALESSO HEIST ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Cantus': {
 		name: 'Cantus',
 		image: 'cantus',
 		description: [
@@ -3172,7 +3174,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A THE ALESSO HEIST ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Female Concert Goer': {
 		name: 'Female Concert Goer',
 		image: 'concert_female',
 		description: [
@@ -3183,7 +3185,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A THE ALESSO HEIST ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Male Concert Goer': {
 		name: 'Male Concert Goer',
 		image: 'concert_male',
 		description: [
@@ -3194,7 +3196,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A THE ALESSO HEIST ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Murmillo Galea Helmet': {
 		name: 'Murmillo Galea Helmet',
 		image: 'gladiator_helmet',
 		description: [
@@ -3205,7 +3207,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GOLDEN GRIN CASINO ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Sports Utility Mask': {
 		name: 'Sports Utility Mask',
 		image: 'sports_utility_mask',
 		description: [
@@ -3216,7 +3218,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GOLDEN GRIN CASINO ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'King, The': {
 		name: 'King, The',
 		image: 'the_king_mask',
 		description: [
@@ -3227,7 +3229,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GOLDEN GRIN CASINO ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Wheeler Dealer': {
 		name: 'Wheeler Dealer',
 		image: 'croupier_hat',
 		description: [
@@ -3238,7 +3240,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GOLDEN GRIN CASINO ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Sokol---': {
 		name: 'Sokol',
 		image: 'sokol',
 		description: [
@@ -3249,7 +3251,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SOKOL CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Sokol Begins': {
 		name: 'Sokol Begins',
 		image: 'sokol_begins',
 		description: [
@@ -3261,7 +3263,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SOKOL CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Kage': {
 		name: 'Kage',
 		image: 'kage',
 		description: [
@@ -3272,7 +3274,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE NINJA PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Kuro Zukin': {
 		name: 'Kuro Zukin',
 		image: 'ninja_hood',
 		description: [
@@ -3283,7 +3285,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE NINJA PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Shirai': {
 		name: 'Shirai',
 		image: 'shirai',
 		description: [
@@ -3294,7 +3296,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE NINJA PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Slicer': {
 		name: 'Slicer',
 		image: 'slicer',
 		description: [
@@ -3305,7 +3307,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE NINJA PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Jiro---': {
 		name: 'Jiro',
 		image: 'jiro',
 		description: [
@@ -3316,7 +3318,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A YAKUZA CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Jiro Begins': {
 		name: 'Jiro Begins',
 		image: 'jiro_begins',
 		description: [
@@ -3328,7 +3330,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A YAKUZA CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Agatha Knight Veteran': {
 		name: 'Agatha Knight Veteran',
 		image: 'agatha_knight',
 		description: [
@@ -3339,7 +3341,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE CHIVALRY PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Agatha Vanguard Veteran': {
 		name: 'Agatha Vanguard Veteran',
 		image: 'agatha_vanguard_veteran',
 		description: [
@@ -3350,7 +3352,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE CHIVALRY PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Mason Knight Veteran': {
 		name: 'Mason Knight Veteran',
 		image: 'mason_knight_veteran',
 		description: [
@@ -3361,7 +3363,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE CHIVALRY PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Mason Vanguard Veteran': {
 		name: 'Mason Vanguard Veteran',
 		image: 'mason_vanguard_veteran',
 		description: [
@@ -3372,7 +3374,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE CHIVALRY PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Maui': {
 		name: 'Maui',
 		image: 'maui',
 		description: [
@@ -3383,7 +3385,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A POINT BREAK HEISTS ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Oro': {
 		name: 'Oro',
 		image: 'oro',
 		description: [
@@ -3394,7 +3396,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A POINT BREAK HEISTS ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Tane': {
 		name: 'Tane',
 		image: 'tane',
 		description: [
@@ -3405,7 +3407,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A POINT BREAK HEISTS ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Tawhiri': {
 		name: 'Tawhiri',
 		image: 'water_spirit',
 		description: [
@@ -3416,7 +3418,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A POINT BREAK HEISTS ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Goat Goat': {
 		name: 'Goat Goat',
 		image: 'goat_goat',
 		description: [
@@ -3427,7 +3429,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GOAT SIMULATOR ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Mastermind Goat': {
 		name: 'Mastermind Goat',
 		image: 'wet_goat',
 		description: [
@@ -3438,7 +3440,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GOAT SIMULATOR ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Scout Goat': {
 		name: 'Scout Goat',
 		image: 'tall_goat',
 		description: [
@@ -3449,7 +3451,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GOAT SIMULATOR ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Slick Goat': {
 		name: 'Slick Goat',
 		image: 'fancy_goat',
 		description: [
@@ -3460,7 +3462,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GOAT SIMULATOR ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Hans': {
 		name: 'Hans',
 		image: 'nutcracker',
 		description: [
@@ -3471,7 +3473,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A WOLF PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'The Dragon Head': {
 		name: 'The Dragon Head',
 		image: 'viking',
 		description: [
@@ -3482,7 +3484,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A WOLF PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'The Viking': {
 		name: 'The Viking',
 		image: 'horned_king',
 		description: [
@@ -3493,7 +3495,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A WOLF PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Trickster Demon': {
 		name: 'Trickster Demon',
 		image: 'divided',
 		description: [
@@ -3504,7 +3506,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A WOLF PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Sydney---': {
 		name: 'Sydney',
 		image: 'sydney',
 		description: [
@@ -3515,7 +3517,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SYDNEY CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Sydney Begins': {
 		name: 'Sydney Begins',
 		image: 'sydney_begins',
 		description: [
@@ -3527,7 +3529,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SYDNEY CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Classic': {
 		name: 'The Classic',
 		image: 'born_biker_01',
 		description: [
@@ -3538,7 +3540,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A BIKER HEIST DLC ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Speed Devil': {
 		name: 'Speed Devil',
 		image: 'born_biker_02',
 		description: [
@@ -3549,7 +3551,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A BIKER HEIST DLC ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Flaming Skull': {
 		name: 'Flaming Skull',
 		image: 'born_biker_03',
 		description: [
@@ -3560,7 +3562,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A BIKER HEIST DLC ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Road Rage': {
 		name: 'Road Rage',
 		image: 'brutal',
 		description: [
@@ -3571,7 +3573,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A BIKER HEIST DLC ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Rust---': {
 		name: 'Rust',
 		image: 'rust',
 		description: [
@@ -3582,7 +3584,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A BIKER CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Rust Begins': {
 		name: 'Rust Begins',
 		image: 'rust_begins',
 		description: [
@@ -3594,7 +3596,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A BIKER CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Daisy': {
 		name: 'Daisy',
 		image: 'pim_dog',
 		description: [
@@ -3605,7 +3607,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A JOHN WICK WEAPON PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Hotelier': {
 		name: 'Hotelier',
 		image: 'pim_hotelier',
 		description: [
@@ -3616,7 +3618,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A JOHN WICK WEAPON PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Zaschita': {
 		name: 'Zaschita',
 		image: 'pim_russian_ballistic',
 		description: [
@@ -3627,7 +3629,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A JOHN WICK WEAPON PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Mustang': {
 		name: 'Mustang',
 		image: 'pim_mustang',
 		description: [
@@ -3638,7 +3640,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A JOHN WICK WEAPON PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Batshit Crazy': {
 		name: 'Batshit Crazy',
 		image: 'tng_cloaker',
 		description: [
@@ -3650,7 +3652,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE SPEC OPS PACK ITEM!',
 		cost: 'Unlocked through Side Jobs'
 	},
-	{
+	'A.W.O.L': {
 		name: 'A.W.O.L',
 		image: 'tng_cap',
 		description: [
@@ -3661,7 +3663,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE SPEC OPS PACK ITEM!',
 		cost: 'Unlocked through Side Jobs'
 	},
-	{
+	'Bloody Bandana': {
 		name: 'Bloody Bandana',
 		image: 'tng_bandana',
 		description: [
@@ -3672,7 +3674,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE SPEC OPS PACK ITEM!',
 		cost: 'Unlocked through Side Jobs'
 	},
-	{
+	'Dark Legion': {
 		name: 'Dark Legion',
 		image: 'tng_zeal_swat_mask',
 		description: [
@@ -3683,7 +3685,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE SPEC OPS PACK ITEM!',
 		cost: 'Unlocked through Side Jobs'
 	},
-	{
+	'Exalted': {
 		name: 'Exalted',
 		image: 'sfm_01',
 		description: [
@@ -3694,7 +3696,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SCARFACE HEIST PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Golden Hour': {
 		name: 'Golden Hour',
 		image: 'sfm_02',
 		description: [
@@ -3705,7 +3707,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SCARFACE HEIST PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Barrori Flex': {
 		name: 'Barrori Flex',
 		image: 'sfm_03',
 		description: [
@@ -3716,7 +3718,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SCARFACE HEIST PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Panthera Tigris': {
 		name: 'Panthera Tigris',
 		image: 'sfm_04',
 		description: [
@@ -3727,7 +3729,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SCARFACE HEIST PACK ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Scarface---': {
 		name: 'Scarface',
 		image: 'chc_terry',
 		description: [
@@ -3738,7 +3740,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SCARFACE CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Scarface Begins': {
 		name: 'Scarface Begins',
 		image: 'chc_terry_begins',
 		description: [
@@ -3750,7 +3752,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SCARFACE CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Lady Liberty': {
 		name: 'Lady Liberty',
 		image: 'spa_04',
 		description: [
@@ -3761,7 +3763,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A JOHN WICK HEISTS PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Captain': {
 		name: 'Captain',
 		image: 'spa_01',
 		description: [
@@ -3772,7 +3774,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A JOHN WICK HEISTS PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Bird of Prey': {
 		name: 'Bird of Prey',
 		image: 'spa_03',
 		description: [
@@ -3783,7 +3785,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A JOHN WICK HEISTS PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Sailor': {
 		name: 'Sailor',
 		image: 'spa_02',
 		description: [
@@ -3794,7 +3796,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A JOHN WICK HEISTS PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Red Machine': {
 		name: 'Red Machine',
 		image: 'grv_04',
 		description: [
@@ -3805,7 +3807,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE RUSSIAN WEAPON PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Matryoshka': {
 		name: 'Matryoshka',
 		image: 'grv_02',
 		description: [
@@ -3816,7 +3818,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE RUSSIAN WEAPON PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'War Balaclava': {
 		name: 'War Balaclava',
 		image: 'grv_01',
 		description: [
@@ -3827,7 +3829,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE RUSSIAN WEAPON PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Kokoshnik': {
 		name: 'Kokoshnik',
 		image: 'grv_03',
 		description: [
@@ -3838,7 +3840,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A GAGE RUSSIAN WEAPON PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Almir': {
 		name: 'The Almir',
 		image: 'ztm',
 		description: [
@@ -3852,7 +3854,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A ZAG TOYS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Ethan---': {
 		name: 'Ethan',
 		image: 'ecp_male',
 		description: [
@@ -3863,7 +3865,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A h3h3 CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Hila---': {
 		name: 'Hila',
 		image: 'ecp_female',
 		description: [
@@ -3874,7 +3876,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A h3h3 CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Ethan Begins': {
 		name: 'Ethan Begins',
 		image: 'ecp_male_begins',
 		description: [
@@ -3886,7 +3888,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A h3h3 CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Hila Begins': {
 		name: 'Hila Begins',
 		image: 'ecp_female_begins',
 		description: [
@@ -3898,7 +3900,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A h3h3 CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Laughing Dragon': {
 		name: 'Laughing Dragon',
 		image: 'dragon01',
 		description: [
@@ -3909,7 +3911,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DRAGON PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mahakala': {
 		name: 'Mahakala',
 		image: 'daemon',
 		description: [
@@ -3920,7 +3922,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DRAGON PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Serenity': {
 		name: 'Serenity',
 		image: 'godess',
 		description: [
@@ -3931,7 +3933,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DRAGON PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Shouting Dragon': {
 		name: 'Shouting Dragon',
 		image: 'dragon02',
 		description: [
@@ -3942,7 +3944,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DRAGON PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Sweettooth': {
 		name: 'Sweettooth',
 		image: 'Sweettooth',
 		description: [
@@ -3954,7 +3956,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: '$10,250'
 	},
-	{
+	'Thespian': {
 		name: 'Thespian',
 		image: 'Thespian',
 		description: [
@@ -3967,7 +3969,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A THESPIAN MASK PACK ITEM!',
 		cost: '$6,750'
 	},
-	{
+	'The Griefer': {
 		name: 'The Griefer',
 		image: 'The_Griefer',
 		description: [
@@ -3978,7 +3980,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A LOOT BAG ITEM!',
 		cost: '$9,750'
 	},
-	{
+	'The Intuition': {
 		name: 'The Intuition',
 		image: 'The_Intuition',
 		description: [
@@ -3989,7 +3991,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A LOOT BAG ITEM!',
 		cost: '$9,750'
 	},
-	{
+	'Frank': {
 		name: 'Frank',
 		image: 'frank',
 		description: [
@@ -4001,7 +4003,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$8,250'
 	},
-	{
+	'Pumpkin King': {
 		name: 'Pumpkin King',
 		image: 'pumpkin_king',
 		description: [
@@ -4013,7 +4015,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$8,250'
 	},
-	{
+	'Venomorph': {
 		name: 'Venomorph',
 		image: 'venomorph',
 		description: [
@@ -4025,7 +4027,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$8,250'
 	},
-	{
+	'Witch': {
 		name: 'Witch',
 		image: 'witch',
 		description: [
@@ -4038,7 +4040,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$8,250'
 	},
-	{
+	'Angry Baby': {
 		name: 'Angry Baby',
 		image: 'baby_angry',
 		description: [
@@ -4050,7 +4052,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$11,000'
 	},
-	{
+	'Cry Baby': {
 		name: 'Cry Baby',
 		image: 'baby_cry',
 		description: [
@@ -4062,7 +4064,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$11,000'
 	},
-	{
+	'Happy Baby': {
 		name: 'Happy Baby',
 		image: 'baby_happy',
 		description: [
@@ -4074,7 +4076,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$11,000'
 	},
-	{
+	'Brazil Baby': {
 		name: 'Brazil Baby',
 		image: 'brazil_baby',
 		description: [
@@ -4086,7 +4088,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$11,000'
 	},
-	{
+	'Invader': {
 		name: 'Invader',
 		image: 'invader',
 		description: [
@@ -4097,7 +4099,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Satan': {
 		name: 'Satan',
 		image: 'satan',
 		description: [
@@ -4108,7 +4110,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Risen Chains': {
 		name: 'Risen Chains',
 		image: 'howl_chains_zombie',
 		description: [
@@ -4120,7 +4122,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Risen Dallas': {
 		name: 'Risen Dallas',
 		image: 'hwl_dallas_zombie',
 		description: [
@@ -4131,7 +4133,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Risen Houston': {
 		name: 'Risen Houston',
 		image: 'hwl_hoxton_zombie',
 		description: [
@@ -4143,7 +4145,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Risen Wolf': {
 		name: 'Risen Wolf',
 		image: 'hwl_wolf_zombie',
 		description: [
@@ -4155,7 +4157,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked through Achievement'
 	},
-	{
+	'Envy': {
 		name: 'Envy',
 		image: 'sds_03',
 		description: [
@@ -4166,7 +4168,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked'
 	},
-	{
+	'Gluttony': {
 		name: 'Gluttony',
 		image: 'sds_06',
 		description: [
@@ -4177,7 +4179,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked'
 	},
-	{
+	'Greed': {
 		name: 'Greed',
 		image: 'sds_07',
 		description: [
@@ -4188,7 +4190,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked'
 	},
-	{
+	'Lust': {
 		name: 'Lust',
 		image: 'sds_01',
 		description: [
@@ -4199,7 +4201,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked'
 	},
-	{
+	'Pride': {
 		name: 'Pride',
 		image: 'sds_05',
 		description: [
@@ -4210,7 +4212,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked'
 	},
-	{
+	'Sloth': {
 		name: 'Sloth',
 		image: 'sds_02',
 		description: [
@@ -4221,7 +4223,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked'
 	},
-	{
+	'Wrath': {
 		name: 'Wrath',
 		image: 'sds_04',
 		description: [
@@ -4232,7 +4234,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked'
 	},
-	{
+	'The Crossbreed': {
 		name: 'The Crossbreed',
 		image: 'ancient',
 		description: [
@@ -4244,7 +4246,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HUMBLE MASK PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Orc': {
 		name: 'The Orc',
 		image: 'twitch_orc',
 		description: [
@@ -4256,7 +4258,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HUMBLE MASK PACK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Lycanwulf': {
 		name: 'Lycanwulf',
 		image: 'lycan',
 		description: [
@@ -4267,7 +4269,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HUMBLE MASK PACK 2 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The One Below': {
 		name: 'The One Below',
 		image: 'the_one_below',
 		description: [
@@ -4278,7 +4280,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HUMBLE MASK PACK 2 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Alpha Grey': {
 		name: 'Alpha Grey',
 		image: 'alien_helmet',
 		description: [
@@ -4290,7 +4292,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ALIENWARE ALPHA ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Anomaly': {
 		name: 'The Anomaly',
 		image: 'area51',
 		description: [
@@ -4301,7 +4303,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ALIENWARE ALPHA ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Electarodent': {
 		name: 'Electarodent',
 		image: 'pokachu',
 		description: [
@@ -4312,7 +4314,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HUMBLE MASK PACK 3 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Titan': {
 		name: 'Titan',
 		image: 'titan',
 		description: [
@@ -4323,7 +4325,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HUMBLE MASK PACK 3 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Borsuk': {
 		name: 'Borsuk',
 		image: 'borsuk',
 		description: [
@@ -4334,7 +4336,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HUMBLE MASK PACK 4 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mask of the Moon': {
 		name: 'Mask of the Moon',
 		image: 'moon',
 		description: [
@@ -4345,7 +4347,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HUMBLE MASK PACK 4 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Jack of Cards': {
 		name: 'Jack of Cards',
 		image: 'card_jack',
 		description: [
@@ -4356,7 +4358,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN E3 2015 SECRET MASK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Queen of Cards': {
 		name: 'Queen of Cards',
 		image: 'card_queen',
 		description: [
@@ -4367,7 +4369,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN E3 2015 SECRET MASK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'King of Cards': {
 		name: 'King of Cards',
 		image: 'card_king',
 		description: [
@@ -4378,7 +4380,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN E3 2015 SECRET MASK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Joker of Cards': {
 		name: 'Joker of Cards',
 		image: 'card_joker',
 		description: [
@@ -4389,7 +4391,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN E3 2015 SECRET MASK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Dozer Mask': {
 		name: 'Dozer Mask',
 		image: 'bobblehead_dozer',
 		description: [
@@ -4402,7 +4404,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A MERCHANDISE ITEM!',
 		cost: 'Free'
 	},
-	{
+	'King of Jesters': {
 		name: 'King of Jesters',
 		image: 'king_of_jesters',
 		description: [
@@ -4416,7 +4418,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A PAYDAYCON 2015 SECRET MASK ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Floating Guy': {
 		name: 'Floating Guy',
 		image: 'damned',
 		description: [
@@ -4427,7 +4429,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HUMBLE MASK PACK 5 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Garreth': {
 		name: 'Garreth',
 		image: 'jig_01',
 		description: [
@@ -4438,7 +4440,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HUMBLE MASK PACK 5 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Judge': {
 		name: 'The Judge',
 		image: 'jig_02',
 		description: [
@@ -4449,7 +4451,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HUMBLE MASK PACK 5 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Party Hat': {
 		name: 'Party Hat',
 		image: 'spk_party',
 		description: [
@@ -4460,7 +4462,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HOUSEWARMING PARTY ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Clover': {
 		name: 'Mega Clover',
 		image: 'pdc16_clover',
 		description: [
@@ -4473,7 +4475,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A PAYDAYCON 2016 SECRET ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Sydney': {
 		name: 'Mega Sydney',
 		image: 'swm_sydney',
 		description: [
@@ -4486,7 +4488,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SYDNEY SWIM ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Fedora': {
 		name: 'The Fedora',
 		image: 'fdm',
 		description: [
@@ -4497,7 +4499,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ALDSTONE\'S HERITAGE ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Simon': {
 		name: 'Simon',
 		image: 'pbm',
 		description: [
@@ -4508,7 +4510,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A LOCKE AND LOAD ITEM(sic)',
 		cost: 'Free'
 	},
-	{
+	'Brandon': {
 		name: 'Brandon',
 		image: 'panther',
 		description: [
@@ -4520,7 +4522,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Requires ownership of Hotline Miami on Steam.'
 	},
-	{
+	'Don Juan': {
 		name: 'Don Juan',
 		image: 'horse',
 		description: [
@@ -4533,7 +4535,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Requires ownership of Hotline Miami on Steam.'
 	},
-	{
+	'Richard': {
 		name: 'Richard',
 		image: 'rooster',
 		description: [
@@ -4548,7 +4550,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Requires ownership of Hotline Miami on Steam.'
 	},
-	{
+	'Tony': {
 		name: 'Tony',
 		image: 'tiger',
 		description: [
@@ -4560,7 +4562,7 @@ const masks: MaskData[] = [
 		unlock: '',
 		cost: 'Requires ownership of Hotline Miami on Steam.'
 	},
-	{
+	'Alex': {
 		name: 'Alex',
 		image: 'alex',
 		description: [
@@ -4571,7 +4573,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HOTLINE MIAMI 2 ITEM!',
 		cost: 'Requires ownership of Hotline Miami 2: Wrong Number on Steam.'
 	},
-	{
+	'Biker': {
 		name: 'Biker',
 		image: 'biker',
 		description: [
@@ -4582,7 +4584,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HOTLINE MIAMI 2 ITEM!',
 		cost: 'Requires ownership of Hotline Miami 2: Wrong Number on Steam.'
 	},
-	{
+	'Corey': {
 		name: 'Corey',
 		image: 'corey',
 		description: [
@@ -4593,7 +4595,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HOTLINE MIAMI 2 ITEM!',
 		cost: 'Requires ownership of Hotline Miami 2: Wrong Number on Steam.'
 	},
-	{
+	'Jake': {
 		name: 'Jake',
 		image: 'jake',
 		description: [
@@ -4604,7 +4606,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HOTLINE MIAMI 2 ITEM!',
 		cost: 'Requires ownership of Hotline Miami 2: Wrong Number on Steam.'
 	},
-	{
+	'Richter': {
 		name: 'Richter',
 		image: 'richter',
 		description: [
@@ -4615,7 +4617,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HOTLINE MIAMI 2 ITEM!',
 		cost: 'Requires ownership of Hotline Miami 2: Wrong Number on Steam.'
 	},
-	{
+	'Tony\'s Revenge': {
 		name: 'Tony\'s Revenge',
 		image: 'tonys_revenge',
 		description: [
@@ -4626,7 +4628,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HOTLINE MIAMI 2 ITEM!',
 		cost: 'Requires ownership of Hotline Miami 2: Wrong Number on Steam.'
 	},
-	{
+	'Richard Begins': {
 		name: 'Richard Begins',
 		image: 'richard_begins',
 		description: [
@@ -4638,7 +4640,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HOTLINE MIAMI 2 DELUXE ITEM!',
 		cost: 'Requires ownership of Hotline Miami 2: Wrong Number - Digital Special Edition on Steam.'
 	},
-	{
+	'Richard Returns---': {
 		name: 'Richard Returns',
 		image: 'richard_returns',
 		description: [
@@ -4649,7 +4651,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A HOTLINE MIAMI 2 DELUXE ITEM!',
 		cost: 'Requires ownership of Hotline Miami 2: Wrong Number - Digital Special Edition on Steam.'
 	},
-	{
+	'Hothead': {
 		name: 'Hothead',
 		image: 'hothead',
 		description: [
@@ -4660,7 +4662,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SPEEDRUNNERS ITEM!',
 		cost: 'Requires ownership of SpeedRunners on Steam.'
 	},
-	{
+	'SpeedRunner': {
 		name: 'SpeedRunner',
 		image: 'speedrunner',
 		description: [
@@ -4671,7 +4673,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SPEEDRUNNERS ITEM!',
 		cost: 'Requires ownership of SpeedRunners on Steam.'
 	},
-	{
+	'The Falcon': {
 		name: 'The Falcon',
 		image: 'falcon',
 		description: [
@@ -4682,7 +4684,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SPEEDRUNNERS ITEM!',
 		cost: 'Requires ownership of SpeedRunners on Steam.'
 	},
-	{
+	'Unic': {
 		name: 'Unic',
 		image: 'unic',
 		description: [
@@ -4693,7 +4695,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SPEEDRUNNERS ITEM!',
 		cost: 'Requires ownership of SpeedRunners on Steam.'
 	},
-	{
+	'Feeder': {
 		name: 'Feeder',
 		image: 'dbd_02',
 		description: [
@@ -4704,7 +4706,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DEAD BY DAYLIGHT DELUXE ITEM!',
 		cost: 'Requires ownership of Dead by Daylight Deluxe Edition on Steam.'
 	},
-	{
+	'Dendron': {
 		name: 'Dendron',
 		image: 'dbd_03',
 		description: [
@@ -4715,7 +4717,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A DEAD BY DAYLIGHT DELUXE ITEM!',
 		cost: 'Requires ownership of Dead by Daylight Deluxe Edition on Steam.'
 	},
-	{
+	'Ameonna': {
 		name: 'Ameonna',
 		image: 'sha_01',
 		description: [
@@ -4726,7 +4728,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SHADOW WARRIOR 2 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Co-Cop Ninja': {
 		name: 'Co-Cop Ninja',
 		image: 'sha_02',
 		description: [
@@ -4737,7 +4739,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SHADOW WARRIOR 2 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Hata Mari': {
 		name: 'Hata Mari',
 		image: 'sha_04',
 		description: [
@@ -4748,7 +4750,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SHADOW WARRIOR 2 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Thorntail': {
 		name: 'Thorntail',
 		image: 'sha_03',
 		description: [
@@ -4759,7 +4761,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS A SHADOW WARRIOR 2 ITEM!',
 		cost: 'Free'
 	},
-	{
+	'DOME': {
 		name: 'DOME',
 		image: 'ant_04',
 		description: [
@@ -4770,7 +4772,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ANTISPHERE ITEM!',
 		cost: 'Requires ownership of Antisphere on Steam.'
 	},
-	{
+	'DRONE': {
 		name: 'DRONE',
 		image: 'ant_06',
 		description: [
@@ -4781,7 +4783,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ANTISPHERE ITEM!',
 		cost: 'Requires ownership of Antisphere on Steam.'
 	},
-	{
+	'INTERCEPTOR': {
 		name: 'INTERCEPTOR',
 		image: 'ant_01',
 		description: [
@@ -4792,7 +4794,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ANTISPHERE ITEM!',
 		cost: 'Requires ownership of Antisphere on Steam.'
 	},
-	{
+	'MOTH': {
 		name: 'MOTH',
 		image: 'ant_03',
 		description: [
@@ -4803,7 +4805,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ANTISPHERE ITEM!',
 		cost: 'Requires ownership of Antisphere on Steam.'
 	},
-	{
+	'RAPTOR': {
 		name: 'RAPTOR',
 		image: 'ant_08',
 		description: [
@@ -4814,7 +4816,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ANTISPHERE ITEM!',
 		cost: 'Requires ownership of Antisphere on Steam.'
 	},
-	{
+	'VIZOR': {
 		name: 'VIZOR',
 		image: 'ant_02',
 		description: [
@@ -4825,7 +4827,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ANTISPHERE ITEM!',
 		cost: 'Requires ownership of Antisphere on Steam.'
 	},
-	{
+	'SKULL': {
 		name: 'SKULL',
 		image: 'ant_05',
 		description: [
@@ -4836,7 +4838,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ANTISPHERE ITEM!',
 		cost: 'Free'
 	},
-	{
+	'WASP': {
 		name: 'WASP',
 		image: 'ant_07',
 		description: [
@@ -4847,7 +4849,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ANTISPHERE ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Bullet---': {
 		name: 'The Bullet',
 		image: 'eng_01',
 		description: [
@@ -4858,7 +4860,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ENTER THE GUNGEON ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Cultist': {
 		name: 'The Cultist',
 		image: 'eng_03',
 		description: [
@@ -4869,7 +4871,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ENTER THE GUNGEON ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Marine': {
 		name: 'The Marine',
 		image: 'eng_04',
 		description: [
@@ -4880,7 +4882,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ENTER THE GUNGEON ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Robot': {
 		name: 'The Robot',
 		image: 'eng_02',
 		description: [
@@ -4891,7 +4893,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN ENTER THE GUNGEON ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Futuras': {
 		name: 'Futuras',
 		image: 'rvd_02',
 		description: [
@@ -4902,7 +4904,7 @@ const masks: MaskData[] = [
 		unlock: '\'THIS IS A RESERVOIR DOGS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Producers': {
 		name: 'Producers',
 		image: 'rvd_01',
 		description: [
@@ -4913,7 +4915,7 @@ const masks: MaskData[] = [
 		unlock: '\'THIS IS A RESERVOIR DOGS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The Dons': {
 		name: 'The Dons',
 		image: 'rvd_01',
 		description: [
@@ -4924,7 +4926,7 @@ const masks: MaskData[] = [
 		unlock: '\'THIS IS A RESERVOIR DOGS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Dallas---': {
 		name: 'Dallas',
 		image: 'dallas',
 		description: [
@@ -4935,7 +4937,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
 	},
-	{
+	'Chains---': {
 		name: 'Chains',
 		image: 'chains',
 		description: [
@@ -4946,7 +4948,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
 	},
-	{
+	'Hoxton---': {
 		name: 'Hoxton',
 		image: 'hoxton',
 		description: [
@@ -4957,7 +4959,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
 	},
-	{
+	'Wolf---': {
 		name: 'Wolf',
 		image: 'wolf',
 		description: [
@@ -4968,7 +4970,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
 	},
-	{
+	'Dallas Begins': {
 		name: 'Dallas Begins',
 		image: 'dallas_clean',
 		description: [
@@ -4980,7 +4982,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$67,500'
 	},
-	{
+	'Chains Begins': {
 		name: 'Chains Begins',
 		image: 'chains_clean',
 		description: [
@@ -4992,7 +4994,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$61,250'
 	},
-	{
+	'Hoxton Begins': {
 		name: 'Hoxton Begins',
 		image: 'hoxton_clean',
 		description: [
@@ -5004,7 +5006,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$61,250'
 	},
-	{
+	'Wolf Begins': {
 		name: 'Wolf Begins',
 		image: 'wolf_clean',
 		description: [
@@ -5016,7 +5018,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$61,250'
 	},
-	{
+	'Anonymous': {
 		name: 'Anonymous',
 		image: 'anonymous',
 		description: [
@@ -5029,7 +5031,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$45,000'
 	},
-	{
+	'Cthulhu': {
 		name: 'Cthulhu',
 		image: 'cthulhu',
 		description: [
@@ -5042,7 +5044,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$55,000'
 	},
-	{
+	'Dillinger Death Mask, The': {
 		name: 'Dillinger Death Mask, The',
 		image: 'dillinger_death_mask',
 		description: [
@@ -5055,7 +5057,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$61,250'
 	},
-	{
+	'Grin, The': {
 		name: 'Grin, The',
 		image: 'grin',
 		description: [
@@ -5069,7 +5071,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$55,000'
 	},
-	{
+	'Somen Mempo': {
 		name: 'Somen Mempo',
 		image: 'samurai',
 		description: [
@@ -5082,7 +5084,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'I Will Walk Faceless Among Men\''
 	},
-	{
+	'Hoxton Reborn---': {
 		name: 'Hoxton Reborn',
 		image: 'old_hoxton',
 		description: [
@@ -5094,7 +5096,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'Why Don’t We Just Use a Spoon?\''
 	},
-	{
+	'The Hard Hat': {
 		name: 'The Hard Hat',
 		image: 'hectors_helmet',
 		description: [
@@ -5105,7 +5107,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'I\'m An Avenger!\''
 	},
-	{
+	'Rad Mutant': {
 		name: 'Rad Mutant',
 		image: 'grendel',
 		description: [
@@ -5117,7 +5119,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'They Don’t Pay Us Enough\''
 	},
-	{
+	'Mega Rust': {
 		name: 'Mega Rust',
 		image: 'mrm',
 		description: [
@@ -5130,7 +5132,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'A Vast Amount of Unlawful Transgressions\''
 	},
-	{
+	'Mega Sangres': {
 		name: 'Mega Sangres',
 		image: 'mega_max',
 		description: [
@@ -5143,7 +5145,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'Only For Us Naughty Heisters\''
 	},
-	{
+	'StarVR': {
 		name: 'StarVR',
 		image: 'starvr',
 		description: [
@@ -5154,7 +5156,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Death': {
 		name: 'Mega Death',
 		image: 'mdm',
 		description: [
@@ -5165,7 +5167,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mega Duke': {
 		name: 'Mega Duke',
 		image: 'mmh',
 		description: [
@@ -5176,7 +5178,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Omen': {
 		name: 'Omen',
 		image: 'maw_01',
 		description: [
@@ -5187,7 +5189,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Bonnie---': {
 		name: 'Bonnie',
 		image: 'bonnie',
 		description: [
@@ -5198,7 +5200,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Bonnie Begins': {
 		name: 'Bonnie Begins',
 		image: 'bonnie_begins',
 		description: [
@@ -5210,7 +5212,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Hoxton Reborn Begins': {
 		name: 'Hoxton Reborn Begins',
 		image: 'old_hoxton_begins',
 		description: [
@@ -5222,7 +5224,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Bodhi---': {
 		name: 'Bodhi',
 		image: 'bodhi',
 		description: [
@@ -5233,7 +5235,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Bodhi Begins': {
 		name: 'Bodhi Begins',
 		image: 'bodhi_begins',
 		description: [
@@ -5245,7 +5247,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Jimmy---': {
 		name: 'Jimmy',
 		image: 'jimmy_duct',
 		description: [
@@ -5256,7 +5258,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'The White Death': {
 		name: 'The White Death',
 		image: 'jimmy',
 		description: [
@@ -5267,7 +5269,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Collateral---': {
 		name: 'Collateral',
 		image: 'jw_shades',
 		description: [
@@ -5280,7 +5282,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Sangres---': {
 		name: 'Sangres',
 		image: 'max',
 		description: [
@@ -5291,7 +5293,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Sangres Begins': {
 		name: 'Sangres Begins',
 		image: 'max_begins',
 		description: [
@@ -5302,7 +5304,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Duke---': {
 		name: 'Duke',
 		image: 'myh',
 		description: [
@@ -5314,7 +5316,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Duke Begins': {
 		name: 'Duke Begins',
 		image: 'myh_begins',
 		description: [
@@ -5325,7 +5327,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Joy---': {
 		name: 'Joy',
 		image: 'joy',
 		description: [
@@ -5336,7 +5338,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Joy Begins': {
 		name: 'Joy Begins',
 		image: 'joy_begins',
 		description: [
@@ -5347,7 +5349,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Normal Skull, The': {
 		name: 'Normal Skull, The',
 		image: 'dnm',
 		description: [
@@ -5359,7 +5361,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'Criminal Origins\''
 	},
-	{
+	'Hard Skull, The': {
 		name: 'Hard Skull, The',
 		image: 'skullhard',
 		description: [
@@ -5371,7 +5373,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'Tough Act to Follow\''
 	},
-	{
+	'Very Hard Skull, The': {
 		name: 'Very Hard Skull, The',
 		image: 'skullveryhard',
 		description: [
@@ -5383,7 +5385,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'Shit Just Got Real\''
 	},
-	{
+	'OVERKILL Skull, The': {
 		name: 'OVERKILL Skull, The',
 		image: 'skulloverkill',
 		description: [
@@ -5395,7 +5397,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'Completely OVERKILL!\''
 	},
-	{
+	'Mayhem Skull, The': {
 		name: 'Mayhem Skull, The',
 		image: 'gitgud_e_wish',
 		description: [
@@ -5407,7 +5409,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'Master of Mayhem\''
 	},
-	{
+	'Death Wish Skull, The': {
 		name: 'Death Wish Skull, The',
 		image: 'skulloverkillplus',
 		description: [
@@ -5419,7 +5421,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'OVERKILL Salutes You!\''
 	},
-	{
+	'Death Sentence Skull, The': {
 		name: 'Death Sentence Skull, The',
 		image: 'gitgud_sm_wish',
 		description: [
@@ -5431,7 +5433,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'A Heister of Legend\''
 	},
-	{
+	'One Down Skull, The': {
 		name: 'One Down Skull, The',
 		image: 'ggac_od_t2',
 		description: [
@@ -5443,7 +5445,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'One More Down, No More To Go\''
 	},
-	{
+	'Classy Monocle': {
 		name: 'Classy Monocle',
 		image: 'skm_03',
 		description: [
@@ -5454,7 +5456,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 5)'
 	},
-	{
+	'Fancy Top Hat': {
 		name: 'Fancy Top Hat',
 		image: 'skm_01',
 		description: [
@@ -5465,7 +5467,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 5)'
 	},
-	{
+	'Spirit Fox': {
 		name: 'Spirit Fox',
 		image: 'smo_02',
 		description: [
@@ -5476,7 +5478,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 5)'
 	},
-	{
+	'The Classically Fancy Super Villain': {
 		name: 'The Classically Fancy Super Villain',
 		image: 'skm_04',
 		description: [
@@ -5487,7 +5489,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 5)'
 	},
-	{
+	'The Super Villain Moustache': {
 		name: 'The Super Villain Moustache',
 		image: 'skm_02',
 		description: [
@@ -5498,7 +5500,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 5)'
 	},
-	{
+	'Arcade Simian': {
 		name: 'Arcade Simian',
 		image: 'smo_05',
 		description: [
@@ -5509,7 +5511,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 5)'
 	},
-	{
+	'Black Bird': {
 		name: 'Black Bird',
 		image: 'smo_06',
 		description: [
@@ -5520,7 +5522,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 5)'
 	},
-	{
+	'Chibi Kitteh': {
 		name: 'Chibi Kitteh',
 		image: 'smo_01',
 		description: [
@@ -5531,7 +5533,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 5)'
 	},
-	{
+	'Jamaican Nightmare': {
 		name: 'Jamaican Nightmare',
 		image: 'smo_04',
 		description: [
@@ -5542,7 +5544,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 5)'
 	},
-	{
+	'Poly Goat': {
 		name: 'Poly Goat',
 		image: 'smo_03',
 		description: [
@@ -5553,7 +5555,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 5)'
 	},
-	{
+	'Mega Optimist Prime': {
 		name: 'Mega Optimist Prime',
 		image: 'skm_05',
 		description: [
@@ -5564,7 +5566,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 9)'
 	},
-	{
+	'Mega Pirate': {
 		name: 'Mega Pirate',
 		image: 'skm_07',
 		description: [
@@ -5575,7 +5577,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 9)'
 	},
-	{
+	'Mega Vlad Armor': {
 		name: 'Mega Vlad Armor',
 		image: 'skm_08',
 		description: [
@@ -5586,7 +5588,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 9)'
 	},
-	{
+	'Mega War': {
 		name: 'Mega War',
 		image: 'skm_06',
 		description: [
@@ -5597,7 +5599,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 9)'
 	},
-	{
+	'Mega Anubis': {
 		name: 'Mega Anubis',
 		image: 'smo_11',
 		description: [
@@ -5608,7 +5610,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 9)'
 	},
-	{
+	'Mega Biker': {
 		name: 'Mega Biker',
 		image: 'smo_07',
 		description: [
@@ -5619,7 +5621,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 9)'
 	},
-	{
+	'Mega Krampus': {
 		name: 'Mega Krampus',
 		image: 'smo_08',
 		description: [
@@ -5630,7 +5632,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 9)'
 	},
-	{
+	'Mega Robber Fly': {
 		name: 'Mega Robber Fly',
 		image: 'smo_12',
 		description: [
@@ -5641,7 +5643,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 9)'
 	},
-	{
+	'Mega Smiley': {
 		name: 'Mega Smiley',
 		image: 'smo_09',
 		description: [
@@ -5652,7 +5654,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 9)'
 	},
-	{
+	'Mega Tiara': {
 		name: 'Mega Tiara',
 		image: 'smo_10',
 		description: [
@@ -5663,7 +5665,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free (Wave 9)'
 	},
-	{
+	'Secret Chains Mask': {
 		name: 'Secret Chains Mask',
 		image: 'sms_02',
 		description: [
@@ -5674,7 +5676,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Secret Dallas Mask': {
 		name: 'Secret Dallas Mask',
 		image: 'sms_01',
 		description: [
@@ -5685,7 +5687,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Secret Hoxton Mask': {
 		name: 'Secret Hoxton Mask',
 		image: 'sms_03',
 		description: [
@@ -5696,7 +5698,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Secret Wolf Mask': {
 		name: 'Secret Wolf Mask',
 		image: 'sms_04',
 		description: [
@@ -5707,7 +5709,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Guardian of Kings': {
 		name: 'Guardian of Kings',
 		image: 'scm_01',
 		description: [
@@ -5718,7 +5720,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Guardian of Watchers': {
 		name: 'Guardian of Watchers',
 		image: 'scm_02',
 		description: [
@@ -5729,7 +5731,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Egyptian Wolf Mask': {
 		name: 'Egyptian Wolf Mask',
 		image: 'sms_06',
 		description: [
@@ -5740,7 +5742,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Mesoamerican Dallas Mask': {
 		name: 'Mesoamerican Dallas Mask',
 		image: 'sms_05',
 		description: [
@@ -5751,7 +5753,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Watchers Hoxton Mask': {
 		name: 'Watchers Hoxton Mask',
 		image: 'sms_08',
 		description: [
@@ -5762,7 +5764,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Summerian Chains Mask': {
 		name: 'Summerian Chains Mask',
 		image: 'sms_07',
 		description: [
@@ -5773,7 +5775,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	{
+	'Heat, The': {
 		name: 'Heat, The',
 		image: 'aviator',
 		description: [
@@ -5786,7 +5788,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 1'
 	},
-	{
+	'Plague Doctor, The': {
 		name: 'Plague Doctor, The',
 		image: 'plague',
 		description: [
@@ -5799,7 +5801,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 3'
 	},
-	{
+	'Butcher, The': {
 		name: 'Butcher, The',
 		image: 'welder',
 		description: [
@@ -5812,7 +5814,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 5'
 	},
-	{
+	'Specialist, The': {
 		name: 'Specialist, The',
 		image: 'smoker',
 		description: [
@@ -5824,7 +5826,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 7'
 	},
-	{
+	'Spectre, The': {
 		name: 'Spectre, The',
 		image: 'ghost',
 		description: [
@@ -5837,7 +5839,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 9'
 	},
-	{
+	'Balaclava': {
 		name: 'Balaclava',
 		image: 'balaclava',
 		description: [
@@ -5848,7 +5850,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 11'
 	},
-	{
+	'Lurker': {
 		name: 'Lurker',
 		image: 'infamy_lurker',
 		description: [
@@ -5859,7 +5861,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 13'
 	},
-	{
+	'Android': {
 		name: 'Android',
 		image: 'daft',
 		description: [
@@ -5870,7 +5872,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 15'
 	},
-	{
+	'Being, The': {
 		name: 'Being, The',
 		image: 'punk',
 		description: [
@@ -5881,7 +5883,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 17'
 	},
-	{
+	'Venger': {
 		name: 'Venger',
 		image: 'pain',
 		description: [
@@ -5892,7 +5894,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 19'
 	},
-	{
+	'Heister Sentry': {
 		name: 'Heister Sentry',
 		image: 'ranger',
 		description: [
@@ -5903,7 +5905,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 21'
 	},
-	{
+	'Kamul': {
 		name: 'Kamul',
 		image: 'infamy_hood',
 		description: [
@@ -5914,7 +5916,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 23'
 	},
-	{
+	'Demonshank': {
 		name: 'Demonshank',
 		image: 'destroyer',
 		description: [
@@ -5925,7 +5927,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 25'
 	},
-	{
+	'Gangsta Pranksta': {
 		name: 'Gangsta Pranksta',
 		image: 'lastlaugh',
 		description: [
@@ -5936,7 +5938,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 72'
 	},
-	{
+	'Max, The': {
 		name: 'Max, The',
 		image: 'cyberpunk',
 		description: [
@@ -5947,7 +5949,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 76'
 	},
-	{
+	'Vanity Gold': {
 		name: 'Vanity Gold',
 		image: 'goldenbrute',
 		description: [
@@ -5958,7 +5960,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 88'
 	},
-	{
+	'Masquerade, The': {
 		name: 'Masquerade, The',
 		image: 'ingoldnito',
 		description: [
@@ -5969,7 +5971,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 94'
 	},
-	{
+	'Mega Famine': {
 		name: 'Mega Famine',
 		image: 'ami_02',
 		description: [
@@ -5980,7 +5982,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at 90 Achievements'
 	},
-	{
+	'Mega Conquest': {
 		name: 'Mega Conquest',
 		image: 'ami_03',
 		description: [
@@ -5991,7 +5993,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at 200 Achievements'
 	},
-	{
+	'Mega Tormentor': {
 		name: 'Mega Tormentor',
 		image: 'ami_05',
 		description: [
@@ -6002,7 +6004,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at 350 Achievements'
 	},
-	{
+	'Mega Arch Nemesis': {
 		name: 'Mega Arch Nemesis',
 		image: 'ami_04',
 		description: [
@@ -6013,7 +6015,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at 550 Achievements'
 	},
-	{
+	'Mega Rad Mutant': {
 		name: 'Mega Rad Mutant',
 		image: 'ami_01',
 		description: [
@@ -6024,7 +6026,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at 750 Achievements'
 	},
-	{
+	'Mega Greed': {
 		name: 'Mega Greed',
 		image: 'ami_06',
 		description: [
@@ -6035,7 +6037,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at 950 Achievements'
 	},
-	{
+	'The Great Immortal': {
 		name: 'The Great Immortal',
 		image: 'tam',
 		description: [
@@ -6046,7 +6048,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at 1000 Achievements'
 	},
-	{
+	'Buluc': {
 		name: 'Buluc',
 		image: 'buluc',
 		description: [
@@ -6057,7 +6059,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS ITEM IS UNOBTAINABLE',
 		cost: ''
 	},
-	{
+	'Roman': {
 		name: 'Roman',
 		image: 'roman',
 		description: [
@@ -6068,7 +6070,7 @@ const masks: MaskData[] = [
 		unlock: 'THIS ITEM IS UNOBTAINABLE',
 		cost: ''
 	},
-	{
+	'Sombrero': {
 		name: 'Sombrero',
 		image: 'sombrero',
 		description: [
@@ -6079,6 +6081,6 @@ const masks: MaskData[] = [
 		unlock: 'THIS ITEM IS UNOBTAINABLE',
 		cost: ''
 	}
-]
+}
 
 export default masks

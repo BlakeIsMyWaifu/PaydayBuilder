@@ -55,8 +55,20 @@ export interface WeaponModifications {
 	verticalGrip?: Modification<VerticalGripModificationsList>[];
 }
 
+export type AllWeaponList =
+	AssaultRifleList |
+	PrimaryShotgunList |
+	SecondaryShotgunList |
+	LightMachineGunList |
+	SniperList |
+	AkimboShotunsList |
+	PrimarySpecialList |
+	SecondarySpecialList |
+	PistolList |
+	SubmachineGunList
+
 export interface WeaponData {
-	name: string;
+	name: AllWeaponList;
 	image: string;
 	source: SourceData | ContentData;
 	inventorySlot: 'primary' | 'secondary';
@@ -149,9 +161,15 @@ interface WeaponSkin {
 	safe: string;
 }
 
+export interface WeaponFind {
+	name: AllWeaponList;
+	type: WeaponType;
+	slot: Slot;
+}
+
 export interface Weapon {
 	id: number;
-	weapon: WeaponData;
-	modifications: Partial<Record<ModificationSlot, Modification<string>>>;
+	weaponFind: WeaponFind;
+	modifications: Partial<Record<ModificationSlot, string>>;
 	name?: string;
 }

@@ -3,7 +3,7 @@ import Container from 'components/Container'
 import { HorizontalBar } from 'components/HorizontalActionBar'
 import Info, { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item'
-import data, { MaskData } from 'data/character/masks'
+import masks, { MaskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { Fragment, createRef, useRef, useState } from 'react'
 import { itemColours } from 'utils/colours'
@@ -12,7 +12,7 @@ import { CollectionTitle, CollectionsContainer, InfoCost, ItemContainer, MaskCol
 
 const collections = (() => {
 	const out: Record<string, MaskData[]> = {}
-	data.forEach(mask => {
+	Object.values(masks).forEach(mask => {
 		const collection = out[mask.collection]
 		out[mask.collection] = collection ? [...collection, mask] : [mask]
 	})
@@ -63,7 +63,7 @@ const Mask: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const equippedMask = useAppSelector(state => state.character.mask)
+	const equippedMask = masks[useAppSelector(state => state.character.mask)]
 	const [selectedMask, setSelectedMask] = useState<MaskData>(equippedMask)
 
 	const [selectedTab, setSelectedTab] = useState('All')
@@ -91,18 +91,18 @@ const Mask: React.FC = () => {
 
 			<ItemContainer ref={itemContainerRef}>
 				{
-					Object.entries(collections).map(([collection, masks], i) => {
-						if (selectedTab !== masks[0].rarity && selectedTab !== 'All') return <Fragment key={collection}></Fragment>
+					Object.entries(collections).map(([collection, collectionMasks], i) => {
+						if (selectedTab !== collectionMasks[0].rarity && selectedTab !== 'All') return <Fragment key={collection}></Fragment>
 						return <MaskCollection key={collection} ref={collectionRefs.current[i]}>
-							<MaskCollectionTitle color={itemColours[masks[0].rarity]}>{collection}</MaskCollectionTitle>
+							<MaskCollectionTitle color={itemColours[collectionMasks[0].rarity]}>{collection}</MaskCollectionTitle>
 							<MaskWrapper key={collection}>
 								{
-									masks.map(mask => {
+									collectionMasks.map(mask => {
 										return <Item
 											key={mask.name}
 											size={128}
 											selected={mask.name === selectedMask.name}
-											onClick={() => mask.name === selectedMask.name ? dispatch(changeMask(mask)) : setSelectedMask(mask)}
+											onClick={() => mask.name === selectedMask.name ? dispatch(changeMask(mask.name)) : setSelectedMask(mask)}
 										>
 											<ItemName color={itemColours[mask.rarity]}>{mask.name.replaceAll(' ', '\n')}</ItemName>
 											{mask.name === equippedMask.name && <ItemEquipped />}

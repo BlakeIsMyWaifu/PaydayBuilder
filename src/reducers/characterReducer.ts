@@ -1,27 +1,27 @@
 import actions, { ChangeEquipmentAction } from 'actions/characterAction'
-import { ArmourData } from 'data/character/armours'
-import { CharacterData } from 'data/character/characters'
-import { MaskData } from 'data/character/masks'
+import { ArmourList } from 'data/character/armours'
+import { CharacterList } from 'data/character/characters'
+import { MaskList } from 'data/character/masks'
 import defaultstate, { CharacterState } from 'defaultStates/characterDefaultState'
 import { getType } from 'typesafe-actions'
 
 const characterReducer = (state = defaultstate, action: Record<'type' | 'payload', any>): CharacterState => {
 
-	const changeMask = (mask: MaskData): CharacterState => {
+	const changeMask = (mask: MaskList): CharacterState => {
 		return {
 			...state,
 			mask
 		}
 	}
 
-	const changeCharacter = (character: CharacterData): CharacterState => {
+	const changeCharacter = (character: CharacterList): CharacterState => {
 		return {
 			...state,
 			character
 		}
 	}
 
-	const changeArmour = (armour: ArmourData): CharacterState => {
+	const changeArmour = (armour: ArmourList): CharacterState => {
 		return {
 			...state,
 			armour

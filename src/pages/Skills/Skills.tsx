@@ -3,9 +3,8 @@ import { resetSkills, resetTree } from 'actions/skillsAction'
 import Container from 'components/Container'
 import { HorizontalBar } from 'components/HorizontalActionBar'
 import { ResetContainer, ResetText } from 'components/Reset'
-import skills, { TreeData, TreeNames } from 'data/abilities/skills'
-import { SkillData } from 'data/abilities/skills'
-import equipmentData from 'data/character/equipment'
+import skills, { SkillData, TreeData, TreeNames } from 'data/abilities/skills'
+import equipments from 'data/character/equipment'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useEffect, useState } from 'react'
 
@@ -49,8 +48,8 @@ const Skills: React.FC = () => {
 			dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
 		}
 		if (engineering !== 'basic' && engineering !== 'aced') {
-			if (equippedEquipment.primary.name === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: equipmentData[0], slot: 'primary' }))
-			if (equippedEquipment.secondary?.name === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
+			if (equippedEquipment.primary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: Object.keys(equipments)[0], slot: 'primary' }))
+			if (equippedEquipment.secondary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
 		}
 		return () => {
 			window.removeEventListener('keydown', handleKeys)

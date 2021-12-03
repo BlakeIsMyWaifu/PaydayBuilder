@@ -678,7 +678,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 		}
 	},
 	'JP36 Rifle': {
-		name: 'JP36',
+		name: 'JP36 Rifle',
 		image: 'g36',
 		source: source['Base Game'],
 		inventorySlot: 'primary',

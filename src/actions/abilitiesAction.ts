@@ -1,18 +1,19 @@
 import { CHANGECREWABILITY, CHANGECREWBOOST, CHANGECREWCHARACTER, CHANGECREWMASK, CHANGECREWOUTFIT, CHANGECREWWEAPON, CHANGEPERKDECK, RESETABILITIES } from 'constants/abilitiesConstant'
-import { PerkData } from 'data/abilities/perks'
-import { CharacterData } from 'data/character/characters'
-import { MaskData } from 'data/character/masks'
-import { WeaponData } from 'data/weapons/guns/weaponTypes'
+import { CrewAbilityList } from 'data/abilities/crewAbilities'
+import { CrewBoostsList } from 'data/abilities/crewBoosts'
+import { PerkDeckList } from 'data/abilities/perks'
+import { CharacterList } from 'data/character/characters'
+import { MaskList } from 'data/character/masks'
 import { createAction } from 'typesafe-actions'
 
-export const changePerkdeck = createAction(CHANGEPERKDECK)<PerkData>()
+export const changePerkdeck = createAction(CHANGEPERKDECK)<PerkDeckList>()
 
-export const changeCrewMask = createAction(CHANGECREWMASK)<[number, MaskData]>()
-export const changeCrewCharacter = createAction(CHANGECREWCHARACTER)<[number, CharacterData]>()
+export const changeCrewMask = createAction(CHANGECREWMASK)<[number, MaskList]>()
+export const changeCrewCharacter = createAction(CHANGECREWCHARACTER)<[number, CharacterList]>()
 export const changeCrewOutfit = createAction(CHANGECREWOUTFIT)<[number, null]>()
-export const changeCrewWeapon = createAction(CHANGECREWWEAPON)<[number, WeaponData]>()
-export const changeCrewAbility = createAction(CHANGECREWABILITY)<[number, null]>()
-export const changeCrewBoost = createAction(CHANGECREWBOOST)<[number, null]>()
+export const changeCrewWeapon = createAction(CHANGECREWWEAPON)<[number, number]>()
+export const changeCrewAbility = createAction(CHANGECREWABILITY)<[number, CrewAbilityList]>()
+export const changeCrewBoost = createAction(CHANGECREWBOOST)<[number, CrewBoostsList]>()
 
 export const resetAbilities = createAction(RESETABILITIES)<void>()
 

@@ -4,12 +4,19 @@ import { resetSkills } from 'actions/skillsAction'
 import { resetWeapon } from 'actions/weaponsAction'
 import Container from 'components/Container'
 import { InfoDescription, InfoTitle } from 'components/Info'
-import perkData from 'data/abilities/perks'
+import perkDecks from 'data/abilities/perks'
+import armours from 'data/character/armours'
+import characters from 'data/character/characters'
+import equipments, { EquipmentData } from 'data/character/equipment'
+import masks from 'data/character/masks'
+import melees from 'data/weapons/melees'
+import throwables from 'data/weapons/throwables'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import { ArmourStatsTable } from 'pages/Armour'
 import { MeleeStatsTable } from 'pages/Melee'
 import WeaponsStatsTable from 'pages/Weapons/WeaponStatsTable'
 import React, { ReactElement, useState } from 'react'
+import findWeapon from 'utils/findWeapon'
 
 import { ConfigButton, ConfigWrapper, EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle, VersionText, VersionWrapper } from './Home-Elements'
 import Selector from './Selector'
@@ -27,14 +34,27 @@ const Home: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const { mask, character, armour, equipment } = useAppSelector(state => state.character)
-	const { primary, secondary, throwable, melee } = useAppSelector(state => state.weapons)
+	const characterState = useAppSelector(state => state.character)
+	const mask = masks[characterState.mask]
+	const character = characters[characterState.character]
+	const armour = armours[characterState.armour]
+	const equipmentPrimary = equipments[characterState.equipment.primary]
+	const equipmentSecondary: EquipmentData | null = equipments[characterState.equipment.secondary || '']
+
 	const armoury = useAppSelector(state => state.armoury)
+	const weaponsState = useAppSelector(state => state.weapons)
+
+	const primaryWeapon = armoury.primary[weaponsState.primary]
+	const secondaryWeapon = armoury.secondary[weaponsState.secondary]
+	const primaryData = findWeapon(primaryWeapon.weaponFind)
+	const secondaryData = findWeapon(secondaryWeapon.weaponFind)
+	const throwable = throwables[weaponsState.throwable]
+	const melee = melees[weaponsState.melee]
 
 	const [hoverInfo, setHoverInfo] = useState<HoverInfo | null>(null)
 
-	const perkDeck = useAppSelector(state => state.abilities.perkdeck)
-	const perkDeckIndex = Object.keys(perkData).indexOf(perkDeck.name)
+	const perkDeck = perkDecks[useAppSelector(state => state.abilities.perkdeck)]
+	const perkDeckIndex = Object.keys(perkDecks).indexOf(perkDeck.name)
 
 	const [toggleSettings, setToggleSettings] = useState(false)
 	const leftFacing = useAppSelector(state => state.settings.leftFacing)
@@ -88,14 +108,14 @@ const Home: React.FC = () => {
 						</Selector>
 
 						<Selector title='equipment' setHoverInfo={setHoverInfo} infoData={{
-							title: equipment.primary.name,
-							description: equipment.primary.description
+							title: equipmentPrimary.name,
+							description: equipmentPrimary.description
 						}}>
 							{
-								equipment.secondary ? <EquipmentContainer>
-									<Image src={`images/equipment/${equipment.primary.name}.png`} />
-									<Image src={`images/equipment/${equipment.secondary.name}.png`} />
-								</EquipmentContainer> : <Image src={`images/equipment/${equipment.primary.name}.png`} />
+								equipmentSecondary ? <EquipmentContainer>
+									<Image src={`images/equipment/${equipmentPrimary.name}.png`} />
+									<Image src={`images/equipment/${equipmentSecondary.name}.png`} />
+								</EquipmentContainer> : <Image src={`images/equipment/${equipmentPrimary.name}.png`} />
 							}
 						</Selector>
 
@@ -107,17 +127,17 @@ const Home: React.FC = () => {
 					<SelectorWrapper>
 
 						<Selector title='primary' setHoverInfo={setHoverInfo} infoData={{
-							title: armoury.primary[primary].weapon.name,
-							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={armoury.primary[primary]} />
+							title: primaryData.name,
+							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={primaryWeapon} />
 						}}>
-							<Image src={`images/weapons/${armoury.primary[primary].weapon.image}.png`} leftFacing={leftFacing} />
+							<Image src={`images/weapons/${primaryData.image}.png`} leftFacing={leftFacing} />
 						</Selector>
 
 						<Selector title='secondary' setHoverInfo={setHoverInfo} infoData={{
-							title: armoury.secondary[secondary].weapon.name,
-							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={armoury.secondary[secondary]} />
+							title: secondaryData.name,
+							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={secondaryWeapon} />
 						}}>
-							<Image src={`images/weapons/${armoury.secondary[secondary].weapon.image}.png`} leftFacing={leftFacing} />
+							<Image src={`images/weapons/${secondaryData.image}.png`} leftFacing={leftFacing} />
 						</Selector>
 
 						<Selector title='throwable' setHoverInfo={setHoverInfo} infoData={{

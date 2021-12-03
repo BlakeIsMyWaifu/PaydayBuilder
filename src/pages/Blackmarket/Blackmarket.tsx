@@ -5,11 +5,13 @@ import { InfoContainer, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { ActionText, ActionsContainer } from 'components/ItemAction'
 import { ResetContainer, ResetText } from 'components/Reset'
+import modificationList from 'data/weapons/guns/modificationList'
 import { Modification, ModificationSlot, Slot, Weapon, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { blue, itemColours } from 'utils/colours'
+import findWeapon from 'utils/findWeapon'
 
 import BlackmarketStatsTable from './BlackmarketStatsTable'
 
@@ -27,10 +29,11 @@ const WeaponChecker: React.FC = () => {
 		const validId: number = +id
 		return armoury[validSlot][validId]
 	}
+
 	const weapon = getWeapon(slot, id)
 
 	return weapon ? (
-		<Blackmarket slot={(slot as Slot)} id={id ? +id : 0} weapon={weapon.weapon} equippedModifications={weapon.modifications}></Blackmarket>
+		<Blackmarket slot={(slot as Slot)} id={id ? +id : 0} weapon={findWeapon(weapon.weaponFind)} equippedModifications={Object.entries(weapon.modifications).map(([modType, modName]) => modificationList[(modType as ModificationSlot)][modName]).reduce((a, v) => ({ ...a, [v.slot]: v }), {})} />
 	) : (
 		<Container title='Blackmarket'>
 			<h1>Error, invalid weapon</h1>

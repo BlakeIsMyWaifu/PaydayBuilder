@@ -1,6 +1,8 @@
 import content, { ContentData } from 'data/source/downloadableContent'
 import source, { SourceData } from 'data/source/miscSources'
 
+export type ThrowableList = keyof typeof throwables
+
 export interface ThrowableData {
 	name: string;
 	description: string[];
@@ -44,8 +46,8 @@ interface Consumable {
 	cooldown: number;
 }
 
-const throwable: ThrowableData[] = [
-	{
+const throwables: Record<string, ThrowableData> = {
+	'Matryoshka Grenade': {
 		name: 'Matryoshka Grenade',
 		description: [
 			'The Matryoshka Grenade is a throwable explosive device. The doll\'s outer layers hides its inner workings. Creates substantial damage at the same time as it pays tribute to the motherland.'
@@ -63,7 +65,7 @@ const throwable: ThrowableData[] = [
 			explosionRadius: 10
 		}
 	},
-	{
+	'Incendiary Grenade': {
 		name: 'Incendiary Grenade',
 		description: [
 			'The Incendiary Grenade is a nasty self igniting phosphorus container. It ignites after a few seconds, making it perfect for bouncing off walls towards your enemies. Upon ignition it causes serious damage - setting enemies ablaze.'
@@ -90,7 +92,7 @@ const throwable: ThrowableData[] = [
 			}
 		}
 	},
-	{
+	'HEF Grenade': {
 		name: 'HEF Grenade',
 		description: [
 			'This is an updated version of the classic hand grenade. Even though the original frag grenade is still in use, this new sleek design will provide that OVERKILL touch to each blast. Still as cheap and still as effective.'
@@ -108,7 +110,7 @@ const throwable: ThrowableData[] = [
 			explosionRadius: 5
 		}
 	},
-	{
+	'Ace of Spades': {
 		name: 'Ace of Spades',
 		description: [
 			'Throwing cards are generally associated with magicians splitting watermelons across a stage, but add weight and razor edges and you have a silent killer. Have one of these steel aces in your sleeves and you will always be ready to deal yourself into the game, regardless of the circumstances.',
@@ -127,7 +129,7 @@ const throwable: ThrowableData[] = [
 			unequipDelay: 1.1
 		}
 	},
-	{
+	'Concussion Grenade': {
 		name: 'Concussion Grenade',
 		description: [
 			'This stunning little beauty will take everyone\'s breath away, giving you those couple of extra seconds you'
@@ -145,7 +147,7 @@ const throwable: ThrowableData[] = [
 			explosionRadius: 15
 		}
 	},
-	{
+	'Frag Grenade': {
 		name: 'Frag Grenade',
 		description: [
 			'The frag grenade is a concept that has changed little from its inception. It is a thrown casing that explodes, sending shards and splinters away with such force they can slice through flesh, bone and light armor. Cheap and effective.'
@@ -163,7 +165,7 @@ const throwable: ThrowableData[] = [
 			explosionRadius: 5
 		}
 	},
-	{
+	'Molotove Cocktail': {
 		name: 'Molotove Cocktail',
 		description: [
 			'The Molotov cocktail is perhaps the simplest weapon that can call itself a grenade. Nothing more than a breakable bottle of flammable liquid with a \'fuse\' replaced by a burning rag. It is cheap, simple and highly effective.'
@@ -190,7 +192,7 @@ const throwable: ThrowableData[] = [
 			}
 		}
 	},
-	{
+	'Dynamite': {
 		name: 'Dynamite',
 		description: [
 			'Swedish engineer, Alfred Nobel, discovered dynamite and its effectiveness in blasting rock. But it was drunk prospector, Ol\' Kenneth, who discovered its effectiveness in blasting people.'
@@ -208,7 +210,7 @@ const throwable: ThrowableData[] = [
 			explosionRadius: 5
 		}
 	},
-	{
+	'Shuriken': {
 		name: 'Shuriken',
 		description: [
 			'Like a sword hidden in the user\'s hand the shuriken is a deadly weapon and perfectly silent. First made of nails and needles, the throwing star has had a long history filled with blood and battle. These modern stars of stainless steel will pose a lethal threat to anyone in front of you, and as long as you can find them there will be no stopping you.',
@@ -234,7 +236,7 @@ const throwable: ThrowableData[] = [
 			}
 		}
 	},
-	{
+	'Javelin': {
 		name: 'Javelin',
 		description: [
 			'With its origins lost in murky pre-history, the javelin is a simple weapon. After all, it\'s a thrown stick with a pointy end that ruins someone\'s day. Despite this simplicity, it still requires skill and strength to use.'
@@ -252,7 +254,7 @@ const throwable: ThrowableData[] = [
 			unequipDelay: 1.1
 		}
 	},
-	{
+	'Throwing Knife': {
 		name: 'Throwing Knife',
 		description: [
 			'A solid backup plan and a reliable tactic for a precise and silent kill. The Throwing Knife has been present in martial history for as long as people grew tired of throwing objects in a general direction and wanted a reliable weapon instead.'
@@ -270,7 +272,7 @@ const throwable: ThrowableData[] = [
 			unequipDelay: 1.1
 		}
 	},
-	{
+	'Throwing Axe': {
 		name: 'Throwing Axe',
 		description: [
 			'A sharp axe is never wrong, and as this one is especially good when throwing, it got popular amongst bikers. Riding a bike, can sometimes be dangerous, and you need some "protection". So this sporting axe suddenly ran out of stock as bikers found it extra handy for highway battles.'
@@ -288,7 +290,7 @@ const throwable: ThrowableData[] = [
 			unequipDelay: 1.1
 		}
 	},
-	{
+	'X1-ZAPer': {
 		name: 'X1-ZAPer',
 		description: [
 			'Shrapnel is all well and good, but some things need to be fried, and this little beauty is a rather practical beast for dishing out some damage with high voltage.'
@@ -306,7 +308,7 @@ const throwable: ThrowableData[] = [
 			explosionRadius: 10
 		}
 	},
-	{
+	'Stoic\'s Hip Flask': {
 		name: 'Stoic\'s Hip Flask',
 		description: [
 			'An antique flask from 1882 bearing the inscription "Stoic" and "JW Spirits", given to Duke in his youth when he trained with Buddhist monks. Duke keeps it filled with his favorite whiskey; taking a swig is a symbolic gesture of calming and gives the bearer a moment of zen-like focus, easing away damage.'
@@ -321,7 +323,7 @@ const throwable: ThrowableData[] = [
 			cooldown: 10
 		}
 	},
-	{
+	'Pocket ECM': {
 		name: 'Pocket ECM',
 		description: [
 			'A small device for intercepting and overriding nearby encrypted signals. With sophisticated algorithms for sniffing out and disrupting wireless data, the Pocket ECM Device gives the user an edge both while hiding in the shadows and in the heat of combat.'
@@ -336,7 +338,7 @@ const throwable: ThrowableData[] = [
 			cooldown: 100
 		}
 	},
-	{
+	'Smoke Bomb': {
 		name: 'Smoke Bomb',
 		description: [
 			'Drop one of these and you\'ll vanish in a cloud of smoke, leaving your enemies struggling to take aim at you. Dodging bullets is a piece of cake when they can\'t see you properly.'
@@ -351,7 +353,7 @@ const throwable: ThrowableData[] = [
 			cooldown: 60
 		}
 	},
-	{
+	'Gas Dispenser': {
 		name: 'Gas Dispenser',
 		description: [
 			'When consumed the user cease to feel pain and become fearless. The lack of pain let the user rampage through the heart of battles longer than any other and the lack of fear make him a frightening and obvious threat for his enemies.'
@@ -366,7 +368,7 @@ const throwable: ThrowableData[] = [
 			cooldown: 60
 		}
 	},
-	{
+	'Injector': {
 		name: 'Injector',
 		description: [
 			'A small gas dispenser that temporarily enhance the body\'s senses and provide a healing effect for two allies.'
@@ -381,6 +383,6 @@ const throwable: ThrowableData[] = [
 			cooldown: 30
 		}
 	}
-]
+}
 
-export default throwable
+export default throwables

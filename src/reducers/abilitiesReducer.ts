@@ -1,16 +1,18 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import actions from 'actions/abilitiesAction'
-import { PerkData } from 'data/abilities/perks'
-import { CharacterData } from 'data/character/characters'
-import { MaskData } from 'data/character/masks'
+import { CrewAbilityList } from 'data/abilities/crewAbilities'
+import { CrewBoostsList } from 'data/abilities/crewBoosts'
+import { PerkDeckList } from 'data/abilities/perks'
+import { CharacterList } from 'data/character/characters'
+import { MaskList } from 'data/character/masks'
 import { WeaponData } from 'data/weapons/guns/weaponTypes'
 import defaultState, { AbilitiesState } from 'defaultStates/abilitiesDefaultState'
 import { getType } from 'typesafe-actions'
 
 const abilitiesReducer = (state = defaultState, action: Record<'type' | 'payload', any>): AbilitiesState => {
 
-	const changePerkdeck = (perkdeck: PerkData): AbilitiesState => {
+	const changePerkdeck = (perkdeck: PerkDeckList): AbilitiesState => {
 		return {
 			...state,
 			perkdeck
@@ -23,12 +25,12 @@ const abilitiesReducer = (state = defaultState, action: Record<'type' | 'payload
 
 		// WIP Crew Management
 		case getType(actions.changeCrewMask):
-			const mask: MaskData = action.payload
+			const mask: MaskList = action.payload
 			return {
 				...state
 			}
 		case getType(actions.changeCrewCharacter):
-			const character: CharacterData = action.payload
+			const character: CharacterList = action.payload
 			return {
 				...state
 			}
@@ -43,12 +45,12 @@ const abilitiesReducer = (state = defaultState, action: Record<'type' | 'payload
 				...state
 			}
 		case getType(actions.changeCrewAbility):
-			const ability = action.payload
+			const ability: CrewAbilityList = action.payload
 			return {
 				...state
 			}
 		case getType(actions.changeCrewBoost):
-			const boost = action.payload
+			const boost: CrewBoostsList = action.payload
 			return {
 				...state
 			}

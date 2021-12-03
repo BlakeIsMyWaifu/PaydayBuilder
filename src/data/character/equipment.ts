@@ -1,7 +1,9 @@
 import keybinds from 'data/keybinds'
 
+export type EquipmentList = keyof typeof equipments
+
 export interface EquipmentData {
-	name: string;
+	name: EquipmentList;
 	amount: number[];
 	upgrade: EquipmentUpgradeData[];
 	description: string[];
@@ -13,8 +15,8 @@ interface EquipmentUpgradeData {
 	skillState: 'basic' | 'aced';
 }
 
-const equipment: EquipmentData[] = [
-	{
+const equipments: Record<string, EquipmentData> = {
+	'Ammo Bag': {
 		name: 'Ammo Bag',
 		amount: [1],
 		upgrade: [{
@@ -27,7 +29,7 @@ const equipment: EquipmentData[] = [
 			'The ammo bag is a portable bag, originally intended to allow soldiers to carry extra ammunition with them into combat.'
 		]
 	},
-	{
+	'Armour Kit': {
 		name: 'Armour Kit',
 		amount: [1],
 		upgrade: [],
@@ -36,7 +38,7 @@ const equipment: EquipmentData[] = [
 			'The armor bag has only one use and when it is consumed, it disappears. The Armor Bag is a portable bag used to transport an armor of your choice, that can be used during a heist.'
 		]
 	},
-	{
+	'Body Bag Case': {
 		name: 'Body Bag Case',
 		amount: [1],
 		upgrade: [{
@@ -49,7 +51,7 @@ const equipment: EquipmentData[] = [
 			'The Body Bag Case has limited uses. You can see how many uses are left by looking at the Body Bag Case. The Body Bag Case carries additional bags, used for the transportation of corpses during stealth.'
 		]
 	},
-	{
+	'Doctor Bag': {
 		name: 'Doctor Bag',
 		amount: [1],
 		upgrade: [{
@@ -63,7 +65,7 @@ const equipment: EquipmentData[] = [
 			'The Doctor Bag is a portable bag, usually used by a physician or other medical profession to transport medical supplies and medicine.'
 		]
 	},
-	{
+	'ECM Jammer': {
 		name: 'ECM Jammer',
 		amount: [1],
 		upgrade: [{
@@ -77,7 +79,7 @@ const equipment: EquipmentData[] = [
 			'An Electronic Countermeasure (ECM) is an electronic device designed to trick radar, sonar and other detection systems, easing your way towards your goal.'
 		]
 	},
-	{
+	'First Aid Kit': {
 		name: 'First Aid Kit',
 		amount: [4],
 		upgrade: [
@@ -98,7 +100,7 @@ const equipment: EquipmentData[] = [
 			'A deployed first aid kit can be used once and when it is consumed, it disappears.'
 		]
 	},
-	{
+	'Sentry Gun': {
 		name: 'Sentry Gun',
 		amount: [1],
 		upgrade: [
@@ -118,7 +120,7 @@ const equipment: EquipmentData[] = [
 			'The Sentry Gun automatically aims and fires at targets that are detected by its sensors. It\'s commonly used as a distraction, drawing attention from you and your team.'
 		]
 	},
-	{
+	'Silenced Sentry Gun': {
 		name: 'Silenced Sentry Gun',
 		amount: [1],
 		upgrade: [
@@ -138,7 +140,7 @@ const equipment: EquipmentData[] = [
 			'The Suppressed Sentry Gun is the counterpart to the regular, louder Sentry Gun as it\'s more used to take out enemies than a classic distraction.'
 		]
 	},
-	{
+	'Trip Mines and Shaped Charges': {
 		name: 'Trip Mines and Shaped Charges',
 		amount: [3, 3],
 		upgrade: [
@@ -158,6 +160,6 @@ const equipment: EquipmentData[] = [
 			`To use Shaped Charges, you need to place it by holding [${keybinds['Deploy Equipment/Throw Bag']}]. Once placed it will detonate within a few seconds. Trip Mines are basically traps that will hurt or kill enemies crossing the beam. Shaped Charges are commonly used to open safes and doors. Both are a good addition to all combat situations.`
 		]
 	}
-]
+}
 
-export default equipment
+export default equipments

@@ -1113,7 +1113,7 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 		}
 	},
 	'Kross Vertex Submachine Gun': {
-		name: 'Kross Vertext Submachine Gun',
+		name: 'Kross Vertex Submachine Gun',
 		image: 'polymer',
 		source: content['Gage Ninja Pack'],
 		inventorySlot: 'secondary',

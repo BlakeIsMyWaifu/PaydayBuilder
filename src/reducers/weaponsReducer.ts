@@ -1,6 +1,6 @@
 import actions, { ChangeWeaponAction } from 'actions/weaponsAction'
-import { MeleeData } from 'data/weapons/melees'
-import { ThrowableData } from 'data/weapons/throwables'
+import { MeleeList } from 'data/weapons/melees'
+import { ThrowableList } from 'data/weapons/throwables'
 import defaultState, { WeaponsState } from 'defaultStates/weaponsDefaultState'
 import { getType } from 'typesafe-actions'
 
@@ -13,14 +13,14 @@ const weaponReducer = (state = defaultState, action: Record<'type' | 'payload', 
 		}
 	}
 
-	const changeThrowable = (throwable: ThrowableData): WeaponsState => {
+	const changeThrowable = (throwable: ThrowableList): WeaponsState => {
 		return {
 			...state,
 			throwable
 		}
 	}
 
-	const changeMelee = (melee: MeleeData): WeaponsState => {
+	const changeMelee = (melee: MeleeList): WeaponsState => {
 		return {
 			...state,
 			melee

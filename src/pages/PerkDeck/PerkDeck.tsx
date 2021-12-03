@@ -2,7 +2,7 @@ import Container from 'components/Container'
 import { HorizontalBar, HorizontalItem } from 'components/HorizontalActionBar'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import { ItemContainer } from 'components/Item'
-import data, { PerkCard } from 'data/abilities/perks'
+import perkDecks, { PerkCard } from 'data/abilities/perks'
 import { useAppSelector } from 'hooks'
 import React, { createRef, useEffect, useRef, useState } from 'react'
 import { blue } from 'utils/colours'
@@ -16,7 +16,7 @@ const PerkDeck: React.FC = () => {
 
 	const perkWrapperRef = useRef<HTMLDivElement>(null)
 
-	const perkRefs = useRef(Array.from({ length: Object.keys(data).length }, () => createRef<HTMLDivElement>()))
+	const perkRefs = useRef(Array.from({ length: Object.keys(perkDecks).length }, () => createRef<HTMLDivElement>()))
 
 	const scrollToPerk = (i: number, behavior: 'smooth' | 'auto') => {
 		const container = perkWrapperRef.current
@@ -30,12 +30,12 @@ const PerkDeck: React.FC = () => {
 
 	const [hoveredCard, setHoveredCard] = useState<PerkCard | null>(null)
 
-	const equippedPerk = useAppSelector(state => state.abilities.perkdeck)
+	const equippedPerk = perkDecks[useAppSelector(state => state.abilities.perkdeck)]
 
 	const [selectedPerk, setSelectedPerk] = useState(equippedPerk)
 
 	useEffect(() => {
-		const currentEquippedIndex = Object.keys(data).indexOf(equippedPerk.name)
+		const currentEquippedIndex = Object.keys(perkDecks).indexOf(equippedPerk.name)
 		scrollToPerk(currentEquippedIndex, 'auto')
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
@@ -45,7 +45,7 @@ const PerkDeck: React.FC = () => {
 
 			<HorizontalBar ref={scrollRef} onWheel={event => scrollHorizontalDiv(event, scrollRef)}>
 				{
-					Object.values(data).map((perkdeck, i) => {
+					Object.values(perkDecks).map((perkdeck, i) => {
 						return <HorizontalItem
 							key={perkdeck.name}
 							onClick={() => scrollToPerk(i, 'smooth')}
@@ -57,7 +57,7 @@ const PerkDeck: React.FC = () => {
 
 			<ItemContainer ref={perkWrapperRef}>
 				{
-					Object.values(data).map((perkdeck, i) => {
+					Object.values(perkDecks).map((perkdeck, i) => {
 						return <Perk
 							perkref={perkRefs.current[i]}
 							key={perkdeck.name}

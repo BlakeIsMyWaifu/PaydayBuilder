@@ -1,7 +1,7 @@
 import content, { ContentData } from 'data/source/downloadableContent'
 import source, { SourceData } from 'data/source/miscSources'
 
-type PerkDeckList =
+export type PerkDeckList =
 	'Crew Chief' |
 	'Muscle' |
 	'Armorer' |
@@ -25,7 +25,7 @@ type PerkDeckList =
 	'Hacker'
 
 export interface PerkData {
-	name: string;
+	name: PerkDeckList;
 	description: string[];
 	cards: PerkCard[];
 	source: ContentData | SourceData;

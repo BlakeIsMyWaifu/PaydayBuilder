@@ -1,7 +1,7 @@
 import { changePerkdeck } from 'actions/abilitiesAction'
 import { changeThrowable } from 'actions/weaponsAction'
-import { PerkCard, PerkData } from 'data/abilities/perks'
-import throwableData from 'data/weapons/throwables'
+import perkDecks, { PerkCard, PerkData } from 'data/abilities/perks'
+import throwables from 'data/weapons/throwables'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React from 'react'
 
@@ -20,7 +20,7 @@ const Perk: React.FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selec
 
 	const dispatch = useAppDispatch()
 
-	const equippedPerk = useAppSelector(state => state.abilities.perkdeck)
+	const equippedPerk = perkDecks[useAppSelector(state => state.abilities.perkdeck)]
 
 	return (
 		<Container ref={perkref}>
@@ -32,11 +32,11 @@ const Perk: React.FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selec
 					setSelectedPerk(perk)
 					return
 				}
-				const throwable = throwableData.find(throwable => throwable.name === perk.throwable) || throwableData[5]
+				const throwable = throwables[perk.throwable || ''] || throwables[5]
 				if (perk.throwable || equippedPerk.throwable) {
-					dispatch(changeThrowable(throwable))
+					dispatch(changeThrowable(throwable.name))
 				}
-				dispatch(changePerkdeck(perk))
+				dispatch(changePerkdeck(perk.name))
 			}}>
 				{
 					perk.cards.map((card, i) => {

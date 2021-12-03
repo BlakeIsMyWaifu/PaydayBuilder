@@ -1,4 +1,4 @@
-import skillData from 'data/abilities/skills'
+import skills from 'data/abilities/skills'
 import { useAppSelector } from 'hooks'
 import { HoverInfo } from 'pages/Home/Home'
 import React from 'react'
@@ -22,7 +22,7 @@ const SelectorSkills: React.FC<SelectorSkillProps> = ({ infoData, setHoverInfo }
 			{
 				<SkillsContainer>
 					{
-						Object.keys(skillData).map(tree => {
+						Object.keys(skills).map(tree => {
 							const treePoints = skillTreePoints(tree, currentTrees)
 							return <SkillWrapper key={tree}>
 								<SkillsCard />

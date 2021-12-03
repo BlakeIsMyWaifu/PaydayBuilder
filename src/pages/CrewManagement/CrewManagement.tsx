@@ -1,10 +1,9 @@
 import Container from 'components/Container'
 import { InfoContainer, InfoTitle } from 'components/Info'
-import { CrewAbility } from 'data/abilities/crewAbilities'
-import { CrewBoost } from 'data/abilities/crewBoosts'
-import { CharacterData } from 'data/character/characters'
-import { MaskData } from 'data/character/masks'
-import { WeaponData } from 'data/weapons/guns/weaponTypes'
+import { CrewAbilityList } from 'data/abilities/crewAbilities'
+import { CrewBoostsList } from 'data/abilities/crewBoosts'
+import { CharacterList } from 'data/character/characters'
+import { MaskList } from 'data/character/masks'
 import { useAppSelector } from 'hooks'
 import React from 'react'
 
@@ -12,12 +11,12 @@ import { LoadoutContainer } from './CrewManagement-Elements'
 import Loadout from './Loadout/Loadout'
 
 export interface CrewData {
-	mask: MaskData;
-	character: CharacterData;
+	mask: MaskList;
+	character: CharacterList;
 	outfit: null;
-	weapon: WeaponData;
-	ability: CrewAbility | null;
-	boost: CrewBoost | null;
+	weapon: number;
+	ability: CrewAbilityList | null;
+	boost: CrewBoostsList | null;
 }
 
 const CrewManagement: React.FC = () => {

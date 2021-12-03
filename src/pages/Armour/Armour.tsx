@@ -3,7 +3,7 @@ import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { TableCompare, TableEquipped } from 'components/Table'
-import data, { ArmourData, ArmourStats } from 'data/character/armours'
+import armours, { ArmourData, ArmourStats } from 'data/character/armours'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 
@@ -61,8 +61,7 @@ export const Armour: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const equippedArmour = useAppSelector(state => state.character.armour)
-
+	const equippedArmour = armours[useAppSelector(state => state.character.armour)]
 	const [selectedArmour, setSelectedArmour] = useState<ArmourData>(equippedArmour)
 
 	return (
@@ -70,12 +69,12 @@ export const Armour: React.FC = () => {
 
 			<ItemContainer>
 				{
-					data.map(armour => {
+					Object.values(armours).map(armour => {
 						return <Item
 							key={armour.name}
 							size={196}
 							selected={armour.name === selectedArmour.name}
-							onClick={() => armour.name === selectedArmour.name ? dispatch(changeArmour(armour)) : setSelectedArmour(armour)}
+							onClick={() => armour.name === selectedArmour.name ? dispatch(changeArmour(armour.name)) : setSelectedArmour(armour)}
 						>
 							<ItemName>{armour.name}</ItemName>
 							{armour.name === equippedArmour.name && <ItemEquipped />}

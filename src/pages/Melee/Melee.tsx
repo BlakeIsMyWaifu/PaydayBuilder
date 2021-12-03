@@ -3,7 +3,7 @@ import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { TableCompare, TableEquipped } from 'components/Table'
-import data, { MeleeStats } from 'data/weapons/melees'
+import melees, { MeleeStats } from 'data/weapons/melees'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 import { itemColours } from 'utils/colours'
@@ -73,7 +73,7 @@ export const Melee: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const equippedMelee = useAppSelector(state => state.weapons.melee)
+	const equippedMelee = melees[useAppSelector(state => state.weapons.melee)]
 	const [selectedMelee, setSelectedMelee] = useState(equippedMelee)
 
 	const leftFacing = useAppSelector(state => state.settings.leftFacing)
@@ -83,13 +83,13 @@ export const Melee: React.FC = () => {
 
 			<ItemContainer>
 				{
-					data.map(melee => {
+					Object.values(melees).map(melee => {
 						return <Item
 							key={melee.name}
 							width={192}
 							height={96}
 							selected={melee.name === selectedMelee.name}
-							onClick={() => melee.name === selectedMelee.name ? dispatch(changeMelee(melee)) : setSelectedMelee(melee)}
+							onClick={() => melee.name === selectedMelee.name ? dispatch(changeMelee(melee.name)) : setSelectedMelee(melee)}
 						>
 							<ItemName color={itemColours[melee.source.rarity]}>{melee.name}</ItemName>
 							{melee.name === equippedMelee.name && <ItemEquipped />}

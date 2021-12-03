@@ -582,7 +582,7 @@ const snipers: Record<SniperList, WeaponData> = {
 		}
 	},
 	'Thanatos .50 cal Sniper Rifle': {
-		name: 'Thanatos',
+		name: 'Thanatos .50 cal Sniper Rifle',
 		image: 'm95',
 		source: content['Gage Sniper Pack'],
 		inventorySlot: 'primary',

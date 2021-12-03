@@ -9,7 +9,11 @@ const armouryReducer = (state = defaultState, action: Record<'type' | 'payload',
 		const nextNum = Math.max(0, ...Object.keys(state[slot]).map(num => +num)) + 1
 		const newWeapon: Weapon = {
 			id: nextNum,
-			weapon,
+			weaponFind: {
+				name: weapon.name,
+				type: weapon.weaponType,
+				slot: slot
+			},
 			modifications: {}
 		}
 		return {
@@ -46,7 +50,7 @@ const armouryReducer = (state = defaultState, action: Record<'type' | 'payload',
 					...state[slot][id],
 					modifications: {
 						...state[slot][id].modifications,
-						[newMod.slot]: newMod
+						[newMod.slot]: newMod.name
 					}
 				}
 			}

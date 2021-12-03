@@ -4,7 +4,7 @@ export interface CrewAbility {
 	notes?: string;
 }
 
-type CrewAbilityList =
+export type CrewAbilityList =
 	'Quick' |
 	'Inspiring' |
 	'Sharpeyed' |
