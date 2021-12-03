@@ -1,4 +1,4 @@
-import { changeEquipment } from 'actions/characterAction'
+import { changeArmour, changeEquipment } from 'actions/characterAction'
 import { resetSkills, resetTree } from 'actions/skillsAction'
 import Container from 'components/Container'
 import { HorizontalBar } from 'components/HorizontalActionBar'
@@ -23,7 +23,7 @@ const Skills: React.FC = () => {
 
 	const treeNameOrder: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
 
-	const scrollTrees = (event: React.WheelEvent) => {
+	const scrollTrees = (event: React.WheelEvent): void => {
 		const direction = event.deltaY < 0 ? -1 : 1
 		let index = treeNameOrder.indexOf(currentTree.name)
 		index += direction
@@ -34,27 +34,36 @@ const Skills: React.FC = () => {
 	const jackOfAllTrades = useAppSelector(state => state.skills.trees.technician.engineer.upgrades['Jack of All Trades'])
 	const engineering = useAppSelector(state => state.skills.trees.technician.engineer.upgrades.Engineering)
 	const equippedEquipment = useAppSelector(state => state.character.equipment)
+	const ironMan = useAppSelector(state => state.skills.trees.enforcer.tank.upgrades['Iron Man'])
+	const equippedArmour = useAppSelector(state => state.character.armour)
 
 	useEffect(() => {
-		const handleKeys = (event: KeyboardEvent) => {
+		const handleKeys = (event: KeyboardEvent): void => {
 			if (event.key === 'f') {
 				dispatch(resetTree(currentTree.name))
 			} else if (event.key === 'r') {
 				dispatch(resetSkills())
 			}
 		}
+
 		window.addEventListener('keydown', handleKeys)
 		if (jackOfAllTrades !== 'aced' && equippedEquipment.secondary) {
 			dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
 		}
+
 		if (engineering !== 'basic' && engineering !== 'aced') {
 			if (equippedEquipment.primary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: Object.keys(equipments)[0], slot: 'primary' }))
 			if (equippedEquipment.secondary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
 		}
+
+		if (ironMan !== 'aced') {
+			if (equippedArmour === 'Improved Combined Tactical Vest') dispatch(changeArmour('Two-Piece Suit'))
+		}
+
 		return () => {
 			window.removeEventListener('keydown', handleKeys)
 		}
-	}, [currentTree, jackOfAllTrades, engineering, equippedEquipment, dispatch])
+	}, [currentTree, jackOfAllTrades, engineering, equippedEquipment, ironMan, equippedArmour, dispatch])
 
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "horizontalbar points" "skills info" "subtreelabels back"' title='Skills'>
