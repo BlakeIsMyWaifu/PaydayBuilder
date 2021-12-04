@@ -2,11 +2,11 @@ import styled from 'styled-components'
 import { dim } from 'utils/colours'
 import corner from 'utils/corner'
 
-interface tab {
+interface TabProps {
 	id: string;
 }
 
-export const Tab = styled.div<tab>`
+export const Tab = styled.div<TabProps>`
 	grid-area: ${(props) => props.id};
 `
 
@@ -49,8 +49,7 @@ interface ImageProps {
 }
 
 export const Image = styled.img<ImageProps>`
-	height: auto;
-	max-height: calc(100% - 32px);
+	height: calc(100% - 32px);
 	width: auto;
 	max-width: 100%;
 	display: block;
@@ -74,9 +73,10 @@ export const PerkDeckImage = styled.div<PerkDeckImageProps>`
 	background-position-y: calc((${props => props.y}% / 1008) * 100) !important;
 	background: url('/images/perks/perks.png') 0 0 no-repeat;
 	background-size: 500% 2200%;
-	height: 144px;
-	width: 144px;
-	margin-left: calc(50% - 72px);
+	height: calc(100% - 32px);
+	aspect-ratio: 1;
+	max-width: 100%;
+	margin: auto;
 	filter: invert(1);
 `
 

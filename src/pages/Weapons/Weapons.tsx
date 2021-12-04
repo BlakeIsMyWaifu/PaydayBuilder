@@ -71,7 +71,7 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 							return <Item
 								key={`${weapon.name}-${id}`}
 								width={192}
-								height={96}
+								rowAmount={5}
 								selected={selectedArmoury === id}
 								onClick={() => selectedArmoury === id ? dispatch(changeWeapon({ slot, weapon: id })) : (() => {
 									setSelectedArmoury(id)
@@ -87,7 +87,7 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 							return <Item
 								key={weapon.name}
 								width={192}
-								height={96}
+								rowAmount={5}
 								selected={weapon.name === selectedWeapon.name}
 								onClick={() => weapon.name === selectedWeapon.name ? addWeaponHelper() : setSelectedWeapon(weapon)}
 							>

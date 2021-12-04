@@ -22,7 +22,8 @@ const Character: React.FC = () => {
 					Object.values(characters).map(character => {
 						return <Item
 							key={character.name}
-							size={128}
+							width={128}
+							rowAmount={10}
 							selected={character.name === selectedCharacter.name}
 							onClick={() => character.name === selectedCharacter.name ? dispatch(changeCharacter(character.name)) : setSelectedCharacter(character)}
 						>

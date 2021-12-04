@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const SkillsContainer = styled.div`
 	width: calc(100% - 24px);
-	height: 96px;
+	height: calc(100% - 64px);
 	padding-left: 12px;
 	padding-top: 32px;
 	display: flex;
@@ -19,7 +19,7 @@ export const SkillWrapper = styled.div`
 
 export const SkillsCard = styled.div`
 	width: 100%;
-	height: 64px;
+	height: clamp(64px, 50%, 128px);
 	background-color: #fff;
 	border-radius: 6px;
 `

@@ -12,16 +12,14 @@ export const ItemContainer = styled.div`
 `
 
 interface ItemProps {
-	width?: number;
-	height?: number;
-	size?: number;
+	width: number;
+	rowAmount: number;
 	selected: boolean;
 }
 
 export const Item = styled.div<ItemProps>`
 	position: relative;
-	width: ${props => props.width || props.size || 128}px;
-	height: ${props => props.height || props.size || 128}px;
+	width: max(${props => 100 / (props.rowAmount || 10)}%, ${props => props.width}px);
 	${props => props.selected && corner};
 `
 

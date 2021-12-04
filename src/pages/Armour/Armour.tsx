@@ -26,7 +26,8 @@ export const Armour: React.FC = () => {
 						const locked = armour.name === 'Improved Combined Tactical Vest' && !ironManUnlocked
 						return <Item
 							key={armour.name}
-							size={196}
+							width={196}
+							rowAmount={5}
 							selected={armour.name === selectedArmour.name}
 							onClick={() => armour.name === selectedArmour.name && !locked ? dispatch(changeArmour(armour.name)) : setSelectedArmour(armour)}
 						>

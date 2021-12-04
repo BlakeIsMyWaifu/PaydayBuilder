@@ -100,7 +100,8 @@ const Mask: React.FC = () => {
 									collectionMasks.map(mask => {
 										return <Item
 											key={mask.name}
-											size={128}
+											width={128}
+											rowAmount={10}
 											selected={mask.name === selectedMask.name}
 											onClick={() => mask.name === selectedMask.name ? dispatch(changeMask(mask.name)) : setSelectedMask(mask)}
 										>

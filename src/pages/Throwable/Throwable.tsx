@@ -24,14 +24,20 @@ const Throwable: React.FC = () => {
 				{
 					Object.values(throwables).map(throwable => {
 						const locked = !!(throwable.perkDeck && perkDeckName !== throwable.perkDeck)
-						return <Item key={throwable.name} width={192} height={96} selected={throwable.name === selectedThrowable.name} onClick={() => {
-							if (throwable.name !== selectedThrowable.name) {
-								setSelectedThrowable(throwable)
-							} else {
-								if (locked) return
-								dispatch(changeThrowable(throwable.name))
-							}
-						}}>
+						return <Item
+							key={throwable.name}
+							width={192}
+							rowAmount={5}
+							selected={throwable.name === selectedThrowable.name}
+							onClick={() => {
+								if (throwable.name !== selectedThrowable.name) {
+									setSelectedThrowable(throwable)
+								} else {
+									if (locked) return
+									dispatch(changeThrowable(throwable.name))
+								}
+							}}
+						>
 							<ItemName color={itemColours[throwable.source.rarity]}>{throwable.name}</ItemName>
 							{locked && <LockedIcon />}
 							{throwable.name === equippedThrowable.name && <ItemEquipped />}

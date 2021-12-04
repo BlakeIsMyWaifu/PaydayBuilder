@@ -87,7 +87,7 @@ export const Melee: React.FC = () => {
 						return <Item
 							key={melee.name}
 							width={192}
-							height={96}
+							rowAmount={8}
 							selected={melee.name === selectedMelee.name}
 							onClick={() => melee.name === selectedMelee.name ? dispatch(changeMelee(melee.name)) : setSelectedMelee(melee)}
 						>

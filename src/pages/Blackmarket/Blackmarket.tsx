@@ -113,7 +113,7 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, equippedMod
 						return <Item
 							key={mod.name}
 							width={192}
-							height={96}
+							rowAmount={5}
 							selected={selectedItem.name === mod.name}
 							onClick={() => selectedItem.name === mod.name ? equidModHelper() : setSelectedItem(mod)}
 						>
