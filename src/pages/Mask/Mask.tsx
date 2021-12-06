@@ -1,6 +1,6 @@
 import { changeMask } from 'actions/characterAction'
 import Container from 'components/Container'
-import { HorizontalBar } from 'components/HorizontalActionBar'
+import HorizontalBar from 'components/HorizontalBar'
 import Info, { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import masks, { MaskData } from 'data/character/masks'
@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { Fragment, createRef, useRef, useState } from 'react'
 import { itemColours } from 'utils/colours'
 
-import { CollectionTitle, CollectionsContainer, InfoCost, ItemContainer, MaskCollection, MaskCollectionTitle, MaskWrapper, RarityTitle } from './Mask-Elements'
+import { CollectionTitle, CollectionsContainer, InfoCost, ItemContainer, MaskCollection, MaskCollectionTitle, MaskWrapper, rainbowAnimation } from './Mask-Elements'
 
 const collections = (() => {
 	const out: Record<string, MaskData[]> = {}
@@ -66,7 +66,7 @@ const Mask: React.FC = () => {
 	const equippedMask = masks[useAppSelector(state => state.character.mask)]
 	const [selectedMask, setSelectedMask] = useState<MaskData>(equippedMask)
 
-	const [selectedTab, setSelectedTab] = useState('All')
+	const [selectedTab, setSelectedTab] = useState('Community')
 
 	const itemContainerRef = useRef<HTMLDivElement>(null)
 	const collectionRefs = useRef(Array.from({ length: Object.keys(collections).length }, () => createRef<HTMLDivElement>()))
@@ -74,20 +74,15 @@ const Mask: React.FC = () => {
 	return (
 		<Container rows='4rem 2rem 8fr 4rem' areas='"title title" "horizontalbar infotabs" "items info" "items back"' title='Mask'>
 
-			<HorizontalBar>
-				{
-					['All', 'Community', 'Free', 'Paid', 'Event', 'Collaboration', 'Infamous'].map(rarity => {
-						return <RarityTitle
-							key={rarity}
-							color={itemColours[rarity] || 'rainbow'}
-							onClick={() => {
-								setSelectedTab(rarity)
-								itemContainerRef.current?.scrollTo(0, 0)
-							}}
-						>{rarity === 'Paid' ? 'DLC' : rarity}</RarityTitle>
-					})
-				}
-			</HorizontalBar>
+			<HorizontalBar active={selectedTab} items={['All', 'Community', 'Free', 'Paid', 'Event', 'Collaboration', 'Infamous'].map(rarity => ({
+				label: rarity === 'Paid' ? 'DLC' : rarity,
+				callback: () => {
+					setSelectedTab(rarity)
+					itemContainerRef.current?.scrollTo(0, 0)
+				},
+				colour: itemColours[rarity] || 'rainbow',
+				animation: rarity === 'All' ? rainbowAnimation : null
+			}))} />
 
 			<ItemContainer ref={itemContainerRef}>
 				{

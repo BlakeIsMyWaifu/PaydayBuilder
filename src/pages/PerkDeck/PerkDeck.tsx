@@ -1,24 +1,20 @@
 import Container from 'components/Container'
-import { HorizontalBar, HorizontalItem } from 'components/HorizontalActionBar'
+import HorizontalBar from 'components/HorizontalBar'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import { ItemContainer } from 'components/Item'
 import perkDecks, { PerkCard } from 'data/abilities/perks'
 import { useAppSelector } from 'hooks'
 import React, { createRef, useEffect, useRef, useState } from 'react'
-import { blue } from 'utils/colours'
-import scrollHorizontalDiv from 'utils/scrollHorizontalDiv'
 
 import Perk from './Perks'
 
 const PerkDeck: React.FC = () => {
 
-	const scrollRef = useRef<HTMLDivElement>(null)
-
 	const perkWrapperRef = useRef<HTMLDivElement>(null)
 
 	const perkRefs = useRef(Array.from({ length: Object.keys(perkDecks).length }, () => createRef<HTMLDivElement>()))
 
-	const scrollToPerk = (i: number, behavior: 'smooth' | 'auto') => {
+	const scrollToPerk = (i: number, behavior: 'smooth' | 'auto'): void => {
 		const container = perkWrapperRef.current
 		if (!container) return
 		container.scrollTo({
@@ -43,17 +39,10 @@ const PerkDeck: React.FC = () => {
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title title" "horizontalbar ." "items info" "items back"' title='Perk Deck'>
 
-			<HorizontalBar ref={scrollRef} onWheel={event => scrollHorizontalDiv(event, scrollRef)}>
-				{
-					Object.values(perkDecks).map((perkdeck, i) => {
-						return <HorizontalItem
-							key={perkdeck.name}
-							onClick={() => scrollToPerk(i, 'smooth')}
-							color={perkdeck.name === equippedPerk.name ? '#fff' : blue}
-						>{perkdeck.name}</HorizontalItem>
-					})
-				}
-			</HorizontalBar>
+			<HorizontalBar active={equippedPerk.name} items={Object.values(perkDecks).map((perkDeck, i) => ({
+				label: perkDeck.name,
+				callback: () => scrollToPerk(i, 'smooth')
+			}))} />
 
 			<ItemContainer ref={perkWrapperRef}>
 				{

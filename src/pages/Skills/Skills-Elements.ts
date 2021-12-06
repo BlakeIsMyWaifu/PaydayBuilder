@@ -1,17 +1,15 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { blue } from 'utils/colours'
 
-interface TreeNameProps {
+interface HightlightActiveProps {
 	active: boolean;
 }
 
-export const TreeName = styled.p<TreeNameProps>`
-	padding: 0 6px;
-	font-size: 1.6rem;
-	cursor: pointer;
+export const highlightActive = css<HightlightActiveProps>`
 	color: ${props => props.active && 'black'};
 	text-shadow: ${props => props.active && 'none'};
 	background-color: ${props => props.active && 'white'};
+	padding: 0 4px;
 `
 
 export const Tree = styled.div`

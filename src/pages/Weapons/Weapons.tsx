@@ -1,7 +1,7 @@
 import { addWeapon, removeWeapon, resetArmoury } from 'actions/armouryAction'
 import { changeWeapon } from 'actions/weaponsAction'
 import Container from 'components/Container'
-import { HorizontalBar, HorizontalItem } from 'components/HorizontalActionBar'
+import HorizontalBar from 'components/HorizontalBar'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { ActionText, ActionsContainer } from 'components/ItemAction'
 import { ResetContainer, ResetText } from 'components/Reset'
@@ -11,7 +11,7 @@ import { Slot, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { blue, itemColours } from 'utils/colours'
+import { itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
 
 import WeaponInfo from './WeaponInfo/WeaponInfo'
@@ -49,18 +49,13 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 	return (
 		<Container columns='3fr 1.5fr' rows='4rem 2rem 8fr 3rem 4rem' areas='"title reset" "horizontalbar filter" "items info" "items actions" "items back"' title={slot}>
 
-			<HorizontalBar>
-				<HorizontalItem color={'saved' === selectedTab ? '#fff' : blue} onClick={() => setSeletectTab('saved')}>Saved</HorizontalItem>
-				{
-					Object.keys(data).map(weaponType => {
-						return <HorizontalItem
-							key={weaponType}
-							color={weaponType === selectedTab ? '#fff' : blue}
-							onClick={() => setSeletectTab(weaponType)}
-						>{weaponType}</HorizontalItem>
-					})
-				}
-			</HorizontalBar>
+			<HorizontalBar active={selectedTab} items={[{
+				label: 'saved',
+				callback: () => setSeletectTab('saved')
+			}, ...Object.keys(data).map(weaponType => ({
+				label: weaponType,
+				callback: () => setSeletectTab(weaponType)
+			}))]} />
 
 			<ItemContainer>
 				{

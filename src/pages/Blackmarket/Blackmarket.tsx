@@ -1,6 +1,6 @@
 import { changeMod, removeMod, resetWeaponsMods } from 'actions/armouryAction'
 import Container from 'components/Container'
-import { HorizontalBar, HorizontalItem } from 'components/HorizontalActionBar'
+import HorizontalBar from 'components/HorizontalBar'
 import { InfoContainer, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { ActionText, ActionsContainer } from 'components/ItemAction'
@@ -10,7 +10,7 @@ import { Modification, ModificationSlot, Slot, Weapon, WeaponData, WeaponStats }
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { blue, itemColours } from 'utils/colours'
+import { itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
 
 import BlackmarketStatsTable from './BlackmarketStatsTable'
@@ -94,18 +94,10 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, equippedMod
 	return (
 		<Container rows='4rem 2rem 8fr 1.5rem 4rem' areas='"title reset" "horizontalbar ." "items info" "items actions" "items back"' title={`Blackmarket - ${weapon.name}`} backLocation={`/${slot}`}>
 
-			<HorizontalBar>
-				{
-					Object.keys(weapon.modifications).map((type) => {
-						return <HorizontalItem
-							key={type}
-							color={selectedTab === type ? '#fff' : blue}
-							onClick={() => {
-								changeTab(type as ModificationSlot)
-							}}>{type}</HorizontalItem>
-					})
-				}
-			</HorizontalBar>
+			<HorizontalBar active={selectedTab} items={Object.keys(weapon.modifications).map(type => ({
+				label: type,
+				callback: () => changeTab(type as ModificationSlot)
+			}))} />
 
 			<ItemContainer>
 				{

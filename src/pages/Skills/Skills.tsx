@@ -1,7 +1,7 @@
 import { changeArmour, changeEquipment } from 'actions/characterAction'
 import { resetSkills, resetTree } from 'actions/skillsAction'
 import Container from 'components/Container'
-import { HorizontalBar } from 'components/HorizontalActionBar'
+import HorizontalBar from 'components/HorizontalBar'
 import { ResetContainer, ResetText } from 'components/Reset'
 import skills, { SkillData, TreeData, TreeNames } from 'data/abilities/skills'
 import equipments from 'data/character/equipment'
@@ -10,7 +10,7 @@ import React, { useEffect, useState } from 'react'
 
 import Info from './Info'
 import Points from './Points'
-import { SubtreeLabel, SubtreeLabelWrapper, Tree, TreeName } from './Skills-Elements'
+import { SubtreeLabel, SubtreeLabelWrapper, Tree, highlightActive } from './Skills-Elements'
 import Subtree from './Subtree'
 
 const Skills: React.FC = () => {
@@ -68,17 +68,15 @@ const Skills: React.FC = () => {
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "horizontalbar points" "skills info" "subtreelabels back"' title='Skills'>
 
-			<HorizontalBar onWheel={scrollTrees}>
-				{
-					treeNameOrder.map(treeName => {
-						return <TreeName
-							key={treeName}
-							onClick={() => setCurrentTree(skills[treeName])}
-							active={treeName === currentTree.name}
-						>{treeName}</TreeName>
-					})
-				}
-			</HorizontalBar>
+			<HorizontalBar
+				active={currentTree.name}
+				items={treeNameOrder.map(treeName => ({
+					label: treeName,
+					callback: () => setCurrentTree(skills[treeName]),
+					additionalStyling: highlightActive
+				}))}
+				scroll={scrollTrees}
+			/>
 
 			<Tree onWheel={scrollTrees}>
 				{

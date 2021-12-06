@@ -1,4 +1,3 @@
-import { HorizontalItem } from 'components/HorizontalActionBar'
 import styled, { css, keyframes } from 'styled-components'
 import corner from 'utils/corner'
 
@@ -26,8 +25,8 @@ const rainbow = keyframes`
 	}
 `
 
-export const RarityTitle = styled(HorizontalItem)`
-	animation: ${props => props.color === 'rainbow' && css`${rainbow}`} 4s linear 0s infinite;
+export const rainbowAnimation = css`
+	animation: ${rainbow} 4s linear 0s infinite;
 `
 
 export const ItemContainer = styled.div`
