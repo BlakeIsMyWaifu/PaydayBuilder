@@ -32,7 +32,7 @@ const Perk: React.FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selec
 					setSelectedPerk(perk)
 					return
 				}
-				const throwable = throwables[perk.throwable || ''] || throwables[5]
+				const throwable = perk.throwable ? throwables[perk.throwable] : throwables['Frag Grenade']
 				if (perk.throwable || equippedPerk.throwable) {
 					dispatch(changeThrowable(throwable.name))
 				}
