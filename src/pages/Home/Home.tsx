@@ -61,7 +61,7 @@ const Home: React.FC = () => {
 
 	return (
 		<>
-			<SettingsPanel toggleSettings={toggleSettings} />
+			<SettingsPanel toggleSettings={toggleSettings} setToggleSettings={setToggleSettings} />
 			<Container columns='2fr 1fr 1fr 1fr' rows='calc(100% - 3rem) 3rem' areas='"stats character weapons abilities" "version config config config"' backButton={false}>
 
 				<Tab id='stats'>

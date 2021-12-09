@@ -9,9 +9,10 @@ import { Container, Setting, SettingsSingleLine, SettingsTitle, Title } from './
 
 interface SettingsPanelProps {
 	toggleSettings: boolean;
+	setToggleSettings: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings }) => {
+const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettings }) => {
 
 	const dispatch = useAppDispatch()
 
@@ -29,7 +30,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings }) => {
 
 			<Setting>
 				<SettingsTitle>Import / Export JSON</SettingsTitle>
-				<JsonIO />
+				<JsonIO setToggleSettings={setToggleSettings} />
 			</Setting>
 
 			<SettingsSingleLine>

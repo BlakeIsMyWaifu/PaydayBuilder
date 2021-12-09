@@ -23,7 +23,8 @@
     "react-router-dom": "^6.0.2",
     "redux": "^4.1.2",
     "styled-components": "^5.3.3",
-    "typesafe-actions": "^5.1.0"
+    "typesafe-actions": "^5.1.0",
+    "zod": "^3.11.6"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

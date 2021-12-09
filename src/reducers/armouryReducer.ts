@@ -5,7 +5,7 @@ import { getType } from 'typesafe-actions'
 
 const armouryReducer = (state = defaultState, action: Record<'type' | 'payload', any>): ArmouryState => {
 
-	const addWeapon = ({ slot, weapon }: AddWeaponAction): ArmouryState => {
+	const addWeapon = ({ slot, weapon, mods }: AddWeaponAction): ArmouryState => {
 		const nextNum = Math.max(0, ...Object.keys(state[slot]).map(num => +num)) + 1
 		const newWeapon: Weapon = {
 			id: nextNum,
@@ -14,7 +14,7 @@ const armouryReducer = (state = defaultState, action: Record<'type' | 'payload',
 				type: weapon.weaponType,
 				slot: slot
 			},
-			modifications: {}
+			modifications: mods || {}
 		}
 		return {
 			...state,
