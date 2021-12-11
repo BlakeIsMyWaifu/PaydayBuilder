@@ -34,12 +34,3 @@ export const EquipementImage = styled.img<EquipementImageProps>`
 	transform: translateX(-50%);
 	filter: brightness(${props => props.locked ? 0.2 : 1});
 `
-
-export const EquipInfo = styled.div`
-	grid-area: equipinfo;
-`
-
-export const EquipText = styled.h1`
-	font-size: 1.5rem;
-	text-align: end;
-`

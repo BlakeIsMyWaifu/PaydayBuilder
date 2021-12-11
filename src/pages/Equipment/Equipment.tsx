@@ -2,12 +2,13 @@ import { changeEquipment } from 'actions/characterAction'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import { ItemEquipped, ItemName, LockedIcon } from 'components/Item'
+import { ActionText, ActionsContainer } from 'components/ItemAction'
 import equipments, { EquipmentData } from 'data/character/equipment'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useState } from 'react'
 import { itemColours } from 'utils/colours'
 
-import { EquipInfo, EquipText, EquipementImage, EquipmentWrapper, Item } from './Equipment-Elements'
+import { EquipementImage, EquipmentWrapper, Item } from './Equipment-Elements'
 
 const Equipment: React.FC = () => {
 
@@ -19,7 +20,7 @@ const Equipment: React.FC = () => {
 
 	const skillTrees = useAppSelector(state => state.skills.trees)
 
-	const getEquipmentAmount = (equipment: EquipmentData) => {
+	const getEquipmentAmount = (equipment: EquipmentData): number[] => {
 		let outAmount: number[] = equipment.amount
 		equipment.upgrade.forEach(({ amount, skillPath, skillState }) => {
 			const [tree, subtree, skill] = skillPath
@@ -34,28 +35,33 @@ const Equipment: React.FC = () => {
 	const engineeringState = skillTrees.technician['Engineer'].upgrades.Engineering
 	const engineeringUnlocked = engineeringState === 'basic' || engineeringState === 'aced'
 
+	const equipEquipment = (button: number): void => {
+		if (button !== 0 && button !== 2) return
+		if (selectedEquipment.name === 'Silenced Sentry Gun' && !engineeringUnlocked) return
+		const slot = button ? 'secondary' : 'primary'
+		if (slot === 'primary' && selectedEquipment.name === equippedSecondary) dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
+		if (slot === 'secondary' && jackOfAllTrades !== 'aced') return
+		if (slot === 'secondary' && selectedEquipment.name === equippedPrimary) return
+		dispatch(changeEquipment({ equipment: selectedEquipment.name, slot }))
+	}
+
 	return (
-		<Container rows='4rem 8fr 3rem 4rem' areas={`"title title" "wrapper info" "wrapper ${jackOfAllTradesUnlocked ? 'equipinfo' : 'info'}" "wrapper back"`} title='Equipment'>
+		<Container
+			rows='4rem 8fr 3rem 4rem'
+			areas={`"title title" "wrapper info" "wrapper ${jackOfAllTradesUnlocked ? 'actions' : 'info'}" "wrapper back"`}
+			title='Equipment'
+		>
 
 			<EquipmentWrapper>
 				{
 					Object.values(equipments).map(equipment => {
 						const locked = equipment.name === 'Silenced Sentry Gun' && !engineeringUnlocked
 						const amount = getEquipmentAmount(equipment)
-						return <Item key={equipment.name} selected={equipment.name === selectedEquipment.name} onMouseDown={(event: React.MouseEvent) => {
-							event.preventDefault()
-							if (event.button !== 0 && event.button !== 2) return
-							if (equipment.name !== selectedEquipment.name) {
-								setSelectedEquipment(equipment)
-							} else {
-								if (locked) return
-								const slot = event.button ? 'secondary' : 'primary'
-								if (slot === 'primary' && equipment.name === equippedSecondary) dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
-								if (slot === 'secondary' && jackOfAllTrades !== 'aced') return
-								if (slot === 'secondary' && equipment.name === equippedPrimary) return
-								dispatch(changeEquipment({ equipment: equipment.name, slot }))
-							}
-						}}>
+						return <Item
+							key={equipment.name}
+							selected={equipment.name === selectedEquipment.name}
+							onMouseDown={event => equipment.name !== selectedEquipment.name ? setSelectedEquipment(equipment) : equipEquipment(event.button)}
+						>
 							<ItemName color={itemColours[equipment.amount === amount ? 'normal' : 'dlc']}>{equipment.name} (x{amount.join('/x')})</ItemName>
 							{equipment.name === equippedPrimary && <ItemEquipped> {jackOfAllTradesUnlocked ? 'Primary' : ''}</ItemEquipped>}
 							{equipment.name === equippedSecondary && <ItemEquipped> Secondary</ItemEquipped>}
@@ -77,10 +83,10 @@ const Equipment: React.FC = () => {
 
 			{
 				jackOfAllTradesUnlocked && (
-					<EquipInfo>
-						<EquipText>[Left Click] Equip Primary</EquipText>
-						<EquipText>[Right Click] Equip Secondary</EquipText>
-					</EquipInfo>
+					<ActionsContainer>
+						<ActionText onClick={() => equipEquipment(0)}>Equip Primary</ActionText>
+						<ActionText onClick={() => equipEquipment(2)}>Equip Secondary</ActionText>
+					</ActionsContainer>
 				)
 			}
 
