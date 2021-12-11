@@ -21,7 +21,7 @@ const equipments: Record<string, EquipmentData> = {
 		amount: [1],
 		upgrade: [{
 			amount: [2],
-			skillPath: ['enforcer', 'tank', 'Extra Lead'],
+			skillPath: ['enforcer', 'Tank', 'Extra Lead'],
 			skillState: 'aced'
 		}],
 		description: [
@@ -43,7 +43,7 @@ const equipments: Record<string, EquipmentData> = {
 		amount: [1],
 		upgrade: [{
 			amount: [2],
-			skillPath: ['ghost', 'shinobi', 'Cleaner'],
+			skillPath: ['ghost', 'Shinobi', 'Cleaner'],
 			skillState: 'aced'
 		}],
 		description: [
@@ -56,7 +56,7 @@ const equipments: Record<string, EquipmentData> = {
 		amount: [1],
 		upgrade: [{
 			amount: [2],
-			skillPath: ['mastermind', 'medic', 'Combat Doctor'],
+			skillPath: ['mastermind', 'Medic', 'Combat Doctor'],
 			skillState: 'aced'
 		}],
 		description: [
@@ -70,7 +70,7 @@ const equipments: Record<string, EquipmentData> = {
 		amount: [1],
 		upgrade: [{
 			amount: [2],
-			skillPath: ['ghost', 'shinobi', 'ECM Specialist'],
+			skillPath: ['ghost', 'Shinobi', 'ECM Specialist'],
 			skillState: 'basic'
 		}],
 		description: [
@@ -85,12 +85,12 @@ const equipments: Record<string, EquipmentData> = {
 		upgrade: [
 			{
 				amount: [11],
-				skillPath: ['mastermind', 'medic', 'Uppers'],
+				skillPath: ['mastermind', 'Medic', 'Uppers'],
 				skillState: 'basic'
 			},
 			{
 				amount: [14],
-				skillPath: ['mastermind', 'medic', 'Uppers'],
+				skillPath: ['mastermind', 'Medic', 'Uppers'],
 				skillState: 'aced'
 			}
 		],
@@ -106,12 +106,12 @@ const equipments: Record<string, EquipmentData> = {
 		upgrade: [
 			{
 				amount: [2],
-				skillPath: ['technician', 'engineer', 'Tower Defense'],
+				skillPath: ['technician', 'Engineer', 'Tower Defense'],
 				skillState: 'basic'
 			},
 			{
 				amount: [4],
-				skillPath: ['technician', 'engineer', 'Tower Defense'],
+				skillPath: ['technician', 'Engineer', 'Tower Defense'],
 				skillState: 'aced'
 			}
 		],
@@ -126,12 +126,12 @@ const equipments: Record<string, EquipmentData> = {
 		upgrade: [
 			{
 				amount: [2],
-				skillPath: ['technician', 'engineer', 'Tower Defense'],
+				skillPath: ['technician', 'Engineer', 'Tower Defense'],
 				skillState: 'basic'
 			},
 			{
 				amount: [4],
-				skillPath: ['technician', 'engineer', 'Tower Defense'],
+				skillPath: ['technician', 'Engineer', 'Tower Defense'],
 				skillState: 'aced'
 			}
 		],
@@ -146,12 +146,12 @@ const equipments: Record<string, EquipmentData> = {
 		upgrade: [
 			{
 				amount: [7, 4],
-				skillPath: ['technician', 'breacher', 'More Firepower'],
+				skillPath: ['technician', 'Breacher', 'More Firepower'],
 				skillState: 'basic'
 			},
 			{
 				amount: [14, 6],
-				skillPath: ['technician', 'breacher', 'More Firepower'],
+				skillPath: ['technician', 'Breacher', 'More Firepower'],
 				skillState: 'aced'
 			}
 		],

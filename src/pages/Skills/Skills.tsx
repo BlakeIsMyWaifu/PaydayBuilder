@@ -31,10 +31,11 @@ const Skills: React.FC = () => {
 		setCurrentTree(skills[treeNameOrder[index]])
 	}
 
-	const jackOfAllTrades = useAppSelector(state => state.skills.trees.technician.engineer.upgrades['Jack of All Trades'])
-	const engineering = useAppSelector(state => state.skills.trees.technician.engineer.upgrades.Engineering)
+	const jackOfAllTrades = useAppSelector(state => state.skills.trees.technician.Engineer.upgrades['Jack of All Trades'])
+	const engineering = useAppSelector(state => state.skills.trees.technician.Engineer.upgrades.Engineering)
 	const equippedEquipment = useAppSelector(state => state.character.equipment)
-	const ironMan = useAppSelector(state => state.skills.trees.enforcer.tank.upgrades['Iron Man'])
+
+	const ironMan = useAppSelector(state => state.skills.trees.enforcer.Tank.upgrades['Iron Man'])
 	const equippedArmour = useAppSelector(state => state.character.armour)
 
 	useEffect(() => {
@@ -80,10 +81,10 @@ const Skills: React.FC = () => {
 
 			<Tree onWheel={scrollTrees}>
 				{
-					currentTree.subtrees.map(subtree => {
+					Object.values(currentTree.subtrees).map(subtree => {
 						return <Subtree
 							key={subtree.name}
-							tree={currentTree}
+							treeName={currentTree.name}
 							subtree={subtree}
 							setSkillHovered={setSkillHovered}
 						/>
@@ -93,7 +94,7 @@ const Skills: React.FC = () => {
 
 			<SubtreeLabelWrapper>
 				{
-					currentTree.subtrees.map(subtree => {
+					Object.values(currentTree.subtrees).map(subtree => {
 						return <SubtreeLabel key={subtree.name}>{subtree.name.replaceAll('_', ' ')}</SubtreeLabel>
 					})
 				}

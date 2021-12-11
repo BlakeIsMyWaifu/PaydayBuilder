@@ -29,9 +29,9 @@ const Equipment: React.FC = () => {
 		return outAmount
 	}
 
-	const jackOfAllTrades = skillTrees.technician.engineer.upgrades['Jack of All Trades']
+	const jackOfAllTrades = skillTrees.technician['Engineer'].upgrades['Jack of All Trades']
 	const jackOfAllTradesUnlocked = jackOfAllTrades === 'aced'
-	const engineeringState = skillTrees.technician.engineer.upgrades.Engineering
+	const engineeringState = skillTrees.technician['Engineer'].upgrades.Engineering
 	const engineeringUnlocked = engineeringState === 'basic' || engineeringState === 'aced'
 
 	return (

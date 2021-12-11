@@ -14,9 +14,9 @@ export const ArmourStatsTable: React.FC<ArmourStatsTableProps> = ({ selectedArmo
 		return { armour, health: 230, concealment, speed, dodge, steadiness, stamina }
 	}
 
-	const dieHard = useAppSelector(state => state.skills.trees.enforcer.tank.upgrades['Die Hard'])
-	const innerPockets = useAppSelector(state => state.skills.trees.ghost.artful_dodger.upgrades['Inner Pockets'])
-	const ironMan = useAppSelector(state => state.skills.trees.enforcer.tank.upgrades['Iron Man'])
+	const dieHard = useAppSelector(state => state.skills.trees.enforcer['Tank'].upgrades['Die Hard'])
+	const innerPockets = useAppSelector(state => state.skills.trees.ghost['Artful Dodger'].upgrades['Inner Pockets'])
+	const ironMan = useAppSelector(state => state.skills.trees.enforcer['Tank'].upgrades['Iron Man'])
 
 	const skillStats = (armour: ArmourData) => {
 		const hasBallistic = armour.name.includes('Ballistic Vest')

@@ -2,12 +2,12 @@ export type TreeNames = 'mastermind' | 'enforcer' | 'technician' | 'ghost' | 'fu
 
 export interface TreeData {
 	name: TreeNames;
-	subtrees: SubtreeData[];
+	subtrees: Record<string, SubtreeData>;
 }
 
 export interface SubtreeData {
 	name: string;
-	upgrades: SkillData[];
+	upgrades: Record<string, SkillData>;
 }
 
 export interface SkillData {
@@ -21,11 +21,11 @@ export interface SkillData {
 const skills: Record<TreeNames, TreeData> = {
 	mastermind: {
 		name: 'mastermind',
-		subtrees: [
-			{
-				name: 'medic',
-				upgrades: [
-					{
+		subtrees: {
+			'Medic': {
+				name: 'Medic',
+				upgrades: {
+					'Combat Medic': {
 						name: 'Combat Medic',
 						description: [
 							'You gain a 30% damage reduction for 5 seconds both after and during reviving another player.',
@@ -34,7 +34,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [400, 560],
 						tier: 1
 					},
-					{
+					'Quick Fix': {
 						name: 'Quick Fix',
 						description: [
 							'Decreases your First Aid Kit and Doctor Bag deploy time by 50%.',
@@ -43,7 +43,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [80, 880],
 						tier: 2
 					},
-					{
+					'Painkillers': {
 						name: 'Painkillers',
 						description: [
 							'Crew members you revive take 30% less damage for 5 seconds.',
@@ -52,7 +52,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [0, 800],
 						tier: 2
 					},
-					{
+					'Uppers': {
 						name: 'Uppers',
 						description: [
 							'Adds 7 more First Aid Kits to your inventory.',
@@ -60,7 +60,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [160, 880],
 						tier: 3
 					},
-					{
+					'Combat Doctor': {
 						name: 'Combat Doctor',
 						description: [
 							'You can now deploy 2 Doctor Bags instead of just one.',
@@ -69,7 +69,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [400, 640],
 						tier: 3
 					},
-					{
+					'Inspire': {
 						name: 'Inspire',
 						description: [
 							'You revive crew members 100% faster. Shouting at your teammates will increase their movement and reload speed by 20% for 10 seconds.',
@@ -77,12 +77,12 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [320, 720],
 						tier: 4
 					}
-				]
+				}
 			},
-			{
-				name: 'controller',
-				upgrades: [
-					{
+			'Controller': {
+				name: 'Controller',
+				upgrades: {
+					'Forced Friendship': {
 						name: 'Forced Friendship',
 						description: [
 							'Increase your supply of cable ties by 4. You can cable tie hostages 75% faster.',
@@ -91,7 +91,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [320, 560],
 						tier: 1
 					},
-					{
+					'Confident': {
 						name: 'Confident',
 						description: [
 							'The power and range of your intimidation is increased by 50%.',
@@ -100,7 +100,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [160, 640],
 						tier: 2
 					},
-					{
+					'Joker': {
 						name: 'Joker',
 						description: [
 							'You can convert a non-special enemy to fight on your side.\tThis can not be done during stealth and the enemy must have surrendered in order for you to convert them.\nYou can only convert one non-special enemy at a time.',
@@ -109,7 +109,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [480, 640],
 						tier: 2
 					},
-					{
+					'Stockholm Syndrome': {
 						name: 'Stockholm Syndrome',
 						description: [
 							'Civilians are intimidated by the noise you make and remain intimidated 50% longer.',
@@ -118,7 +118,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [240, 640],
 						tier: 3
 					},
-					{
+					'Partners in Crime': {
 						name: 'Partners in Crime',
 						description: [
 							'Having a converted enemy increases your movement speed by 10%.\nYour converted enemy takes 45% less damage.',
@@ -127,7 +127,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [80, 800],
 						tier: 3
 					},
-					{
+					'Hostage Taker': {
 						name: 'Hostage Taker',
 						description: [
 							'Having at least one of your own hostage or converted law enforcer makes you regenerate 1.5% health every 5 seconds.',
@@ -136,12 +136,12 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [160, 800],
 						tier: 4
 					}
-				]
+				}
 			},
-			{
-				name: 'sharpshooter',
-				upgrades: [
-					{
+			'Sharpshooter': {
+				name: 'Sharpshooter',
+				upgrades: {
+					'Stable Shot': {
 						name: 'Stable Shot',
 						description: [
 							'You gain 8 weapon stability.',
@@ -150,7 +150,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [0, 400],
 						tier: 1
 					},
-					{
+					'Rifleman': {
 						name: 'Rifleman',
 						description: [
 							'Your snap to zoom is 100% faster with all weapons.\nYour movement speed is unhindered while using steel sight.',
@@ -160,7 +160,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [480, 400],
 						tier: 2
 					},
-					{
+					'Marksman': {
 						name: 'Marksman',
 						description: [
 							'You gain 8 weapon accuracy with all SMGs, Assault Rifles and Sniper Rifles fired in single shot fire mode.',
@@ -169,7 +169,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [640, 80],
 						tier: 2
 					},
-					{
+					'Ammo Efficiency': {
 						name: 'Ammo Efficiency',
 						description: [
 							'Getting 3 headshots in less than 6 seconds will refund 1 bullet to your used weapon. Can only be triggered by SMGs, Assault Rifles and Sniper Rifles fired in single shot fire mode.',
@@ -178,7 +178,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [640, 320],
 						tier: 3
 					},
-					{
+					'Aggressive Reload': {
 						name: 'Aggressive Reload',
 						description: [
 							'Increases your reload speed with SMGs, Assault Rifles and Sniper Rifles by 15%.',
@@ -187,7 +187,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [640, 240],
 						tier: 3
 					},
-					{
+					'Graze': {
 						name: 'Graze',
 						description: [
 							'Snipers that hit their target deal 20% of the damage dealth in a 100cm radius around the bullet trajectory.',
@@ -196,17 +196,17 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [880, 720],
 						tier: 4
 					}
-				]
+				}
 			}
-		]
+		}
 	},
 	enforcer: {
 		name: 'enforcer',
-		subtrees: [
-			{
-				name: 'shotgunner',
-				upgrades: [
-					{
+		subtrees: {
+			'Shotgunner': {
+				name: 'Shotgunner',
+				upgrades: {
+					'Underdog': {
 						name: 'Underdog',
 						description: [
 							'When three or more enemies within 10 meters are targeting you, you receive a 15% damage bonus that lasts for 7 seconds.',
@@ -215,7 +215,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [160, 80],
 						tier: 1
 					},
-					{
+					'Shotgun CQB': {
 						name: 'Shotgun CQB',
 						description: [
 							'You reload Shotguns 15% faster.',
@@ -225,7 +225,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [640, 560],
 						tier: 2
 					},
-					{
+					'Shotgun Impact': {
 						name: 'Shotgun Impact',
 						description: [
 							'Your weapon stability with all shotguns is increased by 8. You deal 5% more damage with Shotguns.',
@@ -234,7 +234,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [320, 80],
 						tier: 2
 					},
-					{
+					'Far Away': {
 						name: 'Far Away',
 						description: [
 							'Your accuracy bonus while aiming down sights with Shotguns is increased by 40%.',
@@ -243,7 +243,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [640, 400],
 						tier: 3
 					},
-					{
+					'Close By': {
 						name: 'Close By',
 						description: [
 							'You can now hip-fire with your Shotguns while sprinting.',
@@ -253,7 +253,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [640, 480],
 						tier: 3
 					},
-					{
+					'Overkill': {
 						name: 'Overkill',
 						description: [
 							'When you kill an enemy with a Shotgun or the OVE9000 portable saw, you receive 75% damage increase for 20 seconds.',
@@ -262,12 +262,12 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [240, 160],
 						tier: 4
 					}
-				],
+				}
 			},
-			{
-				name: 'tank',
-				upgrades: [
-					{
+			'Tank': {
+				name: 'Tank',
+				upgrades: {
+					'Resilience': {
 						name: 'Resilience',
 						description: [
 							'Increases your armor recovery rate by 15%.',
@@ -276,7 +276,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [160, 960],
 						tier: 1
 					},
-					{
+					'Die Hard': {
 						name: 'Die Hard',
 						description: [
 							'You take 50% less damage while interacting with objects.',
@@ -285,7 +285,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [640, 720],
 						tier: 2
 					},
-					{
+					'Transporter': {
 						name: 'Transporter',
 						description: [
 							'You can throw bags 50% further.',
@@ -294,7 +294,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [640, 640],
 						tier: 2
 					},
-					{
+					'Shock and Awe': {
 						name: 'Shock and Awe',
 						description: [
 							'Increases the armor recovery rate for you and your crew by 25%.',
@@ -303,7 +303,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [640, 800],
 						tier: 3
 					},
-					{
+					'Bullseye': {
 						name: 'Bullseye',
 						description: [
 							'You regenerate 5 armor for each succesful headshot. This can not occur more than once every 2 seconds.',
@@ -312,7 +312,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [480, 880],
 						tier: 3
 					},
-					{
+					'Iron Man': {
 						name: 'Iron Man',
 						description: [
 							'Your total armor value is increased by 30%.',
@@ -321,12 +321,12 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [240, 80],
 						tier: 4
 					}
-				],
+				}
 			},
-			{
-				name: 'ammo_specialist',
-				upgrades: [
-					{
+			'Ammo Specialist': {
+				name: 'Ammo Specialist',
+				upgrades: {
+					'Scavenger': {
 						name: 'Scavenger',
 						description: [
 							'Your ammo pick up range is increased by 50%.',
@@ -335,7 +335,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [640, 880],
 						tier: 1
 					},
-					{
+					'Bulletstorm': {
 						name: 'Bulletstorm',
 						description: [
 							'Ammo bags placed by you grant players the ability to shoot without depleting their ammunition for up to 5 seconds after interacting with it. The more ammo players replenish, the longer the duration of the effect.',
@@ -344,7 +344,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [320, 400],
 						tier: 2
 					},
-					{
+					'Portable Saw': {
 						name: 'Portable Saw',
 						description: [
 							'Unlocks the OVE9000 portable saw for you to use as a secondary weapon.',
@@ -353,7 +353,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [0, 80],
 						tier: 2
 					},
-					{
+					'Extra Lead': {
 						name: 'Extra Lead',
 						description: [
 							'You can now place 2 ammo bags instead of just one.',
@@ -362,7 +362,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [560, 80],
 						tier: 3
 					},
-					{
+					'Saw Massacre': {
 						name: 'Saw Massacre',
 						description: [
 							'Reducing the wear down of the blades on enemies by 50%.',
@@ -371,7 +371,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [0, 160],
 						tier: 3
 					},
-					{
+					'Fully Loaded': {
 						name: 'Fully Loaded',
 						description: [
 							'Your total ammo capacity is increased by 25%.',
@@ -380,17 +380,17 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [240, 0],
 						tier: 4
 					}
-				]
+				}
 			}
-		]
+		}
 	},
 	technician: {
 		name: 'technician',
-		subtrees: [
-			{
-				name: 'engineer',
-				upgrades: [
-					{
+		subtrees: {
+			'Engineer': {
+				name: 'Engineer',
+				upgrades: {
+					'Third Law': {
 						name: 'Third Law',
 						description: [
 							'The cost of deploying a sentry gun is reduced by 5%.',
@@ -399,7 +399,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [720, 0],
 						tier: 1
 					},
-					{
+					'Sentry Targeting Package': {
 						name: 'Sentry Targeting Package',
 						description: [
 							'Your sentry guns gain a 100% increase in accuracy.',
@@ -408,7 +408,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [720, 80],
 						tier: 2
 					},
-					{
+					'Eco Sentry': {
 						name: 'Eco Sentry',
 						description: [
 							'The cost of deploying a sentry gun is reduced by 5%.',
@@ -417,7 +417,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [720, 160],
 						tier: 2
 					},
-					{
+					'Engineering': {
 						name: 'Engineering',
 						description: [
 							'You can now select a less noisy version of the sentry guns, making them much less likely to be targeted by enemies.',
@@ -426,7 +426,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [720, 240],
 						tier: 3
 					},
-					{
+					'Jack of All Trades': {
 						name: 'Jack of All Trades',
 						description: [
 							'You deploy and interact with all deployable 100% faster.',
@@ -435,7 +435,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [720, 320],
 						tier: 3
 					},
-					{
+					'Tower Defense': {
 						name: 'Tower Defense',
 						description: [
 							'You can now carry 1 extra sentry gun.',
@@ -444,12 +444,12 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [720, 400],
 						tier: 4
 					}
-				],
+				}
 			},
-			{
-				name: 'breacher',
-				upgrades: [
-					{
+			'Breacher': {
+				name: 'Breacher',
+				upgrades: {
+					'Hardware Expert': {
 						name: 'Hardware Expert',
 						description: [
 							'You fix drills and saws 25% faster. Decreases trip mine deploy time by 20%. Drills and saws are also silent. Civilians and guards must see the drill or saw in order to become alerted.',
@@ -458,7 +458,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [720, 480],
 						tier: 1
 					},
-					{
+					'Combat Engineering': {
 						name: 'Combat Engineering',
 						description: [
 							'The radius of your trip mine explosion is increased by 30%.',
@@ -467,7 +467,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [80, 400],
 						tier: 2
 					},
-					{
+					'Drill Sawgeant': {
 						name: 'Drill Sawgeant',
 						description: [
 							'Your drill and saw timer is decreased by 15%.',
@@ -476,7 +476,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [240, 480],
 						tier: 2
 					},
-					{
+					'More Firepower': {
 						name: 'More Firepower',
 						description: [
 							'You gain 1 more shaped charge and 4 more trip mines.',
@@ -485,7 +485,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [720, 560],
 						tier: 3
 					},
-					{
+					'Kickstarter': {
 						name: 'Kickstarter',
 						description: [
 							'Your drills and saws gain an additional 20% chance to automatically restart after breaking.',
@@ -494,7 +494,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [720, 640],
 						tier: 3
 					},
-					{
+					'Fire Trap': {
 						name: 'Fire Trap',
 						description: [
 							'Your trip mines now spread fire around the area of detonation for 10 seconds in a 4 meter diameter.',
@@ -503,12 +503,12 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [720, 720],
 						tier: 4
 					}
-				],
+				}
 			},
-			{
-				name: 'oppressor',
-				upgrades: [
-					{
+			'Oppressor': {
+				name: 'Oppressor',
+				upgrades: {
+					'Steady Grip': {
 						name: 'Steady Grip',
 						description: [
 							'You gain 8 weapon accuracy.',
@@ -517,7 +517,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [720, 880],
 						tier: 1
 					},
-					{
+					'Heavy Impact': {
 						name: 'Heavy Impact',
 						description: [
 							'Your shots have a 5% chance to stagger all enemies except Bulldozers and Captain Winters.',
@@ -526,7 +526,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [880, 80],
 						tier: 2
 					},
-					{
+					'Fire Control': {
 						name: 'Fire Control',
 						description: [
 							'You gain 12 weapon accuracy while firing from the hip.',
@@ -536,7 +536,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [720, 800],
 						tier: 2
 					},
-					{
+					'Lock N\' Load': {
 						name: 'Lock N\' Load',
 						description: [
 							'You can how hip-fire with your weapons while sprinting.',
@@ -546,7 +546,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [800, 0],
 						tier: 3
 					},
-					{
+					'Surefire': {
 						name: 'Surefire',
 						description: [
 							'Your SMGs, LMGs and Assault Rifles gain 15 more bullets in their magazines. This does not affect the \'Lock n\' Load\' Ace skill.',
@@ -555,7 +555,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [800, 160],
 						tier: 3
 					},
-					{
+					'Body Expertise': {
 						name: 'Body Expertise',
 						description: [
 							'30% from the bonus headshot damage is permanently applied to hitting enemies on the body. This skill is only activated by SMGs, LMGs, Assault Rifles or Special Weapons fired in automatic fire mode.',
@@ -564,17 +564,17 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [800, 240],
 						tier: 4
 					}
-				]
+				}
 			}
-		]
+		}
 	},
 	ghost: {
 		name: 'ghost',
-		subtrees: [
-			{
-				name: 'shinobi',
-				upgrades: [
-					{
+		subtrees: {
+			'Shinobi': {
+				name: 'Shinobi',
+				upgrades: {
+					'Chamaleon': {
 						name: 'Chamaleon',
 						description: [
 							'Increases the time before you start getting detected by 25% while in casing mode. You can also mark enemies while in casing mode.',
@@ -583,7 +583,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [400, 240],
 						tier: 1
 					},
-					{
+					'Cleaner': {
 						name: 'Cleaner',
 						description: [
 							'You gain 1 additional body bag in your inventory. Also increases the body bag inventory space to 3.',
@@ -592,7 +592,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [560, 160],
 						tier: 2
 					},
-					{
+					'Sixth Sense': {
 						name: 'Sixth Sense',
 						description: [
 							'You gain the ability to automatically mark enemies within a 10 meter radius around you after standing still for 3.5 seconds while in stealth.',
@@ -601,7 +601,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [480, 800],
 						tier: 2
 					},
-					{
+					'Nimble': {
 						name: 'Nimble',
 						description: [
 							'You gain the ability to disable 1 camera from detecting you and your crew. Effect lasts for 25 seconds.',
@@ -610,7 +610,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [800, 320],
 						tier: 3
 					},
-					{
+					'ECM Overdrive': {
 						name: 'ECM Overdrive',
 						description: [
 							'Your ECM jammer and feedback duration is increased by 25%.',
@@ -619,7 +619,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [480, 240],
 						tier: 3
 					},
-					{
+					'ECM Specialist': {
 						name: 'ECM Specialist',
 						description: [
 							'You can now place 2 ECM jammers instead of just one.',
@@ -628,12 +628,12 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [240, 320],
 						tier: 4
 					}
-				],
+				}
 			},
-			{
-				name: 'artful_dodger',
-				upgrades: [
-					{
+			'Artful Dodger': {
+				name: 'Artful Dodger',
+				upgrades: {
+					'Duck and Cover': {
 						name: 'Duck and Cover',
 						description: [
 							'Your stamina starts regenerating 25% earlier and 25% faster. You also sprint 25% faster.',
@@ -643,7 +643,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [800, 400],
 						tier: 1
 					},
-					{
+					'Parkour': {
 						name: 'Parkour',
 						description: [
 							'You gain 10% additional movement speed and 20% increased speed while climbing ladders.',
@@ -653,7 +653,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [800, 480],
 						tier: 2
 					},
-					{
+					'Inner Pockets': {
 						name: 'Inner Pockets',
 						description: [
 							'Increases the concealment of melee weapons by 2.',
@@ -662,7 +662,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [800, 560],
 						tier: 2
 					},
-					{
+					'Dire Need': {
 						name: 'Dire Need',
 						description: [
 							'When your armor breaks, the first shot on every enemy will cause that enemy to stagger. This effect ends when your armor recovers.',
@@ -671,7 +671,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [800, 640],
 						tier: 3
 					},
-					{
+					'Shockproof': {
 						name: 'Shockproof',
 						description: [
 							'When tased, the shock effect has a 30% chance to backfire on the Taser, knocking them back.',
@@ -680,7 +680,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [240, 400],
 						tier: 3
 					},
-					{
+					'Sneaky Bastard': {
 						name: 'Sneaky Bastard',
 						description: [
 							'You gain a 1% chance for every 3 points of detection rate under 35 up to 10%.',
@@ -689,12 +689,12 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [80, 960],
 						tier: 4
 					}
-				],
+				}
 			},
-			{
-				name: 'silent_killer',
-				upgrades: [
-					{
+			'Silent Killer': {
+				name: 'Silent Killer',
+				upgrades: {
+					'Second Wind': {
 						name: 'Second Wind',
 						description: [
 							'When your armor breaks your movement speed is increased by 30% for 5 seconds.',
@@ -703,7 +703,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [800, 720],
 						tier: 1
 					},
-					{
+					'Optical Illusions': {
 						name: 'Optical Illusions',
 						description: [
 							'You are 35% less likely to be targeted by enemies.',
@@ -712,7 +712,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [800, 800],
 						tier: 2
 					},
-					{
+					'The Professional': {
 						name: 'The Professional',
 						description: [
 							'You gain 8 weapon stability and 100% snap to zoom speed increase with silenced weapons.',
@@ -722,7 +722,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [320, 320],
 						tier: 2
 					},
-					{
+					'Low Blow': {
 						name: 'Low Blow',
 						description: [
 							'You gain a 3% critical hit for every 3 points of detection rate under 35 up to 30%.',
@@ -731,7 +731,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [0, 960],
 						tier: 3
 					},
-					{
+					'High Value Target': {
 						name: 'High Value Target',
 						description: [
 							'Enemies you mark take 15% more damage.',
@@ -740,7 +740,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [640, 160],
 						tier: 3
 					},
-					{
+					'Unseen Strike': {
 						name: 'Unseen Strike',
 						description: [
 							'If you do not lose any armor or health for 4 seconds, you gain 35% critical hit chance for 6 seconds.',
@@ -749,17 +749,17 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [800, 880],
 						tier: 4
 					}
-				]
+				}
 			}
-		]
+		}
 	},
 	fugitive: {
 		name: 'fugitive',
-		subtrees: [
-			{
-				name: 'gunslinger',
-				upgrades: [
-					{
+		subtrees: {
+			'Gunslinger': {
+				name: 'Gunslinger',
+				upgrades: {
+					'Equilibrium': {
 						name: 'Equilibrium',
 						description: [
 							'Decreases the time it takes to draw end holster pistols by 33%.',
@@ -768,7 +768,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [240, 720],
 						tier: 1
 					},
-					{
+					'Gun Nut': {
 						name: 'Gun Nut',
 						description: [
 							'Your pistoll magazine sizes are increased by 5 bullets.',
@@ -777,7 +777,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [880, 0],
 						tier: 2
 					},
-					{
+					'Akimbo': {
 						name: 'Akimbo',
 						description: [
 							'Your Akimbo weapons\' stability penalty is reduced by 8.',
@@ -786,7 +786,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [240, 880],
 						tier: 2
 					},
-					{
+					'One Handed Talent': {
 						name: 'One Handed Talent',
 						description: [
 							'The base damage of all pistols is increased by 5.',
@@ -795,7 +795,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [560, 880],
 						tier: 3
 					},
-					{
+					'Desperado': {
 						name: 'Desperado',
 						description: [
 							'Each successful pistol hit gives you a 10% accuracy bonus for 10% and you can stack it 4 times.',
@@ -804,7 +804,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [880, 80],
 						tier: 3
 					},
-					{
+					'Trigger Happy': {
 						name: 'Trigger Happy',
 						description: [
 							'For every hit with a pistol you gain a 120% damage boost that lasts for 2 seconds.\tStacks up to 1 time.',
@@ -813,12 +813,12 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [880, 160],
 						tier: 4
 					}
-				],
+				}
 			},
-			{
-				name: 'revenant',
-				upgrades: [
-					{
+			'Revenant': {
+				name: 'Revenant',
+				upgrades: {
+					'Nine Lives': {
 						name: 'Nine Lives',
 						description: [
 							'You gain a 50% increase to your bleedout health.',
@@ -827,7 +827,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [400, 160],
 						tier: 1
 					},
-					{
+					'Running from Death': {
 						name: 'Running from Death',
 						description: [
 							'You reload and swap weapons 100% faster for 10% seconds after being revived.',
@@ -836,7 +836,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [880, 240],
 						tier: 2
 					},
-					{
+					'Up You Go': {
 						name: 'Up You Go',
 						description: [
 							'You take 30% less damage for 10 seconds after being revived.',
@@ -845,7 +845,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [880, 320],
 						tier: 2
 					},
-					{
+					'Swan Song': {
 						name: 'Swan Song',
 						description: [
 							'Instead of getting downed instantly, you gain the ability to keep on fighting for 3 seconds with a 60% movement penalty before going down.\nNote: Does not trigger on fall or fire damage.',
@@ -854,7 +854,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [400, 960],
 						tier: 3
 					},
-					{
+					'Feign Death': {
 						name: 'Feign Death',
 						description: [
 							'When you get downed, you have a 15% chance to instantly get revived',
@@ -863,7 +863,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [880, 400],
 						tier: 3
 					},
-					{
+					'Messiah': {
 						name: 'Messiah',
 						description: [
 							'While in bleedout, you can revive yourself if you kill an enemy. You only have 1 charge.',
@@ -872,12 +872,12 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [160, 720],
 						tier: 4
 					}
-				],
+				}
 			},
-			{
-				name: 'brawler',
-				upgrades: [
-					{
+			'Brawler': {
+				name: 'Brawler',
+				upgrades: {
+					'Martial Arts': {
 						name: 'Martial Arts',
 						description: [
 							'You take 50% less damage from all melee attacks. Because of training.',
@@ -886,7 +886,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [880, 560],
 						tier: 1
 					},
-					{
+					'Bloodthirst': {
 						name: 'Bloodthirst',
 						description: [
 							'Every kill you get will increase your next melee attack damage by 100%, up to a maximum of 1600%. This effect gets reset when you kill an enemy with a melee attack.',
@@ -895,7 +895,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [880, 480],
 						tier: 2
 					},
-					{
+					'Pumping Iron': {
 						name: 'Pumping Iron',
 						description: [
 							'Your melee attacks against non-special enemies do 100% more damage.',
@@ -904,7 +904,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [80, 240],
 						tier: 2
 					},
-					{
+					'Counterstrike': {
 						name: 'Counterstrike',
 						description: [
 							'When charging your melee weapons you will counterattack enemies that try to strike you, knocking them down. The knockdown does not deal any damage',
@@ -913,7 +913,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [320, 960],
 						tier: 3
 					},
-					{
+					'Berserker': {
 						name: 'Berserker',
 						description: [
 							'The lower your health, the more damage you do. When your health is below 50%, you will do up to 250% more melee and saw damage.',
@@ -922,7 +922,7 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [160, 160],
 						tier: 3
 					},
-					{
+					'Frenzy': {
 						name: 'Frenzy',
 						description: [
 							'You only get 30% of your maximum health and cannot heal above it but you take 10% less damage and healing received is reduced by 75%.',
@@ -931,9 +931,9 @@ const skills: Record<TreeNames, TreeData> = {
 						pos: [880, 640],
 						tier: 4
 					}
-				]
+				}
 			}
-		]
+		}
 	}
 }
 

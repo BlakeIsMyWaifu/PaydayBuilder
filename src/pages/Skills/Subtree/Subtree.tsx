@@ -1,27 +1,32 @@
-import { SkillData, SubtreeData, TreeData } from 'data/abilities/skills'
+import { SkillData, SubtreeData, TreeNames } from 'data/abilities/skills'
 import { useAppSelector } from 'hooks'
 import React from 'react'
 
-import Skill from './Skill'
+import Skill, { SkillProps } from './Skill'
 import { Background, Container, Tier, TierWrapper } from './Subtree-Elements'
 
 interface SubtreeProps {
-	tree: TreeData;
+	treeName: TreeNames;
 	subtree: SubtreeData;
 	setSkillHovered: React.Dispatch<React.SetStateAction<SkillData | null>>;
 }
 
-const Subtree: React.FC<SubtreeProps> = ({ tree, subtree, setSkillHovered }) => {
+const Subtree: React.FC<SubtreeProps> = ({ treeName, subtree, setSkillHovered }) => {
 
-	const { points, tier } = useAppSelector(state => state.skills.trees[tree.name][subtree.name])
+	const { points, tier } = useAppSelector(state => state.skills.trees[treeName][subtree.name])
 
-	const skills = subtree.upgrades
+	const skills = Object.values(subtree.upgrades)
 
 	const backgroundBarHeight = (): number => {
-		let total = 25 * tier
-		if (tier === 3) total += (points / 16) * 25
-		return total
+		return tier === 3 ? (25 * tier) + (points / 16 * 25) : 25 * tier
 	}
+
+	const skillProps = (i: number): SkillProps => ({
+		treeName,
+		subtree,
+		skill: skills[i],
+		setSkillHovered
+	})
 
 	return (
 		<Container>
@@ -30,21 +35,21 @@ const Subtree: React.FC<SubtreeProps> = ({ tree, subtree, setSkillHovered }) => 
 
 			<TierWrapper>
 				<Tier>
-					<Skill tree={tree} subtree={subtree} skill={skills[5]} setSkillHovered={setSkillHovered} />
+					<Skill {...skillProps(5)} />
 				</Tier>
 
 				<Tier>
-					<Skill tree={tree} subtree={subtree} skill={skills[4]} setSkillHovered={setSkillHovered} />
-					<Skill tree={tree} subtree={subtree} skill={skills[3]} setSkillHovered={setSkillHovered} />
+					<Skill {...skillProps(4)} />
+					<Skill {...skillProps(3)} />
 				</Tier>
 
 				<Tier>
-					<Skill tree={tree} subtree={subtree} skill={skills[2]} setSkillHovered={setSkillHovered} />
-					<Skill tree={tree} subtree={subtree} skill={skills[1]} setSkillHovered={setSkillHovered} />
+					<Skill {...skillProps(2)} />
+					<Skill {...skillProps(1)} />
 				</Tier>
 
 				<Tier>
-					<Skill tree={tree} subtree={subtree} skill={skills[0]} setSkillHovered={setSkillHovered} />
+					<Skill {...skillProps(0)} />
 				</Tier>
 			</TierWrapper>
 

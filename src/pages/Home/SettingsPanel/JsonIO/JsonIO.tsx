@@ -103,8 +103,8 @@ const JsonIO: React.FC<JsonIOProps> = ({ setToggleSettings }) => {
 				Object.entries(subree.upgrades).forEach(([skill, value]) => {
 					if (value === 'locked' || value === 'available') return
 					const treeData = skillsData[(treeName as TreeNames)]
-					const subtreeData = treeData.subtrees.find(subtreeData => subtreeData.name === subtreeName) || treeData.subtrees[0]
-					const skillData = subtreeData.upgrades.find(skillData => skillData.name === skill) || subtreeData.upgrades[0]
+					const subtreeData = treeData.subtrees[subtreeName] || treeData.subtrees[0]
+					const skillData = subtreeData.upgrades[skill] || subtreeData.upgrades[0]
 					dispatch(changeSkillState({
 						tree: treeName,
 						subtree: subtreeName,

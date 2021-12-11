@@ -26,11 +26,11 @@ const getTrees = (): Record<string, Subtrees> => {
 
 const getSubtrees = (tree: TreeNames): Subtrees => {
 	const out: Subtrees = {}
-	skills[tree].subtrees.forEach(subtree => {
+	Object.values(skills[tree].subtrees).forEach(subtree => {
 		out[subtree.name] = {
 			tier: 1,
 			points: 0,
-			upgrades: getUpgrades(subtree.upgrades)
+			upgrades: getUpgrades(Object.values(subtree.upgrades))
 		}
 	})
 	return out

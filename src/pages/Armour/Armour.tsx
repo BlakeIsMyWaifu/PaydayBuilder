@@ -15,7 +15,7 @@ export const Armour: React.FC = () => {
 	const equippedArmour = armours[useAppSelector(state => state.character.armour)]
 	const [selectedArmour, setSelectedArmour] = useState<ArmourData>(equippedArmour)
 
-	const ironManUnlocked = useAppSelector(state => state.skills.trees.enforcer.tank.upgrades['Iron Man']) === 'aced'
+	const ironManUnlocked = useAppSelector(state => state.skills.trees.enforcer['Tank'].upgrades['Iron Man']) === 'aced'
 
 	return (
 		<Container title='Armour'>

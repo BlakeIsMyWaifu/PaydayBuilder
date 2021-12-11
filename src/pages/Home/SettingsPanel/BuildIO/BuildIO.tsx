@@ -70,7 +70,7 @@ const BuildIO: React.FC = () => {
 				const subtreeAcedChar = decodeByte(skillsString.substr(1, 1))
 				let mask = 1
 
-				const upgrades = [...subtree.upgrades];
+				const upgrades = [...Object.values(subtree.upgrades)];
 				[upgrades[1], upgrades[2]] = [upgrades[2], upgrades[1]]; // semicolons needed
 				[upgrades[3], upgrades[4]] = [upgrades[4], upgrades[3]]
 
