@@ -147,6 +147,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'AK Quadstacked Mag': {
 		name: 'AK Quadstacked Mag',
 		image: 'wpn_fps_upg_ak_m_quad',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -164,6 +165,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Low Drag Magazine': {
 		name: 'Low Drag Magazine',
 		image: 'wpn_fps_upg_ak_m_uspalm',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
@@ -189,6 +191,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			wpn_fps_smg_p90_m_strap (Kobus 90)
 		*/
 		image: 'wpn_fps_upg_ak_m_quick',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Gage Spec Ops Pack'],
 		cost: 14e3,
@@ -225,6 +228,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Milspec Mag.': {
 		name: 'Milspec Mag.',
 		image: 'wpn_fps_m4_uupg_m_std',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -245,6 +249,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Vintage Mag.': {
 		name: 'Vintage Mag.',
 		image: 'wpn_fps_upg_m4_m_straight',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 14e3,
@@ -266,6 +271,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Tactical Mag.': {
 		name: 'Tactical Mag.',
 		image: 'wpn_fps_upg_m4_m_pmag',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -288,6 +294,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'CAR Quadstacked Mag': {
 		name: 'CAR Quadstacked Mag',
 		image: 'wpn_fps_upg_m4_m_quad',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -317,6 +324,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Expert Mag': {
 		name: 'Expert Mag',
 		image: 'wpn_fps_ass_l85a2_m_emag',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Clover Character Pack'],
 		cost: 9e3,
@@ -340,6 +348,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'L5 Magazine': {
 		name: 'L5 Magazine',
 		image: 'wpn_fps_upg_m4_m_l5',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
@@ -367,6 +376,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Magzine (Falcon)': {
 		name: 'Extended Magzine (Falcon)',
 		image: 'wpn_fps_ass_fal_m_01',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['The Big Bank Heist'],
 		cost: 11200,
@@ -388,6 +398,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag. (Reinfeld 880)': {
 		name: 'Extended Mag. (Reinfeld 880)',
 		image: 'wpn_fps_shot_r870_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 44e3,
@@ -404,6 +415,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Big Brother Magazine': {
 		name: 'Big Brother Magazine',
 		image: 'wpn_fps_sho_basset_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 10800,
@@ -424,6 +436,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Drum Mag': {
 		name: 'Drum Mag',
 		image: 'wpn_fps_sho_aa12_mag_drum',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['The Butcher\'s BBQ Pack'],
 		cost: 9e3,
@@ -443,6 +456,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Durable Blade': {
 		name: 'Durable Blade',
 		image: 'wpn_fps_saw_m_blade_durable',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 9e3,
@@ -462,6 +476,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Sharp Blade': {
 		name: 'Sharp Blade',
 		image: 'wpn_fps_saw_m_blade_sharp',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 9e3,
@@ -480,6 +495,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Rare': {
 		name: 'Rare',
 		image: 'wpn_fps_fla_mk2_mag_rare',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['The Butcher\'s BBQ Pack'],
 		cost: 9e3,
@@ -499,6 +515,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Well Done': {
 		name: 'Well Done',
 		image: 'wpn_fps_fla_mk2_mag_welldone',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['The Butcher\'s BBQ Pack'],
 		cost: 9e3,
@@ -518,6 +535,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag. (Interceptor)': {
 		name: 'Extended Mag. (Interceptor)',
 		image: 'wpn_fps_pis_usp_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source.Community,
 		cost: 14e3,
@@ -534,6 +552,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'I want more Magazine!': {
 		name: 'I want more Magazine!',
 		image: 'wpn_fps_pis_usp_m_big',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Gage Spec Ops Pack'],
 		cost: 14e3,
@@ -554,6 +573,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag. (Chimano)': {
 		name: 'Extended Mag. (Chimano)',
 		image: 'wpn_fps_pis_g18c_m_mag_33rnd',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 44e3,
@@ -573,6 +593,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag. (Signature .40)': {
 		name: 'Extended Mag. (Signature .40)',
 		image: 'wpn_fps_pis_p226_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Gage Weapon Pack #01'],
 		cost: 14e3,
@@ -588,6 +609,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'12rnd Mag.': {
 		name: '12rnd Mag.',
 		image: 'wpn_fps_pis_1911_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -604,6 +626,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Magazine with Ameritude!': {
 		name: 'Magazine with Ameritude!',
 		image: 'wpn_fps_pis_1911_m_big',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Gage Spec Ops Pack'],
 		cost: 14e3,
@@ -624,6 +647,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag. (Bernetti 9)': {
 		name: 'Extended Mag. (Bernetti 9)',
 		image: 'wpn_fps_pis_beretta_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 14e3,
@@ -640,6 +664,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Crosskill Long Mag': {
 		name: 'Crosskill Long Mag',
 		image: 'wpn_fps_pis_m1911_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Jiu Feng Smuggler Pack'],
 		cost: 9e3,
@@ -656,6 +681,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Magazine (White Streak)': {
 		name: 'Extended Magazine (White Streak)',
 		image: 'wpn_fps_pis_pl14_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -675,6 +701,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'High Capacity Mag': {
 		name: 'High Capacity Mag',
 		image: 'wpn_fps_pis_c96_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
@@ -694,6 +721,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Magazine (5/7 AP)': {
 		name: 'Extended Magazine (5/7 AP)',
 		image: 'wpn_fps_pis_lemming_m_ext',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source.Community,
 		cost: 9e3,
@@ -709,6 +737,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Magazine (Contractor)': {
 		name: 'Extended Magazine (Contractor)',
 		image: 'wpn_fps_pis_packrat_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['John Wick Weapon Pack'],
 		cost: 9e3,
@@ -728,6 +757,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Striking Mag': {
 		name: 'Striking Mag',
 		image: 'wpn_fps_pis_g26_m_contour',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source.Community,
 		cost: 53e3,
@@ -744,6 +774,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag (Crosskill Guard)': {
 		name: 'Extended Mag (Crosskill Guard)',
 		image: 'wpn_fps_pis_shrew_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -760,6 +791,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag (LEO)': {
 		name: 'Extended Mag (LEO)',
 		image: 'wpn_fps_pis_hs2000_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['The Bomb Heists'],
 		cost: 9e3,
@@ -778,6 +810,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Magazine (Bernetti Auto)': {
 		name: 'Extended Magazine (Bernetti Auto)',
 		image: 'wpn_fps_pis_beer_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Federales Weapon Pack'],
 		cost: 21e3,
@@ -797,6 +830,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Magazine (Igor)': {
 		name: 'Extended Magazine (Igor)',
 		image: 'wpn_fps_pis_stech_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Federales Weapon Pack'],
 		cost: 36e3,
@@ -813,6 +847,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Magazine (HOLT)': {
 		name: 'Extended Magazine (HOLT)',
 		image: 'wpn_fps_pis_holt_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Fugitive Weapon Pack'],
 		cost: 14e3,
@@ -829,6 +864,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag. (Deagle)': {
 		name: 'Extended Mag. (Deagle)',
 		image: 'wpn_fps_pis_deagle_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 53e3,
@@ -845,6 +881,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag. (Swedish)': {
 		name: 'Extended Mag. (Swedish)',
 		image: 'wpn_fps_smg_m45_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Armored Transport'],
 		cost: 33600,
@@ -861,6 +898,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag. (SpecOps)': {
 		name: 'Extended Mag. (SpecOps)',
 		image: 'wpn_fps_smg_mp7_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Gage Weapon Pack #01'],
 		cost: 12600,
@@ -877,6 +915,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag. (Mark 10)': {
 		name: 'Extended Mag. (Mark 10)',
 		image: 'wpn_fps_smg_mac10_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 14e3,
@@ -894,6 +933,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Straight Magazine': {
 		name: 'Straight Magazine',
 		image: 'wpn_fps_smg_mp5_m_straight',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 9e3,
@@ -913,6 +953,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag (Cobra)': {
 		name: 'Extended Mag (Cobra)',
 		image: 'wpn_fps_smg_scorpion_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Hotline Miami'],
 		cost: 9e3,
@@ -933,6 +974,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag. (CMP)': {
 		name: 'Extended Mag. (CMP)',
 		image: 'wpn_fps_smg_mp9_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 28e3,
@@ -949,6 +991,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Magazine (Signature)': {
 		name: 'Extended Magazine (Signature)',
 		image: 'wpn_fps_smg_shepheard_mag_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -964,6 +1007,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Magazine (Jackal)': {
 		name: 'Extended Magazine (Jackal)',
 		image: 'wpn_fps_smg_schakal_m_long',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['John Wick Weapon Pack'],
 		cost: 9e3,
@@ -983,6 +1027,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Short Magazine (Jackal)': {
 		name: 'Short Magazine (Jackal)',
 		image: 'wpn_fps_smg_schakal_m_short',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['John Wick Weapon Pack'],
 		cost: 9e3,
@@ -1002,6 +1047,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag (Blaster)': {
 		name: 'Extended Mag (Blaster)',
 		image: 'wpn_fps_smg_tec9_m_extended',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Hotline Miami'],
 		cost: 28e3,
@@ -1022,6 +1068,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag (Patchett)': {
 		name: 'Extended Mag (Patchett)',
 		image: 'wpn_fps_smg_sterling_m_long',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
@@ -1041,6 +1088,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Short Mag (Patchett)': {
 		name: 'Short Mag (Patchett)',
 		image: 'wpn_fps_smg_sterling_m_short',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
@@ -1060,6 +1108,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Extended Mag. (Locomotive)': {
 		name: 'Extended Mag. (Locomotive)',
 		image: 'wpn_fps_shot_shorty_m_extended_short',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -1075,6 +1124,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'High Temperature Mixture': {
 		name: 'High Temperature Mixture',
 		image: 'wpn_fps_fla_system_m_high',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -1091,6 +1141,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	'Low Temperature Mixture': {
 		name: 'Low Temperature Mixture',
 		image: 'wpn_fps_fla_system_m_low',
+		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: source['Base Game'],
 		cost: 9e3,

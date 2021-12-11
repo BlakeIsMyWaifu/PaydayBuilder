@@ -16,6 +16,7 @@ const custom: ModificationList<CustomModificationsList> = {
 	'Single Fire': {
 		name: 'Single Fire',
 		image: 'wpn_fps_upg_i_singlefire',
+		icon: 'inv_mod_singlefire',
 		slot: 'custom',
 		source: content['Gage Weapon Pack #01'],
 		cost: 50400,
@@ -32,6 +33,7 @@ const custom: ModificationList<CustomModificationsList> = {
 	'Auto Fire': {
 		name: 'Auto Fire',
 		image: 'wpn_fps_upg_i_autofire',
+		icon: 'inv_mod_autofire',
 		slot: 'custom',
 		source: content['Gage Weapon Pack #01'],
 		cost: 86800,

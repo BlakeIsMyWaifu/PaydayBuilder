@@ -9,6 +9,7 @@ const bayonet: ModificationList<BayonetModificationsList> = {
 	'Nagant Bayonet': {
 		name: 'Nagant Bayonet',
 		image: 'wpn_fps_snp_mosin_ns_bayonet',
+		icon: 'inv_mod_bayonet',
 		slot: 'bayonet',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,

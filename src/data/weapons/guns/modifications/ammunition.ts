@@ -67,10 +67,13 @@ export type AmmunitionModificationsList =
 	'Explosive Bolts (Pistol Crossbow)' |
 	'Poisoned Bolts (Pistol Crossbow)'
 
+// X1-a Tactical ZAPper
+
 const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'000 Buckshot (Community)': {
 		name: '000 Buckshot (Community)',
 		image: 'wpn_fps_upg_a_custom_free',
+		icon: 'inv_mod_ammo_custom',
 		slot: 'ammunition',
 		source: source.Community,
 		cost: 50400,
@@ -85,6 +88,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'000 Buckshot (DLC)': {
 		name: '000 Buckshot (DLC)',
 		image: 'wpn_fps_upg_a_custom',
+		icon: 'inv_mod_ammo_custom',
 		slot: 'ammunition',
 		source: content['Gage Shotgun Pack'],
 		cost: 50400,
@@ -99,6 +103,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'HE Round': {
 		name: 'HE Round',
 		image: 'wpn_fps_upg_a_explosive',
+		icon: 'inv_mod_ammo_explosive',
 		slot: 'ammunition',
 		source: content['Gage Shotgun Pack'],
 		cost: 50400,
@@ -115,6 +120,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Flechette': {
 		name: 'Flechette',
 		image: 'wpn_fps_upg_a_piercing',
+		icon: 'inv_mod_ammo_piercing',
 		slot: 'ammunition',
 		source: content['Gage Shotgun Pack'],
 		cost: 50400,
@@ -130,6 +136,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'AP Slug': {
 		name: 'AP Slug',
 		image: 'wpn_fps_upg_a_slug',
+		icon: 'inv_mod_ammo_slug',
 		slot: 'ammunition',
 		source: content['Gage Shotgun Pack'],
 		cost: 50400,
@@ -146,6 +153,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Dragon\'s Breath Round': {
 		name: 'Dragon\'s Breath Round',
 		image: 'wpn_fps_upg_a_dragons_breath',
+		icon: 'inv_mod_ammo_dragons_breath',
 		slot: 'ammunition',
 		source: content['The Butcher\'s BBQ Pack'],
 		cost: 50400,
@@ -163,6 +171,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Explosive Arrows (Plainsrider)': {
 		name: 'Explosive Arrows (Plainsrider)',
 		image: 'wpn_fps_upg_a_bow_explosion',
+		icon: 'inv_mod_ammo_explosive',
 		slot: 'ammunition',
 		source: content['The Butcher\'s Western Pack'],
 		cost: 9e3,
@@ -182,6 +191,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Poisoned Arrows (Plainsrider)': {
 		name: 'Poisoned Arrows (Plainsrider)',
 		image: 'wpn_fps_upg_a_bow_poison',
+		icon: 'inv_mod_amo_poison',
 		slot: 'ammunition',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -202,6 +212,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Explosive Bolt (Light Crossbow)': {
 		name: 'Explosive Bolt (Light Crossbow)',
 		image: 'wpn_fps_bow_frankish_m_explosive',
+		icon: 'inv_mod_ammo_explosive',
 		slot: 'ammunition',
 		source: content['Gage Chivalry Pack'],
 		cost: 9e3,
@@ -221,6 +232,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Poison Bolt (Light Crossbow)': {
 		name: 'Poison Bolt (Light Crossbow)',
 		image: 'wpn_fps_bow_frankish_m_poison',
+		icon: 'inv_mod_amo_poison',
 		slot: 'ammunition',
 		source: content['Gage Chivalry Pack'],
 		cost: 9e3,
@@ -241,6 +253,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Explosive Arrow (Airbow)': {
 		name: 'Explosive Arrow (Airbow)',
 		image: 'wpn_fps_bow_ecp_m_explosive',
+		icon: 'inv_mod_ammo_explosive',
 		slot: 'ammunition',
 		source: content['h3h3 Character Pack'],
 		cost: 9e3,
@@ -260,6 +273,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Poison Arrow (Airbow)': {
 		name: 'Poison Arrow (Airbow)',
 		image: 'wpn_fps_bow_ecp_m_poison',
+		icon: 'inv_mod_amo_poison',
 		slot: 'ammunition',
 		source: content['h3h3 Character Pack'],
 		cost: 9e3,
@@ -279,6 +293,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Explosive Arrow (English Longbow)': {
 		name: 'Explosive Arrow (English Longbow)',
 		image: 'wpn_fps_bow_long_m_explosive',
+		icon: 'inv_mod_ammo_explosive',
 		slot: 'ammunition',
 		source: content['Gage Chivalry Pack'],
 		cost: 9e3,
@@ -298,6 +313,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Poison Arrow (English Longbow)': {
 		name: 'Poison Arrow (English Longbow)',
 		image: 'wpn_fps_bow_long_m_poison',
+		icon: 'inv_mod_amo_poison',
 		slot: 'ammunition',
 		source: content['Gage Chivalry Pack'],
 		cost: 9e3,
@@ -318,6 +334,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Explosive Arrow (DECA)': {
 		name: 'Explosive Arrow (DECA)',
 		image: 'wpn_fps_bow_elastic_m_explosive',
+		icon: 'inv_mod_ammo_explosive',
 		slot: 'ammunition',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -334,6 +351,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Poison Arrow (DECA)': {
 		name: 'Poison Arrow (DECA)',
 		image: 'wpn_fps_bow_elastic_m_poison',
+		icon: 'inv_mod_amo_poison',
 		slot: 'ammunition',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -351,6 +369,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Explosive Bolt (Heavy Crossbow)': {
 		name: 'Explosive Bolt (Heavy Crossbow)',
 		image: 'wpn_fps_bow_arblast_m_explosive',
+		icon: 'inv_mod_ammo_explosive',
 		slot: 'ammunition',
 		source: content['Gage Chivalry Pack'],
 		cost: 9e3,
@@ -370,6 +389,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Poison Bolt (Heavy Crossbow)': {
 		name: 'Poison Bolt (Heavy Crossbow)',
 		image: 'wpn_fps_bow_arblast_m_poison',
+		icon: 'inv_mod_amo_poison',
 		slot: 'ammunition',
 		source: content['Gage Chivalry Pack'],
 		cost: 9e3,
@@ -390,6 +410,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Incendiary Round': {
 		name: 'Incendiary Round',
 		image: 'wpn_fps_upg_a_grenade_launcher_incendiary',
+		icon: 'inv_mod_ammo_dragons_breath',
 		slot: 'ammunition',
 		source: content['The Butcher\'s BBQ Pack'],
 		cost: 9e3,
@@ -412,6 +433,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Explosive Bolts (Pistol Crossbow)': {
 		name: 'Explosive Bolts (Pistol Crossbow)',
 		image: 'wpn_fps_upg_a_crossbow_explosion',
+		icon: 'inv_mod_ammo_explosive',
 		slot: 'ammunition',
 		source: content['Gage Ninja Pack'],
 		cost: 9e3,
@@ -431,6 +453,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Poisoned Bolts (Pistol Crossbow)': {
 		name: 'Poisoned Bolts (Pistol Crossbow)',
 		image: 'wpn_fps_upg_a_crossbow_poison',
+		icon: 'inv_mod_amo_poison',
 		slot: 'ammunition',
 		source: content['Gage Ninja Pack'],
 		cost: 9e3,

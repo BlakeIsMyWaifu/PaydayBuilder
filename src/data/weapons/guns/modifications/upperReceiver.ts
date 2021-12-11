@@ -39,6 +39,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'Heat Treated Body': {
 		name: 'Heat Treated Body',
 		image: 'wpn_fps_ass_s552_body_standard_black',
+		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: content['Armored Transport'],
 		cost: 21e3,
@@ -56,6 +57,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'Exotique Receiver': {
 		name: 'Exotique Receiver',
 		image: 'wpn_fps_m4_upper_reciever_edge',
+		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -76,6 +78,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'LW Upper Receiver': {
 		name: 'LW Upper Receiver',
 		image: 'wpn_fps_upg_ass_m4_upper_reciever_ballos',
+		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
@@ -99,6 +102,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'THRUST Upper Receiver': {
 		name: 'THRUST Upper Receiver',
 		image: 'wpn_fps_upg_ass_m4_upper_reciever_core',
+		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
@@ -122,6 +126,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'Shell Rack': {
 		name: 'Shell Rack',
 		image: 'wpn_fps_shot_r870_body_rack',
+		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -139,6 +144,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'Heat Sink Barrel': {
 		name: 'Heat Sink Barrel',
 		image: 'wpn_fps_lmg_shuno_b_heat_long',
+		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -156,6 +162,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'XS Heat Sink Barrel': {
 		name: 'XS Heat Sink Barrel',
 		image: 'wpn_fps_lmg_shuno_b_heat_short',
+		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -173,6 +180,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'XS Barrel': {
 		name: 'XS Barrel',
 		image: 'wpn_fps_lmg_shuno_b_short',
+		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -190,6 +198,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'Tactical Frame': {
 		name: 'Tactical Frame',
 		image: 'wpn_fps_bow_elastic_body_tactic',
+		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -207,6 +216,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'The Elite Slide': {
 		name: 'The Elite Slide',
 		image: 'wpn_fps_pis_beretta_sl_brigadier',
+		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -222,6 +232,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'Slimline Body': {
 		name: 'Slimline Body',
 		image: 'wpn_fps_pis_rage_body_smooth',
+		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: source['Base Game'],
 		cost: 44e3,
@@ -238,6 +249,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'Swedish Body': {
 		name: 'Swedish Body',
 		image: 'wpn_fps_smg_m45_body_green',
+		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: content['Armored Transport'],
 		cost: 25200,
@@ -254,6 +266,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'80\'s Calling': {
 		name: '80\'s Calling',
 		image: 'wpn_fps_smg_cobray_body_upper_jacket',
+		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: content['Jacket Character Pack'],
 		cost: 9e3,

@@ -178,6 +178,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'AK Rubber Grip': {
 		name: 'AK Rubber Grip',
 		image: 'wpn_fps_upg_ak_g_hgrip',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -193,6 +194,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'AK Plastic Grip': {
 		name: 'AK Plastic Grip',
 		image: 'wpn_fps_upg_ak_g_pgrip',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -208,6 +210,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'AK Wood Grip': {
 		name: 'AK Wood Grip',
 		image: 'wpn_fps_upg_ak_g_wgrip',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -223,6 +226,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Aluminum Grip': {
 		name: 'Aluminum Grip',
 		image: 'wpn_fps_upg_ak_g_rk3',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
@@ -238,6 +242,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Enhanced Grip': {
 		name: 'Enhanced Grip',
 		image: 'wpn_fps_ass_s552_g_standard_green',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Armored Transport'],
 		cost: 33600,
@@ -254,6 +259,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Ergo Grip (Main)': {
 		name: 'Ergo Grip (Main)',
 		image: 'wpn_fps_upg_m4_g_ergo',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 14e3,
@@ -265,6 +271,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Pro Grip': {
 		name: 'Pro Grip',
 		image: 'wpn_fps_upg_m4_g_sniper',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 44e3,
@@ -278,6 +285,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Rubber Grip': {
 		name: 'Rubber Grip',
 		image: 'wpn_fps_upg_m4_g_hgrip',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Weapon Pack #01'],
 		cost: 19600,
@@ -290,6 +298,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Straight Grip': {
 		name: 'Straight Grip',
 		image: 'wpn_fps_upg_m4_g_mgrip',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Weapon Pack #01'],
 		cost: 19600,
@@ -301,6 +310,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Contractor Grip': {
 		name: 'Contractor Grip',
 		image: 'wpn_fps_snp_tti_g_grippy',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['John Wick Heists'],
 		cost: 9e3,
@@ -312,6 +322,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Titanium Skeleton Grip': {
 		name: 'Titanium Skeleton Grip',
 		image: 'wpn_fps_upg_g_m4_surgeon',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Cartel Optics Mod Pack'],
 		cost: 9e3,
@@ -328,6 +339,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Delightful Grip': {
 		name: 'Delightful Grip',
 		image: 'wpn_fps_ass_l85a2_g_worn',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Clover Character Pack'],
 		cost: 9e3,
@@ -343,6 +355,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'G2 Grip': {
 		name: 'G2 Grip',
 		image: 'wpn_fps_ass_famas_g_retro',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -363,6 +376,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Sniper Grip': {
 		name: 'Sniper Grip',
 		image: 'wpn_fps_ass_galil_g_sniper',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -383,6 +397,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Tactical Grip': {
 		name: 'Tactical Grip',
 		image: 'wpn_fps_ass_fal_g_01',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['The Big Bank Heist'],
 		cost: 11200,
@@ -402,6 +417,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Retro Grip': {
 		name: 'Retro Grip',
 		image: 'wpn_fps_ass_g3_g_retro',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -420,6 +436,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Precision Grip': {
 		name: 'Precision Grip',
 		image: 'wpn_fps_ass_g3_g_sniper',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -440,6 +457,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Leichter Grip': {
 		name: 'Leichter Grip',
 		image: 'wpn_fps_snp_wa2000_g_light',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Ninja Pack'],
 		cost: 9e3,
@@ -456,6 +474,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Subtiler Grip': {
 		name: 'Subtiler Grip',
 		image: 'wpn_fps_snp_wa2000_g_stealth',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Ninja Pack'],
 		cost: 9e3,
@@ -472,6 +491,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Walnuss Grip': {
 		name: 'Walnuss Grip',
 		image: 'wpn_fps_snp_wa2000_g_walnut',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Ninja Pack'],
 		cost: 439e3,
@@ -488,6 +508,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Ergo Grip (Brenner)': {
 		name: 'Ergo Grip (Brenner)',
 		image: 'wpn_fps_lmg_hk21_g_ergo',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Weapon Pack #02'],
 		cost: 37800,
@@ -504,6 +525,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Wooden Grip (DECA)': {
 		name: 'Wooden Grip (DECA)',
 		image: 'wpn_fps_bow_elastic_g_wood',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -520,6 +542,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Ergonomic Grip (DECA)': {
 		name: 'Ergonomic Grip (DECA)',
 		image: 'wpn_fps_bow_elastic_g_ergo',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -536,6 +559,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Laser Grip (Chimano)': {
 		name: 'Laser Grip (Chimano)',
 		image: 'wpn_fps_pis_g26_g_laser',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source.Community,
 		cost: 28e3,
@@ -556,6 +580,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Platypus Grip': {
 		name: 'Platypus Grip',
 		image: 'wpn_fps_pis_g26_g_gripforce',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source.Community,
 		cost: 53e3,
@@ -575,6 +600,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Laser Grip (Gruber Kurz)': {
 		name: 'Laser Grip (Gruber Kurz)',
 		image: 'wpn_fps_pis_ppk_g_laser',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Armored Transport'],
 		cost: 10800,
@@ -590,6 +616,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Ergo Grip (Signature .40)': {
 		name: 'Ergo Grip (Signature .40)',
 		image: 'wpn_fps_pis_p226_g_ergo',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Weapon Pack #01'],
 		cost: 12600,
@@ -606,6 +633,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Ergo Grip (Crosskill)': {
 		name: 'Ergo Grip (Crosskill)',
 		image: 'wpn_fps_pis_1911_g_ergo',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 14e3,
@@ -621,6 +649,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Bling Grip (Crosskill)': {
 		name: 'Bling Grip (Crosskill)',
 		image: 'wpn_fps_pis_1911_g_bling',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 80e3,
@@ -637,6 +666,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Engraved Crosskill Grips': {
 		name: 'Engraved Crosskill Grips',
 		image: 'wpn_fps_pis_1911_g_engraved',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 9e3,
@@ -655,6 +685,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Ergo Grip (Bernetti 9)': {
 		name: 'Ergo Grip (Bernetti 9)',
 		image: 'wpn_fps_pis_beretta_g_ergo',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 14e3,
@@ -670,6 +701,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Engraved Bernetti Grips': {
 		name: 'Engraved Bernetti Grips',
 		image: 'wpn_fps_pis_beretta_g_engraved',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 9e3,
@@ -688,6 +720,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Ergo Wooden Grip': {
 		name: 'Ergo Wooden Grip',
 		image: 'wpn_fps_pis_rage_g_ergo',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 14e3,
@@ -703,6 +736,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Spike Grip': {
 		name: 'Spike Grip',
 		image: 'wpn_fps_pis_sparrow_g_cowboy',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['The Point Break Heists'],
 		cost: 9e3,
@@ -719,6 +753,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Wooden Grip (M13)': {
 		name: 'Wooden Grip (M13)',
 		image: 'wpn_fps_pis_legacy_g_wood',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -734,6 +769,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Ergo Grip (STRYK / Chimano Custom)': {
 		name: 'Ergo Grip (STRYK / Chimano Custom)',
 		image: 'wpn_fps_pis_g18c_g_ergo',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 28e3,
@@ -750,6 +786,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Engraved Grip': {
 		name: 'Engraved Grip',
 		image: 'wpn_fps_pis_breech_g_custom',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['WW2 Weapon Pack'],
 		cost: 9e3,
@@ -763,6 +800,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Carnival Grip': {
 		name: 'Carnival Grip',
 		image: 'wpn_fps_pis_chinchilla_g_black',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -778,6 +816,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Cruz Grip': {
 		name: 'Cruz Grip',
 		image: 'wpn_fps_pis_chinchilla_g_death',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -793,6 +832,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Mule Bone Grip': {
 		name: 'Mule Bone Grip',
 		image: 'wpn_fps_pis_model3_g_xxx',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gunslinger Weapon Pack'],
 		cost: 9e3,
@@ -808,6 +848,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Blinged Grip': {
 		name: 'Blinged Grip',
 		image: 'wpn_fps_pis_shrew_g_bling',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -823,6 +864,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Ergonomic Grip (Crosskill Guard)': {
 		name: 'Ergonomic Grip (Crosskill Guard)',
 		image: 'wpn_fps_pis_shrew_g_ergo',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -838,6 +880,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Cartel Grip (Bernetti Auto)': {
 		name: 'Cartel Grip (Bernetti Auto)',
 		image: 'wpn_fps_pis_beer_g_luxury',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Federales Weapon Pack'],
 		cost: 9e3,
@@ -857,6 +900,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Weller Grip': {
 		name: 'Weller Grip',
 		image: 'wpn_fps_pis_beer_g_robo',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Federales Weapon Pack'],
 		cost: 9e3,
@@ -875,6 +919,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Cartel Grip (Czech)': {
 		name: 'Cartel Grip (Czech)',
 		image: 'wpn_fps_pis_czech_g_luxury',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Federales Weapon Pack'],
 		cost: 9e3,
@@ -893,6 +938,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Sicario Grip': {
 		name: 'Sicario Grip',
 		image: 'wpn_fps_pis_czech_g_sport',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Federales Weapon Pack'],
 		cost: 9e3,
@@ -912,6 +958,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Federales Grip': {
 		name: 'Federales Grip',
 		image: 'wpn_fps_pis_stech_g_tactical',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Federales Weapon Pack'],
 		cost: 21e3,
@@ -928,6 +975,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Cartel Grip (Igor)': {
 		name: 'Cartel Grip (Igor)',
 		image: 'wpn_fps_pis_stech_g_luxury',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Federales Weapon Pack'],
 		cost: 28e3,
@@ -944,6 +992,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Ergonomic Grip (HOLT)': {
 		name: 'Ergonomic Grip (HOLT)',
 		image: 'wpn_fps_pis_holt_g_ergo',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Fugitive Weapon Pack'],
 		cost: 14e3,
@@ -959,6 +1008,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Bling Grip (HOLT)': {
 		name: 'Bling Grip (HOLT)',
 		image: 'wpn_fps_pis_holt_g_bling',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Fugitive Weapon Pack'],
 		cost: 21e3,
@@ -974,6 +1024,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Grand Grip': {
 		name: 'Grand Grip',
 		image: 'wpn_fps_pis_peacemaker_g_bling',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['The Butcher\'s Western Pack'],
 		cost: 9e3,
@@ -990,6 +1041,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Noir Grip': {
 		name: 'Noir Grip',
 		image: 'wpn_fps_pis_2006m_g_bling',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['The Alesso Heist'],
 		cost: 9e3,
@@ -1005,6 +1057,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Ergo Grip (Deagle)': {
 		name: 'Ergo Grip (Deagle)',
 		image: 'wpn_fps_pis_deagle_g_ergo',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 44e3,
@@ -1022,6 +1075,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Bling Grip (Deagle)': {
 		name: 'Bling Grip (Deagle)',
 		image: 'wpn_fps_pis_deagle_g_bling',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
 		cost: 80e3,
@@ -1038,6 +1092,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Ergo Grip (Swedish)': {
 		name: 'Ergo Grip (Swedish)',
 		image: 'wpn_fps_smg_m45_g_ergo',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Armored Transport'],
 		cost: 16800,
@@ -1054,6 +1109,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Bling Grip (Swedish)': {
 		name: 'Bling Grip (Swedish)',
 		image: 'wpn_fps_smg_m45_g_bling',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Armored Transport'],
 		cost: 16800,
@@ -1070,6 +1126,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Discrete Grip': {
 		name: 'Discrete Grip',
 		image: 'wpn_fps_smg_thompson_grip_discrete',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source.Community,
 		cost: 14e3,
@@ -1086,6 +1143,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Ergo Grip (Cobra)': {
 		name: 'Ergo Grip (Cobra)',
 		image: 'wpn_fps_smg_scorpion_g_ergo',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Hotline Miami'],
 		cost: 9e3,
@@ -1105,6 +1163,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Wooden Grip (Cobra)': {
 		name: 'Wooden Grip (Cobra)',
 		image: 'wpn_fps_smg_scorpion_g_wood',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Hotline Miami'],
 		cost: 9e3,
@@ -1125,6 +1184,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Camo Grip': {
 		name: 'Camo Grip',
 		image: 'wpn_fps_bow_hunter_g_camo',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Ninja Pack'],
 		cost: 9e3,
@@ -1143,6 +1203,7 @@ const grip: ModificationList<GripModificationsList> = {
 	'Walnut Grip': {
 		name: 'Walnut Grip',
 		image: 'wpn_fps_bow_hunter_g_walnut',
+		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gage Ninja Pack'],
 		cost: 9e3,

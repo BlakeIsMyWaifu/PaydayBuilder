@@ -39,6 +39,7 @@ const boost: ModificationList<BoostModificationsList> = {
 	'Concealment': {
 		name: 'Concealment',
 		image: 'wpn_fps_upg_bonus_concealment_p1',
+		icon: 'inv_mod_bonus_stats',
 		slot: 'boost',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -50,6 +51,7 @@ const boost: ModificationList<BoostModificationsList> = {
 	'Stability': {
 		name: 'Stability',
 		image: 'wpn_fps_upg_bonus_recoil_p1',
+		icon: 'inv_mod_bonus_stats',
 		slot: 'boost',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -61,6 +63,7 @@ const boost: ModificationList<BoostModificationsList> = {
 	'Accuracy': {
 		name: 'Accuracy',
 		image: 'wpn_fps_upg_bonus_spread_p1',
+		icon: 'inv_mod_bonus_stats',
 		slot: 'boost',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -72,6 +75,7 @@ const boost: ModificationList<BoostModificationsList> = {
 	'Team Boost': {
 		name: 'Team Boost',
 		image: 'wpn_fps_upg_bonus_team_exp_money_p3',
+		icon: 'inv_mod_bonus_team',
 		slot: 'boost',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -82,6 +86,7 @@ const boost: ModificationList<BoostModificationsList> = {
 	'Accuracy (- Shotguns)': {
 		name: 'Accuracy (- Shotguns)',
 		image: 'wpn_fps_upg_bonus_spread_n1',
+		icon: 'inv_mod_bonus_stats',
 		slot: 'boost',
 		source: source['Base Game'],
 		cost: 12600,
@@ -96,6 +101,7 @@ const boost: ModificationList<BoostModificationsList> = {
 	'Total Ammo (Main)': {
 		name: 'Total Ammo (Main)',
 		image: 'wpn_fps_upg_bonus_total_ammo_p1',
+		icon: 'inv_mod_bonus_stats',
 		slot: 'boost',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -131,6 +137,7 @@ const boost: ModificationList<BoostModificationsList> = {
 	'Total Ammo (Plainsrider)': {
 		name: 'Total Ammo (Plainsrider)',
 		image: 'wpn_fps_upg_bonus_total_ammo_p3',
+		icon: 'inv_mod_bonus_stats',
 		slot: 'boost',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -146,6 +153,7 @@ const boost: ModificationList<BoostModificationsList> = {
 	'Damage (Flamethrower)': {
 		name: 'Damage (Flamethrower)',
 		image: 'wpn_fps_upg_bonus_damage_p1', // wpn_fps_upg_bonus_damage_p3
+		icon: 'inv_mod_bonus_stats',
 		slot: 'boost',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -162,6 +170,7 @@ const boost: ModificationList<BoostModificationsList> = {
 	'Concealment (Extra)': {
 		name: 'Concealment (Extra)',
 		image: 'wpn_fps_upg_bonus_concealment_p3',
+		icon: 'inv_mod_bonus_stats',
 		slot: 'boost',
 		source: source['Base Game'],
 		cost: 9e3,

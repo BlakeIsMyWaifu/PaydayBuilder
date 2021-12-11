@@ -65,11 +65,13 @@ export type BarrelExtModificationsList =
 	'Shh!' |
 	'Donald\'s Horizontal Leveller' |
 
-	// Snipers
+	// Platypus 70
 	'Beak Suppressor' |
+
+	// Rattlesnake
 	'Sniper Suppressor' |
-	'Langer Barrel' |
-	'Gedämpfter Barrel' |
+
+	// Contractor .308
 	'Contractor Silencer' |
 
 	// Pistols
@@ -151,6 +153,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Low Profile Suppressor': {
 		name: 'Low Profile Suppressor',
 		image: 'wpn_fps_upg_ns_ass_smg_small',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -164,6 +167,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Medium Suppressor': {
 		name: 'Medium Suppressor',
 		image: 'wpn_fps_upg_ns_ass_smg_medium',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 14e3,
@@ -179,6 +183,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'The Bigger The Better Suppressor': {
 		name: 'The Bigger The Better Suppressor',
 		image: 'wpn_fps_upg_ns_ass_smg_large',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -195,6 +200,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Stubby Compensator': {
 		name: 'Stubby Compensator',
 		image: 'wpn_fps_upg_ns_ass_smg_stubby',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -208,6 +214,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'The Tank Compensator': {
 		name: 'The Tank Compensator',
 		image: 'wpn_fps_upg_ns_ass_smg_tank',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 28e3,
@@ -222,6 +229,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Fire Breather Nozzle': {
 		name: 'Fire Breather Nozzle',
 		image: 'wpn_fps_upg_ns_ass_smg_firepig',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -236,6 +244,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Tactical Compensator': {
 		name: 'Tactical Compensator',
 		image: 'wpn_fps_upg_ass_ns_surefire',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -253,6 +262,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Competitor\'s Compensator': {
 		name: 'Competitor\'s Compensator',
 		image: 'wpn_fps_upg_ass_ns_jprifles',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -271,6 +281,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Funnel of Fun Nozzle': {
 		name: 'Funnel of Fun Nozzle',
 		image: 'wpn_fps_upg_ass_ns_linear',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -288,6 +299,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Ported Compensator': {
 		name: 'Ported Compensator',
 		image: 'wpn_fps_upg_ass_ns_battle',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 9e3,
@@ -305,9 +317,11 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'PBS Suppressor': {
 		name: 'PBS Suppressor',
 		image: 'wpn_fps_upg_ns_ass_pbs1',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
+		specialEffect: ['Silences Weapon'],
 		acquisition: {
 			achievement: '$1.8M Speedrun'
 		},
@@ -335,6 +349,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Shark Teeth Nozzle': {
 		name: 'Shark Teeth Nozzle',
 		image: 'wpn_fps_upg_ns_shot_shark',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -352,6 +367,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'The Silent Killer Suppressor': {
 		name: 'The Silent Killer Suppressor',
 		image: 'wpn_fps_upg_ns_shot_thick',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 53e3,
@@ -369,6 +385,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'King\'s Crown Compensator': {
 		name: 'King\'s Crown Compensator',
 		image: 'wpn_fps_upg_shot_ns_king',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -388,6 +405,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Shh!': {
 		name: 'Shh!',
 		image: 'wpn_fps_upg_ns_sho_salvo_large',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 53e3,
@@ -409,6 +427,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Donald\'s Horizontal Leveller': {
 		name: 'Donald\'s Horizontal Leveller',
 		image: 'wpn_fps_upg_ns_duck',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['Gage Spec Ops Pack'],
 		cost: 9e3,
@@ -428,6 +447,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Beak Suppressor': {
 		name: 'Beak Suppressor',
 		image: 'wpn_fps_snp_model70_ns_suppressor',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -447,6 +467,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Sniper Suppressor': {
 		name: 'Sniper Suppressor',
 		image: 'wpn_fps_snp_msr_ns_suppressor',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['Gage Sniper Pack'],
 		cost: 28e3,
@@ -467,45 +488,10 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 			]
 		}
 	},
-	'Langer Barrel': {
-		name: 'Langer Barrel',
-		image: 'wpn_fps_snp_wa2000_b_long',
-		slot: 'barrelExt',
-		source: content['Gage Ninja Pack'],
-		cost: 9e3,
-		stats: {
-			accuracy: 4,
-			concealment: -3
-		},
-		compatibleWeapons: {
-			sniper: [
-				'Lebensauger .308 Sniper Rifle'
-			]
-		}
-	},
-	'Gedämpfter Barrel': {
-		name: 'Gedämpfter Barrel',
-		image: 'wpn_fps_snp_wa2000_b_suppressed',
-		slot: 'barrelExt',
-		source: content['Gage Ninja Pack'],
-		cost: 44e3,
-		specialEffect: ['Silences Weapon'],
-		stats: {
-			damage: -4,
-			accuracy: -4,
-			stability: 8,
-			concealment: -2,
-			threat: -18
-		},
-		compatibleWeapons: {
-			sniper: [
-				'Lebensauger .308 Sniper Rifle'
-			]
-		}
-	},
 	'Contractor Silencer': {
 		name: 'Contractor Silencer',
 		image: 'wpn_fps_snp_tti_ns_hex',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['John Wick Heists'],
 		cost: 9e3,
@@ -525,6 +511,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'IPSC Compensator': {
 		name: 'IPSC Compensator',
 		image: 'wpn_fps_upg_ns_pis_ipsccomp',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source.Community,
 		cost: 28e3,
@@ -538,6 +525,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Facepunch Compensator': {
 		name: 'Facepunch Compensator',
 		image: 'wpn_fps_upg_ns_pis_meatgrinder',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source.Community,
 		cost: 53e3,
@@ -552,6 +540,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Flash Hider': {
 		name: 'Flash Hider',
 		image: 'wpn_fps_upg_pis_ns_flash',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -573,6 +562,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Roctec Suppressor': {
 		name: 'Roctec Suppressor',
 		image: 'wpn_fps_upg_ns_pis_medium_gem',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: source.Community,
 		cost: 28e3,
@@ -588,6 +578,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Champion\'s Suppressor': {
 		name: 'Champion\'s Suppressor',
 		image: 'wpn_fps_upg_ns_pis_large_kac',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: source.Community,
 		cost: 44e3,
@@ -604,6 +595,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Standard Issue Suppressor': {
 		name: 'Standard Issue Suppressor',
 		image: 'wpn_fps_upg_ns_pis_medium',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -622,6 +614,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Size Doesn\'t Matter Suppressor': {
 		name: 'Size Doesn\'t Matter Suppressor',
 		image: 'wpn_fps_upg_ns_pis_small',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -635,6 +628,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Monolith Suppressor': {
 		name: 'Monolith Suppressor',
 		image: 'wpn_fps_upg_ns_pis_large',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -650,6 +644,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Asepsis Suppressor': {
 		name: 'Asepsis Suppressor',
 		image: 'wpn_fps_upg_ns_pis_medium_slim',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -668,6 +663,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Budget Suppressor': {
 		name: 'Budget Suppressor',
 		image: 'wpn_fps_upg_ns_ass_filter',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 0,
@@ -686,6 +682,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Jungle Ninja Suppressor': {
 		name: 'Jungle Ninja Suppressor',
 		image: 'wpn_fps_upg_ns_pis_jungle',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 36e3,
@@ -704,6 +701,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Hurricane Compensator': {
 		name: 'Hurricane Compensator',
 		image: 'wpn_fps_upg_ns_pis_typhoon',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['Cartel Optics Mod Pack'],
 		cost: 39200,
@@ -722,6 +720,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Ventilated .45': {
 		name: 'Ventilated .45',
 		image: 'wpn_fps_pis_usp_co_comp_1',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source.Community,
 		cost: 28e3,
@@ -740,6 +739,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Velocity .45': {
 		name: 'Velocity .45',
 		image: 'wpn_fps_pis_usp_co_comp_2',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source.Community,
 		cost: 36e3,
@@ -757,6 +757,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Ventilated Compensator': {
 		name: 'Ventilated Compensator',
 		image: 'wpn_fps_pis_g18c_co_1',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 28e3,
@@ -776,6 +777,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Velocity Compensator': {
 		name: 'Velocity Compensator',
 		image: 'wpn_fps_pis_g18c_co_comp_2',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -795,6 +797,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Aggressor Comensator': {
 		name: 'Aggressor Comensator',
 		image: 'wpn_fps_pis_1911_co_2',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source.Community,
 		cost: 14e3,
@@ -813,6 +816,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Punisher Compensator': {
 		name: 'Punisher Compensator',
 		image: 'wpn_fps_pis_1911_co_1',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source.Community,
 		cost: 36e3,
@@ -831,6 +835,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'The Competitor Compensator': {
 		name: 'The Competitor Compensator',
 		image: 'wpn_fps_pis_beretta_co_co2',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -848,6 +853,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'The Professional Compensator': {
 		name: 'The Professional Compensator',
 		image: 'wpn_fps_pis_beretta_co_co1',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 28e3,
@@ -866,6 +872,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'La Femme Compensator': {
 		name: 'La Femme Compensator',
 		image: 'wpn_fps_pis_deagle_co_short',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source.Community,
 		cost: 44e3,
@@ -884,6 +891,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'OVERKILL Compensator': {
 		name: 'OVERKILL Compensator',
 		image: 'wpn_fps_pis_deagle_co_long',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: source.Community,
 		cost: 62e3,
@@ -901,6 +909,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Ventilated .40': {
 		name: 'Ventilated .40',
 		image: 'wpn_fps_pis_p226_co_comp_1',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['Gage Weapon Pack #01'],
 		cost: 39200,
@@ -919,6 +928,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Velocity .40': {
 		name: 'Velocity .40',
 		image: 'wpn_fps_pis_p226_co_comp_2',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['Gage Weapon Pack #01'],
 		cost: 50400,
@@ -936,6 +946,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Damper.L 44 Nozzle': {
 		name: 'Damper.L 44 Nozzle',
 		image: 'wpn_fps_pis_c96_nozzle',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
@@ -957,6 +968,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Contractor Compensator': {
 		name: 'Contractor Compensator',
 		image: 'wpn_fps_pis_packrat_ns_wick',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['John Wick Weapon Pack'],
 		cost: 9e3,
@@ -973,6 +985,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Suppressed Barrel': {
 		name: 'Suppressed Barrel',
 		image: 'Suppressed_Barrel',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['Gage Weapon Pack #01'],
 		cost: 39200,
@@ -993,6 +1006,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Werbell\'s Suppressor': {
 		name: 'Werbell\'s Suppressor',
 		image: 'wpn_fps_smg_cobray_ns_silencer',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['Jacket Character Pack'],
 		cost: 9e3,
@@ -1013,6 +1027,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Slotted Barrel Extension': {
 		name: 'Slotted Barrel Extension',
 		image: 'wpn_fps_smg_cobray_ns_barrelextension',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['Jacket Character Pack'],
 		cost: 9e3,
@@ -1032,6 +1047,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Suppressor': {
 		name: 'Suppressor',
 		image: 'wpn_fps_smg_scorpion_b_suppressed',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['Hotline Miami'],
 		cost: 36e3,
@@ -1054,9 +1070,11 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Tactical Suppressor': {
 		name: 'Tactical Suppressor',
 		image: 'wpn_fps_smg_mp9_b_suppressed',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 28e3,
+		specialEffect: ['Silences Weapon'],
 		acquisition: {
 			bonus: 1
 		},
@@ -1075,6 +1093,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Futomaki Suppressor': {
 		name: 'Futomaki Suppressor',
 		image: 'wpn_fps_smg_baka_b_longsupp',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['Yakuza Character Pack'],
 		cost: 9e3,
@@ -1096,6 +1115,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Maki Suppressor': {
 		name: 'Maki Suppressor',
 		image: 'wpn_fps_smg_baka_b_midsupp',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['Yakuza Character Pack'],
 		cost: 9e3,
@@ -1118,6 +1138,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Spring Suppressor': {
 		name: 'Spring Suppressor',
 		image: 'wpn_fps_smg_baka_b_smallsupp',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['Yakuza Character Pack'],
 		cost: 9e3,
@@ -1138,6 +1159,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Silentgear Silencer': {
 		name: 'Silentgear Silencer',
 		image: 'wpn_fps_smg_schakal_ns_silencer',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['John Wick Weapon Pack'],
 		cost: 9e3,
@@ -1159,6 +1181,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Tishina Suppressor': {
 		name: 'Tishina Suppressor',
 		image: 'wpn_fps_smg_sr2_ns_silencer',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -1178,9 +1201,11 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'HPS Suppressor': {
 		name: 'HPS Suppressor',
 		image: 'wpn_fps_smg_polymer_ns_silencer',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['Gage Ninja Pack'],
 		cost: 9e3,
+		specialEffect: ['Silences Weapon'],
 		stats: {
 			damage: -3,
 			stability: 4,
@@ -1196,6 +1221,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Precision Barrel': {
 		name: 'Precision Barrel',
 		image: 'wpn_fps_smg_polymer_barrel_precision',
+		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['Gage Ninja Pack'],
 		cost: 9e3,
@@ -1214,9 +1240,11 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Silent Death': {
 		name: 'Silent Death',
 		image: 'wpn_fps_smg_uzi_b_suppressed',
+		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['Hotline Miami'],
 		cost: 36e3,
+		specialEffect: ['Silences Weapon'],
 		acquisition: {
 			achievement: 'Sounds of Animals Fighting'
 		},

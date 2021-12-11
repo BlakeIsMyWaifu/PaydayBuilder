@@ -178,6 +178,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'Assault Light': {
 		name: 'Assault Light',
 		image: 'wpn_fps_upg_fl_ass_smg_sho_surefire',
+		icon: 'inv_mod_flashlight',
 		slot: 'gadget',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -190,6 +191,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'Tactical Laser Module': {
 		name: 'Tactical Laser Module',
 		image: 'wpn_fps_upg_fl_ass_smg_sho_peqbox',
+		icon: 'inv_mod_laser',
 		slot: 'gadget',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -202,6 +204,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'Compact Laser Module': {
 		name: 'Compact Laser Module',
 		image: 'wpn_fps_upg_fl_ass_laser',
+		icon: 'inv_mod_laser',
 		slot: 'gadget',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -215,6 +218,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'Military Laser Module': {
 		name: 'Military Laser Module',
 		image: 'wpn_fps_upg_fl_ass_peq15',
+		icon: 'inv_mod_laser',
 		slot: 'gadget',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -231,6 +235,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'LED Combo': {
 		name: 'LED Combo',
 		image: 'wpn_fps_upg_fl_ass_utg',
+		icon: 'inv_mod_laser',
 		slot: 'gadget',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 36e3,
@@ -247,6 +252,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'Riktpunkt 45 degree Sight': {
 		name: 'Riktpunkt 45 degree Sight',
 		image: 'wpn_fps_upg_o_45rds_v2',
+		icon: 'inv_mod_second_sight',
 		slot: 'gadget',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -262,6 +268,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'45 degree red-dot sight': {
 		name: '45 degree red-dot sight',
 		image: 'wpn_fps_upg_o_45rds',
+		icon: 'inv_mod_second_sight',
 		slot: 'gadget',
 		source: content['Gage Spec Ops Pack'],
 		cost: 9e3,
@@ -277,6 +284,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'45 Degree Ironsights': {
 		name: '45 Degree Ironsights',
 		image: 'wpn_fps_upg_o_45steel',
+		icon: 'inv_mod_second_sight',
 		slot: 'gadget',
 		source: content['Cartel Optics Mod Pack'],
 		cost: 14e3,
@@ -289,6 +297,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'Riktpunkt Magnifier Gadget': {
 		name: 'Riktpunkt Magnifier Gadget',
 		image: 'wpn_fps_upg_o_xpsg33_magnifier',
+		icon: 'inv_mod_second_sight',
 		slot: 'gadget',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -304,6 +313,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'Signature Magnifier Gadget': {
 		name: 'Signature Magnifier Gadget',
 		image: 'wpn_fps_upg_o_sig',
+		icon: 'inv_mod_second_sight',
 		slot: 'gadget',
 		source: content['Cartel Optics Mod Pack'],
 		cost: 14e3,
@@ -316,6 +326,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'Angled Sight': {
 		name: 'Angled Sight',
 		image: 'wpn_fps_upg_o_45iron',
+		icon: 'inv_mod_second_sight',
 		slot: 'gadget',
 		source: content['Gage Sniper Pack'],
 		cost: 7200,
@@ -328,6 +339,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'Tactical Pistol Light': {
 		name: 'Tactical Pistol Light',
 		image: 'wpn_fps_upg_fl_pis_tlr1',
+		icon: 'inv_mod_flashlight',
 		slot: 'gadget',
 		source: source['Base Game'],
 		cost: 14e3,
@@ -340,6 +352,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'Pocket Laser': {
 		name: 'Pocket Laser',
 		image: 'wpn_fps_upg_fl_pis_laser',
+		icon: 'inv_mod_laser',
 		slot: 'gadget',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -352,6 +365,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'Micro Laser': {
 		name: 'Micro Laser',
 		image: 'wpn_fps_upg_fl_pis_crimson',
+		icon: 'inv_mod_laser',
 		slot: 'gadget',
 		source: source.Community,
 		cost: 36e3,
@@ -365,6 +379,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'Combined Module': {
 		name: 'Combined Module',
 		image: 'wpn_fps_upg_fl_pis_x400v',
+		icon: 'inv_mod_laser',
 		slot: 'gadget',
 		source: source.Community,
 		cost: 36e3,
@@ -377,6 +392,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	'Polymer Flashlight': {
 		name: 'Polymer Flashlight',
 		image: 'wpn_fps_upg_fl_pis_m3x',
+		icon: 'inv_mod_flashlight',
 		slot: 'gadget',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 0, // Unknown?

@@ -114,6 +114,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Railed Wooden Grip': {
 		name: 'Railed Wooden Grip',
 		image: 'wpn_upg_ak_fg_combo2',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -126,6 +127,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'The Tactical Russian Handguard': {
 		name: 'The Tactical Russian Handguard',
 		image: 'wpn_upg_ak_fg_combo3',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -139,6 +141,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Battleproven Handguard': {
 		name: 'Battleproven Handguard',
 		image: 'wpn_fps_upg_ak_fg_tapco',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -154,6 +157,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Lightweight Rail': {
 		name: 'Lightweight Rail',
 		image: 'wpn_fps_upg_fg_midwest',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -170,6 +174,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Crabs Rail': {
 		name: 'Crabs Rail',
 		image: 'wpn_fps_upg_ak_fg_krebs',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
@@ -185,6 +190,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Keymod Rail': {
 		name: 'Keymod Rail',
 		image: 'wpn_fps_upg_ak_fg_trax',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
@@ -201,6 +207,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Enhanced Foregrip': {
 		name: 'Enhanced Foregrip',
 		image: 'wpn_fps_ass_s552_fg_standard_green',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Armored Transport'],
 		cost: 10800,
@@ -217,6 +224,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Railed Foregrip (Commando)': {
 		name: 'Railed Foregrip (Commando)',
 		image: 'wpn_fps_ass_s552_fg_railed',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Armored Transport'],
 		cost: 63600,
@@ -233,6 +241,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Rail Extension': {
 		name: 'Rail Extension',
 		image: 'wpn_fps_ass_scar_fg_railext',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Weapon Pack #01'],
 		cost: 39200,
@@ -249,6 +258,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Aftermarket Special Handguard': {
 		name: 'Aftermarket Special Handguard',
 		image: 'wpn_fps_m4_uupg_fg_lr300',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -265,6 +275,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Competition Foregrip': {
 		name: 'Competition Foregrip',
 		image: 'wpn_fps_upg_fg_jp',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -286,6 +297,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Gazelle Rail': {
 		name: 'Gazelle Rail',
 		image: 'wpn_fps_upg_fg_smr',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -307,6 +319,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'OVAL Foregrip': {
 		name: 'OVAL Foregrip',
 		image: 'wpn_fps_upg_ass_m4_fg_lvoa',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
@@ -327,6 +340,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'E.M.O. Foregrip': {
 		name: 'E.M.O. Foregrip',
 		image: 'wpn_fps_upg_ass_m4_fg_moe',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
@@ -348,6 +362,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Appalachian Foregrip': {
 		name: 'Appalachian Foregrip',
 		image: 'wpn_fps_ass_sub2000_fg_gen2',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['The Golden Grin Casino Heist'],
 		cost: 9e3,
@@ -367,6 +382,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Delabarre Foregrip': {
 		name: 'Delabarre Foregrip',
 		image: 'wpn_fps_ass_sub2000_fg_railed',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['The Golden Grin Casino Heist'],
 		cost: 9e3,
@@ -386,6 +402,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Tooth Fairy Suppressor': {
 		name: 'Tooth Fairy Suppressor',
 		image: 'wpn_fps_ass_sub2000_fg_suppressed',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['The Golden Grin Casino Heist'],
 		cost: 36e3,
@@ -409,6 +426,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Compact Foregrip': {
 		name: 'Compact Foregrip',
 		image: 'wpn_fps_ass_g36_fg_c',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 28e3,
@@ -425,6 +443,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Polizei Special Foregrip': {
 		name: 'Polizei Special Foregrip',
 		image: 'wpn_fps_ass_g36_fg_ksk',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -442,6 +461,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'JP36 Long Foregrip': {
 		name: 'JP36 Long Foregrip',
 		image: 'wpn_fps_upg_g36_fg_long',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Spec Ops Pack'],
 		cost: 9e3,
@@ -462,6 +482,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Versatile Foregrip': {
 		name: 'Versatile Foregrip',
 		image: 'wpn_fps_ass_l85a2_fg_short',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Clover Character Pack'],
 		cost: 9e3,
@@ -478,6 +499,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Custom Foregrip': {
 		name: 'Custom Foregrip',
 		image: 'wpn_fps_ass_ching_fg_railed',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['WW2 Weapon Pack'],
 		cost: 9e3,
@@ -494,6 +516,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Karbin Ceres Handguard': {
 		name: 'Karbin Ceres Handguard',
 		image: 'wpn_fps_ass_ak5_fg_ak5c',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 53e3,
@@ -511,6 +534,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Belgian Heat Handguard': {
 		name: 'Belgian Heat Handguard',
 		image: 'wpn_fps_ass_ak5_fg_fnc',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 80e3,
@@ -527,6 +551,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Tactical Handguard': {
 		name: 'Tactical Handguard',
 		image: 'wpn_fps_m16_fg_railed',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 53e3,
@@ -543,6 +568,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Blast From The Past Handguard': {
 		name: 'Blast From The Past Handguard',
 		image: 'wpn_fps_m16_fg_vietnam',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 80e3,
@@ -559,6 +585,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Long Ergo Foregrip': {
 		name: 'Long Ergo Foregrip',
 		image: 'wpn_fps_upg_ass_m16_fg_stag',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
@@ -578,6 +605,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Precision Foregrip': {
 		name: 'Precision Foregrip',
 		image: 'wpn_fps_ass_g3_fg_psg',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -598,6 +626,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Tactical Foregrip (Gewehr)': {
 		name: 'Tactical Foregrip (Gewehr)',
 		image: 'wpn_fps_ass_g3_fg_railed',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -617,6 +646,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Wooden Foregrip': {
 		name: 'Wooden Foregrip',
 		image: 'wpn_fps_ass_g3_fg_retro',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -637,6 +667,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Plastic Foregrip': {
 		name: 'Plastic Foregrip',
 		image: 'wpn_fps_ass_g3_fg_retro_plastic',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -656,6 +687,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Zombie Hunter Pump': {
 		name: 'Zombie Hunter Pump',
 		image: 'wpn_fps_shot_r870_fg_wood',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 14e3,
@@ -671,6 +703,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'The Tactical Russian Rail': {
 		name: 'The Tactical Russian Rail',
 		image: 'wpn_upg_saiga_fg_lowerrail',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -687,6 +720,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Hollow Handle': {
 		name: 'Hollow Handle',
 		image: 'wpn_fps_sho_saiga_fg_holy',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Spec Ops Pack'],
 		cost: 9e3,
@@ -705,6 +739,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Little Brother Foregrip': {
 		name: 'Little Brother Foregrip',
 		image: 'wpn_fps_sho_basset_fg_short',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 10800,
@@ -724,6 +759,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Lightweight Foregrip': {
 		name: 'Lightweight Foregrip',
 		image: 'wpn_fps_snp_siltstone_fg_polymer',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Russian Weapon Pack'],
 		cost: 9e3,
@@ -740,6 +776,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Tactical Foregrip (RPK)': {
 		name: 'Tactical Foregrip (RPK)',
 		image: 'wpn_fps_lmg_rpk_fg_standard',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Weapon Pack #02'],
 		cost: 64800,
@@ -758,6 +795,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Railed Foregrip (KSP)': {
 		name: 'Railed Foregrip (KSP)',
 		image: 'wpn_fps_lmg_m249_fg_mk46',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Weapon Pack #02'],
 		cost: 79200,
@@ -775,6 +813,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Short Foregrip (Brenner)': {
 		name: 'Short Foregrip (Brenner)',
 		image: 'wpn_fps_lmg_hk21_fg_short',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Weapon Pack #02'],
 		cost: 79200,
@@ -793,6 +832,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Sehr Kurze Barrel': {
 		name: 'Sehr Kurze Barrel',
 		image: 'wpn_fps_smg_mp5_fg_m5k',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 28e3,
@@ -809,6 +849,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Polizei Tactical Barrel': {
 		name: 'Polizei Tactical Barrel',
 		image: 'wpn_fps_smg_mp5_fg_mp5a5',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -825,6 +866,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'The Ninja Barrel': {
 		name: 'The Ninja Barrel',
 		image: 'wpn_fps_smg_mp5_fg_mp5sd',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 80e3,
@@ -844,6 +886,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Enlightened Foregrip': {
 		name: 'Enlightened Foregrip',
 		image: 'wpn_fps_smg_mp5_fg_flash',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Gage Spec Ops Pack'],
 		cost: 9e3,
@@ -865,6 +908,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Discrete Foregrip': {
 		name: 'Discrete Foregrip',
 		image: 'wpn_fps_smg_thompson_foregrip_discrete',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source.Community,
 		cost: 14e3,
@@ -881,6 +925,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Railed Handguard': {
 		name: 'Railed Handguard',
 		image: 'wpn_fps_smg_olympic_fg_railed',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 28e3,
@@ -897,6 +942,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Aftermarket Shorty': {
 		name: 'Aftermarket Shorty',
 		image: 'wpn_fps_upg_smg_olympic_fg_lr300',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
@@ -915,6 +961,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Short Foregrip (Signature)': {
 		name: 'Short Foregrip (Signature)',
 		image: 'wpn_fps_smg_shepheard_body_short',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -931,6 +978,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Moscow Special Rail': {
 		name: 'Moscow Special Rail',
 		image: 'wpn_fps_smg_akmsu_fg_rail',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -947,6 +995,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Aluminum Foregrip': {
 		name: 'Aluminum Foregrip',
 		image: 'wpn_fps_upg_ak_fg_zenit',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
@@ -965,6 +1014,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	'Tactical Foregrip (Uzi)': {
 		name: 'Tactical Foregrip (Uzi)',
 		image: 'wpn_fps_smg_uzi_fg_rail',
+		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['Hotline Miami'],
 		cost: 9e3,

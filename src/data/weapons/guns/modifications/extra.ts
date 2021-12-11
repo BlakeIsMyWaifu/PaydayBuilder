@@ -30,6 +30,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 	'Scope Mount (AK)': {
 		name: 'Scope Mount (AK)',
 		image: 'wpn_fps_upg_o_ak_scopemount',
+		icon: 'inv_mod_extra',
 		slot: 'extra',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
@@ -57,6 +58,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 	'A3 Tactical Foregrip': {
 		name: 'A3 Tactical Foregrip',
 		image: 'wpn_fps_aug_fg_a3',
+		icon: 'inv_mod_extra',
 		slot: 'extra',
 		source: source['Base Game'],
 		cost: 53e3,
@@ -74,6 +76,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 	'Scope Mount (M308)': {
 		name: 'Scope Mount (M308)',
 		image: 'wpn_fps_upg_o_m14_scopemount',
+		icon: 'inv_mod_extra',
 		slot: 'extra',
 		source: content['The Butcher Mod Pack 2'],
 		cost: 9e3,
@@ -93,6 +96,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 	'I\'ll Take Half That Kit': {
 		name: 'I\'ll Take Half That Kit',
 		image: 'wpn_fps_lmg_m134_body_upper_light',
+		icon: 'inv_mod_extra',
 		slot: 'extra',
 		source: content['The OVERKILL Pack'],
 		cost: 9e3,
@@ -114,6 +118,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 	'Bronco Scope Mount': {
 		name: 'Bronco Scope Mount',
 		image: 'wpn_fps_pis_rage_extra',
+		icon: 'inv_mod_extra',
 		slot: 'extra',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -130,6 +135,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 	'Deagle Scope Mount': {
 		name: 'Deagle Scope Mount',
 		image: 'wpn_fps_pis_deagle_extra',
+		icon: 'inv_mod_extra',
 		slot: 'extra',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -146,6 +152,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 	'Railed Handguard': {
 		name: 'Railed Handguard',
 		image: 'wpn_fps_smg_mac10_body_ris',
+		icon: 'inv_mod_extra',
 		slot: 'extra',
 		source: source['Base Game'],
 		cost: 36e3,

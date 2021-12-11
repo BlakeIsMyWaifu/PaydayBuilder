@@ -138,6 +138,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'The Professional\'s Choice Sight': {
 		name: 'The Professional\'s Choice Sight',
 		image: 'wpn_fps_upg_o_t1micro',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -150,6 +151,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Surgeon Sight': {
 		name: 'Surgeon Sight',
 		image: 'wpn_fps_upg_o_docter',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -162,6 +164,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'See More Sight': {
 		name: 'See More Sight',
 		image: 'wpn_fps_upg_o_cmore',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Armored Transport'],
 		cost: 43200,
@@ -174,6 +177,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Combat Sight': {
 		name: 'Combat Sight',
 		image: 'wpn_fps_upg_o_cs',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -189,6 +193,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Speculator Sight': {
 		name: 'Speculator Sight',
 		image: 'wpn_fps_upg_o_reflex',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -204,6 +209,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Trigonom Sight': {
 		name: 'Trigonom Sight',
 		image: 'wpn_fps_upg_o_rx01',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -219,6 +225,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Holographic Sight': {
 		name: 'Holographic Sight',
 		image: 'wpn_fps_upg_o_eotech',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -231,6 +238,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Compact Holosight': {
 		name: 'Compact Holosight',
 		image: 'wpn_fps_upg_o_eotech_xps',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -246,6 +254,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Solar Sight': {
 		name: 'Solar Sight',
 		image: 'wpn_fps_upg_o_rx30',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -261,6 +270,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Military Red Dot Sight (1)': {
 		name: 'Military Red Dot Sight (1)',
 		image: 'wpn_fps_upg_o_aimpoint_2',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content.Lootbag,
 		cost: 9e3,
@@ -276,6 +286,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Military Red Dot Sight (2)': {
 		name: 'Military Red Dot Sight (2)',
 		image: 'wpn_fps_upg_o_aimpoint',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: source['Base Game'],
 		cost: 62e3,
@@ -288,6 +299,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Milspec Scope': {
 		name: 'Milspec Scope',
 		image: 'wpn_fps_upg_o_specter',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: source['Base Game'],
 		cost: 62e3,
@@ -300,6 +312,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Acough Optic Scope': {
 		name: 'Acough Optic Scope',
 		image: 'wpn_fps_upg_o_acog',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: source['Base Game'],
 		cost: 44e3,
@@ -315,6 +328,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Compact Profile Sight': {
 		name: 'Compact Profile Sight',
 		image: 'wpn_fps_upg_o_fc1',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Cartel Optics Mod Pack'],
 		cost: 62e3,
@@ -326,6 +340,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Maelstrom Sight': {
 		name: 'Maelstrom Sight',
 		image: 'wpn_fps_upg_o_uh',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Cartel Optics Mod Pack'],
 		cost: 62e3,
@@ -338,6 +353,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Advanced Combat Sight': {
 		name: 'Advanced Combat Sight',
 		image: 'wpn_fps_upg_o_bmg',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Cartel Optics Mod Pack'],
 		cost: 62e3,
@@ -350,6 +366,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Reconnaissance Sight': {
 		name: 'Reconnaissance Sight',
 		image: 'wpn_fps_upg_o_spot',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Gage Spec Ops Pack'],
 		cost: 62e3,
@@ -366,6 +383,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Theia Magnified Scope': {
 		name: 'Theia Magnified Scope',
 		image: 'wpn_fps_upg_o_leupold',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Gage Sniper Pack'],
 		cost: 49600,
@@ -385,6 +403,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Box Buddy Sight': {
 		name: 'Box Buddy Sight',
 		image: 'wpn_fps_upg_o_box',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Gage Spec Ops Pack'],
 		cost: 62e3,
@@ -400,6 +419,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'A5 Scope': {
 		name: 'A5 Scope',
 		image: 'wpn_fps_snp_winchester_sniper_scope',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['The Butcher\'s Western Pack'],
 		cost: 0,
@@ -419,6 +439,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Pistol Red Dot Sight': {
 		name: 'Pistol Red Dot Sight',
 		image: 'wpn_fps_upg_o_rmr',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -434,6 +455,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'SKOLD Micro Reflex Sight': {
 		name: 'SKOLD Micro Reflex Sight',
 		image: 'wpn_fps_upg_o_rms',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Cartel Optics Mod Pack'],
 		cost: 44e3,
@@ -446,6 +468,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Riktpunkt Holosight': {
 		name: 'Riktpunkt Holosight',
 		image: 'wpn_fps_upg_o_rikt',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Cartel Optics Mod Pack'],
 		cost: 44e3,
@@ -458,6 +481,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Marksman Sight': {
 		name: 'Marksman Sight',
 		image: 'wpn_upg_o_marksmansight_rear',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -476,6 +500,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Barrel Sight 44': {
 		name: 'Barrel Sight 44',
 		image: 'wpn_fps_pis_c96_sight',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
@@ -494,6 +519,7 @@ const sight: ModificationList<SightModificationsList> = {
 	'Tritium Sights': {
 		name: 'Tritium Sights',
 		image: 'wpn_fps_pis_packrat_o_expert',
+		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['John Wick Weapon Pack'],
 		cost: 9e3,

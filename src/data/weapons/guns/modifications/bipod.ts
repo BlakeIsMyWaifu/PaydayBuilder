@@ -9,6 +9,7 @@ const bipod: ModificationList<BipodModificationsList> = {
 	'Lion\'s Bipod': {
 		name: 'Lion\'s Bipod',
 		image: 'wpn_fps_upg_bp_lmg_lionbipod',
+		icon: 'inv_mod_bipod',
 		slot: 'bipod',
 		source: source['Base Game'],
 		cost: 0,

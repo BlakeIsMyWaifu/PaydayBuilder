@@ -32,7 +32,17 @@ import { SubmachineGunList } from './secondary/submachineGuns'
 
 export type Slot = 'primary' | 'secondary'
 
-type WeaponType = 'Assault Rifle' | 'Shotgun' | 'LMG' | 'Sniper' | 'Akimbo Pistol' | 'Akimbo Shotgun' | 'Akimbo SMG' | 'Special' | 'Pistol' | 'Submachine Gun'
+type WeaponType =
+	'Assault Rifle' |
+	'Shotgun' |
+	'LMG' |
+	'Sniper' |
+	'Akimbo Pistol' |
+	'Akimbo Shotgun' |
+	'Akimbo SMG' |
+	'Special' |
+	'Pistol' |
+	'Submachine Gun'
 
 export interface WeaponModifications {
 	ammunition?: Modification<AmmunitionModificationsList>[];
@@ -67,6 +77,18 @@ export type AllWeaponList =
 	PistolList |
 	SubmachineGunList
 
+type FiringMode =
+	'Selective firing' |
+	'Semi-Automatic' |
+	'Lever Action' |
+	'Pump action' |
+	'Break Action' |
+	'Fully automatic' |
+	'Bolt action' |
+	'Single Shot' |
+	'Double action' |
+	'Single action'
+
 export interface WeaponData {
 	name: AllWeaponList;
 	image: string;
@@ -74,7 +96,7 @@ export interface WeaponData {
 	inventorySlot: 'primary' | 'secondary';
 	reputation: number;
 	weaponType: WeaponType;
-	firingMode: 'Selective firing' | 'Semi-Automatic' | 'Lever Action' | 'Pump action' | 'Break Action' | 'Fully automatic' | 'Bolt action' | 'Single Shot' | 'Double action' | 'Single action';
+	firingMode: FiringMode;
 	cost: number;
 	stats: WeaponStats;
 	extraStats: WeaponExtraStats;
@@ -130,9 +152,43 @@ export interface ModificationStats {
 	threat?: number;
 }
 
+type ModIcon =
+	'inv_mod_ammo_custom' |
+	'inv_mod_ammo_dragons_breath' |
+	'inv_mod_ammo_explosive' |
+	'inv_mod_ammo_piercing' |
+	'inv_mod_ammo_slug' |
+	'inv_mod_amo_poison' |
+	'inv_mod_autofire' |
+	'inv_mod_barrel' |
+	'inv_mod_barrel_ext' |
+	'inv_mod_bayonet' |
+	'inv_mod_bipod' |
+	'inv_mod_bonus' |
+	'inv_mod_bonus_stats' |
+	'inv_mod_bonus_team' |
+	'inv_mod_custom' |
+	'inv_mod_extra' |
+	'inv_mod_flashlight' |
+	'inv_mod_foregrip' |
+	'inv_mod_grip' |
+	'inv_mod_laser' |
+	'inv_mod_lower_receiver' |
+	'inv_mod_magazine' |
+	'inv_mod_scope' |
+	'inv_mod_second_sight' |
+	'inv_mod_silencer' |
+	'inv_mod_singlefire' |
+	'inv_mod_slide' |
+	'inv_mod_stock' |
+	'inv_mod_upper_receiver' |
+	'inv_mod_vertical_grip' |
+	'inv_mod_weapon_cosmetics'
+
 export interface Modification<ModificationName> {
 	name: ModificationName;
 	image: string;
+	icon: ModIcon;
 	slot: ModificationSlot;
 	source: SourceData | ContentData;
 	cost: number;

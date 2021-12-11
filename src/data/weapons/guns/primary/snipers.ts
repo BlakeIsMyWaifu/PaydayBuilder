@@ -302,9 +302,9 @@ const snipers: Record<SniperList, WeaponData> = {
 			damageModifier: [1.0, 1.1]
 		},
 		modifications: {
-			barrelExt: [
-				barrelExt['Langer Barrel'],
-				barrelExt['Gedämpfter Barrel']
+			barrel: [
+				barrel['Langer Barrel'],
+				barrel['Gedämpfter Barrel']
 			],
 			boost: mainBoost,
 			gadget: mainGadgetMagifier,

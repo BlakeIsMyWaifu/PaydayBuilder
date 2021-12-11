@@ -57,6 +57,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Expert Slide': {
 		name: 'Expert Slide',
 		image: 'wpn_fps_pis_usp_b_expert',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: source.Community,
 		cost: 14e3,
@@ -73,6 +74,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Match Slide': {
 		name: 'Match Slide',
 		image: 'wpn_fps_pis_usp_b_match',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: source.Community,
 		cost: 14e3,
@@ -90,6 +92,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Long Slide (Gruber Kurz)': {
 		name: 'Long Slide (Gruber Kurz)',
 		image: 'wpn_fps_pis_ppk_b_long',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: content['Armored Transport'],
 		cost: 25200,
@@ -107,6 +110,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Two Tone Slide': {
 		name: 'Two Tone Slide',
 		image: 'wpn_fps_pis_p226_b_equinox',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: content['Gage Weapon Pack #01'],
 		cost: 39200,
@@ -124,6 +128,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Long Slide (Signature .40)': {
 		name: 'Long Slide (Signature .40)',
 		image: 'wpn_fps_pis_p226_b_long',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: content['Gage Weapon Pack #01'],
 		cost: 61e3,
@@ -142,6 +147,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Vented Slide': {
 		name: 'Vented Slide',
 		image: 'wpn_fps_pis_1911_b_vented',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -160,6 +166,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Long Vented Slide': {
 		name: 'Long Vented Slide',
 		image: 'wpn_fps_pis_1911_b_long',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: source['Base Game'],
 		cost: 14e3,
@@ -178,6 +185,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Aggressor Barrel': {
 		name: 'Aggressor Barrel',
 		image: 'wpn_fps_pis_rage_b_comp1',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -196,6 +204,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Pocket Surprise Barrel': {
 		name: 'Pocket Surprise Barrel',
 		image: 'wpn_fps_pis_rage_b_short',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -213,6 +222,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Ventilated Barrel': {
 		name: 'Ventilated Barrel',
 		image: 'wpn_fps_pis_rage_b_comp2',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: source['Base Game'],
 		cost: 28e3,
@@ -232,6 +242,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Overcompensating Barrel': {
 		name: 'Overcompensating Barrel',
 		image: 'wpn_fps_pis_rage_b_long',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -249,6 +260,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Chunky Hunter Barrel': {
 		name: 'Chunky Hunter Barrel',
 		image: 'wpn_fps_pis_m1911_b_xxx',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: content['Jiu Feng Smuggler Pack'],
 		cost: 9e3,
@@ -265,6 +277,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Crosskill Platinum Bull Slide': {
 		name: 'Crosskill Platinum Bull Slide',
 		image: 'wpn_fps_pis_m1911_b_xxx__',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: content['Jiu Feng Smuggler Pack'],
 		cost: 9e3,
@@ -281,6 +294,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Long Slide (Chimano Custom)': {
 		name: 'Long Slide (Chimano Custom)',
 		image: 'wpn_fps_pis_g22c_b_long',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: source.Community,
 		cost: 36e3,
@@ -299,6 +313,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Precision Barrel (Broomstick)': {
 		name: 'Precision Barrel (Broomstick)',
 		image: 'wpn_fps_pis_c96_b_long',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
@@ -321,6 +336,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Striking Slide': {
 		name: 'Striking Slide',
 		image: 'wpn_fps_pis_g26_b_custom',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: source.Community,
 		cost: 28e3,
@@ -339,6 +355,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Milled Slide': {
 		name: 'Milled Slide',
 		image: 'wpn_fps_pis_shrew_sl_milled',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -354,6 +371,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Custom Slide': {
 		name: 'Custom Slide',
 		image: 'wpn_fps_pis_hs2000_sl_custom',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: content['The Bomb Heists'],
 		cost: 28e3,
@@ -374,6 +392,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Long Slide (LEO)': {
 		name: 'Long Slide (LEO)',
 		image: 'wpn_fps_pis_hs2000_sl_long',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: content['The Bomb Heists'],
 		cost: 44e3,
@@ -395,6 +414,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Precision Barrel (Peacemaker)': {
 		name: 'Precision Barrel (Peacemaker)',
 		image: 'wpn_fps_pis_peacemaker_b_long',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: content['The Butcher\'s Western Pack'],
 		cost: 9e3,
@@ -411,6 +431,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Shootout Barrel': {
 		name: 'Shootout Barrel',
 		image: 'wpn_fps_pis_peacemaker_b_short',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: content['The Butcher\'s Western Pack'],
 		cost: 9e3,
@@ -427,6 +448,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Long Barrel': {
 		name: 'Long Barrel',
 		image: 'wpn_fps_pis_deagle_b_long',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: source['Base Game'],
 		cost: 53e3,
@@ -445,6 +467,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	'Custom Milled Barrel': {
 		name: 'Custom Milled Barrel',
 		image: 'wpn_fps_pis_deagle_b_modern',
+		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: source['Base Game'],
 		cost: 53e3,

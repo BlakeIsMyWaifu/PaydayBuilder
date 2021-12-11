@@ -256,6 +256,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Standard Stock (Main)': {
 		name: 'Standard Stock (Main)',
 		image: 'wpn_fps_upg_m4_s_standard',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -289,6 +290,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Tactical Stock (Main)': {
 		name: 'Tactical Stock (Main)',
 		image: 'wpn_fps_upg_m4_s_pts',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -301,6 +303,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Skeletal Stock (Main)': {
 		name: 'Skeletal Stock (Main)',
 		image: 'wpn_upg_ak_s_skfoldable',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -324,6 +327,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Wooden Sniper Stock': {
 		name: 'Wooden Sniper Stock',
 		image: 'wpn_upg_ak_s_psl',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 44e3,
@@ -349,6 +353,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Wide Stock': {
 		name: 'Wide Stock',
 		image: 'wpn_fps_upg_m4_s_crane',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -364,6 +369,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'War-Torn Stock': {
 		name: 'War-Torn Stock',
 		image: 'wpn_fps_upg_m4_s_mk46',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Mod Courier'],
 		cost: 0,
@@ -380,6 +386,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Classic Stock': {
 		name: 'Classic Stock',
 		image: 'wpn_fps_upg_ak_s_solidstock',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
@@ -411,6 +418,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'2 Piece Stock': {
 		name: '2 Piece Stock',
 		image: 'wpn_fps_upg_m4_s_ubr',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['The Butcher\'s AK/CAR Mod Pack'],
 		cost: 9e3,
@@ -427,6 +435,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Contractor Stock': {
 		name: 'Contractor Stock',
 		image: 'wpn_fps_snp_tti_s_vltor',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['John Wick Heists'],
 		cost: 9e3,
@@ -438,6 +447,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Enhanced Stock': {
 		name: 'Enhanced Stock',
 		image: 'wpn_fps_ass_s552_g_standard_green',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Armored Transport'],
 		cost: 33600,
@@ -454,6 +464,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Sniper Stock (Eagle Heavy)': {
 		name: 'Sniper Stock (Eagle Heavy)',
 		image: 'wpn_fps_ass_scar_s_sniper',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Weapon Pack #01'],
 		cost: 39200,
@@ -470,6 +481,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Folding Stock': {
 		name: 'Folding Stock',
 		image: 'wpn_upg_ak_s_folding',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -489,6 +501,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Solid Stock (JP36)': {
 		name: 'Solid Stock (JP36)',
 		image: 'wpn_fps_ass_g36_s_kv',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 28e3,
@@ -504,6 +517,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Sniper Stock (JP36)': {
 		name: 'Sniper Stock (JP36)',
 		image: 'wpn_fps_ass_g36_s_sl8',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 71e3,
@@ -521,6 +535,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Magpouch Stock': {
 		name: 'Magpouch Stock',
 		image: 'wpn_fps_ass_ching_s_pouch',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['WW2 Weapon Pack'],
 		cost: 9e3,
@@ -536,6 +551,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Abraham Body': {
 		name: 'Abraham Body',
 		image: 'wpn_fps_ass_m14_body_ebr',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 44e3,
@@ -552,6 +568,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Jaeger Body': {
 		name: 'Jaeger Body',
 		image: 'wpn_fps_ass_m14_body_jae',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 80e3,
@@ -569,6 +586,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'B-Team Stock': {
 		name: 'B-Team Stock',
 		image: 'B-Team_Stock_(M308)',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 0,
@@ -586,6 +604,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Solid Stock (Valkyria)': {
 		name: 'Solid Stock (Valkyria)',
 		image: 'wpn_fps_ass_asval_s_solid',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Sokol Character Pack'],
 		cost: 9e3,
@@ -605,6 +624,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Bertil Stock': {
 		name: 'Bertil Stock',
 		image: 'wpn_fps_ass_ak5_s_ak5b',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -621,6 +641,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Caesar Stock': {
 		name: 'Caesar Stock',
 		image: 'wpn_fps_ass_ak5_s_ak5c',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 53e3,
@@ -637,6 +658,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Fabulous Stock': {
 		name: 'Fabulous Stock',
 		image: 'wpn_fps_ass_galil_s_fab',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -657,6 +679,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Light Stock (Gecko)': {
 		name: 'Light Stock (Gecko)',
 		image: 'wpn_fps_ass_galil_s_light',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -676,6 +699,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Plastic Stock (Gecko)': {
 		name: 'Plastic Stock (Gecko)',
 		image: 'Plastic_Stock_(Gecko_7.62)',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -696,6 +720,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Skeletal Stock (Gecko)': {
 		name: 'Skeletal Stock (Gecko)',
 		image: 'wpn_fps_ass_galil_s_skeletal',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -716,6 +741,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Sniper Stock (Gecko)': {
 		name: 'Sniper Stock (Gecko)',
 		image: 'wpn_fps_ass_galil_s_sniper',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -736,6 +762,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Wooden Stock (Gecko)': {
 		name: 'Wooden Stock (Gecko)',
 		image: 'wpn_fps_ass_galil_s_wood',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -755,6 +782,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'CQB Stock': {
 		name: 'CQB Stock',
 		image: 'wpn_fps_ass_fal_s_01',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['The Big Bank Heist'],
 		cost: 11200,
@@ -773,6 +801,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Marksman Stock': {
 		name: 'Marksman Stock',
 		image: 'wpn_fps_ass_fal_s_03',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['The Big Bank Heist'],
 		cost: 11200,
@@ -793,6 +822,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Wooden Stock (Falcon)': {
 		name: 'Wooden Stock (Falcon)',
 		image: 'wpn_fps_ass_fal_s_wood',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['The Big Bank Heist'],
 		cost: 11200,
@@ -811,6 +841,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Precision Stock': {
 		name: 'Precision Stock',
 		image: 'wpn_fps_ass_g3_s_sniper',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -831,6 +862,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Wooden Stock (Gewehr)': {
 		name: 'Wooden Stock (Gewehr)',
 		image: 'wpn_fps_ass_g3_s_wood',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Assault Pack'],
 		cost: 14e3,
@@ -850,6 +882,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Folded Stock (Predator)': {
 		name: 'Folded Stock (Predator)',
 		image: 'wpn_fps_sho_s_spas12_folded',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source.Community,
 		cost: 9e3,
@@ -868,6 +901,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Solid Stock (Predator)': {
 		name: 'Solid Stock (Predator)',
 		image: 'wpn_fps_sho_s_spas12_solid',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source.Community,
 		cost: 9e3,
@@ -885,6 +919,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'No Stock (Predator)': {
 		name: 'No Stock (Predator)',
 		image: 'wpn_fps_sho_s_spas12_nostock',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source.Community,
 		cost: 28e3,
@@ -901,6 +936,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Long Stock': {
 		name: 'Long Stock',
 		image: 'wpn_fps_sho_boot_s_long',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Biker Character Pack'],
 		cost: 9e3,
@@ -917,6 +953,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Short Enough Stock': {
 		name: 'Short Enough Stock',
 		image: 'wpn_fps_shot_r870_s_nostock',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 14e3,
@@ -933,6 +970,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Short Enough Tactical Stock': {
 		name: 'Short Enough Tactical Stock',
 		image: 'wpn_fps_shot_r870_s_nostock_big',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 28e3,
@@ -949,6 +987,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Government Issue Tactical Stock': {
 		name: 'Government Issue Tactical Stock',
 		image: 'wpn_fps_shot_r870_s_solid_big',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 28e3,
@@ -965,6 +1004,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Muldon Stock': {
 		name: 'Muldon Stock',
 		image: 'wpn_fps_shot_r870_s_folding',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 71e3,
@@ -983,6 +1023,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Gangsta Special Stock': {
 		name: 'Gangsta Special Stock',
 		image: 'wpn_fps_shot_huntsman_s_short',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 80e3,
@@ -1000,6 +1041,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Collapsed Stock': {
 		name: 'Collapsed Stock',
 		image: 'wpn_fps_sho_ben_s_collapsed',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Shotgun Pack'],
 		cost: 9e3,
@@ -1019,6 +1061,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Tactical Stock (M1014)': {
 		name: 'Tactical Stock (M1014)',
 		image: 'wpn_fps_sho_ben_s_solid',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Shotgun Pack'],
 		cost: 36e3,
@@ -1039,6 +1082,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Artisan Stock': {
 		name: 'Artisan Stock',
 		image: 'wpn_fps_sho_m1897_s_xxx',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gunslinger Weapon Pack'],
 		cost: 9e3,
@@ -1055,6 +1099,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Luxurious Ammo Pouch': {
 		name: 'Luxurious Ammo Pouch',
 		image: 'wpn_fps_shot_b682_s_ammopouch',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source.Community,
 		cost: 9e3,
@@ -1070,6 +1115,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Wrist Wrecker Stock': {
 		name: 'Wrist Wrecker Stock',
 		image: 'wpn_fps_shot_b682_s_short',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source.Community,
 		cost: 9e3,
@@ -1087,6 +1133,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Tactical Aluminium Body': {
 		name: 'Tactical Aluminium Body',
 		image: 'wpn_fps_snp_msr_body_msr',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Sniper Pack'],
 		cost: 49600,
@@ -1106,6 +1153,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Military Stock': {
 		name: 'Military Stock',
 		image: 'wpn_fps_snp_r700_s_tactical',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Fugitive Weapon Pack'],
 		cost: 21e3,
@@ -1124,6 +1172,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Tactical Stock (R700)': {
 		name: 'Tactical Stock (R700)',
 		image: 'wpn_fps_snp_r700_s_military',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Fugitive Weapon Pack'],
 		cost: 21e3,
@@ -1142,6 +1191,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Club Stock': {
 		name: 'Club Stock',
 		image: 'wpn_fps_snp_sbl_s_xxx',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gunslinger Weapon Pack'],
 		cost: 9e3,
@@ -1157,6 +1207,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Wooden Body': {
 		name: 'Wooden Body',
 		image: 'wpn_fps_snp_r93_body_wood',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Sniper Pack'],
 		cost: 42400,
@@ -1176,6 +1227,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Lightweight Stock': {
 		name: 'Lightweight Stock',
 		image: 'wpn_fps_snp_siltstone_s_polymer',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Russian Weapon Pack'],
 		cost: 9e3,
@@ -1192,6 +1244,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Discrete Stock (Nagant)': {
 		name: 'Discrete Stock (Nagant)',
 		image: 'wpn_fps_snp_mosin_body_standard_black',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
@@ -1211,6 +1264,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Plastic Stock (RPK)': {
 		name: 'Plastic Stock (RPK)',
 		image: 'wpn_fps_lmg_rpk_s_standard',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Weapon Pack #02'],
 		cost: 37800,
@@ -1227,6 +1281,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Plastic Stock (KSP 58)': {
 		name: 'Plastic Stock (KSP 58)',
 		image: 'wpn_fps_lmg_par_s_plastic',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 0,
@@ -1246,6 +1301,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Solid Stock (KSP)': {
 		name: 'Solid Stock (KSP)',
 		image: 'wpn_fps_lmg_m249_s_solid',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Weapon Pack #02'],
 		cost: 37800,
@@ -1262,6 +1318,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Light Stock (Airbow)': {
 		name: 'Light Stock (Airbow)',
 		image: 'wpn_fps_bow_ecp_s_bare',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['h3h3 Character Pack'],
 		cost: 9e3,
@@ -1281,6 +1338,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'No Stock (Piglet)': {
 		name: 'No Stock (Piglet)',
 		image: 'wpn_fps_gre_m32_no_stock',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['The Butcher\'s BBQ Pack'],
 		cost: 0,
@@ -1300,6 +1358,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Sawed-off Stock': {
 		name: 'Sawed-off Stock',
 		image: 'wpn_fps_gre_m79_stock_short',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Assault Pack'],
 		cost: 9e3,
@@ -1319,6 +1378,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Holster Stock': {
 		name: 'Holster Stock',
 		image: 'wpn_fps_pis_c96_s_solid',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
@@ -1338,6 +1398,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Stock': {
 		name: 'Stock',
 		image: 'wpn_fps_pis_g18c_s_stock',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 62e3,
@@ -1354,6 +1415,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Federales Stock (Bernetti Auto)': {
 		name: 'Federales Stock (Bernetti Auto)',
 		image: 'wpn_fps_pis_beer_s_std',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Federales Weapon Pack'],
 		cost: 53e3,
@@ -1373,6 +1435,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Federales Stock (Igor)': {
 		name: 'Federales Stock (Igor)',
 		image: 'wpn_fps_pis_stech_s_standard',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Federales Weapon Pack'],
 		cost: 9e3,
@@ -1389,6 +1452,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Ol´ Ben\'s Stock': {
 		name: 'Ol´ Ben\'s Stock',
 		image: 'wpn_fps_pis_peacemaker_s_skeletal',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['The Butcher\'s Western Pack'],
 		cost: 9e3,
@@ -1405,6 +1469,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Folded Stock (Swedish)': {
 		name: 'Folded Stock (Swedish)',
 		image: 'wpn_fps_smg_m45_s_folded',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Armored Transport'],
 		cost: 16800,
@@ -1421,6 +1486,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Unfolded Stock (SpecOps)': {
 		name: 'Unfolded Stock (SpecOps)',
 		image: 'wpn_fps_smg_mp7_s_long',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Weapon Pack #01'],
 		cost: 12600,
@@ -1437,6 +1503,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Skeletal Stock (Mark 10)': {
 		name: 'Skeletal Stock (Mark 10)',
 		image: 'wpn_fps_smg_mac10_s_skel',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -1454,6 +1521,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Bull Stock': {
 		name: 'Bull Stock',
 		image: 'wpn_fps_smg_vityaz_b_xxx',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Jiu Feng Smuggler Pack'],
 		cost: 9e3,
@@ -1470,6 +1538,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Adjustable Stock': {
 		name: 'Adjustable Stock',
 		image: 'wpn_fps_smg_mp5_s_adjust',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -1485,6 +1554,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Bare Essentials Stock': {
 		name: 'Bare Essentials Stock',
 		image: 'wpn_fps_smg_mp5_s_ring',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -1501,6 +1571,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Spartan Stock': {
 		name: 'Spartan Stock',
 		image: 'wpn_fps_smg_mp5_s_folding',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Spec Ops Pack'],
 		cost: 9e3,
@@ -1519,6 +1590,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'QD Sling Stock': {
 		name: 'QD Sling Stock',
 		image: 'wpn_fps_smg_thompson_stock_nostock',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source.Community,
 		cost: 9e3,
@@ -1535,6 +1607,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Discrete Stock (Chicago Typewriter)': {
 		name: 'Discrete Stock (Chicago Typewriter)',
 		image: 'wpn_fps_smg_thompson_stock_discrete',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source.Community,
 		cost: 21e3,
@@ -1551,6 +1624,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'No Stock (Cobra)': {
 		name: 'No Stock (Cobra)',
 		image: 'wpn_fps_smg_scorpion_s_nostock',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Hotline Miami'],
 		cost: 9e3,
@@ -1570,6 +1644,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Unfolded Stock (Cobra)': {
 		name: 'Unfolded Stock (Cobra)',
 		image: 'wpn_fps_smg_scorpion_s_unfolded',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Hotline Miami'],
 		cost: 9e3,
@@ -1589,6 +1664,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Skeletal Stock (CMP)': {
 		name: 'Skeletal Stock (CMP)',
 		image: 'wpn_fps_smg_mp9_s_skel',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -1606,6 +1682,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Shorter Than Short Stock': {
 		name: 'Shorter Than Short Stock',
 		image: 'wpn_fps_smg_olympic_s_short',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 36e3,
@@ -1622,6 +1699,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'No Stock (Micro Uzi)': {
 		name: 'No Stock (Micro Uzi)',
 		image: 'wpn_fps_smg_baka_s_standard',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Yakuza Character Pack'],
 		cost: 9e3,
@@ -1641,6 +1719,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Unfolded Stock (Micro Uzi)': {
 		name: 'Unfolded Stock (Micro Uzi)',
 		image: 'wpn_fps_smg_baka_s_unfolded',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Yakuza Character Pack'],
 		cost: 9e3,
@@ -1660,6 +1739,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'No Stock (Signature)': {
 		name: 'No Stock (Signature)',
 		image: 'wpn_fps_smg_shepheard_s_no',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -1676,6 +1756,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Civilian Stock': {
 		name: 'Civilian Stock',
 		image: 'wpn_fps_smg_schakal_s_civil',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['John Wick Weapon Pack'],
 		cost: 9e3,
@@ -1695,6 +1776,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Folded Stock (Jackal)': {
 		name: 'Folded Stock (Jackal)',
 		image: 'wpn_fps_smg_schakal_s_folded',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['John Wick Weapon Pack'],
 		cost: 9e3,
@@ -1714,6 +1796,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Folded Stock (MP40)': {
 		name: 'Folded Stock (MP40)',
 		image: 'wpn_fps_smg_erma_s_folded',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['WW2 Weapon Pack'],
 		cost: 9e3,
@@ -1730,6 +1813,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Unfolded Stock (Heather)': {
 		name: 'Unfolded Stock (Heather)',
 		image: 'wpn_fps_smg_sr2_s_unfolded',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -1745,6 +1829,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Just Bend It': {
 		name: 'Just Bend It',
 		image: 'wpn_fps_smg_tec9_s_unfolded',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Hotline Miami'],
 		cost: 21e3,
@@ -1764,6 +1849,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Folded Stock (Patchett)': {
 		name: 'Folded Stock (Patchett)',
 		image: 'wpn_fps_smg_sterling_s_folded',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
@@ -1783,6 +1869,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'No Stock (Patchett)': {
 		name: 'No Stock (Patchett)',
 		image: 'wpn_fps_smg_sterling_s_nostock',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
@@ -1803,6 +1890,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Solid Stock (Patchett)': {
 		name: 'Solid Stock (Patchett)',
 		image: 'wpn_fps_smg_sterling_s_solid',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Historical Pack'],
 		cost: 9e3,
@@ -1823,6 +1911,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Ergonomic Stock': {
 		name: 'Ergonomic Stock',
 		image: 'wpn_fps_smg_uzi_s_leather',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Hotline Miami'],
 		cost: 9e3,
@@ -1843,6 +1932,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Solid Stock (Uzi)': {
 		name: 'Solid Stock (Uzi)',
 		image: 'wpn_fps_smg_uzi_s_solid',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Hotline Miami'],
 		cost: 9e3,
@@ -1863,6 +1953,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Folded Stock (Uzi)': {
 		name: 'Folded Stock (Uzi)',
 		image: 'wpn_fps_smg_uzi_s_standard',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Hotline Miami'],
 		cost: 9e3,
@@ -1882,6 +1973,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Standard Stock (Locomotive)': {
 		name: 'Standard Stock (Locomotive)',
 		image: 'wpn_fps_shot_r870_s_solid',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 14e3,
@@ -1898,6 +1990,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Police Shorty Stock': {
 		name: 'Police Shorty Stock',
 		image: 'wpn_fps_shot_shorty_s_solid_short',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 21e3,
@@ -1914,6 +2007,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Tactical Shorty Stock': {
 		name: 'Tactical Shorty Stock',
 		image: 'wpn_fps_shot_shorty_s_nostock_short',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
 		cost: 28e3,
@@ -1930,6 +2024,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Stakeout Stock': {
 		name: 'Stakeout Stock',
 		image: 'wpn_fps_shot_m37_s_short',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['The Goat Simulator Heist'],
 		cost: 9e3,
@@ -1946,6 +2041,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Deadman\'s Stock': {
 		name: 'Deadman\'s Stock',
 		image: 'wpn_fps_shot_coach_s_short',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source.Community,
 		cost: 9e3,
@@ -1963,6 +2059,7 @@ const stock: ModificationList<StockModificationsList> = {
 	'Riot Stock': {
 		name: 'Riot Stock',
 		image: 'wpn_fps_gre_china_s_short',
+		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Wolf Pack'],
 		cost: 9e3,
