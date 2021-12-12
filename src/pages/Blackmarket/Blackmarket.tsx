@@ -1,17 +1,19 @@
 import { changeMod, removeMod, resetWeaponsMods } from 'actions/armouryAction'
 import Container from 'components/Container'
 import HorizontalBar from 'components/HorizontalBar'
-import { InfoContainer, InfoTitle, InfoUnlock } from 'components/Info'
+import { InfoContainer, InfoTitle, InfoTitleWrapper, InfoUnlock } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { ActionText, ActionsContainer } from 'components/ItemAction'
 import { ResetContainer, ResetText } from 'components/Reset'
-import modificationList from 'data/weapons/guns/modificationList'
 import { Modification, ModificationSlot, Slot, Weapon, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks'
+import { ModIcon } from 'pages/Weapons/ModIcons/ModIcons-Elements'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
+import { getTotalWeaponStats } from 'utils/getTotalWeaponStats'
+import { modificationsFromNames } from 'utils/modificationsFromNames'
 
 import BlackmarketStatsTable from './BlackmarketStatsTable'
 
@@ -33,7 +35,12 @@ const WeaponChecker: React.FC = () => {
 	const weapon = getWeapon(slot, id)
 
 	return weapon ? (
-		<Blackmarket slot={(slot as Slot)} id={id ? +id : 0} weapon={findWeapon(weapon.weaponFind)} equippedModifications={Object.entries(weapon.modifications).map(([modType, modName]) => modificationList[(modType as ModificationSlot)][modName]).reduce((a, v) => ({ ...a, [v.slot]: v }), {})} />
+		<Blackmarket
+			slot={(slot as Slot)}
+			id={id ? +id : 0}
+			weapon={findWeapon(weapon.weaponFind)}
+			equippedModifications={modificationsFromNames(weapon.modifications)}
+		/>
 	) : (
 		<Container title='Blackmarket'>
 			<h1>Error, invalid weapon</h1>
@@ -75,24 +82,19 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, equippedMod
 
 	const fixItemName = (name: string): string => name.split(' (')[0]
 
-	const getTotalStats = (weapon: WeaponData, modifications: Partial<Record<ModificationSlot, Modification<string>>>): WeaponStats => {
-		const baseStats = { ...weapon.stats }
-		Object.values(modifications).forEach(({ stats }) => {
-			Object.entries(stats).forEach(([label, value]) => {
-				baseStats[label as keyof WeaponStats] += value
-			})
-		})
-		return baseStats
-	}
-
-	const [totalStats, setTotalStats] = useState<WeaponStats>(() => getTotalStats(weapon, equippedModifications))
+	const [totalStats, setTotalStats] = useState<WeaponStats>(() => getTotalWeaponStats(weapon, equippedModifications))
 
 	useEffect(() => {
-		setTotalStats(getTotalStats(weapon, equippedModifications))
+		setTotalStats(getTotalWeaponStats(weapon, equippedModifications))
 	}, [weapon, equippedModifications])
 
 	return (
-		<Container rows='4rem 2rem 8fr 1.5rem 4rem' areas='"title reset" "horizontalbar ." "items info" "items actions" "items back"' title={`Blackmarket - ${weapon.name}`} backLocation={`/${slot}`}>
+		<Container
+			rows='4rem 2rem 8fr 1.5rem 4rem'
+			areas='"title reset" "horizontalbar ." "items info" "items actions" "items back"'
+			title={`Blackmarket - ${weapon.name}`}
+			backLocation={`/${slot}`}
+		>
 
 			<HorizontalBar active={selectedTab} items={Object.keys(weapon.modifications).map(type => ({
 				label: type,
@@ -118,8 +120,16 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, equippedMod
 			</ItemContainer>
 
 			<InfoContainer>
-				<InfoTitle>{fixItemName(selectedItem.name)}</InfoTitle>
-				<BlackmarketStatsTable weapon={weapon} totalStats={totalStats} selectedItem={selectedItem} equippedMod={equippedModifications[selectedTab]} />
+				<InfoTitleWrapper>
+					<ModIcon src={`images/modifications/icons/${selectedItem.icon}.png`} equipped={true} />
+					<InfoTitle>{fixItemName(selectedItem.name)}</InfoTitle>
+				</InfoTitleWrapper>
+				<BlackmarketStatsTable
+					weapon={weapon}
+					totalStats={totalStats}
+					selectedItem={selectedItem}
+					equippedMod={equippedModifications[selectedTab]}
+				/>
 				<InfoUnlock color={itemColours[selectedItem.source.rarity]}>{selectedItem.source.name}</InfoUnlock>
 			</InfoContainer>
 

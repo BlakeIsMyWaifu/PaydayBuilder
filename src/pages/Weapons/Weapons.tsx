@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom'
 import { itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
 
+import ModIcons from './ModIcons/ModIcons'
 import WeaponInfo from './WeaponInfo/WeaponInfo'
 
 interface WeaponsProps {
@@ -60,7 +61,7 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 			<ItemContainer>
 				{
 					selectedTab === 'saved' ?
-						Object.values(armoury).map(({ id, weaponFind: weaponFind }, i) => {
+						Object.values(armoury).map(({ id, weaponFind, modifications }, i) => {
 							if (i === 0) return <Fragment key={'fragment'}></Fragment>
 							const weapon = findWeapon(weaponFind)
 							return <Item
@@ -76,6 +77,7 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 								{equippedWeaponId === id && <ItemEquipped />}
 								<ItemName color={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
 								<ItemImage src={`images/weapons/${weapon.image}.png`} leftFacing={leftFacing} onMouseDown={event => event.preventDefault()} />
+								<ModIcons weapon={weapon} modifications={modifications} />
 							</Item>
 						}) :
 						Object.values(Object.values<WeaponData>(data[selectedTab])).map(weapon => {

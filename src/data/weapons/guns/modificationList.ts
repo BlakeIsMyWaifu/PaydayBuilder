@@ -16,9 +16,9 @@ import slide from './modifications/slide'
 import stock from './modifications/stock'
 import upperReceiver from './modifications/upperReceiver'
 import verticalGrip from './modifications/verticalGrip'
-import { ModificationList, ModificationSlot } from './weaponTypes'
+import { ModIcon, ModificationList, ModificationSlot } from './weaponTypes'
 
-const modificationList: Record<ModificationSlot, ModificationList<string>> = {
+export const modificationList: Record<ModificationSlot, ModificationList<string>> = {
 	ammunition,
 	barrel,
 	barrelExt,
@@ -37,6 +37,27 @@ const modificationList: Record<ModificationSlot, ModificationList<string>> = {
 	stock,
 	upperReceiver,
 	verticalGrip
+}
+
+export const modificationIcons: Record<ModificationSlot, ModIcon> = {
+	ammunition: 'inv_mod_ammo_custom',
+	barrel: 'inv_mod_barrel',
+	barrelExt: 'inv_mod_barrel_ext',
+	bayonet: 'inv_mod_bayonet',
+	bipod: 'inv_mod_bipod',
+	boost: 'inv_mod_bonus_stats',
+	custom: 'inv_mod_custom',
+	extra: 'inv_mod_extra',
+	foregrip: 'inv_mod_foregrip',
+	gadget: 'inv_mod_flashlight',
+	grip: 'inv_mod_grip',
+	lowerReceiver: 'inv_mod_lower_receiver',
+	magazine: 'inv_mod_magazine',
+	sight: 'inv_mod_scope',
+	slide: 'inv_mod_slide',
+	stock: 'inv_mod_stock',
+	upperReceiver: 'inv_mod_upper_receiver',
+	verticalGrip: 'inv_mod_vertical_grip'
 }
 
 export default modificationList

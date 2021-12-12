@@ -10,6 +10,7 @@ export const Container = styled.div`
 	width: 100%;
 	height: 25%;
 	background-color: ${dim};
+	position: relative;
 `
 
 export const Title = styled.p`

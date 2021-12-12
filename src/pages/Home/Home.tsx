@@ -14,6 +14,7 @@ import throwables from 'data/weapons/throwables'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import ArmourStatsTable from 'pages/Armour/ArmourStatsTable'
 import { MeleeStatsTable } from 'pages/Melee'
+import ModIcons from 'pages/Weapons/ModIcons/ModIcons'
 import WeaponsStatsTable from 'pages/Weapons/WeaponStatsTable'
 import React, { ReactElement, useState } from 'react'
 import findWeapon from 'utils/findWeapon'
@@ -62,13 +63,18 @@ const Home: React.FC = () => {
 	return (
 		<>
 			<SettingsPanel toggleSettings={toggleSettings} setToggleSettings={setToggleSettings} />
-			<Container columns='2fr 1fr 1fr 1fr' rows='calc(100% - 3rem) 3rem' areas='"stats character weapons abilities" "version config config config"' backButton={false}>
+			<Container
+				columns='2fr 1fr 1fr 1fr'
+				rows='calc(100% - 3rem) 3rem'
+				areas='"stats character weapons abilities" "version config config config"'
+				backButton={false}
+			>
 
-				<Tab id='stats'>
+				<Tab area='stats'>
 					<TabTitle direction='ltr'>Inventory</TabTitle>
 					<PreviewWrapper>
-						<Preview id='player'></Preview>
-						<Preview id='details'>
+						<Preview />
+						<Preview>
 							{
 								hoverInfo && (
 									<>
@@ -82,35 +88,51 @@ const Home: React.FC = () => {
 					</PreviewWrapper>
 				</Tab>
 
-				<Tab id='character'>
+				<Tab area='character'>
 					<TabTitle direction='rtl'>Character</TabTitle>
 					<SelectorWrapper>
 
-						<Selector title='mask' setHoverInfo={setHoverInfo} infoData={{
-							title: mask.name,
-							description: mask.description
-						}}>
+						<Selector
+							title='mask'
+							setHoverInfo={setHoverInfo}
+							infoData={{
+								title: mask.name,
+								description: mask.description
+							}}
+						>
 							<Image src={`images/masks/${mask.image}.png`} />
 						</Selector>
 
-						<Selector title='character' setHoverInfo={setHoverInfo} infoData={{
-							title: character.name,
-							description: [`Nationality: ${character.nationality}`, `Age: ${character.age.toString()}`, ...character.description]
-						}}>
+						<Selector
+							title='character'
+							setHoverInfo={setHoverInfo}
+							infoData={{
+								title: character.name,
+								description: [`Nationality: ${character.nationality}`, `Age: ${character.age.toString()}`, ...character.description]
+							}}
+						>
 							<Image src={`images/masks/${character.image}.png`} />
 						</Selector>
 
-						<Selector title='armour' setHoverInfo={setHoverInfo} infoData={{
-							title: armour.name,
-							table: <ArmourStatsTable selectedArmour={armour} />
-						}}>
+						<Selector
+							title='armour'
+							setHoverInfo={setHoverInfo}
+							infoData={{
+								title: armour.name,
+								table: <ArmourStatsTable selectedArmour={armour} />
+							}}
+						>
 							<Image src={`images/armours/${armour.name}.png`} />
 						</Selector>
 
-						<Selector title='equipment' setHoverInfo={setHoverInfo} infoData={{
-							title: equipmentPrimary.name,
-							description: equipmentPrimary.description
-						}}>
+						<Selector
+							title='equipment'
+							setHoverInfo={setHoverInfo}
+							infoData={{
+								title: equipmentPrimary.name,
+								description: equipmentPrimary.description
+							}}
+						>
 							{
 								equipmentSecondary ? <EquipmentContainer>
 									<Image src={`images/equipment/${equipmentPrimary.name}.png`} />
@@ -122,42 +144,74 @@ const Home: React.FC = () => {
 					</SelectorWrapper>
 				</Tab>
 
-				<Tab id='weapons'>
+				<Tab area='weapons'>
 					<TabTitle direction='rtl'>Weapons</TabTitle>
 					<SelectorWrapper>
 
-						<Selector title='primary' setHoverInfo={setHoverInfo} infoData={{
-							title: primaryData.name,
-							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={primaryWeapon} />
-						}}>
-							<Image src={`images/weapons/${primaryData.image}.png`} leftFacing={leftFacing} />
+						<Selector
+							title='primary'
+							setHoverInfo={setHoverInfo}
+						>
+							<Image
+								src={`images/weapons/${primaryData.image}.png`}
+								leftFacing={leftFacing}
+								onMouseEnter={() => setHoverInfo({
+									title: primaryData.name,
+									table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={primaryWeapon} />
+								})}
+							/>
+							<ModIcons
+								weapon={primaryData}
+								modifications={primaryWeapon.modifications}
+								setHoverInfo={setHoverInfo}
+							/>
 						</Selector>
 
-						<Selector title='secondary' setHoverInfo={setHoverInfo} infoData={{
-							title: secondaryData.name,
-							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={secondaryWeapon} />
-						}}>
-							<Image src={`images/weapons/${secondaryData.image}.png`} leftFacing={leftFacing} />
+						<Selector
+							title='secondary'
+							setHoverInfo={setHoverInfo}
+						>
+							<Image
+								src={`images/weapons/${secondaryData.image}.png`}
+								leftFacing={leftFacing}
+								onMouseEnter={() => setHoverInfo({
+									title: secondaryData.name,
+									table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={secondaryWeapon} />
+								})}
+							/>
+							<ModIcons
+								weapon={secondaryData}
+								modifications={secondaryWeapon.modifications}
+								setHoverInfo={setHoverInfo}
+							/>
 						</Selector>
 
-						<Selector title='throwable' setHoverInfo={setHoverInfo} infoData={{
-							title: throwable.name,
-							description: throwable.description
-						}}>
+						<Selector
+							title='throwable'
+							setHoverInfo={setHoverInfo}
+							infoData={{
+								title: throwable.name,
+								description: throwable.description
+							}}
+						>
 							<Image src={`images/throwables/${throwable.image}.png`} />
 						</Selector>
 
-						<Selector title='melee' setHoverInfo={setHoverInfo} infoData={{
-							title: melee.name,
-							table: <MeleeStatsTable selectedMelee={melee.stats} />
-						}}>
+						<Selector
+							title='melee'
+							setHoverInfo={setHoverInfo}
+							infoData={{
+								title: melee.name,
+								table: <MeleeStatsTable selectedMelee={melee.stats} />
+							}}
+						>
 							<Image src={`images/melees/${melee.image}.png`} leftFacing={leftFacing} />
 						</Selector>
 
 					</SelectorWrapper>
 				</Tab>
 
-				<Tab id='abilities'>
+				<Tab area='abilities'>
 					<TabTitle direction='rtl'>Abilities</TabTitle>
 					<SelectorWrapper>
 
@@ -166,16 +220,28 @@ const Home: React.FC = () => {
 							table: <SkillTable />
 						}} />
 
-						<Selector title='perk deck' setHoverInfo={setHoverInfo} infoData={{
-							title: perkDeck.name,
-							description: perkDeck.description
-						}}>
+						<Selector
+							title='perk deck'
+							setHoverInfo={setHoverInfo}
+							infoData={{
+								title: perkDeck.name,
+								description: perkDeck.description
+							}}
+						>
 							<PerkDeckImage x={192} y={(perkDeckIndex + 1) * 48} />
 						</Selector>
 
-						<Selector title='crew management' setHoverInfo={setHoverInfo} infoData={null} />
+						<Selector
+							title='crew management'
+							setHoverInfo={setHoverInfo}
+							infoData={null}
+						/>
 
-						<Selector title='infamy' setHoverInfo={setHoverInfo} infoData={null} />
+						<Selector
+							title='infamy'
+							setHoverInfo={setHoverInfo}
+							infoData={null}
+						/>
 
 					</SelectorWrapper>
 				</Tab>

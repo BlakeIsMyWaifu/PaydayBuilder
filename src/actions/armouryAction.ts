@@ -1,5 +1,5 @@
 import { ADDWEAPON, CHANGEMOD, REMOVEMOD, REMOVEWEAPON, RESETARMOURY, RESETWEAPONSMODS } from 'constants/armouryConstant'
-import { Modification, ModificationSlot, Slot, WeaponData, WeaponModifications } from 'data/weapons/guns/weaponTypes'
+import { Modification, ModificationSlot, Slot, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { createAction } from 'typesafe-actions'
 
 export interface SelectWeapon {
@@ -10,7 +10,7 @@ export interface SelectWeapon {
 export interface AddWeaponAction {
 	slot: Slot;
 	weapon: WeaponData;
-	mods?: Partial<Record<keyof WeaponModifications, string>>
+	mods?: Partial<Record<ModificationSlot, string>>
 }
 
 export interface ChangeModAction extends SelectWeapon {

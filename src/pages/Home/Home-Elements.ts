@@ -3,11 +3,11 @@ import { dim } from 'utils/colours'
 import corner from 'utils/corner'
 
 interface TabProps {
-	id: string;
+	area: string;
 }
 
 export const Tab = styled.div<TabProps>`
-	grid-area: ${(props) => props.id};
+	grid-area: ${props => props.area};
 `
 
 interface TabtitleProps {

@@ -152,7 +152,7 @@ export interface ModificationStats {
 	threat?: number;
 }
 
-type ModIcon =
+export type ModIcon =
 	'inv_mod_ammo_custom' |
 	'inv_mod_ammo_dragons_breath' |
 	'inv_mod_ammo_explosive' |

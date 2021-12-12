@@ -12,6 +12,11 @@ export const InfoContainer = styled.div`
 	${corner};
 `
 
+export const InfoTitleWrapper = styled.span`
+	display: flex;
+	height: 2rem;
+`
+
 interface InfoTextProps {
 	uppercase?: boolean;
 }
