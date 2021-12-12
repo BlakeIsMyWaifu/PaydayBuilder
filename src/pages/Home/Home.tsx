@@ -3,6 +3,7 @@ import { resetCharacter } from 'actions/characterAction'
 import { resetSkills } from 'actions/skillsAction'
 import { resetWeapon } from 'actions/weaponsAction'
 import Container from 'components/Container'
+import DetectionRisk from 'components/DetectionRisk'
 import { InfoDescription, InfoTitle } from 'components/Info'
 import perkDecks from 'data/abilities/perks'
 import armours from 'data/character/armours'
@@ -73,7 +74,9 @@ const Home: React.FC = () => {
 				<Tab area='stats'>
 					<TabTitle direction='ltr'>Inventory</TabTitle>
 					<PreviewWrapper>
-						<Preview />
+						<Preview>
+							<DetectionRisk />
+						</Preview>
 						<Preview>
 							{
 								hoverInfo && (

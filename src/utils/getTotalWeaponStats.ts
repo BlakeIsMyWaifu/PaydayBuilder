@@ -1,4 +1,7 @@
-import { Modification, ModificationSlot, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
+import { Modification, ModificationSlot, Weapon, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
+
+import findWeapon from './findWeapon'
+import { modificationsFromNames } from './modificationsFromNames'
 
 export const getTotalWeaponStats = (weapon: WeaponData, modifications: Partial<Record<ModificationSlot, Modification<string>>>): WeaponStats => {
 	const baseStats = { ...weapon.stats }
@@ -8,4 +11,13 @@ export const getTotalWeaponStats = (weapon: WeaponData, modifications: Partial<R
 		})
 	})
 	return baseStats
+}
+
+export const getTotalWeaponStatsFromWeapon = (weapon: Weapon): WeaponStats => {
+	return getTotalWeaponStats(findWeapon(weapon.weaponFind), modificationsFromNames(weapon.modifications))
+}
+
+export default {
+	getTotalWeaponStats,
+	getTotalWeaponStatsFromWeapon
 }
