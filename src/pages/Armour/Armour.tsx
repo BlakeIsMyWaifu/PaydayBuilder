@@ -34,7 +34,11 @@ export const Armour: React.FC = () => {
 							<ItemName>{armour.name}</ItemName>
 							{armour.name === equippedArmour.name && <ItemEquipped />}
 							{locked && <LockedIcon />}
-							<ItemImage src={`images/armours/${armour.name}.png`} onMouseDown={event => event.preventDefault()} locked={locked} />
+							<ItemImage
+								src={`images/armours/${armour.name}.png`}
+								onMouseDown={event => event.preventDefault()}
+								locked={locked}
+							/>
 						</Item>
 					})
 				}
@@ -42,7 +46,7 @@ export const Armour: React.FC = () => {
 
 			<InfoContainer>
 				<InfoTitle>{selectedArmour.name}</InfoTitle>
-				<ArmourStatsTable selectedArmour={selectedArmour} equippedArmour={selectedArmour.name !== equippedArmour.name ? equippedArmour : undefined} />
+				<ArmourStatsTable selectedArmour={selectedArmour.name} equippedArmour={selectedArmour.name !== equippedArmour.name ? equippedArmour.name : undefined} />
 				<InfoDescription>{selectedArmour.desciption.join('\n\n')}</InfoDescription>
 			</InfoContainer>
 

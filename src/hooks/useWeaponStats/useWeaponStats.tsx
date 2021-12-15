@@ -1,0 +1,106 @@
+import modificationList from 'data/weapons/guns/modificationList'
+import { AllWeaponStats, ModificationSlot, ModificationStats, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
+
+interface UseWeaponStats {
+	base: WeaponStats;
+	skill: AllWeaponStats;
+	mod: AllWeaponStats;
+	additional: AllWeaponStats;
+	total: AllWeaponStats;
+}
+
+const useWeaponStats = (weapon: WeaponData, modifications: Partial<Record<ModificationSlot, string>>, showExtraStats = true): UseWeaponStats => {
+
+	const baseStats = (showExtraStats: boolean): WeaponStats => {
+		if (!showExtraStats) return weapon.stats
+
+		const extra = weapon.extraStats
+		const extraStats = {
+			tacticalReload: extra.tacticalReload ? (typeof extra.tacticalReload === 'number' ? `${extra.tacticalReload}s` : `${extra.tacticalReload[0]}s | ${extra.tacticalReload[1]}s`) : '',
+			reload: `${extra.reload}s`,
+			equipDelays: `${extra.equipDelays[0]}s | ${extra.equipDelays[1]}s`,
+			ammoPickup: extra.ammoPickup ? `${extra.ammoPickup.join(' | ')}` : '',
+			recoilHorizontal: `${extra.recoilHorizontal[0]}' | ${extra.recoilHorizontal[1]}'`,
+			recoilVertical: `${extra.recoilVertical[0]}' | ${extra.recoilVertical[1]}'`,
+			spread: `${extra.spread}'`,
+			damageModifier: extra.damageModifier ? `${extra.damageModifier.join(' | ')}` : ''
+		}
+
+		return ({ ...weapon.stats, ...extraStats })
+	}
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const skillStats = (): AllWeaponStats => {
+		const baseStats: AllWeaponStats = {
+			totalAmmo: 0,
+			magazine: 0,
+			reload: 0,
+			damage: 0,
+			accuracy: 0,
+			stability: 0,
+			concealment: 0,
+			threat: 0,
+			rateOfFire: 0
+		}
+
+		return baseStats
+	}
+
+	const modStats = (): AllWeaponStats => {
+		const baseStats: AllWeaponStats = {
+			totalAmmo: 0,
+			magazine: 0,
+			reload: 0,
+			damage: 0,
+			accuracy: 0,
+			stability: 0,
+			concealment: 0,
+			threat: 0,
+			rateOfFire: 0
+		}
+
+		Object.entries(modifications).forEach(([type, modName]) => {
+			const modData = modificationList[(type as ModificationSlot)][modName]
+			Object.entries(modData.stats).forEach(([label, stat]) => {
+				baseStats[(label as keyof ModificationStats)] += stat
+			})
+		})
+
+		return baseStats
+	}
+
+	const additionalStats = (baseStats: AllWeaponStats): AllWeaponStats => {
+
+		const addStats = ([label, stat]: [string, number]) => {
+			baseStats[(label as keyof AllWeaponStats)] += stat
+		}
+
+		Object.entries(skillStats()).forEach(addStats)
+		Object.entries(modStats()).forEach(addStats)
+
+		return baseStats
+	}
+
+	return {
+		base: baseStats(showExtraStats),
+		skill: skillStats(),
+		mod: modStats(),
+		additional: additionalStats({
+			totalAmmo: 0,
+			magazine: 0,
+			reload: 0,
+			damage: 0,
+			accuracy: 0,
+			stability: 0,
+			concealment: 0,
+			threat: 0,
+			rateOfFire: 0
+		}),
+		total: additionalStats({
+			...weapon.stats,
+			reload: 0
+		})
+	}
+}
+
+export default useWeaponStats

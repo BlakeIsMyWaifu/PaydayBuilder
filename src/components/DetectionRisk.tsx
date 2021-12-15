@@ -1,9 +1,10 @@
-import armours from 'data/character/armours'
-import melees from 'data/weapons/melees'
 import { useAppSelector } from 'hooks'
+import useArmourStats from 'hooks/useArmourStats'
+import useMeleeStats from 'hooks/useMeleeStats'
+import useWeaponStats from 'hooks/useWeaponStats'
 import React from 'react'
 import styled from 'styled-components'
-import { getTotalWeaponStatsFromWeapon } from 'utils/getTotalWeaponStats'
+import findWeapon from 'utils/findWeapon'
 
 const Container = styled.div`
 	position: absolute;
@@ -99,10 +100,13 @@ const DetectionRisk: React.FC = () => {
 	const weapons = useAppSelector(state => state.weapons),
 		primaryWeapon = useAppSelector(state => state.armoury.primary)[weapons.primary],
 		secondaryWeapon = useAppSelector(state => state.armoury.secondary)[weapons.secondary],
-		primaryConcealment = getTotalWeaponStatsFromWeapon(primaryWeapon).concealment,
-		secondaryConcealment = getTotalWeaponStatsFromWeapon(secondaryWeapon).concealment,
-		meleeConcleament = melees[weapons.melee].stats.concealment,
-		armourConcleament = armours[useAppSelector(state => state.character.armour)].stats.concealment,
+		primaryConcealment = useWeaponStats(findWeapon(primaryWeapon.weaponFind), primaryWeapon.modifications).total.concealment,
+		secondaryConcealment = useWeaponStats(findWeapon(secondaryWeapon.weaponFind), secondaryWeapon.modifications).total.concealment,
+
+		meleeConcleament = useMeleeStats(weapons.melee).base.concealment + useMeleeStats(weapons.melee).skill.concealment,
+		armourName = useAppSelector(state => state.character.armour),
+		armourConcleament = useArmourStats(armourName).base.concealment + useArmourStats(armourName).skill.concealment,
+
 		totalConcealment = primaryConcealment + secondaryConcealment + meleeConcleament + armourConcleament,
 		detection = concealmentToDetectionRisk(totalConcealment),
 		detectionPercentage = (100 * detection) / 75

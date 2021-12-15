@@ -1,11 +1,11 @@
 import { Data, Head, Label, Row, Table } from 'components/Table'
-import { Modification, ModificationStats, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
+import { AllWeaponStats, Modification, ModificationStats, WeaponData } from 'data/weapons/guns/weaponTypes'
 import React from 'react'
 import { green, red } from 'utils/colours'
 
 interface BlackmarketStatsTableProps {
 	weapon: WeaponData;
-	totalStats: WeaponStats;
+	totalStats: AllWeaponStats;
 	selectedItem: Modification<string>;
 	equippedMod?: Modification<string>;
 }
@@ -28,6 +28,8 @@ const BlackmarketStatsTable: React.FC<BlackmarketStatsTableProps> = ({ totalStat
 				<tbody>
 					{
 						Object.entries(totalStats).map(([labelString, stat]: [string, number]) => {
+							if (labelString === 'rateOfFire') return
+
 							const label = labelString as keyof ModificationStats
 
 							const equipStat = equippedMod?.stats[label] || 0

@@ -126,6 +126,21 @@ export interface WeaponExtraStats {
 	damageModifier: [number, number] | null;
 }
 
+export interface ModificationStats {
+	totalAmmo?: number;
+	magazine?: number;
+	reload?: number;
+	damage?: number;
+	accuracy?: number;
+	stability?: number;
+	concealment?: number;
+	threat?: number;
+}
+
+export interface AllWeaponStats extends WeaponStats {
+	reload: number;
+}
+
 export type ModificationSlot = keyof WeaponModifications
 
 export interface CompatibleWeapons {
@@ -139,17 +154,6 @@ export interface CompatibleWeapons {
 	special?: (PrimarySpecialList | SecondarySpecialList)[];
 	pistol?: PistolList[];
 	submachineGun?: SubmachineGunList[];
-}
-
-export interface ModificationStats {
-	totalAmmo?: number;
-	magazine?: number;
-	reload?: number;
-	damage?: number;
-	accuracy?: number;
-	stability?: number;
-	concealment?: number;
-	threat?: number;
 }
 
 export type ModIcon =

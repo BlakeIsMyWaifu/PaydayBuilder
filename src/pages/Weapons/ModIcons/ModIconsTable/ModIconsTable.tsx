@@ -1,9 +1,8 @@
 import { Data, Head, Label, Row, Table } from 'components/Table'
 import { Modification, ModificationSlot, ModificationStats, WeaponData } from 'data/weapons/guns/weaponTypes'
+import useWeaponStats from 'hooks/useWeaponStats'
 import React from 'react'
 import { green, red } from 'utils/colours'
-import { getTotalWeaponStats } from 'utils/getTotalWeaponStats'
-import { modificationsFromNames } from 'utils/modificationsFromNames'
 
 interface ModIconsTableProps {
 	weapon: WeaponData;
@@ -13,7 +12,7 @@ interface ModIconsTableProps {
 
 const ModIconsTable: React.FC<ModIconsTableProps> = ({ weapon, modifications, hoveredMod }) => {
 
-	const totalStats = getTotalWeaponStats(weapon, modificationsFromNames(modifications))
+	const totalStats = useWeaponStats(weapon, modifications).total
 
 	return (
 		<>

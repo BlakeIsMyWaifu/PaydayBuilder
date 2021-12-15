@@ -5,14 +5,14 @@ import { InfoContainer, InfoTitle, InfoTitleWrapper, InfoUnlock } from 'componen
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { ActionText, ActionsContainer } from 'components/ItemAction'
 import { ResetContainer, ResetText } from 'components/Reset'
-import { Modification, ModificationSlot, Slot, Weapon, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
+import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks'
+import useWeaponStats from 'hooks/useWeaponStats'
 import { ModIcon } from 'pages/Weapons/ModIcons/ModIcons-Elements'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router'
 import { itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
-import { getTotalWeaponStats } from 'utils/getTotalWeaponStats'
 import { modificationsFromNames } from 'utils/modificationsFromNames'
 
 import BlackmarketStatsTable from './BlackmarketStatsTable'
@@ -39,7 +39,7 @@ const WeaponChecker: React.FC = () => {
 			slot={(slot as Slot)}
 			id={id ? +id : 0}
 			weapon={findWeapon(weapon.weaponFind)}
-			equippedModifications={modificationsFromNames(weapon.modifications)}
+			modifications={weapon.modifications}
 		/>
 	) : (
 		<Container title='Blackmarket'>
@@ -52,12 +52,14 @@ interface BlackmarketProps {
 	slot: Slot;
 	id: number;
 	weapon: WeaponData;
-	equippedModifications: Partial<Record<ModificationSlot, Modification<string>>>;
+	modifications: Partial<Record<ModificationSlot, string>>;
 }
 
-const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, equippedModifications }) => {
+const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modifications }) => {
 
 	const dispatch = useAppDispatch()
+
+	const equippedModifications = modificationsFromNames(modifications)
 
 	const [selectedTab, setSelectedTab] = useState<ModificationSlot>(Object.keys(weapon.modifications)[0] as ModificationSlot)
 
@@ -82,11 +84,7 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, equippedMod
 
 	const fixItemName = (name: string): string => name.split(' (')[0]
 
-	const [totalStats, setTotalStats] = useState<WeaponStats>(() => getTotalWeaponStats(weapon, equippedModifications))
-
-	useEffect(() => {
-		setTotalStats(getTotalWeaponStats(weapon, equippedModifications))
-	}, [weapon, equippedModifications])
+	const totalStats = useWeaponStats(weapon, modifications).total
 
 	return (
 		<Container

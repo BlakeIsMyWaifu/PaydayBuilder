@@ -14,7 +14,7 @@ import melees from 'data/weapons/melees'
 import throwables from 'data/weapons/throwables'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import ArmourStatsTable from 'pages/Armour/ArmourStatsTable'
-import { MeleeStatsTable } from 'pages/Melee'
+import MeleeStatsTable from 'pages/Melee/MeleeStatsTable'
 import ModIcons from 'pages/Weapons/ModIcons/ModIcons'
 import WeaponsStatsTable from 'pages/Weapons/WeaponStatsTable'
 import React, { ReactElement, useState } from 'react'
@@ -122,7 +122,7 @@ const Home: React.FC = () => {
 							setHoverInfo={setHoverInfo}
 							infoData={{
 								title: armour.name,
-								table: <ArmourStatsTable selectedArmour={armour} />
+								table: <ArmourStatsTable selectedArmour={armour.name} />
 							}}
 						>
 							<Image src={`images/armours/${armour.name}.png`} />
@@ -205,7 +205,7 @@ const Home: React.FC = () => {
 							setHoverInfo={setHoverInfo}
 							infoData={{
 								title: melee.name,
-								table: <MeleeStatsTable selectedMelee={melee.stats} />
+								table: <MeleeStatsTable selectedMelee={melee.name} />
 							}}
 						>
 							<Image src={`images/melees/${melee.image}.png`} leftFacing={leftFacing} />
