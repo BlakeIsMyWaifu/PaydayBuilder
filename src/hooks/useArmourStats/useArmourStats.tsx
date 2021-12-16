@@ -38,9 +38,20 @@ const useArmourStats = (armourName: ArmourList): CustomStatsHook<CompleteArmourS
 		return stats
 	}
 
+	const totalStats = (): CompleteArmourStats => {
+		const stats = baseStats()
+
+		Object.entries(skillStats()).forEach(([label, stat]) => {
+			stats[(label as keyof CompleteArmourStats)] += stat
+		})
+
+		return stats
+	}
+
 	return {
 		base: baseStats(),
-		skill: skillStats()
+		skill: skillStats(),
+		total: totalStats()
 	}
 }
 

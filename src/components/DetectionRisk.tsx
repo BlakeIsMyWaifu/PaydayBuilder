@@ -103,9 +103,8 @@ const DetectionRisk: React.FC = () => {
 		primaryConcealment = useWeaponStats(findWeapon(primaryWeapon.weaponFind), primaryWeapon.modifications).total.concealment,
 		secondaryConcealment = useWeaponStats(findWeapon(secondaryWeapon.weaponFind), secondaryWeapon.modifications).total.concealment,
 
-		meleeConcleament = useMeleeStats(weapons.melee).base.concealment + useMeleeStats(weapons.melee).skill.concealment,
-		armourName = useAppSelector(state => state.character.armour),
-		armourConcleament = useArmourStats(armourName).base.concealment + useArmourStats(armourName).skill.concealment,
+		meleeConcleament = useMeleeStats(weapons.melee).total.concealment,
+		armourConcleament = useArmourStats(useAppSelector(state => state.character.armour)).total.concealment,
 
 		totalConcealment = primaryConcealment + secondaryConcealment + meleeConcleament + armourConcleament,
 		detection = concealmentToDetectionRisk(totalConcealment),

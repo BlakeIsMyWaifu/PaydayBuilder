@@ -44,9 +44,20 @@ const useMeleeStats = (meleeName: MeleeList): CustomStatsHook<MeleeStats> => {
 		return stats
 	}
 
+	const totalStats = (): MeleeStats => {
+		const stats = baseStats()
+		const { damage, concealment } = skillStats()
+
+		stats.damage = [stats.damage[0] + damage[0], stats.damage[1] + damage[1]]
+		stats.concealment += concealment
+
+		return stats
+	}
+
 	return {
 		base: baseStats(),
-		skill: skillStats()
+		skill: skillStats(),
+		total: totalStats()
 	}
 }
 
