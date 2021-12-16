@@ -18,10 +18,14 @@ export const Row = styled.tr`
 	}
 `
 
-export const Head = styled.th`
+interface HeadProps {
+	colour?: string;
+}
+
+export const Head = styled.th<HeadProps>`
 	text-align: end;
 	width: 65px;
-	color: ${props => props.color};
+	color: ${props => props.colour};
 	background-color: ${grey};
 	font-weight: bold;
 	font-size: 1.2rem;
@@ -37,10 +41,14 @@ export const Label = styled.td`
 	font-size: 1.2rem;
 `
 
-export const Data = styled.td`
+interface DataProps {
+	colour?: string;
+}
+
+export const Data = styled.td<DataProps>`
 	text-align: end;
 	width: 65px;
-	color: ${props => props.color || lightgrey};
+	color: ${props => props.colour || lightgrey};
 	text-transform: none;
 	&:last-child {
 		padding-right: 8px;
@@ -69,8 +77,8 @@ export const TableEquipped: React.FC<TableEquippedProps> = ({ baseStats, additio
 					<Head />
 					<Head>Total</Head>
 					<Head>Base</Head>
-					{additionalStats.mod && <Head color={sycamore}>Mod</Head>}
-					<Head color={blue}>Skill</Head>
+					{additionalStats.mod && <Head colour={sycamore}>Mod</Head>}
+					<Head colour={blue}>Skill</Head>
 				</Row>
 			</thead>
 			<tbody>
@@ -83,19 +91,19 @@ export const TableEquipped: React.FC<TableEquippedProps> = ({ baseStats, additio
 							{
 								typeof baseValue === 'number' && (
 									<>
-										<Data color={colourCompare(baseValue + skillValue + modValue, baseValue)}>{Math.round((baseValue + skillValue + modValue) * 10) / 10}</Data>
+										<Data colour={colourCompare(baseValue + skillValue + modValue, baseValue)}>{Math.round((baseValue + skillValue + modValue) * 10) / 10}</Data>
 										<Data>{baseValue}</Data>
-										{additionalStats.mod && (modValue ? (<Data color={sycamore}>{modValue > 0 ? `+${modValue}` : modValue}</Data>) : <Data />)}
-										{skillValue ? <Data color={blue}>{skillValue > 0 ? `+${skillValue}` : skillValue}</Data> : <Data />}
+										{additionalStats.mod && (modValue ? (<Data colour={sycamore}>{modValue > 0 ? `+${modValue}` : modValue}</Data>) : <Data />)}
+										{skillValue ? <Data colour={blue}>{skillValue > 0 ? `+${skillValue}` : skillValue}</Data> : <Data />}
 									</>
 								)
 							}
 							{
 								Array.isArray(baseValue) && (
 									<>
-										<Data color={colourCompare(baseValue[0] + skillValue[0], baseValue[0])}>{`${baseValue[0] + skillValue[0]} (${baseValue[1] + skillValue[1]})`}</Data>
+										<Data colour={colourCompare(baseValue[0] + skillValue[0], baseValue[0])}>{`${baseValue[0] + skillValue[0]} (${baseValue[1] + skillValue[1]})`}</Data>
 										<Data>{`${baseValue[0]} (${baseValue[1]})`}</Data>
-										{isArrayZeros(skillValue) ? <Data color={blue}>{skillValue[0] > 0 ? '+' : ''}{`${skillValue[0]} (${skillValue[1]})`}</Data> : <Data />}
+										{isArrayZeros(skillValue) ? <Data colour={blue}>{skillValue[0] > 0 ? '+' : ''}{`${skillValue[0]} (${skillValue[1]})`}</Data> : <Data />}
 									</>
 								)
 							}
@@ -154,16 +162,16 @@ export const TableCompare: React.FC<TableCompareProps> = ({ equippedStats, selec
 							{
 								typeof main === 'number' && (
 									<>
-										<Data color={colourCompare(numMain, numCompare)}>{oneDP(numMain)}</Data>
-										<Data color={colourCompare(numCompare, numMain)}>{oneDP(numCompare)}</Data>
+										<Data colour={colourCompare(numMain, numCompare)}>{oneDP(numMain)}</Data>
+										<Data colour={colourCompare(numCompare, numMain)}>{oneDP(numCompare)}</Data>
 									</>
 								)
 							}
 							{
 								Array.isArray(main) && (
 									<>
-										<Data color={colourCompare(arrMain, arrCompare)}>{`${arrMain} (${main[1] + equippedAdditional[stat][1]})`}</Data>
-										<Data color={colourCompare(arrCompare, arrMain)}>{`${arrCompare} (${compare[1] + selectedAdditional[stat][1]})`}</Data>
+										<Data colour={colourCompare(arrMain, arrCompare)}>{`${arrMain} (${main[1] + equippedAdditional[stat][1]})`}</Data>
+										<Data colour={colourCompare(arrCompare, arrMain)}>{`${arrCompare} (${compare[1] + selectedAdditional[stat][1]})`}</Data>
 									</>
 								)
 							}

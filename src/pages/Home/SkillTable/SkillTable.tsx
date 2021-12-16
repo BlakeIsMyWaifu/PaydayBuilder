@@ -15,7 +15,7 @@ const SkillTable: React.FC = () => {
 					<Head />
 					<Head>Points</Head>
 					<Head>Owned</Head>
-					<Head color={blue}>Aced</Head>
+					<Head colour={blue}>Aced</Head>
 				</Row>
 			</thead>
 			<tbody>
@@ -33,9 +33,9 @@ const SkillTable: React.FC = () => {
 						const ownedAmount = basicAmount + acedAmount
 						return <Row key={tree}>
 							<Label>{tree}</Label>
-							<Data color={treePoints ? '#fff' : grey}>{treePoints}</Data>
-							<Data color={ownedAmount ? '#fff' : grey}>{ownedAmount}</Data>
-							<Data color={acedAmount ? blue : dimBlue}>{acedAmount}</Data>
+							<Data colour={treePoints ? '#fff' : grey}>{treePoints}</Data>
+							<Data colour={ownedAmount ? '#fff' : grey}>{ownedAmount}</Data>
+							<Data colour={acedAmount ? blue : dimBlue}>{acedAmount}</Data>
 						</Row>
 					})
 				}

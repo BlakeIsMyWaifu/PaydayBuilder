@@ -75,7 +75,7 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 								})()}
 							>
 								{equippedWeaponId === id && <ItemEquipped />}
-								<ItemName color={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
+								<ItemName colour={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
 								<ItemImage src={`images/weapons/${weapon.image}.png`} leftFacing={leftFacing} onMouseDown={event => event.preventDefault()} />
 								<ModIcons weapon={weapon} modifications={modifications} />
 							</Item>
@@ -88,7 +88,7 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 								selected={weapon.name === selectedWeapon.name}
 								onClick={() => weapon.name === selectedWeapon.name ? addWeaponHelper() : setSelectedWeapon(weapon)}
 							>
-								<ItemName color={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
+								<ItemName colour={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
 								<ItemImage src={`images/weapons/${weapon.image}.png`} leftFacing={leftFacing} onMouseDown={event => event.preventDefault()} />
 							</Item>
 						})

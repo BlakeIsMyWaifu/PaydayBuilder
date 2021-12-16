@@ -23,7 +23,7 @@ export const Item = styled.div<ItemProps>`
 	${props => props.selected && corner};
 `
 
-export const ItemEquipped = styled.h1`
+export const ItemEquipped = styled.p`
 	position: absolute;
 	top: 5px;
 	left: 8px;
@@ -34,12 +34,16 @@ export const ItemEquipped = styled.h1`
 	}
 `
 
-export const ItemName = styled.h1`
+interface ItemNameProps {
+	colour?: string;
+}
+
+export const ItemName = styled.h2<ItemNameProps>`
 	position: absolute;
 	top: 5px;
 	right: 8px;
 	font-size: 0.8rem;
-	color: ${props => props.color};
+	color: ${props => props.colour};
 	z-index: 5;
 	white-space: pre-line;
 `

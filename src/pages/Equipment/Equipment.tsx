@@ -62,7 +62,7 @@ const Equipment: React.FC = () => {
 							selected={equipment.name === selectedEquipment.name}
 							onMouseDown={event => equipment.name !== selectedEquipment.name ? setSelectedEquipment(equipment) : equipEquipment(event.button)}
 						>
-							<ItemName color={itemColours[equipment.amount === amount ? 'normal' : 'dlc']}>{equipment.name} (x{amount.join('/x')})</ItemName>
+							<ItemName colour={itemColours[equipment.amount === amount ? 'normal' : 'dlc']}>{equipment.name} (x{amount.join('/x')})</ItemName>
 							{equipment.name === equippedPrimary && <ItemEquipped> {jackOfAllTradesUnlocked ? 'Primary' : ''}</ItemEquipped>}
 							{equipment.name === equippedSecondary && <ItemEquipped> Secondary</ItemEquipped>}
 							{locked && <LockedIcon />}

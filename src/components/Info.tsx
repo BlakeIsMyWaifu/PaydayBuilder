@@ -19,19 +19,20 @@ export const InfoTitleWrapper = styled.span`
 
 interface InfoTextProps {
 	uppercase?: boolean;
+	fontSize?: string;
 }
 
 export const InfoTitle = styled.h1<InfoTextProps>`
 	text-transform: ${props => props.uppercase ? 'uppercase ' : 'none'};
-	font-size: 2rem;
+	font-size: ${props => props.fontSize || '2rem'};
 `
 
-export const InfoSubtitle = styled.h1<InfoTextProps>`
+export const InfoSubtitle = styled.h2<InfoTextProps>`
 	text-transform: ${props => props.uppercase ? 'uppercase ' : 'none'};
 	font-size: 1rem;
 `
 
-export const InfoDescription = styled.h1<InfoTextProps>`
+export const InfoDescription = styled.p<InfoTextProps>`
 	text-transform: ${props => props.uppercase ? 'uppercase ' : 'none'};
 	font-size: 1.2rem;
 	padding-top: 16px;
@@ -39,13 +40,17 @@ export const InfoDescription = styled.h1<InfoTextProps>`
 	white-space: pre-line;
 `
 
-export const InfoRequirement = styled.h1`
+export const InfoRequirement = styled.p`
 	color: ${red};
 `
 
-export const InfoUnlock = styled.h1`
+interface InfoUnlockProps {
+	colour: string;
+}
+
+export const InfoUnlock = styled.p<InfoUnlockProps>`
 	text-transform: none;
-	color: ${props => props.color};
+	color: ${props => props.colour};
 `
 
 export const InfoTabTitles = styled.div`

@@ -110,7 +110,7 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 							onClick={() => selectedItem.name === mod.name ? equidModHelper() : setSelectedItem(mod)}
 						>
 							{mod.name === equippedModifications[mod.slot]?.name && <ItemEquipped />}
-							<ItemName color={itemColours[mod.source.rarity]}>{fixItemName(mod.name)}</ItemName>
+							<ItemName colour={itemColours[mod.source.rarity]}>{fixItemName(mod.name)}</ItemName>
 							<ItemImage src={`images/modifications/${mod.slot.replaceAll(' ', '')}/${mod.image}.webp`} />
 						</Item>
 					})
@@ -120,7 +120,7 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 			<InfoContainer>
 				<InfoTitleWrapper>
 					<ModIcon src={`images/modifications/icons/${selectedItem.icon}.png`} equipped={true} />
-					<InfoTitle>{fixItemName(selectedItem.name)}</InfoTitle>
+					<InfoTitle fontSize='2vw'>{fixItemName(selectedItem.name)}</InfoTitle>
 				</InfoTitleWrapper>
 				<BlackmarketStatsTable
 					weapon={weapon}
@@ -128,7 +128,7 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 					selectedItem={selectedItem}
 					equippedMod={equippedModifications[selectedTab]}
 				/>
-				<InfoUnlock color={itemColours[selectedItem.source.rarity]}>{selectedItem.source.name}</InfoUnlock>
+				<InfoUnlock colour={itemColours[selectedItem.source.rarity]}>{selectedItem.source.name}</InfoUnlock>
 			</InfoContainer>
 
 			<ResetContainer>

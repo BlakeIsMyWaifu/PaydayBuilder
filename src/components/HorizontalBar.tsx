@@ -26,6 +26,7 @@ const Arrow = styled.p<ArrowProps>`
 	font-size: 32px;
 	line-height: 32px;
 	font-weight: bold;
+	color: ${blue};
 	cursor: pointer;
 	&:hover {
 		color: white;
@@ -40,6 +41,7 @@ const ItemContainer = styled.div`
 `
 
 interface HorizontalItemProps {
+	colour?: string;
 	additionalStyling: FlattenInterpolation<any> | null;
 	active: boolean;
 }
@@ -48,7 +50,7 @@ const Item = styled.p<HorizontalItemProps>`
 	font-size: 1.6rem;
 	cursor: pointer;
 	white-space: nowrap;
-	color: ${props => props.color || (props.active ? '#fff' : blue)};
+	color: ${props => props.colour || (props.active ? '#fff' : blue)};
 	${props => props.additionalStyling};
 	&:first-child {
 		padding-left: 12px;
@@ -116,7 +118,7 @@ const HorizontalBar: React.FC<HorizontalActionBarProps> = ({ active, items, scro
 							key={label}
 							active={label === active}
 							onClick={callback}
-							color={colour}
+							colour={colour}
 							additionalStyling={additionalStyling || null}
 						>
 							{label}

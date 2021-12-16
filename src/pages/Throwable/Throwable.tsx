@@ -38,7 +38,7 @@ const Throwable: React.FC = () => {
 								}
 							}}
 						>
-							<ItemName color={itemColours[throwable.source.rarity]}>{throwable.name}</ItemName>
+							<ItemName colour={itemColours[throwable.source.rarity]}>{throwable.name}</ItemName>
 							{locked && <LockedIcon />}
 							{throwable.name === equippedThrowable.name && <ItemEquipped />}
 							<ItemImage
@@ -55,7 +55,7 @@ const Throwable: React.FC = () => {
 				<InfoTitle>{selectedThrowable.name}</InfoTitle>
 				{selectedThrowable.perkDeck && selectedThrowable.perkDeck !== perkDeckName && <InfoRequirement>Requires the {selectedThrowable.perkDeck} perk deck equipped</InfoRequirement>}
 				<InfoDescription>{selectedThrowable.description.join('\n\n')}</InfoDescription>
-				<InfoUnlock color={itemColours[selectedThrowable.source.rarity]}>{selectedThrowable.source.name}</InfoUnlock>
+				<InfoUnlock colour={itemColours[selectedThrowable.source.rarity]}>{selectedThrowable.source.name}</InfoUnlock>
 			</InfoContainer>
 
 		</Container>

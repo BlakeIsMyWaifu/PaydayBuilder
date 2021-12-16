@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { blue } from 'utils/colours'
 import corner from 'utils/corner'
 
 export const Container = styled.div`
@@ -7,7 +8,7 @@ export const Container = styled.div`
 	position: relative;
 `
 
-export const LoadoutNumber = styled.h1`
+export const LoadoutNumber = styled.h2`
 	writing-mode: vertical-rl;
 	font-size: 1.5rem;
 `
@@ -34,9 +35,8 @@ export const Item = styled.div`
 export const ItemTitle = styled.p`
 	position: absolute;
 	top: 0;
+	color: ${blue};
 	font-size: 16px;
 `
 
-export const ItemIcon = styled.img`
-	
-`
+export const ItemIcon = styled.img``

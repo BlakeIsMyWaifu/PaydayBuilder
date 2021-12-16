@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { dim } from 'utils/colours'
+import { blue, dim } from 'utils/colours'
 import corner from 'utils/corner'
 
 interface TabProps {
@@ -89,6 +89,7 @@ export const ConfigWrapper = styled.div`
 
 export const ConfigButton = styled.p`
 	font-size: 2.5rem;
+	color: ${blue};
 	cursor: pointer;
 	&:hover {
 		color: white;
@@ -102,7 +103,6 @@ export const VersionWrapper = styled.div`
 
 export const VersionText = styled.p`
 	font-size: 1.2rem;
-	color: white;
 	position: absolute;
 	left: 0;
 	bottom: 0;

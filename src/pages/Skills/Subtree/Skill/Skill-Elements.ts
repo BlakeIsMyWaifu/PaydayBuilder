@@ -80,9 +80,10 @@ export const SkillIcon = styled.div<SkillIconProps>`
 
 interface LabelProps {
 	redFlash: boolean;
+	colour: string;
 }
 
 export const Label = styled.p<LabelProps>`
-	color: ${props => props.redFlash ? red : props.color};
+	color: ${props => props.redFlash ? red : props.colour};
 	text-align: center;
 `

@@ -27,7 +27,7 @@ const Character: React.FC = () => {
 							selected={character.name === selectedCharacter.name}
 							onClick={() => character.name === selectedCharacter.name ? dispatch(changeCharacter(character.name)) : setSelectedCharacter(character)}
 						>
-							<ItemName color={itemColours[character.source.rarity]}>{character.name}</ItemName>
+							<ItemName colour={itemColours[character.source.rarity]}>{character.name}</ItemName>
 							{character.name === equippedCharacter.name && <ItemEquipped />}
 							<ItemImage src={`images/masks/${character.image}.png`} onMouseDown={event => event.preventDefault()} />
 						</Item>
@@ -40,7 +40,7 @@ const Character: React.FC = () => {
 				<InfoSubtitle>Nationality: {selectedCharacter.nationality}</InfoSubtitle>
 				<InfoSubtitle>Age: {selectedCharacter.age}</InfoSubtitle>
 				<InfoDescription>{selectedCharacter.description.join('\n\n')}</InfoDescription>
-				<InfoUnlock color={itemColours[selectedCharacter.source.rarity]}>{selectedCharacter.source.name}</InfoUnlock>
+				<InfoUnlock colour={itemColours[selectedCharacter.source.rarity]}>{selectedCharacter.source.name}</InfoUnlock>
 			</InfoContainer>
 
 		</Container>

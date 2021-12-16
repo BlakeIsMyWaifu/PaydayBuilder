@@ -31,8 +31,8 @@ const ModIconsTable: React.FC<ModIconsTableProps> = ({ weapon, modifications, ho
 							const statChange = stats?.[(label as keyof ModificationStats)]
 							return <Row key={label}>
 								<Label>{label}</Label>
-								<Data color='#fff'>{Math.round(statTotal * 10) / 10}</Data>
-								<Data color={statChange ? (statChange > 0 ? green : red) : '#fff'}>{stats && statChange}</Data>
+								<Data colour='#fff'>{Math.round(statTotal * 10) / 10}</Data>
+								<Data colour={statChange ? (statChange > 0 ? green : red) : '#fff'}>{stats && statChange}</Data>
 							</Row>
 						})
 					}

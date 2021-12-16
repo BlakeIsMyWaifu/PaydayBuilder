@@ -31,7 +31,7 @@ export const Melee: React.FC = () => {
 							selected={melee.name === selectedMelee.name}
 							onClick={() => melee.name === selectedMelee.name ? dispatch(changeMelee(melee.name)) : setSelectedMelee(melee)}
 						>
-							<ItemName color={itemColours[melee.source.rarity]}>{melee.name}</ItemName>
+							<ItemName colour={itemColours[melee.source.rarity]}>{melee.name}</ItemName>
 							{melee.name === equippedMelee.name && <ItemEquipped />}
 							<ItemImage src={`images/melees/${melee.image}.png`} leftFacing={leftFacing} onMouseDown={event => event.preventDefault()} />
 						</Item>
@@ -42,7 +42,7 @@ export const Melee: React.FC = () => {
 			<InfoContainer>
 				<InfoTitle>{selectedMelee.name}</InfoTitle>
 				<MeleeStatsTable selectedMelee={selectedMelee.name} equippedMelee={selectedMelee.name !== equippedMelee.name ? equippedMelee.name : undefined} />
-				<InfoUnlock color={itemColours[selectedMelee.source.rarity]}>{selectedMelee.source.name}</InfoUnlock>
+				<InfoUnlock colour={itemColours[selectedMelee.source.rarity]}>{selectedMelee.source.name}</InfoUnlock>
 				<InfoDescription>{selectedMelee.description}</InfoDescription>
 			</InfoContainer>
 

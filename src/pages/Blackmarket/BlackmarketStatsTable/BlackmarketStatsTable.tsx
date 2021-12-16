@@ -44,9 +44,9 @@ const BlackmarketStatsTable: React.FC<BlackmarketStatsTableProps> = ({ totalStat
 
 							return <Row key={label}>
 								<Label>{label}</Label>
-								<Data color={colourCompare(selectedStat, equipStat)}>{Math.round(totalStat * 10) / 10}</Data>
-								{isCompareMode && <Data color={colourCompare(equipStat, selectedStat)}>{!!equipStat && (equipStat >= 0 ? `+${equipStat}` : equipStat)}</Data>}
-								<Data color={selectedStat > 0 ? green : red}>{!!selectedStat && (selectedStat >= 0 ? `+${selectedStat}` : selectedStat)}</Data>
+								<Data colour={colourCompare(selectedStat, equipStat)}>{Math.round(totalStat * 10) / 10}</Data>
+								{isCompareMode && <Data colour={colourCompare(equipStat, selectedStat)}>{!!equipStat && (equipStat >= 0 ? `+${equipStat}` : equipStat)}</Data>}
+								<Data colour={selectedStat > 0 ? green : red}>{!!selectedStat && (selectedStat >= 0 ? `+${selectedStat}` : selectedStat)}</Data>
 							</Row>
 						})
 					}

@@ -100,7 +100,7 @@ const Skill: React.FC<SkillProps> = ({ treeName, subtree, skill, setSkillHovered
 				{skillState === 'aced' && <Aced />}
 				<SkillIcon x={skill.pos[0]} y={skill.pos[1]} state={skillState} redFlash={redFlash} onAnimationEnd={() => setRedFlash(false)} />
 			</Icon>
-			<Label redFlash={redFlash} color={skillState === 'locked' ? grey : '#fff'}>{skill.name}</Label>
+			<Label redFlash={redFlash} colour={skillState === 'locked' ? grey : '#fff'}>{skill.name}</Label>
 		</Container>
 	)
 }

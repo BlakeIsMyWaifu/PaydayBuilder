@@ -12,9 +12,7 @@ const Container = styled.div`
 	height: 128px;
 `
 
-const Title = styled.h2`
-	color: white;
-`
+const Title = styled.h2``
 
 const ImageContainer = styled.div`
 	width: 100%;
@@ -54,7 +52,6 @@ const ImageEnabled = styled.img<ImageEnabledProps>`
 `
 
 const Number = styled.p`
-	color: white;
 	font-size: 3rem;
 	text-align: center;
 	line-height: 128px;

@@ -18,7 +18,7 @@ const WeaponInfo: React.FC<WeaponInfoProps> = ({ selectedWeapon, equippedWeapon 
 			<InfoTitle>{selectedWeapon.weaponFind.name}</InfoTitle>
 			<InfoSubtitle>Value ${selectedWeaponData.cost.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}</InfoSubtitle>
 			<WeaponsStatsTable showExtraStats={true} selectedWeapon={selectedWeapon} equippedWeapon={equippedWeapon} />
-			<InfoUnlock color={itemColours[selectedWeaponData.source.rarity]}>{selectedWeaponData.source.name}</InfoUnlock>
+			<InfoUnlock colour={itemColours[selectedWeaponData.source.rarity]}>{selectedWeaponData.source.name}</InfoUnlock>
 		</InfoContainer>
 	)
 }

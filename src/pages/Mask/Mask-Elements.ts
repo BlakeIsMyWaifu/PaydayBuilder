@@ -43,10 +43,14 @@ export const MaskCollection = styled.div`
 	flex-direction: column;
 `
 
-export const MaskCollectionTitle = styled.h1`
+interface MaskCollectionTitelProps {
+	colour: string;
+}
+
+export const MaskCollectionTitle = styled.h1<MaskCollectionTitelProps>`
 	font-size: 1.5rem;
 	padding-left: 32px;
-	color: ${props => props.color};
+	color: ${props => props.colour};
 `
 
 export const MaskWrapper = styled.div`
@@ -68,10 +72,14 @@ export const CollectionsContainer = styled.div`
 	overflow-x: hidden;
 `
 
-export const CollectionTitle = styled.div`
+interface CollectionTitleProps {
+	colour: string;
+}
+
+export const CollectionTitle = styled.div<CollectionTitleProps>`
 	font-size: 1.2rem;
 	cursor: pointer;
-	color: ${props => props.color};
+	color: ${props => props.colour};
 	&:hover::before {
 		content: '> ';
 	}
