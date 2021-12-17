@@ -4,19 +4,42 @@ import useMeleeStats from 'hooks/useMeleeStats'
 import useWeaponStats from 'hooks/useWeaponStats'
 import React from 'react'
 import styled from 'styled-components'
+import corner from 'utils/corner'
 import findWeapon from 'utils/findWeapon'
 
-const Container = styled.div`
-	position: absolute;
-	width: 128px;
-	height: 128px;
+interface ContainerProps {
+	flexDirection: 'row' | 'column';
+	corner: boolean;
+	size: number;
+}
+
+const Container = styled.div<ContainerProps>`
+	grid-area: drisk;
+	display: flex;
+	flex-direction: ${props => props.flexDirection === 'column' ? 'column' : 'row-reverse'};
+	justify-content: start;
+	padding: ${props => props.size / 8}px;
+	${props => props.corner && corner}
 `
 
-const Title = styled.h2``
+interface TitleProps {
+	flexDirection: 'row' | 'column';
+	size: number;
+}
 
-const ImageContainer = styled.div`
-	width: 100%;
-	width: 100%;
+const Title = styled.h2<TitleProps>`
+	line-height: ${props => props.flexDirection === 'column' ? props.size / 8 : props.size}px;
+	padding-left: ${props => props.flexDirection === 'row' && '12px'};
+`
+
+interface ImageContainerProps {
+	size: number;
+}
+
+const ImageContainer = styled.div<ImageContainerProps>`
+	position: relative;
+	width: ${props => props.size}px;
+	height: ${props => props.size}px;
 `
 
 const ImageWrapper = styled.span`
@@ -51,10 +74,14 @@ const ImageEnabled = styled.img<ImageEnabledProps>`
 	object-position: bottom;
 `
 
-const Number = styled.p`
-	font-size: 3rem;
+interface NumberProps {
+	size: number;
+}
+
+const Number = styled.p<NumberProps>`
+	font-size: ${props => props.size / 2}px;;
 	text-align: center;
-	line-height: 128px;
+	line-height: ${props => props.size}px;
 `
 
 const concealmentToDetectionRisk = (concealment: number): number => {
@@ -92,7 +119,13 @@ const concealmentToDetectionRisk = (concealment: number): number => {
 	return concealment > 119 ? 3 : concealment < 91 ? 75 : detectionRisk[concealment]
 }
 
-const DetectionRisk: React.FC = () => {
+interface DectectionRiskProps {
+	flexDirection: 'row' | 'column';
+	corner: boolean;
+	size?: number;
+}
+
+const DetectionRisk: React.FC<DectectionRiskProps> = ({ flexDirection, corner, size = 96 }) => {
 
 	const weapons = useAppSelector(state => state.weapons),
 		primaryWeapon = useAppSelector(state => state.armoury.primary)[weapons.primary],
@@ -110,11 +143,15 @@ const DetectionRisk: React.FC = () => {
 	const preventDefault = (event: React.MouseEvent<HTMLImageElement, MouseEvent>): void => event.preventDefault()
 
 	return (
-		<Container>
+		<Container
+			flexDirection={flexDirection}
+			corner={corner}
+			size={size}
+		>
 
-			<Title>Detection Risk</Title>
+			<Title flexDirection={flexDirection} size={size}>Detection Risk</Title>
 
-			<ImageContainer>
+			<ImageContainer size={size}>
 				<ImageWrapper>
 					<Image
 						src='images/detection_meter.png'
@@ -141,9 +178,10 @@ const DetectionRisk: React.FC = () => {
 						onMouseDown={preventDefault}
 					/>
 				</ImageWrapper>
+
+				<Number size={size}>{detection}</Number>
+
 			</ImageContainer>
-
-			<Number>{detection}</Number>
 
 		</Container>
 	)

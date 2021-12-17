@@ -1,5 +1,6 @@
 import { changeMelee } from 'actions/weaponsAction'
 import Container from 'components/Container'
+import DetectionRisk from 'components/DetectionRisk'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import melees from 'data/weapons/melees'
@@ -19,7 +20,11 @@ export const Melee: React.FC = () => {
 	const leftFacing = useAppSelector(state => state.settings.leftFacing)
 
 	return (
-		<Container title='Melee'>
+		<Container
+			rows='4rem 8fr 120px 4rem'
+			areas='"title title" "items info" "items drisk" "items back"'
+			title='Melee'
+		>
 
 			<ItemContainer>
 				{
@@ -45,6 +50,8 @@ export const Melee: React.FC = () => {
 				<InfoUnlock colour={itemColours[selectedMelee.source.rarity]}>{selectedMelee.source.name}</InfoUnlock>
 				<InfoDescription>{selectedMelee.description}</InfoDescription>
 			</InfoContainer>
+
+			<DetectionRisk flexDirection='row' corner={true} />
 
 		</Container>
 	)

@@ -1,5 +1,6 @@
 import { changeArmour } from 'actions/characterAction'
 import Container from 'components/Container'
+import DetectionRisk from 'components/DetectionRisk'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } from 'components/Item'
 import armours, { ArmourData } from 'data/character/armours'
@@ -18,7 +19,11 @@ export const Armour: React.FC = () => {
 	const ironManUnlocked = useAppSelector(state => state.skills.trees.enforcer['Tank'].upgrades['Iron Man']) === 'aced'
 
 	return (
-		<Container title='Armour'>
+		<Container
+			rows='4rem 8fr 120px 4rem'
+			areas='"title title" "items info" "items drisk" "items back"'
+			title='Armour'
+		>
 
 			<ItemContainer>
 				{
@@ -49,6 +54,8 @@ export const Armour: React.FC = () => {
 				<ArmourStatsTable selectedArmour={selectedArmour.name} equippedArmour={selectedArmour.name !== equippedArmour.name ? equippedArmour.name : undefined} />
 				<InfoDescription>{selectedArmour.desciption.join('\n\n')}</InfoDescription>
 			</InfoContainer>
+
+			<DetectionRisk flexDirection='row' corner={true} />
 
 		</Container>
 	)

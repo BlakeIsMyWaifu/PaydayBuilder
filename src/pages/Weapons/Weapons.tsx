@@ -1,6 +1,7 @@
 import { addWeapon, removeWeapon, resetArmoury } from 'actions/armouryAction'
 import { changeWeapon } from 'actions/weaponsAction'
 import Container from 'components/Container'
+import DetectionRisk from 'components/DetectionRisk'
 import HorizontalBar from 'components/HorizontalBar'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { ActionText, ActionsContainer } from 'components/ItemAction'
@@ -48,7 +49,12 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 	}
 
 	return (
-		<Container columns='3fr 1.5fr' rows='4rem 2rem 8fr 3rem 4rem' areas='"title reset" "horizontalbar filter" "items info" "items actions" "items back"' title={slot}>
+		<Container
+			columns='3fr 1.5fr'
+			rows='4rem 2rem 8fr 80px 3rem 4rem'
+			areas='"title reset" "horizontalbar filter" "items info" "items drisk" "items actions" "items back"'
+			title={slot}
+		>
 
 			<HorizontalBar active={selectedTab} items={[{
 				label: 'saved',
@@ -76,7 +82,11 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 							>
 								{equippedWeaponId === id && <ItemEquipped />}
 								<ItemName colour={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
-								<ItemImage src={`images/weapons/${weapon.image}.png`} leftFacing={leftFacing} onMouseDown={event => event.preventDefault()} />
+								<ItemImage
+									src={`images/weapons/${weapon.image}.png`}
+									leftFacing={leftFacing}
+									onMouseDown={event => event.preventDefault()}
+								/>
 								<ModIcons weapon={weapon} modifications={modifications} />
 							</Item>
 						}) :
@@ -89,7 +99,11 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 								onClick={() => weapon.name === selectedWeapon.name ? addWeaponHelper() : setSelectedWeapon(weapon)}
 							>
 								<ItemName colour={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
-								<ItemImage src={`images/weapons/${weapon.image}.png`} leftFacing={leftFacing} onMouseDown={event => event.preventDefault()} />
+								<ItemImage
+									src={`images/weapons/${weapon.image}.png`}
+									leftFacing={leftFacing}
+									onMouseDown={event => event.preventDefault()}
+								/>
 							</Item>
 						})
 				}
@@ -108,6 +122,8 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 					selectedArmoury !== 0 && <WeaponInfo selectedWeapon={armoury[selectedArmoury]} equippedWeapon={armoury[selectedArmoury].id === equippedWeaponId ? undefined : armoury[equippedWeaponId]} /> :
 					<WeaponInfo selectedWeapon={armoury[selectedArmoury]} equippedWeapon={armoury[equippedWeaponId]} />
 			}
+
+			{((selectedTab === 'saved' && selectedArmoury) || selectedTab !== 'saved') && <DetectionRisk flexDirection='row' corner={true} size={64} />}
 
 			<ActionsContainer>
 				{

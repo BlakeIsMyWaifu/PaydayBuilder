@@ -75,7 +75,7 @@ const Home: React.FC = () => {
 					<TabTitle direction='ltr'>Inventory</TabTitle>
 					<PreviewWrapper>
 						<Preview>
-							<DetectionRisk />
+							<DetectionRisk flexDirection='column' corner={false} />
 						</Preview>
 						<Preview>
 							{

@@ -1,5 +1,6 @@
 import { changeMod, removeMod, resetWeaponsMods } from 'actions/armouryAction'
 import Container from 'components/Container'
+import DetectionRisk from 'components/DetectionRisk'
 import HorizontalBar from 'components/HorizontalBar'
 import { InfoContainer, InfoTitle, InfoTitleWrapper, InfoUnlock } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
@@ -88,8 +89,8 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 
 	return (
 		<Container
-			rows='4rem 2rem 8fr 1.5rem 4rem'
-			areas='"title reset" "horizontalbar ." "items info" "items actions" "items back"'
+			rows='4rem 2rem 1fr 120px 1.5rem 4rem'
+			areas='"title reset" "horizontalbar ." "items info" "items drisk" "items actions" "items back"'
 			title={`Blackmarket - ${weapon.name}`}
 			backLocation={`/${slot}`}
 		>
@@ -134,6 +135,8 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 			<ResetContainer>
 				<ResetText onClick={() => dispatch(resetWeaponsMods({ slot, id }))}>Reset all modifications</ResetText>
 			</ResetContainer>
+
+			<DetectionRisk flexDirection='row' corner={true} />
 
 			<ActionsContainer>
 				{
