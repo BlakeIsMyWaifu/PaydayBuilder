@@ -12,12 +12,17 @@ interface WeaponInfoProps {
 }
 
 const WeaponInfo: React.FC<WeaponInfoProps> = ({ selectedWeapon, equippedWeapon }) => {
+
 	const selectedWeaponData = findWeapon(selectedWeapon.weaponFind)
+
 	return (
 		<InfoContainer>
-			<InfoTitle>{selectedWeapon.weaponFind.name}</InfoTitle>
+			<InfoTitle>{selectedWeaponData.name}</InfoTitle>
 			<InfoSubtitle>Value ${selectedWeaponData.cost.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}</InfoSubtitle>
-			<WeaponsStatsTable showExtraStats={true} selectedWeapon={selectedWeapon} equippedWeapon={equippedWeapon} />
+			<WeaponsStatsTable
+				showExtraStats={true}
+				selectedWeapon={selectedWeapon}
+				equippedWeapon={equippedWeapon} />
 			<InfoUnlock colour={itemColours[selectedWeaponData.source.rarity]}>{selectedWeaponData.source.name}</InfoUnlock>
 		</InfoContainer>
 	)

@@ -119,11 +119,28 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 
 			{
 				selectedTab === 'saved' ?
-					selectedArmoury !== 0 && <WeaponInfo selectedWeapon={armoury[selectedArmoury]} equippedWeapon={armoury[selectedArmoury].id === equippedWeaponId ? undefined : armoury[equippedWeaponId]} /> :
-					<WeaponInfo selectedWeapon={armoury[selectedArmoury]} equippedWeapon={armoury[equippedWeaponId]} />
+					selectedArmoury !== 0 && <WeaponInfo
+						selectedWeapon={armoury[selectedArmoury]}
+						equippedWeapon={armoury[selectedArmoury].id === equippedWeaponId ? undefined : armoury[equippedWeaponId]}
+					/> :
+					<WeaponInfo selectedWeapon={{
+						id: -1,
+						weaponFind: {
+							name: selectedWeapon.name,
+							type: selectedWeapon.weaponType,
+							slot
+						},
+						modifications: {}
+					}} equippedWeapon={armoury[equippedWeaponId]} />
 			}
 
-			{((selectedTab === 'saved' && selectedArmoury) || selectedTab !== 'saved') && <DetectionRisk flexDirection='row' corner={true} size={64} />}
+			{
+				((selectedTab === 'saved' && selectedArmoury) || selectedTab !== 'saved') && <DetectionRisk
+					flexDirection='row'
+					corner={true}
+					size={64}
+				/>
+			}
 
 			<ActionsContainer>
 				{
