@@ -1,8 +1,6 @@
 <h1 align="center">
   <img width="250px" src="https://github.com/blakeismywaifu/paydaybuilder/blob/master/public/images/logo.png?raw=true">
-</h1>
-
-<h1 align="center">
+  <br />
   Payday Builder
 </h1>
 
@@ -40,13 +38,13 @@ Inspired by [pd2builder](https://github.com/r-paydaybuilds/pd2builder)
 
 ### Running Locally
 
-Requires [Node.js](https://nodejs.org/en/)
-`$ git clone https://github.com/BlakeIsMyWaifu/PaydayBuilder`
-`$ npm i`
-`$ npm start`
+Requires [Node.js](https://nodejs.org/en/) <br />
+`$ git clone https://github.com/BlakeIsMyWaifu/PaydayBuilder` <br />
+`$ npm i` <br />
+`$ npm start` <br />
 Go to [https://localhost:4000](https://localhost:4000)
 
-To change the port go to `webpack.config.ts` and change the port in the `devServer` config
+To change the port go to `webpack.config.ts` and change the port in the `devServer` config. <br />
 To view the bundle analyzer, run the site as stated above but go to [https://localhost:8888](https://localhost:8888)
 
 #### Technologies
@@ -70,6 +68,6 @@ Issues could be either bug reports or feature requests.
 We will accept any PRs you might want to submit if they are on-track with our plans here: [Payday Builder TODO List](https://github.com/BlakeIsMyWaifu/PaydayBuilder/projects/1).
 Again, contributions are always valuable.
 
-### Contact
+## Contact
 
 - Discord: Blake Belladonna#1608
