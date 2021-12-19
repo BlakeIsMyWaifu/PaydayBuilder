@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://github.com/blakeismywaifu/paydaybuilder/blob/master/public/images/logo.png?raw=true">
+  <img width="250px" src="https://github.com/blakeismywaifu/paydaybuilder/blob/master/public/images/logo.png?raw=true">
 </h1>
 
 <h1 align="center">
