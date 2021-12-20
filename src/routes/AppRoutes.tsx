@@ -34,6 +34,7 @@ const AppRoutes: React.FC = () => {
 					<Route path='/primary' element={<Weapons slot='primary' />} />
 					<Route path='/secondary' element={<Weapons slot='secondary' />} />
 					<Route path='/blackmarket/:slot/:id' element={<Blackmarket />} />
+					<Route path='/blackmarket/:slot/:id/:modtype' element={<Blackmarket />} />
 					<Route path='/throwable' element={<Throwable />} />
 					<Route path='/melee' element={<Melee />} />
 

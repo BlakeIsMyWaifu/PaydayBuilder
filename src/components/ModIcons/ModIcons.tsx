@@ -4,16 +4,17 @@ import { HoverInfo } from 'pages/Home'
 import React from 'react'
 import { capitalizeEachWord, spaceBetween } from 'utils/stringCases'
 
-import { ModIcon, ModIconContainer } from './ModIcons-Elements'
+import { ModIcon, ModIconContainer, ModLink, ModWrapper } from './ModIcons-Elements'
 import ModIconsTable from './ModIconsTable/ModIconsTable'
 
 interface ModIconsProps {
 	weapon: WeaponData;
+	weaponId: number;
 	modifications: Partial<Record<ModificationSlot, string>>;
 	setHoverInfo?: React.Dispatch<React.SetStateAction<HoverInfo | null>>;
 }
 
-const ModIcons: React.FC<ModIconsProps> = ({ weapon, modifications, setHoverInfo }) => {
+const ModIcons: React.FC<ModIconsProps> = ({ weapon, weaponId, modifications, setHoverInfo }) => {
 	return (
 		<ModIconContainer>
 			{
@@ -21,19 +22,23 @@ const ModIcons: React.FC<ModIconsProps> = ({ weapon, modifications, setHoverInfo
 					const equipped = Object.keys(modifications).includes(modSlot)
 					const modName = modifications[(modSlot as ModificationSlot)] || ''
 					const equippedMod = modificationList[(modSlot as ModificationSlot)][modName]
-					return <ModIcon
-						key={modSlot}
-						src={`images/modifications/icons/${equippedMod?.icon || modificationIcons[(modSlot as ModificationSlot)]}.png`}
-						equipped={equipped}
-						onMouseOver={() => setHoverInfo && setHoverInfo({
-							title: modName || `No ${capitalizeEachWord(spaceBetween(modSlot))} Mod Equipped`,
-							table: <ModIconsTable
-								weapon={weapon}
-								modifications={modifications}
-								hoveredMod={equippedMod}
+					return <ModWrapper key={modSlot}>
+						<ModLink to={`/blackmarket/${weapon.inventorySlot}/${weaponId}/${modSlot}`}>
+							<ModIcon
+								src={`images/modifications/icons/${equippedMod?.icon || modificationIcons[(modSlot as ModificationSlot)]}.png`}
+								equipped={equipped}
+								onMouseOver={() => setHoverInfo && setHoverInfo({
+									title: modName || `No ${capitalizeEachWord(spaceBetween(modSlot))} Mod Equipped`,
+									table: <ModIconsTable
+										weapon={weapon}
+										modifications={modifications}
+										hoveredMod={equippedMod}
+									/>
+								})}
+								onMouseDown={event => event.preventDefault()}
 							/>
-						})}
-					/>
+						</ModLink>
+					</ModWrapper>
 				})
 			}
 		</ModIconContainer>

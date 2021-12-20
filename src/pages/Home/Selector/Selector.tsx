@@ -8,22 +8,32 @@ interface SelectorProps {
 	children?: React.ReactNode;
 	infoData?: HoverInfo | null;
 	setHoverInfo: React.Dispatch<React.SetStateAction<HoverInfo | null>>;
+	enableLink?: boolean;
 }
 
-const Selector: React.FC<SelectorProps> = ({ title, children, infoData, setHoverInfo }) => {
-	return (
-		<SelectorLink
-			to={`/${title.replaceAll(' ', '')}`}
+const Selector: React.FC<SelectorProps> = ({ title, children, infoData, setHoverInfo, enableLink = true }) => {
+
+	const inners = (
+		<Container
 			onMouseDown={event => event.preventDefault()}
 			onMouseEnter={() => setHoverInfo(infoData || null)}
 			onMouseLeave={() => setHoverInfo(null)}
 		>
-			<Container>
-				<Title>{title}</Title>
-				{children}
-			</Container>
-		</SelectorLink>
+			{
+				enableLink ? <Title>{title}</Title> : <SelectorLink to={`/${title.replaceAll(' ', '')}`}>
+					<Title>{title}</Title>
+				</SelectorLink>
+			}
+
+			{children}
+		</Container>
 	)
+
+	return enableLink ? (
+		<SelectorLink to={`/${title.replaceAll(' ', '')}`}>
+			{inners}
+		</SelectorLink>
+	) : inners
 }
 
 export default Selector

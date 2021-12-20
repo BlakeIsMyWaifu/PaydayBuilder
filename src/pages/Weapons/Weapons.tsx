@@ -5,6 +5,7 @@ import DetectionRisk from 'components/DetectionRisk'
 import HorizontalBar from 'components/HorizontalBar'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { ActionText, ActionsContainer } from 'components/ItemAction'
+import ModIcons from 'components/ModIcons'
 import { ResetContainer, ResetText } from 'components/Reset'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
@@ -15,7 +16,6 @@ import { Link } from 'react-router-dom'
 import { itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
 
-import ModIcons from './ModIcons/ModIcons'
 import WeaponInfo from './WeaponInfo/WeaponInfo'
 
 interface WeaponsProps {
@@ -87,7 +87,11 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 									leftFacing={leftFacing}
 									onMouseDown={event => event.preventDefault()}
 								/>
-								<ModIcons weapon={weapon} modifications={modifications} />
+								<ModIcons
+									weapon={weapon}
+									modifications={modifications}
+									weaponId={i}
+								/>
 							</Item>
 						}) :
 						Object.values(Object.values<WeaponData>(data[selectedTab])).map(weapon => {

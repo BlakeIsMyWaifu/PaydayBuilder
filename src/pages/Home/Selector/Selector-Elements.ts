@@ -13,7 +13,7 @@ export const Container = styled.div`
 	position: relative;
 `
 
-export const Title = styled.p`
+export const Title = styled.h2`
 	font-size: 20px;
 	color: ${blue};
 	padding-left: 4px;

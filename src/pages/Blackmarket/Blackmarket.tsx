@@ -5,11 +5,11 @@ import HorizontalBar from 'components/HorizontalBar'
 import { InfoContainer, InfoTitle, InfoTitleWrapper, InfoUnlock } from 'components/Info'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import { ActionText, ActionsContainer } from 'components/ItemAction'
+import { ModIcon, ModWrapper } from 'components/ModIcons/ModIcons-Elements'
 import { ResetContainer, ResetText } from 'components/Reset'
 import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import useWeaponStats from 'hooks/useWeaponStats'
-import { ModIcon } from 'pages/Weapons/ModIcons/ModIcons-Elements'
 import React, { useState } from 'react'
 import { useParams } from 'react-router'
 import { itemColours } from 'utils/colours'
@@ -20,7 +20,7 @@ import BlackmarketStatsTable from './BlackmarketStatsTable'
 
 const WeaponChecker: React.FC = () => {
 
-	const { slot, id } = useParams()
+	const { slot, id, modtype } = useParams()
 
 	const armoury = useAppSelector(state => state.armoury)
 
@@ -41,6 +41,7 @@ const WeaponChecker: React.FC = () => {
 			id={id ? +id : 0}
 			weapon={findWeapon(weapon.weaponFind)}
 			modifications={weapon.modifications}
+			modtype={modtype || ''}
 		/>
 	) : (
 		<Container title='Blackmarket'>
@@ -54,15 +55,18 @@ interface BlackmarketProps {
 	id: number;
 	weapon: WeaponData;
 	modifications: Partial<Record<ModificationSlot, string>>;
+	modtype: string;
 }
 
-const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modifications }) => {
+const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modifications, modtype }) => {
 
 	const dispatch = useAppDispatch()
 
 	const equippedModifications = modificationsFromNames(modifications)
 
-	const [selectedTab, setSelectedTab] = useState<ModificationSlot>(Object.keys(weapon.modifications)[0] as ModificationSlot)
+	const validModtype = Object.keys(weapon.modifications).includes(modtype) ? modtype : Object.keys(weapon.modifications)[0]
+
+	const [selectedTab, setSelectedTab] = useState<ModificationSlot>(validModtype as ModificationSlot)
 
 	const [selectedItem, setSelectedItem] = useState<Modification<string>>(equippedModifications[selectedTab] || weapon.modifications[selectedTab]?.[0] || weapon.modifications.boost[0])
 
@@ -120,7 +124,9 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 
 			<InfoContainer>
 				<InfoTitleWrapper>
-					<ModIcon src={`images/modifications/icons/${selectedItem.icon}.png`} equipped={true} />
+					<ModWrapper>
+						<ModIcon src={`images/modifications/icons/${selectedItem.icon}.png`} equipped={true} />
+					</ModWrapper>
 					<InfoTitle fontSize='2vw'>{fixItemName(selectedItem.name)}</InfoTitle>
 				</InfoTitleWrapper>
 				<BlackmarketStatsTable

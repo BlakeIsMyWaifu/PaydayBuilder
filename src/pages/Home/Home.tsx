@@ -5,6 +5,7 @@ import { resetWeapon } from 'actions/weaponsAction'
 import Container from 'components/Container'
 import DetectionRisk from 'components/DetectionRisk'
 import { InfoDescription, InfoTitle } from 'components/Info'
+import ModIcons from 'components/ModIcons'
 import perkDecks from 'data/abilities/perks'
 import armours from 'data/character/armours'
 import characters from 'data/character/characters'
@@ -15,9 +16,9 @@ import throwables from 'data/weapons/throwables'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import ArmourStatsTable from 'pages/Armour/ArmourStatsTable'
 import MeleeStatsTable from 'pages/Melee/MeleeStatsTable'
-import ModIcons from 'pages/Weapons/ModIcons/ModIcons'
 import WeaponsStatsTable from 'pages/Weapons/WeaponStatsTable'
 import React, { ReactElement, useState } from 'react'
+import { Link } from 'react-router-dom'
 import findWeapon from 'utils/findWeapon'
 
 import { ConfigButton, ConfigWrapper, EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle, VersionText, VersionWrapper } from './Home-Elements'
@@ -154,38 +155,46 @@ const Home: React.FC = () => {
 						<Selector
 							title='primary'
 							setHoverInfo={setHoverInfo}
+							enableLink={false}
 						>
-							<Image
-								src={`images/weapons/${primaryData.image}.png`}
-								leftFacing={leftFacing}
-								onMouseEnter={() => setHoverInfo({
-									title: primaryData.name,
-									table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={primaryWeapon} />
-								})}
-							/>
+							<Link to='primary'>
+								<Image
+									src={`images/weapons/${primaryData.image}.png`}
+									leftFacing={leftFacing}
+									onMouseEnter={() => setHoverInfo({
+										title: primaryData.name,
+										table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={primaryWeapon} />
+									})}
+								/>
+							</Link>
 							<ModIcons
 								weapon={primaryData}
 								modifications={primaryWeapon.modifications}
 								setHoverInfo={setHoverInfo}
+								weaponId={weaponsState.primary}
 							/>
 						</Selector>
 
 						<Selector
 							title='secondary'
 							setHoverInfo={setHoverInfo}
+							enableLink={false}
 						>
-							<Image
-								src={`images/weapons/${secondaryData.image}.png`}
-								leftFacing={leftFacing}
-								onMouseEnter={() => setHoverInfo({
-									title: secondaryData.name,
-									table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={secondaryWeapon} />
-								})}
-							/>
+							<Link to='secondary'>
+								<Image
+									src={`images/weapons/${secondaryData.image}.png`}
+									leftFacing={leftFacing}
+									onMouseEnter={() => setHoverInfo({
+										title: secondaryData.name,
+										table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={secondaryWeapon} />
+									})}
+								/>
+							</Link>
 							<ModIcons
 								weapon={secondaryData}
 								modifications={secondaryWeapon.modifications}
 								setHoverInfo={setHoverInfo}
+								weaponId={weaponsState.secondary}
 							/>
 						</Selector>
 

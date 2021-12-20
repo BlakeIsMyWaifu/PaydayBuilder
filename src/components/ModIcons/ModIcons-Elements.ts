@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const ModIconContainer = styled.div`
@@ -15,11 +16,22 @@ export const ModIconContainer = styled.div`
 	align-content: flex-end;
 `
 
+export const ModWrapper = styled.span`
+	width: clamp(16px, 10%, 2rem);
+	aspect-ratio: 1;
+`
+
+export const ModLink = styled(Link)`
+	width: 100%;
+	height: 100%;
+`
+
 interface ModIconProps {
 	equipped: boolean;
 }
 
 export const ModIcon = styled.img<ModIconProps>`
-	width: clamp(16px, 10%, 2rem);
+	width: 100%;
+	height: 100%;
 	opacity: ${props => props.equipped ? 1 : 0.2};
 `
