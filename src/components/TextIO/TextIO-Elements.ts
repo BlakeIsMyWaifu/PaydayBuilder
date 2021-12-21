@@ -1,9 +1,8 @@
-import React, { useRef } from 'react'
 import styled, { css, keyframes } from 'styled-components'
 
-const background = 'rgba(57, 63, 84, 0.8)'
-const inactive = '#7881A1'
-const active = '#BFD2FF'
+export const background = 'rgba(57, 63, 84, 0.8)'
+export const inactive = '#7881A1'
+export const active = '#BFD2FF'
 
 const gradient = keyframes`
 	0% {
@@ -17,7 +16,7 @@ const gradient = keyframes`
 	}
 `
 
-const Container = styled.div`
+export const Container = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: row;
@@ -43,7 +42,7 @@ const Container = styled.div`
 	}
 `
 
-const Input = styled.input`
+export const Input = styled.input`
 	user-select: text !important;
 	border-style: none;
 	background: transparent;
@@ -53,12 +52,13 @@ const Input = styled.input`
 	font-size: 16px;
 	line-height: 2.4rem;
 	vertical-align: middle;
+	text-transform: none;
 	&::placeholder {
 		color: ${inactive}
 	}
 `
 
-const Button = styled.button`
+export const Button = styled.button`
 	padding: 0;
 	background: none;
 	border: none;
@@ -68,41 +68,8 @@ const Button = styled.button`
 	line-height: 2.4rem;
 	vertical-align: middle;
 	transform: color .25s;
+	cursor: pointer;
 	&:hover {
 		color: ${active};
 	}
 `
-
-interface TextInputProps {
-	placeholder: string;
-	callback: (input: string) => void;
-}
-
-const TextInput: React.FC<TextInputProps> = ({ placeholder, callback }) => {
-
-	const inputRef = useRef<HTMLInputElement>(null)
-
-	const onInputEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
-		if (event.key === 'Enter') {
-			callback(event.currentTarget.value)
-			event.currentTarget.value = ''
-		}
-	}
-
-	const inputOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-		event.preventDefault()
-		const input = inputRef.current
-		if (!input) return
-		callback(input.value)
-		input.value = ''
-	}
-
-	return (
-		<Container>
-			<Input type='text' placeholder={placeholder} onKeyDown={onInputEnter} ref={inputRef} />
-			<Button type='submit' onClick={inputOnClick}>➜</Button>
-		</Container>
-	)
-}
-
-export default TextInput

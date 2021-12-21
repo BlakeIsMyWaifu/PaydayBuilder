@@ -4,13 +4,14 @@ import { changeArmour, changeCharacter, changeEquipment, changeMask } from 'acti
 import { changeSkillState, resetSkills } from 'actions/skillsAction'
 import { changeMelee, changeThrowable, changeWeapon } from 'actions/weaponsAction'
 import Button from 'components/Button'
+import { PerkDeckList } from 'data/abilities/perks'
 import skillsData, { TreeNames } from 'data/abilities/skills'
 import { Slot, Weapon } from 'data/weapons/guns/weaponTypes'
-import { AbilitiesState } from 'defaultStates/abilitiesDefaultState'
+import abilitiesDefaultState, { AbilitiesState } from 'defaultStates/abilitiesDefaultState'
 import { ArmouryState } from 'defaultStates/armouryDefaultState'
-import { CharacterState } from 'defaultStates/characterDefaultState'
+import characterDefaultState, { CharacterState } from 'defaultStates/characterDefaultState'
 import { SkillsState } from 'defaultStates/skillsDefaultState'
-import { WeaponsState } from 'defaultStates/weaponsDefaultState'
+import weaponsDefaultState, { WeaponsState } from 'defaultStates/weaponsDefaultState'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React, { useRef } from 'react'
 import findWeapon from 'utils/findWeapon'
@@ -30,13 +31,18 @@ interface DataToJson {
 	weapons: WeaponsState;
 }
 
+export type OptionalAbilitiesState = Partial<AbilitiesState>
+export type OptionalArmouryState = Partial<ArmouryState>
+export type OptionalCharacterState = Partial<CharacterState>
+export type OptionalWeaponState = Partial<WeaponsState>
+
 export interface BuildJson {
 	version: string;
-	abilities: AbilitiesState;
-	armoury: ArmouryState;
-	character: CharacterState;
-	skills: SkillsState;
-	weapons: WeaponsState;
+	abilities?: OptionalAbilitiesState;
+	armoury?: OptionalArmouryState;
+	character?: OptionalCharacterState;
+	skills?: SkillsState;
+	weapons?: OptionalWeaponState;
 }
 
 const JsonIO: React.FC<JsonIOProps> = ({ setToggleSettings }) => {
@@ -46,33 +52,57 @@ const JsonIO: React.FC<JsonIOProps> = ({ setToggleSettings }) => {
 	const fileInputRef = useRef<HTMLInputElement>(null)
 	const downloadAnchorRef = useRef<HTMLAnchorElement>(null)
 
-	const { abilities, armoury, character, skills, weapons } = useAppSelector(state => state)
+	const state = useAppSelector(state => state)
 
-	const dataToJson = ({ abilities, armoury, character, skills, weapons }: DataToJson): BuildJson => {
+	const dataToJson = (data: DataToJson): Partial<BuildJson> => {
+		const filterObject = <T extends object>(obj: T): object => Object.fromEntries(Object.entries(obj).filter(([_, v]) => v))
+		const compareStates = (equipped: string, defaultState: string): string | undefined => equipped !== defaultState ? equipped : undefined
+
+		const filtedAbilities: OptionalAbilitiesState = filterObject<OptionalAbilitiesState>({
+			perkdeck: (compareStates(data.abilities.perkdeck, abilitiesDefaultState.perkdeck) as PerkDeckList)
+		})
+
 		const filterBaseWeapon = (weapons: Record<number, Weapon>): Record<number, Weapon> => Object.fromEntries(Object.entries(weapons).filter(([id, _data]) => +id !== 0))
-		const filtedArmoury: ArmouryState = {
-			primary: filterBaseWeapon(armoury.primary),
-			secondary: filterBaseWeapon(armoury.secondary)
+		const filtedArmoury: OptionalArmouryState = filterObject<OptionalArmouryState>({
+			primary: Object.keys(data.armoury.primary).length > 1 ? filterBaseWeapon(data.armoury.primary) : undefined,
+			secondary: Object.keys(data.armoury.secondary).length > 1 ? filterBaseWeapon(data.armoury.secondary) : undefined
+		})
+
+		const filtedCharacter: OptionalCharacterState = filterObject<OptionalCharacterState>({
+			mask: compareStates(data.character.mask, characterDefaultState.mask),
+			character: compareStates(data.character.character, characterDefaultState.character),
+			armour: compareStates(data.character.armour, characterDefaultState.armour)
+		})
+		if (data.character.equipment.primary !== characterDefaultState.equipment.primary || data.character.equipment.secondary) {
+			filtedCharacter.equipment = data.character.equipment
 		}
 
-		const out = {
-			version: '0.1.0',
-			abilities,
+		const filtedWeapons: OptionalWeaponState = filterObject<OptionalWeaponState>({
+			primary: data.weapons.primary,
+			secondary: data.weapons.secondary,
+			throwable: compareStates(data.weapons.throwable, weaponsDefaultState.throwable),
+			melee: compareStates(data.weapons.melee, weaponsDefaultState.melee)
+		})
+
+		const out: Partial<BuildJson> = Object.fromEntries(Object.entries({
+			version: '0.2.0',
+			abilities: filtedAbilities,
 			armoury: filtedArmoury,
-			character,
-			skills,
-			weapons
-		}
+			character: filtedCharacter,
+			skills: data.skills.points !== 120 ? data.skills : {},
+			weapons: filtedWeapons
+		}).filter(([_, v]) => Object.keys(v).length))
+
 		return out
 	}
 
 	const jsonToData = (data: BuildJson): void => {
 		if (!validateSchema(data)) return console.error('invalid import schema')
 
-		const validAbilities = validateAbilities(data.abilities)
+		const validAbilities = validateAbilities(data.abilities || {})
 		dispatch(changePerkdeck(validAbilities.perkdeck))
 
-		const validArmoury = validateArmoury(data.armoury)
+		const validArmoury = validateArmoury(data.armoury || {})
 		Object.entries(validArmoury).forEach(([slot, weapons]: [string, Record<number, Weapon>]) => {
 			Object.values(weapons).forEach(weapon => {
 				dispatch(addWeapon({
@@ -83,7 +113,7 @@ const JsonIO: React.FC<JsonIOProps> = ({ setToggleSettings }) => {
 			})
 		})
 
-		const validCharacter = validateCharacter(data.character)
+		const validCharacter = validateCharacter(data.character || {})
 		dispatch(changeMask(validCharacter.mask))
 		dispatch(changeCharacter(validCharacter.character))
 		dispatch(changeArmour(validCharacter.armour))
@@ -96,35 +126,41 @@ const JsonIO: React.FC<JsonIOProps> = ({ setToggleSettings }) => {
 			equipment: validCharacter.equipment.secondary
 		}))
 
-		const validSkills = validateSkills(data.skills)
-		dispatch(resetSkills())
-		Object.entries(validSkills.trees).forEach(([treeName, subtrees]) => {
-			Object.entries(subtrees).forEach(([subtreeName, subree]) => {
-				Object.entries(subree.upgrades).forEach(([skill, value]) => {
-					if (value === 'locked' || value === 'available') return
-					const treeData = skillsData[(treeName as TreeNames)]
-					const subtreeData = treeData.subtrees[subtreeName] || treeData.subtrees[0]
-					const skillData = subtreeData.upgrades[skill] || subtreeData.upgrades[0]
-					dispatch(changeSkillState({
-						tree: treeName,
-						subtree: subtreeName,
-						skill: skillData,
-						oldLevel: value === 'basic' ? 'available' : 'basic',
-						direction: 'upgrade'
-					}))
+		if (data.skills) {
+			const validSkills = validateSkills(data.skills)
+			dispatch(resetSkills())
+			Object.entries(validSkills.trees).forEach(([treeName, subtrees]) => {
+				Object.entries(subtrees).forEach(([subtreeName, subree]) => {
+					Object.entries(subree.upgrades).forEach(([skill, value]) => {
+						if (value === 'locked' || value === 'available') return
+						const treeData = skillsData[(treeName as TreeNames)]
+						const subtreeData = treeData.subtrees[subtreeName] || treeData.subtrees[0]
+						const skillData = subtreeData.upgrades[skill] || subtreeData.upgrades[0]
+						dispatch(changeSkillState({
+							tree: treeName,
+							subtree: subtreeName,
+							skill: skillData,
+							oldLevel: value === 'basic' ? 'available' : 'basic',
+							direction: 'upgrade'
+						}))
+					})
 				})
 			})
-		})
+		}
 
-		const validWeapons = validateWeapons(data.weapons)
-		dispatch(changeWeapon({
-			slot: 'primary',
-			weapon: Object.keys(armoury.primary).length + Object.keys(data.armoury.primary).indexOf(validWeapons.primary.toString())
-		}))
-		dispatch(changeWeapon({
-			slot: 'secondary',
-			weapon: Object.keys(armoury.secondary).length + Object.keys(data.armoury.secondary).indexOf(validWeapons.secondary.toString())
-		}))
+		const validWeapons = validateWeapons(data.weapons || {})
+		if (Object.keys(validArmoury.primary).length) {
+			dispatch(changeWeapon({
+				slot: 'primary',
+				weapon: Object.keys(state.armoury.primary).length + Object.keys(validArmoury.primary).indexOf(validWeapons.primary.toString())
+			}))
+		}
+		if (Object.keys(validArmoury.secondary).length) {
+			dispatch(changeWeapon({
+				slot: 'secondary',
+				weapon: Object.keys(state.armoury.secondary).length + Object.keys(validArmoury.secondary).indexOf(validWeapons.secondary.toString())
+			}))
+		}
 		dispatch(changeThrowable(validWeapons.throwable))
 		dispatch(changeMelee(validWeapons.melee))
 
@@ -138,6 +174,7 @@ const JsonIO: React.FC<JsonIOProps> = ({ setToggleSettings }) => {
 				node?.click()
 			}} />
 			<Button text='Export' callback={() => {
+				const { abilities, armoury, character, skills, weapons } = state
 				const data = encodeURIComponent(JSON.stringify(dataToJson({ abilities, armoury, character, skills, weapons }), null, 2))
 				const node = downloadAnchorRef.current
 				node?.setAttribute('href', 'data:text/json;charset=utf-8,' + data)

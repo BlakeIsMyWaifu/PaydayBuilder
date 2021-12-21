@@ -11,7 +11,7 @@ import { ArmouryState } from 'defaultStates/armouryDefaultState'
 import characterDefaultState, { CharacterState } from 'defaultStates/characterDefaultState'
 import skillsDefaultState, { SkillsState } from 'defaultStates/skillsDefaultState'
 import weaponsDefaultState, { WeaponsState } from 'defaultStates/weaponsDefaultState'
-import { BuildJson } from 'pages/Home/SettingsPanel/JsonIO/JsonIO'
+import { BuildJson, OptionalAbilitiesState, OptionalArmouryState, OptionalCharacterState, OptionalWeaponState } from 'pages/Home/SettingsPanel/JsonIO/JsonIO'
 import * as z from 'zod'
 
 import findWeapon from './findWeapon'
@@ -41,7 +41,7 @@ export const validateSchema = (data: BuildJson): boolean => {
 			slot: z.string()
 		}),
 		modifications: z.record(z.string())
-	}))
+	})).optional()
 
 	const subtreeSchema = z.record(z.object({
 		tier: z.number().int().gte(1).lte(4),
@@ -59,33 +59,33 @@ export const validateSchema = (data: BuildJson): boolean => {
 	const buildSchema = z.object({
 		version: z.string(),
 		abilities: z.object({
-			perkdeck: z.string(),
-			crewmanagement: z.any(),
-			infamy: z.null()
-		}),
+			perkdeck: z.string().optional(),
+			crewmanagement: z.any().optional(),
+			infamy: z.null().optional()
+		}).optional(),
 		armoury: z.object({
 			primary: weaponSchema,
 			secondary: weaponSchema
-		}),
+		}).optional(),
 		character: z.object({
-			mask: z.string(),
-			character: z.string(),
-			armour: z.string(),
+			mask: z.string().optional(),
+			character: z.string().optional(),
+			armour: z.string().optional(),
 			equipment: z.object({
 				primary: z.string(),
 				secondary: z.nullable(z.string())
-			})
-		}),
+			}).optional()
+		}).optional(),
 		skills: z.object({
 			points: z.number().int().gte(0).lte(120),
 			trees: skillTreeSchema
-		}),
+		}).optional(),
 		weapons: z.object({
-			primary: z.number(),
-			secondary: z.number(),
-			throwable: z.string(),
-			melee: z.string()
-		})
+			primary: z.number().optional(),
+			secondary: z.number().optional(),
+			throwable: z.string().optional(),
+			melee: z.string().optional()
+		}).optional()
 	})
 
 	const result = buildSchema.safeParse(data)
@@ -96,17 +96,17 @@ export const validateSchema = (data: BuildJson): boolean => {
 	return result.success
 }
 
-export const validateAbilities = ({ perkdeck, crewmanagement, infamy }: AbilitiesState): AbilitiesState => {
-	const validPerkDeck = perkDecks[perkdeck]?.name || abilitiesDefaultState.perkdeck
+export const validateAbilities = ({ perkdeck }: OptionalAbilitiesState): AbilitiesState => {
+	const validPerkDeck = (perkdeck && perkDecks[perkdeck]?.name) || abilitiesDefaultState.perkdeck
 
 	return {
 		perkdeck: validPerkDeck,
-		crewmanagement,
-		infamy
+		crewmanagement: abilitiesDefaultState.crewmanagement,
+		infamy: null
 	}
 }
 
-export const validateArmoury = ({ primary, secondary }: ArmouryState): ArmouryState => {
+export const validateArmoury = ({ primary, secondary }: OptionalArmouryState): ArmouryState => {
 	const out: ArmouryState = {
 		primary: {},
 		secondary: {}
@@ -136,19 +136,19 @@ export const validateArmoury = ({ primary, secondary }: ArmouryState): ArmourySt
 		}
 	}
 
-	Object.entries(primary).forEach(addWeapon)
-	Object.entries(secondary).forEach(addWeapon)
+	Object.entries(primary || {}).forEach(addWeapon)
+	Object.entries(secondary || {}).forEach(addWeapon)
 
 	return out
 }
 
-export const validateCharacter = ({ mask, character, armour, equipment }: CharacterState): CharacterState => {
-	const validMask = masks[mask]?.name || characterDefaultState.mask
-	const validCharacter = characters[character]?.name || characterDefaultState.character
-	const validArmour = armours[armour]?.name || characterDefaultState.armour
+export const validateCharacter = ({ mask, character, armour, equipment }: OptionalCharacterState): CharacterState => {
+	const validMask = (mask && masks[mask]?.name) || characterDefaultState.mask
+	const validCharacter = (character && characters[character]?.name) || characterDefaultState.character
+	const validArmour = (armour && armours[armour]?.name) || characterDefaultState.armour
 	const validEquipment = {
-		primary: equipments[equipment.primary]?.name || characterDefaultState.equipment.primary,
-		secondary: equipments[equipment.secondary || '']?.name || null
+		primary: (equipment && equipments[equipment.primary]?.name) || characterDefaultState.equipment.primary,
+		secondary: (equipment && equipments[equipment.secondary || '']?.name) || null
 	}
 
 	return {
@@ -165,13 +165,13 @@ export const validateSkills = (data: SkillsState): SkillsState => {
 	return spentPoints + data.points === 120 ? data : skillsDefaultState
 }
 
-export const validateWeapons = ({ primary, secondary, throwable, melee }: WeaponsState): WeaponsState => {
-	const validThrowable = throwables[throwable]?.name || weaponsDefaultState.throwable
-	const validMelee = melees[melee]?.name || weaponsDefaultState.melee
+export const validateWeapons = ({ primary, secondary, throwable, melee }: OptionalWeaponState): WeaponsState => {
+	const validThrowable = (throwable && throwables[throwable]?.name) || weaponsDefaultState.throwable
+	const validMelee = (melee && melees[melee]?.name) || weaponsDefaultState.melee
 
 	return {
-		primary,
-		secondary,
+		primary: primary || 0,
+		secondary: secondary || 0,
 		throwable: validThrowable,
 		melee: validMelee
 	}

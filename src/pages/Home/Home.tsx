@@ -21,7 +21,7 @@ import React, { ReactElement, useState } from 'react'
 import { Link } from 'react-router-dom'
 import findWeapon from 'utils/findWeapon'
 
-import { ConfigButton, ConfigWrapper, EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle, VersionText, VersionWrapper } from './Home-Elements'
+import { ConfigButton, ConfigWrapper, EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle, VersionContainer, VersionText } from './Home-Elements'
 import Selector from './Selector'
 import SelectorSkills from './Selector/SelectorSkills'
 import SettingsPanel from './SettingsPanel'
@@ -268,9 +268,10 @@ const Home: React.FC = () => {
 					}}>[Reset Build]</ConfigButton>
 				</ConfigWrapper>
 
-				<VersionWrapper>
-					<VersionText>Latest Update: 207</VersionText>
-				</VersionWrapper>
+				<VersionContainer>
+					<VersionText>Payday Version: 207</VersionText>
+					<VersionText>Builder Version: 0.2.0</VersionText>
+				</VersionContainer>
 
 			</Container>
 		</>

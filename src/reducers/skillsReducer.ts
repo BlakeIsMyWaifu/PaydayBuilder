@@ -30,7 +30,7 @@ const skills = (state = defaultstate, action: Record<'type' | 'payload', any>): 
 		const currentSubtree = state.trees[tree][subtree]
 		const points = currentSubtree.points + cost
 
-		let newTier: number;
+		let newTier: number
 		for (newTier = 0; newTier < 4; newTier++) {
 			if (points < tierCost[newTier]) break
 		}

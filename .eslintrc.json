@@ -1,7 +1,7 @@
 {
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
-		"ecmaVersion": 2018,
+		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
 	"plugins": [
@@ -26,7 +26,27 @@
 			}
 		],
 		"@typescript-eslint/no-explicit-any": "off",
-		"@typescript-eslint/no-empty-function": "warn"
+		"@typescript-eslint/no-empty-function": "warn",
+		"prefer-const": "warn",
+		"indent": [
+			"warn",
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		],
+		"quotes": [
+			"warn",
+			"single"
+		],
+		"jsx-quotes": [
+			"warn",
+			"prefer-single"
+		],
+		"semi": [
+			"warn",
+			"never"
+		]
 	},
 	"settings": {
 		"react": {
