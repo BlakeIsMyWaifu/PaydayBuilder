@@ -1,4 +1,4 @@
-import { ContentRarity } from "data/source/downloadableContent"
+import { ContentRarity } from 'data/source/downloadableContent'
 
 export type MaskList = keyof typeof masks
 
