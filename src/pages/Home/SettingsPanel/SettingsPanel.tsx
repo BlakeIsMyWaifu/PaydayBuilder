@@ -3,9 +3,10 @@ import CheckboxInput from 'components/CheckboxInput'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import React from 'react'
 
-import BuildIO from './BuildIO'
-import JsonIO from './JsonIO/JsonIO'
+import JsonIO from './JsonIO'
 import { Container, Setting, SettingsSingleLine, SettingsTitle, Title } from './SettingsPanel-Elements'
+import URLExport from './URLExport/URLExport'
+import BuildIO from './URLImport'
 
 interface SettingsPanelProps {
 	toggleSettings: boolean;
@@ -24,8 +25,13 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings, setToggle
 			<Title>Settings</Title>
 
 			<Setting>
-				<SettingsTitle>Import from pd2builder</SettingsTitle>
-				<BuildIO />
+				<SettingsTitle>Import from URL</SettingsTitle>
+				<BuildIO setToggleSettings={setToggleSettings} />
+			</Setting>
+
+			<Setting>
+				<SettingsTitle>Export to URL</SettingsTitle>
+				<URLExport />
 			</Setting>
 
 			<Setting>

@@ -1,8 +1,8 @@
 import { changePerkdeck } from 'actions/abilitiesAction'
 import { changeArmour, changeEquipment } from 'actions/characterAction'
-import { changeSkillState } from 'actions/skillsAction'
+import { changeSkillState, resetSkills } from 'actions/skillsAction'
 import { changeThrowable } from 'actions/weaponsAction'
-import TextInput from 'components/TextInput'
+import TextInput from 'components/TextIO/TextInput'
 import perkDecks from 'data/abilities/perks'
 import skills, { TreeNames } from 'data/abilities/skills'
 import armours from 'data/character/armours'
@@ -11,7 +11,11 @@ import throwables from 'data/weapons/throwables'
 import { useAppDispatch } from 'hooks'
 import React from 'react'
 
-const BuildIO: React.FC = () => {
+interface BuildIOProps {
+	setToggleSettings: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const BuildIO: React.FC<BuildIOProps> = ({ setToggleSettings }) => {
 
 	const dispatch = useAppDispatch()
 
@@ -36,8 +40,7 @@ const BuildIO: React.FC = () => {
 
 	const loadBuildFromIterable = (input: string): void => {
 		if (!input) return
-		const parameters = new URLSearchParams(input.replace('https://pd2builder.netlify.app/?', ''))
-		dispatch({ type: 'RESET' })
+		const parameters = new URLSearchParams(input.split('/?')[1])
 		for (const [key, value] of parameters) {
 			const decompressed = decompressData(value)
 			switch (key) {
@@ -57,17 +60,21 @@ const BuildIO: React.FC = () => {
 					loadEquipment(decompressed)
 			}
 		}
+
+		setToggleSettings(false)
 	}
 
 	const loadSkills = (skillsString: string): void => {
 
+		dispatch(resetSkills())
+
 		const trees: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
 
-		trees.forEach((treeName) => {
+		trees.forEach(treeName => {
 			Object.values(skills[treeName].subtrees).forEach(subtree => {
 
-				const subtreeBasicChar = decodeByte(skillsString.substr(0, 1))
-				const subtreeAcedChar = decodeByte(skillsString.substr(1, 1))
+				const subtreeBasicChar = decodeByte(skillsString.substring(0, 1))
+				const subtreeAcedChar = decodeByte(skillsString.substring(1, 2))
 				let mask = 1
 
 				const upgrades = [...Object.values(subtree.upgrades)];
@@ -100,7 +107,8 @@ const BuildIO: React.FC = () => {
 					}
 					mask = mask << 1
 				})
-				skillsString = skillsString.substr(2)
+
+				skillsString = skillsString.slice(2)
 			})
 		})
 	}
@@ -121,16 +129,16 @@ const BuildIO: React.FC = () => {
 	}
 
 	const loadEquipment = (equipment: string): void => {
-		const primaryEquipment = parseInt(equipment.substr(0, 1))
-		const secondaryEquipment = parseInt(equipment.length > 1 ? equipment.substr(1, 1) : '0')
+		const primaryEquipment = parseInt(equipment.substring(0, 1))
+		const secondaryEquipment = parseInt(equipment.length > 1 ? equipment.substring(1, 2) : '0')
 
-		dispatch(changeEquipment({ equipment: equipments[primaryEquipment].name, slot: 'primary' }))
-		if (secondaryEquipment) dispatch(changeEquipment({ equipment: equipments[secondaryEquipment].name, slot: 'secondary' }))
+		dispatch(changeEquipment({ equipment: Object.keys(equipments)[primaryEquipment], slot: 'primary' }))
+		if (secondaryEquipment) dispatch(changeEquipment({ equipment: Object.keys(equipments)[secondaryEquipment], slot: 'secondary' }))
 	}
 
 	return (
 		<TextInput
-			placeholder='example: https://pd2builder.netlify.app/?s=10-90-90-900'
+			placeholder='Example: https://pd2builder.netlify.app/?s=10-90-90-900'
 			callback={loadBuildFromIterable}
 		/>
 	)
