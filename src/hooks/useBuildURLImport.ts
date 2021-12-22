@@ -2,20 +2,20 @@ import { changePerkdeck } from 'actions/abilitiesAction'
 import { changeArmour, changeEquipment } from 'actions/characterAction'
 import { changeSkillState, resetSkills } from 'actions/skillsAction'
 import { changeThrowable } from 'actions/weaponsAction'
-import TextInput from 'components/TextIO/TextInput'
 import perkDecks from 'data/abilities/perks'
 import skills, { TreeNames } from 'data/abilities/skills'
 import armours from 'data/character/armours'
 import equipments from 'data/character/equipment'
 import throwables from 'data/weapons/throwables'
 import { useAppDispatch } from 'hooks'
-import React from 'react'
+import { useEffect } from 'react'
 
-interface BuildIOProps {
-	setToggleSettings: React.Dispatch<React.SetStateAction<boolean>>;
-}
+const useBuildURLImport = (data: string): void => {
 
-const BuildIO: React.FC<BuildIOProps> = ({ setToggleSettings }) => {
+	useEffect(() => {
+		loadBuildFromIterable(data)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [data])
 
 	const dispatch = useAppDispatch()
 
@@ -39,8 +39,8 @@ const BuildIO: React.FC<BuildIOProps> = ({ setToggleSettings }) => {
 	}
 
 	const loadBuildFromIterable = (input: string): void => {
-		if (!input) return
-		const parameters = new URLSearchParams(input.split('/?')[1])
+		const split = input.split('/?')
+		const parameters = new URLSearchParams(split[split.length - 1])
 		for (const [key, value] of parameters) {
 			const decompressed = decompressData(value)
 			switch (key) {
@@ -60,8 +60,6 @@ const BuildIO: React.FC<BuildIOProps> = ({ setToggleSettings }) => {
 					loadEquipment(decompressed)
 			}
 		}
-
-		setToggleSettings(false)
 	}
 
 	const loadSkills = (skillsString: string): void => {
@@ -135,13 +133,6 @@ const BuildIO: React.FC<BuildIOProps> = ({ setToggleSettings }) => {
 		dispatch(changeEquipment({ equipment: Object.keys(equipments)[primaryEquipment], slot: 'primary' }))
 		if (secondaryEquipment) dispatch(changeEquipment({ equipment: Object.keys(equipments)[secondaryEquipment], slot: 'secondary' }))
 	}
-
-	return (
-		<TextInput
-			placeholder='Example: https://pd2builder.netlify.app/?s=10-90-90-900'
-			callback={loadBuildFromIterable}
-		/>
-	)
 }
 
-export default BuildIO
+export default useBuildURLImport

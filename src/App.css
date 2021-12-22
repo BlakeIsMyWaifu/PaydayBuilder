@@ -16,6 +16,16 @@ div {
 	scrollbar-color: #fff rgba(0, 0, 0, 0);
 }
 
+button {
+	color: #0F639F;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+button:hover {
+	color: white;
+}
+
 @font-face {
 	font-family: 'PaydayFont';
 	src: local('PaydayFont'), url('./fonts/DINEngschrift.woff') format('woff');

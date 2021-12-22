@@ -1,29 +1,24 @@
-import TextOutput from 'components/TextIO/TextOutput'
 import perkDecks from 'data/abilities/perks'
 import { TreeNames } from 'data/abilities/skills'
 import armours, { ArmourData } from 'data/character/armours'
 import equipments from 'data/character/equipment'
 import throwables, { ThrowableData } from 'data/weapons/throwables'
 import { useAppSelector } from 'hooks'
-import React from 'react'
 
-import { Container } from './URLExport-Elements'
-
-const URLExport: React.FC = () => {
+const useBuildURLExport = (): string => {
 
 	const state = useAppSelector(state => state)
 
 	const charString = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,@'
 
-	const buildToString = (domain: string): string => {
+	const buildToString = (): string => {
 		const parameters = new URLSearchParams()
 		parameters.set('s', encodeSkills())
 		parameters.set('p', encodeString(perkDecks, state.abilities.perkdeck))
 		parameters.set('a', encodeString(sortedArmour(), state.character.armour))
 		parameters.set('t', encodeString(sortedThrowables(), state.weapons.throwable))
 		parameters.set('d', encodeEquipment())
-
-		return `https://${domain}/?${parameters.toString()}`
+		return parameters.toString()
 	}
 
 	const encodeSkills = (): string => {
@@ -110,11 +105,7 @@ const URLExport: React.FC = () => {
 		return equippedSecondary ? primaryValue + encodeString(equipments, equippedSecondary) : primaryValue
 	}
 
-	return (
-		<Container>
-			<TextOutput value={buildToString('pd2builder.netlify.app')} callback={value => navigator.clipboard.writeText(value)} />
-		</Container>
-	)
+	return buildToString()
 }
 
-export default URLExport
+export default useBuildURLExport

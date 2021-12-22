@@ -60,15 +60,11 @@ export const Input = styled.input`
 
 export const Button = styled.button`
 	padding: 0;
-	background: none;
-	border: none;
-	outline: none;
 	color:  ${inactive};
 	font-size: 2.4rem;
 	line-height: 2.4rem;
 	vertical-align: middle;
 	transform: color .25s;
-	cursor: pointer;
 	&:hover {
 		color: ${active};
 	}

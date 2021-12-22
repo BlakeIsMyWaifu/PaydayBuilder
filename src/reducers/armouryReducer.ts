@@ -2,11 +2,12 @@ import actions, { AddWeaponAction, ChangeModAction, RemoveModAction, SelectWeapo
 import { Slot, Weapon } from 'data/weapons/guns/weaponTypes'
 import defaultState, { ArmouryState } from 'defaultStates/armouryDefaultState'
 import { getType } from 'typesafe-actions'
+import { findNextNum } from 'utils/maths'
 
 const armouryReducer = (state = defaultState, action: Record<'type' | 'payload', any>): ArmouryState => {
 
 	const addWeapon = ({ slot, weapon, mods }: AddWeaponAction): ArmouryState => {
-		const nextNum = Math.max(0, ...Object.keys(state[slot]).map(num => +num)) + 1
+		const nextNum = findNextNum(state[slot])
 		const newWeapon: Weapon = {
 			id: nextNum,
 			weaponFind: {
