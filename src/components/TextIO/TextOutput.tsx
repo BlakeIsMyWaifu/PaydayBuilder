@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { FaClipboardList } from 'react-icons/fa'
 
 import { Button, Container, Input } from './TextIO-Elements'
 
@@ -26,7 +27,7 @@ const TextOutput: React.FC<TextOutputProps> = ({ value, callback }) => {
 				onMouseLeave={() => outputRef.current?.blur()}
 				readOnly
 			/>
-			<Button type='submit' onClick={outputOnClick}>📋</Button>
+			<Button type='submit' onClick={outputOnClick}> <FaClipboardList /> </Button>
 		</Container>
 	)
 }

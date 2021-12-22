@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from 'react'
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 import styled, { FlattenInterpolation } from 'styled-components'
 import { blue } from 'utils/colours'
 
@@ -110,7 +111,7 @@ const HorizontalBar: React.FC<HorizontalActionBarProps> = ({ active, items, scro
 
 	return (
 		<Container arrows={hasArrows} onWheel={event => scroll ? scroll(event) : scrollHorizontalDiv(event, scrollRef)}>
-			{hasArrows && <Arrow direction='left' onMouseDown={() => scrollBar('left', scrollRef)}>⮜</Arrow>}
+			{hasArrows && <Arrow direction='left' onMouseDown={() => scrollBar('left', scrollRef)}> <FaAngleLeft /> </Arrow>}
 			<ItemContainer ref={scrollRef}>
 				{
 					items.map(({ label, colour, callback, additionalStyling }) => {
@@ -126,7 +127,7 @@ const HorizontalBar: React.FC<HorizontalActionBarProps> = ({ active, items, scro
 					})
 				}
 			</ItemContainer>
-			{hasArrows && <Arrow direction='right' onMouseDown={() => scrollBar('right', scrollRef)}>⮞</Arrow>}
+			{hasArrows && <Arrow direction='right' onMouseDown={() => scrollBar('right', scrollRef)}> <FaAngleRight /> </Arrow>}
 		</Container>
 	)
 }

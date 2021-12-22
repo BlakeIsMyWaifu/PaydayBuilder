@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { FaArrowRight } from 'react-icons/fa'
 
 import { Button, Container, Input } from './TextIO-Elements'
 
@@ -34,7 +35,7 @@ const TextInput: React.FC<TextInputProps> = ({ placeholder, callback }) => {
 				onKeyDown={onInputEnter}
 				ref={inputRef}
 			/>
-			<Button type='submit' onClick={inputOnClick}>➜</Button>
+			<Button type='submit' onClick={inputOnClick}> <FaArrowRight /> </Button>
 		</Container>
 	)
 }
