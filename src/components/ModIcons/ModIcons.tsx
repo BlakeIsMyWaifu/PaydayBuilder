@@ -15,7 +15,7 @@ interface ModIconsProps {
 }
 
 const ModIcons: React.FC<ModIconsProps> = ({ weapon, weaponId, modifications, setHoverInfo }) => {
-	return (
+	return weaponId ? (
 		<ModIconContainer>
 			{
 				Object.keys(weapon.modifications).map(modSlot => {
@@ -42,6 +42,8 @@ const ModIcons: React.FC<ModIconsProps> = ({ weapon, weaponId, modifications, se
 				})
 			}
 		</ModIconContainer>
+	) : (
+		<></>
 	)
 }
 
