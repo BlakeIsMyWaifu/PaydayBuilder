@@ -273,7 +273,7 @@ const Home: React.FC = () => {
 
 				<VersionContainer>
 					<VersionText>Payday Version: 207</VersionText>
-					<VersionText>Builder Version: 0.2.0</VersionText>
+					<VersionText>Builder Version: 0.2.1</VersionText>
 				</VersionContainer>
 
 			</Container>
