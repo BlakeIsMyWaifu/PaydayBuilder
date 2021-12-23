@@ -1,13 +1,16 @@
 import { changePerkdeck } from 'actions/abilitiesAction'
-import { changeArmour, changeEquipment } from 'actions/characterAction'
+import { changeArmour, changeCharacter, changeEquipment, changeMask } from 'actions/characterAction'
 import { changeSkillState, resetSkills } from 'actions/skillsAction'
-import { changeThrowable } from 'actions/weaponsAction'
+import { changeMelee, changeThrowable } from 'actions/weaponsAction'
 import perkDecks from 'data/abilities/perks'
 import skills, { TreeNames } from 'data/abilities/skills'
 import armours from 'data/character/armours'
+import characters from 'data/character/characters'
 import equipments from 'data/character/equipment'
+import melees from 'data/weapons/melees'
 import throwables from 'data/weapons/throwables'
 import { useAppDispatch } from 'hooks/reduxHooks'
+import { getCollectionList } from 'pages/Mask/Mask'
 import { useEffect } from 'react'
 
 const useBuildURLImport = (data: string): void => {
@@ -42,22 +45,31 @@ const useBuildURLImport = (data: string): void => {
 		const split = input.split('/?')
 		const parameters = new URLSearchParams(split[split.length - 1])
 		for (const [key, value] of parameters) {
-			const decompressed = decompressData(value)
 			switch (key) {
 				case 's':
-					loadSkills(decompressed)
+					loadSkills(decompressData(value))
 					break
 				case 'p':
-					loadPerkDeck(decodeByte(decompressed))
+					loadPerkDeck(decodeByte(value))
 					break
 				case 'a':
-					loadArmour(+decompressed)
+					loadArmour(decodeByte(value))
 					break
 				case 't':
-					loadThrowable(+decodeByte(decompressed))
+					loadThrowable(decodeByte(value))
 					break
 				case 'd':
-					loadEquipment(decompressed)
+					loadEquipment(value)
+					break
+				case 'm':
+					loadMelee(value)
+					break
+				case 'k':
+					loadMask(value)
+					break
+				case 'c':
+					loadCharacter(decodeByte(value))
+					break
 			}
 		}
 	}
@@ -122,16 +134,38 @@ const useBuildURLImport = (data: string): void => {
 	}
 
 	const loadThrowable = (throwableIndex: number): void => {
-		const throwablesFilted = Object.values(throwables).filter(throwable => throwable.name !== 'X1-ZAPer')
-		dispatch(changeThrowable(throwablesFilted[throwableIndex].name))
+		let sortedThrowables = { ...throwables }
+		delete sortedThrowables['X1-ZAPer']
+		sortedThrowables = {
+			...sortedThrowables,
+			'X1-ZAPer': throwables['X1-ZAPer']
+		}
+		dispatch(changeThrowable(Object.keys(sortedThrowables)[throwableIndex]))
 	}
 
-	const loadEquipment = (equipment: string): void => {
-		const primaryEquipment = parseInt(equipment.substring(0, 1))
-		const secondaryEquipment = parseInt(equipment.length > 1 ? equipment.substring(1, 2) : '0')
+	const loadEquipment = (equipmentBytes: string): void => {
+		const primaryEquipment = parseInt(equipmentBytes.substring(0, 1))
+		const secondaryEquipment = parseInt(equipmentBytes.length > 1 ? equipmentBytes.substring(1, 2) : '0')
 
 		dispatch(changeEquipment({ equipment: Object.keys(equipments)[primaryEquipment], slot: 'primary' }))
 		if (secondaryEquipment) dispatch(changeEquipment({ equipment: Object.keys(equipments)[secondaryEquipment], slot: 'secondary' }))
+	}
+
+	const loadMelee = (meleeBytes: string): void => {
+		const index = meleeBytes.length === 1 ? decodeByte(meleeBytes) : decodeByte(meleeBytes.substring(1, 2)) + charString.length
+		dispatch(changeMelee(Object.values(melees)[index].name))
+	}
+
+	const loadMask = (maskBytes: string): void => {
+		const collections = getCollectionList(),
+			[first, second, third] = maskBytes,
+			collectionIndex = decodeByte(second) + (decodeByte(first) * charString.length),
+			mask = Object.values(collections)[collectionIndex][decodeByte(third)].name
+		dispatch(changeMask(mask))
+	}
+
+	const loadCharacter = (characterIndex: number) => {
+		dispatch(changeCharacter(Object.keys(characters)[characterIndex]))
 	}
 }
 

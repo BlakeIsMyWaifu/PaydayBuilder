@@ -1,11 +1,19 @@
 import perkDecks from 'data/abilities/perks'
 import { TreeNames } from 'data/abilities/skills'
 import armours, { ArmourData } from 'data/character/armours'
+import characters from 'data/character/characters'
 import equipments from 'data/character/equipment'
+import masks from 'data/character/masks'
+import melees from 'data/weapons/melees'
 import throwables, { ThrowableData } from 'data/weapons/throwables'
 import { useAppSelector } from 'hooks/reduxHooks'
+import { getCollectionList } from 'pages/Mask/Mask'
 
-const useBuildURLExport = (): string => {
+interface UseBuildURLExportProps {
+	simple: boolean;
+}
+
+const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 
 	const state = useAppSelector(state => state)
 
@@ -18,6 +26,11 @@ const useBuildURLExport = (): string => {
 		parameters.set('a', encodeString(sortedArmour(), state.character.armour))
 		parameters.set('t', encodeString(sortedThrowables(), state.weapons.throwable))
 		parameters.set('d', encodeEquipment())
+		if (!simple) {
+			parameters.set('m', encodeMelee())
+			parameters.set('k', encodeMask())
+			parameters.set('c', encodeString(characters, state.character.character))
+		}
 		return parameters.toString()
 	}
 
@@ -103,6 +116,21 @@ const useBuildURLExport = (): string => {
 		const primaryValue = encodeString(equipments, state.character.equipment.primary)
 		const equippedSecondary = state.character.equipment.secondary
 		return equippedSecondary ? primaryValue + encodeString(equipments, equippedSecondary) : primaryValue
+	}
+
+	const encodeMelee = (): string => {
+		const index = Object.keys(melees).findIndex(value => value === state.weapons.melee)
+		return index > charString.length ? `0${charString[index - charString.length]}` : charString[index]
+	}
+
+	const encodeMask = (): string => {
+		const collections = getCollectionList(),
+			maskCollection = masks[state.character.mask].collection,
+			collectionIndex = Object.keys(collections).findIndex(value => value === maskCollection),
+			firstValue = ~~(collectionIndex / charString.length),
+			secondValue = collectionIndex - (charString.length * firstValue),
+			thirdValue = collections[maskCollection].findIndex(value => value.name === state.character.mask)
+		return charString[firstValue] + charString[secondValue] + charString[thirdValue]
 	}
 
 	return buildToString()

@@ -22,7 +22,8 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings, setToggle
 
 	const { leftFacing } = useAppSelector(state => state.settings)
 
-	const build = useBuildURLExport()
+	const buildSimple = useBuildURLExport({ simple: true })
+	const buildNormal = useBuildURLExport({ simple: false })
 
 	const [loadedBuild, setLoadedBuild] = useState<string>('')
 	useBuildURLImport(loadedBuild)
@@ -44,8 +45,13 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings, setToggle
 			</Setting>
 
 			<Setting>
-				<SettingsTitle>Export to URL</SettingsTitle>
-				<TextOutput value={`https://pd2builder.netlify.app?${build}`} callback={value => navigator.clipboard.writeText(value)} />
+				<SettingsTitle>Export to pd2.dev</SettingsTitle>
+				<TextOutput value={`https://pd2.dev?${buildNormal}`} callback={value => navigator.clipboard.writeText(value)} />
+			</Setting>
+
+			<Setting>
+				<SettingsTitle>Export to pd2builder</SettingsTitle>
+				<TextOutput value={`https://pd2builder.netlify.app?${buildSimple}`} callback={value => navigator.clipboard.writeText(value)} />
 			</Setting>
 
 			<Setting>
@@ -58,7 +64,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings, setToggle
 				<CheckboxInput defaultState={leftFacing} callback={isToggled => dispatch(changeLeftFacing(isToggled))} />
 			</SettingsSingleLine>
 
-		</Container>
+		</Container >
 	)
 }
 

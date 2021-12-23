@@ -19,7 +19,7 @@ const BuildsPanel: React.FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds
 
 	const { current, builds } = useAppSelector(state => state.builds)
 
-	const currentBuild = useBuildURLExport()
+	const currentBuild = useBuildURLExport({ simple: false })
 
 	const [loadedBuild, setLoadedBuild] = useState<string>('')
 	useBuildURLImport(loadedBuild)

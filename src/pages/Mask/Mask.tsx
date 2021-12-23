@@ -1,7 +1,7 @@
 import { changeMask } from 'actions/characterAction'
 import Container from 'components/Container'
 import HorizontalBar from 'components/HorizontalBar'
-import Info from 'components/Info/Info'
+import Info from 'components/Info'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info/Info-Elements'
 import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
 import masks, { MaskData } from 'data/character/masks'
@@ -11,14 +11,14 @@ import { itemColours } from 'utils/colours'
 
 import { CollectionTitle, CollectionsContainer, InfoCost, ItemContainer, MaskCollection, MaskCollectionTitle, MaskWrapper, rainbowAnimation } from './Mask-Elements'
 
-const collections = (() => {
+export const getCollectionList = (): Record<string, MaskData[]> => {
 	const out: Record<string, MaskData[]> = {}
 	Object.values(masks).forEach(mask => {
 		const collection = out[mask.collection]
 		out[mask.collection] = collection ? [...collection, mask] : [mask]
 	})
 	return out
-})()
+}
 
 interface MaskTabProps {
 	selectedMask: MaskData;
@@ -38,9 +38,10 @@ const MaskTab: React.FC<MaskTabProps> = ({ selectedMask }) => {
 interface CollectionsTabProps {
 	selectedTab: string;
 	collectionRefs: React.MutableRefObject<React.RefObject<HTMLDivElement>[]>;
+	collections: Record<string, MaskData[]>;
 }
 
-const CollectionsTab: React.FC<CollectionsTabProps> = ({ selectedTab, collectionRefs }) => {
+const CollectionsTab: React.FC<CollectionsTabProps> = ({ selectedTab, collectionRefs, collections }) => {
 	return (
 		<InfoContainer>
 			<InfoTitle>Collections</InfoTitle>
@@ -64,6 +65,8 @@ const Mask: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 
+	const collections = getCollectionList()
+
 	const equippedMask = masks[useAppSelector(state => state.character.mask)]
 	const [selectedMask, setSelectedMask] = useState<MaskData>(equippedMask)
 
@@ -71,6 +74,7 @@ const Mask: React.FC = () => {
 
 	const itemContainerRef = useRef<HTMLDivElement>(null)
 	const collectionRefs = useRef(Array.from({ length: Object.keys(collections).length }, () => createRef<HTMLDivElement>()))
+
 
 	return (
 		<Container rows='4rem 2rem 8fr 4rem' areas='"title title" "horizontalbar infotabs" "items info" "items back"' title='Mask'>
@@ -115,7 +119,11 @@ const Mask: React.FC = () => {
 
 			<Info tabs={{
 				mask: <MaskTab selectedMask={selectedMask} />,
-				collections: <CollectionsTab selectedTab={selectedTab} collectionRefs={collectionRefs} />
+				collections: <CollectionsTab
+					selectedTab={selectedTab}
+					collectionRefs={collectionRefs}
+					collections={collections}
+				/>
 			}} />
 
 		</Container>
