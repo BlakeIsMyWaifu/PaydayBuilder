@@ -16,16 +16,6 @@ const buildsDefaultState: BuildsState = {
 			id: 0,
 			name: '',
 			data: 's=0-90-90-9000&p=0&a=0&t=5&d=0'
-		},
-		1: {
-			id: 1,
-			name: 'two',
-			data: 's=0-90-90-9000&p=0&a=0&t=5&d=0'
-		},
-		2: {
-			id: 2,
-			name: 'three',
-			data: 's=0-90-90-9000&p=0&a=0&t=5&d=0'
 		}
 	}
 }
