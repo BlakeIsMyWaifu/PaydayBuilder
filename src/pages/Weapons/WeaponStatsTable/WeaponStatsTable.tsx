@@ -1,4 +1,5 @@
-import { TableCompare, TableEquipped } from 'components/Table'
+import TableCompare from 'components/Table/TableCompare'
+import TableEquipped from 'components/Table/TableEquipped'
 import { Weapon } from 'data/weapons/guns/weaponTypes'
 import useWeaponStats from 'hooks/useWeaponStats'
 import React from 'react'

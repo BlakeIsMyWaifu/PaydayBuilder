@@ -1,10 +1,10 @@
 import { changeThrowable } from 'actions/weaponsAction'
 import Container from 'components/Container'
-import { InfoContainer, InfoDescription, InfoRequirement, InfoTitle, InfoUnlock } from 'components/Info'
-import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } from 'components/Item'
+import { InfoContainer, InfoDescription, InfoRequirement, InfoTitle, InfoUnlock } from 'components/Info/Info-Elements'
+import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } from 'components/Item-Elements'
 import perkDecks from 'data/abilities/perks'
 import throwables from 'data/weapons/throwables'
-import { useAppDispatch, useAppSelector } from 'hooks'
+import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import React, { useState } from 'react'
 import { itemColours } from 'utils/colours'
 

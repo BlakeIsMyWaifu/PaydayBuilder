@@ -1,4 +1,4 @@
-import { Data, Head, Label, Row, Table } from 'components/Table'
+import { Data, Head, Label, Row, Table } from 'components/Table/Table-Elements'
 import { Modification, ModificationSlot, ModificationStats, WeaponData } from 'data/weapons/guns/weaponTypes'
 import useWeaponStats from 'hooks/useWeaponStats'
 import React from 'react'

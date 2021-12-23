@@ -11,7 +11,7 @@ import { ArmouryState } from 'defaultStates/armouryDefaultState'
 import characterDefaultState, { CharacterState } from 'defaultStates/characterDefaultState'
 import skillsDefaultState, { SkillsState } from 'defaultStates/skillsDefaultState'
 import weaponsDefaultState, { WeaponsState } from 'defaultStates/weaponsDefaultState'
-import { BuildJson, OptionalAbilitiesState, OptionalArmouryState, OptionalCharacterState, OptionalWeaponState } from 'pages/Home/SettingsPanel/JsonIO/JsonIO'
+import { BuildJson, OptionalAbilitiesState, OptionalArmouryState, OptionalCharacterState, OptionalWeaponState } from 'pages/Home/Panel/SettingsPanel/JsonIO'
 import * as z from 'zod'
 
 import findWeapon from './findWeapon'

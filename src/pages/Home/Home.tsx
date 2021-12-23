@@ -1,10 +1,6 @@
-import { resetAbilities } from 'actions/abilitiesAction'
-import { resetCharacter } from 'actions/characterAction'
-import { resetSkills } from 'actions/skillsAction'
-import { resetWeapon } from 'actions/weaponsAction'
 import Container from 'components/Container'
 import DetectionRisk from 'components/DetectionRisk'
-import { InfoDescription, InfoTitle } from 'components/Info'
+import { InfoDescription, InfoTitle } from 'components/Info/Info-Elements'
 import ModIcons from 'components/ModIcons'
 import perkDecks from 'data/abilities/perks'
 import armours from 'data/character/armours'
@@ -13,7 +9,7 @@ import equipments, { EquipmentData } from 'data/character/equipment'
 import masks from 'data/character/masks'
 import melees from 'data/weapons/melees'
 import throwables from 'data/weapons/throwables'
-import { useAppDispatch, useAppSelector } from 'hooks'
+import { useAppSelector } from 'hooks/reduxHooks'
 import ArmourStatsTable from 'pages/Armour/ArmourStatsTable'
 import MeleeStatsTable from 'pages/Melee/MeleeStatsTable'
 import WeaponsStatsTable from 'pages/Weapons/WeaponStatsTable'
@@ -21,10 +17,12 @@ import React, { ReactElement, useState } from 'react'
 import { Link } from 'react-router-dom'
 import findWeapon from 'utils/findWeapon'
 
+import BuildSelector from './BuildSelector'
 import { ConfigButton, ConfigWrapper, EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle, VersionContainer, VersionText } from './Home-Elements'
+import BuildsPanel from './Panel/BuildsPanel'
+import SettingsPanel from './Panel/SettingsPanel'
 import Selector from './Selector'
 import SelectorSkills from './Selector/SelectorSkills'
-import SettingsPanel from './SettingsPanel'
 import SkillTable from './SkillTable'
 
 export interface HoverInfo {
@@ -35,7 +33,7 @@ export interface HoverInfo {
 
 const Home: React.FC = () => {
 
-	const dispatch = useAppDispatch()
+	// const dispatch = useAppDispatch()
 
 	const characterState = useAppSelector(state => state.character)
 	const mask = masks[characterState.mask]
@@ -59,11 +57,14 @@ const Home: React.FC = () => {
 	const perkDeck = perkDecks[useAppSelector(state => state.abilities.perkdeck)]
 	const perkDeckIndex = Object.keys(perkDecks).indexOf(perkDeck.name)
 
+	const [toggleBuilds, setToggleBuilds] = useState(false)
+
 	const [toggleSettings, setToggleSettings] = useState(false)
 	const leftFacing = useAppSelector(state => state.settings.leftFacing)
 
 	return (
 		<>
+			<BuildsPanel toggleBuilds={toggleBuilds} setToggleBuilds={setToggleBuilds} />
 			<SettingsPanel toggleSettings={toggleSettings} setToggleSettings={setToggleSettings} />
 			<Container
 				columns='2fr 1fr 1fr 1fr'
@@ -259,18 +260,20 @@ const Home: React.FC = () => {
 				</Tab>
 
 				<ConfigWrapper>
-					<ConfigButton onClick={() => setToggleSettings(!toggleSettings)}>[Settings]</ConfigButton>
+					<BuildSelector
+						toggleBuilds={toggleBuilds}
+						setToggleBuilds={setToggleBuilds}
+						setToggleSettings={setToggleSettings}
+					/>
 					<ConfigButton onClick={() => {
-						dispatch(resetAbilities())
-						dispatch(resetCharacter())
-						dispatch(resetSkills())
-						dispatch(resetWeapon())
-					}}>[Reset Build]</ConfigButton>
+						setToggleBuilds(false)
+						setToggleSettings(!toggleSettings)
+					}}>[Settings]</ConfigButton>
 				</ConfigWrapper>
 
 				<VersionContainer>
 					<VersionText>Payday Version: 207</VersionText>
-					<VersionText>Builder Version: 0.2.0</VersionText>
+					<VersionText>Builder Version: 0.2.1</VersionText>
 				</VersionContainer>
 
 			</Container>

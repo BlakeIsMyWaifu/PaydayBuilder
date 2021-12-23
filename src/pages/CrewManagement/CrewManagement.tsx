@@ -1,10 +1,10 @@
 import Container from 'components/Container'
-import { InfoContainer, InfoTitle } from 'components/Info'
+import { InfoContainer, InfoTitle } from 'components/Info/Info-Elements'
 import { CrewAbilityList } from 'data/abilities/crewAbilities'
 import { CrewBoostsList } from 'data/abilities/crewBoosts'
 import { CharacterList } from 'data/character/characters'
 import { MaskList } from 'data/character/masks'
-import { useAppSelector } from 'hooks'
+import { useAppSelector } from 'hooks/reduxHooks'
 import React from 'react'
 
 import { LoadoutContainer } from './CrewManagement-Elements'

@@ -1,10 +1,10 @@
 import { changeMelee } from 'actions/weaponsAction'
 import Container from 'components/Container'
 import DetectionRisk from 'components/DetectionRisk'
-import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
-import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item'
+import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info/Info-Elements'
+import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
 import melees from 'data/weapons/melees'
-import { useAppDispatch, useAppSelector } from 'hooks'
+import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import React, { useState } from 'react'
 import { itemColours } from 'utils/colours'
 

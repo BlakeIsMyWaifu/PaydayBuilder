@@ -1,67 +1,31 @@
 import { changeMask } from 'actions/characterAction'
 import Container from 'components/Container'
 import HorizontalBar from 'components/HorizontalBar'
-import Info, { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
-import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item'
+import Info from 'components/Info'
+import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
 import masks, { MaskData } from 'data/character/masks'
-import { useAppDispatch, useAppSelector } from 'hooks'
+import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import React, { Fragment, createRef, useRef, useState } from 'react'
 import { itemColours } from 'utils/colours'
 
-import { CollectionTitle, CollectionsContainer, InfoCost, ItemContainer, MaskCollection, MaskCollectionTitle, MaskWrapper, rainbowAnimation } from './Mask-Elements'
+import CollectionsTab from './CollectionsTab'
+import { ItemContainer, MaskCollection, MaskCollectionTitle, MaskWrapper, rainbowAnimation } from './Mask-Elements'
+import MaskTab from './MaskTab'
 
-const collections = (() => {
+export const getCollectionList = (): Record<string, MaskData[]> => {
 	const out: Record<string, MaskData[]> = {}
 	Object.values(masks).forEach(mask => {
 		const collection = out[mask.collection]
 		out[mask.collection] = collection ? [...collection, mask] : [mask]
 	})
 	return out
-})()
-
-interface MaskTabProps {
-	selectedMask: MaskData;
-}
-
-const MaskTab: React.FC<MaskTabProps> = ({ selectedMask }) => {
-	return (
-		<InfoContainer>
-			<InfoTitle>{selectedMask.name}</InfoTitle>
-			<InfoDescription>{selectedMask.description.join('\n\n')}</InfoDescription>
-			<InfoUnlock colour={itemColours[selectedMask.rarity]}>{selectedMask.unlock}</InfoUnlock>
-			<InfoCost>{selectedMask.cost}</InfoCost>
-		</InfoContainer>
-	)
-}
-
-interface CollectionsTabProps {
-	selectedTab: string;
-	collectionRefs: React.MutableRefObject<React.RefObject<HTMLDivElement>[]>;
-}
-
-const CollectionsTab: React.FC<CollectionsTabProps> = ({ selectedTab, collectionRefs }) => {
-	return (
-		<InfoContainer>
-			<InfoTitle>Collections</InfoTitle>
-			<CollectionsContainer>
-				{
-					Object.keys(collections).map((collection, i) => {
-						if (selectedTab !== collections[collection][0].rarity && selectedTab !== 'All') return <></>
-						return <CollectionTitle
-							key={collection}
-							colour={itemColours[collections[collection][0].rarity]}
-							onClick={() => collectionRefs.current[i].current?.scrollIntoView({ behavior: 'smooth' })}
-						>{collection}</CollectionTitle>
-					})
-				}
-			</CollectionsContainer>
-		</InfoContainer>
-	)
 }
 
 const Mask: React.FC = () => {
 
 	const dispatch = useAppDispatch()
+
+	const collections = getCollectionList()
 
 	const equippedMask = masks[useAppSelector(state => state.character.mask)]
 	const [selectedMask, setSelectedMask] = useState<MaskData>(equippedMask)
@@ -114,7 +78,11 @@ const Mask: React.FC = () => {
 
 			<Info tabs={{
 				mask: <MaskTab selectedMask={selectedMask} />,
-				collections: <CollectionsTab selectedTab={selectedTab} collectionRefs={collectionRefs} />
+				collections: <CollectionsTab
+					selectedTab={selectedTab}
+					collectionRefs={collectionRefs}
+					collections={collections}
+				/>
 			}} />
 
 		</Container>
