@@ -1,5 +1,5 @@
 import melees, { MeleeList, MeleeStats } from 'data/weapons/melees'
-import { CustomStatsHook, useAppSelector } from 'hooks'
+import { CustomStatsHook, useAppSelector } from 'hooks/reduxHooks'
 
 const useMeleeStats = (meleeName: MeleeList): CustomStatsHook<MeleeStats> => {
 

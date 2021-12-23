@@ -1,5 +1,5 @@
 import armours, { ArmourList, ArmourStats } from 'data/character/armours'
-import { CustomStatsHook, useAppSelector } from 'hooks'
+import { CustomStatsHook, useAppSelector } from 'hooks/reduxHooks'
 
 interface CompleteArmourStats extends ArmourStats {
 	health: number;

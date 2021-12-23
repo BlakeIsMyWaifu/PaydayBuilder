@@ -4,7 +4,7 @@ import HorizontalBar from 'components/HorizontalBar'
 import Info, { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info'
 import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item'
 import masks, { MaskData } from 'data/character/masks'
-import { useAppDispatch, useAppSelector } from 'hooks'
+import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import React, { Fragment, createRef, useRef, useState } from 'react'
 import { itemColours } from 'utils/colours'
 

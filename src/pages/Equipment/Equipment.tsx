@@ -4,7 +4,7 @@ import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import { ItemEquipped, ItemName, LockedIcon } from 'components/Item'
 import { ActionText, ActionsContainer } from 'components/ItemAction'
 import equipments, { EquipmentData } from 'data/character/equipment'
-import { useAppDispatch, useAppSelector } from 'hooks'
+import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import React, { useState } from 'react'
 import { itemColours } from 'utils/colours'
 

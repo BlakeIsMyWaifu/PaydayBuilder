@@ -1,4 +1,4 @@
-import { useAppSelector } from 'hooks'
+import { useAppSelector } from 'hooks/reduxHooks'
 import useArmourStats from 'hooks/useArmourStats'
 import useMeleeStats from 'hooks/useMeleeStats'
 import useWeaponStats from 'hooks/useWeaponStats'

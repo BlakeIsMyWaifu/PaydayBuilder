@@ -7,7 +7,7 @@ import skills, { TreeNames } from 'data/abilities/skills'
 import armours from 'data/character/armours'
 import equipments from 'data/character/equipment'
 import throwables from 'data/weapons/throwables'
-import { useAppDispatch } from 'hooks'
+import { useAppDispatch } from 'hooks/reduxHooks'
 import { useEffect } from 'react'
 
 const useBuildURLImport = (data: string): void => {

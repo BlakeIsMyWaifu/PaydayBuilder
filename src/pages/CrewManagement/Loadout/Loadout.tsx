@@ -1,5 +1,5 @@
 import masks from 'data/character/masks'
-import { useAppSelector } from 'hooks'
+import { useAppSelector } from 'hooks/reduxHooks'
 import React from 'react'
 import findWeapon from 'utils/findWeapon'
 

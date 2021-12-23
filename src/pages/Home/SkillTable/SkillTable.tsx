@@ -1,6 +1,6 @@
 import { Data, Head, Label, Row, Table } from 'components/Table'
 import skills from 'data/abilities/skills'
-import { useAppSelector } from 'hooks'
+import { useAppSelector } from 'hooks/reduxHooks'
 import React from 'react'
 import { blue, dimBlue, grey } from 'utils/colours'
 

@@ -3,7 +3,7 @@ import { TreeNames } from 'data/abilities/skills'
 import armours, { ArmourData } from 'data/character/armours'
 import equipments from 'data/character/equipment'
 import throwables, { ThrowableData } from 'data/weapons/throwables'
-import { useAppSelector } from 'hooks'
+import { useAppSelector } from 'hooks/reduxHooks'
 
 const useBuildURLExport = (): string => {
 

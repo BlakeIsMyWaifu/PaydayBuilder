@@ -2,7 +2,7 @@ import { changePerkdeck } from 'actions/abilitiesAction'
 import { changeThrowable } from 'actions/weaponsAction'
 import perkDecks, { PerkCard, PerkData } from 'data/abilities/perks'
 import throwables from 'data/weapons/throwables'
-import { useAppDispatch, useAppSelector } from 'hooks'
+import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import React from 'react'
 
 import { Card, CardBackground, CardIcon, CardWrapper, Container, Title } from './Perk-Elements'

@@ -4,7 +4,7 @@ import { InfoContainer, InfoDescription, InfoRequirement, InfoTitle, InfoUnlock 
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } from 'components/Item'
 import perkDecks from 'data/abilities/perks'
 import throwables from 'data/weapons/throwables'
-import { useAppDispatch, useAppSelector } from 'hooks'
+import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import React, { useState } from 'react'
 import { itemColours } from 'utils/colours'
 

@@ -3,7 +3,7 @@ import HorizontalBar from 'components/HorizontalBar'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info'
 import { ItemContainer } from 'components/Item'
 import perkDecks, { PerkCard } from 'data/abilities/perks'
-import { useAppSelector } from 'hooks'
+import { useAppSelector } from 'hooks/reduxHooks'
 import React, { createRef, useEffect, useRef, useState } from 'react'
 
 import Perk from './Perks'
