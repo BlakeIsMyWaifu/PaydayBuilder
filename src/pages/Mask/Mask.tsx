@@ -2,14 +2,15 @@ import { changeMask } from 'actions/characterAction'
 import Container from 'components/Container'
 import HorizontalBar from 'components/HorizontalBar'
 import Info from 'components/Info'
-import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info/Info-Elements'
 import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
 import masks, { MaskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import React, { Fragment, createRef, useRef, useState } from 'react'
 import { itemColours } from 'utils/colours'
 
-import { CollectionTitle, CollectionsContainer, InfoCost, ItemContainer, MaskCollection, MaskCollectionTitle, MaskWrapper, rainbowAnimation } from './Mask-Elements'
+import CollectionsTab from './CollectionsTab'
+import { ItemContainer, MaskCollection, MaskCollectionTitle, MaskWrapper, rainbowAnimation } from './Mask-Elements'
+import MaskTab from './MaskTab'
 
 export const getCollectionList = (): Record<string, MaskData[]> => {
 	const out: Record<string, MaskData[]> = {}
@@ -18,47 +19,6 @@ export const getCollectionList = (): Record<string, MaskData[]> => {
 		out[mask.collection] = collection ? [...collection, mask] : [mask]
 	})
 	return out
-}
-
-interface MaskTabProps {
-	selectedMask: MaskData;
-}
-
-const MaskTab: React.FC<MaskTabProps> = ({ selectedMask }) => {
-	return (
-		<InfoContainer>
-			<InfoTitle>{selectedMask.name}</InfoTitle>
-			<InfoDescription>{selectedMask.description.join('\n\n')}</InfoDescription>
-			<InfoUnlock colour={itemColours[selectedMask.rarity]}>{selectedMask.unlock}</InfoUnlock>
-			<InfoCost>{selectedMask.cost}</InfoCost>
-		</InfoContainer>
-	)
-}
-
-interface CollectionsTabProps {
-	selectedTab: string;
-	collectionRefs: React.MutableRefObject<React.RefObject<HTMLDivElement>[]>;
-	collections: Record<string, MaskData[]>;
-}
-
-const CollectionsTab: React.FC<CollectionsTabProps> = ({ selectedTab, collectionRefs, collections }) => {
-	return (
-		<InfoContainer>
-			<InfoTitle>Collections</InfoTitle>
-			<CollectionsContainer>
-				{
-					Object.keys(collections).map((collection, i) => {
-						if (selectedTab !== collections[collection][0].rarity && selectedTab !== 'All') return <React.Fragment key={collection}></React.Fragment>
-						return <CollectionTitle
-							key={collection}
-							colour={itemColours[collections[collection][0].rarity]}
-							onClick={() => collectionRefs.current[i].current?.scrollIntoView({ behavior: 'smooth' })}
-						>{collection}</CollectionTitle>
-					})
-				}
-			</CollectionsContainer>
-		</InfoContainer>
-	)
 }
 
 const Mask: React.FC = () => {
@@ -74,7 +34,6 @@ const Mask: React.FC = () => {
 
 	const itemContainerRef = useRef<HTMLDivElement>(null)
 	const collectionRefs = useRef(Array.from({ length: Object.keys(collections).length }, () => createRef<HTMLDivElement>()))
-
 
 	return (
 		<Container rows='4rem 2rem 8fr 4rem' areas='"title title" "horizontalbar infotabs" "items info" "items back"' title='Mask'>

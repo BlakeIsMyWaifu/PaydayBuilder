@@ -69,3 +69,7 @@ export const InfoTabTitle = styled.h1<InfoTabTitleProps>`
 	margin-bottom: -10px;
 	background-color: ${props => props.selected && 'white'};
 `
+
+export const InfoCost = styled.p`
+	text-transform: none;
+`
