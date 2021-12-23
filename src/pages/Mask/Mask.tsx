@@ -47,7 +47,7 @@ const CollectionsTab: React.FC<CollectionsTabProps> = ({ selectedTab, collection
 			<CollectionsContainer>
 				{
 					Object.keys(collections).map((collection, i) => {
-						if (selectedTab !== collections[collection][0].rarity && selectedTab !== 'All') return <></>
+						if (selectedTab !== collections[collection][0].rarity && selectedTab !== 'All') return <React.Fragment key={collection}></React.Fragment>
 						return <CollectionTitle
 							key={collection}
 							colour={itemColours[collections[collection][0].rarity]}
