@@ -1,6 +1,6 @@
 import Container from 'components/Container'
 import DetectionRisk from 'components/DetectionRisk'
-import { InfoDescription, InfoTitle } from 'components/Info'
+import { InfoDescription, InfoTitle } from 'components/Info/Info-Elements'
 import ModIcons from 'components/ModIcons'
 import perkDecks from 'data/abilities/perks'
 import armours from 'data/character/armours'
@@ -18,11 +18,11 @@ import { Link } from 'react-router-dom'
 import findWeapon from 'utils/findWeapon'
 
 import BuildSelector from './BuildSelector'
-import BuildsPanel from './BuildsPanel/BuildsPanel'
 import { ConfigButton, ConfigWrapper, EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle, VersionContainer, VersionText } from './Home-Elements'
+import BuildsPanel from './Panel/BuildsPanel'
+import SettingsPanel from './Panel/SettingsPanel'
 import Selector from './Selector'
 import SelectorSkills from './Selector/SelectorSkills'
-import SettingsPanel from './SettingsPanel'
 import SkillTable from './SkillTable'
 
 export interface HoverInfo {

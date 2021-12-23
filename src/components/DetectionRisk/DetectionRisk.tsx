@@ -3,86 +3,9 @@ import useArmourStats from 'hooks/useArmourStats'
 import useMeleeStats from 'hooks/useMeleeStats'
 import useWeaponStats from 'hooks/useWeaponStats'
 import React from 'react'
-import styled from 'styled-components'
-import corner from 'utils/corner'
 import findWeapon from 'utils/findWeapon'
 
-interface ContainerProps {
-	flexDirection: 'row' | 'column';
-	corner: boolean;
-	size: number;
-}
-
-const Container = styled.div<ContainerProps>`
-	grid-area: drisk;
-	display: flex;
-	flex-direction: ${props => props.flexDirection === 'column' ? 'column' : 'row-reverse'};
-	justify-content: start;
-	padding: ${props => props.size / 8}px;
-	${props => props.corner && corner}
-`
-
-interface TitleProps {
-	flexDirection: 'row' | 'column';
-	size: number;
-}
-
-const Title = styled.h2<TitleProps>`
-	line-height: ${props => props.flexDirection === 'column' ? props.size / 8 : props.size}px;
-	padding-left: ${props => props.flexDirection === 'row' && '12px'};
-`
-
-interface ImageContainerProps {
-	size: number;
-}
-
-const ImageContainer = styled.div<ImageContainerProps>`
-	position: relative;
-	width: ${props => props.size}px;
-	height: ${props => props.size}px;
-`
-
-const ImageWrapper = styled.span`
-	position: absolute;
-	display: flex;
-	align-items: flex-end;
-	height: 100%;
-	width: 100%;
-`
-
-interface ImageProps {
-	direction: 'left' | 'right';
-}
-
-const Image = styled.img<ImageProps>`
-	transform: scaleX(${props => props.direction === 'left' ? 1 : -1});
-	opacity: 0.3;
-	height: 100%;
-	width: 100%;
-`
-
-interface ImageEnabledProps extends ImageProps {
-	detectionPercentage: number;
-}
-
-const ImageEnabled = styled.img<ImageEnabledProps>`
-	transform: scaleX(${props => props.direction === 'left' ? 1 : -1});
-	opacity: 1;
-	height: ${props => props.detectionPercentage}%;
-	width: 100%;
-	object-fit: cover;
-	object-position: bottom;
-`
-
-interface NumberProps {
-	size: number;
-}
-
-const Number = styled.p<NumberProps>`
-	font-size: ${props => props.size / 2}px;;
-	text-align: center;
-	line-height: ${props => props.size}px;
-`
+import { Container, Image, ImageContainer, ImageEnabled, ImageWrapper, Number, Title } from './DetectionRisk-Elements'
 
 const concealmentToDetectionRisk = (concealment: number): number => {
 	const detectionRisk: Record<number, number> = {

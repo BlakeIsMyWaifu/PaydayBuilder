@@ -3,7 +3,6 @@ import { addWeapon } from 'actions/armouryAction'
 import { changeArmour, changeCharacter, changeEquipment, changeMask } from 'actions/characterAction'
 import { changeSkillState, resetSkills } from 'actions/skillsAction'
 import { changeMelee, changeThrowable, changeWeapon } from 'actions/weaponsAction'
-import Button from 'components/Button'
 import { PerkDeckList } from 'data/abilities/perks'
 import skillsData, { TreeNames } from 'data/abilities/skills'
 import { Slot, Weapon } from 'data/weapons/guns/weaponTypes'
@@ -17,6 +16,7 @@ import React, { useRef } from 'react'
 import findWeapon from 'utils/findWeapon'
 import { validateAbilities, validateArmoury, validateCharacter, validateSchema, validateSkills, validateWeapons } from 'utils/validateData'
 
+import Button from '../Button'
 import { Container, DownloadAnchor, FileInput } from './JsonIO-Elements'
 
 interface JsonIOProps {

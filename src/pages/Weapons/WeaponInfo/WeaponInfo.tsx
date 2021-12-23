@@ -1,4 +1,4 @@
-import { InfoContainer, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/Info'
+import { InfoContainer, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/Info/Info-Elements'
 import { Weapon } from 'data/weapons/guns/weaponTypes'
 import React from 'react'
 import { itemColours } from 'utils/colours'

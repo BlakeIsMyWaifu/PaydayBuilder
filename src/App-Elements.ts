@@ -1,7 +1,6 @@
-import React from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div`
+export const BackgroundContainer = styled.div`
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -12,19 +11,9 @@ const Container = styled.div`
 	background-color: rgba(0, 0, 0, 0.25);
 `
 
-const Image = styled.img`
+export const BackgroundImage = styled.img`
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	z-index: -1;
 `
-
-const Background: React.FC = () => {
-	return (
-		<Container>
-			<Image src='/images/loading_bg.png'/>
-		</Container>
-	)
-}
-
-export default Background

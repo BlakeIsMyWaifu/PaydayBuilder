@@ -1,13 +1,13 @@
 import { changeLeftFacing } from 'actions/settingsAction'
-import CheckboxInput from 'components/CheckboxInput'
-import { Container, Title } from 'components/HomeSidePanel'
-import TextInput from 'components/TextIO/TextInput'
-import TextOutput from 'components/TextIO/TextOutput'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useBuildURLExport from 'hooks/useBuildURLExport'
 import useBuildURLImport from 'hooks/useBuildURLImport'
+import { Container, Title } from 'pages/Home/Panel/Panel-Elements'
+import TextInput from 'pages/Home/Panel/SettingsPanel/TextIO/TextInput'
+import TextOutput from 'pages/Home/Panel/SettingsPanel/TextIO/TextOutput'
 import React, { useState } from 'react'
 
+import CheckboxInput from './CheckboxInput'
 import JsonIO from './JsonIO'
 import { Setting, SettingsSingleLine, SettingsTitle } from './SettingsPanel-Elements'
 

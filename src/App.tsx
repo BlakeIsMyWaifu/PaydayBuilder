@@ -1,6 +1,6 @@
 import './App.css'
 
-import Background from 'components/Background'
+import { BackgroundContainer, BackgroundImage } from 'App-Elements'
 import React from 'react'
 import AppRoutes from 'routes/AppRoutes'
 import { isDev } from 'utils/isDev'
@@ -15,7 +15,9 @@ if (!isDev) {
 const App: React.FC = () => {
 	return (
 		<div onContextMenu={event => isDev() ? null : event.preventDefault()}>
-			<Background />
+			<BackgroundContainer>
+				<BackgroundImage src='/images/loading_bg.png' />
+			</BackgroundContainer>
 			<AppRoutes />
 		</div>
 	)

@@ -1,8 +1,8 @@
 import { addBuild, changeBuild, removeBuild, updateName } from 'actions/buildsAction'
-import { Container, Title } from 'components/HomeSidePanel'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useBuildURLExport from 'hooks/useBuildURLExport'
 import useBuildURLImport from 'hooks/useBuildURLImport'
+import { Container, Title } from 'pages/Home/Panel/Panel-Elements'
 import React, { useState } from 'react'
 import { FaFolderOpen, FaPlusSquare, FaTrash } from 'react-icons/fa'
 

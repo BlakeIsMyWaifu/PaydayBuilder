@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import styled from 'styled-components'
 import { red } from 'utils/colours'
 import corner from 'utils/corner'
@@ -70,32 +69,3 @@ export const InfoTabTitle = styled.h1<InfoTabTitleProps>`
 	margin-bottom: -10px;
 	background-color: ${props => props.selected && 'white'};
 `
-
-interface InfoProps {
-	tabs: Record<string, React.ReactNode>;
-}
-
-export const Info: React.FC<InfoProps> = ({ tabs }) => {
-
-	const [currentTab, setCurrentTab] = useState<string>(Object.keys(tabs)[0])
-
-	return (
-		<>
-			<InfoTabTitles>
-				{
-					Object.keys(tabs).map(title => {
-						return <InfoTabTitle
-							key={title}
-							onClick={() => setCurrentTab(title)}
-							selected={currentTab === title}
-						>{title}</InfoTabTitle>
-					})
-				}
-			</InfoTabTitles>
-
-			{tabs[currentTab]}
-		</>
-	)
-}
-
-export default Info

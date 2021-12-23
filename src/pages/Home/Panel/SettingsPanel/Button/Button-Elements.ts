@@ -1,14 +1,13 @@
-import React from 'react'
 import styled from 'styled-components'
 
 const background = 'rgba(57, 63, 84, 0.8)'
 
-const Container = styled.div`
+export const Container = styled.div`
 	height: 100%;
 	width: 100%;
 `
 
-const Input = styled.input`
+export const Input = styled.input`
 	height: 100%;
 	width: 100%;
 	border: none;
@@ -29,17 +28,3 @@ const Input = styled.input`
 	}
 `
 
-interface ButtonProps {
-	text: string;
-	callback: () => void;
-}
-
-const Button: React.FC<ButtonProps> = ({ text, callback }) => {
-	return (
-		<Container>
-			<Input type='button' onClick={callback} value={text} />
-		</Container>
-	)
-}
-
-export default Button

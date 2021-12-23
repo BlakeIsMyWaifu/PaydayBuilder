@@ -1,4 +1,4 @@
-import { Data, Head, Label, Row, Table } from 'components/Table'
+import { Data, Head, Label, Row, Table } from 'components/Table/Table-Elements'
 import skills from 'data/abilities/skills'
 import { useAppSelector } from 'hooks/reduxHooks'
 import React from 'react'

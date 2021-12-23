@@ -1,4 +1,4 @@
-import { InfoContainer, InfoTitle } from 'components/Info'
+import { InfoContainer, InfoTitle } from 'components/Info/Info-Elements'
 import { SkillData } from 'data/abilities/skills'
 import React from 'react'
 

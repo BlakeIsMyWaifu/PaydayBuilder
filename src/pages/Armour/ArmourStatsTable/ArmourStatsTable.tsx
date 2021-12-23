@@ -1,4 +1,5 @@
-import { TableCompare, TableEquipped } from 'components/Table'
+import TableCompare from 'components/Table/TableCompare'
+import TableEquipped from 'components/Table/TableEquipped'
 import { ArmourList } from 'data/character/armours'
 import useArmourStats from 'hooks/useArmourStats'
 import React from 'react'

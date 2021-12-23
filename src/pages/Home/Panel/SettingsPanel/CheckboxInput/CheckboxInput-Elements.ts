@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
 import styled from 'styled-components'
 
-const Container = styled.label`
+export const Container = styled.label`
 	position: relative;
 	display: inline-block;
 `
 
-const Label = styled.label`
+export const Label = styled.label`
 	width: 89px;
 	background: #2e394d;
 	height: 24px;
@@ -50,7 +49,7 @@ const Label = styled.label`
 	}
 `
 
-const Input = styled.input`
+export const Input = styled.input`
 	position: absolute;
 	opacity: 0;
 	&:checked + ${Label} {
@@ -60,25 +59,3 @@ const Input = styled.input`
 		}
 	}
 `
-
-interface CheckboxInputProps {
-	defaultState: boolean;
-	callback: (isToggled: boolean) => void;
-}
-
-const CheckboxInput: React.FC<CheckboxInputProps> = ({ defaultState, callback }) => {
-
-	const [isToggled, setIsToggled] = useState(defaultState)
-
-	return (
-		<Container>
-			<Input type='checkbox' checked={isToggled} readOnly />
-			<Label onClick={() => {
-				setIsToggled(!isToggled)
-				callback(!isToggled)
-			}} />
-		</Container>
-	)
-}
-
-export default CheckboxInput
