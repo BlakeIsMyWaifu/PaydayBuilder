@@ -37,12 +37,7 @@ export const BuildName = styled.input`
 	}
 `
 
-export const OpenBuild = styled.button`
-	height: 100%;
-	aspect-ratio: 1;
-`
-
-export const Delete = styled.button`
+export const BuildButton = styled.button`
 	height: 100%;
 	aspect-ratio: 1;
 `

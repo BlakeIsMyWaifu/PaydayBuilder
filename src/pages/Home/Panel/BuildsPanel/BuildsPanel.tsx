@@ -4,9 +4,9 @@ import useBuildURLExport from 'hooks/useBuildURLExport'
 import useBuildURLImport from 'hooks/useBuildURLImport'
 import { Container, Title } from 'pages/Home/Panel/Panel-Elements'
 import React, { useState } from 'react'
-import { FaFolderOpen, FaPlusSquare, FaTrash } from 'react-icons/fa'
+import { FaFolderOpen, FaPlusSquare, FaTrash, FaUndoAlt } from 'react-icons/fa'
 
-import { BuildName, BuildWrapper, Builds, Delete, NewBuild, OpenBuild } from './BuildsPanel-Elements'
+import { BuildButton, BuildName, BuildWrapper, Builds, NewBuild } from './BuildsPanel-Elements'
 
 interface BuildsPanelProps {
 	toggleBuilds: boolean;
@@ -44,19 +44,32 @@ const BuildsPanel: React.FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds
 									}))
 								}}
 							/>
-							{id !== current && <OpenBuild title='Open Build' onClick={() => {
-								dispatch(changeBuild({
-									id,
-									currentData: currentBuild
-								}))
-								setLoadedBuild(data)
-								setToggleBuilds(false)
-							}}> <FaFolderOpen /> </OpenBuild>}
-							{id !== current && <Delete title='Delete Build' onClick={() => {
-								if (current !== id) {
-									dispatch(removeBuild(id))
-								}
-							}}> <FaTrash /> </Delete>}
+							{
+								id !== current && <BuildButton title='Open Build' onClick={() => {
+									dispatch(changeBuild({
+										id,
+										currentData: currentBuild
+									}))
+									setLoadedBuild(data)
+									setToggleBuilds(false)
+								}}> <FaFolderOpen /> </BuildButton>
+							}
+							{
+								id !== current && <BuildButton title='Delete Build' onClick={() => {
+									if (current !== id) {
+										dispatch(removeBuild(id))
+									}
+								}}> <FaTrash /> </BuildButton>
+							}
+							{
+								id === current && <BuildButton title='Reset Build' onClick={() => {
+									dispatch(changeBuild({
+										id,
+										currentData: 's=0-90-90-9000&p=0&a=0&t=5&d=0&m=0&k=000&c=0'
+									}))
+									setLoadedBuild(builds[current].data)
+								}}> <FaUndoAlt /> </BuildButton>
+							}
 						</BuildWrapper>
 					})
 				}
