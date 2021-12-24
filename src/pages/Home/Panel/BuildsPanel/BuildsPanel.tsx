@@ -1,4 +1,5 @@
 import { addBuild, changeBuild, removeBuild, updateName } from 'actions/buildsAction'
+import buildsDefaultState from 'defaultStates/buildsDefaultState'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useBuildURLExport from 'hooks/useBuildURLExport'
 import useBuildURLImport from 'hooks/useBuildURLImport'
@@ -65,7 +66,7 @@ const BuildsPanel: React.FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds
 								id === current && <BuildButton title='Reset Build' onClick={() => {
 									dispatch(changeBuild({
 										id,
-										currentData: 's=0-90-90-9000&p=0&a=0&t=5&d=0&m=0&k=000&c=0'
+										currentData: buildsDefaultState.builds[0].data
 									}))
 									setLoadedBuild(builds[current].data)
 								}}> <FaUndoAlt /> </BuildButton>

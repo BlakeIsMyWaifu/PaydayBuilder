@@ -46,12 +46,12 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings, setToggle
 
 			<Setting>
 				<SettingsTitle>Export to pd2.dev</SettingsTitle>
-				<TextOutput value={`https://pd2.dev?${buildNormal}`} callback={value => navigator.clipboard.writeText(value)} />
+				<TextOutput value={`https://pd2.dev/?${buildNormal}`} callback={value => navigator.clipboard.writeText(value)} />
 			</Setting>
 
 			<Setting>
 				<SettingsTitle>Export to pd2builder</SettingsTitle>
-				<TextOutput value={`https://pd2builder.netlify.app?${buildSimple}`} callback={value => navigator.clipboard.writeText(value)} />
+				<TextOutput value={`https://pd2builder.netlify.app/?${buildSimple}`} callback={value => navigator.clipboard.writeText(value)} />
 			</Setting>
 
 			<Setting>
