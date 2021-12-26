@@ -1,7 +1,6 @@
 import { addBuild, changeBuild, removeBuild, updateName } from 'actions/buildsAction'
-import buildsDefaultState from 'defaultStates/buildsDefaultState'
+import { defaultBuild } from 'defaultStates/buildsDefaultState'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import useBuildURLExport from 'hooks/useBuildURLExport'
 import useBuildURLImport from 'hooks/useBuildURLImport'
 import { Container, Title } from 'pages/Home/Panel/Panel-Elements'
 import React, { useState } from 'react'
@@ -20,10 +19,8 @@ const BuildsPanel: React.FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds
 
 	const { current, builds } = useAppSelector(state => state.builds)
 
-	const currentBuild = useBuildURLExport({ simple: false })
-
 	const [loadedBuild, setLoadedBuild] = useState<string>('')
-	useBuildURLImport(loadedBuild)
+	useBuildURLImport(loadedBuild, false)
 
 	return (
 		<Container toggle={toggleBuilds}>
@@ -47,10 +44,7 @@ const BuildsPanel: React.FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds
 							/>
 							{
 								id !== current && <BuildButton title='Open Build' onClick={() => {
-									dispatch(changeBuild({
-										id,
-										currentData: currentBuild
-									}))
+									dispatch(changeBuild({ id }))
 									setLoadedBuild(data)
 									setToggleBuilds(false)
 								}}> <FaFolderOpen /> </BuildButton>
@@ -64,11 +58,7 @@ const BuildsPanel: React.FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds
 							}
 							{
 								id === current && <BuildButton title='Reset Build' onClick={() => {
-									dispatch(changeBuild({
-										id,
-										currentData: buildsDefaultState.builds[0].data
-									}))
-									setLoadedBuild(builds[current].data)
+									setLoadedBuild(defaultBuild)
 								}}> <FaUndoAlt /> </BuildButton>
 							}
 						</BuildWrapper>
@@ -77,7 +67,8 @@ const BuildsPanel: React.FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds
 			</Builds>
 
 			<NewBuild title='New Build' onClick={() => {
-				dispatch(addBuild())
+				dispatch(addBuild({ changeToNewBuild: true }))
+				setLoadedBuild(defaultBuild)
 			}}> <FaPlusSquare /> </NewBuild>
 
 		</Container>

@@ -47,7 +47,7 @@ const Perk: React.FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selec
 							onMouseOver={() => setHoveredCard(card)}
 							onMouseLeave={() => setHoveredCard(null)}
 							selected={selectedPerk.name === perk.name}>
-							<CardBackground src={'images/perks/card.png'} onMouseDown={event => event.preventDefault()} selected={selectedPerk.name === perk.name} />
+							<CardBackground src='/images/perks/card.png' onMouseDown={event => event.preventDefault()} selected={selectedPerk.name === perk.name} />
 							<CardIcon x={x} y={y} />
 						</Card>
 					})

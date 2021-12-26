@@ -25,7 +25,7 @@ const ModIcons: React.FC<ModIconsProps> = ({ weapon, weaponId, modifications, se
 					return <ModWrapper key={modSlot}>
 						<ModLink to={`/blackmarket/${weapon.inventorySlot}/${weaponId}/${modSlot}`}>
 							<ModIcon
-								src={`images/modifications/icons/${equippedMod?.icon || modificationIcons[(modSlot as ModificationSlot)]}.png`}
+								src={`/images/modifications/icons/${equippedMod?.icon || modificationIcons[(modSlot as ModificationSlot)]}.png`}
 								equipped={equipped}
 								onMouseOver={() => setHoverInfo && setHoverInfo({
 									title: modName || `No ${capitalizeEachWord(spaceBetween(modSlot))} Mod Equipped`,

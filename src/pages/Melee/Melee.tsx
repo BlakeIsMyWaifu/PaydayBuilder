@@ -38,7 +38,7 @@ export const Melee: React.FC = () => {
 						>
 							<ItemName colour={itemColours[melee.source.rarity]}>{melee.name}</ItemName>
 							{melee.name === equippedMelee.name && <ItemEquipped />}
-							<ItemImage src={`images/melees/${melee.image}.png`} leftFacing={leftFacing} onMouseDown={event => event.preventDefault()} />
+							<ItemImage src={`/images/melees/${melee.image}.png`} leftFacing={leftFacing} onMouseDown={event => event.preventDefault()} />
 						</Item>
 					})
 				}

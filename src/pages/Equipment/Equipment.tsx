@@ -67,7 +67,7 @@ const Equipment: React.FC = () => {
 							{equipment.name === equippedSecondary && <ItemEquipped> Secondary</ItemEquipped>}
 							{locked && <LockedIcon />}
 							<EquipementImage
-								src={`images/equipment/${equipment.name}.png`}
+								src={`/images/equipment/${equipment.name}.png`}
 								locked={locked}
 								onContextMenu={event => event.preventDefault()}
 							/>

@@ -23,27 +23,27 @@ const Loadout: React.FC<LoadoutProps> = ({ data, index }) => {
 			<ItemContainer>
 				<Item>
 					<ItemTitle>Mask</ItemTitle>
-					<ItemIcon src={`images/masks/${masks[data.mask].image}.png`} onMouseDown={event => event.preventDefault()} />
+					<ItemIcon src={`/images/masks/${masks[data.mask].image}.png`} onMouseDown={event => event.preventDefault()} />
 				</Item>
 				<Item>
 					<ItemTitle>Character</ItemTitle>
-					<ItemIcon src={`images/masks/${masks[data.character].image}.png`} onMouseDown={event => event.preventDefault()} />
+					<ItemIcon src={`/images/masks/${masks[data.character].image}.png`} onMouseDown={event => event.preventDefault()} />
 				</Item>
 				<Item>
 					<ItemTitle>Outfit</ItemTitle>
-					<ItemIcon src={`images/masks/${masks[data.mask].image}.png`} onMouseDown={event => event.preventDefault()} />
+					<ItemIcon src={`/images/masks/${masks[data.mask].image}.png`} onMouseDown={event => event.preventDefault()} />
 				</Item>
 				<Item>
 					<ItemTitle>Weapon</ItemTitle>
-					<ItemIcon src={`images/weapons/${findWeapon(primary[data.weapon].weaponFind).image}.png`} onMouseDown={event => event.preventDefault()} />
+					<ItemIcon src={`/images/weapons/${findWeapon(primary[data.weapon].weaponFind).image}.png`} onMouseDown={event => event.preventDefault()} />
 				</Item>
 				<Item>
 					<ItemTitle>Ability</ItemTitle>
-					<ItemIcon src={`images/crew/abilities/${data.ability}.png`} onMouseDown={event => event.preventDefault()} />
+					<ItemIcon src={`/images/crew/abilities/${data.ability}.png`} onMouseDown={event => event.preventDefault()} />
 				</Item>
 				<Item>
 					<ItemTitle>Boost</ItemTitle>
-					<ItemIcon src={`images/crew/boosts/${data.boost}.png`} onMouseDown={event => event.preventDefault()} />
+					<ItemIcon src={`/images/crew/boosts/${data.boost}.png`} onMouseDown={event => event.preventDefault()} />
 				</Item>
 			</ItemContainer>
 

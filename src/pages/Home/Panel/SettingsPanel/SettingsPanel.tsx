@@ -21,12 +21,12 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings, setToggle
 	const dispatch = useAppDispatch()
 
 	const { leftFacing } = useAppSelector(state => state.settings)
+	const { current, builds } = useAppSelector(state => state.builds)
 
 	const buildSimple = useBuildURLExport({ simple: true })
-	const buildNormal = useBuildURLExport({ simple: false })
 
 	const [loadedBuild, setLoadedBuild] = useState<string>('')
-	useBuildURLImport(loadedBuild)
+	useBuildURLImport(loadedBuild, true)
 
 	return (
 		<Container toggle={toggleSettings}>
@@ -46,7 +46,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings, setToggle
 
 			<Setting>
 				<SettingsTitle>Export to pd2.dev</SettingsTitle>
-				<TextOutput value={`https://pd2.dev/?${buildNormal}`} callback={value => navigator.clipboard.writeText(value)} />
+				<TextOutput value={`https://pd2.dev/?${builds[current].data}`} callback={value => navigator.clipboard.writeText(value)} />
 			</Setting>
 
 			<Setting>

@@ -1,20 +1,21 @@
-import actions, { ChangeBuild, UpdateData, UpdateName } from 'actions/buildsAction'
-import defaultState, { BuildsState } from 'defaultStates/buildsDefaultState'
+import actions, { AddBuild, SelectBuild, UpdateData, UpdateName } from 'actions/buildsAction'
+import defaultState, { BuildsState, defaultBuild } from 'defaultStates/buildsDefaultState'
 import { getType } from 'typesafe-actions'
 import { findNextNum } from 'utils/maths'
 
 const buildsReducer = (state = defaultState, action: Record<'type' | 'payload', any>): BuildsState => {
 
-	const addBuild = (): BuildsState => {
+	const addBuild = ({ changeToNewBuild }: AddBuild): BuildsState => {
 		const nextNum = findNextNum(state.builds)
+		const id = changeToNewBuild ? nextNum : state.current
 		return {
-			...state,
+			current: id,
 			builds: {
 				...state.builds,
 				[nextNum]: {
 					id: nextNum,
 					name: '',
-					data: 's=0-90-90-9000&p=0&a=0&t=5&d=0'
+					data: defaultBuild
 				}
 			}
 		}
@@ -42,28 +43,29 @@ const buildsReducer = (state = defaultState, action: Record<'type' | 'payload', 
 		}
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const updateData = ({ id, data }: UpdateData): BuildsState => {
-		return state
-	}
-
-	const changeBuild = ({ id, currentData }: ChangeBuild): BuildsState => {
-		const current = state.current
 		return {
-			current: id,
+			...state,
 			builds: {
 				...state.builds,
-				[current]: {
-					...state.builds[current],
-					data: currentData
+				[id]: {
+					...state.builds[id],
+					data
 				}
 			}
 		}
 	}
 
+	const changeBuild = ({ id }: SelectBuild): BuildsState => {
+		return {
+			...state,
+			current: id
+		}
+	}
+
 	switch (action.type) {
 		case getType(actions.addBuild):
-			return addBuild()
+			return addBuild(action.payload)
 		case getType(actions.removeBuild):
 			return removeBuild(action.payload)
 		case getType(actions.updateName):

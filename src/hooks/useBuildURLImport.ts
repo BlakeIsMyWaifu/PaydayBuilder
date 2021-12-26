@@ -1,5 +1,6 @@
 import { changePerkdeck } from 'actions/abilitiesAction'
 import { addWeapon, resetArmoury } from 'actions/armouryAction'
+import { addBuild } from 'actions/buildsAction'
 import { changeArmour, changeCharacter, changeEquipment, changeMask } from 'actions/characterAction'
 import { changeSkillState, resetSkills } from 'actions/skillsAction'
 import { changeMelee, changeThrowable, changeWeapon } from 'actions/weaponsAction'
@@ -18,7 +19,7 @@ import { getCollectionList } from 'pages/Mask/Mask'
 import { useEffect } from 'react'
 import findWeapon from 'utils/findWeapon'
 
-const useBuildURLImport = (data: string): void => {
+const useBuildURLImport = (data: string, addNewBuild: boolean): void => {
 
 	useEffect(() => {
 		loadBuildFromIterable(data)
@@ -53,6 +54,12 @@ const useBuildURLImport = (data: string): void => {
 	const loadBuildFromIterable = (input: string): void => {
 		const split = input.split('/?')
 		const parameters = new URLSearchParams(split[split.length - 1])
+		if (!parameters.toString().length) return
+
+		if (addNewBuild) {
+			dispatch(addBuild({ changeToNewBuild: true }))
+		}
+
 		for (const [key, value] of parameters) {
 			switch (key) {
 				case 's':

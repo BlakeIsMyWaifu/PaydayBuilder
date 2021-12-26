@@ -7,10 +7,11 @@ export const Builds = styled.div`
 	flex-direction: column;
 	gap: 8px;
 	padding-top: 24px;
+	overflow-y: auto;
+	/* overflow-x: hidden; */
 `
 
 export const BuildWrapper = styled.div`
-	width: 100%;
 	height: 2rem;
 	display: flex;
 	flex-direction: row;

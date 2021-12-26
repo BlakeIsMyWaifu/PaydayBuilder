@@ -1,6 +1,5 @@
 import { changeBuild, updateName } from 'actions/buildsAction'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import useBuildURLExport from 'hooks/useBuildURLExport'
 import useBuildURLImport from 'hooks/useBuildURLImport'
 import React, { useState } from 'react'
 import { FaChevronLeft, FaChevronRight, FaThList } from 'react-icons/fa'
@@ -19,10 +18,8 @@ const BuildSelector: React.FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBu
 
 	const { current, builds } = useAppSelector(state => state.builds)
 
-	const currentBuild = useBuildURLExport({ simple: false })
-
 	const [loadedBuild, setLoadedBuild] = useState<string>('')
-	useBuildURLImport(loadedBuild)
+	useBuildURLImport(loadedBuild, false)
 
 	const getNextBuildId = (direction: number): number => {
 		const index = Object.keys(builds).findIndex(value => +value === current),
@@ -34,10 +31,7 @@ const BuildSelector: React.FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBu
 
 	const updateBuild = (index: number): void => {
 		const build = Object.values(builds)[index]
-		dispatch(changeBuild({
-			id: build.id,
-			currentData: currentBuild
-		}))
+		dispatch(changeBuild({ id: build.id }))
 		setLoadedBuild(build.data)
 	}
 

@@ -83,7 +83,7 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 								{equippedWeaponId === id && <ItemEquipped />}
 								<ItemName colour={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
 								<ItemImage
-									src={`images/weapons/${weapon.image}.png`}
+									src={`/images/weapons/${weapon.image}.png`}
 									leftFacing={leftFacing}
 									onMouseDown={event => event.preventDefault()}
 								/>
@@ -104,7 +104,7 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 							>
 								<ItemName colour={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
 								<ItemImage
-									src={`images/weapons/${weapon.image}.png`}
+									src={`/images/weapons/${weapon.image}.png`}
 									leftFacing={leftFacing}
 									onMouseDown={event => event.preventDefault()}
 								/>

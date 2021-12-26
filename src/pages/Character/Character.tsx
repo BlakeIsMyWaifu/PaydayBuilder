@@ -29,7 +29,7 @@ const Character: React.FC = () => {
 						>
 							<ItemName colour={itemColours[character.source.rarity]}>{character.name}</ItemName>
 							{character.name === equippedCharacter.name && <ItemEquipped />}
-							<ItemImage src={`images/masks/${character.image}.png`} onMouseDown={event => event.preventDefault()} />
+							<ItemImage src={`/images/masks/${character.image}.png`} onMouseDown={event => event.preventDefault()} />
 						</Item>
 					})
 				}

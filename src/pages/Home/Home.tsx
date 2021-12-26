@@ -33,8 +33,6 @@ export interface HoverInfo {
 
 const Home: React.FC = () => {
 
-	// const dispatch = useAppDispatch()
-
 	const characterState = useAppSelector(state => state.character)
 	const mask = masks[characterState.mask]
 	const character = characters[characterState.character]
@@ -105,7 +103,7 @@ const Home: React.FC = () => {
 								description: mask.description
 							}}
 						>
-							<Image src={`images/masks/${mask.image}.png`} />
+							<Image src={`/images/masks/${mask.image}.png`} />
 						</Selector>
 
 						<Selector
@@ -116,7 +114,7 @@ const Home: React.FC = () => {
 								description: [`Nationality: ${character.nationality}`, `Age: ${character.age.toString()}`, ...character.description]
 							}}
 						>
-							<Image src={`images/masks/${character.image}.png`} />
+							<Image src={`/images/masks/${character.image}.png`} />
 						</Selector>
 
 						<Selector
@@ -127,7 +125,7 @@ const Home: React.FC = () => {
 								table: <ArmourStatsTable selectedArmour={armour.name} />
 							}}
 						>
-							<Image src={`images/armours/${armour.name}.png`} />
+							<Image src={`/images/armours/${armour.name}.png`} />
 						</Selector>
 
 						<Selector
@@ -140,9 +138,9 @@ const Home: React.FC = () => {
 						>
 							{
 								equipmentSecondary ? <EquipmentContainer>
-									<Image src={`images/equipment/${equipmentPrimary.name}.png`} />
-									<Image src={`images/equipment/${equipmentSecondary.name}.png`} />
-								</EquipmentContainer> : <Image src={`images/equipment/${equipmentPrimary.name}.png`} />
+									<Image src={`/images/equipment/${equipmentPrimary.name}.png`} />
+									<Image src={`/images/equipment/${equipmentSecondary.name}.png`} />
+								</EquipmentContainer> : <Image src={`/images/equipment/${equipmentPrimary.name}.png`} />
 							}
 						</Selector>
 
@@ -160,7 +158,7 @@ const Home: React.FC = () => {
 						>
 							<Link to='primary'>
 								<Image
-									src={`images/weapons/${primaryData.image}.png`}
+									src={`/images/weapons/${primaryData.image}.png`}
 									leftFacing={leftFacing}
 									onMouseEnter={() => setHoverInfo({
 										title: primaryData.name,
@@ -183,7 +181,7 @@ const Home: React.FC = () => {
 						>
 							<Link to='secondary'>
 								<Image
-									src={`images/weapons/${secondaryData.image}.png`}
+									src={`/images/weapons/${secondaryData.image}.png`}
 									leftFacing={leftFacing}
 									onMouseEnter={() => setHoverInfo({
 										title: secondaryData.name,
@@ -207,7 +205,7 @@ const Home: React.FC = () => {
 								description: throwable.description
 							}}
 						>
-							<Image src={`images/throwables/${throwable.image}.png`} />
+							<Image src={`/images/throwables/${throwable.image}.png`} />
 						</Selector>
 
 						<Selector
@@ -218,7 +216,7 @@ const Home: React.FC = () => {
 								table: <MeleeStatsTable selectedMelee={melee.name} />
 							}}
 						>
-							<Image src={`images/melees/${melee.image}.png`} leftFacing={leftFacing} />
+							<Image src={`/images/melees/${melee.image}.png`} leftFacing={leftFacing} />
 						</Selector>
 
 					</SelectorWrapper>

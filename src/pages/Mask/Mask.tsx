@@ -66,7 +66,7 @@ const Mask: React.FC = () => {
 										>
 											<ItemName colour={itemColours[mask.rarity]}>{mask.name.replaceAll(' ', '\n')}</ItemName>
 											{mask.name === equippedMask.name && <ItemEquipped />}
-											<ItemImage src={`images/masks/${mask.image}.png`} onMouseDown={event => event.preventDefault()} />
+											<ItemImage src={`/images/masks/${mask.image}.png`} onMouseDown={event => event.preventDefault()} />
 										</Item>
 									})
 								}

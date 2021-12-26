@@ -40,7 +40,7 @@ export const Armour: React.FC = () => {
 							{armour.name === equippedArmour.name && <ItemEquipped />}
 							{locked && <LockedIcon />}
 							<ItemImage
-								src={`images/armours/${armour.name}.png`}
+								src={`/images/armours/${armour.name}.png`}
 								onMouseDown={event => event.preventDefault()}
 								locked={locked}
 							/>

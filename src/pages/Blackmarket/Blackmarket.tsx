@@ -116,7 +116,7 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 						>
 							{mod.name === equippedModifications[mod.slot]?.name && <ItemEquipped />}
 							<ItemName colour={itemColours[mod.source.rarity]}>{fixItemName(mod.name)}</ItemName>
-							<ItemImage src={`images/modifications/${mod.slot.replaceAll(' ', '')}/${mod.image}.webp`} />
+							<ItemImage src={`/images/modifications/${mod.slot.replaceAll(' ', '')}/${mod.image}.webp`} />
 						</Item>
 					})
 				}
@@ -125,7 +125,7 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 			<InfoContainer>
 				<InfoTitleWrapper>
 					<ModWrapper>
-						<ModIcon src={`images/modifications/icons/${selectedItem.icon}.png`} equipped={true} />
+						<ModIcon src={`/images/modifications/icons/${selectedItem.icon}.png`} equipped={true} />
 					</ModWrapper>
 					<InfoTitle fontSize='2vw'>{fixItemName(selectedItem.name)}</InfoTitle>
 				</InfoTitleWrapper>
