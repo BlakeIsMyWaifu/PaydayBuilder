@@ -4,7 +4,7 @@ import React from 'react'
 import { FaChevronLeft, FaChevronRight, FaThList } from 'react-icons/fa'
 
 import { LoadedBuild } from '../Home'
-import { Arrow, BuildList, BuildName, Container } from './BuildSelector-Elements'
+import { Arrow, BuildList, BuildName, Container, Wrapper } from './BuildSelector-Elements'
 
 interface BuildSelectorProps {
 	toggleBuilds: boolean;
@@ -42,23 +42,25 @@ const BuildSelector: React.FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBu
 
 	return (
 		<Container>
-			<Arrow {...arrowProps(-1)}> <FaChevronLeft /> </Arrow>
-			<BuildName
-				type='text'
-				placeholder='New Build . . .'
-				value={builds[current].name}
-				onChange={event => {
-					dispatch(updateName({
-						id: current,
-						name: event.target.value
-					}))
-				}}
-			/>
-			<Arrow {...arrowProps(1)}> <FaChevronRight /> </Arrow>
-			<BuildList title='Open Builds List' onClick={() => {
-				setToggleSettings(false)
-				setToggleBuilds(!toggleBuilds)
-			}}><FaThList /></BuildList>
+			<Wrapper>
+				<Arrow {...arrowProps(-1)}> <FaChevronLeft /> </Arrow>
+				<BuildName
+					type='text'
+					placeholder='New Build . . .'
+					value={builds[current].name}
+					onChange={event => {
+						dispatch(updateName({
+							id: current,
+							name: event.target.value
+						}))
+					}}
+				/>
+				<Arrow {...arrowProps(1)}> <FaChevronRight /> </Arrow>
+				<BuildList title='Open Builds List' onClick={() => {
+					setToggleSettings(false)
+					setToggleBuilds(!toggleBuilds)
+				}}><FaThList /></BuildList>
+			</Wrapper>
 		</Container>
 	)
 }
