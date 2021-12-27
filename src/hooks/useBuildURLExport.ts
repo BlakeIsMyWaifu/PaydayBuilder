@@ -4,10 +4,14 @@ import armours, { ArmourData } from 'data/character/armours'
 import characters from 'data/character/characters'
 import equipments from 'data/character/equipment'
 import masks from 'data/character/masks'
+import primary from 'data/weapons/guns/primary'
+import secondary from 'data/weapons/guns/secondary'
+import { ModificationSlot, Slot } from 'data/weapons/guns/weaponTypes'
 import melees from 'data/weapons/melees'
 import throwables, { ThrowableData } from 'data/weapons/throwables'
 import { useAppSelector } from 'hooks/reduxHooks'
 import { getCollectionList } from 'pages/Mask/Mask'
+import findWeapon from 'utils/findWeapon'
 
 interface UseBuildURLExportProps {
 	simple: boolean;
@@ -18,6 +22,13 @@ const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 	const state = useAppSelector(state => state)
 
 	const charString = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,@'
+
+	const encodeNumber = (index: number): string => {
+		if (index <= charString.length) return charString[index]
+		const overflow = ~~(index / charString.length)
+		const remainder = index - (charString.length * overflow)
+		return charString[overflow] + charString[remainder]
+	}
 
 	const buildToString = (): string => {
 		const parameters = new URLSearchParams()
@@ -30,6 +41,9 @@ const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 			parameters.set('m', encodeMelee())
 			parameters.set('k', encodeMask())
 			parameters.set('c', encodeString(characters, state.character.character))
+			parameters.set('ap', encodeArmoury('primary'))
+			parameters.set('as', encodeArmoury('secondary'))
+			parameters.set('w', encodeWeapons())
 		}
 		return parameters.toString()
 	}
@@ -70,11 +84,11 @@ const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 
 	const compressData = (data: string): string => {
 		let count = 1
-		let currentChar = data.charAt(0)
+		let currentChar = data[0]
 		let compressed = ''
 
 		for (let i = 1; i < data.length + 1; i++) {
-			const value = data.charAt(i)
+			const value = data[i]
 			if (value === currentChar) {
 				if (count > 8) {
 					compressed += `${currentChar}-${count}`
@@ -120,17 +134,38 @@ const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 
 	const encodeMelee = (): string => {
 		const index = Object.keys(melees).findIndex(value => value === state.weapons.melee)
-		return index > charString.length ? `0${charString[index - charString.length]}` : charString[index]
+		return encodeNumber(index)
 	}
 
 	const encodeMask = (): string => {
 		const collections = getCollectionList(),
 			maskCollection = masks[state.character.mask].collection,
 			collectionIndex = Object.keys(collections).findIndex(value => value === maskCollection),
-			firstValue = ~~(collectionIndex / charString.length),
-			secondValue = collectionIndex - (charString.length * firstValue),
-			thirdValue = collections[maskCollection].findIndex(value => value.name === state.character.mask)
-		return charString[firstValue] + charString[secondValue] + charString[thirdValue]
+			collectionValue = encodeNumber(collectionIndex),
+			maskValue = collections[maskCollection].findIndex(value => value.name === state.character.mask)
+		return collectionValue + charString[maskValue]
+	}
+
+	const encodeArmoury = (slot: Slot): string => {
+		const data = slot === 'primary' ? primary : secondary
+		const weapons = Object.values(state.armoury[slot]).slice(1).map(weapon => {
+			const weaponTypeValue = Object.keys(data).findIndex(value => value === weapon.weaponFind.type)
+			const weaponValue = Object.keys(data[(weapon.weaponFind.type as keyof typeof data)]).findIndex(value => value === weapon.weaponFind.name)
+			const weaponData = findWeapon(weapon.weaponFind)
+			const modsValues = Object.keys(weaponData.modifications).map(modNameString => {
+				const modName = modNameString as ModificationSlot
+				if (!weapon.modifications[modName]) return '0'
+				return charString[(weaponData.modifications[modName]?.findIndex(value => value.name === weapon.modifications[modName]) ?? -1) + 1]
+			}).join('')
+			return charString[weaponTypeValue] + charString[weaponValue] + modsValues
+		}).map(compressData).join('_')
+		return weapons.length ? weapons : '_'
+	}
+
+	const encodeWeapons = (): string => {
+		const primaryValue = encodeNumber(state.weapons.primary)
+		const secondaryValue = encodeNumber(state.weapons.secondary)
+		return `${primaryValue}-${secondaryValue}`
 	}
 
 	return buildToString()

@@ -77,25 +77,25 @@ const DetectionRisk: React.FC<DectectionRiskProps> = ({ flexDirection, corner, s
 			<ImageContainer size={size}>
 				<ImageWrapper>
 					<Image
-						src='images/detection_meter.png'
+						src='/images/detection_meter.png'
 						direction='left'
 						onMouseDown={preventDefault}
 					/>
 					<Image
-						src='images/detection_meter.png'
+						src='/images/detection_meter.png'
 						direction='right'
 						onMouseDown={preventDefault}
 					/>
 				</ImageWrapper>
 				<ImageWrapper>
 					<ImageEnabled
-						src='images/detection_meter.png'
+						src='/images/detection_meter.png'
 						direction='left'
 						detectionPercentage={detectionPercentage}
 						onMouseDown={preventDefault}
 					/>
 					<ImageEnabled
-						src='images/detection_meter.png'
+						src='/images/detection_meter.png'
 						direction='right'
 						detectionPercentage={detectionPercentage}
 						onMouseDown={preventDefault}

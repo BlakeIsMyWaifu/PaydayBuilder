@@ -1,6 +1,9 @@
 import React, { Suspense, lazy } from 'react'
-import { Route, MemoryRouter as Router, Routes } from 'react-router-dom'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Loader from 'routes/Loader'
+
+import LoadURL from './LoadURL'
+import UpdateBuild from './UpdateBuild'
 
 const Home = lazy(() => import('pages/Home'))
 
@@ -22,6 +25,10 @@ const Infamy = lazy(() => import('pages/Infamy'))
 const AppRoutes: React.FC = () => {
 	return (
 		<Router>
+
+			<LoadURL />
+			<UpdateBuild />
+
 			<Suspense fallback={<Loader />}>
 				<Routes>
 					<Route path='/' element={<Home />} />

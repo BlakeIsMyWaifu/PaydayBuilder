@@ -13,10 +13,13 @@ export const Container = styled.div<ContainerProps>`
 	left: ${props => props.toggle ? 0 : 'calc(-40% - 40px)'};
 	transition: 0.5s;
 	background-color: ${raisinBlack};
+	z-index: 10;
+	padding: 16px;
+`
+
+export const PanelContent = styled.div`
 	display: flex;
 	flex-direction: column;
-	padding: 16px;
-	z-index: 10;
 `
 
 export const Title = styled.h1`

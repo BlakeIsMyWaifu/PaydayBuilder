@@ -1,6 +1,6 @@
+import { HoverInfo } from 'pages/Home'
 import React from 'react'
 
-import { HoverInfo } from '../Home'
 import { Container, SelectorLink, Title } from './Selector-Elements'
 
 interface SelectorProps {

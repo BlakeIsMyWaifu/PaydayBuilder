@@ -32,7 +32,7 @@ import { SubmachineGunList } from './secondary/submachineGuns'
 
 export type Slot = 'primary' | 'secondary'
 
-type WeaponType =
+export type WeaponType =
 	'Assault Rifle' |
 	'Shotgun' |
 	'LMG' |

@@ -9,13 +9,15 @@ export interface BuildsState {
 	builds: Record<number, BuildSave>;
 }
 
+export const defaultBuild = 's=0-90-90-9000&p=0&a=0&t=5&d=0&m=0&k=000&c=0&ap=_&as=_&w=0-0'
+
 const buildsDefaultState: BuildsState = {
 	current: 0,
 	builds: {
 		0: {
 			id: 0,
 			name: '',
-			data: 's=0-90-90-9000&p=0&a=0&t=5&d=0&m=0&k=000&c=0'
+			data: defaultBuild
 		}
 	}
 }

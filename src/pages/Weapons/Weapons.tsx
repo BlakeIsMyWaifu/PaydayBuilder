@@ -67,31 +67,28 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 			<ItemContainer>
 				{
 					selectedTab === 'saved' ?
-						Object.values(armoury).map(({ id, weaponFind, modifications }, i) => {
+						Object.values(armoury).map((weapon, i) => {
 							if (i === 0) return <Fragment key={'fragment'}></Fragment>
-							const weapon = findWeapon(weaponFind)
+							const { id, weaponFind } = weapon
+							const weaponData = findWeapon(weaponFind)
 							return <Item
-								key={`${weapon.name}-${id}`}
+								key={`${weaponData.name}-${id}`}
 								width={192}
 								rowAmount={5}
 								selected={selectedArmoury === id}
 								onClick={() => selectedArmoury === id ? dispatch(changeWeapon({ slot, weapon: id })) : (() => {
 									setSelectedArmoury(id)
-									setSelectedWeapon(weapon)
+									setSelectedWeapon(weaponData)
 								})()}
 							>
 								{equippedWeaponId === id && <ItemEquipped />}
-								<ItemName colour={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
+								<ItemName colour={itemColours[weaponData.source.rarity]}>{weaponData.name}</ItemName>
 								<ItemImage
-									src={`images/weapons/${weapon.image}.png`}
+									src={`/images/weapons/${weaponData.image}.png`}
 									leftFacing={leftFacing}
 									onMouseDown={event => event.preventDefault()}
 								/>
-								<ModIcons
-									weapon={weapon}
-									modifications={modifications}
-									weaponId={i}
-								/>
+								<ModIcons weapon={weapon} />
 							</Item>
 						}) :
 						Object.values(Object.values<WeaponData>(data[selectedTab])).map(weapon => {
@@ -104,7 +101,7 @@ const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
 							>
 								<ItemName colour={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
 								<ItemImage
-									src={`images/weapons/${weapon.image}.png`}
+									src={`/images/weapons/${weapon.image}.png`}
 									leftFacing={leftFacing}
 									onMouseDown={event => event.preventDefault()}
 								/>

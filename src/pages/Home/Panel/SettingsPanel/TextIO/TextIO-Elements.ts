@@ -61,8 +61,8 @@ export const Input = styled.input`
 export const Button = styled.button`
 	padding: 0;
 	color:  ${inactive};
-	font-size: 2.4rem;
-	line-height: 2.4rem;
+	font-size: 2rem;
+	line-height: 2rem;
 	vertical-align: middle;
 	transform: color .25s;
 	&:hover {

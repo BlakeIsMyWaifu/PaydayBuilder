@@ -2,9 +2,16 @@ import styled from 'styled-components'
 import { blue, dim } from 'utils/colours'
 import corner from 'utils/corner'
 
-export const Container = styled.div`
+export const Container = styled.span`
+	width: 100%;
+	display: flex;
+	justify-content: center;
+`
+
+export const Wrapper = styled.div`
 	display: flex;
 	background-color: ${dim};
+	width: 30vw;
 	padding: 4px;
 	height: 2.2rem;
 	color: ${blue};
@@ -22,7 +29,7 @@ export const BuildName = styled.input`
 	border: none;
 	background: transparent;
 	height: 100%;
-	width: 20vw;
+	width: 100%;
 	font-size: 2.2rem;
 	text-align: center;
 	text-transform: none;

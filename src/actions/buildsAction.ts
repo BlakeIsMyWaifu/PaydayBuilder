@@ -1,7 +1,11 @@
 import { ADDBUILD, CHANGEBUILD, REMOVEBUILD, UPDATEDATA, UPDATENAME } from 'constants/buildsConstant'
 import { createAction } from 'typesafe-actions'
 
-interface SelectBuild {
+export interface AddBuild {
+	changeToNewBuild: boolean;
+}
+
+export interface SelectBuild {
 	id: number;
 }
 
@@ -13,15 +17,11 @@ export interface UpdateData extends SelectBuild {
 	data: string;
 }
 
-export interface ChangeBuild extends SelectBuild {
-	currentData: string;
-}
-
-export const addBuild = createAction(ADDBUILD)()
+export const addBuild = createAction(ADDBUILD)<AddBuild>()
 export const removeBuild = createAction(REMOVEBUILD)<number>()
 export const updateName = createAction(UPDATENAME)<UpdateName>()
 export const updateData = createAction(UPDATEDATA)<UpdateData>()
-export const changeBuild = createAction(CHANGEBUILD)<ChangeBuild>()
+export const changeBuild = createAction(CHANGEBUILD)<SelectBuild>()
 
 const buildsActions = {
 	addBuild,

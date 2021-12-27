@@ -1,84 +1,80 @@
 import { addBuild, changeBuild, removeBuild, updateName } from 'actions/buildsAction'
+import { defaultBuild } from 'defaultStates/buildsDefaultState'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import useBuildURLExport from 'hooks/useBuildURLExport'
-import useBuildURLImport from 'hooks/useBuildURLImport'
-import { Container, Title } from 'pages/Home/Panel/Panel-Elements'
-import React, { useState } from 'react'
+import { LoadedBuild } from 'pages/Home'
+import { Container, PanelContent, Title } from 'pages/Home/Panel/Panel-Elements'
+import React from 'react'
 import { FaFolderOpen, FaPlusSquare, FaTrash, FaUndoAlt } from 'react-icons/fa'
+import { blue, red } from 'utils/colours'
 
 import { BuildButton, BuildName, BuildWrapper, Builds, NewBuild } from './BuildsPanel-Elements'
 
 interface BuildsPanelProps {
 	toggleBuilds: boolean;
 	setToggleBuilds: React.Dispatch<React.SetStateAction<boolean>>;
+	setLoadedBuild: React.Dispatch<React.SetStateAction<LoadedBuild>>
 }
 
-const BuildsPanel: React.FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds }) => {
+const BuildsPanel: React.FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setLoadedBuild }) => {
 
 	const dispatch = useAppDispatch()
 
 	const { current, builds } = useAppSelector(state => state.builds)
 
-	const currentBuild = useBuildURLExport({ simple: false })
-
-	const [loadedBuild, setLoadedBuild] = useState<string>('')
-	useBuildURLImport(loadedBuild)
-
 	return (
 		<Container toggle={toggleBuilds}>
+			<PanelContent>
 
-			<Title>Builds</Title>
+				<Title>Builds</Title>
 
-			<Builds>
-				{
-					Object.values(builds).map(({ id, name, data }) => {
-						return <BuildWrapper key={id}>
-							<BuildName
-								type='text'
-								placeholder='New Build . . .'
-								value={name}
-								onChange={event => {
-									dispatch(updateName({
-										id,
-										name: event.target.value
-									}))
-								}}
-							/>
-							{
-								id !== current && <BuildButton title='Open Build' onClick={() => {
-									dispatch(changeBuild({
-										id,
-										currentData: currentBuild
-									}))
-									setLoadedBuild(data)
-									setToggleBuilds(false)
-								}}> <FaFolderOpen /> </BuildButton>
-							}
-							{
-								id !== current && <BuildButton title='Delete Build' onClick={() => {
-									if (current !== id) {
-										dispatch(removeBuild(id))
-									}
-								}}> <FaTrash /> </BuildButton>
-							}
-							{
-								id === current && <BuildButton title='Reset Build' onClick={() => {
-									dispatch(changeBuild({
-										id,
-										currentData: 's=0-90-90-9000&p=0&a=0&t=5&d=0&m=0&k=000&c=0'
-									}))
-									setLoadedBuild(builds[current].data)
-								}}> <FaUndoAlt /> </BuildButton>
-							}
-						</BuildWrapper>
-					})
-				}
-			</Builds>
+				<Builds>
+					{
+						Object.values(builds).map(({ id, name, data }) => {
+							const isLastBuild = Object.keys(builds).length > 1
+							return <BuildWrapper key={id}>
+								<BuildName
+									type='text'
+									placeholder='New Build . . .'
+									value={name}
+									onChange={event => {
+										dispatch(updateName({
+											id,
+											name: event.target.value
+										}))
+									}}
+								/>
+								{
+									id !== current ? <BuildButton title='Open Build' onClick={() => {
+										dispatch(changeBuild({ id }))
+										setLoadedBuild({ data, addNewBuild: false })
+										setToggleBuilds(false)
+									}}> <FaFolderOpen /> </BuildButton> : <BuildButton title='Reset Build' onClick={() => {
+										setLoadedBuild({ data: defaultBuild, addNewBuild: false })
+									}}> <FaUndoAlt /> </BuildButton>
+								}
+								<BuildButton
+									title='Delete Build'
+									colour={isLastBuild ? blue : red}
+									onClick={() => {
+										if (isLastBuild) {
+											const prevId = Object.values(builds).reverse().find(value => value.id !== id)?.id ?? 0
+											dispatch(changeBuild({ id: prevId }))
+											dispatch(removeBuild(id))
+											setLoadedBuild({ data: builds[prevId].data, addNewBuild: false })
+										}
+									}}
+								> <FaTrash /> </BuildButton>
+							</BuildWrapper>
+						})
+					}
+				</Builds>
 
-			<NewBuild title='New Build' onClick={() => {
-				dispatch(addBuild())
-			}}> <FaPlusSquare /> </NewBuild>
+				<NewBuild title='New Build' onClick={() => {
+					dispatch(addBuild({ changeToNewBuild: true }))
+					setLoadedBuild({ data: defaultBuild, addNewBuild: false })
+				}}> <FaPlusSquare /> </NewBuild>
 
+			</PanelContent>
 		</Container>
 	)
 }
