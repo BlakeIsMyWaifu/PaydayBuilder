@@ -22,7 +22,6 @@ import findWeapon from 'utils/findWeapon'
 const useBuildURLImport = (data: string, addNewBuild: boolean): void => {
 
 	useEffect(() => {
-		console.log(data)
 		loadBuildFromIterable(data)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data])
