@@ -1,26 +1,25 @@
 import { addBuild, changeBuild, removeBuild, updateName } from 'actions/buildsAction'
 import { defaultBuild } from 'defaultStates/buildsDefaultState'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import useBuildURLImport from 'hooks/useBuildURLImport'
+import { LoadedBuild } from 'pages/Home/Home'
 import { Container, Title } from 'pages/Home/Panel/Panel-Elements'
-import React, { useState } from 'react'
+import React from 'react'
 import { FaFolderOpen, FaPlusSquare, FaTrash, FaUndoAlt } from 'react-icons/fa'
+import { blue, red } from 'utils/colours'
 
 import { BuildButton, BuildName, BuildWrapper, Builds, NewBuild } from './BuildsPanel-Elements'
 
 interface BuildsPanelProps {
 	toggleBuilds: boolean;
 	setToggleBuilds: React.Dispatch<React.SetStateAction<boolean>>;
+	setLoadedBuild: React.Dispatch<React.SetStateAction<LoadedBuild>>
 }
 
-const BuildsPanel: React.FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds }) => {
+const BuildsPanel: React.FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setLoadedBuild }) => {
 
 	const dispatch = useAppDispatch()
 
 	const { current, builds } = useAppSelector(state => state.builds)
-
-	const [loadedBuild, setLoadedBuild] = useState<string>('')
-	useBuildURLImport(loadedBuild, false)
 
 	return (
 		<Container toggle={toggleBuilds}>
@@ -30,6 +29,7 @@ const BuildsPanel: React.FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds
 			<Builds>
 				{
 					Object.values(builds).map(({ id, name, data }) => {
+						const isLastBuild = Object.keys(builds).length > 1
 						return <BuildWrapper key={id}>
 							<BuildName
 								type='text'
@@ -43,24 +43,26 @@ const BuildsPanel: React.FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds
 								}}
 							/>
 							{
-								id !== current && <BuildButton title='Open Build' onClick={() => {
+								id !== current ? <BuildButton title='Open Build' onClick={() => {
 									dispatch(changeBuild({ id }))
-									setLoadedBuild(data)
+									setLoadedBuild({ data, addNewBuild: false })
 									setToggleBuilds(false)
-								}}> <FaFolderOpen /> </BuildButton>
-							}
-							{
-								id !== current && <BuildButton title='Delete Build' onClick={() => {
-									if (current !== id) {
-										dispatch(removeBuild(id))
-									}
-								}}> <FaTrash /> </BuildButton>
-							}
-							{
-								id === current && <BuildButton title='Reset Build' onClick={() => {
-									setLoadedBuild(defaultBuild)
+								}}> <FaFolderOpen /> </BuildButton> : <BuildButton title='Reset Build' onClick={() => {
+									setLoadedBuild({ data: defaultBuild, addNewBuild: false })
 								}}> <FaUndoAlt /> </BuildButton>
 							}
+							<BuildButton
+								title='Delete Build'
+								colour={isLastBuild ? blue : red}
+								onClick={() => {
+									if (isLastBuild) {
+										const prevId = Object.values(builds).reverse().find(value => value.id !== id)?.id ?? 0
+										dispatch(changeBuild({ id: prevId }))
+										dispatch(removeBuild(id))
+										setLoadedBuild({ data: builds[prevId].data, addNewBuild: false })
+									}
+								}}
+							> <FaTrash /> </BuildButton>
 						</BuildWrapper>
 					})
 				}
@@ -68,7 +70,7 @@ const BuildsPanel: React.FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds
 
 			<NewBuild title='New Build' onClick={() => {
 				dispatch(addBuild({ changeToNewBuild: true }))
-				setLoadedBuild(defaultBuild)
+				setLoadedBuild({ data: defaultBuild, addNewBuild: false })
 			}}> <FaPlusSquare /> </NewBuild>
 
 		</Container>

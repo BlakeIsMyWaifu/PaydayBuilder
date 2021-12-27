@@ -38,9 +38,14 @@ export const BuildName = styled.input`
 	}
 `
 
-export const BuildButton = styled.button`
+interface BuildButtonProps {
+	colour?: string;
+}
+
+export const BuildButton = styled.button<BuildButtonProps>`
 	height: 100%;
 	aspect-ratio: 1;
+	color: ${props => props.colour || blue}
 `
 
 export const NewBuild = styled.button`

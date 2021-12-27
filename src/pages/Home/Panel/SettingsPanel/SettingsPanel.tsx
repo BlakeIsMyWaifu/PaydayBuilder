@@ -1,11 +1,11 @@
 import { changeLeftFacing } from 'actions/settingsAction'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useBuildURLExport from 'hooks/useBuildURLExport'
-import useBuildURLImport from 'hooks/useBuildURLImport'
+import { LoadedBuild } from 'pages/Home/Home'
 import { Container, Title } from 'pages/Home/Panel/Panel-Elements'
 import TextInput from 'pages/Home/Panel/SettingsPanel/TextIO/TextInput'
 import TextOutput from 'pages/Home/Panel/SettingsPanel/TextIO/TextOutput'
-import React, { useState } from 'react'
+import React from 'react'
 
 import CheckboxInput from './CheckboxInput'
 import JsonIO from './JsonIO'
@@ -14,9 +14,10 @@ import { Setting, SettingsSingleLine, SettingsTitle } from './SettingsPanel-Elem
 interface SettingsPanelProps {
 	toggleSettings: boolean;
 	setToggleSettings: React.Dispatch<React.SetStateAction<boolean>>;
+	setLoadedBuild: React.Dispatch<React.SetStateAction<LoadedBuild>>
 }
 
-const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettings }) => {
+const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettings, setLoadedBuild }) => {
 
 	const dispatch = useAppDispatch()
 
@@ -24,9 +25,6 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings, setToggle
 	const { current, builds } = useAppSelector(state => state.builds)
 
 	const buildSimple = useBuildURLExport({ simple: true })
-
-	const [loadedBuild, setLoadedBuild] = useState<string>('')
-	useBuildURLImport(loadedBuild, true)
 
 	return (
 		<Container toggle={toggleSettings}>
@@ -38,7 +36,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings, setToggle
 				<TextInput
 					placeholder='Example: https://pd2builder.netlify.app/?s=10-90-90-900'
 					callback={input => {
-						setLoadedBuild(input)
+						setLoadedBuild({ data: input, addNewBuild: true })
 						setToggleSettings(false)
 					}}
 				/>

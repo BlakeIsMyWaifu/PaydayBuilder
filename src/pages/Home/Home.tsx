@@ -10,6 +10,7 @@ import masks from 'data/character/masks'
 import melees from 'data/weapons/melees'
 import throwables from 'data/weapons/throwables'
 import { useAppSelector } from 'hooks/reduxHooks'
+import useBuildURLImport from 'hooks/useBuildURLImport'
 import ArmourStatsTable from 'pages/Armour/ArmourStatsTable'
 import MeleeStatsTable from 'pages/Melee/MeleeStatsTable'
 import WeaponsStatsTable from 'pages/Weapons/WeaponStatsTable'
@@ -29,6 +30,11 @@ export interface HoverInfo {
 	title: string;
 	description?: string[];
 	table?: ReactElement;
+}
+
+export interface LoadedBuild {
+	data: string;
+	addNewBuild: boolean;
 }
 
 const Home: React.FC = () => {
@@ -60,10 +66,21 @@ const Home: React.FC = () => {
 	const [toggleSettings, setToggleSettings] = useState(false)
 	const leftFacing = useAppSelector(state => state.settings.leftFacing)
 
+	const [loadedBuild, setLoadedBuild] = useState<LoadedBuild>({ data: '', addNewBuild: false })
+	useBuildURLImport(loadedBuild.data, loadedBuild.addNewBuild)
+
 	return (
 		<>
-			<BuildsPanel toggleBuilds={toggleBuilds} setToggleBuilds={setToggleBuilds} />
-			<SettingsPanel toggleSettings={toggleSettings} setToggleSettings={setToggleSettings} />
+			<BuildsPanel
+				toggleBuilds={toggleBuilds}
+				setToggleBuilds={setToggleBuilds}
+				setLoadedBuild={setLoadedBuild}
+			/>
+			<SettingsPanel
+				toggleSettings={toggleSettings}
+				setToggleSettings={setToggleSettings}
+				setLoadedBuild={setLoadedBuild}
+			/>
 			<Container
 				columns='2fr 1fr 1fr 1fr'
 				rows='calc(100% - 3rem) 3rem'
@@ -262,6 +279,7 @@ const Home: React.FC = () => {
 						toggleBuilds={toggleBuilds}
 						setToggleBuilds={setToggleBuilds}
 						setToggleSettings={setToggleSettings}
+						setLoadedBuild={setLoadedBuild}
 					/>
 					<ConfigButton onClick={() => {
 						setToggleBuilds(false)

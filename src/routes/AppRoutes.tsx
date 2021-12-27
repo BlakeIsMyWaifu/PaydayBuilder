@@ -1,11 +1,9 @@
-import { updateData } from 'actions/buildsAction'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import useBuildURLExport from 'hooks/useBuildURLExport'
-import React, { Suspense, lazy, useEffect } from 'react'
+import React, { Suspense, lazy } from 'react'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Loader from 'routes/Loader'
 
 import LoadURL from './LoadURL'
+import UpdateBuild from './UpdateBuild'
 
 const Home = lazy(() => import('pages/Home'))
 
@@ -25,20 +23,12 @@ const CrewManagement = lazy(() => import('pages/CrewManagement'))
 const Infamy = lazy(() => import('pages/Infamy'))
 
 const AppRoutes: React.FC = () => {
-
-	const disptach = useAppDispatch()
-	const currentBuildId = useAppSelector(state => state.builds.current)
-	const build = useBuildURLExport({ simple: false })
-	useEffect(() => {
-		disptach(updateData({
-			id: currentBuildId,
-			data: build
-		}))
-	}, [build, currentBuildId, disptach])
-
 	return (
 		<Router>
+
 			<LoadURL />
+			<UpdateBuild />
+
 			<Suspense fallback={<Loader />}>
 				<Routes>
 					<Route path='/' element={<Home />} />
