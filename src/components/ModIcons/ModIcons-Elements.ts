@@ -35,3 +35,10 @@ export const ModIcon = styled.img<ModIconProps>`
 	height: 100%;
 	opacity: ${props => props.equipped ? 1 : 0.2};
 `
+
+export const Background = styled.span`
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	flex-wrap: nowrap;
+`
