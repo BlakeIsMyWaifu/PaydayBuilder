@@ -1,4 +1,4 @@
-import { updateData } from 'actions/buildsAction'
+import { updateData } from 'slices/buildsSlice'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useBuildURLExport from 'hooks/useBuildURLExport'
 import React, { useEffect } from 'react'

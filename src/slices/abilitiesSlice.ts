@@ -1,6 +1,7 @@
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import abilities from 'data/abilities/crewAbilities'
 import boosts from 'data/abilities/crewBoosts'
-import perkDecks, { PerkDeckList } from 'data/abilities/perks'
+import { PerkDeckList } from 'data/abilities/perks'
 import characters from 'data/character/characters'
 import masks from 'data/character/masks'
 import { CrewData } from 'pages/CrewManagement'
@@ -20,10 +21,27 @@ const defaultCrew = (i: number): CrewData => ({
 	boost: Object.values(boosts)[i].name
 })
 
-const abilitiesDefaultState: AbilitiesState = {
-	perkdeck: Object.values(perkDecks)[0].name,
+export const abilitiesDefaultState: AbilitiesState = {
+	perkdeck: 'Crew Chief',
 	crewmanagement: [defaultCrew(0), defaultCrew(1), defaultCrew(2)],
 	infamy: null
 }
 
-export default abilitiesDefaultState
+export const abilitiesSlice = createSlice({
+	name: 'abilities',
+	initialState: abilitiesDefaultState,
+	reducers: {
+		changePerkDeck: (state, action: PayloadAction<PerkDeckList>) => {
+			state.perkdeck = action.payload
+		}
+	}
+})
+
+export const {
+	changePerkDeck
+} = abilitiesSlice.actions
+
+// export const selectAbilities = (state: RootState) => state.abilites
+// export const selectPerkDeck = createSelector(selectAbilities, (a) => a.perkdeck)
+
+export default abilitiesSlice.reducer

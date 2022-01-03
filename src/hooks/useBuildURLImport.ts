@@ -1,9 +1,3 @@
-import { changePerkdeck } from 'actions/abilitiesAction'
-import { addWeapon, resetArmoury } from 'actions/armouryAction'
-import { addBuild } from 'actions/buildsAction'
-import { changeArmour, changeCharacter, changeEquipment, changeMask } from 'actions/characterAction'
-import { changeSkillState, resetSkills } from 'actions/skillsAction'
-import { changeMelee, changeThrowable, changeWeapon } from 'actions/weaponsAction'
 import perkDecks from 'data/abilities/perks'
 import skills, { TreeNames } from 'data/abilities/skills'
 import armours from 'data/character/armours'
@@ -17,6 +11,12 @@ import throwables from 'data/weapons/throwables'
 import { useAppDispatch } from 'hooks/reduxHooks'
 import { getCollectionList } from 'pages/Mask/Mask'
 import { useEffect } from 'react'
+import { changePerkDeck } from 'slices/abilitiesSlice'
+import { addWeapon, resetArmoury } from 'slices/armourySlice'
+import { addBuild } from 'slices/buildsSlice'
+import { changeArmour, changeCharacter, changeEquipment, changeMask } from 'slices/characterSlice'
+import { changeSkillState, resetSkills } from 'slices/skillsSlice'
+import { changeMelee, changeThrowable, changeWeapon } from 'slices/weaponsSlice'
 import findWeapon from 'utils/findWeapon'
 
 const useBuildURLImport = (data: string, addNewBuild: boolean): void => {
@@ -148,7 +148,7 @@ const useBuildURLImport = (data: string, addNewBuild: boolean): void => {
 	}
 
 	const loadPerkDeck = (perkIndex: number): void => {
-		dispatch(changePerkdeck(Object.values(perkDecks)[perkIndex].name))
+		dispatch(changePerkDeck(Object.values(perkDecks)[perkIndex].name))
 	}
 
 	const loadArmour = (armourIndex: number): void => {

@@ -1,4 +1,3 @@
-import { changeMod, removeMod, resetWeaponsMods } from 'actions/armouryAction'
 import Container from 'components/Container'
 import DetectionRisk from 'components/DetectionRisk'
 import HorizontalBar from 'components/HorizontalBar'
@@ -12,6 +11,7 @@ import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useWeaponStats from 'hooks/useWeaponStats'
 import React, { useState } from 'react'
 import { useParams } from 'react-router'
+import { changeMod, removeMod, resetWeaponMods } from 'slices/armourySlice'
 import { itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
 import { modificationsFromNames } from 'utils/modificationsFromNames'
@@ -139,7 +139,7 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 			</InfoContainer>
 
 			<ResetContainer>
-				<ResetText onClick={() => dispatch(resetWeaponsMods({ slot, id }))}>Reset all modifications</ResetText>
+				<ResetText onClick={() => dispatch(resetWeaponMods({ slot, id }))}>Reset all modifications</ResetText>
 			</ResetContainer>
 
 			<DetectionRisk flexDirection='row' corner={true} />

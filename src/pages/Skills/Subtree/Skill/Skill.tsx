@@ -1,7 +1,7 @@
-import { changeSkillState } from 'actions/skillsAction'
 import { SkillData, SubtreeData, TreeNames } from 'data/abilities/skills'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import React, { useState } from 'react'
+import { changeSkillState } from 'slices/skillsSlice'
 import { grey } from 'utils/colours'
 
 import { Aced, Container, Icon, Label, Locked, SkillIcon } from './Skill-Elements'

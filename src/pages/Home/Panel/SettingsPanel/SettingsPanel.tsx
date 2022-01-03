@@ -1,4 +1,4 @@
-import { changeLeftFacing } from 'actions/settingsAction'
+import { changeLeftFacing } from 'slices/settingsSlice'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useBuildURLExport from 'hooks/useBuildURLExport'
 import { LoadedBuild } from 'pages/Home'

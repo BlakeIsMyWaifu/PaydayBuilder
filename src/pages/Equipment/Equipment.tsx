@@ -1,4 +1,3 @@
-import { changeEquipment } from 'actions/characterAction'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info/Info-Elements'
 import { ItemEquipped, ItemName, LockedIcon } from 'components/Item-Elements'
@@ -6,6 +5,7 @@ import { ActionText, ActionsContainer } from 'components/ItemAction-Elements'
 import equipments, { EquipmentData } from 'data/character/equipment'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import React, { useState } from 'react'
+import { changeEquipment } from 'slices/characterSlice'
 import { itemColours } from 'utils/colours'
 
 import { EquipementImage, EquipmentWrapper, Item } from './Equipment-Elements'
