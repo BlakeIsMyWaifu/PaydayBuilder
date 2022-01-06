@@ -1,17 +1,28 @@
-import { updateData } from 'slices/buildsSlice'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useBuildURLExport from 'hooks/useBuildURLExport'
-import React, { useEffect } from 'react'
+import useBuildURLImport from 'hooks/useBuildURLImport'
+import useMountEffect from 'hooks/useMountEffect'
+import { LoadedBuild } from 'pages/Home/Home'
+import React, { useEffect, useState } from 'react'
+import { updateData } from 'slices/buildsSlice'
 
 const UpdateBuild: React.FC = () => {
 
+	const { current, builds } = useAppSelector(state => state.builds)
+
+	const [loadedBuild, setLoadedBuild] = useState<LoadedBuild>({ data: '', addNewBuild: false })
+	useBuildURLImport(loadedBuild.data, loadedBuild.addNewBuild)
+
+	useMountEffect(() => {
+		setLoadedBuild({ data: builds[current].data, addNewBuild: false })
+	})
+
 	const disptach = useAppDispatch()
-	const currentBuildId = useAppSelector(state => state.builds.current)
 	const build = useBuildURLExport({ simple: false })
 
 	useEffect(() => {
 		disptach(updateData({
-			id: currentBuildId,
+			id: current,
 			data: build
 		}))
 		// eslint-disable-next-line react-hooks/exhaustive-deps

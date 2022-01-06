@@ -119,10 +119,7 @@ export const skillsSlice = createSlice({
 			state.points = state.points + SkillTreePoints(tree, state.trees)
 			state.trees[tree] = skillsDefaultState.trees[tree]
 		},
-		resetSkills: (state) => {
-			// eslint-disable-next-line @typescript-eslint/no-unused-vars
-			state = skillsDefaultState
-		}
+		resetSkills: () => skillsDefaultState
 	}
 })
 
