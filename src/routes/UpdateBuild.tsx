@@ -2,19 +2,17 @@ import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useBuildURLExport from 'hooks/useBuildURLExport'
 import useBuildURLImport from 'hooks/useBuildURLImport'
 import useMountEffect from 'hooks/useMountEffect'
-import { LoadedBuild } from 'pages/Home/Home'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { updateData } from 'slices/buildsSlice'
 
 const UpdateBuild: React.FC = () => {
 
 	const { current, builds } = useAppSelector(state => state.builds)
 
-	const [loadedBuild, setLoadedBuild] = useState<LoadedBuild>({ data: '', addNewBuild: false })
-	useBuildURLImport(loadedBuild.data, loadedBuild.addNewBuild)
+	const setData = useBuildURLImport('', false)
 
 	useMountEffect(() => {
-		setLoadedBuild({ data: builds[current].data, addNewBuild: false })
+		setData({ data: builds[current].data, addNewBuild: false })
 	})
 
 	const disptach = useAppDispatch()

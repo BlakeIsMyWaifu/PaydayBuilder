@@ -34,7 +34,7 @@ interface SelectWeapon {
 	id: number;
 }
 
-interface AddWeaponAction {
+export interface AddWeaponAction {
 	slot: Slot;
 	weapon: WeaponData;
 	mods?: Partial<Record<ModificationSlot, string>>
