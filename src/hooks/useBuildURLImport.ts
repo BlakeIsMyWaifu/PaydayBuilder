@@ -20,7 +20,7 @@ import { changeSkillState, resetSkills } from 'slices/skillsSlice'
 import { changeMelee, changeThrowable, changeWeapon } from 'slices/weaponsSlice'
 import findWeapon from 'utils/findWeapon'
 
-const charString = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,@'
+export const charString = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,@'
 
 const decodeValues = (value: string): number => {
 	if (value.length === 2) {
@@ -91,7 +91,7 @@ const decodeCharacter = (value: string): CharacterList => {
 	return Object.keys(characters)[characterIndex]
 }
 
-const decodeArmoury = (value: string, data: Record<string, Record<string, WeaponData>>): AddWeaponAction[] => {
+export const decodeArmoury = (value: string, data: Record<string, Record<string, WeaponData>>): AddWeaponAction[] => {
 	if (value === '_') return []
 
 	const slot = Object.values(Object.values(data)[0])[0].inventorySlot

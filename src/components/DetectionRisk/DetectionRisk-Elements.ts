@@ -12,6 +12,7 @@ export const Container = styled.div<ContainerProps>`
 	display: flex;
 	flex-direction: ${props => props.flexDirection === 'column' ? 'column' : 'row-reverse'};
 	justify-content: start;
+	align-items: center;
 	padding: ${props => props.size / 8}px;
 	${props => props.corner && corner}
 `
