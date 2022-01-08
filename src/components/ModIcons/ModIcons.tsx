@@ -11,10 +11,11 @@ import ModIconsTable from './ModIconsTable/ModIconsTable'
 
 interface ModIconsProps {
 	weapon: Weapon;
+	link: boolean;
 	setHoverInfo?: React.Dispatch<React.SetStateAction<HoverInfo | null>>;
 }
 
-const ModIcons: React.FC<ModIconsProps> = ({ weapon, setHoverInfo }) => {
+const ModIcons: React.FC<ModIconsProps> = ({ weapon, link, setHoverInfo }) => {
 
 	const weaponData = findWeapon(weapon.weaponFind)
 
@@ -35,22 +36,25 @@ const ModIcons: React.FC<ModIconsProps> = ({ weapon, setHoverInfo }) => {
 					const equipped = Object.keys(weapon.modifications).includes(modSlot)
 					const modName = weapon.modifications[(modSlot as ModificationSlot)] || ''
 					const equippedMod = modificationList[(modSlot as ModificationSlot)][modName]
-					return <ModWrapper key={modSlot}>
-						<ModLink to={`/blackmarket/${weaponData.inventorySlot}/${weapon.id}/${modSlot}`}>
-							<ModIcon
-								src={`/images/modifications/icons/${equippedMod?.icon || modificationIcons[(modSlot as ModificationSlot)]}.png`}
-								equipped={equipped}
-								onMouseOver={() => setHoverInfo && setHoverInfo({
-									title: modName || `No ${capitalizeEachWord(spaceBetween(modSlot))} Mod Equipped`,
-									table: <ModIconsTable
-										weapon={weaponData}
-										modifications={weapon.modifications}
-										hoveredMod={equippedMod}
-									/>
-								})}
-								onMouseDown={event => event.preventDefault()}
+					const modIcon = <ModIcon
+						src={`/images/modifications/icons/${equippedMod?.icon || modificationIcons[(modSlot as ModificationSlot)]}.png`}
+						equipped={equipped}
+						onMouseOver={() => link && setHoverInfo && setHoverInfo({
+							title: modName || `No ${capitalizeEachWord(spaceBetween(modSlot))} Mod Equipped`,
+							table: <ModIconsTable
+								weapon={weaponData}
+								modifications={weapon.modifications}
+								hoveredMod={equippedMod}
 							/>
-						</ModLink>
+						})}
+						onMouseDown={event => event.preventDefault()}
+					/>
+					return <ModWrapper key={modSlot}>
+						{
+							link ? <ModLink to={`/blackmarket/${weaponData.inventorySlot}/${weapon.id}/${modSlot}`}>
+								{modIcon}
+							</ModLink> : modIcon
+						}
 					</ModWrapper>
 				})
 			}

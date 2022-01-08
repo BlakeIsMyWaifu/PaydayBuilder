@@ -35,7 +35,6 @@ interface SelectWeapon {
 }
 
 export interface AddWeaponAction {
-	slot: Slot;
 	weapon: WeaponData;
 	mods?: Partial<Record<ModificationSlot, string>>
 }
@@ -53,14 +52,15 @@ export const armourySlice = createSlice({
 	initialState: armouryDefaultState,
 	reducers: {
 		addWeapon: (state, action: PayloadAction<AddWeaponAction>) => {
-			const { slot, weapon, mods } = action.payload
+			const { weapon, mods } = action.payload
+			const slot = weapon.inventorySlot
 			const nextNum = findNextNum(state[slot])
 			const newWeapon: Weapon = {
 				id: nextNum,
 				weaponFind: {
 					name: weapon.name,
 					type: weapon.weaponType,
-					slot: slot
+					slot
 				},
 				modifications: mods || {}
 			}

@@ -2,11 +2,9 @@ import Container from 'components/Container'
 import HorizontalBar from 'components/HorizontalBar'
 import { Item, ItemContainer, ItemImage, ItemName } from 'components/Item-Elements'
 import { ActionText, ActionsContainer } from 'components/ItemAction-Elements'
-import primary from 'data/weapons/guns/primary'
-import secondary from 'data/weapons/guns/secondary'
 import { Slot, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import React, { useMemo, useState } from 'react'
+import React, { useState } from 'react'
 import { addWeapon } from 'slices/armourySlice'
 import { changeWeapon } from 'slices/weaponsSlice'
 import { itemColours } from 'utils/colours'
@@ -15,12 +13,11 @@ import WeaponInfo from '../WeaponInfo'
 
 interface WeaponBuyProps {
 	slot: Slot;
+	data: Record<string, Record<string, WeaponData>>;
 	setEnableBuy: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const WeaponBuy: React.FC<WeaponBuyProps> = ({ slot, setEnableBuy }) => {
-
-	const data: Record<string, Record<string, WeaponData>> = useMemo(() => slot === 'primary' ? primary : secondary, [slot])
+const WeaponBuy: React.FC<WeaponBuyProps> = ({ slot, data, setEnableBuy }) => {
 
 	const dispatch = useAppDispatch()
 
@@ -34,7 +31,6 @@ const WeaponBuy: React.FC<WeaponBuyProps> = ({ slot, setEnableBuy }) => {
 
 	const addWeaponHelper = (weapon: WeaponData) => {
 		dispatch(addWeapon({
-			slot,
 			weapon
 		}))
 		const id = +Object.keys(armoury)[Object.keys(armoury).length - 1] + 1
