@@ -15,31 +15,25 @@ export interface HoverInfo {
 	table?: ReactElement;
 }
 
-export interface LoadedBuild {
-	data: string;
-	addNewBuild: boolean;
-}
-
 const Home: React.FC = () => {
 
 	const [toggleBuilds, setToggleBuilds] = useState(false)
 
 	const [toggleSettings, setToggleSettings] = useState(false)
 
-	const [loadedBuild, setLoadedBuild] = useState<LoadedBuild>({ data: '', addNewBuild: false })
-	useBuildURLImport(loadedBuild.data, loadedBuild.addNewBuild)
+	const setData = useBuildURLImport('', false)
 
 	return (
 		<>
 			<BuildsPanel
 				toggleBuilds={toggleBuilds}
 				setToggleBuilds={setToggleBuilds}
-				setLoadedBuild={setLoadedBuild}
+				setLoadedBuild={setData}
 			/>
 			<SettingsPanel
 				toggleSettings={toggleSettings}
 				setToggleSettings={setToggleSettings}
-				setLoadedBuild={setLoadedBuild}
+				setLoadedBuild={setData}
 			/>
 			<Container
 				columns='2fr 1fr 1fr 1fr'
@@ -56,7 +50,7 @@ const Home: React.FC = () => {
 						toggleBuilds={toggleBuilds}
 						setToggleBuilds={setToggleBuilds}
 						setToggleSettings={setToggleSettings}
-						setLoadedBuild={setLoadedBuild}
+						setLoadedBuild={setData}
 					/>
 
 					<SettingsButton onClick={() => {
@@ -68,7 +62,7 @@ const Home: React.FC = () => {
 
 				<VersionContainer>
 					<VersionText>Payday Version: 207</VersionText>
-					<VersionText>Builder Version: 0.2.2</VersionText>
+					<VersionText>Builder Version: 0.2.3</VersionText>
 				</VersionContainer>
 
 			</Container>

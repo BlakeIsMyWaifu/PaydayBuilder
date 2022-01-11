@@ -145,7 +145,11 @@ const Tabs: React.FC = () => {
 								})}
 							/>
 						</Link>
-						<ModIcons weapon={primaryWeapon} setHoverInfo={setHoverInfo} />
+						<ModIcons
+							weapon={primaryWeapon}
+							link={true}
+							setHoverInfo={setHoverInfo}
+						/>
 					</Selector>
 
 					<Selector
@@ -163,7 +167,11 @@ const Tabs: React.FC = () => {
 								})}
 							/>
 						</Link>
-						<ModIcons weapon={secondaryWeapon} setHoverInfo={setHoverInfo} />
+						<ModIcons
+							weapon={secondaryWeapon}
+							link={true}
+							setHoverInfo={setHoverInfo}
+						/>
 					</Selector>
 
 					<Selector

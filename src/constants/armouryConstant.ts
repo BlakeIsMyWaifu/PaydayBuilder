@@ -1,6 +1,0 @@
-export const ADDWEAPON = 'armoury/ADDWEAPON'
-export const REMOVEWEAPON = 'armoury/REMOVEWEAPON'
-export const RESETARMOURY = 'armoury/RESET'
-export const CHANGEMOD = 'armoury/CHANGEMOD'
-export const REMOVEMOD = 'armoury/REMOVEMOD'
-export const RESETWEAPONSMODS = 'armoury/RESETWEAPONSMODS'

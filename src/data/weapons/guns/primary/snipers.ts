@@ -89,11 +89,11 @@ const snipers: Record<SniperList, WeaponData> = {
 			accuracy: 88,
 			stability: 28,
 			concealment: 5,
-			threat: 26
+			threat: 26,
+			reload: 3.7
 		},
 		extraStats: {
 			tacticalReload: 2.6,
-			reload: 3.7,
 			equipDelays: [0.7, 0.6],
 			ammoPickup: [2.0, 3.0],
 			recoilHorizontal: [-0.69, 0.69],
@@ -133,11 +133,11 @@ const snipers: Record<SniperList, WeaponData> = {
 			accuracy: 92,
 			stability: 28,
 			concealment: 10,
-			threat: 28
+			threat: 28,
+			reload: 4.7
 		},
 		extraStats: {
 			tacticalReload: 3.35,
-			reload: 4.7,
 			equipDelays: [0.75, 0.45],
 			ammoPickup: [2.0, 3.0],
 			recoilHorizontal: [-0.69, 0.69],
@@ -176,11 +176,11 @@ const snipers: Record<SniperList, WeaponData> = {
 			accuracy: 68,
 			stability: 20,
 			concealment: 19,
-			threat: 28
+			threat: 28,
+			reload: 7.73
 		},
 		extraStats: {
 			tacticalReload: [2.27, 0.57],
-			reload: 7.73,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [2.5, 3.75],
 			recoilHorizontal: [-0.75, 0.75],
@@ -218,11 +218,11 @@ const snipers: Record<SniperList, WeaponData> = {
 			accuracy: 80,
 			stability: 48,
 			concealment: 12,
-			threat: 12
+			threat: 12,
+			reload: 3.3
 		},
 		extraStats: {
 			tacticalReload: 2.3,
-			reload: 3.3,
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [2.0, 3.0],
 			recoilHorizontal: [-0.72, 0.72],
@@ -251,11 +251,11 @@ const snipers: Record<SniperList, WeaponData> = {
 			accuracy: 92,
 			stability: 12,
 			concealment: 6,
-			threat: 28
+			threat: 28,
+			reload: 4.5
 		},
 		extraStats: {
 			tacticalReload: 3.35,
-			reload: 4.5,
 			equipDelays: [0.75, 0.45],
 			ammoPickup: [0.7, 1.0],
 			recoilHorizontal: [-0.81, 0.81],
@@ -289,11 +289,11 @@ const snipers: Record<SniperList, WeaponData> = {
 			accuracy: 92,
 			stability: 20,
 			concealment: 16,
-			threat: 12
+			threat: 12,
+			reload: 6.2
 		},
 		extraStats: {
 			tacticalReload: 4.64,
-			reload: 6.2,
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [2.0, 3.0],
 			recoilHorizontal: [-0.5, 0.5],
@@ -333,11 +333,11 @@ const snipers: Record<SniperList, WeaponData> = {
 			accuracy: 76,
 			stability: 12,
 			concealment: 19,
-			threat: 28
+			threat: 28,
+			reload: 3.86
 		},
 		extraStats: {
 			tacticalReload: 2.72,
-			reload: 3.86,
 			equipDelays: [0.75, 0.45],
 			ammoPickup: [0.7, 1.0],
 			recoilHorizontal: [-0.81, 0.81],
@@ -372,11 +372,11 @@ const snipers: Record<SniperList, WeaponData> = {
 			accuracy: 60,
 			stability: 4,
 			concealment: 16,
-			threat: 12
+			threat: 12,
+			reload: 3.3
 		},
 		extraStats: {
 			tacticalReload: 2.3,
-			reload: 3.3,
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [2.0, 3.0],
 			recoilHorizontal: [-0.87, 0.87],
@@ -425,11 +425,11 @@ const snipers: Record<SniperList, WeaponData> = {
 			accuracy: 92,
 			stability: 12,
 			concealment: 5,
-			threat: 31
+			threat: 31,
+			reload: 3.82
 		},
 		extraStats: {
 			tacticalReload: 2.82,
-			reload: 3.82,
 			equipDelays: [0.65, 0.7],
 			ammoPickup: [0.7, 1.0],
 			recoilHorizontal: [-0.27, 0.27],
@@ -467,11 +467,11 @@ const snipers: Record<SniperList, WeaponData> = {
 			accuracy: 92,
 			stability: 20,
 			concealment: 12,
-			threat: 28
+			threat: 28,
+			reload: 10.57
 		},
 		extraStats: {
 			tacticalReload: [2.27, 0.57],
-			reload: 10.57,
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [2.25, 3.38],
 			recoilHorizontal: [-0.75, 0.75],
@@ -507,11 +507,11 @@ const snipers: Record<SniperList, WeaponData> = {
 			accuracy: 72,
 			stability: 4,
 			concealment: 16,
-			threat: 12
+			threat: 12,
+			reload: 3.3
 		},
 		extraStats: {
 			tacticalReload: 2.3,
-			reload: 3.3,
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [2.0, 3.0],
 			recoilHorizontal: [-1.16, 1.16],
@@ -552,11 +552,11 @@ const snipers: Record<SniperList, WeaponData> = {
 			accuracy: 92,
 			stability: 12,
 			concealment: 6,
-			threat: 28
+			threat: 28,
+			reload: 3.85
 		},
 		extraStats: {
 			tacticalReload: 3.85,
-			reload: 3.85,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [0.7, 1.0],
 			recoilHorizontal: [-0.81, 0.81],
@@ -598,11 +598,11 @@ const snipers: Record<SniperList, WeaponData> = {
 			accuracy: 92,
 			stability: 4,
 			concealment: 1,
-			threat: 37
+			threat: 37,
+			reload: 5.23
 		},
 		extraStats: {
 			tacticalReload: 3.96,
-			reload: 5.23,
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [0.05, 0.65],
 			recoilHorizontal: [-1.45, 1.45],

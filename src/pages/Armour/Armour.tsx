@@ -1,4 +1,3 @@
-import { changeArmour } from 'actions/characterAction'
 import Container from 'components/Container'
 import DetectionRisk from 'components/DetectionRisk'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info/Info-Elements'
@@ -6,6 +5,7 @@ import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } fr
 import armours, { ArmourData } from 'data/character/armours'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import React, { useState } from 'react'
+import { changeArmour } from 'slices/characterSlice'
 
 import { ArmourStatsTable } from './ArmourStatsTable'
 

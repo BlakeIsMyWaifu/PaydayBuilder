@@ -1,16 +1,17 @@
-import React, { useLayoutEffect, useRef, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 import { FlattenInterpolation } from 'styled-components'
 
 import { Arrow, Container, Item, ItemContainer } from './HorizontalBar-Elements'
 
 interface HorizontalActionBarProps {
-	active: string;
+	active: string | number;
 	items: {
 		label: string;
 		callback: () => void;
 		colour?: string;
 		additionalStyling?: FlattenInterpolation<any> | null;
+		id?: number;
 	}[];
 	scroll?: (event: React.WheelEvent) => void;
 }
@@ -29,15 +30,19 @@ const HorizontalBar: React.FC<HorizontalActionBarProps> = ({ active, items, scro
 		})
 	}
 
+	const updateSize = (): void => {
+		const div = scrollRef.current
+		if (!div) return
+		setHasArrows(div.clientWidth < div.scrollWidth)
+	}
+
+	useEffect(() => {
+		updateSize()
+	}, [items])
+
 	useLayoutEffect(() => {
-		const updateSize = (): void => {
-			const div = scrollRef.current
-			if (!div) return
-			setHasArrows(div.clientWidth < div.scrollWidth)
-		}
 		window.addEventListener('resize', updateSize)
 		updateSize()
-
 		return () => window.removeEventListener('resize', updateSize)
 	}, [])
 
@@ -57,10 +62,10 @@ const HorizontalBar: React.FC<HorizontalActionBarProps> = ({ active, items, scro
 			{hasArrows && <Arrow direction='left' onMouseDown={() => scrollBar('left', scrollRef)}> <FaAngleLeft /> </Arrow>}
 			<ItemContainer ref={scrollRef}>
 				{
-					items.map(({ label, colour, callback, additionalStyling }) => {
+					items.map(({ label, colour, callback, additionalStyling, id }, i) => {
 						return <Item
-							key={label}
-							active={label === active}
+							key={`${label}-${i}`}
+							active={(typeof active === 'string' ? label : id) === active}
 							onClick={callback}
 							colour={colour}
 							additionalStyling={additionalStyling || null}

@@ -1,9 +1,9 @@
-import { changeBuild, updateName } from 'actions/buildsAction'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
+import { LoadedBuild } from 'hooks/useBuildURLImport'
 import React from 'react'
 import { FaChevronLeft, FaChevronRight, FaThList } from 'react-icons/fa'
+import { changeBuild, updateName } from 'slices/buildsSlice'
 
-import { LoadedBuild } from '../Home'
 import { Arrow, BuildList, BuildName, Container, Wrapper } from './BuildSelector-Elements'
 
 interface BuildSelectorProps {

@@ -125,11 +125,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 36,
 			stability: 76,
 			concealment: 21,
-			threat: 14
+			threat: 14,
+			reload: 3.0
 		},
 		extraStats: {
 			tacticalReload: 2.25,
-			reload: 3.0,
 			equipDelays: [0.55, 0.6],
 			ammoPickup: [6.6, 12.1],
 			recoilHorizontal: [-1.1, 1.1],
@@ -174,11 +174,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 36,
 			stability: 56,
 			concealment: 22,
-			threat: 12
+			threat: 12,
+			reload: 2.4
 		},
 		extraStats: {
 			tacticalReload: 1.65,
-			reload: 2.4,
 			equipDelays: [0.7, 0.55],
 			ammoPickup: [7.2, 13.2],
 			recoilHorizontal: [-1.6, 1.6],
@@ -232,11 +232,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 72,
 			stability: 44,
 			concealment: 8,
-			threat: 22
+			threat: 22,
+			reload: 3.15
 		},
 		extraStats: {
 			tacticalReload: 2.2,
-			reload: 3.15,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [3.0, 4.5],
 			recoilHorizontal: [-1.9, 1.9],
@@ -285,11 +285,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 68,
 			stability: 68,
 			concealment: 20,
-			threat: 12
+			threat: 12,
+			reload: 2.9
 		},
 		extraStats: {
 			tacticalReload: 2.1,
-			reload: 2.9,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [4.5, 8.25],
 			recoilHorizontal: [-1.3, 1.3],
@@ -336,11 +336,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 48,
 			stability: 60,
 			concealment: 16,
-			threat: 14
+			threat: 14,
+			reload: 3.87
 		},
 		extraStats: {
 			tacticalReload: 2.8,
-			reload: 3.87,
 			equipDelays: [0.5, 0.5],
 			ammoPickup: [4.5, 8.25],
 			recoilHorizontal: [-1.5, 1.5],
@@ -414,11 +414,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 44,
 			stability: 60,
 			concealment: 20,
-			threat: 14
+			threat: 14,
+			reload: 3.34
 		},
 		extraStats: {
 			tacticalReload: 2.67,
-			reload: 3.34,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [4.5, 8.25],
 			recoilHorizontal: [-1.5, 1.5],
@@ -495,11 +495,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 64,
 			stability: 40,
 			concealment: 20,
-			threat: 14
+			threat: 14,
+			reload: 3.3
 		},
 		extraStats: {
 			tacticalReload: 2.5,
-			reload: 3.3,
 			equipDelays: [0.5, 0.5],
 			ammoPickup: [4.5, 8.25],
 			recoilHorizontal: [-2.0, 2.0],
@@ -545,11 +545,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 72,
 			stability: 52,
 			concealment: 8,
-			threat: 12
+			threat: 12,
+			reload: 2.9
 		},
 		extraStats: {
 			tacticalReload: 2.16,
-			reload: 2.9,
 			equipDelays: [0.55, 0.55],
 			ammoPickup: [2.4, 4.4],
 			recoilHorizontal: [-1.02, 1.02],
@@ -578,11 +578,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 72,
 			stability: 32,
 			concealment: 27,
-			threat: 31
+			threat: 31,
+			reload: 3.3
 		},
 		extraStats: {
 			tacticalReload: 2.3,
-			reload: 3.3,
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [1.19, 2.64],
 			recoilHorizontal: [-2.2, 2.2],
@@ -619,11 +619,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 60,
 			stability: 44,
 			concealment: 13,
-			threat: 22
+			threat: 22,
+			reload: 3.87
 		},
 		extraStats: {
 			tacticalReload: 2.8,
-			reload: 3.87,
 			equipDelays: [0.5, 0.5],
 			ammoPickup: [2.7, 4.05],
 			recoilHorizontal: [-1.9, 1.9],
@@ -694,11 +694,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 40,
 			stability: 64,
 			concealment: 19,
-			threat: 13
+			threat: 13,
+			reload: 3.85
 		},
 		extraStats: {
 			tacticalReload: 2.85,
-			reload: 3.85,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [7.2, 13.2],
 			recoilHorizontal: [-1.4, 1.4],
@@ -743,11 +743,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 60,
 			stability: 60,
 			concealment: 16,
-			threat: 14
+			threat: 14,
+			reload: 3.37
 		},
 		extraStats: {
 			tacticalReload: 2.26,
-			reload: 3.37,
 			equipDelays: [0.5, 0.5],
 			ammoPickup: [3.15, 4.72],
 			recoilHorizontal: [-1.5, 1.5],
@@ -798,11 +798,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 60,
 			stability: 44,
 			concealment: 11,
-			threat: 22
+			threat: 22,
+			reload: 3.87
 		},
 		extraStats: {
 			tacticalReload: 2.8,
-			reload: 3.87,
 			equipDelays: [0.5, 0.5],
 			ammoPickup: [2.7, 4.05],
 			recoilHorizontal: [-1.9, 1.9],
@@ -873,11 +873,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 24,
 			stability: 52,
 			concealment: 20,
-			threat: 14
+			threat: 14,
+			reload: 4.7
 		},
 		extraStats: {
 			tacticalReload: 3.8,
-			reload: 4.7,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [6, 11],
 			recoilHorizontal: [-1.7, 1.7],
@@ -928,11 +928,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 64,
 			stability: 60,
 			concealment: 16,
-			threat: 12
+			threat: 12,
+			reload: 4.5
 		},
 		extraStats: {
 			tacticalReload: 3.5,
-			reload: 4.5,
 			equipDelays: [0.75, 0.45],
 			ammoPickup: [4.5, 8.25],
 			recoilHorizontal: [-1.8, 1.8],
@@ -983,11 +983,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 84,
 			stability: 36,
 			concealment: 20,
-			threat: 31
+			threat: 31,
+			reload: 1.52
 		},
 		extraStats: {
 			tacticalReload: 2.56,
-			reload: 1.52,
 			equipDelays: [0.55, 0.6],
 			ammoPickup: [1.3, 2.88],
 			recoilHorizontal: [-2.1, 2.1],
@@ -1028,11 +1028,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 84,
 			stability: 36,
 			concealment: 8,
-			threat: 31
+			threat: 31,
+			reload: 3.15
 		},
 		extraStats: {
 			tacticalReload: 2.65,
-			reload: 3.15,
 			equipDelays: [0.55, 0.6],
 			ammoPickup: [1.26, 2.8],
 			recoilHorizontal: [-2.1, 2.1],
@@ -1073,11 +1073,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 36,
 			stability: 68,
 			concealment: 24,
-			threat: 14
+			threat: 14,
+			reload: 3.78
 		},
 		extraStats: {
 			tacticalReload: 2.72,
-			reload: 3.78,
 			equipDelays: [0.6, 0.55],
 			ammoPickup: [7.2, 13.2],
 			recoilHorizontal: [-1.3, 1.3],
@@ -1119,11 +1119,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 60,
 			stability: 64,
 			concealment: 17,
-			threat: 12
+			threat: 12,
+			reload: 4.75
 		},
 		extraStats: {
 			tacticalReload: 3.2,
-			reload: 4.75,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [4.5, 8.25],
 			recoilHorizontal: [-1.4, 1.4],
@@ -1161,11 +1161,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 56,
 			stability: 64,
 			concealment: 26,
-			threat: 0
+			threat: 0,
+			reload: 3.7
 		},
 		extraStats: {
 			tacticalReload: 2.6,
-			reload: 3.7,
 			equipDelays: [0.5, 0.5],
 			ammoPickup: [6.6, 12.1],
 			recoilHorizontal: [-1.4, 1.4],
@@ -1203,11 +1203,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 60,
 			stability: 60,
 			concealment: 18,
-			threat: 14
+			threat: 14,
+			reload: 3.08
 		},
 		extraStats: {
 			tacticalReload: 2.05,
-			reload: 3.08,
 			equipDelays: [0.45, 0.6],
 			ammoPickup: [4.5, 8.25],
 			recoilHorizontal: [-1.5, 1.5],
@@ -1259,11 +1259,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 48,
 			stability: 68,
 			concealment: 15,
-			threat: 24
+			threat: 24,
+			reload: 4.2
 		},
 		extraStats: {
 			tacticalReload: 3.0,
-			reload: 4.2,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [4.5, 8.25],
 			recoilHorizontal: [-1.3, 1.3],
@@ -1313,11 +1313,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 60,
 			stability: 52,
 			concealment: 26,
-			threat: 12
+			threat: 12,
+			reload: 3.35
 		},
 		extraStats: {
 			tacticalReload: 2.35,
-			reload: 3.35,
 			equipDelays: [0.6, 0.65],
 			ammoPickup: [4.5, 8.25],
 			recoilHorizontal: [-1.02, 1.02],
@@ -1358,11 +1358,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 56,
 			stability: 32,
 			concealment: 17,
-			threat: 14
+			threat: 14,
+			reload: 3.73
 		},
 		extraStats: {
 			tacticalReload: 2.75,
-			reload: 3.73,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [2.7, 4.05],
 			recoilHorizontal: [-1.32, 1.32],
@@ -1433,11 +1433,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 72,
 			stability: 44,
 			concealment: 8,
-			threat: 22
+			threat: 22,
+			reload: 3.2
 		},
 		extraStats: {
 			tacticalReload: 2.55,
-			reload: 3.2,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [1.08, 2.4],
 			recoilHorizontal: [-1.9, 1.9],
@@ -1470,11 +1470,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 68,
 			stability: 44,
 			concealment: 10,
-			threat: 22
+			threat: 22,
+			reload: 3.28
 		},
 		extraStats: {
 			tacticalReload: 2.2,
-			reload: 3.28,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [3.0, 4.5],
 			recoilHorizontal: [-1.9, 1.9],
@@ -1524,11 +1524,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			accuracy: 68,
 			stability: 48,
 			concealment: 12,
-			threat: 26
+			threat: 26,
+			reload: 2.0
 		},
 		extraStats: {
 			tacticalReload: 1.4,
-			reload: 2.0,
 			equipDelays: [0.65, 0.6],
 			ammoPickup: [3.0, 4.5],
 			recoilHorizontal: [-1.8, 1.8],

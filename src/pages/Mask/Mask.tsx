@@ -1,4 +1,4 @@
-import { changeMask } from 'actions/characterAction'
+import { changeMask } from 'slices/characterSlice'
 import Container from 'components/Container'
 import HorizontalBar from 'components/HorizontalBar'
 import Info from 'components/Info'

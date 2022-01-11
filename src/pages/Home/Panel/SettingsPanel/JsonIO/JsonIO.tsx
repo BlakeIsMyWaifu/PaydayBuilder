@@ -1,18 +1,14 @@
-import { changePerkdeck } from 'actions/abilitiesAction'
-import { addWeapon } from 'actions/armouryAction'
-import { changeArmour, changeCharacter, changeEquipment, changeMask } from 'actions/characterAction'
-import { changeSkillState, resetSkills } from 'actions/skillsAction'
-import { changeMelee, changeThrowable, changeWeapon } from 'actions/weaponsAction'
 import { PerkDeckList } from 'data/abilities/perks'
 import skillsData, { TreeNames } from 'data/abilities/skills'
-import { Slot, Weapon } from 'data/weapons/guns/weaponTypes'
-import abilitiesDefaultState, { AbilitiesState } from 'defaultStates/abilitiesDefaultState'
-import { ArmouryState } from 'defaultStates/armouryDefaultState'
-import characterDefaultState, { CharacterState } from 'defaultStates/characterDefaultState'
-import { SkillsState } from 'defaultStates/skillsDefaultState'
-import weaponsDefaultState, { WeaponsState } from 'defaultStates/weaponsDefaultState'
+import { Weapon } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import React, { useRef } from 'react'
+import { AbilitiesState, abilitiesDefaultState } from 'slices/abilitiesSlice'
+import { changePerkDeck } from 'slices/abilitiesSlice'
+import { ArmouryState, addWeapon } from 'slices/armourySlice'
+import { CharacterState, changeArmour, changeCharacter, changeEquipment, changeMask, characterDefaultState } from 'slices/characterSlice'
+import { SkillsState, changeSkillState, resetSkills } from 'slices/skillsSlice'
+import { WeaponsState, changeMelee, changeThrowable, changeWeapon, weaponsDefaultState } from 'slices/weaponsSlice'
 import findWeapon from 'utils/findWeapon'
 import { validateAbilities, validateArmoury, validateCharacter, validateSchema, validateSkills, validateWeapons } from 'utils/validateData'
 
@@ -100,13 +96,12 @@ const JsonIO: React.FC<JsonIOProps> = ({ setToggleSettings }) => {
 		if (!validateSchema(data)) return console.error('invalid import schema')
 
 		const validAbilities = validateAbilities(data.abilities || {})
-		dispatch(changePerkdeck(validAbilities.perkdeck))
+		dispatch(changePerkDeck(validAbilities.perkdeck))
 
 		const validArmoury = validateArmoury(data.armoury || {})
-		Object.entries(validArmoury).forEach(([slot, weapons]: [string, Record<number, Weapon>]) => {
+		Object.values(validArmoury).forEach(weapons => {
 			Object.values(weapons).forEach(weapon => {
 				dispatch(addWeapon({
-					slot: (slot as Slot),
 					weapon: findWeapon(weapon.weaponFind),
 					mods: weapon.modifications
 				}))

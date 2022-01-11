@@ -1,4 +1,4 @@
-import { Subtrees } from 'defaultStates/skillsDefaultState'
+import { Subtrees } from 'slices/skillsSlice'
 
 const SkillTreePoints = (tree: string, trees: Record<string, Subtrees>): number => {
 	let treePoints = 0

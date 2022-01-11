@@ -13,6 +13,8 @@ import { useAppSelector } from 'hooks/reduxHooks'
 import { getCollectionList } from 'pages/Mask/Mask'
 import findWeapon from 'utils/findWeapon'
 
+import { charString } from './useBuildURLImport'
+
 interface UseBuildURLExportProps {
 	simple: boolean;
 }
@@ -20,8 +22,6 @@ interface UseBuildURLExportProps {
 const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 
 	const state = useAppSelector(state => state)
-
-	const charString = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,@'
 
 	const encodeNumber = (index: number): string => {
 		if (index <= charString.length) return charString[index]
@@ -163,8 +163,10 @@ const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 	}
 
 	const encodeWeapons = (): string => {
-		const primaryValue = encodeNumber(state.weapons.primary)
-		const secondaryValue = encodeNumber(state.weapons.secondary)
+		const primaryIndex = Object.keys(state.armoury.primary).findIndex(value => +value === state.weapons.primary)
+		const primaryValue = encodeNumber(primaryIndex)
+		const secondaryIndex = Object.keys(state.armoury.secondary).findIndex(value => +value === state.weapons.secondary)
+		const secondaryValue = encodeNumber(secondaryIndex)
 		return `${primaryValue}-${secondaryValue}`
 	}
 

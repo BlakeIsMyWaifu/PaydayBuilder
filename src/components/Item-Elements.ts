@@ -11,7 +11,7 @@ export const ItemContainer = styled.div`
 	${corner};
 `
 
-interface ItemProps {
+export interface ItemProps {
 	width: number;
 	rowAmount: number;
 	selected: boolean;
@@ -42,10 +42,12 @@ export const ItemName = styled.h2<ItemNameProps>`
 	position: absolute;
 	top: 5px;
 	right: 8px;
+	width: 60%;
 	font-size: 0.8rem;
 	color: ${props => props.colour};
 	z-index: 5;
 	white-space: pre-line;
+	direction: rtl;
 `
 
 interface ItemImageProps {

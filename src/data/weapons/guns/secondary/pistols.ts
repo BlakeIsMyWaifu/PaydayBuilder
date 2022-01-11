@@ -100,11 +100,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 68,
 			stability: 60,
 			concealment: 29,
-			threat: 9
+			threat: 9,
+			reload: 2.2
 		},
 		extraStats: {
 			tacticalReload: 1.47,
-			reload: 2.2,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.27, 3.19],
 			recoilHorizontal: [-0.75, 0.75],
@@ -148,11 +148,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 52,
 			stability: 68,
 			concealment: 30,
-			threat: 8
+			threat: 8,
+			reload: 2.12
 		},
 		extraStats: {
 			tacticalReload: 1.47,
-			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.83, 5.36],
 			recoilHorizontal: [-0.65, 0.65],
@@ -191,11 +191,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 44,
 			stability: 68,
 			concealment: 30,
-			threat: 4
+			threat: 4,
+			reload: 2.12
 		},
 		extraStats: {
 			tacticalReload: 1.55,
-			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.85, 5.39],
 			recoilHorizontal: [-0.65, 0.65],
@@ -236,11 +236,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 68,
 			stability: 60,
 			concealment: 29,
-			threat: 9
+			threat: 9,
+			reload: 2.12
 		},
 		extraStats: {
 			tacticalReload: 1.47,
-			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.1, 2.94],
 			recoilHorizontal: [-0.75, 0.75],
@@ -286,11 +286,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 68,
 			stability: 60,
 			concealment: 29,
-			threat: 10
+			threat: 10,
+			reload: 2.12
 		},
 		extraStats: {
 			tacticalReload: 1.47,
-			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.25, 3.15],
 			recoilHorizontal: [-0.75, 0.75],
@@ -342,11 +342,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 56,
 			stability: 68,
 			concealment: 30,
-			threat: 6
+			threat: 6,
+			reload: 2.12
 		},
 		extraStats: {
 			tacticalReload: 1.47,
-			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.85, 5.93],
 			recoilHorizontal: [-0.65, 0.65],
@@ -401,11 +401,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 76,
 			stability: 12,
 			concealment: 26,
-			threat: 24
+			threat: 24,
+			reload: 2.25
 		},
 		extraStats: {
 			tacticalReload: 2.25,
-			reload: 2.25,
 			equipDelays: [0.45, 0.5],
 			ammoPickup: [1.35, 1.89],
 			recoilHorizontal: [-1.35, 1.35],
@@ -478,11 +478,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 64,
 			stability: 40,
 			concealment: 28,
-			threat: 9
+			threat: 9,
+			reload: 2.12
 		},
 		extraStats: {
 			tacticalReload: 1.47,
-			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.5, 2.1],
 			recoilHorizontal: [-0.8, 0.8],
@@ -521,11 +521,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 68,
 			stability: 40,
 			concealment: 29,
-			threat: 9
+			threat: 9,
+			reload: 2.12
 		},
 		extraStats: {
 			tacticalReload: 1.47,
-			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.5, 2.1],
 			recoilHorizontal: [-1.0, 1.0],
@@ -563,11 +563,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 68,
 			stability: 40,
 			concealment: 29,
-			threat: 9
+			threat: 9,
+			reload: 2.12
 		},
 		extraStats: {
 			tacticalReload: 1.47,
-			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.5, 2.1],
 			recoilHorizontal: [-1.0, 1.0],
@@ -609,11 +609,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 44,
 			stability: 56,
 			concealment: 30,
-			threat: 9
+			threat: 9,
+			reload: 2.15
 		},
 		extraStats: {
 			tacticalReload: 1.5,
-			reload: 2.15,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.9, 5.46],
 			recoilHorizontal: [-0.8, 0.8],
@@ -650,11 +650,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 68,
 			stability: 60,
 			concealment: 29,
-			threat: 9
+			threat: 9,
+			reload: 2.2
 		},
 		extraStats: {
 			tacticalReload: 1.47,
-			reload: 2.2,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.4, 3.36],
 			recoilHorizontal: [-0.75, 0.75],
@@ -701,11 +701,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 80,
 			stability: 68,
 			concealment: 28,
-			threat: 10
+			threat: 10,
+			reload: 4.17
 		},
 		extraStats: {
 			tacticalReload: 4.0,
-			reload: 4.17,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.25, 3.15],
 			recoilHorizontal: [-0.65, 0.65],
@@ -752,11 +752,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 76,
 			stability: 32,
 			concealment: 29,
-			threat: 9
+			threat: 9,
+			reload: 2.1
 		},
 		extraStats: {
 			tacticalReload: 1.33,
-			reload: 2.1,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.4, 1.96],
 			recoilHorizontal: [-1.1, 1.1],
@@ -793,11 +793,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 48,
 			stability: 44,
 			concealment: 29,
-			threat: 9
+			threat: 9,
+			reload: 2.15
 		},
 		extraStats: {
 			tacticalReload: 1.5,
-			reload: 2.15,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [0.23, 0.67],
 			recoilHorizontal: [-0.95, 0.95],
@@ -835,11 +835,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 76,
 			stability: 12,
 			concealment: 28,
-			threat: 24
+			threat: 24,
+			reload: 2.97
 		},
 		extraStats: {
 			tacticalReload: 2.97,
-			reload: 2.97,
 			equipDelays: [0.45, 0.5],
 			ammoPickup: [1.35, 1.89],
 			recoilHorizontal: [-1.35, 1.35],
@@ -875,11 +875,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 68,
 			stability: 68,
 			concealment: 29,
-			threat: 9
+			threat: 9,
+			reload: 2.32
 		},
 		extraStats: {
 			tacticalReload: 1.52,
-			reload: 2.32,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.25, 3.15],
 			recoilHorizontal: [-0.65, 0.65],
@@ -920,11 +920,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 76,
 			stability: 36,
 			concealment: 26,
-			threat: 22
+			threat: 22,
+			reload: 2.47
 		},
 		extraStats: {
 			tacticalReload: 2.47,
-			reload: 2.47,
 			equipDelays: [0.45, 0.5],
 			ammoPickup: [1.65, 2.31],
 			recoilHorizontal: [-0.63, 0.63],
@@ -960,11 +960,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 52,
 			stability: 68,
 			concealment: 30,
-			threat: 4
+			threat: 4,
+			reload: 2.12
 		},
 		extraStats: {
 			tacticalReload: 1.47,
-			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.75, 5.25],
 			recoilHorizontal: [-0.65, 0.65],
@@ -1010,11 +1010,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 64,
 			stability: 68,
 			concealment: 30,
-			threat: 8
+			threat: 8,
+			reload: 2.12
 		},
 		extraStats: {
 			tacticalReload: 1.47,
-			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.83, 5.36],
 			recoilHorizontal: [0.65, 0.65],
@@ -1056,11 +1056,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 68,
 			stability: 60,
 			concealment: 29,
-			threat: 9
+			threat: 9,
+			reload: 2.12
 		},
 		extraStats: {
 			tacticalReload: 1.47,
-			reload: 2.12,
 			equipDelays: [0.5, 0.5],
 			ammoPickup: [2.38, 3.33],
 			recoilHorizontal: [-0.75, 0.75],
@@ -1099,11 +1099,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 52,
 			stability: 64,
 			concealment: 29,
-			threat: 10
+			threat: 10,
+			reload: 2.12
 		},
 		extraStats: {
 			tacticalReload: 1.47,
-			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.6, 5.6],
 			recoilHorizontal: [0.42, 0.42],
@@ -1150,11 +1150,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 40,
 			stability: 72,
 			concealment: 28,
-			threat: 10
+			threat: 10,
+			reload: 2.12
 		},
 		extraStats: {
 			tacticalReload: 1.47,
-			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.95, 6.83],
 			recoilHorizontal: [-0.24, 0.24],
@@ -1199,11 +1199,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 60,
 			stability: 68,
 			concealment: 26,
-			threat: 10
+			threat: 10,
+			reload: 2.12
 		},
 		extraStats: {
 			tacticalReload: 1.47,
-			reload: 2.12,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.5, 5.25],
 			recoilHorizontal: [-0.65, 0.39],
@@ -1241,11 +1241,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 56,
 			stability: 36,
 			concealment: 25,
-			threat: 8
+			threat: 8,
+			reload: 2.7
 		},
 		extraStats: {
 			tacticalReload: 2.0,
-			reload: 2.7,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [0.8, 2.8],
 			recoilHorizontal: [-0.63, 0.63],
@@ -1290,11 +1290,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 60,
 			stability: 76,
 			concealment: 28,
-			threat: 9
+			threat: 9,
+			reload: 2.15
 		},
 		extraStats: {
 			tacticalReload: 1.5,
-			reload: 2.15,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.25, 3.15],
 			recoilHorizontal: [-0.55, 0.55],
@@ -1333,11 +1333,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 84,
 			stability: 20,
 			concealment: 26,
-			threat: 28
+			threat: 28,
+			reload: 7.09
 		},
 		extraStats: {
 			tacticalReload: [3.76, 0.67],
-			reload: 7.09,
 			equipDelays: [0.65, 0.65],
 			ammoPickup: [1.35, 1.89],
 			recoilHorizontal: [-1.25, 1.25],
@@ -1376,11 +1376,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 84,
 			stability: 20,
 			concealment: 20,
-			threat: 24
+			threat: 24,
+			reload: 3.6
 		},
 		extraStats: {
 			tacticalReload: 3.6,
-			reload: 3.6,
 			equipDelays: [0.45, 0.5],
 			ammoPickup: [1.35, 1.89],
 			recoilHorizontal: [-1.25, 1.25],
@@ -1418,11 +1418,11 @@ const pistols: Record<PistolList, WeaponData> = {
 			accuracy: 76,
 			stability: 36,
 			concealment: 28,
-			threat: 24
+			threat: 24,
+			reload: 3.1
 		},
 		extraStats: {
 			tacticalReload: 1.85,
-			reload: 3.1,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.5, 2.1],
 			recoilHorizontal: [-1.05, 1.05],

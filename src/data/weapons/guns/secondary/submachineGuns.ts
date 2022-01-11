@@ -114,11 +114,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 68,
 			stability: 52,
 			concealment: 24,
-			threat: 10
+			threat: 10,
+			reload: 3.39
 		},
 		extraStats: {
 			tacticalReload: 2.48,
-			reload: 3.39,
 			equipDelays: [0.6, 0.5],
 			ammoPickup: [0.8, 2.8],
 			recoilHorizontal: [-1.7, 1.7],
@@ -167,11 +167,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 64,
 			stability: 76,
 			concealment: 23,
-			threat: 8
+			threat: 8,
+			reload: 2.13
 		},
 		extraStats: {
 			tacticalReload: 1.7,
-			reload: 2.13,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [4.8, 8.8],
 			recoilHorizontal: [-1.1, 1.1],
@@ -213,11 +213,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 48,
 			stability: 72,
 			concealment: 27,
-			threat: 10
+			threat: 10,
+			reload: 2.35
 		},
 		extraStats: {
 			tacticalReload: 1.74,
-			reload: 2.35,
 			equipDelays: [0.5, 0.5],
 			ammoPickup: [4.8, 8.8],
 			recoilHorizontal: [-0.6, 0.6],
@@ -267,11 +267,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 72,
 			stability: 76,
 			concealment: 18,
-			threat: 10
+			threat: 10,
+			reload: 3.04
 		},
 		extraStats: {
 			tacticalReload: 1.74,
-			reload: 3.04,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [0.9, 3.15],
 			recoilHorizontal: [-1.1, 1.1],
@@ -316,11 +316,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 64,
 			stability: 76,
 			concealment: 23,
-			threat: 14
+			threat: 14,
+			reload: 2.68
 		},
 		extraStats: {
 			tacticalReload: 1.78,
-			reload: 2.68,
 			equipDelays: [0.45, 0.6],
 			ammoPickup: [4.5, 8.25],
 			recoilHorizontal: [-0.55, 0.55],
@@ -369,11 +369,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 52,
 			stability: 76,
 			concealment: 25,
-			threat: 10
+			threat: 10,
+			reload: 3.78
 		},
 		extraStats: {
 			tacticalReload: 1.78,
-			reload: 3.78,
 			equipDelays: [0.5, 0.55],
 			ammoPickup: [4.8, 8.8],
 			recoilHorizontal: [-1.1, 1.1],
@@ -421,11 +421,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 44,
 			stability: 88,
 			concealment: 24,
-			threat: 6
+			threat: 6,
+			reload: 3.13
 		},
 		extraStats: {
 			tacticalReload: 2.09,
-			reload: 3.13,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [6.3, 11.55],
 			recoilHorizontal: [-0.8, 0.8],
@@ -472,11 +472,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 48,
 			stability: 76,
 			concealment: 18,
-			threat: 12
+			threat: 12,
+			reload: 3.91
 		},
 		extraStats: {
 			tacticalReload: 3.04,
-			reload: 3.91,
 			equipDelays: [0.75, 0.6],
 			ammoPickup: [4.5, 8.25],
 			recoilHorizontal: [-1.32, 1.32],
@@ -522,11 +522,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 28,
 			stability: 64,
 			concealment: 26,
-			threat: 10
+			threat: 10,
+			reload: 2.26
 		},
 		extraStats: {
 			tacticalReload: 1.61,
-			reload: 2.26,
 			equipDelays: [0.5, 0.7],
 			ammoPickup: [5.25, 9.63],
 			recoilHorizontal: [-1.68, 1.68],
@@ -555,11 +555,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 28,
 			stability: 76,
 			concealment: 28,
-			threat: 6
+			threat: 6,
+			reload: 2.39
 		},
 		extraStats: {
 			tacticalReload: 1.74,
-			reload: 2.39,
 			equipDelays: [0.5, 0.7],
 			ammoPickup: [6.6, 12.1],
 			recoilHorizontal: [-1.1, 1.1],
@@ -606,11 +606,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 28,
 			stability: 84,
 			concealment: 26,
-			threat: 8
+			threat: 8,
+			reload: 2.16
 		},
 		extraStats: {
 			tacticalReload: 1.31,
-			reload: 2.16,
 			equipDelays: [0.4, 0.5],
 			ammoPickup: [6.3, 11.55],
 			recoilHorizontal: [-0.9, 0.9],
@@ -652,11 +652,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 44,
 			stability: 72,
 			concealment: 24,
-			threat: 14
+			threat: 14,
+			reload: 2.81
 		},
 		extraStats: {
 			tacticalReload: 1.88,
-			reload: 2.81,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [4.5, 8.25],
 			recoilHorizontal: [-1.2, 1.2],
@@ -728,11 +728,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 28,
 			stability: 84,
 			concealment: 29,
-			threat: 10
+			threat: 10,
+			reload: 2.26
 		},
 		extraStats: {
 			tacticalReload: 1.61,
-			reload: 2.26,
 			equipDelays: [0.5, 0.7],
 			ammoPickup: [6.72, 12.32],
 			recoilHorizontal: [-1.08, 1.08],
@@ -776,11 +776,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 44,
 			stability: 52,
 			concealment: 24,
-			threat: 10
+			threat: 10,
+			reload: 2.48
 		},
 		extraStats: {
 			tacticalReload: 1.83,
-			reload: 2.48,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [6.0, 11.0],
 			recoilHorizontal: [-1.7, 1.7],
@@ -826,11 +826,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 60,
 			stability: 60,
 			concealment: 24,
-			threat: 10
+			threat: 10,
+			reload: 3.15
 		},
 		extraStats: {
 			tacticalReload: 2.05,
-			reload: 3.15,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [0.9, 3.15],
 			recoilHorizontal: [-1.5, 1.5],
@@ -880,11 +880,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 68,
 			stability: 52,
 			concealment: 24,
-			threat: 10
+			threat: 10,
+			reload: 2.65
 		},
 		extraStats: {
 			tacticalReload: 1.65,
-			reload: 2.65,
 			equipDelays: [0.6, 0.5],
 			ammoPickup: [0.8, 2.8],
 			recoilHorizontal: [-1.7, 1.7],
@@ -919,11 +919,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 52,
 			stability: 60,
 			concealment: 28,
-			threat: 10
+			threat: 10,
+			reload: 3.48
 		},
 		extraStats: {
 			tacticalReload: 1.8,
-			reload: 3.48,
 			equipDelays: [0.5, 0.55],
 			ammoPickup: [4.8, 8.8],
 			recoilHorizontal: [-0.75, 0.75],
@@ -965,11 +965,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 60,
 			stability: 52,
 			concealment: 21,
-			threat: 22
+			threat: 22,
+			reload: 3.39
 		},
 		extraStats: {
 			tacticalReload: 1.87,
-			reload: 3.39,
 			equipDelays: [0.6, 0.55],
 			ammoPickup: [0.9, 3.15],
 			recoilHorizontal: [-1.7, 1.7],
@@ -1034,11 +1034,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 28,
 			stability: 84,
 			concealment: 27,
-			threat: 12
+			threat: 12,
+			reload: 2.85
 		},
 		extraStats: {
 			tacticalReload: 2.01,
-			reload: 2.85,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [6.6, 12.1],
 			recoilHorizontal: [-0.9, 0.9],
@@ -1081,11 +1081,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 52,
 			stability: 68,
 			concealment: 25,
-			threat: 12
+			threat: 12,
+			reload: 2.96
 		},
 		extraStats: {
 			tacticalReload: 2.22,
-			reload: 2.96,
 			equipDelays: [0.65, 0.68],
 			ammoPickup: [4.5, 8.25],
 			recoilHorizontal: [-1.3, 1.3],
@@ -1129,11 +1129,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 52,
 			stability: 84,
 			concealment: 20,
-			threat: 10
+			threat: 10,
+			reload: 2.17
 		},
 		extraStats: {
 			tacticalReload: 1.74,
-			reload: 2.17,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [4.5, 8.25],
 			recoilHorizontal: [-0.9, 0.9],
@@ -1178,11 +1178,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 52,
 			stability: 60,
 			concealment: 24,
-			threat: 10
+			threat: 10,
+			reload: 3.7
 		},
 		extraStats: {
 			tacticalReload: 2.83,
-			reload: 3.7,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [1.28, 4.48],
 			recoilHorizontal: [-1.5, 1.5],
@@ -1224,11 +1224,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 52,
 			stability: 84,
 			concealment: 20,
-			threat: 12
+			threat: 12,
+			reload: 2.87
 		},
 		extraStats: {
 			tacticalReload: 2.0,
-			reload: 2.87,
 			equipDelays: [0.65, 0.55],
 			ammoPickup: [2.88, 5.28],
 			recoilHorizontal: [-0.9, 0.9],
@@ -1276,11 +1276,11 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			accuracy: 52,
 			stability: 76,
 			concealment: 24,
-			threat: 12
+			threat: 12,
+			reload: 3.06
 		},
 		extraStats: {
 			tacticalReload: 2.13,
-			reload: 3.06,
 			equipDelays: [0.6, 0.55],
 			ammoPickup: [6.0, 11.0],
 			recoilHorizontal: [-1.1, 1.1],

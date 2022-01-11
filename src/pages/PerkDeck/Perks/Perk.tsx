@@ -1,9 +1,9 @@
-import { changePerkdeck } from 'actions/abilitiesAction'
-import { changeThrowable } from 'actions/weaponsAction'
+import { changePerkDeck } from 'slices/abilitiesSlice'
 import perkDecks, { PerkCard, PerkData } from 'data/abilities/perks'
 import throwables from 'data/weapons/throwables'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import React from 'react'
+import { changeThrowable } from 'slices/weaponsSlice'
 
 import { Card, CardBackground, CardIcon, CardWrapper, Container, Title } from './Perk-Elements'
 
@@ -36,7 +36,7 @@ const Perk: React.FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selec
 				if (perk.throwable || equippedPerk.throwable) {
 					dispatch(changeThrowable(throwable.name))
 				}
-				dispatch(changePerkdeck(perk.name))
+				dispatch(changePerkDeck(perk.name))
 			}}>
 				{
 					perk.cards.map((card, i) => {

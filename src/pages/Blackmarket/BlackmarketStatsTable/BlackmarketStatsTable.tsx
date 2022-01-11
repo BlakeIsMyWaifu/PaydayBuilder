@@ -1,11 +1,13 @@
 import { Data, Head, Label, Row, Table } from 'components/Table/Table-Elements'
-import { AllWeaponStats, Modification, ModificationStats, WeaponData } from 'data/weapons/guns/weaponTypes'
+import statLimit from 'data/weapons/guns/statLimit'
+import { Modification, ModificationStats, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
 import React from 'react'
-import { green, red } from 'utils/colours'
+import { colourCompare, green, purple, red } from 'utils/colours'
+import { twoDP } from 'utils/maths'
 
 interface BlackmarketStatsTableProps {
 	weapon: WeaponData;
-	totalStats: AllWeaponStats;
+	totalStats: WeaponStats;
 	selectedItem: Modification<string>;
 	equippedMod?: Modification<string>;
 }
@@ -34,19 +36,24 @@ const BlackmarketStatsTable: React.FC<BlackmarketStatsTableProps> = ({ totalStat
 
 							const equipStat = equippedMod?.stats[label] || 0
 							const selectedStat = selectedItem.stats[label] || 0
-							const totalStat = stat + selectedStat - equipStat
+							const totalStat = twoDP(stat + selectedStat - equipStat)
 
-							const colourCompare = (one: number, two: number): string => {
-								if (one > two || one > 0) return green
-								if (one < two || one < 0) return red
-								return '#fff'
-							}
+							const limit = statLimit[label] ?? Infinity
+							const isLimit = totalStat >= limit
 
 							return <Row key={label}>
 								<Label>{label}</Label>
-								<Data colour={colourCompare(selectedStat, equipStat)}>{Math.round(totalStat * 10) / 10}</Data>
-								{isCompareMode && <Data colour={colourCompare(equipStat, selectedStat)}>{!!equipStat && (equipStat >= 0 ? `+${equipStat}` : equipStat)}</Data>}
-								<Data colour={selectedStat > 0 ? green : red}>{!!selectedStat && (selectedStat >= 0 ? `+${selectedStat}` : selectedStat)}</Data>
+								<Data colour={isLimit ? purple : colourCompare(selectedStat, equipStat)}>
+									{isLimit ? limit : (totalStat > 0 ? totalStat : 0)}
+								</Data>
+								{
+									isCompareMode && <Data colour={colourCompare(equipStat, selectedStat)}>
+										{!!equipStat && (equipStat >= 0 ? `+${equipStat}` : equipStat)}
+									</Data>
+								}
+								<Data colour={selectedStat > 0 ? green : red}>
+									{!!selectedStat && (selectedStat >= 0 ? `+${selectedStat}` : selectedStat)}
+								</Data>
 							</Row>
 						})
 					}

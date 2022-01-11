@@ -1,10 +1,10 @@
-import { changeCharacter } from 'actions/characterAction'
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/Info/Info-Elements'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
 import characters, { CharacterData } from 'data/character/characters'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import React, { useState } from 'react'
+import { changeCharacter } from 'slices/characterSlice'
 import { itemColours } from 'utils/colours'
 
 const Character: React.FC = () => {

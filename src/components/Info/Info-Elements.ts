@@ -13,6 +13,8 @@ export const InfoContainer = styled.div`
 
 export const InfoTitleWrapper = styled.span`
 	display: flex;
+	flex-direction: row;
+	align-items: center;
 	height: 2rem;
 `
 

@@ -65,11 +65,11 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			accuracy: 28,
 			stability: 8,
 			concealment: 1,
-			threat: 22
+			threat: 22,
+			reload: 4.56
 		},
 		extraStats: {
 			tacticalReload: 3.4,
-			reload: 4.56,
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [7.5, 10.5],
 			recoilHorizontal: [-2.8, 3.92],
@@ -126,11 +126,11 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			accuracy: 52,
 			stability: 28,
 			concealment: 1,
-			threat: 31
+			threat: 31,
+			reload: 6.5
 		},
 		extraStats: {
 			tacticalReload: 6.5,
-			reload: 6.5,
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [10.0, 12.0],
 			recoilHorizontal: [-2.3, 3.91],
@@ -170,11 +170,11 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			accuracy: 48,
 			stability: 20,
 			concealment: 1,
-			threat: 34
+			threat: 34,
+			reload: 6.25
 		},
 		extraStats: {
 			tacticalReload: 6.25,
-			reload: 6.25,
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [7.5, 10.5],
 			recoilHorizontal: [-2.5, 3.5],
@@ -203,11 +203,11 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			accuracy: 48,
 			stability: 28,
 			concealment: 1,
-			threat: 31
+			threat: 31,
+			reload: 5.62
 		},
 		extraStats: {
 			tacticalReload: 5.62,
-			reload: 5.62,
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [10.0, 12.0],
 			recoilHorizontal: [-2.3, 3.22],
@@ -256,11 +256,11 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			accuracy: 48,
 			stability: 28,
 			concealment: 1,
-			threat: 31
+			threat: 31,
+			reload: 6.5
 		},
 		extraStats: {
 			tacticalReload: 6.5,
-			reload: 6.5,
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [11.25, 13.5],
 			recoilHorizontal: [-2.3, 3.22],
@@ -298,11 +298,11 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			accuracy: 36,
 			stability: 8,
 			concealment: 1,
-			threat: 37
+			threat: 37,
+			reload: 6.7
 		},
 		extraStats: {
 			tacticalReload: 4.65,
-			reload: 6.7,
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [7.5, 10.5],
 			recoilHorizontal: [-1.68, 1.68],

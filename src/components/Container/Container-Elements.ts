@@ -23,6 +23,9 @@ export const Area = styled.div<ContainerProps>`
 export const Title = styled.h1`
 	grid-area: title;
 	font-size: 4rem;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 `
 
 export const BackWrapper = styled.div`

@@ -1,5 +1,0 @@
-export const ADDBUILD = 'builds/ADDBUILD'
-export const REMOVEBUILD = 'builds/REMOVEBUILD'
-export const UPDATENAME = 'builds/UPDATENAME'
-export const UPDATEDATA = 'builds/UPDATEDATA'
-export const CHANGEBUILD = 'builds/CHANGEBUILD'

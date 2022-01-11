@@ -7,6 +7,8 @@ interface ContainerProps {
 
 export const Container = styled.div<ContainerProps>`
 	grid-area: horizontalbar;
+	height: 100%;
+	width: 100%;
 	display: grid;
 	grid-template-rows: 1fr;
 	grid-template-columns: ${props => props.arrows ? '32px 1fr 32px' : '1fr'};

@@ -80,11 +80,11 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			accuracy: 96,
 			stability: 100,
 			concealment: 26,
-			threat: 10
+			threat: 10,
+			reload: 1.2
 		},
 		extraStats: {
 			tacticalReload: null,
-			reload: 1.2,
 			equipDelays: [0.5, 0.55],
 			ammoPickup: null,
 			recoilHorizontal: [-0.5, 0.5],
@@ -130,11 +130,11 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			accuracy: 84,
 			stability: 92,
 			concealment: 22,
-			threat: 37
+			threat: 37,
+			reload: 2.5
 		},
 		extraStats: {
 			tacticalReload: null,
-			reload: 2.5,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [0.05, 0.65],
 			recoilHorizontal: [-0.35, 0.35],
@@ -168,11 +168,11 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			accuracy: 96,
 			stability: 100,
 			concealment: 5,
-			threat: 37
+			threat: 37,
+			reload: 4.7
 		},
 		extraStats: {
 			tacticalReload: null,
-			reload: 4.7,
 			equipDelays: [0.85, 0.85],
 			ammoPickup: null,
 			recoilHorizontal: [-0.25, 0.25],
@@ -205,11 +205,11 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			accuracy: 96,
 			stability: 100,
 			concealment: 18,
-			threat: 37
+			threat: 37,
+			reload: 6.98
 		},
 		extraStats: {
 			tacticalReload: [4.32, 0.83],
-			reload: 6.98,
 			equipDelays: [1.0, 0.6],
 			ammoPickup: [0.05, 0.65],
 			recoilHorizontal: [-0.25, 0.25],
@@ -244,11 +244,11 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			accuracy: 96,
 			stability: 100,
 			concealment: 5,
-			threat: 37
+			threat: 37,
+			reload: 5.75
 		},
 		extraStats: {
 			tacticalReload: 6.0,
-			reload: 5.75,
 			equipDelays: [0.85, 0.85],
 			ammoPickup: null,
 			recoilHorizontal: [-0.25, 0.25],
@@ -277,11 +277,11 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			accuracy: 0,
 			stability: 8,
 			concealment: 15,
-			threat: 37
+			threat: 37,
+			reload: 8.5
 		},
 		extraStats: {
 			tacticalReload: 8.5,
-			reload: 8.5,
 			equipDelays: [0.85, 0.85],
 			ammoPickup: [3.5, 10.5],
 			recoilHorizontal: [0.0, 0.0],
@@ -318,11 +318,11 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			accuracy: 96,
 			stability: 100,
 			concealment: 18,
-			threat: 37
+			threat: 37,
+			reload: 4.5
 		},
 		extraStats: {
 			tacticalReload: 3.34,
-			reload: 4.5,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [0.05, 0.65],
 			recoilHorizontal: [-0.25, 0.25],
@@ -364,11 +364,11 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			accuracy: 8,
 			stability: 32,
 			concealment: 16,
-			threat: 24
+			threat: 24,
+			reload: 3.75
 		},
 		extraStats: {
 			tacticalReload: 3.75,
-			reload: 3.75,
 			equipDelays: [0.8, 0.8],
 			ammoPickup: null,
 			recoilHorizontal: [-2.2, 2.2],

@@ -1,32 +1,43 @@
-import { compose, createStore } from 'redux'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import abilitiesReducer from 'slices/abilitiesSlice'
+import armouryReducer from 'slices/armourySlice'
+import buildsReducer, { buildsDefaultState } from 'slices/buildsSlice'
+import characterReducer from 'slices/characterSlice'
+import settingsReducer from 'slices/settingsSlice'
+import skillsReducer from 'slices/skillsSlice'
+import weaponsReducer from 'slices/weaponsSlice'
 
-import allReducers from './reducers'
-
-const saveToLocalStorage = (state: any) => {
-	const serializedState = JSON.stringify(state)
-	localStorage.setItem('persistantState', serializedState)
+const saveToLocalStorage = (state: RootState): void => {
+	const serializedState = JSON.stringify(state.builds)
+	localStorage.setItem('builds', serializedState)
 }
 
-const loadFromLocalStorage = () => {
-	const serializedState = localStorage.getItem('persistantState')
-	return serializedState ? JSON.parse(serializedState) : undefined
+const loadFromLocalStorage = (): Partial<RootState> => {
+	const serializedState = localStorage.getItem('builds')
+	const partial: Partial<RootState> = {
+		builds: serializedState ? JSON.parse(serializedState) : buildsDefaultState
+	}
+	return partial
 }
 
-interface Global extends Window {
-	__REDUX_DEVTOOLS_EXTENSION__?: typeof compose;
-}
+const rootReducer = combineReducers({
+	abilities: abilitiesReducer,
+	armoury: armouryReducer,
+	builds: buildsReducer,
+	character: characterReducer,
+	settings: settingsReducer,
+	skills: skillsReducer,
+	weapons: weaponsReducer
+})
 
-const global: Global = window
-const store = createStore(
-	allReducers,
-	loadFromLocalStorage(),
-	global.__REDUX_DEVTOOLS_EXTENSION__ && global.__REDUX_DEVTOOLS_EXTENSION__()
-)
+export const store = configureStore({
+	reducer: rootReducer,
+	preloadedState: loadFromLocalStorage()
+})
 
 store.subscribe(() => saveToLocalStorage(store.getState()))
 
-export type RootState = ReturnType<typeof store.getState>
-
+export type RootState = ReturnType<typeof rootReducer>
 export type AppDispatch = typeof store.dispatch
 
 export default store
