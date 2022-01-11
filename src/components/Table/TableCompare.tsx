@@ -1,5 +1,7 @@
+import statLimit from 'data/weapons/guns/statLimit'
+import { ModificationStats } from 'data/weapons/guns/weaponTypes'
 import React from 'react'
-import { colourCompare } from 'utils/colours'
+import { colourCompare, purple } from 'utils/colours'
 import { oneDP } from 'utils/maths'
 
 import { Data, Head, Label, Row, Table } from './Table-Elements'
@@ -30,39 +32,49 @@ const TableCompare: React.FC<TableCompareProps> = ({ equippedStats, selectedStat
 						const main = equippedStats?.[stat]
 						const compare = selectedStats?.[stat]
 
-						const numMain = main + equippedAdditional?.[stat]
-						const numCompare = compare + selectedAdditional?.[stat]
+						const template = (innerData: React.ReactNode): JSX.Element => {
+							return <Row key={stat}>
+								<Label>{stat}</Label>
+								{innerData}
+							</Row>
+						}
 
-						const arrMain = main?.[0] + equippedAdditional[stat]?.[0]
-						const arrCompare = compare?.[0] + selectedAdditional[stat]?.[0]
+						switch (main.constructor.name) {
+							case 'Number': {
+								const numMain = main + equippedAdditional?.[stat]
+								const numCompare = compare + selectedAdditional?.[stat]
 
-						return <Row key={stat}>
-							<Label>{stat}</Label>
-							{
-								typeof main === 'number' && (
-									<>
-										<Data colour={colourCompare(numMain, numCompare)}>{oneDP(numMain)}</Data>
-										<Data colour={colourCompare(numCompare, numMain)}>{oneDP(numCompare)}</Data>
-									</>
-								)
+								const parseNum = (num: number): [boolean, number] => {
+									if (!Object.keys(statLimit).includes(stat)) return [false, oneDP(num)]
+									const limit = statLimit[(stat as keyof ModificationStats)] ?? Infinity
+									const isLimit = num >= limit
+									return isLimit ? [true, limit] : [false, oneDP(num)]
+								}
+
+								const [isLimitedMain, parsedMain] = parseNum(numMain)
+								const [isLimitedCompare, parsedCompare] = parseNum(numCompare)
+
+								return template(<>
+									<Data colour={isLimitedMain ? purple : colourCompare(numMain, numCompare)}>{parsedMain}</Data>
+									<Data colour={isLimitedCompare ? purple : colourCompare(numCompare, numMain)}>{parsedCompare}</Data>
+								</>)
 							}
-							{
-								Array.isArray(main) && (
-									<>
-										<Data colour={colourCompare(arrMain, arrCompare)}>{`${arrMain} (${main[1] + equippedAdditional[stat][1]})`}</Data>
-										<Data colour={colourCompare(arrCompare, arrMain)}>{`${arrCompare} (${compare[1] + selectedAdditional[stat][1]})`}</Data>
-									</>
-								)
+							case 'Array': {
+								const arrMain = main?.[0] + equippedAdditional[stat]?.[0]
+								const arrCompare = compare?.[0] + selectedAdditional[stat]?.[0]
+
+								return template(<>
+									<Data colour={colourCompare(arrMain, arrCompare)}>{`${arrMain} (${main[1] + equippedAdditional[stat][1]})`}</Data>
+									<Data colour={colourCompare(arrCompare, arrMain)}>{`${arrCompare} (${compare[1] + selectedAdditional[stat][1]})`}</Data>
+								</>)
 							}
-							{
-								(typeof main === 'string' || typeof compare === 'string') && (
-									<>
-										<Data>{main}</Data>
-										<Data>{compare}</Data>
-									</>
-								)
+							default: {
+								return template(<>
+									<Data>{main}</Data>
+									<Data>{compare}</Data>
+								</>)
 							}
-						</Row>
+						}
 					})
 				}
 			</tbody>

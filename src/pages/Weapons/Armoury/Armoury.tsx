@@ -7,7 +7,7 @@ import ModIcons from 'components/ModIcons'
 import { ResetContainer, ResetText } from 'components/Reset-Elements'
 import { Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
 import { addWeapon, removeWeapon, resetArmoury } from 'slices/armourySlice'
 import { changeWeapon } from 'slices/weaponsSlice'
@@ -26,18 +26,18 @@ interface ArmouryProps {
 	buildTabs: BuildTab[];
 	setBuildTabs: React.Dispatch<React.SetStateAction<BuildTab[]>>;
 	activeTabId: number;
-	setActiveTabId: React.Dispatch<React.SetStateAction<number>>;
+	changeActiveTab: (tabId: number) => void;
+	selectedWeaponId: number;
+	setSelectedWeaponId: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Armoury: React.FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, setBuildTabs, activeTabId, setActiveTabId }) => {
+const Armoury: React.FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, setBuildTabs, activeTabId, changeActiveTab, selectedWeaponId, setSelectedWeaponId }) => {
 
 	const dispatch = useAppDispatch()
 
 	const armoury = useAppSelector(state => state.armoury[slot])
 	const equippedWeaponId = useAppSelector(state => state.weapons[slot])
 	const leftFacing = useAppSelector(state => state.settings.leftFacing)
-
-	const [selectedWeaponId, setSelectedWeaponId] = useState<number>(armoury[equippedWeaponId].id)
 
 	const { current: activeBuildId, builds } = useAppSelector(state => state.builds)
 	const activeBuildName = builds[activeBuildId].name || 'New Build'
@@ -50,10 +50,6 @@ const Armoury: React.FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, 
 	const isActiveBuild = activeBuildId === activeTabId
 	const weaponsData = isActiveBuild ? Object.values(armoury) : getBuildWeapons(activeTabId)
 
-	useEffect(() => {
-		setSelectedWeaponId(1)
-	}, [activeTabId])
-
 	return (
 		<Container
 			columns='3fr 1.5fr'
@@ -64,14 +60,12 @@ const Armoury: React.FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, 
 
 			<ArmouryBar>
 				<ActiveBuildTab colour={isActiveBuild ? '#fff' : blue} onClick={() => {
-					// setSelectedWeaponId(1)
-					setActiveTabId(activeBuildId)
+					changeActiveTab(activeBuildId)
 				}}>{activeBuildName}</ActiveBuildTab>
 				<HorizontalBar active={activeTabId} items={buildTabs.filter(build => build.active).map(build => ({
 					label: build.name,
 					callback: () => {
-						// setSelectedWeaponId(1)
-						setActiveTabId(build.id)
+						changeActiveTab(build.id)
 					},
 					id: build.id
 				}))} />
@@ -127,7 +121,7 @@ const Armoury: React.FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, 
 			<ResetContainer>
 				<ResetText onClick={() => {
 					setEnableBuy(true)
-					setActiveTabId(activeBuildId)
+					changeActiveTab(activeBuildId)
 					dispatch(changeWeapon({ slot, weapon: 0 }))
 					dispatch(resetArmoury(slot))
 				}}>Delete All Weapons</ResetText>
@@ -142,7 +136,7 @@ const Armoury: React.FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, 
 					data={data}
 					buildTabs={buildTabs}
 					setBuildTabs={setBuildTabs}
-					setActiveTabId={setActiveTabId}
+					changeActiveTab={changeActiveTab}
 				/>
 			}} />
 
@@ -197,7 +191,7 @@ const Armoury: React.FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, 
 								weapon: nextNum
 							}))
 							setSelectedWeaponId(Object.keys(armoury).length)
-							setActiveTabId(activeBuildId)
+							changeActiveTab(activeBuildId)
 						}}>Duplicate Weapon</WeaponActionText>
 					</WeaponActionsContainer>
 				}

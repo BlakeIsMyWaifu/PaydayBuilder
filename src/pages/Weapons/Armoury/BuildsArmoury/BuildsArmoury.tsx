@@ -17,10 +17,10 @@ interface BuildsArmouryProps {
 	data: Record<string, Record<string, WeaponData>>;
 	buildTabs: BuildTab[];
 	setBuildTabs: React.Dispatch<React.SetStateAction<BuildTab[]>>;
-	setActiveTabId: React.Dispatch<React.SetStateAction<number>>;
+	changeActiveTab: (tabId: number) => void
 }
 
-const BuildsArmoury: React.FC<BuildsArmouryProps> = ({ data, buildTabs, setBuildTabs, setActiveTabId }) => {
+const BuildsArmoury: React.FC<BuildsArmouryProps> = ({ data, buildTabs, setBuildTabs, changeActiveTab }) => {
 
 	const activeBuildId = useAppSelector(state => state.builds.current)
 
@@ -47,7 +47,7 @@ const BuildsArmoury: React.FC<BuildsArmouryProps> = ({ data, buildTabs, setBuild
 		}
 
 		setBuildTabs(tabs)
-		setActiveTabId(build.id)
+		changeActiveTab(build.id)
 	}
 
 	const setInactive = (build: BuildTab) => (): void => {
@@ -55,7 +55,7 @@ const BuildsArmoury: React.FC<BuildsArmouryProps> = ({ data, buildTabs, setBuild
 		const index = tabs.findIndex(value => value.id === build.id)
 		tabs[index].active = false
 		setBuildTabs(tabs)
-		setActiveTabId(activeBuildId)
+		changeActiveTab(activeBuildId)
 	}
 
 	return (

@@ -1,6 +1,8 @@
+import statLimit from 'data/weapons/guns/statLimit'
 import { ModificationStats } from 'data/weapons/guns/weaponTypes'
 import React from 'react'
-import { blue, colourCompare, sycamore } from 'utils/colours'
+import { blue, colourCompare, purple, sycamore } from 'utils/colours'
+import { oneDP } from 'utils/maths'
 
 import { Data, Head, Label, Row, Table } from './Table-Elements'
 
@@ -31,39 +33,60 @@ const TableEquipped: React.FC<TableEquippedProps> = ({ baseStats, additionalStat
 				{
 					Object.entries(baseStats).map(([stat, baseValue]) => {
 						const skillValue = additionalStats.skill[stat]
-						const modValue: number = additionalStats.mod?.[(stat as keyof ModificationStats)] || 0
-						return <Row key={stat}>
+						const modValue: number = additionalStats.mod?.[(stat as keyof ModificationStats)] ?? 0
+
+						const template = (innerData: React.ReactNode): JSX.Element => <Row key={stat}>
 							<Label>{stat}</Label>
-							{
-								typeof baseValue === 'number' && (
-									<>
-										<Data colour={colourCompare(baseValue + skillValue + modValue, baseValue)}>{Math.round((baseValue + skillValue + modValue) * 10) / 10}</Data>
-										<Data>{baseValue}</Data>
-										{additionalStats.mod && (modValue ? (<Data colour={sycamore}>{modValue > 0 ? `+${modValue}` : modValue}</Data>) : <Data />)}
-										{skillValue ? <Data colour={blue}>{skillValue > 0 ? `+${skillValue}` : skillValue}</Data> : <Data />}
-									</>
-								)
-							}
-							{
-								Array.isArray(baseValue) && (
-									<>
-										<Data colour={colourCompare(baseValue[0] + skillValue[0], baseValue[0])}>{`${baseValue[0] + skillValue[0]} (${baseValue[1] + skillValue[1]})`}</Data>
-										<Data>{`${baseValue[0]} (${baseValue[1]})`}</Data>
-										{isArrayZeros(skillValue) ? <Data colour={blue}>{skillValue[0] > 0 ? '+' : ''}{`${skillValue[0]} (${skillValue[1]})`}</Data> : <Data />}
-									</>
-								)
-							}
-							{
-								typeof baseValue === 'string' && (
-									<>
-										<Data>{baseValue}</Data>
-										<Data />
-										<Data />
-										{additionalStats.mod && <Data />}
-									</>
-								)
-							}
+							{innerData}
 						</Row>
+
+						switch (baseValue.constructor.name) {
+							case 'Number': {
+								let colour = colourCompare(baseValue + skillValue + modValue, baseValue)
+								let totalValue = oneDP(baseValue + skillValue + modValue)
+
+								if (Object.keys(statLimit).includes(stat)) {
+									const limit = statLimit[(stat as keyof ModificationStats)] ?? Infinity
+									const isLimit = totalValue >= limit
+									if (isLimit) {
+										totalValue = limit
+										colour = purple
+									}
+								}
+
+								const modTotalValue = modValue > 0 ? `+${modValue}` : modValue
+								const skillTotalValue = skillValue > 0 ? `+${skillValue}` : skillValue
+
+								return template(<>
+									<Data colour={colour}>{totalValue}</Data>
+									<Data>{baseValue}</Data>
+									{additionalStats.mod && (modValue ? (<Data colour={sycamore}>{modTotalValue}</Data>) : <Data />)}
+									{skillValue ? <Data colour={blue}>{skillTotalValue}</Data> : <Data />}
+								</>)
+							}
+							case 'String': {
+								return template(<>
+									<Data>{baseValue}</Data>
+									<Data />
+									<Data />
+									{additionalStats.mod && <Data />}
+								</>)
+							}
+							case 'Array': {
+								const colour = colourCompare(baseValue[0] + skillValue[0], baseValue[0])
+								const totalValue = `${baseValue[0] + skillValue[0]} (${baseValue[1] + skillValue[1]})`
+								const skillTotalValue = `${skillValue[0] > 0 ? '+' : ''}${skillValue[0]} (${skillValue[1]})`
+
+								return template(<>
+									<Data colour={colour}>{totalValue}</Data>
+									<Data>{`${baseValue[0]} (${baseValue[1]})`}</Data>
+									{isArrayZeros(skillValue) ? <Data colour={blue}>{skillTotalValue}</Data> : <Data />}
+								</>)
+							}
+							default: {
+								return template(<></>)
+							}
+						}
 					})
 				}
 			</tbody>

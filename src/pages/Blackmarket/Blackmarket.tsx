@@ -67,7 +67,6 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 	const validModtype = Object.keys(weapon.modifications).includes(modtype) ? modtype : Object.keys(weapon.modifications)[0]
 
 	const [selectedTab, setSelectedTab] = useState<ModificationSlot>(validModtype as ModificationSlot)
-
 	const [selectedItem, setSelectedItem] = useState<Modification<string>>(equippedModifications[selectedTab] || weapon.modifications[selectedTab]?.[0] || weapon.modifications.boost[0])
 
 	const equidModHelper = (): void => {
@@ -110,13 +109,13 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 						return <Item
 							key={mod.name}
 							width={192}
-							rowAmount={5}
+							rowAmount={4}
 							selected={selectedItem.name === mod.name}
 							onClick={() => selectedItem.name === mod.name ? equidModHelper() : setSelectedItem(mod)}
 						>
 							{mod.name === equippedModifications[mod.slot]?.name && <ItemEquipped />}
 							<ItemName colour={itemColours[mod.source.rarity]}>{fixItemName(mod.name)}</ItemName>
-							<ItemImage src={`/images/modifications/${mod.slot.replaceAll(' ', '')}/${mod.image}.webp`} />
+							<ItemImage src={`/images/modifications/${mod.slot.replaceAll(' ', '')}/${mod.image}.webp`} onMouseDown={event => event.preventDefault()} />
 						</Item>
 					})
 				}
@@ -127,7 +126,7 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 					<ModWrapper>
 						<ModIcon src={`/images/modifications/icons/${selectedItem.icon}.png`} equipped={true} />
 					</ModWrapper>
-					<InfoTitle fontSize='2vw'>{fixItemName(selectedItem.name)}</InfoTitle>
+					<InfoTitle>{fixItemName(selectedItem.name)}</InfoTitle>
 				</InfoTitleWrapper>
 				<BlackmarketStatsTable
 					weapon={weapon}

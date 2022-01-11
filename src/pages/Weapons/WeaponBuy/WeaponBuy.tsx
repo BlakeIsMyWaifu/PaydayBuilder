@@ -15,9 +15,10 @@ interface WeaponBuyProps {
 	slot: Slot;
 	data: Record<string, Record<string, WeaponData>>;
 	setEnableBuy: React.Dispatch<React.SetStateAction<boolean>>;
+	setSelectedWeaponId: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const WeaponBuy: React.FC<WeaponBuyProps> = ({ slot, data, setEnableBuy }) => {
+const WeaponBuy: React.FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWeaponId }) => {
 
 	const dispatch = useAppDispatch()
 
@@ -35,6 +36,7 @@ const WeaponBuy: React.FC<WeaponBuyProps> = ({ slot, data, setEnableBuy }) => {
 		}))
 		const id = +Object.keys(armoury)[Object.keys(armoury).length - 1] + 1
 		dispatch(changeWeapon({ slot, weapon: id }))
+		setSelectedWeaponId(id)
 		setEnableBuy(false)
 	}
 
