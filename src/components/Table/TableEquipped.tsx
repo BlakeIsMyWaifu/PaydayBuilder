@@ -2,7 +2,7 @@ import statLimit from 'data/weapons/guns/statLimit'
 import { ModificationStats } from 'data/weapons/guns/weaponTypes'
 import React from 'react'
 import { blue, colourCompare, purple, sycamore } from 'utils/colours'
-import { oneDP } from 'utils/maths'
+import { twoDP } from 'utils/maths'
 
 import { Data, Head, Label, Row, Table } from './Table-Elements'
 
@@ -43,7 +43,7 @@ const TableEquipped: React.FC<TableEquippedProps> = ({ baseStats, additionalStat
 						switch (baseValue.constructor.name) {
 							case 'Number': {
 								let colour = colourCompare(baseValue + skillValue + modValue, baseValue)
-								let totalValue = oneDP(baseValue + skillValue + modValue)
+								let totalValue = twoDP(baseValue + skillValue + modValue)
 
 								if (Object.keys(statLimit).includes(stat)) {
 									const limit = statLimit[(stat as keyof ModificationStats)] ?? Infinity

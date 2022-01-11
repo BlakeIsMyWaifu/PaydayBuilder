@@ -1,12 +1,12 @@
 import modificationList from 'data/weapons/guns/modificationList'
-import { AllWeaponStats, ModificationSlot, ModificationStats, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
+import { ModificationSlot, ModificationStats, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
 
 interface UseWeaponStats {
 	base: WeaponStats;
-	skill: AllWeaponStats;
-	mod: AllWeaponStats;
-	additional: AllWeaponStats;
-	total: AllWeaponStats;
+	skill: WeaponStats;
+	mod: WeaponStats;
+	additional: WeaponStats;
+	total: WeaponStats;
 }
 
 const useWeaponStats = (weapon: WeaponData, modifications: Partial<Record<ModificationSlot, string>>, showExtraStats = true): UseWeaponStats => {
@@ -17,7 +17,6 @@ const useWeaponStats = (weapon: WeaponData, modifications: Partial<Record<Modifi
 		const extra = weapon.extraStats
 		const extraStats = {
 			tacticalReload: extra.tacticalReload ? (typeof extra.tacticalReload === 'number' ? `${extra.tacticalReload}s` : `${extra.tacticalReload[0]}s | ${extra.tacticalReload[1]}s`) : '',
-			reload: `${extra.reload}s`,
 			equipDelays: `${extra.equipDelays[0]}s | ${extra.equipDelays[1]}s`,
 			ammoPickup: extra.ammoPickup ? `${extra.ammoPickup.join(' | ')}` : '',
 			recoilHorizontal: `${extra.recoilHorizontal[0]}' | ${extra.recoilHorizontal[1]}'`,
@@ -29,9 +28,8 @@ const useWeaponStats = (weapon: WeaponData, modifications: Partial<Record<Modifi
 		return ({ ...weapon.stats, ...extraStats })
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const skillStats = (): AllWeaponStats => {
-		const baseStats: AllWeaponStats = {
+	const skillStats = (): WeaponStats => {
+		const baseStats: WeaponStats = {
 			totalAmmo: 0,
 			magazine: 0,
 			reload: 0,
@@ -46,8 +44,8 @@ const useWeaponStats = (weapon: WeaponData, modifications: Partial<Record<Modifi
 		return baseStats
 	}
 
-	const modStats = (): AllWeaponStats => {
-		const baseStats: AllWeaponStats = {
+	const modStats = (): WeaponStats => {
+		const baseStats: WeaponStats = {
 			totalAmmo: 0,
 			magazine: 0,
 			reload: 0,
@@ -69,16 +67,17 @@ const useWeaponStats = (weapon: WeaponData, modifications: Partial<Record<Modifi
 		return baseStats
 	}
 
-	const additionalStats = (baseStats: AllWeaponStats): AllWeaponStats => {
+	const additionalStats = (baseStats: WeaponStats): WeaponStats => {
+		const stats = { ...baseStats }
 
 		const addStats = ([label, stat]: [string, number]) => {
-			baseStats[(label as keyof AllWeaponStats)] += stat
+			stats[(label as keyof WeaponStats)] += stat
 		}
 
 		Object.entries(skillStats()).forEach(addStats)
 		Object.entries(modStats()).forEach(addStats)
 
-		return baseStats
+		return stats
 	}
 
 	return {
@@ -96,10 +95,7 @@ const useWeaponStats = (weapon: WeaponData, modifications: Partial<Record<Modifi
 			threat: 0,
 			rateOfFire: 0
 		}),
-		total: additionalStats({
-			...weapon.stats,
-			reload: 0
-		})
+		total: additionalStats(weapon.stats)
 	}
 }
 

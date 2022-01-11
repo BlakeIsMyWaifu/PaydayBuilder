@@ -113,11 +113,11 @@ export interface WeaponStats {
 	stability: number;
 	concealment: number;
 	threat: number;
+	reload: number;
 }
 
 export interface WeaponExtraStats {
 	tacticalReload: number | [number, number] | null;
-	reload: number;
 	equipDelays: [number, number];
 	ammoPickup: [number, number] | null;
 	recoilHorizontal: [number, number];
@@ -135,10 +135,6 @@ export interface ModificationStats {
 	stability?: number;
 	concealment?: number;
 	threat?: number;
-}
-
-export interface AllWeaponStats extends WeaponStats {
-	reload: number;
 }
 
 export type ModificationSlot = keyof WeaponModifications

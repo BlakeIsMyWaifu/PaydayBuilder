@@ -82,11 +82,11 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			accuracy: 8,
 			stability: 24,
 			concealment: 16,
-			threat: 24
+			threat: 24,
+			reload: 3.75,
 		},
 		extraStats: {
 			tacticalReload: 3.75,
-			reload: 3.75,
 			equipDelays: [0.8, 0.8],
 			ammoPickup: null,
 			recoilHorizontal: [-2.4, 2.4],
@@ -123,11 +123,11 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			accuracy: 96,
 			stability: 96,
 			concealment: 30,
-			threat: 37
+			threat: 37,
+			reload: 0.33
 		},
 		extraStats: {
 			tacticalReload: null,
-			reload: 0.33,
 			equipDelays: [0.55, 0.55],
 			ammoPickup: null,
 			recoilHorizontal: [-0.3, 0.3],
@@ -163,11 +163,11 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			accuracy: 96,
 			stability: 96,
 			concealment: 29,
-			threat: 10
+			threat: 10,
+			reload: 1.5
 		},
 		extraStats: {
 			tacticalReload: null,
-			reload: 1.5,
 			equipDelays: [0.5, 0.7],
 			ammoPickup: null,
 			recoilHorizontal: [-0.6, 0.6],
@@ -200,11 +200,11 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			accuracy: 84,
 			stability: 84,
 			concealment: 5,
-			threat: 10
+			threat: 10,
+			reload: 3.0
 		},
 		extraStats: {
 			tacticalReload: 3.0,
-			reload: 3.0,
 			equipDelays: [0.5, 0.7],
 			ammoPickup: null,
 			recoilHorizontal: [-0.9, 0.9],
@@ -241,11 +241,11 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			accuracy: 96,
 			stability: 96,
 			concealment: 29,
-			threat: 37
+			threat: 37,
+			reload: 1.5
 		},
 		extraStats: {
 			tacticalReload: null,
-			reload: 1.5,
 			equipDelays: [0.85, 0.85],
 			ammoPickup: null,
 			recoilHorizontal: [-0.3, 0.3],
@@ -278,11 +278,11 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			accuracy: 32,
 			stability: 24,
 			concealment: 5,
-			threat: 31
+			threat: 31,
+			reload: 7.8
 		},
 		extraStats: {
 			tacticalReload: 7.8,
-			reload: 7.8,
 			equipDelays: [0.9, 1.5],
 			ammoPickup: [7.5, 26.25],
 			recoilHorizontal: [-0.36, 0.48],
@@ -317,11 +317,11 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			accuracy: 96,
 			stability: 96,
 			concealment: 27,
-			threat: 37
+			threat: 37,
+			reload: 1.3
 		},
 		extraStats: {
 			tacticalReload: null,
-			reload: 1.3,
 			equipDelays: [0.85, 0.85],
 			ammoPickup: null,
 			recoilHorizontal: [-0.12, 0.12],
@@ -368,11 +368,11 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			accuracy: 32,
 			stability: 24,
 			concealment: 5,
-			threat: 31
+			threat: 31,
+			reload: 7.8
 		},
 		extraStats: {
 			tacticalReload: 7.8,
-			reload: 7.8,
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [7.5, 26.25],
 			recoilHorizontal: [-0.36, 0.48],
@@ -409,11 +409,11 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			accuracy: 96,
 			stability: 96,
 			concealment: 28,
-			threat: 10
+			threat: 10,
+			reload: 2.5
 		},
 		extraStats: {
 			tacticalReload: null,
-			reload: 2.5,
 			equipDelays: [0.5, 0.7],
 			ammoPickup: null,
 			recoilHorizontal: [-0.6, 0.6],
@@ -446,11 +446,11 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			accuracy: 96,
 			stability: 96,
 			concealment: 10,
-			threat: 37
+			threat: 37,
+			reload: 19.21
 		},
 		extraStats: {
 			tacticalReload: [9.21, 2.0],
-			reload: 19.21,
 			equipDelays: [0.85, 0.85],
 			ammoPickup: [0.05, 0.65],
 			recoilHorizontal: [-0.3, 0.3],
@@ -505,11 +505,11 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			accuracy: 0,
 			stability: 0,
 			concealment: 7,
-			threat: 37
+			threat: 37,
+			reload: 8.5
 		},
 		extraStats: {
 			tacticalReload: 8.5,
-			reload: 8.5,
 			equipDelays: [0.85, 0.85],
 			ammoPickup: [4.5, 13.5],
 			recoilHorizontal: [0.0, 0.0],
@@ -545,11 +545,11 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			accuracy: 96,
 			stability: 96,
 			concealment: 18,
-			threat: 37
+			threat: 37,
+			reload: 3.1
 		},
 		extraStats: {
 			tacticalReload: null,
-			reload: 3.1,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [0.05, 0.65],
 			recoilHorizontal: [-0.3, 0.3],

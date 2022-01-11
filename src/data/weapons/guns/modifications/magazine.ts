@@ -198,8 +198,9 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		acquisition: {
 			infinite: true
 		},
-		specialEffect: ['RELOAD -1.9'], // Different for different guns?
-		stats: {},
+		stats: {
+			reload: -1.9 // Different for different guns?
+		},
 		compatibleWeapons: {
 			assaultRifle: [
 				'JP36 Rifle',

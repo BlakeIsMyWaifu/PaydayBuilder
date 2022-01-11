@@ -2,7 +2,7 @@ import statLimit from 'data/weapons/guns/statLimit'
 import { ModificationStats } from 'data/weapons/guns/weaponTypes'
 import React from 'react'
 import { colourCompare, purple } from 'utils/colours'
-import { oneDP } from 'utils/maths'
+import { twoDP } from 'utils/maths'
 
 import { Data, Head, Label, Row, Table } from './Table-Elements'
 
@@ -45,10 +45,10 @@ const TableCompare: React.FC<TableCompareProps> = ({ equippedStats, selectedStat
 								const numCompare = compare + selectedAdditional?.[stat]
 
 								const parseNum = (num: number): [boolean, number] => {
-									if (!Object.keys(statLimit).includes(stat)) return [false, oneDP(num)]
+									if (!Object.keys(statLimit).includes(stat)) return [false, twoDP(num)]
 									const limit = statLimit[(stat as keyof ModificationStats)] ?? Infinity
 									const isLimit = num >= limit
-									return isLimit ? [true, limit] : [false, oneDP(num)]
+									return isLimit ? [true, limit] : [false, twoDP(num)]
 								}
 
 								const [isLimitedMain, parsedMain] = parseNum(numMain)

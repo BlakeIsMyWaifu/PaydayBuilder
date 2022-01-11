@@ -67,11 +67,11 @@ const akimboShotuns: Record<AkimboShotunsList, WeaponData> = {
 			accuracy: 56,
 			stability: 8,
 			concealment: 13,
-			threat: 28
+			threat: 28,
+			reload: 3.5
 		},
 		extraStats: {
 			tacticalReload: 3.0,
-			reload: 3.5,
 			equipDelays: [0.5, 0.5],
 			ammoPickup: [3.6, 5.4],
 			recoilHorizontal: [-1.4, 1.4],
@@ -107,11 +107,11 @@ const akimboShotuns: Record<AkimboShotunsList, WeaponData> = {
 			accuracy: 12,
 			stability: 12,
 			concealment: 21,
-			threat: 28
+			threat: 28,
+			reload: 3.5
 		},
 		extraStats: {
 			tacticalReload: 3.0,
-			reload: 3.5,
 			equipDelays: [0.5, 0.5],
 			ammoPickup: [3.8, 7.2],
 			recoilHorizontal: [-1.35, 1.35],
@@ -153,11 +153,11 @@ const akimboShotuns: Record<AkimboShotunsList, WeaponData> = {
 			accuracy: 52,
 			stability: 0,
 			concealment: 29,
-			threat: 28
+			threat: 28,
+			reload: 3.5
 		},
 		extraStats: {
 			tacticalReload: 3.0,
-			reload: 3.5,
 			equipDelays: [0.5, 0.5],
 			ammoPickup: [0.2, 0.6],
 			recoilHorizontal: [-1.5, 1.5],

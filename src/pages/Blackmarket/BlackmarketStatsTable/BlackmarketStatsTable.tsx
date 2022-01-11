@@ -1,13 +1,13 @@
 import { Data, Head, Label, Row, Table } from 'components/Table/Table-Elements'
 import statLimit from 'data/weapons/guns/statLimit'
-import { AllWeaponStats, Modification, ModificationStats, WeaponData } from 'data/weapons/guns/weaponTypes'
+import { Modification, ModificationStats, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
 import React from 'react'
 import { colourCompare, green, purple, red } from 'utils/colours'
-import { oneDP } from 'utils/maths'
+import { twoDP } from 'utils/maths'
 
 interface BlackmarketStatsTableProps {
 	weapon: WeaponData;
-	totalStats: AllWeaponStats;
+	totalStats: WeaponStats;
 	selectedItem: Modification<string>;
 	equippedMod?: Modification<string>;
 }
@@ -36,7 +36,7 @@ const BlackmarketStatsTable: React.FC<BlackmarketStatsTableProps> = ({ totalStat
 
 							const equipStat = equippedMod?.stats[label] || 0
 							const selectedStat = selectedItem.stats[label] || 0
-							const totalStat = oneDP(stat + selectedStat - equipStat)
+							const totalStat = twoDP(stat + selectedStat - equipStat)
 
 							const limit = statLimit[label] ?? Infinity
 							const isLimit = totalStat >= limit
