@@ -106,4 +106,11 @@ const config: Configuration = {
 	plugins
 }
 
+if (isDevelopment) {
+	config.optimization = {
+		usedExports: true,
+		sideEffects: true
+	}
+}
+
 export default config

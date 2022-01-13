@@ -1,7 +1,9 @@
+import { FaChevronLeft } from '@react-icons/all-files/fa/FaChevronLeft'
+import { FaChevronRight } from '@react-icons/all-files/fa/FaChevronRight'
+import { FaThList } from '@react-icons/all-files/fa/FaThList'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import { LoadedBuild } from 'hooks/useBuildURLImport'
 import React from 'react'
-import { FaChevronLeft, FaChevronRight, FaThList } from 'react-icons/fa'
 import { changeBuild, updateName } from 'slices/buildsSlice'
 
 import { Arrow, BuildList, BuildName, Container, Wrapper } from './BuildSelector-Elements'

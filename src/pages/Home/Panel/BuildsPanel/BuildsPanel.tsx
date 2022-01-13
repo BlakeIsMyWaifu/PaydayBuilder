@@ -1,8 +1,11 @@
+import { FaFolderOpen } from '@react-icons/all-files/fa/FaFolderOpen'
+import { FaPlusSquare } from '@react-icons/all-files/fa/FaPlusSquare'
+import { FaTrash } from '@react-icons/all-files/fa/FaTrash'
+import { FaUndoAlt } from '@react-icons/all-files/fa/FaUndoAlt'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Container, PanelContent, Title } from 'pages/Home/Panel/Panel-Elements'
 import React from 'react'
-import { FaFolderOpen, FaPlusSquare, FaTrash, FaUndoAlt } from 'react-icons/fa'
 import { addBuild, changeBuild, defaultBuild, removeBuild, updateName } from 'slices/buildsSlice'
 import { blue, red } from 'utils/colours'
 

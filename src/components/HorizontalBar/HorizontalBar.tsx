@@ -1,5 +1,6 @@
+import { FaAngleLeft } from '@react-icons/all-files/fa/FaAngleLeft'
+import { FaAngleRight } from '@react-icons/all-files/fa/FaAngleRight'
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 import { FlattenInterpolation } from 'styled-components'
 
 import { Arrow, Container, Item, ItemContainer } from './HorizontalBar-Elements'

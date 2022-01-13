@@ -1,7 +1,7 @@
+import { FaCog } from '@react-icons/all-files/fa/FaCog'
 import Container from 'components/Container'
 import useBuildURLImport from 'hooks/useBuildURLImport'
 import React, { ReactElement, useState } from 'react'
-import { FaCog } from 'react-icons/fa'
 
 import BuildSelector from './BuildSelector'
 import { ConfigContainer, SettingsButton, VersionContainer, VersionText } from './Home-Elements'
