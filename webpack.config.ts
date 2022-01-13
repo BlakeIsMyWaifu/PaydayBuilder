@@ -7,51 +7,10 @@ import CircularDependencyPlugin from 'circular-dependency-plugin'
 import CopyPlugin from 'copy-webpack-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import { Configuration, WebpackPluginInstance } from 'webpack'
+import { Configuration, DefinePlugin } from 'webpack'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
-
-const copyPluginPatterns: CopyPlugin.ObjectPattern[] = [
-	{
-		from: 'public/images',
-		to: 'images'
-	}
-]
-if (!isDevelopment) {
-	copyPluginPatterns.push({
-		from: 'public/CNAME'
-	})
-}
-
-const plugins: WebpackPluginInstance[] = [
-	new ForkTsCheckerWebpackPlugin({
-		async: false,
-		eslint: {
-			files: './src/**/*'
-		}
-	}),
-	new HtmlWebpackPlugin({
-		template: 'public/index.html',
-		favicon: 'public/favicon.ico'
-	}),
-	new CircularDependencyPlugin({
-		exclude: /a\.js|node_modules/,
-		include: /src/,
-		failOnError: true,
-		allowAsyncCycles: false,
-		cwd: process.cwd()
-	}),
-	new CopyPlugin({
-		patterns: copyPluginPatterns
-	})
-]
-if (isDevelopment) {
-	plugins.push(new ReactRefreshWebpackPlugin())
-	plugins.push(new BundleAnalyzerPlugin({
-		openAnalyzer: false
-	}))
-}
 
 const config: Configuration = {
 	mode: isDevelopment ? 'development' : 'production',
@@ -103,7 +62,25 @@ const config: Configuration = {
 		open: true,
 		hot: true
 	},
-	plugins
+	plugins: [
+		new ForkTsCheckerWebpackPlugin({
+			async: false,
+			eslint: {
+				files: './src/**/*'
+			}
+		}),
+		new HtmlWebpackPlugin({
+			template: 'public/index.html',
+			favicon: 'public/favicon.ico'
+		}),
+		new CircularDependencyPlugin({
+			exclude: /a\.js|node_modules/,
+			include: /src/,
+			failOnError: true,
+			allowAsyncCycles: false,
+			cwd: process.cwd()
+		})
+	]
 }
 
 if (isDevelopment) {
@@ -111,6 +88,40 @@ if (isDevelopment) {
 		usedExports: true,
 		sideEffects: true
 	}
+
+	config.plugins?.push(
+		new ReactRefreshWebpackPlugin(),
+		new BundleAnalyzerPlugin({
+			openAnalyzer: false
+		}),
+		new CopyPlugin({
+			patterns: [
+				{
+					from: 'public/images',
+					to: 'images'
+				}
+			]
+		})
+	)
+}
+
+if (!isDevelopment) {
+	config.plugins?.push(
+		new CopyPlugin({
+			patterns: [
+				{
+					from: 'public/images',
+					to: 'images'
+				},
+				{
+					from: 'public/CNAME'
+				}
+			]
+		}),
+		new DefinePlugin({
+			'process.env.NODE_ENV': JSON.stringify('production')
+		})
+	)
 }
 
 export default config

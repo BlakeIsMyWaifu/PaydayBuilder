@@ -136,18 +136,20 @@ export interface LoadedBuild {
 	addNewBuild: boolean;
 }
 
-const useBuildURLImport = (inputData: string, addNewBuild: boolean): React.Dispatch<React.SetStateAction<LoadedBuild>> => {
+const useBuildURLImport = (): React.Dispatch<React.SetStateAction<LoadedBuild>> => {
 
-	const [data, setData] = useState<LoadedBuild>({ data: inputData, addNewBuild })
+	const [{ data, addNewBuild }, setData] = useState<LoadedBuild>({ data: '', addNewBuild: false })
 
 	useEffect(() => {
-		loadBuildFromIterable(data.data)
+		loadBuildFromIterable(data)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data])
 
 	const dispatch = useAppDispatch()
 
 	const loadBuildFromIterable = (input: string): void => {
+		if (!input) return
+
 		const split = input.split('/?')
 		const parameters = new URLSearchParams(split[split.length - 1])
 		if (!parameters.toString().length) return

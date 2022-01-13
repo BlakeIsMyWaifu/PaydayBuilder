@@ -9,7 +9,7 @@ const UpdateBuild: React.FC = () => {
 
 	const { current, builds } = useAppSelector(state => state.builds)
 
-	const setData = useBuildURLImport('', false)
+	const setData = useBuildURLImport()
 
 	useMountEffect(() => {
 		setData({ data: builds[current].data, addNewBuild: false })

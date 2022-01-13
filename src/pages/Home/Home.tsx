@@ -21,7 +21,7 @@ const Home: React.FC = () => {
 
 	const [toggleSettings, setToggleSettings] = useState(false)
 
-	const setData = useBuildURLImport('', false)
+	const setData = useBuildURLImport()
 
 	return (
 		<>

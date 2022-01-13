@@ -1,11 +1,11 @@
-import { changeMask } from 'slices/characterSlice'
 import Container from 'components/Container'
 import HorizontalBar from 'components/HorizontalBar'
 import Info from 'components/Info'
 import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
 import masks, { MaskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import React, { Fragment, createRef, useRef, useState } from 'react'
+import React, { Fragment, createRef, useMemo, useRef, useState } from 'react'
+import { changeMask } from 'slices/characterSlice'
 import { itemColours } from 'utils/colours'
 
 import CollectionsTab from './CollectionsTab'
@@ -25,7 +25,7 @@ const Mask: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const collections = getCollectionList()
+	const collections = useMemo(() => getCollectionList(), [])
 
 	const equippedMask = masks[useAppSelector(state => state.character.mask)]
 	const [selectedMask, setSelectedMask] = useState<MaskData>(equippedMask)
