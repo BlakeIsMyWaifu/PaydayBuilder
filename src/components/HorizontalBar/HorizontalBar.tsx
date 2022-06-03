@@ -1,6 +1,6 @@
 import { FaAngleLeft } from '@react-icons/all-files/fa/FaAngleLeft'
 import { FaAngleRight } from '@react-icons/all-files/fa/FaAngleRight'
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { FC, RefObject, WheelEvent, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { FlattenInterpolation } from 'styled-components'
 
 import { Arrow, Container, Item, ItemContainer } from './HorizontalBar-Elements'
@@ -14,16 +14,16 @@ interface HorizontalActionBarProps {
 		additionalStyling?: FlattenInterpolation<any> | null;
 		id?: number;
 	}[];
-	scroll?: (event: React.WheelEvent) => void;
+	scroll?: (event: WheelEvent) => void;
 }
 
-const HorizontalBar: React.FC<HorizontalActionBarProps> = ({ active, items, scroll }) => {
+const HorizontalBar: FC<HorizontalActionBarProps> = ({ active, items, scroll }) => {
 
 	const [hasArrows, setHasArrows] = useState(false)
 
 	const scrollRef = useRef<HTMLDivElement>(null)
 
-	const scrollHorizontalDiv = (event: React.WheelEvent, ref: React.RefObject<HTMLDivElement>): void => {
+	const scrollHorizontalDiv = (event: WheelEvent, ref: RefObject<HTMLDivElement>): void => {
 		ref.current?.scrollTo({
 			top: 0,
 			left: ref.current.scrollLeft + event.deltaY,
@@ -47,7 +47,7 @@ const HorizontalBar: React.FC<HorizontalActionBarProps> = ({ active, items, scro
 		return () => window.removeEventListener('resize', updateSize)
 	}, [])
 
-	const scrollBar = (direct: 'left' | 'right', ref: React.RefObject<HTMLDivElement>): void => {
+	const scrollBar = (direct: 'left' | 'right', ref: RefObject<HTMLDivElement>): void => {
 		const div = ref.current
 		if (!div) return
 		const amount = 200 * (direct === 'left' ? -1 : 1)

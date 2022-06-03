@@ -2,10 +2,10 @@ import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useBuildURLExport from 'hooks/useBuildURLExport'
 import useBuildURLImport from 'hooks/useBuildURLImport'
 import useMountEffect from 'hooks/useMountEffect'
-import React, { useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import { updateData } from 'slices/buildsSlice'
 
-const UpdateBuild: React.FC = () => {
+const UpdateBuild: FC = () => {
 
 	const { current, builds } = useAppSelector(state => state.builds)
 
@@ -23,7 +23,6 @@ const UpdateBuild: React.FC = () => {
 			id: current,
 			data: build
 		}))
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [build])
 
 	return <></>

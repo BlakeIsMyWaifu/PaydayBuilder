@@ -42,10 +42,7 @@ Requires [Node.js](https://nodejs.org/en/) <br />
 `$ git clone https://github.com/BlakeIsMyWaifu/PaydayBuilder` <br />
 `$ npm i` <br />
 `$ npm start` <br />
-Go to [https://localhost:4000](https://localhost:4000)
-
-To change the port go to `webpack.config.ts` and change the port in the `devServer` config. <br />
-To view the bundle analyzer, run the site as stated above but go to [https://localhost:8888](https://localhost:8888)
+Go to [http://localhost:3000](http://localhost:3000)
 
 #### Technologies
 
@@ -53,7 +50,7 @@ To view the bundle analyzer, run the site as stated above but go to [https://loc
 - TypeScript
 - React
 - Redux
-- Webpack
+- Vite
 - Styled Components
 
 ### How to contribute

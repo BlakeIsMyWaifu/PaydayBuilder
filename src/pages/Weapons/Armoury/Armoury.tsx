@@ -8,7 +8,7 @@ import ModIcons from 'components/ModIcons'
 import { ResetContainer, ResetText } from 'components/Reset-Elements'
 import { Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import React, { Fragment } from 'react'
+import { Dispatch, FC, Fragment, SetStateAction } from 'react'
 import { addWeapon, removeWeapon, resetArmoury } from 'slices/armourySlice'
 import { changeWeapon } from 'slices/weaponsSlice'
 import { blue, itemColours } from 'utils/colours'
@@ -22,16 +22,16 @@ import BuildsArmoury, { BuildTab } from './BuildsArmoury/BuildsArmoury'
 interface ArmouryProps {
 	slot: Slot;
 	data: Record<string, Record<string, WeaponData>>;
-	setEnableBuy: React.Dispatch<React.SetStateAction<boolean>>;
+	setEnableBuy: Dispatch<SetStateAction<boolean>>;
 	buildTabs: BuildTab[];
-	setBuildTabs: React.Dispatch<React.SetStateAction<BuildTab[]>>;
+	setBuildTabs: Dispatch<SetStateAction<BuildTab[]>>;
 	activeTabId: number;
 	changeActiveTab: (tabId: number) => void;
 	selectedWeaponId: number;
-	setSelectedWeaponId: React.Dispatch<React.SetStateAction<number>>;
+	setSelectedWeaponId: Dispatch<SetStateAction<number>>;
 }
 
-const Armoury: React.FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, setBuildTabs, activeTabId, changeActiveTab, selectedWeaponId, setSelectedWeaponId }) => {
+const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, setBuildTabs, activeTabId, changeActiveTab, selectedWeaponId, setSelectedWeaponId }) => {
 
 	const dispatch = useAppDispatch()
 

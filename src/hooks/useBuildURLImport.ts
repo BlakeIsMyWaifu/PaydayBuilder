@@ -11,7 +11,8 @@ import melees, { MeleeList } from 'data/weapons/melees'
 import throwables, { ThrowableList } from 'data/weapons/throwables'
 import { useAppDispatch } from 'hooks/reduxHooks'
 import { getCollectionList } from 'pages/Mask/Mask'
-import { useEffect, useState } from 'react'
+import { SetStateAction, useEffect, useState } from 'react'
+import { Dispatch } from 'react'
 import { changePerkDeck } from 'slices/abilitiesSlice'
 import { AddWeaponAction, addWeapon, resetArmoury } from 'slices/armourySlice'
 import { addBuild } from 'slices/buildsSlice'
@@ -66,7 +67,7 @@ const decodeThrowable = (value: string): ThrowableList => {
 	return Object.keys(sortedThrowables)[throwableIndex]
 }
 
-const decodeEquipement = (value: string): [EquipmentList, EquipmentList | null] => {
+const decodeEquipment = (value: string): [EquipmentList, EquipmentList | null] => {
 	const primaryIndex = decodeValues(value.substring(0, 1))
 	const secondaryIndex = value.length > 1 ? decodeValues(value.substring(1, 2)) : null
 	const equipmentList = Object.keys(equipments)
@@ -136,13 +137,12 @@ export interface LoadedBuild {
 	addNewBuild: boolean;
 }
 
-const useBuildURLImport = (): React.Dispatch<React.SetStateAction<LoadedBuild>> => {
+const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 
 	const [{ data, addNewBuild }, setData] = useState<LoadedBuild>({ data: '', addNewBuild: false })
 
 	useEffect(() => {
 		loadBuildFromIterable(data)
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data])
 
 	const dispatch = useAppDispatch()
@@ -173,7 +173,7 @@ const useBuildURLImport = (): React.Dispatch<React.SetStateAction<LoadedBuild>> 
 				dispatch(changeThrowable(throwable))
 			},
 			d: value => {
-				const [primary, secondary] = decodeEquipement(value)
+				const [primary, secondary] = decodeEquipment(value)
 				dispatch(changeEquipment({ slot: 'primary', equipment: primary }))
 				dispatch(changeEquipment({ slot: 'secondary', equipment: secondary }))
 			},
@@ -253,7 +253,7 @@ const useBuildURLImport = (): React.Dispatch<React.SetStateAction<LoadedBuild>> 
 						dispatch(changeSkillState({
 							tree: treeName,
 							subtree: subtree.name,
-							skill: skill,
+							skill,
 							oldLevel: 'available',
 							direction: 'upgrade'
 						}))
@@ -262,13 +262,13 @@ const useBuildURLImport = (): React.Dispatch<React.SetStateAction<LoadedBuild>> 
 							dispatch(changeSkillState({
 								tree: treeName,
 								subtree: subtree.name,
-								skill: skill,
+								skill,
 								oldLevel: 'basic',
 								direction: 'upgrade'
 							}))
 						}
 					}
-					mask = mask << 1
+					mask <<= 1
 				})
 
 				skillsValue = skillsValue.slice(2)

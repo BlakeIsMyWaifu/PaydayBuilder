@@ -2,7 +2,7 @@ import { useAppSelector } from 'hooks/reduxHooks'
 import useArmourStats from 'hooks/useArmourStats'
 import useMeleeStats from 'hooks/useMeleeStats'
 import useWeaponStats from 'hooks/useWeaponStats'
-import React from 'react'
+import { FC, MouseEvent, memo } from 'react'
 import findWeapon from 'utils/findWeapon'
 
 import { Container, Image, ImageContainer, ImageEnabled, ImageWrapper, Number, Title } from './DetectionRisk-Elements'
@@ -48,7 +48,7 @@ interface DetectionRiskProps {
 	size?: number;
 }
 
-const DetectionRisk: React.FC<DetectionRiskProps> = ({ flexDirection, corner, size = 96 }) => {
+const DetectionRisk: FC<DetectionRiskProps> = ({ flexDirection, corner, size = 96 }) => {
 
 	const weapons = useAppSelector(state => state.weapons),
 		primaryWeapon = useAppSelector(state => state.armoury.primary)[weapons.primary],
@@ -63,7 +63,7 @@ const DetectionRisk: React.FC<DetectionRiskProps> = ({ flexDirection, corner, si
 		detection = concealmentToDetectionRisk(totalConcealment),
 		detectionPercentage = (100 * detection) / 75
 
-	const preventDefault = (event: React.MouseEvent<HTMLImageElement, MouseEvent>): void => event.preventDefault()
+	const preventDefault = (event: MouseEvent<HTMLImageElement>): void => event.preventDefault()
 
 	return (
 		<Container
@@ -110,4 +110,4 @@ const DetectionRisk: React.FC<DetectionRiskProps> = ({ flexDirection, corner, si
 	)
 }
 
-export default React.memo(DetectionRisk)
+export default memo(DetectionRisk)

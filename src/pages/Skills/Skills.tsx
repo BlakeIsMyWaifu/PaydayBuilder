@@ -1,11 +1,11 @@
-import { changeArmour, changeEquipment } from 'slices/characterSlice'
 import Container from 'components/Container'
 import HorizontalBar from 'components/HorizontalBar'
 import { ResetContainer, ResetText } from 'components/Reset-Elements'
 import skills, { SkillData, TreeData, TreeNames } from 'data/abilities/skills'
 import equipments from 'data/character/equipment'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import React, { useEffect, useState } from 'react'
+import { FC, WheelEvent, useEffect, useState } from 'react'
+import { changeArmour, changeEquipment } from 'slices/characterSlice'
 import { resetSkills, resetTree } from 'slices/skillsSlice'
 
 import Info from './Info'
@@ -13,7 +13,7 @@ import Points from './Points'
 import { SubtreeLabel, SubtreeLabelWrapper, Tree, highlightActive } from './Skills-Elements'
 import Subtree from './Subtree'
 
-const Skills: React.FC = () => {
+const Skills: FC = () => {
 
 	const dispatch = useAppDispatch()
 
@@ -23,7 +23,7 @@ const Skills: React.FC = () => {
 
 	const treeNameOrder: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
 
-	const scrollTrees = (event: React.WheelEvent): void => {
+	const scrollTrees = (event: WheelEvent): void => {
 		const direction = event.deltaY < 0 ? -1 : 1
 		let index = treeNameOrder.indexOf(currentTree.name)
 		index += direction

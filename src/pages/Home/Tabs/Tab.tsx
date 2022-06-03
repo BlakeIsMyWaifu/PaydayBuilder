@@ -12,7 +12,7 @@ import { useAppSelector } from 'hooks/reduxHooks'
 import ArmourStatsTable from 'pages/Armour/ArmourStatsTable'
 import MeleeStatsTable from 'pages/Melee/MeleeStatsTable'
 import WeaponsStatsTable from 'pages/Weapons/WeaponStatsTable'
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { Link } from 'react-router-dom'
 import findWeapon from 'utils/findWeapon'
 
@@ -22,7 +22,7 @@ import SelectorSkills from './Selector/SelectorSkills'
 import SkillTable from './SkillTable'
 import { EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle } from './Tabs-Elements'
 
-const Tabs: React.FC = () => {
+const Tabs: FC = () => {
 
 	const characterState = useAppSelector(state => state.character)
 	const mask = masks[characterState.mask]

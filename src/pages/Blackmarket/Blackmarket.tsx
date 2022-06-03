@@ -9,7 +9,7 @@ import { ResetContainer, ResetText } from 'components/Reset-Elements'
 import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useWeaponStats from 'hooks/useWeaponStats'
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { useParams } from 'react-router'
 import { changeMod, removeMod, resetWeaponMods } from 'slices/armourySlice'
 import { itemColours } from 'utils/colours'
@@ -18,7 +18,7 @@ import { modificationsFromNames } from 'utils/modificationsFromNames'
 
 import BlackmarketStatsTable from './BlackmarketStatsTable'
 
-const WeaponChecker: React.FC = () => {
+const WeaponChecker: FC = () => {
 
 	const { slot, id, modtype } = useParams()
 
@@ -58,7 +58,7 @@ interface BlackmarketProps {
 	modtype: string;
 }
 
-const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modifications, modtype }) => {
+const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, modtype }) => {
 
 	const dispatch = useAppDispatch()
 

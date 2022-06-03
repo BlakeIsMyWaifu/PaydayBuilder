@@ -2,7 +2,7 @@ import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
 import { Slot, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppSelector } from 'hooks/reduxHooks'
-import React, { useMemo, useState } from 'react'
+import { FC, useMemo, useState } from 'react'
 
 import Armoury from './Armoury'
 import { BuildTab } from './Armoury/BuildsArmoury/BuildsArmoury'
@@ -12,7 +12,7 @@ interface WeaponsProps {
 	slot: Slot;
 }
 
-const Weapons: React.FC<WeaponsProps> = ({ slot }) => {
+const Weapons: FC<WeaponsProps> = ({ slot }) => {
 
 	const data: Record<string, Record<string, WeaponData>> = useMemo(() => slot === 'primary' ? primary : secondary, [slot])
 

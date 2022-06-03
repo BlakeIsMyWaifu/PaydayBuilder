@@ -4,7 +4,7 @@ import { Item, ItemContainer, ItemImage, ItemName } from 'components/Item-Elemen
 import { ActionText, ActionsContainer } from 'components/ItemAction-Elements'
 import { Slot, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import React, { useState } from 'react'
+import { Dispatch, FC, SetStateAction, useState } from 'react'
 import { addWeapon } from 'slices/armourySlice'
 import { changeWeapon } from 'slices/weaponsSlice'
 import { itemColours } from 'utils/colours'
@@ -14,11 +14,11 @@ import WeaponInfo from '../WeaponInfo'
 interface WeaponBuyProps {
 	slot: Slot;
 	data: Record<string, Record<string, WeaponData>>;
-	setEnableBuy: React.Dispatch<React.SetStateAction<boolean>>;
-	setSelectedWeaponId: React.Dispatch<React.SetStateAction<number>>;
+	setEnableBuy: Dispatch<SetStateAction<boolean>>;
+	setSelectedWeaponId: Dispatch<SetStateAction<number>>;
 }
 
-const WeaponBuy: React.FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWeaponId }) => {
+const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWeaponId }) => {
 
 	const dispatch = useAppDispatch()
 
@@ -30,7 +30,7 @@ const WeaponBuy: React.FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSele
 	const [selectedTab, setSelectedTab] = useState<string>(Object.keys(data)[0])
 	const [selectedWeapon, setSelectedWeapon] = useState<WeaponData>(Object.values(data[selectedTab])[0])
 
-	const addWeaponHelper = (weapon: WeaponData) => {
+	const addWeaponHelper = (weapon: WeaponData): void => {
 		dispatch(addWeapon({
 			weapon
 		}))

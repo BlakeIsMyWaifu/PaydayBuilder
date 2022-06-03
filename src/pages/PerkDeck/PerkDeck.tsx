@@ -4,11 +4,11 @@ import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info/Info-
 import { ItemContainer } from 'components/Item-Elements'
 import perkDecks, { PerkCard } from 'data/abilities/perks'
 import { useAppSelector } from 'hooks/reduxHooks'
-import React, { createRef, useEffect, useRef, useState } from 'react'
+import { FC, createRef, useEffect, useRef, useState } from 'react'
 
 import Perk from './Perks'
 
-const PerkDeck: React.FC = () => {
+const PerkDeck: FC = () => {
 
 	const perkWrapperRef = useRef<HTMLDivElement>(null)
 
@@ -33,7 +33,6 @@ const PerkDeck: React.FC = () => {
 	useEffect(() => {
 		const currentEquippedIndex = Object.keys(perkDecks).indexOf(equippedPerk.name)
 		scrollToPerk(currentEquippedIndex, 'auto')
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	return (

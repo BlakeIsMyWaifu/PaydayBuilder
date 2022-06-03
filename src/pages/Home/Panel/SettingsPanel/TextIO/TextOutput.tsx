@@ -1,5 +1,5 @@
 import { FaClipboardList } from '@react-icons/all-files/fa/FaClipboardList'
-import React, { useRef } from 'react'
+import { FC, MouseEvent, useRef } from 'react'
 
 import { Button, Container, Input } from './TextIO-Elements'
 
@@ -8,11 +8,11 @@ interface TextOutputProps {
 	callback: (value: string) => void;
 }
 
-const TextOutput: React.FC<TextOutputProps> = ({ value, callback }) => {
+const TextOutput: FC<TextOutputProps> = ({ value, callback }) => {
 
 	const outputRef = useRef<HTMLInputElement>(null)
 
-	const outputOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+	const outputOnClick = (event: MouseEvent<HTMLButtonElement>): void => {
 		event.preventDefault()
 		callback(value)
 	}

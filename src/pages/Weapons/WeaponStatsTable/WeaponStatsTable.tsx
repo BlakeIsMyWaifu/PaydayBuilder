@@ -2,7 +2,7 @@ import TableCompare from 'components/Table/TableCompare'
 import TableEquipped from 'components/Table/TableEquipped'
 import { Weapon } from 'data/weapons/guns/weaponTypes'
 import useWeaponStats from 'hooks/useWeaponStats'
-import React from 'react'
+import { FC } from 'react'
 import findWeapon from 'utils/findWeapon'
 
 interface WeaponsStatsTableProps {
@@ -11,7 +11,7 @@ interface WeaponsStatsTableProps {
 	equippedWeapon?: Weapon;
 }
 
-const WeaponsStatsTable: React.FC<WeaponsStatsTableProps> = ({ showExtraStats, selectedWeapon, equippedWeapon }) => {
+const WeaponsStatsTable: FC<WeaponsStatsTableProps> = ({ showExtraStats, selectedWeapon, equippedWeapon }) => {
 
 	const selectedWeaponData = findWeapon(selectedWeapon.weaponFind)
 	const equippedWeaponData = findWeapon(equippedWeapon?.weaponFind || selectedWeapon.weaponFind)

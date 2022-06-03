@@ -1,5 +1,5 @@
 import { FaArrowRight } from '@react-icons/all-files/fa/FaArrowRight'
-import React, { useRef } from 'react'
+import { FC, KeyboardEvent, MouseEvent, useRef } from 'react'
 
 import { Button, Container, Input } from './TextIO-Elements'
 
@@ -8,18 +8,18 @@ interface TextInputProps {
 	callback: (input: string) => void;
 }
 
-const TextInput: React.FC<TextInputProps> = ({ placeholder, callback }) => {
+const TextInput: FC<TextInputProps> = ({ placeholder, callback }) => {
 
 	const inputRef = useRef<HTMLInputElement>(null)
 
-	const onInputEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
+	const onInputEnter = (event: KeyboardEvent<HTMLInputElement>): void => {
 		if (event.key === 'Enter') {
 			callback(event.currentTarget.value)
 			event.currentTarget.value = ''
 		}
 	}
 
-	const inputOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+	const inputOnClick = (event: MouseEvent<HTMLButtonElement>): void => {
 		event.preventDefault()
 		const input = inputRef.current
 		if (!input) return

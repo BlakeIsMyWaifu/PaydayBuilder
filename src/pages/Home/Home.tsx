@@ -1,7 +1,7 @@
 import { FaCog } from '@react-icons/all-files/fa/FaCog'
 import Container from 'components/Container'
 import useBuildURLImport from 'hooks/useBuildURLImport'
-import React, { ReactElement, useState } from 'react'
+import { FC, ReactElement, useState } from 'react'
 
 import BuildSelector from './BuildSelector'
 import { ConfigContainer, SettingsButton, VersionContainer, VersionText } from './Home-Elements'
@@ -15,7 +15,7 @@ export interface HoverInfo {
 	table?: ReactElement;
 }
 
-const Home: React.FC = () => {
+const Home: FC = () => {
 
 	const [toggleBuilds, setToggleBuilds] = useState(false)
 

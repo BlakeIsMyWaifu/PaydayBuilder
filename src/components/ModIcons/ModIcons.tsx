@@ -2,7 +2,7 @@ import modificationList, { modificationIcons } from 'data/weapons/guns/modificat
 import { ModificationSlot, Weapon } from 'data/weapons/guns/weaponTypes'
 import { HoverInfo } from 'pages/Home'
 import WeaponsStatsTable from 'pages/Weapons/WeaponStatsTable'
-import React from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 import findWeapon from 'utils/findWeapon'
 import { capitalizeEachWord, spaceBetween } from 'utils/stringCases'
 
@@ -12,10 +12,10 @@ import ModIconsTable from './ModIconsTable'
 interface ModIconsProps {
 	weapon: Weapon;
 	link: boolean;
-	setHoverInfo?: React.Dispatch<React.SetStateAction<HoverInfo | null>>;
+	setHoverInfo?: Dispatch<SetStateAction<HoverInfo | null>>;
 }
 
-const ModIcons: React.FC<ModIconsProps> = ({ weapon, link, setHoverInfo }) => {
+const ModIcons: FC<ModIconsProps> = ({ weapon, link, setHoverInfo }) => {
 
 	const weaponData = findWeapon(weapon.weaponFind)
 

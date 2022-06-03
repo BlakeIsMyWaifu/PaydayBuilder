@@ -1,7 +1,7 @@
 import skills from 'data/abilities/skills'
 import { useAppSelector } from 'hooks/reduxHooks'
 import { HoverInfo } from 'pages/Home'
-import React from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 import { grey } from 'utils/colours'
 import skillTreePoints from 'utils/skillTreePoints'
 
@@ -10,10 +10,10 @@ import { SkillWrapper, SkillsAmount, SkillsCard, SkillsContainer } from './Selec
 
 interface SelectorSkillProps {
 	infoData: HoverInfo | null;
-	setHoverInfo: React.Dispatch<React.SetStateAction<HoverInfo | null>>;
+	setHoverInfo: Dispatch<SetStateAction<HoverInfo | null>>;
 }
 
-const SelectorSkills: React.FC<SelectorSkillProps> = ({ infoData, setHoverInfo }) => {
+const SelectorSkills: FC<SelectorSkillProps> = ({ infoData, setHoverInfo }) => {
 
 	const currentTrees = useAppSelector(state => state.skills.trees)
 

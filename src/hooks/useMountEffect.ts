@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import { EffectCallback, useEffect } from 'react'
 
-const useMountEffect = (func: React.EffectCallback) => {
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+const useMountEffect = (func: EffectCallback): void => {
 	useEffect(func, [])
 }
 
