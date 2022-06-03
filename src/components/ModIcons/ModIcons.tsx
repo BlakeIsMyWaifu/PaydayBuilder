@@ -1,13 +1,13 @@
 import modificationList, { modificationIcons } from 'data/weapons/guns/modificationList'
 import { ModificationSlot, Weapon } from 'data/weapons/guns/weaponTypes'
 import { HoverInfo } from 'pages/Home'
-import WeaponsStatsTable from 'pages/Weapons/WeaponStatsTable/WeaponStatsTable'
+import WeaponsStatsTable from 'pages/Weapons/WeaponStatsTable'
 import React from 'react'
 import findWeapon from 'utils/findWeapon'
 import { capitalizeEachWord, spaceBetween } from 'utils/stringCases'
 
 import { Background, ModIcon, ModIconContainer, ModLink, ModWrapper } from './ModIcons-Elements'
-import ModIconsTable from './ModIconsTable/ModIconsTable'
+import ModIconsTable from './ModIconsTable'
 
 interface ModIconsProps {
 	weapon: Weapon;

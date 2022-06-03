@@ -22,11 +22,11 @@ export const Item = styled.div<ItemProps>`
 	${props => props.selected && corner};
 `
 
-interface EquipementImageProps {
+interface EquipmentImageProps {
 	locked: boolean;
 }
 
-export const EquipementImage = styled.img<EquipementImageProps>`
+export const EquipmentImage = styled.img<EquipmentImageProps>`
 	width: auto;
 	height: 100%;
 	position: relative;

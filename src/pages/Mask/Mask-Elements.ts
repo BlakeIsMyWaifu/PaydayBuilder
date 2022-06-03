@@ -43,11 +43,11 @@ export const MaskCollection = styled.div`
 	flex-direction: column;
 `
 
-interface MaskCollectionTitelProps {
+interface MaskCollectionTitleProps {
 	colour: string;
 }
 
-export const MaskCollectionTitle = styled.h1<MaskCollectionTitelProps>`
+export const MaskCollectionTitle = styled.h1<MaskCollectionTitleProps>`
 	font-size: 1.5rem;
 	padding-left: 32px;
 	color: ${props => props.colour};

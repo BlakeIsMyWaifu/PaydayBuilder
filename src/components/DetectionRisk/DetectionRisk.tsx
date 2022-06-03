@@ -42,13 +42,13 @@ const concealmentToDetectionRisk = (concealment: number): number => {
 	return concealment > 119 ? 3 : concealment < 91 ? 75 : detectionRisk[concealment]
 }
 
-interface DectectionRiskProps {
+interface DetectionRiskProps {
 	flexDirection: 'row' | 'column';
 	corner: boolean;
 	size?: number;
 }
 
-const DetectionRisk: React.FC<DectectionRiskProps> = ({ flexDirection, corner, size = 96 }) => {
+const DetectionRisk: React.FC<DetectionRiskProps> = ({ flexDirection, corner, size = 96 }) => {
 
 	const weapons = useAppSelector(state => state.weapons),
 		primaryWeapon = useAppSelector(state => state.armoury.primary)[weapons.primary],
@@ -56,10 +56,10 @@ const DetectionRisk: React.FC<DectectionRiskProps> = ({ flexDirection, corner, s
 		primaryConcealment = useWeaponStats(findWeapon(primaryWeapon.weaponFind), primaryWeapon.modifications).total.concealment,
 		secondaryConcealment = useWeaponStats(findWeapon(secondaryWeapon.weaponFind), secondaryWeapon.modifications).total.concealment,
 
-		meleeConcleament = useMeleeStats(weapons.melee).total.concealment,
-		armourConcleament = useArmourStats(useAppSelector(state => state.character.armour)).total.concealment,
+		meleeConcealment = useMeleeStats(weapons.melee).total.concealment,
+		armourConcealment = useArmourStats(useAppSelector(state => state.character.armour)).total.concealment,
 
-		totalConcealment = primaryConcealment + secondaryConcealment + meleeConcleament + armourConcleament,
+		totalConcealment = primaryConcealment + secondaryConcealment + meleeConcealment + armourConcealment,
 		detection = concealmentToDetectionRisk(totalConcealment),
 		detectionPercentage = (100 * detection) / 75
 

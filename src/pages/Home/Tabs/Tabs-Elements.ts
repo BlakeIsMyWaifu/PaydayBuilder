@@ -46,11 +46,11 @@ export const Tab = styled.div<TabProps>`
 	grid-area: ${props => props.area};
 `
 
-interface TabtitleProps {
+interface TabTitleProps {
 	direction: 'ltr' | 'rtl'
 }
 
-export const TabTitle = styled.h1<TabtitleProps>`
+export const TabTitle = styled.h1<TabTitleProps>`
 	direction: ${props => props.direction};
 	font-size: 20px;
 `

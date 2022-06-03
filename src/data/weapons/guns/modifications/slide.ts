@@ -462,7 +462,7 @@ const slide: ModificationList<SlideModificationsList> = {
 				'Deagle Pistol'
 			]
 		},
-		incompatibleSlot: [] // some barrel extenstions
+		incompatibleSlot: [] // some barrel extensions
 	},
 	'Custom Milled Barrel': {
 		name: 'Custom Milled Barrel',

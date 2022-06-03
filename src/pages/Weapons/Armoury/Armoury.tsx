@@ -163,17 +163,17 @@ const Armoury: React.FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, 
 							dispatch(removeWeapon({ slot, id: selectedWeaponId }))
 
 							const armouryValues = Object.values(armoury)
-							const filtedArmoury = armouryValues.filter(value => value.id !== selectedWeaponId).reverse()
+							const filteredArmoury = armouryValues.filter(value => value.id !== selectedWeaponId).reverse()
 
 							if (equippedWeaponId === selectedWeaponId) {
-								dispatch(changeWeapon({ slot, weapon: filtedArmoury[0].id }))
+								dispatch(changeWeapon({ slot, weapon: filteredArmoury[0].id }))
 							}
 
 							if (Object.keys(armoury).length === 2) {
 								setEnableBuy(true)
 								setSelectedWeaponId(0)
 							} else {
-								setSelectedWeaponId(filtedArmoury[0].id)
+								setSelectedWeaponId(filteredArmoury[0].id)
 							}
 						}}>Delete Weapon</WeaponActionText>
 

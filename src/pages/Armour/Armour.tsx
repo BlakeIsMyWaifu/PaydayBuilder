@@ -52,7 +52,7 @@ export const Armour: React.FC = () => {
 			<InfoContainer>
 				<InfoTitle>{selectedArmour.name}</InfoTitle>
 				<ArmourStatsTable selectedArmour={selectedArmour.name} equippedArmour={selectedArmour.name !== equippedArmour.name ? equippedArmour.name : undefined} />
-				<InfoDescription>{selectedArmour.desciption.join('\n\n')}</InfoDescription>
+				<InfoDescription>{selectedArmour.description.join('\n\n')}</InfoDescription>
 			</InfoContainer>
 
 			<DetectionRisk flexDirection='row' corner={true} />

@@ -32,7 +32,7 @@ export type MagazineModificationsList =
 	'L5 Magazine' |
 
 	// Falcon
-	'Extended Magzine (Falcon)' |
+	'Extended Magazine (Falcon)' |
 
 	// Reinfeld 880
 	'Extended Mag. (Reinfeld 880)' |
@@ -374,8 +374,8 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
-	'Extended Magzine (Falcon)': {
-		name: 'Extended Magzine (Falcon)',
+	'Extended Magazine (Falcon)': {
+		name: 'Extended Magazine (Falcon)',
 		image: 'wpn_fps_ass_fal_m_01',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',

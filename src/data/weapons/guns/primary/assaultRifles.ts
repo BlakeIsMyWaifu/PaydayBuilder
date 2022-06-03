@@ -1497,7 +1497,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 				grip['Tactical Grip']
 			],
 			magazine: [
-				magazine['Extended Magzine (Falcon)']
+				magazine['Extended Magazine (Falcon)']
 			],
 			sight: mainSight,
 			stock: [

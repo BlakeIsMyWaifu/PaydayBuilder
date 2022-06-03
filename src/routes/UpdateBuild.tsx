@@ -15,11 +15,11 @@ const UpdateBuild: React.FC = () => {
 		setData({ data: builds[current].data, addNewBuild: false })
 	})
 
-	const disptach = useAppDispatch()
+	const dispatch = useAppDispatch()
 	const build = useBuildURLExport({ simple: false })
 
 	useEffect(() => {
-		disptach(updateData({
+		dispatch(updateData({
 			id: current,
 			data: build
 		}))

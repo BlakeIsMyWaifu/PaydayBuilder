@@ -8,7 +8,7 @@ import { useAppSelector } from 'hooks/reduxHooks'
 import React from 'react'
 
 import { LoadoutContainer } from './CrewManagement-Elements'
-import Loadout from './Loadout/Loadout'
+import Loadout from './Loadout'
 
 export interface CrewData {
 	mask: MaskList;

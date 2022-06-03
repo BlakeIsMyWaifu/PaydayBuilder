@@ -8,7 +8,7 @@ import React, { useState } from 'react'
 import { changeEquipment } from 'slices/characterSlice'
 import { itemColours } from 'utils/colours'
 
-import { EquipementImage, EquipmentWrapper, Item } from './Equipment-Elements'
+import { EquipmentImage, EquipmentWrapper, Item } from './Equipment-Elements'
 
 const Equipment: React.FC = () => {
 
@@ -66,7 +66,7 @@ const Equipment: React.FC = () => {
 							{equipment.name === equippedPrimary && <ItemEquipped> {jackOfAllTradesUnlocked ? 'Primary' : ''}</ItemEquipped>}
 							{equipment.name === equippedSecondary && <ItemEquipped> Secondary</ItemEquipped>}
 							{locked && <LockedIcon />}
-							<EquipementImage
+							<EquipmentImage
 								src={`/images/equipment/${equipment.name}.png`}
 								locked={locked}
 								onContextMenu={event => event.preventDefault()}
