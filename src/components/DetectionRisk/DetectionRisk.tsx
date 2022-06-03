@@ -65,8 +65,6 @@ const DetectionRisk: React.FC<DectectionRiskProps> = ({ flexDirection, corner, s
 
 	const preventDefault = (event: React.MouseEvent<HTMLImageElement, MouseEvent>): void => event.preventDefault()
 
-	console.log('drisk')
-
 	return (
 		<Container
 			flexDirection={flexDirection}
