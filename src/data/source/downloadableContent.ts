@@ -10,7 +10,7 @@ export interface ContentData {
 		xb1: boolean;
 		ps3: boolean;
 		360: boolean;
-	}
+	};
 }
 
 export type ContentRarity = 'Pre-order' | 'Paid' | 'Secret' | 'Free' | 'Event' | 'Collaboration' | 'Bundle' | 'Community' | 'Infamous'

@@ -9,7 +9,7 @@ import { changeMask } from 'slices/characterSlice'
 import { itemColours } from 'utils/colours'
 
 import CollectionsTab from './CollectionsTab'
-import { ItemContainer, MaskCollection, MaskCollectionTitle, MaskWrapper, rainbowAnimation } from './Mask-Elements'
+import { MaskCollection, MaskCollectionTitle, MaskItemContainer, MaskWrapper, rainbowAnimation } from './Mask-Elements'
 import MaskTab from './MaskTab'
 
 export const getCollectionList = (): Record<string, MaskData[]> => {
@@ -48,7 +48,7 @@ const Mask: FC = () => {
 				additionalStyling: rarity === 'All' ? rainbowAnimation : null
 			}))} />
 
-			<ItemContainer ref={itemContainerRef}>
+			<MaskItemContainer ref={itemContainerRef}>
 				{
 					Object.entries(collections).map(([collection, collectionMasks], i) => {
 						if (selectedTab !== collectionMasks[0].rarity && selectedTab !== 'All') return <Fragment key={collection} />
@@ -74,7 +74,7 @@ const Mask: FC = () => {
 						</MaskCollection>
 					})
 				}
-			</ItemContainer>
+			</MaskItemContainer>
 
 			<Info tabs={{
 				mask: <MaskTab selectedMask={selectedMask} />,

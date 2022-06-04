@@ -47,7 +47,7 @@ export const Tab = styled.div<TabProps>`
 `
 
 interface TabTitleProps {
-	direction: 'ltr' | 'rtl'
+	direction: 'ltr' | 'rtl';
 }
 
 export const TabTitle = styled.h1<TabTitleProps>`

@@ -4,7 +4,7 @@ export interface ArmourData {
 	name: ArmourList;
 	description: string[];
 	reputation: number;
-	stats: ArmourStats
+	stats: ArmourStats;
 }
 
 export interface ArmourStats {
@@ -83,7 +83,7 @@ const armours: Record<string, ArmourData> = {
 			dodge: -15,
 			speed: 33.3,
 			stamina: 45,
-			steadiness: 12.9,
+			steadiness: 12.9
 		}
 	},
 	'Flak Jacket': {

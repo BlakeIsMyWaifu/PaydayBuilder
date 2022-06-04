@@ -30,11 +30,13 @@ const Home: FC = () => {
 				setToggleBuilds={setToggleBuilds}
 				setLoadedBuild={setData}
 			/>
+
 			<SettingsPanel
 				toggleSettings={toggleSettings}
 				setToggleSettings={setToggleSettings}
 				setLoadedBuild={setData}
 			/>
+
 			<Container
 				columns='2fr 1fr 1fr 1fr'
 				rows='calc(100% - 3rem) 3rem'
@@ -43,6 +45,11 @@ const Home: FC = () => {
 			>
 
 				<Tabs />
+
+				<VersionContainer>
+					<VersionText>Payday Version: 207</VersionText>
+					<VersionText>Builder Version: 0.2.4</VersionText>
+				</VersionContainer>
 
 				<ConfigContainer>
 
@@ -56,14 +63,11 @@ const Home: FC = () => {
 					<SettingsButton onClick={() => {
 						setToggleBuilds(false)
 						setToggleSettings(!toggleSettings)
-					}}> <FaCog /> </SettingsButton>
+					}}>
+						<FaCog />
+					</SettingsButton>
 
 				</ConfigContainer>
-
-				<VersionContainer>
-					<VersionText>Payday Version: 207</VersionText>
-					<VersionText>Builder Version: 0.2.3</VersionText>
-				</VersionContainer>
 
 			</Container>
 		</>

@@ -70,7 +70,7 @@ const useWeaponStats = (weapon: WeaponData, modifications: Partial<Record<Modifi
 	const additionalStats = (baseStats: WeaponStats): WeaponStats => {
 		const stats = { ...baseStats }
 
-		const addStats = ([label, stat]: [string, number]) => {
+		const addStats = ([label, stat]: [string, number]): void => {
 			stats[(label as keyof WeaponStats)] += stat
 		}
 

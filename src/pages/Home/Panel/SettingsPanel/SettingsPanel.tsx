@@ -71,7 +71,9 @@ const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettin
 				target='_blank'
 				rel='noopener noreferrer'
 			>
-				<ContactIconWrapper> <FaGithub size='100%' /> </ContactIconWrapper>
+				<ContactIconWrapper>
+					<FaGithub size='100%' />
+				</ContactIconWrapper>
 				<ContactText>This project is open source</ContactText>
 				<ContactText>Click here to contribute</ContactText>
 			</ContactLink>

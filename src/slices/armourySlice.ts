@@ -36,7 +36,7 @@ interface SelectWeapon {
 
 export interface AddWeaponAction {
 	weapon: WeaponData;
-	mods?: Partial<Record<ModificationSlot, string>>
+	mods?: Partial<Record<ModificationSlot, string>>;
 }
 
 interface ChangeModAction extends SelectWeapon {
