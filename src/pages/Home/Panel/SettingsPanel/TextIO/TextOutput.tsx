@@ -1,5 +1,5 @@
-import { FaClipboardList } from '@react-icons/all-files/fa/FaClipboardList'
 import { FC, MouseEvent, useRef } from 'react'
+import { FaClipboardList } from 'react-icons/fa'
 
 import { Button, Container, Input } from './TextIO-Elements'
 

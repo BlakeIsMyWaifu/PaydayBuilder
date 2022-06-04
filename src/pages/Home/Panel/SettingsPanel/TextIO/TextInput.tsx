@@ -1,5 +1,5 @@
-import { FaArrowRight } from '@react-icons/all-files/fa/FaArrowRight'
 import { FC, KeyboardEvent, MouseEvent, useRef } from 'react'
+import { FaArrowRight } from 'react-icons/fa'
 
 import { Button, Container, Input } from './TextIO-Elements'
 

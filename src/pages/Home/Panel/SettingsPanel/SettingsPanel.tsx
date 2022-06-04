@@ -1,4 +1,3 @@
-import { FaGithub } from '@react-icons/all-files/fa/FaGithub'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useBuildURLExport from 'hooks/useBuildURLExport'
 import { LoadedBuild } from 'hooks/useBuildURLImport'
@@ -6,6 +5,7 @@ import { Container, Title } from 'pages/Home/Panel/Panel-Elements'
 import TextInput from 'pages/Home/Panel/SettingsPanel/TextIO/TextInput'
 import TextOutput from 'pages/Home/Panel/SettingsPanel/TextIO/TextOutput'
 import { Dispatch, FC, SetStateAction } from 'react'
+import { FaGithub } from 'react-icons/fa'
 import { changeLeftFacing } from 'slices/settingsSlice'
 
 import CheckboxInput from './CheckboxInput'
