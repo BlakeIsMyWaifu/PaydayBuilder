@@ -1,11 +1,11 @@
-import { changeArmour, changeEquipment } from 'slices/characterSlice'
 import Container from 'components/Container'
 import HorizontalBar from 'components/HorizontalBar'
 import { ResetContainer, ResetText } from 'components/Reset-Elements'
 import skills, { SkillData, TreeData, TreeNames } from 'data/abilities/skills'
 import equipments from 'data/character/equipment'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import React, { useEffect, useState } from 'react'
+import { FC, WheelEvent, useEffect, useState } from 'react'
+import { changeArmour, changeEquipment } from 'slices/characterSlice'
 import { resetSkills, resetTree } from 'slices/skillsSlice'
 
 import Info from './Info'
@@ -13,7 +13,7 @@ import Points from './Points'
 import { SubtreeLabel, SubtreeLabelWrapper, Tree, highlightActive } from './Skills-Elements'
 import Subtree from './Subtree'
 
-const Skills: React.FC = () => {
+const Skills: FC = () => {
 
 	const dispatch = useAppDispatch()
 
@@ -23,7 +23,7 @@ const Skills: React.FC = () => {
 
 	const treeNameOrder: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
 
-	const scrollTrees = (event: React.WheelEvent): void => {
+	const scrollTrees = (event: WheelEvent): void => {
 		const direction = event.deltaY < 0 ? -1 : 1
 		let index = treeNameOrder.indexOf(currentTree.name)
 		index += direction
@@ -48,23 +48,28 @@ const Skills: React.FC = () => {
 		}
 
 		window.addEventListener('keydown', handleKeys)
-		if (jackOfAllTrades !== 'aced' && equippedEquipment.secondary) {
-			dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
-		}
-
-		if (engineering !== 'basic' && engineering !== 'aced') {
-			if (equippedEquipment.primary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: Object.keys(equipments)[0], slot: 'primary' }))
-			if (equippedEquipment.secondary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
-		}
-
-		if (ironMan !== 'aced') {
-			if (equippedArmour === 'Improved Combined Tactical Vest') dispatch(changeArmour('Two-Piece Suit'))
-		}
 
 		return () => {
 			window.removeEventListener('keydown', handleKeys)
 		}
-	}, [currentTree, jackOfAllTrades, engineering, equippedEquipment, ironMan, equippedArmour, dispatch])
+	}, [currentTree, dispatch])
+
+	useEffect(() => {
+		if (jackOfAllTrades !== 'aced' && equippedEquipment.secondary) {
+			dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
+		}
+	}, [dispatch, equippedEquipment.secondary, jackOfAllTrades])
+
+	useEffect(() => {
+		if (engineering !== 'basic' && engineering !== 'aced') {
+			if (equippedEquipment.primary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: Object.keys(equipments)[0], slot: 'primary' }))
+			if (equippedEquipment.secondary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
+		}
+	}, [dispatch, engineering, equippedEquipment])
+
+	useEffect(() => {
+		if (ironMan !== 'aced' && equippedArmour === 'Improved Combined Tactical Vest') dispatch(changeArmour('Two-Piece Suit'))
+	}, [ironMan, equippedArmour, dispatch])
 
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "horizontalbar points" "skills info" "subtreelabels back"' title='Skills'>

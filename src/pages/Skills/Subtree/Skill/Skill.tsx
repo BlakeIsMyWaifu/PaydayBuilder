@@ -1,6 +1,6 @@
 import { SkillData, SubtreeData, TreeNames } from 'data/abilities/skills'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import React, { useState } from 'react'
+import { Dispatch, FC, MouseEvent, SetStateAction, useState } from 'react'
 import { changeSkillState } from 'slices/skillsSlice'
 import { grey } from 'utils/colours'
 
@@ -10,10 +10,10 @@ export interface SkillProps {
 	treeName: TreeNames;
 	subtree: SubtreeData;
 	skill: SkillData;
-	setSkillHovered: React.Dispatch<React.SetStateAction<SkillData | null>>;
+	setSkillHovered: Dispatch<SetStateAction<SkillData | null>>;
 }
 
-const Skill: React.FC<SkillProps> = ({ treeName, subtree, skill, setSkillHovered }) => {
+const Skill: FC<SkillProps> = ({ treeName, subtree, skill, setSkillHovered }) => {
 
 	const dispatch = useAppDispatch()
 
@@ -34,7 +34,7 @@ const Skill: React.FC<SkillProps> = ({ treeName, subtree, skill, setSkillHovered
 
 	const points = useAppSelector(state => state.skills.points)
 
-	const clickSkills = (event: React.MouseEvent) => {
+	const clickSkills = (event: MouseEvent): void => {
 		event.preventDefault()
 		if (event.button !== 0 && event.button !== 2) return
 		const leftClickDecline = !event.button && (skillState !== 'available' && skillState !== 'basic')
@@ -55,7 +55,7 @@ const Skill: React.FC<SkillProps> = ({ treeName, subtree, skill, setSkillHovered
 			}
 
 			if (skill.tier !== highestTier) {
-				const reduceThing = (arr: number[]) => arr.length ? arr.reduce((a, b) => a + b) : 0
+				const reduceThing = (arr: number[]): number => arr.length ? arr.reduce((a, b) => a + b) : 0
 				const highestTierPointsTotal = reduceThing(Object.entries(subtreeState.upgrades)
 					.filter((_, i) => Object.values(subtree.upgrades)[i].tier === highestTier)
 					.map(([skillName, skillState]) => {

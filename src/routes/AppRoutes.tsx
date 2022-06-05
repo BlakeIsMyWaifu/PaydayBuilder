@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react'
+import { FC, Suspense, lazy } from 'react'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Loader from 'routes/Loader'
 
@@ -22,7 +22,7 @@ const PerkDeck = lazy(() => import('pages/PerkDeck'))
 const CrewManagement = lazy(() => import('pages/CrewManagement'))
 const Infamy = lazy(() => import('pages/Infamy'))
 
-const AppRoutes: React.FC = () => {
+const AppRoutes: FC = () => {
 	return (
 		<Router>
 

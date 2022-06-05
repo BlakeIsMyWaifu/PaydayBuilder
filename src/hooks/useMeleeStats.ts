@@ -6,7 +6,7 @@ const useMeleeStats = (meleeName: MeleeList): CustomStatsHook<MeleeStats> => {
 	const meleeStats = melees[meleeName].stats
 
 	const baseStats = (): MeleeStats => {
-		const toTwoDecimal = (number: number) => +(Math.round(number * 100) / 100).toFixed(2)
+		const toTwoDecimal = (number: number): number => +(Math.round(number * 100) / 100).toFixed(2)
 		const { damage, knockdown, chargeTime, range, concealment, specialType, specialTime } = meleeStats
 		const stats: MeleeStats = {
 			damage, knockdown, chargeTime, range, concealment,

@@ -2,7 +2,7 @@ import { InfoContainer } from 'components/Info/Info-Elements'
 import { Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppSelector } from 'hooks/reduxHooks'
 import { decodeArmoury } from 'hooks/useBuildURLImport'
-import React, { useMemo } from 'react'
+import { Dispatch, FC, SetStateAction, useMemo } from 'react'
 
 import { BuildTitle, StatusTitle } from './BuildsArmoury-Elements'
 
@@ -16,11 +16,11 @@ export interface BuildTab {
 interface BuildsArmouryProps {
 	data: Record<string, Record<string, WeaponData>>;
 	buildTabs: BuildTab[];
-	setBuildTabs: React.Dispatch<React.SetStateAction<BuildTab[]>>;
-	changeActiveTab: (tabId: number) => void
+	setBuildTabs: Dispatch<SetStateAction<BuildTab[]>>;
+	changeActiveTab: (tabId: number) => void;
 }
 
-const BuildsArmoury: React.FC<BuildsArmouryProps> = ({ data, buildTabs, setBuildTabs, changeActiveTab }) => {
+const BuildsArmoury: FC<BuildsArmouryProps> = ({ data, buildTabs, setBuildTabs, changeActiveTab }) => {
 
 	const activeBuildId = useAppSelector(state => state.builds.current)
 

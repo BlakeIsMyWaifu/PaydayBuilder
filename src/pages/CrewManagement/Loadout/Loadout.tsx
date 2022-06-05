@@ -1,6 +1,6 @@
 import masks from 'data/character/masks'
 import { useAppSelector } from 'hooks/reduxHooks'
-import React from 'react'
+import { FC } from 'react'
 import findWeapon from 'utils/findWeapon'
 
 import { CrewData } from '../CrewManagement'
@@ -11,7 +11,7 @@ interface LoadoutProps {
 	index: 1 | 2 | 3;
 }
 
-const Loadout: React.FC<LoadoutProps> = ({ data, index }) => {
+const Loadout: FC<LoadoutProps> = ({ data, index }) => {
 
 	const { primary } = useAppSelector(state => state.armoury)
 
@@ -46,7 +46,6 @@ const Loadout: React.FC<LoadoutProps> = ({ data, index }) => {
 					<ItemIcon src={`/images/crew/boosts/${data.boost}.png`} onMouseDown={event => event.preventDefault()} />
 				</Item>
 			</ItemContainer>
-
 
 		</Container>
 	)

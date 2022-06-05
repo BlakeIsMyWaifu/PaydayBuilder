@@ -190,7 +190,7 @@ const skills: Record<TreeNames, TreeData> = {
 					'Graze': {
 						name: 'Graze',
 						description: [
-							'Snipers that hit their target deal 20% of the damage dealth in a 100cm radius around the bullet trajectory.',
+							'Snipers that hit their target deal 20% of the damage dealt in a 100cm radius around the bullet trajectory.',
 							'If a bullet would headshot-kill someone, the graze skill will deal 100% of the weapon\'s damage instead of 20%.'
 						],
 						pos: [880, 720],
@@ -247,7 +247,7 @@ const skills: Record<TreeNames, TreeData> = {
 						name: 'Close By',
 						description: [
 							'You can now hip-fire with your Shotguns while sprinting.',
-							'Your rate of fire is increased by 35% while firing from the hip with single shot Shotguns. Sotguns with magazines have their magazine sizes increased by 15 shells'
+							'Your rate of fire is increased by 35% while firing from the hip with single shot Shotguns. Shotguns with magazines have their magazine sizes increased by 15 shells'
 						],
 						vr_description: 'Addition in VR:\tBASIC: After dashing the player kills have a 100% chance to fear enemies within 8 meters of the player for 1 up to a maximum of 3 seconds depending on the amount of stamina consumed by the jump.',
 						pos: [640, 480],
@@ -306,8 +306,8 @@ const skills: Record<TreeNames, TreeData> = {
 					'Bullseye': {
 						name: 'Bullseye',
 						description: [
-							'You regenerate 5 armor for each succesful headshot. This can not occur more than once every 2 seconds.',
-							'You regenerate an additional 20 armor for each succesful headshot.'
+							'You regenerate 5 armor for each successful headshot. This can not occur more than once every 2 seconds.',
+							'You regenerate an additional 20 armor for each successful headshot.'
 						],
 						pos: [480, 880],
 						tier: 3
@@ -542,7 +542,7 @@ const skills: Record<TreeNames, TreeData> = {
 							'You can how hip-fire with your weapons while sprinting.',
 							'Killing 2 enemies with SMGs, LMGs, Assault Rifles or Special Weapons set on automatic fire mode will increase your next reload speed by up to 100%. This bonus is reduced by 1% for each bullet above 20 in the total magazine size, down to a maximum of 40% reload speed increase.'
 						],
-						vr_description: 'Addition in VR:\tBASIC: Every 40 points of stamina consumed by dashin will refill 5% of their ammo pool to automatic weapons.',
+						vr_description: 'Addition in VR:\tBASIC: Every 40 points of stamina consumed by dashing will refill 5% of their ammo pool to automatic weapons.',
 						pos: [800, 0],
 						tier: 3
 					},
@@ -771,7 +771,7 @@ const skills: Record<TreeNames, TreeData> = {
 					'Gun Nut': {
 						name: 'Gun Nut',
 						description: [
-							'Your pistoll magazine sizes are increased by 5 bullets.',
+							'Your pistol magazine sizes are increased by 5 bullets.',
 							'You gain a 50% increased rate of fire with pistols.'
 						],
 						pos: [880, 0],

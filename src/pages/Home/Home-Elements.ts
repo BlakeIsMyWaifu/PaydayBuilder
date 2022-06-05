@@ -8,6 +8,7 @@ export const ConfigContainer = styled.div`
 `
 
 export const SettingsButton = styled.button`
+	height: 2.5rem;
 	font-size: 2.5rem;
 `
 

@@ -5,12 +5,14 @@ import { blue } from 'utils/colours'
 
 export const Area = styled.div<ContainerProps>`
 	position: absolute;
-	width: calc(100% - 16px);
-	height: calc(100% - 16px);
-	top: 8px;
-	bottom: 8px;
-	left: 8px;
-	right: 8px;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	padding: 8px;
+	box-sizing: border-box;
+
+	overflow: hidden;
 
 	display: grid;
 	gap: 8px;
@@ -30,6 +32,7 @@ export const Title = styled.h1`
 
 export const BackWrapper = styled.div`
 	grid-area: back;
+	position: relative;
 `
 
 export const BackLink = styled(Link)`
@@ -40,8 +43,9 @@ export const BackText = styled.p`
 	color: ${blue};
 	position: absolute;
 	bottom: 0;
-	right: 8px;
-	font-size: calc(4rem - 8px);
+	right: 0;
+	font-size: 4rem;
+	line-height: 4rem;
 	&:hover {
 		color: #fff;
 	}

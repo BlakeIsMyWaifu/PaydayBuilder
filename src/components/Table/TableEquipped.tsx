@@ -1,6 +1,6 @@
 import statLimit from 'data/weapons/guns/statLimit'
 import { ModificationStats } from 'data/weapons/guns/weaponTypes'
-import React from 'react'
+import { FC, ReactNode } from 'react'
 import { blue, colourCompare, purple, sycamore } from 'utils/colours'
 import { twoDP } from 'utils/maths'
 
@@ -11,12 +11,12 @@ interface TableEquippedProps {
 	additionalStats: {
 		skill: Record<string, any>;
 		mod?: ModificationStats;
-	}
+	};
 }
 
-const TableEquipped: React.FC<TableEquippedProps> = ({ baseStats, additionalStats }) => {
+const TableEquipped: FC<TableEquippedProps> = ({ baseStats, additionalStats }) => {
 
-	const isArrayZeros = (arr: number[]) => arr.reduce((a, b) => a + b)
+	const isArrayZeros = (arr: number[]): number => arr.reduce((a, b) => a + b)
 
 	return (
 		<Table>
@@ -35,14 +35,14 @@ const TableEquipped: React.FC<TableEquippedProps> = ({ baseStats, additionalStat
 						const skillValue = additionalStats.skill[stat]
 						const modValue: number = additionalStats.mod?.[(stat as keyof ModificationStats)] ?? 0
 
-						const template = (innerData: React.ReactNode): JSX.Element => <Row key={stat}>
+						const template = (innerData: ReactNode): JSX.Element => <Row key={stat}>
 							<Label>{stat}</Label>
 							{innerData}
 						</Row>
 
 						switch (baseValue.constructor.name) {
 							case 'Number': {
-								let colour = colourCompare(baseValue + skillValue + modValue, baseValue)
+								let colour: string = colourCompare(baseValue + skillValue + modValue, baseValue)
 								let totalValue = twoDP(baseValue + skillValue + modValue)
 
 								if (Object.keys(statLimit).includes(stat)) {

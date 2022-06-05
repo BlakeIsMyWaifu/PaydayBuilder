@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 interface ContainerProps {
-	colour: string
+	colour: string;
 }
 
 export const Container = styled.div<ContainerProps>`

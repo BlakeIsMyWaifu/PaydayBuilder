@@ -1,9 +1,9 @@
 import Container from 'components/Container'
-import React from 'react'
+import { FC } from 'react'
 
 import { Text } from './Infamy-Elements'
 
-const Infamy: React.FC = () => {
+const Infamy: FC = () => {
 	return (
 		<Container title='Infamy'>
 			<Text>

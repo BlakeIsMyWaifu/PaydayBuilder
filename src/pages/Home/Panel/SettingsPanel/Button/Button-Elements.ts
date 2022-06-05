@@ -27,4 +27,3 @@ export const Input = styled.input`
 		transform: scale(0.95);
 	}
 `
-

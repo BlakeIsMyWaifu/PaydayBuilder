@@ -43,5 +43,5 @@ export const BuildName = styled.input`
 export const BuildList = styled.button`
 	height: 2.2rem;
 	aspect-ratio: 1;
-	font-size: 2rem;
+	font-size: 2.2rem;
 `

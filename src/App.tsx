@@ -1,7 +1,7 @@
 import './App.css'
 
 import { BackgroundContainer, BackgroundImage } from 'App-Elements'
-import React from 'react'
+import { FC } from 'react'
 import AppRoutes from 'routes/AppRoutes'
 import { isDev } from 'utils/isDev'
 
@@ -12,7 +12,7 @@ if (!isDev) {
 	})
 }
 
-const App: React.FC = () => {
+const App: FC = () => {
 	return (
 		<div onContextMenu={event => isDev() ? null : event.preventDefault()}>
 			<BackgroundContainer>

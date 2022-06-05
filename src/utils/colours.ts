@@ -22,7 +22,7 @@ export const itemColours: Record<string, string> = {
 	Bundle: '#80ff00'
 }
 
-export const colourCompare = (valueOne: number, valueTwo: number) => valueOne !== valueTwo ? (valueOne < valueTwo ? red : green) : '#fff'
+export const colourCompare = (valueOne: number, valueTwo: number): '#BEDD7D' | '#FE5D63' | '#fff' => valueOne !== valueTwo ? (valueOne < valueTwo ? red : green) : '#fff'
 
 const colours = {
 	raisinBlack,

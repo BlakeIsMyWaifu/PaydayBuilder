@@ -1,6 +1,6 @@
 import statLimit from 'data/weapons/guns/statLimit'
 import { ModificationStats } from 'data/weapons/guns/weaponTypes'
-import React from 'react'
+import { FC, ReactNode } from 'react'
 import { colourCompare, purple } from 'utils/colours'
 import { twoDP } from 'utils/maths'
 
@@ -13,7 +13,7 @@ interface TableCompareProps {
 	selectedAdditional: Record<string, any>;
 }
 
-const TableCompare: React.FC<TableCompareProps> = ({ equippedStats, selectedStats, equippedAdditional, selectedAdditional }) => {
+const TableCompare: FC<TableCompareProps> = ({ equippedStats, selectedStats, equippedAdditional, selectedAdditional }) => {
 
 	const stats = [...Object.keys(equippedStats), ...Object.keys(selectedStats)].filter((label, i, arr) => arr.indexOf(label) === i)
 
@@ -32,7 +32,7 @@ const TableCompare: React.FC<TableCompareProps> = ({ equippedStats, selectedStat
 						const main = equippedStats?.[stat]
 						const compare = selectedStats?.[stat]
 
-						const template = (innerData: React.ReactNode): JSX.Element => {
+						const template = (innerData: ReactNode): JSX.Element => {
 							return <Row key={stat}>
 								<Label>{stat}</Label>
 								{innerData}

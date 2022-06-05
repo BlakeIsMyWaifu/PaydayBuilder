@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, ReactNode } from 'react'
 
 import { Area, BackLink, BackText, BackWrapper, Title } from './Container-Elements'
 
@@ -8,11 +8,11 @@ export interface ContainerProps {
 	areas?: string;
 	title?: string;
 	backButton?: boolean;
-	children?: React.ReactNode;
+	children?: ReactNode;
 	backLocation?: string;
 }
 
-const Container: React.FC<ContainerProps> = ({
+const Container: FC<ContainerProps> = ({
 	columns = '3fr 1fr',
 	rows = '4rem 8fr 4rem',
 	areas = '"title title" "items info" "items back"',

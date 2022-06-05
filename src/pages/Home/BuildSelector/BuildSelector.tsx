@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import { LoadedBuild } from 'hooks/useBuildURLImport'
-import React from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 import { FaChevronLeft, FaChevronRight, FaThList } from 'react-icons/fa'
 import { changeBuild, updateName } from 'slices/buildsSlice'
 
@@ -8,12 +8,12 @@ import { Arrow, BuildList, BuildName, Container, Wrapper } from './BuildSelector
 
 interface BuildSelectorProps {
 	toggleBuilds: boolean;
-	setToggleBuilds: React.Dispatch<React.SetStateAction<boolean>>;
-	setToggleSettings: React.Dispatch<React.SetStateAction<boolean>>;
-	setLoadedBuild: React.Dispatch<React.SetStateAction<LoadedBuild>>;
+	setToggleBuilds: Dispatch<SetStateAction<boolean>>;
+	setToggleSettings: Dispatch<SetStateAction<boolean>>;
+	setLoadedBuild: Dispatch<SetStateAction<LoadedBuild>>;
 }
 
-const BuildSelector: React.FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, setToggleSettings, setLoadedBuild }) => {
+const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, setToggleSettings, setLoadedBuild }) => {
 
 	const dispatch = useAppDispatch()
 
@@ -33,7 +33,12 @@ const BuildSelector: React.FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBu
 		setLoadedBuild({ data: build.data, addNewBuild: false })
 	}
 
-	const arrowProps = (direction: 1 | -1) => ({
+	interface ArrowProps {
+		title: string;
+		onClick: () => void;
+	}
+
+	const arrowProps = (direction: 1 | -1): ArrowProps => ({
 		title: `Switch to: ${Object.values(builds)[getNextBuildId(direction)]?.name || 'New Build . . .'}`,
 		onClick: () => {
 			updateBuild(getNextBuildId(direction))
