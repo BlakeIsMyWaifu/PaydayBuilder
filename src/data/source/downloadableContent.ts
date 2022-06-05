@@ -4,13 +4,15 @@ export interface ContentData {
 	type: ContentType;
 	released: string;
 	price: string;
-	platform: {
-		pc: boolean;
-		ps4: boolean;
-		xb1: boolean;
-		ps3: boolean;
-		360: boolean;
-	};
+	platform: Platform;
+}
+
+interface Platform {
+	360: boolean;
+	pc: boolean;
+	ps4: boolean;
+	xb1: boolean;
+	ps3: boolean;
 }
 
 export type ContentRarity = 'Pre-order' | 'Paid' | 'Secret' | 'Free' | 'Event' | 'Collaboration' | 'Bundle' | 'Community' | 'Infamous'
@@ -189,7 +191,23 @@ type ContentList =
 	'Buluc\'s Mansion Heist' |
 	'Buluc\'s Mansion Bundle' |
 	'Jiu Feng Smuggler Pack' |
-	'Jiu Feng Smuggler Pack 2'
+	'Jiu Feng Smuggler Pack 2' |
+	'Jiu Feng Smuggler Pack 3' |
+	'Winter Ghosts Tailor Pack' |
+	'Jiu Feng Smuggler Pack 4' |
+	'Golden Dagger Tailor Pack' |
+	'Mountain Master Heist' |
+	'Midland Bundle' |
+	'Southbound Tailor Pack' |
+	'McShay Weapon Pack'
+
+const pcExclusive: Platform = {
+	360: false,
+	pc: true,
+	ps4: false,
+	xb1: false,
+	ps3: false
+}
 
 const downloadableContent: Record<ContentList, ContentData> = {
 	'Career Criminal Content': {
@@ -310,13 +328,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Heist',
 		released: '2013, December 16',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'A Merry Payday Christmas Soundtrack': {
 		name: 'A Merry Payday Christmas Soundtrack',
@@ -492,13 +504,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Bundle',
 		released: '2014, June 25',
 		price: '$19.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Gage Shotgun Pack': {
 		name: 'Gage Shotgun Pack',
@@ -772,13 +778,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Bundle',
 		released: '2014, December 18',
 		price: '$17.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'GOTY Edition': {
 		name: 'GOTY Edition',
@@ -786,13 +786,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Bundle',
 		released: '2014, December 18',
 		price: '$49.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Heist Bundle': {
 		name: 'Heist Bundle',
@@ -800,13 +794,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Bundle',
 		released: '2014, December 18',
 		price: '$13.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'New Year Update': {
 		name: 'New Year Update',
@@ -912,13 +900,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2015, March 12',
 		price: '$19.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'The OVERKILL Pack': {
 		name: 'The OVERKILL Pack',
@@ -1122,13 +1104,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2015, June 13',
 		price: '$5.49',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Humble Mask Pack 4': {
 		name: 'Humble Mask Pack 4',
@@ -1136,13 +1112,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2015, June 13',
 		price: '$7.49',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'The Jack Mask Pack': {
 		name: 'The Jack Mask Pack',
@@ -1248,13 +1218,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2015, August 6',
 		price: '$28.16',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Yakuza Character Pack': {
 		name: 'Yakuza Character Pack',
@@ -1444,13 +1408,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, February 4',
 		price: 'DbD Steam Community',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Wolf Pack': {
 		name: 'Wolf Pack',
@@ -1472,13 +1430,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, February 26',
 		price: 'Previous DLC',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Jimmy Character Pack': {
 		name: 'Jimmy Character Pack',
@@ -1514,13 +1466,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, April 21',
 		price: 'DbD Steam Community',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Sydney Character Pack': {
 		name: 'Sydney Character Pack',
@@ -1542,13 +1488,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, May 25',
 		price: 'DbD Steam Community',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Back to the Basics': {
 		name: 'Back to the Basics',
@@ -1570,13 +1510,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, June 9',
 		price: 'DbD Steam Community',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Dead by Daylight Mask Pack 5': {
 		name: 'Dead by Daylight Mask Pack 5',
@@ -1584,13 +1518,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, June 9',
 		price: '$29.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Humble Mask Pack 5': {
 		name: 'Humble Mask Pack 5',
@@ -1598,13 +1526,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, June 9',
 		price: '$9.49',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'The Solus Project Mask Pack': {
 		name: 'The Solus Project Mask Pack',
@@ -1612,13 +1534,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, June 9',
 		price: 'Solus Steam Community',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Biker Character Pack': {
 		name: 'Biker Character Pack',
@@ -1654,13 +1570,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, June 24',
 		price: 'Previous DLC',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'4 Million?!': {
 		name: '4 Million?!',
@@ -1668,13 +1578,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, June 30',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Fable Mask Pack': {
 		name: 'Fable Mask Pack',
@@ -1682,13 +1586,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, August 13',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'THE BIG SCORE DLC Bundle!': {
 		name: 'THE BIG SCORE DLC Bundle!',
@@ -1710,13 +1608,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, September 22',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'New Difficulties': {
 		name: 'New Difficulties',
@@ -1738,13 +1630,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Feature',
 		released: '2016, October 9',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Mafia Mask Pack': {
 		name: 'Mafia Mask Pack',
@@ -1752,13 +1638,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, October 10',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Concussion Grenade': {
 		name: 'Concussion Grenade',
@@ -1766,13 +1646,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Weapon',
 		released: '2016, October 11',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Hoxton Safe': {
 		name: 'Hoxton Safe',
@@ -1780,13 +1654,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Heist',
 		released: '2016, October 12',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'The Medic': {
 		name: 'The Medic',
@@ -1794,13 +1662,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Feature',
 		released: '2016, October 13',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Chains Mask Pack': {
 		name: 'Chains Mask Pack',
@@ -1808,13 +1670,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, October 14',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Mutators': {
 		name: 'Mutators',
@@ -1822,13 +1678,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Feature',
 		released: '2016, October 15',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'New Shotgun': {
 		name: 'New Shotgun',
@@ -1836,13 +1686,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Weapon',
 		released: '2016, October 16',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Panic Room': {
 		name: 'Panic Room',
@@ -1878,13 +1722,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Heist',
 		released: '2016, November 3',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'PAYDAYCON 2016': {
 		name: 'PAYDAYCON 2016',
@@ -1892,13 +1730,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, November 11',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Gage Spec Ops Pack': {
 		name: 'Gage Spec Ops Pack',
@@ -1920,13 +1752,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2016, November 25',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Stealing Xmas': {
 		name: 'Stealing Xmas',
@@ -1976,13 +1802,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2017, January 26',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Shadow Warrior Collaboration': {
 		name: 'Shadow Warrior Collaboration',
@@ -1990,13 +1810,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2017, February 1',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Sydney Mega Mask': {
 		name: 'Sydney Mega Mask',
@@ -2004,13 +1818,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2017, February 1',
 		price: '$10',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'John Wick Heists': {
 		name: 'John Wick Heists',
@@ -2046,13 +1854,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2017, April 1',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Heat Street': {
 		name: 'Heat Street',
@@ -2074,13 +1876,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Feature',
 		released: '2017, April 6',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Search for Kento day 6': {
 		name: 'Search for Kento day 6',
@@ -2088,13 +1884,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Weapon',
 		released: '2017, April 8',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Pen Melee Weapon': {
 		name: 'Pen Melee Weapon',
@@ -2102,13 +1892,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Weapon',
 		released: '2017, April 8',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Loading Screen Hints': {
 		name: 'Loading Screen Hints',
@@ -2116,13 +1900,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Feature',
 		released: '2017, April 10',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Green Bridge': {
 		name: 'Green Bridge',
@@ -2158,13 +1936,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Mask',
 		released: '2017, June 1',
 		price: '$11.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'THE Most Wanted DLC Bundle!': {
 		name: 'THE Most Wanted DLC Bundle!',
@@ -2186,13 +1958,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Bundle',
 		released: '2017, June 12',
 		price: '$44.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Ultimate Edition Upgrade': {
 		name: 'Ultimate Edition Upgrade',
@@ -2200,13 +1966,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Weapon',
 		released: '2017, June 12',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'WW2 Weapon Pack': {
 		name: 'WW2 Weapon Pack',
@@ -2214,13 +1974,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Weapon Pack',
 		released: '2017, August 31',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'h3h3 Character Pack': {
 		name: 'h3h3 Character Pack',
@@ -2228,13 +1982,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Character',
 		released: '2017, November 22',
 		price: '$4.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'VR': {
 		name: 'VR',
@@ -2242,13 +1990,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Feature',
 		released: '2018, March 15',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Offshore Payday': {
 		name: 'Offshore Payday',
@@ -2256,13 +1998,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Feature',
 		released: '2018, November 1',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'The Crimewave Collection': {
 		name: 'The Crimewave Collection',
@@ -2284,13 +2020,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Bundle',
 		released: '2019, October 25',
 		price: '$9.98',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Legacy Collection': {
 		name: 'Legacy Collection',
@@ -2298,13 +2028,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Bundle',
 		released: '2019, October 25',
 		price: '$20.16',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Border Crossing Heist': {
 		name: 'Border Crossing Heist',
@@ -2312,13 +2036,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Heist',
 		released: '2019, November 7',
 		price: '$6.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Cartel Optics Mod Pack': {
 		name: 'Cartel Optics Mod Pack',
@@ -2326,13 +2044,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Weapon Mod',
 		released: '2019, November 7',
 		price: '$2.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Tailor Pack 1': {
 		name: 'Tailor Pack 1',
@@ -2340,13 +2052,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Outfit',
 		released: '2019, November 7',
 		price: '$2.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Border Crossing Bundle': {
 		name: 'Border Crossing Bundle',
@@ -2354,13 +2060,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Bundle',
 		released: '2019, November 7',
 		price: '$9.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Weapon Color Pack 1': {
 		name: 'Weapon Color Pack 1',
@@ -2368,13 +2068,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Weapon Skin',
 		released: '2020, February 27',
 		price: '$2.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Federales Weapon Pack': {
 		name: 'Federales Weapon Pack',
@@ -2382,13 +2076,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Weapon Pack',
 		released: '2020, February 27',
 		price: '$2.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Tailor Pack 2': {
 		name: 'Tailor Pack 2',
@@ -2396,13 +2084,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Outfit',
 		released: '2020, February 27',
 		price: '$2.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'San Martín Bank Heist': {
 		name: 'San Martín Bank Heist',
@@ -2410,13 +2092,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Heist',
 		released: '2020, February 27',
 		price: '$6.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'San Martín Bundle': {
 		name: 'San Martín Bundle',
@@ -2424,13 +2100,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Bundle',
 		released: '2020, February 27',
 		price: '$9.88',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Breakfast in Tijuana': {
 		name: 'Breakfast in Tijuana',
@@ -2438,13 +2108,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Heist',
 		released: '2020, February 27',
 		price: '$6.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Fugitive Weapon Pack': {
 		name: 'Fugitive Weapon Pack',
@@ -2452,13 +2116,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Weapon Pack',
 		released: '2020, February 27',
 		price: '$2.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Weapon Color Pack 2': {
 		name: 'Weapon Color Pack 2',
@@ -2466,13 +2124,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Weapon Skin',
 		released: '2020, February 27',
 		price: '$2.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Breakfast in Tijuana Bundle': {
 		name: 'Breakfast in Tijuana Bundle',
@@ -2480,13 +2132,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Bundle',
 		released: '2020, February 27',
 		price: '$9.98',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Infamy 3.0': {
 		name: 'Infamy 3.0',
@@ -2494,13 +2140,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Feature',
 		released: '2020, November 11',
 		price: 'Free',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Tailor Pack 3': {
 		name: 'Tailor Pack 3',
@@ -2508,13 +2148,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Outfit',
 		released: '2020, November 11',
 		price: '$2.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Gunslinger Weapon Pack': {
 		name: 'Gunslinger Weapon Pack',
@@ -2522,13 +2156,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Weapon Pack',
 		released: '2020, November 11',
 		price: '$2.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Weapon Color Pack 3': {
 		name: 'Weapon Color Pack 3',
@@ -2536,13 +2164,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Weapon Skin',
 		released: '2020, November 11',
 		price: '$2.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Buluc\'s Mansion Heist': {
 		name: 'Buluc\'s Mansion Heist',
@@ -2550,13 +2172,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Heist',
 		released: '2020, November 11',
 		price: '$6.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Buluc\'s Mansion Bundle': {
 		name: 'Buluc\'s Mansion Bundle',
@@ -2564,13 +2180,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Bundle',
 		released: '2020, November 11',
 		price: '$10.04',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Jiu Feng Smuggler Pack': {
 		name: 'Jiu Feng Smuggler Pack',
@@ -2578,13 +2188,7 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Weapon Pack',
 		released: '2021, February 24',
 		price: '$3.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
 	},
 	'Jiu Feng Smuggler Pack 2': {
 		name: 'Jiu Feng Smuggler Pack 2',
@@ -2592,13 +2196,71 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		type: 'Weapon Pack',
 		released: '2021, May 20',
 		price: '$3.99',
-		platform: {
-			360: false,
-			pc: true,
-			ps4: false,
-			xb1: false,
-			ps3: false
-		}
+		platform: pcExclusive
+	},
+	'Jiu Feng Smuggler Pack 3': {
+		name: 'Jiu Feng Smuggler Pack 3',
+		rarity: 'Paid',
+		type: 'Weapon Pack',
+		released: '2021, September 22',
+		price: '$3.99',
+		platform: pcExclusive
+	},
+	'Winter Ghosts Tailor Pack': {
+		name: 'Winter Ghosts Tailor Pack',
+		rarity: 'Paid',
+		type: 'Outfit',
+		released: '2021, December 15',
+		price: '$2.99',
+		platform: pcExclusive
+	},
+	'Jiu Feng Smuggler Pack 4': {
+		name: 'Jiu Feng Smuggler Pack 4',
+		rarity: 'Paid',
+		type: 'Weapon Pack',
+		released: '2022, February 16',
+		price: '$3.99',
+		platform: pcExclusive
+	},
+	'Golden Dagger Tailor Pack': {
+		name: 'Golden Dagger Tailor Pack',
+		rarity: 'Paid',
+		type: 'Outfit',
+		released: '2022, March 9',
+		price: '$2.99',
+		platform: pcExclusive
+	},
+	'Mountain Master Heist': {
+		name: 'Mountain Master Heist',
+		rarity: 'Paid',
+		type: 'Heist',
+		released: '2022, March 9',
+		price: '$6.99',
+		platform: pcExclusive
+	},
+	'Midland Bundle': {
+		name: 'Midland Bundle',
+		rarity: 'Bundle',
+		type: 'Bundle',
+		released: '2022, April 20',
+		price: '$9.99',
+		platform: pcExclusive
+	},
+	'Southbound Tailor Pack': {
+		name: 'Southbound Tailor Pack',
+		rarity: 'Paid',
+		type: 'Outfit',
+		released: '2022, April 22',
+		price: '$2.99',
+		platform: pcExclusive
+	},
+	'McShay Weapon Pack': {
+		name: 'McShay Weapon Pack',
+		rarity: 'Paid',
+		type: 'Weapon Pack',
+		released: '2022, May 11',
+		price: '$3.99',
+		platform: pcExclusive
 	}
 }
 
