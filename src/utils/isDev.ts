@@ -1,5 +1,5 @@
-import React from 'react'
+import { createElement } from 'react'
 
 export const isDev = (): boolean => {
-	return '_self' in React.createElement('div')
+	return '_self' in createElement('div')
 }

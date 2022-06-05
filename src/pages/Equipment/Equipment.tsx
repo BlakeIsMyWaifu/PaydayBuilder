@@ -4,13 +4,13 @@ import { ItemEquipped, ItemName, LockedIcon } from 'components/Item-Elements'
 import { ActionText, ActionsContainer } from 'components/ItemAction-Elements'
 import equipments, { EquipmentData } from 'data/character/equipment'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { changeEquipment } from 'slices/characterSlice'
 import { itemColours } from 'utils/colours'
 
-import { EquipementImage, EquipmentWrapper, Item } from './Equipment-Elements'
+import { EquipmentImage, EquipmentWrapper, Item } from './Equipment-Elements'
 
-const Equipment: React.FC = () => {
+const Equipment: FC = () => {
 
 	const dispatch = useAppDispatch()
 
@@ -66,7 +66,7 @@ const Equipment: React.FC = () => {
 							{equipment.name === equippedPrimary && <ItemEquipped> {jackOfAllTradesUnlocked ? 'Primary' : ''}</ItemEquipped>}
 							{equipment.name === equippedSecondary && <ItemEquipped> Secondary</ItemEquipped>}
 							{locked && <LockedIcon />}
-							<EquipementImage
+							<EquipmentImage
 								src={`/images/equipment/${equipment.name}.png`}
 								locked={locked}
 								onContextMenu={event => event.preventDefault()}

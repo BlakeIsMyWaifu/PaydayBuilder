@@ -4,12 +4,12 @@ import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info/Info-
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } from 'components/Item-Elements'
 import armours, { ArmourData } from 'data/character/armours'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { changeArmour } from 'slices/characterSlice'
 
 import { ArmourStatsTable } from './ArmourStatsTable'
 
-export const Armour: React.FC = () => {
+export const Armour: FC = () => {
 
 	const dispatch = useAppDispatch()
 
@@ -52,7 +52,7 @@ export const Armour: React.FC = () => {
 			<InfoContainer>
 				<InfoTitle>{selectedArmour.name}</InfoTitle>
 				<ArmourStatsTable selectedArmour={selectedArmour.name} equippedArmour={selectedArmour.name !== equippedArmour.name ? equippedArmour.name : undefined} />
-				<InfoDescription>{selectedArmour.desciption.join('\n\n')}</InfoDescription>
+				<InfoDescription>{selectedArmour.description.join('\n\n')}</InfoDescription>
 			</InfoContainer>
 
 			<DetectionRisk flexDirection='row' corner={true} />

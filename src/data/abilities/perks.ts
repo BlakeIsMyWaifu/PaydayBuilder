@@ -648,7 +648,7 @@ const perkDecks: Record<PerkDeckList, PerkData> = {
 	'Burglar': {
 		name: 'Burglar',
 		description: [
-			'The natural dexterity of the Burglar has benefits beyond merely breaking and entering. Being nimble allows the Burglar to pick locks, bag bodies and answer pagers faster. They are aslo harder to hit in combat. They stay alive by staying out of the way.',
+			'The natural dexterity of the Burglar has benefits beyond merely breaking and entering. Being nimble allows the Burglar to pick locks, bag bodies and answer pagers faster. They are also harder to hit in combat. They stay alive by staying out of the way.',
 			'This physical conditioning also gives the Burglar a high tolerance to pain and the ability to shrug off wounds quickly.'
 		],
 		cards: [

@@ -1,5 +1,5 @@
+import { ItemContainer } from 'components/Item-Elements'
 import styled, { css, keyframes } from 'styled-components'
-import corner from 'utils/corner'
 
 const rainbow = keyframes`
 	0% {
@@ -29,13 +29,9 @@ export const rainbowAnimation = css`
 	animation: ${rainbow} 4s linear 0s infinite;
 `
 
-export const ItemContainer = styled.div`
-	grid-area: items;
-	padding: 12px;
-	overflow-y: auto;
-	display: flex;
+export const MaskItemContainer = styled(ItemContainer)`
 	flex-direction: column;
-	${corner};
+	flex-wrap: nowrap;
 `
 
 export const MaskCollection = styled.div`
@@ -43,11 +39,11 @@ export const MaskCollection = styled.div`
 	flex-direction: column;
 `
 
-interface MaskCollectionTitelProps {
+interface MaskCollectionTitleProps {
 	colour: string;
 }
 
-export const MaskCollectionTitle = styled.h1<MaskCollectionTitelProps>`
+export const MaskCollectionTitle = styled.h1<MaskCollectionTitleProps>`
 	font-size: 1.5rem;
 	padding-left: 32px;
 	color: ${props => props.colour};

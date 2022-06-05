@@ -4,7 +4,7 @@ import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Container, Title } from 'pages/Home/Panel/Panel-Elements'
 import TextInput from 'pages/Home/Panel/SettingsPanel/TextIO/TextInput'
 import TextOutput from 'pages/Home/Panel/SettingsPanel/TextIO/TextOutput'
-import React from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 import { FaGithub } from 'react-icons/fa'
 import { changeLeftFacing } from 'slices/settingsSlice'
 
@@ -14,11 +14,11 @@ import { ContactIconWrapper, ContactLink, ContactText, Setting, SettingsPanelCon
 
 interface SettingsPanelProps {
 	toggleSettings: boolean;
-	setToggleSettings: React.Dispatch<React.SetStateAction<boolean>>;
-	setLoadedBuild: React.Dispatch<React.SetStateAction<LoadedBuild>>
+	setToggleSettings: Dispatch<SetStateAction<boolean>>;
+	setLoadedBuild: Dispatch<SetStateAction<LoadedBuild>>;
 }
 
-const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettings, setLoadedBuild }) => {
+const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettings, setLoadedBuild }) => {
 
 	const dispatch = useAppDispatch()
 
@@ -71,7 +71,9 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ toggleSettings, setToggle
 				target='_blank'
 				rel='noopener noreferrer'
 			>
-				<ContactIconWrapper> <FaGithub size='100%' /> </ContactIconWrapper>
+				<ContactIconWrapper>
+					<FaGithub size='100%' />
+				</ContactIconWrapper>
 				<ContactText>This project is open source</ContactText>
 				<ContactText>Click here to contribute</ContactText>
 			</ContactLink>

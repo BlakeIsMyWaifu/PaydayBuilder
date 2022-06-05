@@ -2,7 +2,7 @@ import { PerkDeckList } from 'data/abilities/perks'
 import skillsData, { TreeNames } from 'data/abilities/skills'
 import { Weapon } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import React, { useRef } from 'react'
+import { Dispatch, FC, SetStateAction, useRef } from 'react'
 import { AbilitiesState, abilitiesDefaultState } from 'slices/abilitiesSlice'
 import { changePerkDeck } from 'slices/abilitiesSlice'
 import { ArmouryState, addWeapon } from 'slices/armourySlice'
@@ -16,7 +16,7 @@ import Button from '../Button'
 import { Container, DownloadAnchor, FileInput } from './JsonIO-Elements'
 
 interface JsonIOProps {
-	setToggleSettings: React.Dispatch<React.SetStateAction<boolean>>;
+	setToggleSettings: Dispatch<SetStateAction<boolean>>;
 }
 
 interface DataToJson {
@@ -41,7 +41,7 @@ export interface BuildJson {
 	weapons?: OptionalWeaponState;
 }
 
-const JsonIO: React.FC<JsonIOProps> = ({ setToggleSettings }) => {
+const JsonIO: FC<JsonIOProps> = ({ setToggleSettings }) => {
 
 	const dispatch = useAppDispatch()
 
@@ -54,26 +54,26 @@ const JsonIO: React.FC<JsonIOProps> = ({ setToggleSettings }) => {
 		const filterObject = <T extends object>(obj: T): object => Object.fromEntries(Object.entries(obj).filter(([_, v]) => v))
 		const compareStates = (equipped: string, defaultState: string): string | undefined => equipped !== defaultState ? equipped : undefined
 
-		const filtedAbilities: OptionalAbilitiesState = filterObject<OptionalAbilitiesState>({
+		const filteredAbilities: OptionalAbilitiesState = filterObject<OptionalAbilitiesState>({
 			perkdeck: (compareStates(data.abilities.perkdeck, abilitiesDefaultState.perkdeck) as PerkDeckList)
 		})
 
 		const filterBaseWeapon = (weapons: Record<number, Weapon>): Record<number, Weapon> => Object.fromEntries(Object.entries(weapons).filter(([id, _data]) => +id !== 0))
-		const filtedArmoury: OptionalArmouryState = filterObject<OptionalArmouryState>({
+		const filteredArmoury: OptionalArmouryState = filterObject<OptionalArmouryState>({
 			primary: Object.keys(data.armoury.primary).length > 1 ? filterBaseWeapon(data.armoury.primary) : undefined,
 			secondary: Object.keys(data.armoury.secondary).length > 1 ? filterBaseWeapon(data.armoury.secondary) : undefined
 		})
 
-		const filtedCharacter: OptionalCharacterState = filterObject<OptionalCharacterState>({
+		const filteredCharacter: OptionalCharacterState = filterObject<OptionalCharacterState>({
 			mask: compareStates(data.character.mask, characterDefaultState.mask),
 			character: compareStates(data.character.character, characterDefaultState.character),
 			armour: compareStates(data.character.armour, characterDefaultState.armour)
 		})
 		if (data.character.equipment.primary !== characterDefaultState.equipment.primary || data.character.equipment.secondary) {
-			filtedCharacter.equipment = data.character.equipment
+			filteredCharacter.equipment = data.character.equipment
 		}
 
-		const filtedWeapons: OptionalWeaponState = filterObject<OptionalWeaponState>({
+		const filteredWeapons: OptionalWeaponState = filterObject<OptionalWeaponState>({
 			primary: data.weapons.primary,
 			secondary: data.weapons.secondary,
 			throwable: compareStates(data.weapons.throwable, weaponsDefaultState.throwable),
@@ -82,11 +82,11 @@ const JsonIO: React.FC<JsonIOProps> = ({ setToggleSettings }) => {
 
 		const out: Partial<BuildJson> = Object.fromEntries(Object.entries({
 			version: '0.2.0',
-			abilities: filtedAbilities,
-			armoury: filtedArmoury,
-			character: filtedCharacter,
+			abilities: filteredAbilities,
+			armoury: filteredArmoury,
+			character: filteredCharacter,
 			skills: data.skills.points !== 120 ? data.skills : {},
-			weapons: filtedWeapons
+			weapons: filteredWeapons
 		}).filter(([_, v]) => Object.keys(v).length))
 
 		return out
@@ -125,8 +125,8 @@ const JsonIO: React.FC<JsonIOProps> = ({ setToggleSettings }) => {
 			const validSkills = validateSkills(data.skills)
 			dispatch(resetSkills())
 			Object.entries(validSkills.trees).forEach(([treeName, subtrees]) => {
-				Object.entries(subtrees).forEach(([subtreeName, subree]) => {
-					Object.entries(subree.upgrades).forEach(([skill, value]) => {
+				Object.entries(subtrees).forEach(([subtreeName, subtree]) => {
+					Object.entries(subtree.upgrades).forEach(([skill, value]) => {
 						if (value === 'locked' || value === 'available') return
 						const treeData = skillsData[(treeName as TreeNames)]
 						const subtreeData = treeData.subtrees[subtreeName] || treeData.subtrees[0]

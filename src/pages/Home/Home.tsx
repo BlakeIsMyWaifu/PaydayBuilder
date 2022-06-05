@@ -1,6 +1,6 @@
 import Container from 'components/Container'
 import useBuildURLImport from 'hooks/useBuildURLImport'
-import React, { ReactElement, useState } from 'react'
+import { FC, ReactElement, useState } from 'react'
 import { FaCog } from 'react-icons/fa'
 
 import BuildSelector from './BuildSelector'
@@ -15,13 +15,13 @@ export interface HoverInfo {
 	table?: ReactElement;
 }
 
-const Home: React.FC = () => {
+const Home: FC = () => {
 
 	const [toggleBuilds, setToggleBuilds] = useState(false)
 
 	const [toggleSettings, setToggleSettings] = useState(false)
 
-	const setData = useBuildURLImport('', false)
+	const setData = useBuildURLImport()
 
 	return (
 		<>
@@ -30,11 +30,13 @@ const Home: React.FC = () => {
 				setToggleBuilds={setToggleBuilds}
 				setLoadedBuild={setData}
 			/>
+
 			<SettingsPanel
 				toggleSettings={toggleSettings}
 				setToggleSettings={setToggleSettings}
 				setLoadedBuild={setData}
 			/>
+
 			<Container
 				columns='2fr 1fr 1fr 1fr'
 				rows='calc(100% - 3rem) 3rem'
@@ -43,6 +45,11 @@ const Home: React.FC = () => {
 			>
 
 				<Tabs />
+
+				<VersionContainer>
+					<VersionText>Payday Version: 207</VersionText>
+					<VersionText>Builder Version: 0.2.4</VersionText>
+				</VersionContainer>
 
 				<ConfigContainer>
 
@@ -56,14 +63,11 @@ const Home: React.FC = () => {
 					<SettingsButton onClick={() => {
 						setToggleBuilds(false)
 						setToggleSettings(!toggleSettings)
-					}}> <FaCog /> </SettingsButton>
+					}}>
+						<FaCog />
+					</SettingsButton>
 
 				</ConfigContainer>
-
-				<VersionContainer>
-					<VersionText>Payday Version: 207</VersionText>
-					<VersionText>Builder Version: 0.2.3</VersionText>
-				</VersionContainer>
 
 			</Container>
 		</>

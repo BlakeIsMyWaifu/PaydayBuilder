@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Container, PanelContent, Title } from 'pages/Home/Panel/Panel-Elements'
-import React from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 import { FaFolderOpen, FaPlusSquare, FaTrash, FaUndoAlt } from 'react-icons/fa'
 import { addBuild, changeBuild, defaultBuild, removeBuild, updateName } from 'slices/buildsSlice'
 import { blue, red } from 'utils/colours'
@@ -10,11 +10,11 @@ import { BuildButton, BuildName, BuildWrapper, Builds, NewBuild } from './Builds
 
 interface BuildsPanelProps {
 	toggleBuilds: boolean;
-	setToggleBuilds: React.Dispatch<React.SetStateAction<boolean>>;
-	setLoadedBuild: React.Dispatch<React.SetStateAction<LoadedBuild>>
+	setToggleBuilds: Dispatch<SetStateAction<boolean>>;
+	setLoadedBuild: Dispatch<SetStateAction<LoadedBuild>>;
 }
 
-const BuildsPanel: React.FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setLoadedBuild }) => {
+const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setLoadedBuild }) => {
 
 	const dispatch = useAppDispatch()
 

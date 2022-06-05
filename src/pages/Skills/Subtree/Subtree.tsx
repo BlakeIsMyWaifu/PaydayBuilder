@@ -1,6 +1,6 @@
 import { SkillData, SubtreeData, TreeNames } from 'data/abilities/skills'
 import { useAppSelector } from 'hooks/reduxHooks'
-import React from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 
 import Skill, { SkillProps } from './Skill'
 import { Background, Container, Tier, TierWrapper } from './Subtree-Elements'
@@ -8,10 +8,10 @@ import { Background, Container, Tier, TierWrapper } from './Subtree-Elements'
 interface SubtreeProps {
 	treeName: TreeNames;
 	subtree: SubtreeData;
-	setSkillHovered: React.Dispatch<React.SetStateAction<SkillData | null>>;
+	setSkillHovered: Dispatch<SetStateAction<SkillData | null>>;
 }
 
-const Subtree: React.FC<SubtreeProps> = ({ treeName, subtree, setSkillHovered }) => {
+const Subtree: FC<SubtreeProps> = ({ treeName, subtree, setSkillHovered }) => {
 
 	const { points, tier } = useAppSelector(state => state.skills.trees[treeName][subtree.name])
 

@@ -9,7 +9,7 @@ import { ResetContainer, ResetText } from 'components/Reset-Elements'
 import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useWeaponStats from 'hooks/useWeaponStats'
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { useParams } from 'react-router'
 import { changeMod, removeMod, resetWeaponMods } from 'slices/armourySlice'
 import { itemColours } from 'utils/colours'
@@ -18,7 +18,7 @@ import { modificationsFromNames } from 'utils/modificationsFromNames'
 
 import BlackmarketStatsTable from './BlackmarketStatsTable'
 
-const WeaponChecker: React.FC = () => {
+const WeaponChecker: FC = () => {
 
 	const { slot, id, modtype } = useParams()
 
@@ -58,7 +58,7 @@ interface BlackmarketProps {
 	modtype: string;
 }
 
-const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modifications, modtype }) => {
+const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, modtype }) => {
 
 	const dispatch = useAppDispatch()
 
@@ -69,7 +69,7 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 	const [selectedTab, setSelectedTab] = useState<ModificationSlot>(validModtype as ModificationSlot)
 	const [selectedItem, setSelectedItem] = useState<Modification<string>>(equippedModifications[selectedTab] || weapon.modifications[selectedTab]?.[0] || weapon.modifications.boost[0])
 
-	const equidModHelper = (): void => {
+	const equipModHelper = (): void => {
 		if (!selectedItem) return
 		dispatch(changeMod({
 			slot,
@@ -80,9 +80,9 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 
 	const changeTab = (tab: ModificationSlot): void => {
 		if (selectedTab === tab) return
-		const equipedItem = equippedModifications[tab]
+		const equippedItem = equippedModifications[tab]
 		const firstItem = Object.values(weapon.modifications[tab] || {})[0]
-		setSelectedItem(equipedItem || firstItem as Modification<string>)
+		setSelectedItem(equippedItem || firstItem as Modification<string>)
 		setSelectedTab(tab)
 	}
 
@@ -111,7 +111,7 @@ const Blackmarket: React.FC<BlackmarketProps> = ({ slot, id, weapon, modificatio
 							width={192}
 							rowAmount={4}
 							selected={selectedItem.name === mod.name}
-							onClick={() => selectedItem.name === mod.name ? equidModHelper() : setSelectedItem(mod)}
+							onClick={() => selectedItem.name === mod.name ? equipModHelper() : setSelectedItem(mod)}
 						>
 							{mod.name === equippedModifications[mod.slot]?.name && <ItemEquipped />}
 							<ItemName colour={itemColours[mod.source.rarity]}>{fixItemName(mod.name)}</ItemName>

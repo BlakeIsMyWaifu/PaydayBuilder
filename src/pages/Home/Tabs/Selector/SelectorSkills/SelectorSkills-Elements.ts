@@ -25,7 +25,7 @@ export const SkillsCard = styled.div`
 `
 
 export interface SkillsAmountProps {
-	colour: string
+	colour: string;
 }
 
 export const SkillsAmount = styled.h1<SkillsAmountProps>`

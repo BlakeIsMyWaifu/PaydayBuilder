@@ -1,6 +1,6 @@
 import { InfoContainer, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/Info/Info-Elements'
 import { Weapon } from 'data/weapons/guns/weaponTypes'
-import React from 'react'
+import { FC } from 'react'
 import { itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
 
@@ -11,7 +11,7 @@ interface WeaponInfoProps {
 	equippedWeapon?: Weapon;
 }
 
-const WeaponInfo: React.FC<WeaponInfoProps> = ({ selectedWeapon, equippedWeapon }) => {
+const WeaponInfo: FC<WeaponInfoProps> = ({ selectedWeapon, equippedWeapon }) => {
 
 	const selectedWeaponData = findWeapon(selectedWeapon.weaponFind)
 

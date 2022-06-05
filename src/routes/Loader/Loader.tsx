@@ -1,8 +1,8 @@
-import React from 'react'
+import { FC } from 'react'
 
 import { Container, Spinner, Text } from './Loader-Elements'
 
-const Loader: React.FC = () => {
+const Loader: FC = () => {
 	return (
 		<Container>
 			<Spinner />

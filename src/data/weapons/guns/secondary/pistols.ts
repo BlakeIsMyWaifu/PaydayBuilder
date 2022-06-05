@@ -301,7 +301,7 @@ const pistols: Record<PistolList, WeaponData> = {
 		modifications: {
 			barrelExt: [
 				...mainBarrelExt,
-				barrelExt['Aggressor Comensator'],
+				barrelExt['Aggressor Compensator'],
 				barrelExt['Punisher Compensator']
 			],
 			boost: mainBoost,

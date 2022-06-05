@@ -39,7 +39,7 @@ const mainGuns: CompatibleWeapons = {
 		'Goliath 12G Shotgun',
 		'Grimm 12G Shotgun',
 		'Street Sweeper Shotgun',
-		'GSPS 12G Shotgun',
+		'GSPS 12G Shotgun'
 	],
 	akimboShotgun: akimboShotgunList,
 	sniper: Object.values(mainSnipers),

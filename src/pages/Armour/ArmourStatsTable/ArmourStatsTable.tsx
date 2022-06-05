@@ -2,14 +2,14 @@ import TableCompare from 'components/Table/TableCompare'
 import TableEquipped from 'components/Table/TableEquipped'
 import { ArmourList } from 'data/character/armours'
 import useArmourStats from 'hooks/useArmourStats'
-import React from 'react'
+import { FC } from 'react'
 
 interface ArmourStatsTableProps {
 	selectedArmour: ArmourList;
 	equippedArmour?: ArmourList;
 }
 
-export const ArmourStatsTable: React.FC<ArmourStatsTableProps> = ({ selectedArmour, equippedArmour }) => {
+export const ArmourStatsTable: FC<ArmourStatsTableProps> = ({ selectedArmour, equippedArmour }) => {
 
 	const selectedStats = useArmourStats(selectedArmour)
 	const equippedStats = useArmourStats(equippedArmour || selectedArmour)

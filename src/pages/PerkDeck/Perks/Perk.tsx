@@ -1,8 +1,8 @@
-import { changePerkDeck } from 'slices/abilitiesSlice'
 import perkDecks, { PerkCard, PerkData } from 'data/abilities/perks'
 import throwables from 'data/weapons/throwables'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import React from 'react'
+import { Dispatch, FC, RefObject, SetStateAction } from 'react'
+import { changePerkDeck } from 'slices/abilitiesSlice'
 import { changeThrowable } from 'slices/weaponsSlice'
 
 import { Card, CardBackground, CardIcon, CardWrapper, Container, Title } from './Perk-Elements'
@@ -10,13 +10,13 @@ import { Card, CardBackground, CardIcon, CardWrapper, Container, Title } from '.
 interface PerkProps {
 	perk: PerkData;
 	index: number;
-	perkref: React.RefObject<HTMLDivElement>;
-	setHoveredCard: React.Dispatch<React.SetStateAction<PerkCard | null>>;
+	perkref: RefObject<HTMLDivElement>;
+	setHoveredCard: Dispatch<SetStateAction<PerkCard | null>>;
 	selectedPerk: PerkData;
-	setSelectedPerk: React.Dispatch<React.SetStateAction<PerkData>>;
+	setSelectedPerk: Dispatch<SetStateAction<PerkData>>;
 }
 
-const Perk: React.FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPerk, setSelectedPerk }) => {
+const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPerk, setSelectedPerk }) => {
 
 	const dispatch = useAppDispatch()
 

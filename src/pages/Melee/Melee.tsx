@@ -4,13 +4,13 @@ import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'component
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
 import melees from 'data/weapons/melees'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { changeMelee } from 'slices/weaponsSlice'
 import { itemColours } from 'utils/colours'
 
 import MeleeStatsTable from './MeleeStatsTable'
 
-export const Melee: React.FC = () => {
+export const Melee: FC = () => {
 
 	const dispatch = useAppDispatch()
 

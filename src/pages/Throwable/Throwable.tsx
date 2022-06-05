@@ -4,11 +4,11 @@ import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } fr
 import perkDecks from 'data/abilities/perks'
 import throwables from 'data/weapons/throwables'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { changeThrowable } from 'slices/weaponsSlice'
 import { itemColours } from 'utils/colours'
 
-const Throwable: React.FC = () => {
+const Throwable: FC = () => {
 
 	const dispatch = useAppDispatch()
 

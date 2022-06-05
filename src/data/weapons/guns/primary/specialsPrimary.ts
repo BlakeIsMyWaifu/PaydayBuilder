@@ -83,7 +83,7 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 			stability: 24,
 			concealment: 16,
 			threat: 24,
-			reload: 3.75,
+			reload: 3.75
 		},
 		extraStats: {
 			tacticalReload: 3.75,

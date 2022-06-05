@@ -97,7 +97,7 @@ export type BarrelExtModificationsList =
 	'Velocity Compensator' |
 
 	// Crosskill
-	'Aggressor Comensator' |
+	'Aggressor Compensator' |
 	'Punisher Compensator' |
 
 	// Bernetti 9
@@ -794,8 +794,8 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 			]
 		}
 	},
-	'Aggressor Comensator': {
-		name: 'Aggressor Comensator',
+	'Aggressor Compensator': {
+		name: 'Aggressor Compensator',
 		image: 'wpn_fps_pis_1911_co_2',
 		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',

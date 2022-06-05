@@ -41,7 +41,7 @@ export const {
 	changePerkDeck
 } = abilitiesSlice.actions
 
-// export const selectAbilities = (state: RootState) => state.abilites
+// export const selectAbilities = (state: RootState) => state.abilities
 // export const selectPerkDeck = createSelector(selectAbilities, (a) => a.perkdeck)
 
 export default abilitiesSlice.reducer

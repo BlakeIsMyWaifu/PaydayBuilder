@@ -1,17 +1,17 @@
 import { HoverInfo } from 'pages/Home'
-import React from 'react'
+import { Dispatch, FC, ReactNode, SetStateAction } from 'react'
 
 import { Container, SelectorLink, Title } from './Selector-Elements'
 
 interface SelectorProps {
 	title: string;
-	children?: React.ReactNode;
+	children?: ReactNode;
 	infoData?: HoverInfo | null;
-	setHoverInfo: React.Dispatch<React.SetStateAction<HoverInfo | null>>;
+	setHoverInfo: Dispatch<SetStateAction<HoverInfo | null>>;
 	enableLink?: boolean;
 }
 
-const Selector: React.FC<SelectorProps> = ({ title, children, infoData, setHoverInfo, enableLink = true }) => {
+const Selector: FC<SelectorProps> = ({ title, children, infoData, setHoverInfo, enableLink = true }) => {
 
 	const inners = (
 		<Container

@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import { FC, ReactNode, useState } from 'react'
 
 import { InfoTabTitle, InfoTabTitles } from './Info-Elements'
 
 interface InfoProps {
-	tabs: Record<string, React.ReactNode>;
+	tabs: Record<string, ReactNode>;
 }
 
-export const Info: React.FC<InfoProps> = ({ tabs }) => {
+export const Info: FC<InfoProps> = ({ tabs }) => {
 
 	const [currentTab, setCurrentTab] = useState<string>(Object.keys(tabs)[0])
 

@@ -63,7 +63,6 @@ export const Button = styled.button`
 	color:  ${inactive};
 	font-size: 2rem;
 	line-height: 2rem;
-	vertical-align: middle;
 	transform: color .25s;
 	&:hover {
 		color: ${active};

@@ -7,16 +7,16 @@ import { Modification, ModificationSlot, Weapon } from 'data/weapons/guns/weapon
 import melees from 'data/weapons/melees'
 import throwables from 'data/weapons/throwables'
 import { BuildJson, OptionalAbilitiesState, OptionalArmouryState, OptionalCharacterState, OptionalWeaponState } from 'pages/Home/Panel/SettingsPanel/JsonIO'
-import { abilitiesDefaultState, AbilitiesState } from 'slices/abilitiesSlice'
+import { AbilitiesState, abilitiesDefaultState } from 'slices/abilitiesSlice'
 import { ArmouryState } from 'slices/armourySlice'
-import { characterDefaultState, CharacterState } from 'slices/characterSlice'
-import { skillsDefaultState, SkillsState } from 'slices/skillsSlice'
-import { weaponsDefaultState, WeaponsState } from 'slices/weaponsSlice'
+import { CharacterState, characterDefaultState } from 'slices/characterSlice'
+import { SkillsState, skillsDefaultState } from 'slices/skillsSlice'
+import { WeaponsState, weaponsDefaultState } from 'slices/weaponsSlice'
 import * as z from 'zod'
 
 import findWeapon from './findWeapon'
 
-export const validateJson = (data: any): boolean => {
+export const validateJson = (data: unknown): boolean => {
 	type Literal = boolean | null | number | string
 	type Json = Literal | { [key: string]: Json } | Json[]
 	const literalSchema = z.union([z.string(), z.number(), z.boolean(), z.null()])
@@ -113,7 +113,7 @@ export const validateArmoury = ({ primary, secondary }: OptionalArmouryState): A
 	}
 
 	const addWeapon = ([id, weapon]: [string, Weapon]): void => {
-		if (!!!parseInt(id) || +id !== weapon.id) return
+		if (!parseInt(id) || +id !== weapon.id) return
 		const weaponData = findWeapon(weapon.weaponFind)
 		if (!weaponData) return
 
