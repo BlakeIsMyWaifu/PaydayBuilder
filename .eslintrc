@@ -8,14 +8,16 @@
 	},
 	"plugins": [
 		"@typescript-eslint",
-		"react"
+		"react",
+		"react-hooks"
 	],
 	"extends": [
 		"eslint:recommended",
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:react/recommended",
-		"plugin:react/jsx-runtime"
+		"plugin:react/jsx-runtime",
+		"plugin:react-hooks/recommended"
 	],
 	"env": {
 		"node": true
@@ -93,6 +95,8 @@
 				"component": true,
 				"html": true
 			}
-		]
+		],
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn"
 	}
 }

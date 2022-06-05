@@ -48,23 +48,28 @@ const Skills: FC = () => {
 		}
 
 		window.addEventListener('keydown', handleKeys)
-		if (jackOfAllTrades !== 'aced' && equippedEquipment.secondary) {
-			dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
-		}
-
-		if (engineering !== 'basic' && engineering !== 'aced') {
-			if (equippedEquipment.primary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: Object.keys(equipments)[0], slot: 'primary' }))
-			if (equippedEquipment.secondary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
-		}
-
-		if (ironMan !== 'aced') {
-			if (equippedArmour === 'Improved Combined Tactical Vest') dispatch(changeArmour('Two-Piece Suit'))
-		}
 
 		return () => {
 			window.removeEventListener('keydown', handleKeys)
 		}
-	}, [currentTree, jackOfAllTrades, engineering, equippedEquipment, ironMan, equippedArmour, dispatch])
+	}, [currentTree, dispatch])
+
+	useEffect(() => {
+		if (jackOfAllTrades !== 'aced' && equippedEquipment.secondary) {
+			dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
+		}
+	}, [dispatch, equippedEquipment.secondary, jackOfAllTrades])
+
+	useEffect(() => {
+		if (engineering !== 'basic' && engineering !== 'aced') {
+			if (equippedEquipment.primary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: Object.keys(equipments)[0], slot: 'primary' }))
+			if (equippedEquipment.secondary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
+		}
+	}, [dispatch, engineering, equippedEquipment])
+
+	useEffect(() => {
+		if (ironMan !== 'aced' && equippedArmour === 'Improved Combined Tactical Vest') dispatch(changeArmour('Two-Piece Suit'))
+	}, [ironMan, equippedArmour, dispatch])
 
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "horizontalbar points" "skills info" "subtreelabels back"' title='Skills'>

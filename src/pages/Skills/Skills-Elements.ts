@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components'
 import { blue } from 'utils/colours'
 
-interface HightlightActiveProps {
+interface HighlightActiveProps {
 	active: boolean;
 }
 
-export const highlightActive = css<HightlightActiveProps>`
+export const highlightActive = css<HighlightActiveProps>`
 	color: ${props => props.active && 'black'};
 	text-shadow: ${props => props.active && 'none'};
 	background-color: ${props => props.active && 'white'};

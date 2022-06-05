@@ -16,7 +16,7 @@ import * as z from 'zod'
 
 import findWeapon from './findWeapon'
 
-export const validateJson = (data: any): boolean => {
+export const validateJson = (data: unknown): boolean => {
 	type Literal = boolean | null | number | string
 	type Json = Literal | { [key: string]: Json } | Json[]
 	const literalSchema = z.union([z.string(), z.number(), z.boolean(), z.null()])

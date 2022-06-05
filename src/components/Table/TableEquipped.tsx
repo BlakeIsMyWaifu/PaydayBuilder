@@ -42,7 +42,7 @@ const TableEquipped: FC<TableEquippedProps> = ({ baseStats, additionalStats }) =
 
 						switch (baseValue.constructor.name) {
 							case 'Number': {
-								let colour = colourCompare(baseValue + skillValue + modValue, baseValue)
+								let colour: string = colourCompare(baseValue + skillValue + modValue, baseValue)
 								let totalValue = twoDP(baseValue + skillValue + modValue)
 
 								if (Object.keys(statLimit).includes(stat)) {
