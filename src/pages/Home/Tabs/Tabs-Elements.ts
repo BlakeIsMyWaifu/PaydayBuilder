@@ -1,3 +1,4 @@
+import { CardIconBase } from 'pages/PerkDeck/Perks/Perk-Elements'
 import styled from 'styled-components'
 import { dim } from 'utils/colours'
 import corner from 'utils/corner'
@@ -21,16 +22,7 @@ export const Image = styled.img<ImageProps>`
 	${props => props.leftFacing && 'transform: scaleX(-1)'};
 `
 
-interface PerkDeckImageProps {
-	x: number;
-	y: number;
-}
-
-export const PerkDeckImage = styled.div<PerkDeckImageProps>`
-	background-position-x: calc((${props => props.x}% / 192) * 100) !important;
-	background-position-y: calc((${props => props.y}% / 1008) * 100) !important;
-	background: url('/images/perks/perks.png') 0 0 no-repeat;
-	background-size: 500% 2200%;
+export const PerkDeckImage = styled(CardIconBase)`
 	height: calc(100% - 32px);
 	aspect-ratio: 1;
 	max-width: 100%;

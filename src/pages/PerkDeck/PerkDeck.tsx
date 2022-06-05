@@ -4,7 +4,8 @@ import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info/Info-
 import { ItemContainer } from 'components/Item-Elements'
 import perkDecks, { PerkCard } from 'data/abilities/perks'
 import { useAppSelector } from 'hooks/reduxHooks'
-import { FC, createRef, useEffect, useRef, useState } from 'react'
+import useMountEffect from 'hooks/useMountEffect'
+import { FC, createRef, useRef, useState } from 'react'
 
 import Perk from './Perks'
 
@@ -30,10 +31,10 @@ const PerkDeck: FC = () => {
 
 	const [selectedPerk, setSelectedPerk] = useState(equippedPerk)
 
-	useEffect(() => {
+	useMountEffect(() => {
 		const currentEquippedIndex = Object.keys(perkDecks).indexOf(equippedPerk.name)
 		scrollToPerk(currentEquippedIndex, 'auto')
-	}, [])
+	})
 
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title title" "horizontalbar ." "items info" "items back"' title='Perk Deck'>

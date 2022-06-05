@@ -22,7 +22,8 @@ export type PerkDeckList =
 	'Sicario' |
 	'Stoic' |
 	'Tag Team' |
-	'Hacker'
+	'Hacker' |
+	'Leech'
 
 export interface PerkData {
 	name: PerkDeckList;
@@ -1561,6 +1562,46 @@ const perkDecks: Record<PerkDeckList, PerkData> = {
 		],
 		source: source['Base Game'],
 		throwable: 'Pocket ECM'
+	},
+	'Leech': {
+		name: 'Leech',
+		description: [
+			'You are a selective parasite in combat, draining your foes to strengthen yourself and your teammates. Still, you\'re not just some brick shithouse that can take a beating. You can dish out the pain and use that aggression to bolster your team.'
+		],
+		cards: [
+			{
+				name: 'Momentum',
+				description: [
+					'Unlocks and equips the Leech Ampule.\tChanging to another perk deck will make the Leech Ampule unavailable again. The Leech Ampule replaces your current throwable, is equipped in your throwable slot and can be switched out if desired.\tWhile in game you can use throwable key to activate the Leech Ampule.\tActivating the Leech Ampule will restore 40% health and disables your armor for the duration of the Leech Ampule.\tWhile the Leech Ampule is active your health is divided into segments of 20% and damage taken from enemies removes one segment. Killing 2 enemies will restore one segment of your health and block damage for 1 second. Anytime you take damage your teammates are healed for 5% of their health.\tThe Leech Ampule lasts 6 seconds with a 30 seconds cooldown.'
+				]
+			},
+			{
+				name: 'Indomitable',
+				description: [
+					'Your maximum health is increased by 20%.\tWhile the Leech Ampule is active you cannot go into bleedout, but being out of health will slow you down by 80%.'
+				]
+			},
+			{
+				name: 'Stalwart',
+				description: [
+					'The Leech Ampule duration is increased to 10 seconds.\tKilling an enemy reduces the cooldown of the Leech Ampule by 1 second(s).\tTaking damage now heals teammates by 10% of their health.'
+				]
+			},
+			{
+				name: 'Built Different',
+				description: [
+					'Your maximum health is increased by 20%.'
+				]
+			},
+			{
+				name: 'Symbiosis',
+				description: [
+					'You can now activate Leech Ampule while downed, temporarily reviving you until the end of the Leech Ampule. If you successfully revive a teammate or use a doctor bag before the Leech Ampule ends, you may stay alive if you are above 0 health.\tWhile the Leech Ampule is active your health is now divided into segments of 10%.\tYour maximum health is increased by 60%.'
+				]
+			}
+		],
+		source: source['Base Game'],
+		throwable: 'Leech Ampule'
 	}
 }
 

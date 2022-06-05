@@ -1,3 +1,4 @@
+import { PerkDeckList } from 'data/abilities/perks'
 import content, { ContentData } from 'data/source/downloadableContent'
 import source, { SourceData } from 'data/source/miscSources'
 
@@ -10,7 +11,7 @@ export interface ThrowableData {
 	reputation: number;
 	source: ContentData | SourceData;
 	type: ['Projectile' | 'Grenade' | 'Consumable', string];
-	perkDeck?: string;
+	perkDeck?: PerkDeckList;
 	stats: Projectile | Grenade | Consumable;
 }
 
@@ -378,6 +379,21 @@ const throwables: Record<string, ThrowableData> = {
 		source: content['Scarface Character Pack'],
 		type: ['Consumable', 'Hypodermic Stim'],
 		perkDeck: 'Kingpin',
+		stats: {
+			capacity: 1,
+			cooldown: 30
+		}
+	},
+	'Leech Ampule': {
+		name: 'Leech Ampule',
+		description: [
+			'Activating the Leech ability requires you to break a small glass ampule under your nose and take a deep breath. You\'re not quite sure what\'s in it, but it makes the world come into focus, and causes your adrenaline to spike. One thing is certain; it sure as shit isn\'t smelling salts.'
+		],
+		image: 'copr_ability',
+		reputation: 0,
+		source: source['Base Game'],
+		type: ['Consumable', 'Ampule'],
+		perkDeck: 'Leech',
 		stats: {
 			capacity: 1,
 			cooldown: 30
