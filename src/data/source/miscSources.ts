@@ -1,7 +1,7 @@
 import { ContentRarity, ContentType } from './downloadableContent'
 
 export interface SourceData {
-	name: string;
+	name: SourceList;
 	rarity: ContentRarity;
 	type: ContentType;
 }
@@ -15,7 +15,8 @@ type SourceList =
 	'Meles Weapon Pack' |
 	'The Search For Kento' |
 	'RAID: World War II Community' |
-	'Ownership of Hotline Miami 2 Digital Special'
+	'Ownership of Hotline Miami 2 Digital Special' |
+	'Winter Wonderland 2021'
 
 const miscSources: Record<SourceList, SourceData> = {
 	'Base Game': {
@@ -61,6 +62,11 @@ const miscSources: Record<SourceList, SourceData> = {
 	'Ownership of Hotline Miami 2 Digital Special': {
 		name: 'Ownership of Hotline Miami 2 Digital Special',
 		rarity: 'Collaboration',
+		type: 'Weapon'
+	},
+	'Winter Wonderland 2021': {
+		name: 'Winter Wonderland 2021',
+		rarity: 'Event',
 		type: 'Weapon'
 	}
 }

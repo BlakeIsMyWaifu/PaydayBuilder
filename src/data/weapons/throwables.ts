@@ -2,10 +2,31 @@ import { PerkDeckList } from 'data/abilities/perks'
 import content, { ContentData } from 'data/source/downloadableContent'
 import source, { SourceData } from 'data/source/miscSources'
 
-export type ThrowableList = keyof typeof throwables
+export type ThrowableList =
+	'Matryoshka Grenade' |
+	'Incendiary Grenade' |
+	'HEF Grenade' |
+	'Ace of Spades' |
+	'Concussion Grenade' |
+	'Viper Grenade' |
+	'Frag Grenade' |
+	'Molotove Cocktail' |
+	'Dynamite' |
+	'Shuriken' |
+	'Javelin' |
+	'Throwing Knife' |
+	'Throwing Axe' |
+	'X1-ZAPer' |
+	'Stoic\'s Hip Flask' |
+	'Pocket ECM' |
+	'Smoke Bomb' |
+	'Gas Dispenser' |
+	'Injector' |
+	'Leech Ampule' |
+	'Snowball'
 
 export interface ThrowableData {
-	name: string;
+	name: ThrowableList;
 	description: string[];
 	image: string;
 	reputation: number;
@@ -47,7 +68,7 @@ interface Consumable {
 	cooldown: number;
 }
 
-const throwables: Record<string, ThrowableData> = {
+const throwables: Record<ThrowableList, ThrowableData> = {
 	'Matryoshka Grenade': {
 		name: 'Matryoshka Grenade',
 		description: [
@@ -140,12 +161,38 @@ const throwables: Record<string, ThrowableData> = {
 		source: source['Base Game'],
 		type: ['Grenade', 'Stun Grenade'],
 		stats: {
-			damage: 0, // + stun
+			damage: 0,
 			capacity: 6,
 			throwingRate: 1.5,
 			throwDelay: 0.1,
 			unequipDelay: 0.9,
 			explosionRadius: 15
+		}
+	},
+	'Viper Grenade': {
+		name: 'Viper Grenade',
+		description: [
+			'Craving a chemical weapon that\'s equal parts deadly and compact? Look no further! This highly-illegal grenade, though limited in explosive radius, will emit a sweeping cloud of toxic gas that puts the power of the viper into the palm of your hand. Your enemies can kiss their respiratory systems goodbye.'
+		],
+		image: 'poison_gas_grenade',
+		reputation: 0,
+		source: content['McShay Weapon Pack'],
+		type: ['Grenade', 'Poison Grenade'],
+		stats: {
+			damage: 1000,
+			capacity: 2,
+			throwingRate: 1.5,
+			throwDelay: 0.1,
+			unequipDelay: 1.3,
+			explosionRadius: 2,
+			duration: 19.5,
+			additionalDamage: {
+				type: 'Poison',
+				animationChance: 100,
+				interval: 0.5,
+				damage: 10,
+				duration: 19.5
+			}
 		}
 	},
 	'Frag Grenade': {
@@ -301,7 +348,7 @@ const throwables: Record<string, ThrowableData> = {
 		source: content['Jiu Feng Smuggler Pack 2'],
 		type: ['Grenade', 'Electric Grenade'],
 		stats: {
-			damage: 600, // + shock
+			damage: 600,
 			capacity: 4,
 			throwingRate: 1.5,
 			throwDelay: 0.1,
@@ -397,6 +444,24 @@ const throwables: Record<string, ThrowableData> = {
 		stats: {
 			capacity: 1,
 			cooldown: 30
+		}
+	},
+	'Snowball': {
+		name: 'Snowball',
+		description: [
+			'This stunning little beauty will take everyone\'s breath away, giving you those couple of extra seconds you need to kill them.'
+		],
+		image: 'xmas_snowball',
+		reputation: 0,
+		source: source['Winter Wonderland 2021'],
+		type: ['Projectile', ''],
+		stats: {
+			damage: 350,
+			capacity: 6,
+			speed: 15,
+			throwingRate: 0.3,
+			throwDelay: 0.15,
+			unequipDelay: 1.1
 		}
 	}
 }
