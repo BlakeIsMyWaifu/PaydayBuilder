@@ -80,7 +80,8 @@ export type PistolList =
 	'HOLT 9mm Pistol' |
 	'Peacemaker .45 Revolver' |
 	'Matever .357 Revolver' |
-	'Deagle Pistol'
+	'Deagle Pistol' |
+	'Gecko M2 Pistol'
 
 const pistols: Record<PistolList, WeaponData> = {
 	'Interceptor .45 Pistol': {
@@ -1453,6 +1454,53 @@ const pistols: Record<PistolList, WeaponData> = {
 				slide['Long Barrel'],
 				slide['Custom Milled Barrel']
 			]
+		}
+	},
+	'Gecko M2 Pistol': {
+		name: 'Gecko M2 Pistol',
+		image: 'maxim9',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		inventorySlot: 'secondary',
+		reputation: 12,
+		weaponType: 'Pistol',
+		firingMode: 'Semi-Automatic',
+		cost: 208800,
+		stats: {
+			magazine: 17,
+			totalAmmo: 68,
+			rateOfFire: 480,
+			damage: 100,
+			accuracy: 72,
+			stability: 76,
+			concealment: 29,
+			threat: 9,
+			reload: 2.15
+		},
+		extraStats: {
+			tacticalReload: 1.5,
+			equipDelays: [0.35, 0.5],
+			ammoPickup: [1.7, 2.38],
+			recoilHorizontal: [-0.55, 0.55],
+			recoilVertical: [1.32, 1.98],
+			spread: null,
+			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['UpShot Barrel'],
+				barrel['Pinnacle Barrel']
+			],
+			barrelExt: [
+				barrelExt['IPSC Compensator'],
+				barrelExt['Facepunch Compensator'],
+				barrelExt['Flash Hider']
+			],
+			boost: mainBoost,
+			gadget: mainGadget,
+			magazine: [
+				magazine['Stack S3 Magazine']
+			],
+			sight: mainSight
 		}
 	}
 }

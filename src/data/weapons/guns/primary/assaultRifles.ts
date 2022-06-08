@@ -1502,7 +1502,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			sight: mainSight,
 			stock: [
 				stock['CQB Stock'],
-				stock['Marksman Stock'],
+				stock['Marksman Stock (Falcon)'],
 				stock['Wooden Stock (Falcon)']
 			]
 		}

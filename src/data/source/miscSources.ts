@@ -16,7 +16,8 @@ type SourceList =
 	'The Search For Kento' |
 	'RAID: World War II Community' |
 	'Ownership of Hotline Miami 2 Digital Special' |
-	'Winter Wonderland 2021'
+	'Winter Wonderland 2021' |
+	'8th Anniversary Event'
 
 const miscSources: Record<SourceList, SourceData> = {
 	'Base Game': {
@@ -66,6 +67,11 @@ const miscSources: Record<SourceList, SourceData> = {
 	},
 	'Winter Wonderland 2021': {
 		name: 'Winter Wonderland 2021',
+		rarity: 'Event',
+		type: 'Weapon'
+	},
+	'8th Anniversary Event': {
+		name: '8th Anniversary Event',
 		rarity: 'Event',
 		type: 'Weapon'
 	}

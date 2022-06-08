@@ -44,12 +44,12 @@ const mainGadget: Modification<GadgetModificationsList>[] = [
 	gadget['LED Combo']
 ]
 
-export type AkimboShotunsList =
+export type AkimboShotgunsList =
 	'Akimbo Goliath 12G Shotguns' |
 	'Brothers Grimm 12G Shotguns' |
 	'Akimbo Judge Shotguns'
 
-const akimboShotuns: Record<AkimboShotunsList, WeaponData> = {
+const akimboShotguns: Record<AkimboShotgunsList, WeaponData> = {
 	'Akimbo Goliath 12G Shotguns': {
 		name: 'Akimbo Goliath 12G Shotguns',
 		image: 'x_rota',
@@ -177,4 +177,4 @@ const akimboShotuns: Record<AkimboShotunsList, WeaponData> = {
 	}
 }
 
-export default akimboShotuns
+export default akimboShotguns

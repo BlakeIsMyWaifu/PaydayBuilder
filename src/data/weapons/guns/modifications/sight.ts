@@ -132,7 +132,10 @@ export type SightModificationsList =
 	'Barrel Sight 44' |
 
 	// Contractor
-	'Tritium Sights'
+	'Tritium Sights' |
+
+	// Pronghorn
+	'Iron Sights'
 
 const sight: ModificationList<SightModificationsList> = {
 	'The Professional\'s Choice Sight': {
@@ -532,6 +535,23 @@ const sight: ModificationList<SightModificationsList> = {
 		compatibleWeapons: {
 			pistol: [
 				'Contractor Pistol'
+			]
+		}
+	},
+	'Iron Sights': {
+		name: 'Iron Sights',
+		image: 'wpn_fps_snp_scout_o_iron_up',
+		icon: 'inv_mod_scope',
+		slot: 'sight',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			stability: -4,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Pronghorn Sniper Rifle'
 			]
 		}
 	}

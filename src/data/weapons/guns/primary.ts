@@ -1,8 +1,8 @@
-import akimboShotuns from './primary/akimboShotuns'
+import akimboShotguns from './primary/akimboShotguns'
 import assaultRifles from './primary/assaultRifles'
 import lightMachineGuns from './primary/lightMachineGuns'
 import shotguns from './primary/shotgunsPrimary'
-import snipers from './primary/snipers'
+import snipers from './primary/snipersPrimary'
 import specials from './primary/specialsPrimary'
 
 const primary = {
@@ -12,7 +12,7 @@ const primary = {
 	'Sniper': snipers,
 	// 'Akimbo Pistol': [],
 	// 'Akimbo SMG': [],
-	'Akimbo Shotgun': akimboShotuns,
+	'Akimbo Shotgun': akimboShotguns,
 	'Special': specials
 }
 

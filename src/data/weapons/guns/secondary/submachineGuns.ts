@@ -94,7 +94,8 @@ export type SubmachineGunList =
 	'Kross Vertex Submachine Gun' |
 	'Tatonka Submachine Gun' |
 	'Patchett L2A1 Submachine Gun' |
-	'Uzi Submachine Gun'
+	'Uzi Submachine Gun' |
+	'Wasp-DS SMG'
 
 const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 	'Swedish K Submachine Gun': {
@@ -1304,6 +1305,53 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 				stock['Ergonomic Stock'],
 				stock['Solid Stock (Uzi)'],
 				stock['Folded Stock (Uzi)']
+			]
+		}
+	},
+	'Wasp-DS SMG': {
+		name: 'Wasp-DS SMG',
+		image: 'fmg9',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		inventorySlot: 'secondary',
+		reputation: 15,
+		weaponType: 'Submachine Gun',
+		firingMode: 'Selective firing',
+		cost: 261600,
+		stats: {
+			magazine: 30,
+			totalAmmo: 240,
+			rateOfFire: 1333,
+			damage: 40,
+			accuracy: 64,
+			stability: 60,
+			concealment: 29,
+			threat: 22,
+			reload: 2.16
+		},
+		extraStats: {
+			tacticalReload: 1.31,
+			equipDelays: [0.5, 1.8],
+			ammoPickup: [7.2, 13.2],
+			recoilHorizontal: [-1.5, 1.5],
+			recoilVertical: [-1.2, 2.7],
+			spread: null,
+			damageModifier: [1.0, 0.5]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			extra: [
+				extra['Rake Ultra Grip']
+			],
+			gadget: [
+				gadget['Tactical Pistol Light'],
+				gadget['Pocket Laser']
+			],
+			magazine: [
+				magazine['Celerity X9 Magazine']
+			],
+			stock: [
+				stock['Bounce Slate RX Stock']
 			]
 		}
 	}

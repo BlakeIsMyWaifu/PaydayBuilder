@@ -88,7 +88,7 @@ export type StockModificationsList =
 
 	// Falcon
 	'CQB Stock' |
-	'Marksman Stock' |
+	'Marksman Stock (Falcon)' |
 	'Wooden Stock (Falcon)' |
 
 	// Gewehr 3
@@ -244,13 +244,29 @@ export type StockModificationsList =
 	'Tactical Shorty Stock' |
 
 	// GSPS 12G
-	'Stakeout Stock' |
+	'Stakeout Stock (GSPS)' |
 
 	// Claire 12G
 	'Deadman\'s Stock' |
 
 	// China Puff 40mm
-	'Riot Stock'
+	'Riot Stock' |
+
+	// Basilisk 3V
+	'Copperhead Recoil Pad' |
+
+	// Pronghorn
+	'Stakeout Stock (Pronghorn)' |
+	'Marksman Stock (Pronghorn)' |
+
+	// SG Versteckt 51D
+	'Zittern Stock' |
+
+	// Argos III
+	'Flak Frame Null Stock' |
+
+	// Wasp-DS
+	'Bounce Slate RX Stock'
 
 const stock: ModificationList<StockModificationsList> = {
 	'Standard Stock (Main)': {
@@ -798,8 +814,8 @@ const stock: ModificationList<StockModificationsList> = {
 			]
 		}
 	},
-	'Marksman Stock': {
-		name: 'Marksman Stock',
+	'Marksman Stock (Falcon)': {
+		name: 'Marksman Stock (Falcon)',
 		image: 'wpn_fps_ass_fal_s_03',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
@@ -2021,8 +2037,8 @@ const stock: ModificationList<StockModificationsList> = {
 			]
 		}
 	},
-	'Stakeout Stock': {
-		name: 'Stakeout Stock',
+	'Stakeout Stock (GSPS)': {
+		name: 'Stakeout Stock (GSPS)',
 		image: 'wpn_fps_shot_m37_s_short',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
@@ -2070,6 +2086,110 @@ const stock: ModificationList<StockModificationsList> = {
 		compatibleWeapons: {
 			special: [
 				'China Puff 40mm Grenade Launcher'
+			]
+		}
+	},
+	'Copperhead Recoil Pad': {
+		name: 'Copperhead Recoil Pad',
+		image: '???',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			accuracy: 8,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			special: [
+				'Basilisk 3V Grenade Launcher'
+			]
+		}
+	},
+	'Stakeout Stock (Pronghorn)': {
+		name: 'Stakeout Stock (Pronghorn)',
+		image: 'wpn_fps_snp_scout_s_pads_none',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			accuracy: -8,
+			stability: -4,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Pronghorn Sniper Rifle'
+			]
+		}
+	},
+	'Marksman Stock (Pronghorn)': {
+		name: 'Marksman Stock (Pronghorn)',
+		image: 'wpn_fps_snp_scout_s_pads_one',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			stability: -4,
+			concealment: 1
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Pronghorn Sniper Rifle'
+			]
+		}
+	},
+	'Zittern Stock': {
+		name: 'Zittern Stock',
+		image: 'wpn_fps_lmg_hk51b_s_extended',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			stability: 8,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'SG Versteckt 51D'
+			]
+		}
+	},
+	'Flak Frame Null Stock': {
+		name: 'Flak Frame Null Stock',
+		image: 'wpn_fps_sho_ultima_s_light',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		cost: 7200,
+		stats: {
+			stability: 8,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Argos III Shotgun'
+			]
+		}
+	},
+	'Bounce Slate RX Stock': {
+		name: 'Bounce Slate RX Stock',
+		image: 'wpn_fps_smg_fmg9_stock_padded',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		cost: 7200,
+		stats: {
+			accuracy: 8,
+			stability: 8,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			submachineGun: [
+				'Wasp-DS SMG'
 			]
 		}
 	}

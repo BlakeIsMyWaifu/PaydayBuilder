@@ -8,6 +8,7 @@ import gadget, { GadgetModificationsList } from '../modifications/gadget'
 import grip from '../modifications/grip'
 import lowerReceiver from '../modifications/lowerReceiver'
 import magazine from '../modifications/magazine'
+import receiver from '../modifications/receiver'
 import sight, { SightModificationsList } from '../modifications/sight'
 import stock from '../modifications/stock'
 import { Modification, WeaponData } from '../weaponTypes'
@@ -60,7 +61,9 @@ export type SecondarySpecialList =
 	'Commando 101 Rocket Launcher' |
 	'MA-17 Flamethrower' |
 	'Arbiter Grenade Launcher' |
-	'OVE9000 Saw'
+	'OVE9000 Saw' |
+	'Cash Blaster' |
+	'Basilisk 3V Grenade Launcher'
 
 const specials: Record<SecondarySpecialList, WeaponData> = {
 	'Pistol Crossbow': {
@@ -385,6 +388,89 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			magazine: [
 				magazine['Durable Blade'],
 				magazine['Sharp Blade']
+			]
+		}
+	},
+	'Cash Blaster': {
+		name: 'Cash Blaster',
+		image: 'money',
+		source: source['8th Anniversary Event'],
+		inventorySlot: 'secondary',
+		reputation: 0,
+		weaponType: 'Special',
+		firingMode: 'Fully automatic',
+		cost: 33600,
+		stats: {
+			magazine: 400,
+			totalAmmo: 800,
+			rateOfFire: 2000,
+			damage: 95,
+			accuracy: 8,
+			stability: 24,
+			concealment: 21,
+			threat: 37,
+			reload: 8.5
+		},
+		extraStats: {
+			tacticalReload: 8.5,
+			equipDelays: [0.85, 0.85],
+			ammoPickup: [2.0, 6.0],
+			recoilHorizontal: [0, 0],
+			recoilVertical: [0, 0],
+			spread: null, // ???
+			damageModifier: null
+		},
+		modifications: {
+			boost: mainBoostTotalAmmo,
+			gadget: mainGadget
+		}
+	},
+	'Basilisk 3V Grenade Launcher': {
+		name: 'Basilisk 3V Grenade Launcher',
+		image: 'ms3gl',
+		source: content['McShay Weapon Pack'],
+		inventorySlot: 'secondary',
+		reputation: 47,
+		weaponType: 'Special',
+		firingMode: 'Break Action',
+		cost: 736e3,
+		stats: {
+			magazine: 3,
+			totalAmmo: 9,
+			rateOfFire: 182,
+			damage: 320,
+			accuracy: 44,
+			stability: 100,
+			concealment: 21,
+			threat: 37,
+			reload: 7.33
+		},
+		extraStats: {
+			tacticalReload: [5.33, 1.0],
+			equipDelays: [1.0, 0.6],
+			ammoPickup: [0.55, 0.65],
+			recoilHorizontal: [-0.25, 0.25],
+			recoilVertical: [1.45, 1.5],
+			spread: null,
+			damageModifier: null
+		},
+		modifications: {
+			ammunition: [
+				ammunition['Incendiary Round'],
+				ammunition['X1-a Tactical ZAPper'],
+				ammunition['Viper Grenade']
+			],
+			barrel: [
+				barrel['Fang Barrel']
+			],
+			boost: mainBoost,
+			gadget: mainGadget,
+			receiver: [
+				receiver.Serpent
+			],
+			sight: mainSight,
+			stock: [
+				stock['Copperhead Recoil Pad']
 			]
 		}
 	}

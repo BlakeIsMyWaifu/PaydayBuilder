@@ -108,7 +108,10 @@ export type ForegripModificationsList =
 	'Aluminum Foregrip' |
 
 	// Uzi
-	'Tactical Foregrip (Uzi)'
+	'Tactical Foregrip (Uzi)' |
+
+	// SG Versteckt 51D
+	'Schatten Foregrip'
 
 const foregrip: ModificationList<ForegripModificationsList> = {
 	'Railed Wooden Grip': {
@@ -1029,6 +1032,23 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		compatibleWeapons: {
 			submachineGun: [
 				'Uzi Submachine Gun'
+			]
+		}
+	},
+	'Schatten Foregrip': {
+		name: 'Schatten Foregrip',
+		image: 'wpn_fps_lmg_hk51b_fg_railed',
+		icon: 'inv_mod_foregrip',
+		slot: 'foregrip',
+		source: content['McShay Weapon Pack'],
+		cost: 44e3,
+		stats: {
+			stability: 8,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'SG Versteckt 51D'
 			]
 		}
 	}

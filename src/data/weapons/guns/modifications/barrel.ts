@@ -281,7 +281,20 @@ export type BarrelModificationsList =
 
 	// Arbiter
 	'Bombardier Barrel' |
-	'Long Barrel (Arbiter)'
+	'Long Barrel (Arbiter)' |
+
+	// Basilisk 3V
+	'Fang Barrel' |
+
+	// Pronghorn
+	'Longshot Suppressor' |
+
+	// SG Versteckt 51D
+	'Kalt Barrel' |
+
+	// Gecko M2
+	'UpShot Barrel' |
+	'Pinnacle Barrel'
 
 const barrel: ModificationList<BarrelModificationsList> = {
 	'AK Slavic Dragon Barrel': {
@@ -2857,6 +2870,99 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		compatibleWeapons: {
 			special: [
 				'Arbiter Grenade Launcher'
+			]
+		}
+	},
+	'Fang Barrel': {
+		name: 'Fang Barrel',
+		image: '???',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			accuracy: 28,
+			stability: 20,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			special: [
+				'Basilisk 3V Grenade Launcher'
+			]
+		}
+	},
+	'Longshot Suppressor': {
+		name: 'Longshot Suppressor',
+		image: 'wpn_fps_snp_scout_ns_suppressor',
+		icon: 'inv_mod_silencer',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			damage: -2,
+			accuracy: 12,
+			stability: 4,
+			concealment: -2,
+			threat: -22
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Pronghorn Sniper Rifle'
+			]
+		}
+	},
+	'Kalt Barrel': {
+		name: 'Kalt Barrel',
+		image: 'wpn_fps_lmg_hk51b_b_fluted',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack'],
+		cost: 28e3,
+		stats: {
+			damage: 2,
+			accuracy: 8,
+			stability: 4,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'SG Versteckt 51D'
+			]
+		}
+	},
+	'UpShot Barrel': {
+		name: 'UpShot Barrel',
+		image: 'wpn_fps_pis_maxim9_b_long',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		cost: 11200,
+		stats: {
+			accuracy: 12,
+			stability: 8,
+			concealment: -3
+		},
+		compatibleWeapons: {
+			pistol: [
+				'Gecko M2 Pistol'
+			]
+		}
+	},
+	'Pinnacle Barrel': {
+		name: 'Pinnacle Barrel',
+		image: 'wpn_fps_pis_maxim9_b_marksman',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		cost: 11200,
+		stats: {
+			accuracy: 4,
+			stability: 4,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			pistol: [
+				'Gecko M2 Pistol'
 			]
 		}
 	}

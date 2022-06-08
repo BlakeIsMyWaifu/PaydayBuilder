@@ -6,6 +6,7 @@ import barrel from '../modifications/barrel'
 import barrelExt, { BarrelExtModificationsList } from '../modifications/barrelExt'
 import boost, { BoostModificationsList } from '../modifications/boost'
 import custom from '../modifications/custom'
+import extra from '../modifications/extra'
 import foregrip from '../modifications/foregrip'
 import gadget, { GadgetModificationsList } from '../modifications/gadget'
 import grip from '../modifications/grip'
@@ -82,7 +83,8 @@ export type SecondaryShotgunList =
 	'Grimm 12G Shotgun' |
 	'Street Sweeper Shotgun' |
 	'The Judge Shotgun' |
-	'Claire 12G Shotgun'
+	'Claire 12G Shotgun' |
+	'Argos III Shotgun'
 
 const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 	'Locomotive 12G Shotgun': {
@@ -185,7 +187,7 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			boost: mainBoost,
 			gadget: mainGadget,
 			stock: [
-				stock['Stakeout Stock']
+				stock['Stakeout Stock (GSPS)']
 			]
 		}
 	},
@@ -395,6 +397,52 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			boost: mainBoost,
 			stock: [
 				stock['Deadman\'s Stock']
+			]
+		}
+	},
+	'Argos III Shotgun': {
+		name: 'Argos III Shotgun',
+		image: 'ultima',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		inventorySlot: 'secondary',
+		reputation: 34,
+		weaponType: 'Shotgun',
+		firingMode: 'Semi-Automatic',
+		cost: 618400,
+		stats: {
+			magazine: 7,
+			totalAmmo: 35,
+			rateOfFire: 270,
+			damage: 110,
+			accuracy: 56,
+			stability: 64,
+			concealment: 24,
+			threat: 28,
+			reload: 3.0
+		},
+		extraStats: {
+			tacticalReload: [3.4, 0.57],
+			equipDelays: [0.6, 0.6],
+			ammoPickup: [0.88, 1.23],
+			recoilHorizontal: [-0.28, 0.28],
+			recoilVertical: [2.66, 2.8],
+			spread: null,
+			damageModifier: [1.0, 0.5]
+		},
+		modifications: {
+			ammunition: mainAmmunition,
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Try-Core Compensator']
+			],
+			boost: mainBoost,
+			extra: [
+				extra['ShellSwitch M8 Ammo Cache']
+			],
+			gadget: mainGadget,
+			sight: mainSight,
+			stock: [
+				stock['Flak Frame Null Stock']
 			]
 		}
 	}
