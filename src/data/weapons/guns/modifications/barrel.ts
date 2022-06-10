@@ -294,7 +294,10 @@ export type BarrelModificationsList =
 
 	// Gecko M2
 	'UpShot Barrel' |
-	'Pinnacle Barrel'
+	'Pinnacle Barrel' |
+
+	// M60
+	'Short Barrel (M60)'
 
 const barrel: ModificationList<BarrelModificationsList> = {
 	'AK Slavic Dragon Barrel': {
@@ -2963,6 +2966,23 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		compatibleWeapons: {
 			pistol: [
 				'Gecko M2 Pistol'
+			]
+		}
+	},
+	'Short Barrel (M60)': {
+		name: 'Short Barrel (M60)',
+		image: 'wpn_fps_lmg_m60_b_short',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Fugitive Weapon Pack'],
+		cost: 21e3,
+		stats: {
+			accuracy: -4,
+			stability: 4
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'M60 Light Machine Gun'
 			]
 		}
 	}

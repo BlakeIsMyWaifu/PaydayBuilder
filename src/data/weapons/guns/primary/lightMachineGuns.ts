@@ -186,7 +186,20 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			damageModifier: [1.0, 0.8]
 		},
 		modifications: {
-			boost: mainBoost // TODO add missing mods
+			barrel: [
+				barrel['Short Barrel (M60)']
+			],
+			barrelExt: mainBarrelExt,
+			bipod: [
+				bipod['Lion\'s Bipod']
+			],
+			boost: mainBoost,
+			foregrip: [
+				foregrip['Modernized Foregrip'],
+				foregrip['Tactical Foregrip (M60)'],
+				foregrip['Tropical Foregrip']
+			],
+			gadget: mainGadget
 		}
 	},
 	'KSP Light Machine Gun': {
