@@ -1,5 +1,6 @@
 import content, { ContentData } from 'data/source/downloadableContent'
 import source, { SourceData } from 'data/source/miscSources'
+import { ThrowableList } from 'data/weapons/throwables'
 
 export type PerkDeckList =
 	'Crew Chief' |
@@ -30,7 +31,7 @@ export interface PerkData {
 	description: string[];
 	cards: PerkCard[];
 	source: ContentData | SourceData;
-	throwable?: string;
+	throwable?: ThrowableList;
 }
 
 export interface PerkCard {

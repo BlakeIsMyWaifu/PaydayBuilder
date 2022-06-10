@@ -117,13 +117,12 @@ const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 	}
 
 	const sortedThrowables = (): Record<string, ThrowableData> => {
-		let newData = { ...throwables }
+		const newData: Record<string, ThrowableData> = { ...throwables }
 		delete newData['X1-ZAPer']
-		newData = {
+		return {
 			...newData,
 			'X1-ZAPer': throwables['X1-ZAPer']
 		}
-		return newData
 	}
 
 	const encodeEquipment = (): string => {

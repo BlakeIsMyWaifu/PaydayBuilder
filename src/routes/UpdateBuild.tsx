@@ -23,7 +23,8 @@ const UpdateBuild: FC = () => {
 			id: current,
 			data: build
 		}))
-	}, [build])
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [build, dispatch])
 
 	return <></>
 }
