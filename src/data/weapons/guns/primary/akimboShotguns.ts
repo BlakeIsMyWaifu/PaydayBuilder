@@ -113,7 +113,7 @@ const akimboShotguns: Record<AkimboShotgunsList, WeaponData> = {
 		extraStats: {
 			tacticalReload: 3.0,
 			equipDelays: [0.5, 0.5],
-			ammoPickup: [3.8, 7.2],
+			ammoPickup: [4.8, 7.2],
 			recoilHorizontal: [-1.35, 1.35],
 			recoilVertical: [3.78, 3.24],
 			spread: 5.28,

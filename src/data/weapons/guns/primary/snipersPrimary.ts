@@ -77,7 +77,7 @@ const snipers: Record<PrimarySniperList, WeaponData> = {
 		image: 'msr',
 		source: content['Gage Sniper Pack'],
 		inventorySlot: 'primary',
-		reputation: 15,
+		reputation: 0,
 		weaponType: 'Sniper',
 		firingMode: 'Bolt action',
 		cost: 327e3,
@@ -231,7 +231,7 @@ const snipers: Record<PrimarySniperList, WeaponData> = {
 			damageModifier: [1.0, 1.1]
 		},
 		modifications: {
-			boost: mainBoost
+			boost: mainBoost // TODO missing mods
 		}
 	},
 	'Platypus 70 Sniper Rifle': {
@@ -282,20 +282,20 @@ const snipers: Record<PrimarySniperList, WeaponData> = {
 		firingMode: 'Semi-Automatic',
 		cost: 749e3,
 		stats: {
-			magazine: 10,
-			totalAmmo: 40,
+			magazine: 15,
+			totalAmmo: 60,
 			rateOfFire: 150,
 			damage: 160,
 			accuracy: 92,
 			stability: 20,
 			concealment: 16,
 			threat: 12,
-			reload: 6.2
+			reload: 4.13
 		},
 		extraStats: {
-			tacticalReload: 4.64,
+			tacticalReload: 3.09,
 			equipDelays: [0.9, 0.9],
-			ammoPickup: [2.0, 3.0],
+			ammoPickup: [3.0, 4.5],
 			recoilHorizontal: [-0.5, 0.5],
 			recoilVertical: [5.0, 6.25],
 			spread: 0.48,

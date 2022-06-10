@@ -27,19 +27,19 @@ const snipers: Record<SecondarySniperList, WeaponData> = {
 			totalAmmo: 20,
 			rateOfFire: 60,
 			damage: 246,
-			accuracy: 80,
-			stability: 36,
+			accuracy: 72,
+			stability: 12,
 			concealment: 18,
 			threat: 28,
-			reload: 4.61
+			reload: 5.3
 		},
 		extraStats: {
-			tacticalReload: 2.96,
+			tacticalReload: 3.4,
 			equipDelays: [0.45, 0.4],
 			ammoPickup: [0.7, 1.0],
-			recoilHorizontal: [-0.63, 0.63],
-			recoilVertical: [6.3, 10.08],
-			spread: null, // ???
+			recoilHorizontal: [-0.81, 0.81],
+			recoilVertical: [8.1, 12.96],
+			spread: 1.68,
 			damageModifier: [1.0, 1.1]
 		},
 		modifications: {

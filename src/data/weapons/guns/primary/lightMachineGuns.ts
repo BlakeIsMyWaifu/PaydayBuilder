@@ -67,7 +67,7 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			damage: 120,
 			accuracy: 28,
 			stability: 8,
-			concealment: 1,
+			concealment: 5,
 			threat: 22,
 			reload: 4.56
 		},
@@ -181,12 +181,12 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [7.5, 10.5],
 			recoilHorizontal: [-2.5, 3.5],
-			recoilVertical: [-0.5, 2],
+			recoilVertical: [-0.5, 2.0],
 			spread: 3.12,
 			damageModifier: [1.0, 0.8]
 		},
 		modifications: {
-			boost: mainBoost
+			boost: mainBoost // TODO add missing mods
 		}
 	},
 	'KSP Light Machine Gun': {
@@ -357,7 +357,7 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			ammoPickup: [4.5, 6.3],
 			recoilHorizontal: [-2.3, 1.38],
 			recoilVertical: [2.3, 1.84],
-			spread: null,
+			spread: 3.6,
 			damageModifier: [1.0, 0.8]
 		},
 		modifications: {

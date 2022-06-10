@@ -102,7 +102,7 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			rateOfFire: 160,
 			damage: 90,
 			accuracy: 48,
-			stability: 44,
+			stability: 36,
 			concealment: 23,
 			threat: 28,
 			reload: 5.0
@@ -111,8 +111,8 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			tacticalReload: [1.77, 0.57],
 			equipDelays: [0.6, 0.7],
 			ammoPickup: [0.42, 1.47],
-			recoilHorizontal: [-0.38, 0.38],
-			recoilVertical: [3.61, 3.8],
+			recoilHorizontal: [-0.42, 0.42],
+			recoilVertical: [3.99, 4.2],
 			spread: 3.12,
 			damageModifier: [1.0, 0.6]
 		},
@@ -164,7 +164,7 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			rateOfFire: 104,
 			damage: 155,
 			accuracy: 44,
-			stability: 60,
+			stability: 52,
 			concealment: 22,
 			threat: 28,
 			reload: 6.75
@@ -172,9 +172,9 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 		extraStats: {
 			tacticalReload: [2.45, 0.65],
 			equipDelays: [0.85, 0.85],
-			ammoPickup: [0.28, 0.98],
-			recoilHorizontal: [-0.3, 0.3],
-			recoilVertical: [2.85, 3.0],
+			ammoPickup: [0.7, 0.98],
+			recoilHorizontal: [-0.34, 0.34],
+			recoilVertical: [3.23, 3.4],
 			spread: 3.36,
 			damageModifier: [1.0, 0.5]
 		},
@@ -206,7 +206,7 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			rateOfFire: 333,
 			damage: 42,
 			accuracy: 56,
-			stability: 52,
+			stability: 44,
 			concealment: 13,
 			threat: 28,
 			reload: 2.55
@@ -215,8 +215,8 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			tacticalReload: 2.55,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [2.7, 4.05],
-			recoilHorizontal: [-0.34, 0.34],
-			recoilVertical: [3.23, 3.4],
+			recoilHorizontal: [-0.38, 0.38],
+			recoilVertical: [3.61, 3.8],
 			spread: 2.64,
 			damageModifier: [1.0, 0.5]
 		},
@@ -247,7 +247,7 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			rateOfFire: 300,
 			damage: 18,
 			accuracy: 12,
-			stability: 56,
+			stability: 48,
 			concealment: 21,
 			threat: 28,
 			reload: 2.9
@@ -256,8 +256,8 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			tacticalReload: 2.16,
 			equipDelays: [0.55, 0.55],
 			ammoPickup: [5.2, 7.8],
-			recoilHorizontal: [-0.32, 0.32],
-			recoilVertical: [3.04, 3.2],
+			recoilHorizontal: [-0.36, 0.36],
+			recoilVertical: [3.42, 3.6],
 			spread: 5.28,
 			damageModifier: [1.0, 0.5]
 		},
@@ -294,7 +294,7 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			rateOfFire: 429,
 			damage: 42,
 			accuracy: 28,
-			stability: 52,
+			stability: 44,
 			concealment: 21,
 			threat: 28,
 			reload: 8.0
@@ -303,8 +303,8 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			tacticalReload: [2.26, 0.52],
 			equipDelays: [0.85, 0.6],
 			ammoPickup: [3.6, 5.4],
-			recoilHorizontal: [-0.34, 0.34],
-			recoilVertical: [3.23, 3.4],
+			recoilHorizontal: [-0.38, 0.38],
+			recoilVertical: [3.61, 3.8],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
 		},
@@ -335,7 +335,7 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			rateOfFire: 500,
 			damage: 155,
 			accuracy: 52,
-			stability: 36,
+			stability: 28,
 			concealment: 29,
 			threat: 28,
 			reload: 2.25
@@ -344,8 +344,8 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			tacticalReload: 2.25,
 			equipDelays: [0.45, 0.5],
 			ammoPickup: [0.18, 0.53],
-			recoilHorizontal: [-1.05, 1.05],
-			recoilVertical: [6.09, 6.3],
+			recoilHorizontal: [-1.15, 1.15],
+			recoilVertical: [6.67, 6.9],
 			spread: 2.88,
 			damageModifier: [1.0, 0.5]
 		},
@@ -375,7 +375,7 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			rateOfFire: 500,
 			damage: 155,
 			accuracy: 56,
-			stability: 52,
+			stability: 44,
 			concealment: 10,
 			threat: 28,
 			reload: 2.2
@@ -384,8 +384,8 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			tacticalReload: 2.2,
 			equipDelays: [0.4, 0.6],
 			ammoPickup: [0.22, 0.66],
-			recoilHorizontal: [-0.68, 0.51],
-			recoilVertical: [2.89, 3.06],
+			recoilHorizontal: [-0.76, 0.57],
+			recoilVertical: [3.23, 3.42],
 			spread: 2.64,
 			damageModifier: [1.0, 0.5]
 		},
@@ -414,8 +414,8 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			totalAmmo: 35,
 			rateOfFire: 270,
 			damage: 110,
-			accuracy: 56,
-			stability: 64,
+			accuracy: 48,
+			stability: 40,
 			concealment: 24,
 			threat: 28,
 			reload: 3.0
@@ -424,9 +424,9 @@ const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 			tacticalReload: [3.4, 0.57],
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [0.88, 1.23],
-			recoilHorizontal: [-0.28, 0.28],
-			recoilVertical: [2.66, 2.8],
-			spread: null,
+			recoilHorizontal: [-0.4, 0.4],
+			recoilVertical: [3.8, 4.0],
+			spread: 3.12,
 			damageModifier: [1.0, 0.5]
 		},
 		modifications: {
