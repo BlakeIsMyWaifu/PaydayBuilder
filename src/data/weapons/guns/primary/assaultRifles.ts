@@ -105,7 +105,8 @@ export type AssaultRifleList =
 	'AMR-16 Rifle' |
 	'Little Friend 7.62 Assault Rifle' |
 	'Falcon Rifle' |
-	'Gewehr 3 Rifle'
+	'Gewehr 3 Rifle' |
+	'KS12 Urban Rifle'
 
 const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 	'AMCAR Rifle': {
@@ -1559,6 +1560,52 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			stock: [
 				stock['Precision Stock'],
 				stock['Wooden Stock (Gewehr)']
+			]
+		}
+	},
+	'KS12 Urban Rifle': {
+		name: 'KS12 Urban Rifle',
+		image: 'shak12',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		inventorySlot: 'primary',
+		reputation: 40,
+		weaponType: 'Assault Rifle',
+		firingMode: 'Selective firing',
+		cost: 736e3,
+		stats: {
+			magazine: 30,
+			totalAmmo: 90,
+			rateOfFire: 500,
+			damage: 115,
+			accuracy: 44,
+			stability: 28,
+			concealment: 16,
+			threat: 10,
+			reload: 2.9
+		},
+		extraStats: {
+			tacticalReload: 2.1,
+			equipDelays: [0.6, 0.6],
+			ammoPickup: [2.7, 4.05],
+			recoilHorizontal: [-2.3, 2.3],
+			recoilVertical: [1.38, 1.84],
+			spread: 3.36,
+			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['KS12-A Burst Muzzle'],
+				barrelExt['KS12-S Long Silencer']
+			],
+			boost: mainBoost,
+			extra: [
+				extra['KS12-S Carry Handle']
+			],
+			gadget: mainGadget,
+			sight: mainSight,
+			upperReceiver: [
+				upperReceiver['KS12 DMR kit']
 			]
 		}
 	}

@@ -30,7 +30,10 @@ export type ExtraModificationsList =
 	'ShellSwitch M8 Ammo Cache' |
 
 	// Wasp-DS
-	'Rake Ultra Grip'
+	'Rake Ultra Grip' |
+
+	// KS12 Urban Rifle
+	'KS12-S Carry Handle'
 
 const extra: ModificationList<ExtraModificationsList> = {
 	'Scope Mount (AK)': {
@@ -202,6 +205,20 @@ const extra: ModificationList<ExtraModificationsList> = {
 		compatibleWeapons: {
 			submachineGun: [
 				'Wasp-DS SMG'
+			]
+		}
+	},
+	'KS12-S Carry Handle': {
+		name: 'KS12-S Carry Handle',
+		image: 'KS12-S_Carry_Handle',
+		icon: 'inv_mod_extra',
+		slot: 'extra',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 9e3,
+		stats: {},
+		compatibleWeapons: {
+			assaultRifle: [
+				'KS12 Urban Rifle'
 			]
 		}
 	}

@@ -150,7 +150,10 @@ export type MagazineModificationsList =
 	'Celerity X9 Magazine' |
 
 	// Gecko M2
-	'Stack S3 Magazine'
+	'Stack S3 Magazine' |
+
+	// Káng Arms Model 54
+	'KA54 Extended Magazine'
 
 const magazine: ModificationList<MagazineModificationsList> = {
 	'AK Quadstacked Mag': {
@@ -1215,6 +1218,23 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		compatibleWeapons: {
 			pistol: [
 				'Gecko M2 Pistol'
+			]
+		}
+	},
+	'KA54 Extended Magazine': {
+		name: 'KA54 Extended Magazine',
+		image: 'KA54_Extended_Magazine',
+		icon: 'inv_mod_magazine',
+		slot: 'magazine',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 9e3,
+		stats: {
+			magazine: 4,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			pistol: [
+				'Káng Arms Model 54'
 			]
 		}
 	}

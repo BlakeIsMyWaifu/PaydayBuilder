@@ -153,7 +153,11 @@ export type BarrelExtModificationsList =
 	'Marmon Compensator' |
 
 	// Argos III
-	'Try-Core Compensator'
+	'Try-Core Compensator' |
+
+	// KS12 Urban Rifle
+	'KS12-A Burst Muzzle' |
+	'KS12-S Long Silencer'
 
 const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Low Profile Suppressor': {
@@ -1301,6 +1305,45 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 		compatibleWeapons: {
 			shotgun: [
 				'Argos III Shotgun'
+			]
+		}
+	},
+	'KS12-A Burst Muzzle': {
+		name: 'KS12-A Burst Muzzle',
+		image: 'wpn_fps_ass_shak12_ns_muzzle',
+		icon: 'inv_mod_barrel_ext',
+		slot: 'barrelExt',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 9e3,
+		stats: {
+			damage: 2,
+			accuracy: 4,
+			stability: 4,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'KS12 Urban Rifle'
+			]
+		}
+	},
+	'KS12-S Long Silencer': {
+		name: 'KS12-S Long Silencer',
+		image: 'wpn_fps_ass_shak12_ns_suppressor',
+		icon: 'inv_mod_silencer',
+		slot: 'barrelExt',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 9e3,
+		stats: {
+			damage: -2,
+			accuracy: 12,
+			stability: 4,
+			concealment: -5,
+			threat: -20
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'KS12 Urban Rifle'
 			]
 		}
 	}

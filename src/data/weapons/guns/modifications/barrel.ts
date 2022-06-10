@@ -297,7 +297,14 @@ export type BarrelModificationsList =
 	'Pinnacle Barrel' |
 
 	// M60
-	'Short Barrel (M60)'
+	'Short Barrel (M60)' |
+
+	// Káng Arms Model 54
+	'KA54 Barrel Extender' |
+
+	// RUS-12 Angry Tiger
+	'RUS-J Long Valley Barrel and Stabilizer' |
+	'RUS-K Tactical Short Barrel'
 
 const barrel: ModificationList<BarrelModificationsList> = {
 	'AK Slavic Dragon Barrel': {
@@ -2983,6 +2990,61 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		compatibleWeapons: {
 			lightMachineGun: [
 				'M60 Light Machine Gun'
+			]
+		}
+	},
+	'KA54 Barrel Extender': {
+		name: 'KA54 Barrel Extender',
+		image: 'KA54_Barrel_Extender',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 21e3,
+		stats: {
+			accuracy: 4,
+			stability: 4,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			pistol: [
+				'Káng Arms Model 54'
+			]
+		}
+	},
+	'RUS-J Long Valley Barrel and Stabilizer': {
+		name: 'RUS-J Long Valley Barrel and Stabilizer',
+		image: 'RUS-J_Long_Valley_Barrel_and_Stabilizer',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 32e3,
+		stats: {
+			damage: 4,
+			accuracy: 12,
+			stability: 4,
+			concealment: -3
+		},
+		compatibleWeapons: {
+			pistol: [
+				'RUS-12 Angry Tiger'
+			]
+		}
+	},
+	'RUS-K Tactical Short Barrel': {
+		name: 'RUS-K Tactical Short Barrel',
+		image: 'RUS-K_Tactical_Short_Barrel',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 21e3,
+		stats: {
+			accuracy: -8,
+			stability: -8,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			pistol: [
+				'RUS-12 Angry Tiger'
 			]
 		}
 	}

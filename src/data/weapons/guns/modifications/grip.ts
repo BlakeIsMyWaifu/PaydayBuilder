@@ -172,7 +172,10 @@ export type GripModificationsList =
 
 	// Pistol Crossbow
 	'Camo Grip' |
-	'Walnut Grip'
+	'Walnut Grip' |
+
+	// RUS-12 Angry Tiger
+	'RUS Custom Wood Grip'
 
 const grip: ModificationList<GripModificationsList> = {
 	'AK Rubber Grip': {
@@ -1216,6 +1219,22 @@ const grip: ModificationList<GripModificationsList> = {
 		compatibleWeapons: {
 			special: [
 				'Pistol Crossbow'
+			]
+		}
+	},
+	'RUS Custom Wood Grip': {
+		name: 'RUS Custom Wood Grip',
+		image: 'RUS_Custom_Wood_Grip',
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 21e3,
+		stats: {
+			stability: 24
+		},
+		compatibleWeapons: {
+			pistol: [
+				'RUS-12 Angry Tiger'
 			]
 		}
 	}

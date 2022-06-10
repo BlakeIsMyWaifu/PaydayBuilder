@@ -19,6 +19,7 @@ import { ReceiverModificationsList } from './modifications/receiver'
 import { SightModificationsList } from './modifications/sight'
 import { SlideModificationsList } from './modifications/slide'
 import { StockModificationsList } from './modifications/stock'
+import { UnderbarrelModificationsList } from './modifications/underbarrel'
 import { UpperReceiverModificationsList } from './modifications/upperReceiver'
 import { VerticalGripModificationsList } from './modifications/verticalGrip'
 import { AkimboShotgunsList } from './primary/akimboShotguns'
@@ -66,6 +67,7 @@ export interface WeaponModifications {
 	sight?: Modification<SightModificationsList>[];
 	slide?: Modification<SlideModificationsList>[];
 	stock?: Modification<StockModificationsList>[];
+	underbarrel?: Modification<UnderbarrelModificationsList>[];
 	upperReceiver?: Modification<UpperReceiverModificationsList>[];
 	verticalGrip?: Modification<VerticalGripModificationsList>[];
 }
@@ -189,6 +191,7 @@ export type ModIcon =
 	'inv_mod_singlefire' |
 	'inv_mod_slide' |
 	'inv_mod_stock' |
+	'inv_mod_underbarrel' |
 	'inv_mod_upper_receiver' |
 	'inv_mod_vertical_grip' |
 	'inv_mod_weapon_cosmetics'

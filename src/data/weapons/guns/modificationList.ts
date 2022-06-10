@@ -16,6 +16,7 @@ import receiver from './modifications/receiver'
 import sight from './modifications/sight'
 import slide from './modifications/slide'
 import stock from './modifications/stock'
+import underbarrel from './modifications/underbarrel'
 import upperReceiver from './modifications/upperReceiver'
 import verticalGrip from './modifications/verticalGrip'
 import { ModIcon, ModificationList, ModificationSlot } from './weaponTypes'
@@ -39,6 +40,7 @@ export const modificationList: Record<ModificationSlot, ModificationList<string>
 	receiver,
 	slide,
 	stock,
+	underbarrel,
 	upperReceiver,
 	verticalGrip
 }
@@ -62,6 +64,7 @@ export const modificationIcons: Record<ModificationSlot, ModIcon> = {
 	sight: 'inv_mod_scope',
 	slide: 'inv_mod_slide',
 	stock: 'inv_mod_stock',
+	underbarrel: 'inv_mod_underbarrel',
 	upperReceiver: 'inv_mod_upper_receiver',
 	verticalGrip: 'inv_mod_vertical_grip'
 }
