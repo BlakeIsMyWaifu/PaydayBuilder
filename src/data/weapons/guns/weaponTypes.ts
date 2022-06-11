@@ -166,7 +166,7 @@ export type ModIcon =
 	'inv_mod_ammo_explosive' |
 	'inv_mod_ammo_piercing' |
 	'inv_mod_ammo_slug' |
-	'inv_mod_amo_poison' |
+	'inv_mod_ammo_poison' |
 	'inv_mod_autofire' |
 	'inv_mod_barrel' |
 	'inv_mod_barrel_ext' |

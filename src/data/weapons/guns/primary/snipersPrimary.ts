@@ -8,6 +8,7 @@ import boost, { BoostModificationsList } from '../modifications/boost'
 import foregrip from '../modifications/foregrip'
 import gadget, { GadgetModificationsList } from '../modifications/gadget'
 import grip from '../modifications/grip'
+import magazine from '../modifications/magazine'
 import sight, { SightModificationsList } from '../modifications/sight'
 import stock from '../modifications/stock'
 import { Modification, WeaponData } from '../weaponTypes'
@@ -231,7 +232,19 @@ const snipers: Record<PrimarySniperList, WeaponData> = {
 			damageModifier: [1.0, 1.1]
 		},
 		modifications: {
-			boost: mainBoost // TODO missing mods
+			barrel: [
+				barrel['KA-ZD1A Long Barrel'],
+				barrel['KA-ZD1B Short Barrel']
+			],
+			boost: mainBoost,
+			gadget: mainGadgetMagnifier,
+			magazine: [
+				magazine['KA-ZDM2 Extended Magazine']
+			],
+			sight: [
+				...mainSight,
+				sight['KA-ZD032 Iron Sight']
+			]
 		}
 	},
 	'Platypus 70 Sniper Rifle': {

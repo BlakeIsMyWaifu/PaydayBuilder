@@ -13,6 +13,7 @@ import lowerReceiver from '../modifications/lowerReceiver'
 import magazine from '../modifications/magazine'
 import sight, { SightModificationsList } from '../modifications/sight'
 import stock from '../modifications/stock'
+import underbarrel from '../modifications/underbarrel'
 import upperReceiver from '../modifications/upperReceiver'
 import { Modification, WeaponData } from '../weaponTypes'
 
@@ -559,7 +560,21 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			damageModifier: [1.0, 1.0]
 		},
 		modifications: {
-			boost: mainBoost
+			barrel: [
+				barrel['K-B100 Suppressor']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			magazine: [
+				magazine['K-B1 Speedmag']
+			],
+			sight: mainSight,
+			underbarrel: [
+				underbarrel['Frag Round'],
+				underbarrel['Viper Grenade']
+			]
 		}
 	},
 	'Cavity 9mm': {

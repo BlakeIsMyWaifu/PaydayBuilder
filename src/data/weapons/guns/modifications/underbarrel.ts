@@ -3,9 +3,14 @@ import content from 'data/source/downloadableContent'
 import { ModificationList } from '../weaponTypes'
 
 export type UnderbarrelModificationsList =
+	// Káng Arms Model 54
 	'KA54 Bull Stopper Addon' |
 	'Flechette' |
-	'AP Slug'
+	'AP Slug' |
+
+	// KETCHNOV BYK-1
+	'Frag Round' |
+	'Viper Grenade'
 
 const underbarrel: ModificationList<UnderbarrelModificationsList> = {
 	'KA54 Bull Stopper Addon': {
@@ -56,6 +61,34 @@ const underbarrel: ModificationList<UnderbarrelModificationsList> = {
 		compatibleWeapons: {
 			pistol: [
 				'Káng Arms Model 54'
+			]
+		}
+	},
+	'Frag Round': {
+		name: 'Frag Round',
+		image: 'inv_mod_ammo_explosive',
+		icon: 'inv_mod_ammo_explosive',
+		slot: 'underbarrel',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 9e3,
+		stats: {},
+		compatibleWeapons: {
+			assaultRifle: [
+				'KETCHNOV Byk-1 Assault Rifle'
+			]
+		}
+	},
+	'Viper Grenade': {
+		name: 'Viper Grenade',
+		image: 'wpn_fps_upg_a_grenade_launcher_poison',
+		icon: 'inv_mod_ammo_poison',
+		slot: 'underbarrel',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 9e3,
+		stats: {},
+		compatibleWeapons: {
+			assaultRifle: [
+				'KETCHNOV Byk-1 Assault Rifle'
 			]
 		}
 	}

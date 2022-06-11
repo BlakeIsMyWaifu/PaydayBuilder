@@ -153,7 +153,16 @@ export type MagazineModificationsList =
 	'Stack S3 Magazine' |
 
 	// Káng Arms Model 54
-	'KA54 Extended Magazine'
+	'KA54 Extended Magazine' |
+
+	// KETCHNOV BYK-1
+	'K-B1 Speedmag' |
+
+	// Káng Arms X1
+	'KA-ZDM2 Extended Magazine' |
+
+	// Miyaka 10 Special
+	'MS10 Speedmag'
 
 const magazine: ModificationList<MagazineModificationsList> = {
 	'AK Quadstacked Mag': {
@@ -1235,6 +1244,59 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		compatibleWeapons: {
 			pistol: [
 				'Káng Arms Model 54'
+			]
+		}
+	},
+	'K-B1 Speedmag': {
+		name: 'K-B1 Speedmag',
+		image: 'K-B1_Speedmag',
+		icon: 'inv_mod_magazine',
+		slot: 'magazine',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 14e3,
+		stats: {
+			magazine: 10,
+			accuracy: -4,
+			concealment: -3,
+			reload: -1.1
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'KETCHNOV Byk-1 Assault Rifle'
+			]
+		}
+	},
+	'KA-ZDM2 Extended Magazine': {
+		name: 'KA-ZDM2 Extended Magazine',
+		image: 'KA-ZDM2_Extended_Magazine',
+		icon: 'inv_mod_magazine',
+		slot: 'magazine',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 14e3,
+		stats: {
+			magazine: 10,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Káng Arms X1 Sniper Rifle'
+			]
+		}
+	},
+	'MS10 Speedmag': {
+		name: 'MS10 Speedmag',
+		image: 'MS10_Speedmag',
+		icon: 'inv_mod_magazine',
+		slot: 'magazine',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 14e3,
+		stats: {
+			concealment: -1,
+			reload: -1
+		},
+		compatibleWeapons: {
+			submachineGun: [
+				'Miyaka 10 Special Submachine Gun'
 			]
 		}
 	}

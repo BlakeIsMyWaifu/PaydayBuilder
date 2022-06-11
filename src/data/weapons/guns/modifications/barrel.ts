@@ -304,7 +304,17 @@ export type BarrelModificationsList =
 
 	// RUS-12 Angry Tiger
 	'RUS-J Long Valley Barrel and Stabilizer' |
-	'RUS-K Tactical Short Barrel'
+	'RUS-K Tactical Short Barrel' |
+
+	//KETCHNOV BYK-1
+	'K-B100 Suppressor' |
+
+	// Káng Arms X1
+	'KA-ZD1A Long Barrel' |
+	'KA-ZD1B Short Barrel' |
+
+	// Miyaka 10 Special
+	'MS10 Short Barrel'
 
 const barrel: ModificationList<BarrelModificationsList> = {
 	'AK Slavic Dragon Barrel': {
@@ -3045,6 +3055,78 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		compatibleWeapons: {
 			pistol: [
 				'RUS-12 Angry Tiger'
+			]
+		}
+	},
+	'K-B100 Suppressor': {
+		name: 'K-B100 Suppressor',
+		image: 'K-B100_Suppressor',
+		icon: 'inv_mod_silencer',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 9e3,
+		stats: {
+			damage: -1,
+			accuracy: -4,
+			concealment: 1,
+			threat: -12
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'KETCHNOV Byk-1 Assault Rifle'
+			]
+		}
+	},
+	'KA-ZD1A Long Barrel': {
+		name: 'KA-ZD1A Long Barrel',
+		image: 'KA-ZD1A_Long_Barrel',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 14e3,
+		stats: {
+			accuracy: 8,
+			stability: 8,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Káng Arms X1 Sniper Rifle'
+			]
+		}
+	},
+	'KA-ZD1B Short Barrel': {
+		name: 'KA-ZD1B Short Barrel',
+		image: 'KA-ZD1B_Short_Barrel',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 14e3,
+		stats: {
+			accuracy: -4,
+			concealment: 1
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Káng Arms X1 Sniper Rifle'
+			]
+		}
+	},
+	'MS10 Short Barrel': {
+		name: 'MS10 Short Barrel',
+		image: 'MS10_Short_Barrel',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 9e3,
+		stats: {
+			accuracy: -4,
+			stability: -8,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			submachineGun: [
+				'Miyaka 10 Special Submachine Gun'
 			]
 		}
 	}

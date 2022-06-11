@@ -266,7 +266,10 @@ export type StockModificationsList =
 	'Flak Frame Null Stock' |
 
 	// Wasp-DS
-	'Bounce Slate RX Stock'
+	'Bounce Slate RX Stock' |
+
+	// Miyaka 10 Special
+	'MS10 Tactical Stock'
 
 const stock: ModificationList<StockModificationsList> = {
 	'Standard Stock (Main)': {
@@ -2190,6 +2193,23 @@ const stock: ModificationList<StockModificationsList> = {
 		compatibleWeapons: {
 			submachineGun: [
 				'Wasp-DS SMG'
+			]
+		}
+	},
+	'MS10 Tactical Stock': {
+		name: 'MS10 Tactical Stock',
+		image: 'MS10_Tactical_Stock',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 9e3,
+		stats: {
+			stability: 12,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			submachineGun: [
+				'Miyaka 10 Special Submachine Gun'
 			]
 		}
 	}

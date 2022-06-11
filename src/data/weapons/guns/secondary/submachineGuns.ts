@@ -536,7 +536,33 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			damageModifier: [1.0, 0.5]
 		},
 		modifications: {
-			boost: mainBoost
+			barrel: [
+				barrel['MS10 Short Barrel']
+			],
+			barrelExt: [
+				barrelExt['Medium Suppressor'],
+				barrelExt['Low Profile Suppressor'],
+				barrelExt['The Bigger The Better Suppressor']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			grip: [
+				grip['MS10 Comfort Wood Grip']
+			],
+			magazine: [
+				magazine['MS10 Speedmag']
+			],
+			sight: [
+				sight['The Professional\'s Choice Sight'],
+				sight['Surgeon Sight'],
+				sight['Compact Holosight'],
+				sight['Speculator Sight'],
+				sight['Compact Profile Sight']
+			],
+			stock: [
+				stock['MS10 Tactical Stock']
+			]
 		}
 	},
 	'Cobra Submachine Gun': {

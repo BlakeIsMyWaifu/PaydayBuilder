@@ -135,7 +135,10 @@ export type SightModificationsList =
 	'Tritium Sights' |
 
 	// Pronghorn
-	'Iron Sights'
+	'Iron Sights' |
+
+	// Káng Arms X1
+	'KA-ZD032 Iron Sight'
 
 const sight: ModificationList<SightModificationsList> = {
 	'The Professional\'s Choice Sight': {
@@ -552,6 +555,23 @@ const sight: ModificationList<SightModificationsList> = {
 		compatibleWeapons: {
 			sniper: [
 				'Pronghorn Sniper Rifle'
+			]
+		}
+	},
+	'KA-ZD032 Iron Sight': {
+		name: 'KA-ZD032 Iron Sight',
+		image: 'KA-ZD032_Iron_Sight',
+		icon: 'inv_mod_scope',
+		slot: 'sight',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 9e3,
+		stats: {
+			stability: -4,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Káng Arms X1 Sniper Rifle'
 			]
 		}
 	}
