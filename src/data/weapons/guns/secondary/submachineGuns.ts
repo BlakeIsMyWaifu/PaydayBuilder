@@ -94,7 +94,8 @@ export type SubmachineGunList =
 	'Kross Vertex Submachine Gun' |
 	'Tatonka Submachine Gun' |
 	'Patchett L2A1 Submachine Gun' |
-	'Uzi Submachine Gun'
+	'Uzi Submachine Gun' |
+	'Wasp-DS SMG'
 
 const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 	'Swedish K Submachine Gun': {
@@ -112,17 +113,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 600,
 			damage: 99,
 			accuracy: 68,
-			stability: 52,
+			stability: 44,
 			concealment: 24,
 			threat: 10,
-			reload: 3.39
+			reload: 3.9
 		},
 		extraStats: {
-			tacticalReload: 2.48,
+			tacticalReload: 2.85,
 			equipDelays: [0.6, 0.5],
 			ammoPickup: [0.8, 2.8],
-			recoilHorizontal: [-1.7, 1.7],
-			recoilVertical: [-2.04, 2.04],
+			recoilHorizontal: [-1.9, 1.9],
+			recoilVertical: [-2.28, 2.28],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
 		},
@@ -161,21 +162,21 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 		cost: 42e3,
 		stats: {
 			magazine: 20,
-			totalAmmo: 160,
+			totalAmmo: 140,
 			rateOfFire: 952,
-			damage: 58,
+			damage: 70,
 			accuracy: 64,
-			stability: 76,
+			stability: 68,
 			concealment: 23,
 			threat: 8,
-			reload: 2.13
+			reload: 2.45
 		},
 		extraStats: {
-			tacticalReload: 1.7,
+			tacticalReload: 1.96,
 			equipDelays: [0.5, 0.6],
-			ammoPickup: [4.8, 8.8],
-			recoilHorizontal: [-1.1, 1.1],
-			recoilVertical: [0.66, 0.88],
+			ammoPickup: [4.2, 7.7],
+			recoilHorizontal: [-1.3, 1.3],
+			recoilVertical: [0.78, 1.04],
 			spread: 2.16,
 			damageModifier: [1.0, 0.6]
 		},
@@ -211,17 +212,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 1000,
 			damage: 58,
 			accuracy: 48,
-			stability: 72,
+			stability: 64,
 			concealment: 27,
 			threat: 10,
-			reload: 2.35
+			reload: 2.7
 		},
 		extraStats: {
-			tacticalReload: 1.74,
+			tacticalReload: 2.0,
 			equipDelays: [0.5, 0.5],
 			ammoPickup: [4.8, 8.8],
-			recoilHorizontal: [-0.6, 0.6],
-			recoilVertical: [0.84, 1.2],
+			recoilHorizontal: [-0.7, 0.7],
+			recoilVertical: [0.98, 1.4],
 			spread: 3.12,
 			damageModifier: [1.0, 0.6]
 		},
@@ -265,17 +266,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 750,
 			damage: 99,
 			accuracy: 72,
-			stability: 76,
+			stability: 68,
 			concealment: 18,
 			threat: 10,
-			reload: 3.04
+			reload: 3.5
 		},
 		extraStats: {
-			tacticalReload: 1.74,
+			tacticalReload: 2.0,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [0.9, 3.15],
-			recoilHorizontal: [-1.1, 1.1],
-			recoilVertical: [-0.66, 1.32],
+			recoilHorizontal: [-1.3, 1.3],
+			recoilVertical: [-0.78, 1.56],
 			spread: 1.68,
 			damageModifier: [1.0, 0.7]
 		},
@@ -314,17 +315,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 750,
 			damage: 72,
 			accuracy: 64,
-			stability: 76,
+			stability: 68,
 			concealment: 23,
 			threat: 14,
-			reload: 2.68
+			reload: 3.08
 		},
 		extraStats: {
-			tacticalReload: 1.78,
+			tacticalReload: 2.05,
 			equipDelays: [0.45, 0.6],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: [-0.55, 0.55],
-			recoilVertical: [0.55, 0.77],
+			recoilHorizontal: [-0.65, 0.65],
+			recoilVertical: [0.65, 0.91],
 			spread: 2.16,
 			damageModifier: [1.0, 0.6]
 		},
@@ -367,17 +368,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 1200,
 			damage: 57,
 			accuracy: 52,
-			stability: 76,
+			stability: 68,
 			concealment: 25,
 			threat: 10,
-			reload: 3.78
+			reload: 3.0
 		},
 		extraStats: {
-			tacticalReload: 1.78,
+			tacticalReload: 2.05,
 			equipDelays: [0.5, 0.55],
 			ammoPickup: [4.8, 8.8],
-			recoilHorizontal: [-1.1, 1.1],
-			recoilVertical: [-0.66, 1.32],
+			recoilHorizontal: [-1.3, 1.3],
+			recoilVertical: [-0.78, 1.56],
 			spread: 2.88,
 			damageModifier: [1.0, 0.6]
 		},
@@ -419,17 +420,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 750,
 			damage: 44,
 			accuracy: 44,
-			stability: 88,
+			stability: 80,
 			concealment: 24,
 			threat: 6,
-			reload: 3.13
+			reload: 3.6
 		},
 		extraStats: {
-			tacticalReload: 2.09,
+			tacticalReload: 2.4,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [6.3, 11.55],
-			recoilHorizontal: [-0.8, 0.8],
-			recoilVertical: [0.48, 0.64],
+			recoilHorizontal: [-1.0, 1.0],
+			recoilVertical: [0.6, 0.8],
 			spread: 3.36,
 			damageModifier: [1.0, 0.5]
 		},
@@ -470,17 +471,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 723,
 			damage: 58,
 			accuracy: 48,
-			stability: 76,
+			stability: 68,
 			concealment: 18,
 			threat: 12,
-			reload: 3.91
+			reload: 4.5
 		},
 		extraStats: {
-			tacticalReload: 3.04,
+			tacticalReload: 3.5,
 			equipDelays: [0.75, 0.6],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: [-1.32, 1.32],
-			recoilVertical: [0.33, 1.65],
+			recoilHorizontal: [-1.56, 1.56],
+			recoilVertical: [0.39, 1.95],
 			spread: 3.12,
 			damageModifier: [1.0, 0.6]
 		},
@@ -520,22 +521,48 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 1100,
 			damage: 60,
 			accuracy: 28,
-			stability: 64,
+			stability: 56,
 			concealment: 26,
 			threat: 10,
-			reload: 2.26
+			reload: 2.6
 		},
 		extraStats: {
-			tacticalReload: 1.61,
+			tacticalReload: 1.85,
 			equipDelays: [0.5, 0.7],
 			ammoPickup: [5.25, 9.63],
-			recoilHorizontal: [-1.68, 1.68],
-			recoilVertical: [-0.14, 0.84],
+			recoilHorizontal: [-1.92, 1.92],
+			recoilVertical: [-0.16, 0.96],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
 		},
 		modifications: {
-			boost: mainBoost
+			barrel: [
+				barrel['MS10 Short Barrel']
+			],
+			barrelExt: [
+				barrelExt['Medium Suppressor'],
+				barrelExt['Low Profile Suppressor'],
+				barrelExt['The Bigger The Better Suppressor']
+			],
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			grip: [
+				grip['MS10 Comfort Wood Grip']
+			],
+			magazine: [
+				magazine['MS10 Speedmag']
+			],
+			sight: [
+				sight['The Professional\'s Choice Sight'],
+				sight['Surgeon Sight'],
+				sight['Compact Holosight'],
+				sight['Speculator Sight'],
+				sight['Compact Profile Sight']
+			],
+			stock: [
+				stock['MS10 Tactical Stock']
+			]
 		}
 	},
 	'Cobra Submachine Gun': {
@@ -553,17 +580,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 1000,
 			damage: 44,
 			accuracy: 28,
-			stability: 76,
+			stability: 68,
 			concealment: 28,
 			threat: 6,
-			reload: 2.39
+			reload: 2.75
 		},
 		extraStats: {
-			tacticalReload: 1.74,
+			tacticalReload: 2.0,
 			equipDelays: [0.5, 0.7],
 			ammoPickup: [6.6, 12.1],
-			recoilHorizontal: [-1.1, 1.1],
-			recoilVertical: [0.66, 0.88],
+			recoilHorizontal: [-1.3, 1.3],
+			recoilVertical: [0.78, 1.04],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
 		},
@@ -602,19 +629,19 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			magazine: 30,
 			totalAmmo: 210,
 			rateOfFire: 952,
-			damage: 44,
+			damage: 50,
 			accuracy: 28,
-			stability: 84,
+			stability: 76,
 			concealment: 26,
 			threat: 8,
-			reload: 2.16
+			reload: 2.48
 		},
 		extraStats: {
-			tacticalReload: 1.31,
+			tacticalReload: 1.51,
 			equipDelays: [0.4, 0.5],
 			ammoPickup: [6.3, 11.55],
-			recoilHorizontal: [-0.9, 0.9],
-			recoilVertical: [-1.08, 1.08],
+			recoilHorizontal: [-1.1, 1.1],
+			recoilVertical: [-1.32, 1.32],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
 		},
@@ -648,19 +675,19 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			magazine: 25,
 			totalAmmo: 150,
 			rateOfFire: 682,
-			damage: 55,
+			damage: 65,
 			accuracy: 44,
-			stability: 72,
+			stability: 64,
 			concealment: 24,
 			threat: 14,
-			reload: 2.81
+			reload: 3.23
 		},
 		extraStats: {
-			tacticalReload: 1.88,
+			tacticalReload: 2.16,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: [-1.2, 1.2],
-			recoilVertical: [0.72, 0.96],
+			recoilHorizontal: [-1.4, 1.4],
+			recoilVertical: [0.84, 1.12],
 			spread: 3.36,
 			damageModifier: [1.0, 0.6]
 		},
@@ -726,17 +753,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 1200,
 			damage: 44,
 			accuracy: 28,
-			stability: 84,
+			stability: 76,
 			concealment: 29,
 			threat: 10,
-			reload: 2.26
+			reload: 2.6
 		},
 		extraStats: {
-			tacticalReload: 1.61,
+			tacticalReload: 1.85,
 			equipDelays: [0.5, 0.7],
 			ammoPickup: [6.72, 12.32],
-			recoilHorizontal: [-1.08, 1.08],
-			recoilVertical: [-0.09, 0.54],
+			recoilHorizontal: [-1.32, 1.32],
+			recoilVertical: [-0.11, 0.66],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
 		},
@@ -772,20 +799,20 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			magazine: 20,
 			totalAmmo: 200,
 			rateOfFire: 750,
-			damage: 44,
-			accuracy: 44,
-			stability: 52,
+			damage: 58,
+			accuracy: 64,
+			stability: 44,
 			concealment: 24,
 			threat: 10,
-			reload: 2.48
+			reload: 2.85
 		},
 		extraStats: {
-			tacticalReload: 1.83,
+			tacticalReload: 2.11,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [6.0, 11.0],
-			recoilHorizontal: [-1.7, 1.7],
-			recoilVertical: [-0.34, 0.68],
-			spread: 3.36,
+			recoilHorizontal: [-0.76, 0.76],
+			recoilVertical: [1.71, 1.33],
+			spread: 2.16,
 			damageModifier: [1.0, 0.5]
 		},
 		modifications: {
@@ -824,17 +851,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 652,
 			damage: 99,
 			accuracy: 60,
-			stability: 60,
+			stability: 52,
 			concealment: 24,
 			threat: 10,
-			reload: 3.15
+			reload: 3.62
 		},
 		extraStats: {
-			tacticalReload: 2.05,
+			tacticalReload: 2.36,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [0.9, 3.15],
-			recoilHorizontal: [-1.5, 1.5],
-			recoilVertical: [-0.3, 0.6],
+			recoilHorizontal: [-1.7, 1.7],
+			recoilVertical: [-0.34, 0.68],
 			spread: 2.4,
 			damageModifier: [1.0, 0.7]
 		},
@@ -878,17 +905,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 600,
 			damage: 99,
 			accuracy: 68,
-			stability: 52,
+			stability: 44,
 			concealment: 24,
 			threat: 10,
-			reload: 2.65
+			reload: 3.05
 		},
 		extraStats: {
-			tacticalReload: 1.65,
+			tacticalReload: 1.90,
 			equipDelays: [0.6, 0.5],
 			ammoPickup: [0.8, 2.8],
-			recoilHorizontal: [-1.7, 1.7],
-			recoilVertical: [-2.04, 2.04],
+			recoilHorizontal: [-1.9, 1.9],
+			recoilVertical: [-2.28, 2.28],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
 		},
@@ -917,17 +944,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 750,
 			damage: 58,
 			accuracy: 52,
-			stability: 60,
+			stability: 68,
 			concealment: 28,
 			threat: 10,
-			reload: 3.48
+			reload: 4.0
 		},
 		extraStats: {
-			tacticalReload: 1.8,
+			tacticalReload: 2.07,
 			equipDelays: [0.5, 0.55],
 			ammoPickup: [4.8, 8.8],
-			recoilHorizontal: [-0.75, 0.75],
-			recoilVertical: [-0.45, 0.9],
+			recoilHorizontal: [-0.65, 0.65],
+			recoilVertical: [-0.39, 0.78],
 			spread: 2.88,
 			damageModifier: [1.0, 0.6]
 		},
@@ -963,17 +990,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 822,
 			damage: 99,
 			accuracy: 60,
-			stability: 52,
+			stability: 44,
 			concealment: 21,
 			threat: 22,
-			reload: 3.39
+			reload: 3.9
 		},
 		extraStats: {
-			tacticalReload: 1.87,
+			tacticalReload: 2.15,
 			equipDelays: [0.6, 0.55],
 			ammoPickup: [0.9, 3.15],
-			recoilHorizontal: [-1.7, 1.7],
-			recoilVertical: [1.02, 1.36],
+			recoilHorizontal: [-1.9, 1.9],
+			recoilVertical: [1.14, 1.52],
 			spread: 2.4,
 			damageModifier: [1.0, 0.7]
 		},
@@ -1032,17 +1059,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 896,
 			damage: 44,
 			accuracy: 28,
-			stability: 84,
+			stability: 76,
 			concealment: 27,
 			threat: 12,
-			reload: 2.85
+			reload: 3.28
 		},
 		extraStats: {
-			tacticalReload: 2.01,
+			tacticalReload: 2.31,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [6.6, 12.1],
-			recoilHorizontal: [-0.9, 0.9],
-			recoilVertical: [0.54, 0.72],
+			recoilHorizontal: [-1.1, 1.1],
+			recoilVertical: [0.66, 0.88],
 			spread: 4.32,
 			damageModifier: [1.0, 0.5]
 		},
@@ -1079,17 +1106,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 909,
 			damage: 56,
 			accuracy: 52,
-			stability: 68,
+			stability: 60,
 			concealment: 25,
 			threat: 12,
-			reload: 2.96
+			reload: 3.4
 		},
 		extraStats: {
-			tacticalReload: 2.22,
+			tacticalReload: 2.55,
 			equipDelays: [0.65, 0.68],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: [-1.3, 1.3],
-			recoilVertical: [0.78, 1.04],
+			recoilHorizontal: [-1.5, 1.5],
+			recoilVertical: [0.9, 1.2],
 			spread: 2.88,
 			damageModifier: [1.0, 0.6]
 		},
@@ -1127,17 +1154,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 1200,
 			damage: 58,
 			accuracy: 52,
-			stability: 84,
+			stability: 76,
 			concealment: 20,
 			threat: 10,
-			reload: 2.17
+			reload: 2.5
 		},
 		extraStats: {
-			tacticalReload: 1.74,
+			tacticalReload: 2.0,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [4.5, 8.25],
-			recoilHorizontal: [-0.9, 0.9],
-			recoilVertical: [-0.18, 0.36],
+			recoilHorizontal: [-1.1, 1.1],
+			recoilVertical: [-0.22, 0.44],
 			spread: 2.88,
 			damageModifier: [1.0, 0.6]
 		},
@@ -1179,10 +1206,10 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			stability: 60,
 			concealment: 24,
 			threat: 10,
-			reload: 3.7
+			reload: 3.27
 		},
 		extraStats: {
-			tacticalReload: 2.83,
+			tacticalReload: 2.5,
 			equipDelays: [0.5, 0.6],
 			ammoPickup: [1.28, 4.48],
 			recoilHorizontal: [-1.5, 1.5],
@@ -1222,17 +1249,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 545,
 			damage: 99,
 			accuracy: 52,
-			stability: 84,
+			stability: 76,
 			concealment: 20,
 			threat: 12,
-			reload: 2.87
+			reload: 3.3
 		},
 		extraStats: {
-			tacticalReload: 2.0,
+			tacticalReload: 2.3,
 			equipDelays: [0.65, 0.55],
 			ammoPickup: [2.88, 5.28],
-			recoilHorizontal: [-0.9, 0.9],
-			recoilVertical: [0.54, 0.72],
+			recoilHorizontal: [-1.1, 1.1],
+			recoilVertical: [0.66, 0.88],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
 		},
@@ -1274,17 +1301,17 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 			rateOfFire: 698,
 			damage: 44,
 			accuracy: 52,
-			stability: 76,
+			stability: 68,
 			concealment: 24,
 			threat: 12,
-			reload: 3.06
+			reload: 3.52
 		},
 		extraStats: {
-			tacticalReload: 2.13,
+			tacticalReload: 2.45,
 			equipDelays: [0.6, 0.55],
-			ammoPickup: [6.0, 11.0],
-			recoilHorizontal: [-1.1, 1.1],
-			recoilVertical: [0.66, 0.88],
+			ammoPickup: [3.6, 6.6],
+			recoilHorizontal: [-1.3, 1.3],
+			recoilVertical: [0.78, 1.04],
 			spread: 2.88,
 			damageModifier: [1.0, 0.5]
 		},
@@ -1304,6 +1331,53 @@ const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 				stock['Ergonomic Stock'],
 				stock['Solid Stock (Uzi)'],
 				stock['Folded Stock (Uzi)']
+			]
+		}
+	},
+	'Wasp-DS SMG': {
+		name: 'Wasp-DS SMG',
+		image: 'fmg9',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		inventorySlot: 'secondary',
+		reputation: 15,
+		weaponType: 'Submachine Gun',
+		firingMode: 'Selective firing',
+		cost: 261600,
+		stats: {
+			magazine: 30,
+			totalAmmo: 240,
+			rateOfFire: 1333,
+			damage: 40,
+			accuracy: 64,
+			stability: 36,
+			concealment: 29,
+			threat: 22,
+			reload: 2.48
+		},
+		extraStats: {
+			tacticalReload: 1.51,
+			equipDelays: [0.5, 1.8],
+			ammoPickup: [7.2, 13.2],
+			recoilHorizontal: [-2.1, 2.1],
+			recoilVertical: [-1.68, 3.78],
+			spread: 2.64,
+			damageModifier: [1.0, 0.5]
+		},
+		modifications: {
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			extra: [
+				extra['Rake Ultra Grip']
+			],
+			gadget: [
+				gadget['Tactical Pistol Light'],
+				gadget['Pocket Laser']
+			],
+			magazine: [
+				magazine['Celerity X9 Magazine']
+			],
+			stock: [
+				stock['Bounce Slate RX Stock']
 			]
 		}
 	}

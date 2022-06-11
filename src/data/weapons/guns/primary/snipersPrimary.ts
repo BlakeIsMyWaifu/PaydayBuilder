@@ -8,6 +8,7 @@ import boost, { BoostModificationsList } from '../modifications/boost'
 import foregrip from '../modifications/foregrip'
 import gadget, { GadgetModificationsList } from '../modifications/gadget'
 import grip from '../modifications/grip'
+import magazine from '../modifications/magazine'
 import sight, { SightModificationsList } from '../modifications/sight'
 import stock from '../modifications/stock'
 import { Modification, WeaponData } from '../weaponTypes'
@@ -20,7 +21,7 @@ const mainBoost: Modification<BoostModificationsList>[] = [
 	boost['Total Ammo (Main)']
 ]
 
-const mainGadgetMagifier: Modification<GadgetModificationsList>[] = [
+const mainGadgetMagnifier: Modification<GadgetModificationsList>[] = [
 	gadget['Assault Light'],
 	gadget['Tactical Laser Module'],
 	gadget['Compact Laser Module'],
@@ -56,7 +57,7 @@ const mainSight: Modification<SightModificationsList>[] = [
 	sight['Box Buddy Sight']
 ]
 
-export type SniperList =
+export type PrimarySniperList =
 	'Rattlesnake Sniper Rifle' |
 	'R700 Sniper Rifle' |
 	'Bernetti Rangehitter Sniper Rifle' |
@@ -71,13 +72,13 @@ export type SniperList =
 	'Nagant Sniper Rifle' |
 	'Thanatos .50 cal Sniper Rifle'
 
-const snipers: Record<SniperList, WeaponData> = {
+const snipers: Record<PrimarySniperList, WeaponData> = {
 	'Rattlesnake Sniper Rifle': {
 		name: 'Rattlesnake Sniper Rifle',
 		image: 'msr',
 		source: content['Gage Sniper Pack'],
 		inventorySlot: 'primary',
-		reputation: 15,
+		reputation: 0,
 		weaponType: 'Sniper',
 		firingMode: 'Bolt action',
 		cost: 327e3,
@@ -109,7 +110,7 @@ const snipers: Record<SniperList, WeaponData> = {
 				barrelExt['Sniper Suppressor']
 			],
 			boost: mainBoost,
-			gadget: mainGadgetMagifier,
+			gadget: mainGadgetMagnifier,
 			sight: mainSight,
 			stock: [
 				stock['Tactical Aluminium Body']
@@ -151,7 +152,7 @@ const snipers: Record<SniperList, WeaponData> = {
 				barrel['Medium Barrel (R700)']
 			],
 			boost: mainBoost,
-			gadget: mainGadgetMagifier,
+			gadget: mainGadgetMagnifier,
 			sight: mainSight,
 			stock: [
 				stock['Military Stock'],
@@ -194,7 +195,7 @@ const snipers: Record<SniperList, WeaponData> = {
 				barrel['Wind Whistler Barrel']
 			],
 			boost: mainBoost,
-			gadget: mainGadgetMagifier,
+			gadget: mainGadgetMagnifier,
 			sight: mainSight,
 			stock: [
 				stock['Club Stock']
@@ -231,7 +232,19 @@ const snipers: Record<SniperList, WeaponData> = {
 			damageModifier: [1.0, 1.1]
 		},
 		modifications: {
-			boost: mainBoost
+			barrel: [
+				barrel['KA-ZD1A Long Barrel'],
+				barrel['KA-ZD1B Short Barrel']
+			],
+			boost: mainBoost,
+			gadget: mainGadgetMagnifier,
+			magazine: [
+				magazine['KA-ZDM2 Extended Magazine']
+			],
+			sight: [
+				...mainSight,
+				sight['KA-ZD032 Iron Sight']
+			]
 		}
 	},
 	'Platypus 70 Sniper Rifle': {
@@ -268,7 +281,7 @@ const snipers: Record<SniperList, WeaponData> = {
 				barrelExt['Beak Suppressor']
 			],
 			boost: mainBoost,
-			gadget: mainGadgetMagifier,
+			gadget: mainGadgetMagnifier,
 			sight: mainSight
 		}
 	},
@@ -282,20 +295,20 @@ const snipers: Record<SniperList, WeaponData> = {
 		firingMode: 'Semi-Automatic',
 		cost: 749e3,
 		stats: {
-			magazine: 10,
-			totalAmmo: 40,
+			magazine: 15,
+			totalAmmo: 60,
 			rateOfFire: 150,
 			damage: 160,
 			accuracy: 92,
 			stability: 20,
 			concealment: 16,
 			threat: 12,
-			reload: 6.2
+			reload: 4.13
 		},
 		extraStats: {
-			tacticalReload: 4.64,
+			tacticalReload: 3.09,
 			equipDelays: [0.9, 0.9],
-			ammoPickup: [2.0, 3.0],
+			ammoPickup: [3.0, 4.5],
 			recoilHorizontal: [-0.5, 0.5],
 			recoilVertical: [5.0, 6.25],
 			spread: 0.48,
@@ -307,7 +320,7 @@ const snipers: Record<SniperList, WeaponData> = {
 				barrel['Gedämpfter Barrel']
 			],
 			boost: mainBoost,
-			gadget: mainGadgetMagifier,
+			gadget: mainGadgetMagnifier,
 			grip: [
 				grip['Leichter Grip'],
 				grip['Subtiler Grip'],
@@ -351,7 +364,7 @@ const snipers: Record<SniperList, WeaponData> = {
 				barrel['Silenced Barrel (Desertfox)']
 			],
 			boost: mainBoost,
-			gadget: mainGadgetMagifier,
+			gadget: mainGadgetMagnifier,
 			sight: mainSight
 		}
 	},
@@ -389,7 +402,7 @@ const snipers: Record<SniperList, WeaponData> = {
 				barrelExt['Contractor Silencer']
 			],
 			boost: mainBoost,
-			gadget: mainGadgetMagifier,
+			gadget: mainGadgetMagnifier,
 			grip: [
 				grip['Ergo Grip (Main)'],
 				grip['Pro Grip'],
@@ -443,7 +456,7 @@ const snipers: Record<SniperList, WeaponData> = {
 				barrel['Compensated Suppressor']
 			],
 			boost: mainBoost,
-			gadget: mainGadgetMagifier,
+			gadget: mainGadgetMagnifier,
 			sight: mainSight,
 			stock: [
 				stock['Wooden Body']
@@ -528,7 +541,7 @@ const snipers: Record<SniperList, WeaponData> = {
 			foregrip: [
 				foregrip['Lightweight Foregrip']
 			],
-			gadget: mainGadgetMagifier,
+			gadget: mainGadgetMagnifier,
 			sight: mainSight,
 			stock: [
 				stock['Lightweight Stock']
@@ -574,7 +587,7 @@ const snipers: Record<SniperList, WeaponData> = {
 				bayonet['Nagant Bayonet']
 			],
 			boost: mainBoost,
-			gadget: mainGadgetMagifier,
+			gadget: mainGadgetMagnifier,
 			sight: mainSight,
 			stock: [
 				stock['Discrete Stock (Nagant)']
@@ -617,7 +630,7 @@ const snipers: Record<SniperList, WeaponData> = {
 				barrel['Suppressed Barrel (Thanatos)']
 			],
 			boost: mainBoost,
-			gadget: mainGadgetMagifier,
+			gadget: mainGadgetMagnifier,
 			grip: [
 				grip['Ergo Grip (Main)'],
 				grip['Pro Grip'],

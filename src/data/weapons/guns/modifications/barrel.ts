@@ -281,7 +281,40 @@ export type BarrelModificationsList =
 
 	// Arbiter
 	'Bombardier Barrel' |
-	'Long Barrel (Arbiter)'
+	'Long Barrel (Arbiter)' |
+
+	// Basilisk 3V
+	'Fang Barrel' |
+
+	// Pronghorn
+	'Longshot Suppressor' |
+
+	// SG Versteckt 51D
+	'Kalt Barrel' |
+
+	// Gecko M2
+	'UpShot Barrel' |
+	'Pinnacle Barrel' |
+
+	// M60
+	'Short Barrel (M60)' |
+
+	// Káng Arms Model 54
+	'KA54 Barrel Extender' |
+
+	// RUS-12 Angry Tiger
+	'RUS-J Long Valley Barrel and Stabilizer' |
+	'RUS-K Tactical Short Barrel' |
+
+	//KETCHNOV BYK-1
+	'K-B100 Suppressor' |
+
+	// Káng Arms X1
+	'KA-ZD1A Long Barrel' |
+	'KA-ZD1B Short Barrel' |
+
+	// Miyaka 10 Special
+	'MS10 Short Barrel'
 
 const barrel: ModificationList<BarrelModificationsList> = {
 	'AK Slavic Dragon Barrel': {
@@ -2857,6 +2890,243 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		compatibleWeapons: {
 			special: [
 				'Arbiter Grenade Launcher'
+			]
+		}
+	},
+	'Fang Barrel': {
+		name: 'Fang Barrel',
+		image: '???',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			accuracy: 28,
+			stability: 20,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			special: [
+				'Basilisk 3V Grenade Launcher'
+			]
+		}
+	},
+	'Longshot Suppressor': {
+		name: 'Longshot Suppressor',
+		image: 'wpn_fps_snp_scout_ns_suppressor',
+		icon: 'inv_mod_silencer',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			damage: -2,
+			accuracy: 12,
+			stability: 4,
+			concealment: -2,
+			threat: -22
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Pronghorn Sniper Rifle'
+			]
+		}
+	},
+	'Kalt Barrel': {
+		name: 'Kalt Barrel',
+		image: 'wpn_fps_lmg_hk51b_b_fluted',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack'],
+		cost: 28e3,
+		stats: {
+			damage: 2,
+			accuracy: 8,
+			stability: 4,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'SG Versteckt 51D'
+			]
+		}
+	},
+	'UpShot Barrel': {
+		name: 'UpShot Barrel',
+		image: 'wpn_fps_pis_maxim9_b_long',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		cost: 11200,
+		stats: {
+			accuracy: 12,
+			stability: 8,
+			concealment: -3
+		},
+		compatibleWeapons: {
+			pistol: [
+				'Gecko M2 Pistol'
+			]
+		}
+	},
+	'Pinnacle Barrel': {
+		name: 'Pinnacle Barrel',
+		image: 'wpn_fps_pis_maxim9_b_marksman',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		cost: 11200,
+		stats: {
+			accuracy: 4,
+			stability: 4,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			pistol: [
+				'Gecko M2 Pistol'
+			]
+		}
+	},
+	'Short Barrel (M60)': {
+		name: 'Short Barrel (M60)',
+		image: 'wpn_fps_lmg_m60_b_short',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Fugitive Weapon Pack'],
+		cost: 21e3,
+		stats: {
+			accuracy: -4,
+			stability: 4
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'M60 Light Machine Gun'
+			]
+		}
+	},
+	'KA54 Barrel Extender': {
+		name: 'KA54 Barrel Extender',
+		image: 'KA54_Barrel_Extender',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 21e3,
+		stats: {
+			accuracy: 4,
+			stability: 4,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			pistol: [
+				'Káng Arms Model 54'
+			]
+		}
+	},
+	'RUS-J Long Valley Barrel and Stabilizer': {
+		name: 'RUS-J Long Valley Barrel and Stabilizer',
+		image: 'RUS-J_Long_Valley_Barrel_and_Stabilizer',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 32e3,
+		stats: {
+			damage: 4,
+			accuracy: 12,
+			stability: 4,
+			concealment: -3
+		},
+		compatibleWeapons: {
+			pistol: [
+				'RUS-12 Angry Tiger'
+			]
+		}
+	},
+	'RUS-K Tactical Short Barrel': {
+		name: 'RUS-K Tactical Short Barrel',
+		image: 'RUS-K_Tactical_Short_Barrel',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 21e3,
+		stats: {
+			accuracy: -8,
+			stability: -8,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			pistol: [
+				'RUS-12 Angry Tiger'
+			]
+		}
+	},
+	'K-B100 Suppressor': {
+		name: 'K-B100 Suppressor',
+		image: 'K-B100_Suppressor',
+		icon: 'inv_mod_silencer',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 9e3,
+		stats: {
+			damage: -1,
+			accuracy: -4,
+			concealment: 1,
+			threat: -12
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'KETCHNOV Byk-1 Assault Rifle'
+			]
+		}
+	},
+	'KA-ZD1A Long Barrel': {
+		name: 'KA-ZD1A Long Barrel',
+		image: 'KA-ZD1A_Long_Barrel',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 14e3,
+		stats: {
+			accuracy: 8,
+			stability: 8,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Káng Arms X1 Sniper Rifle'
+			]
+		}
+	},
+	'KA-ZD1B Short Barrel': {
+		name: 'KA-ZD1B Short Barrel',
+		image: 'KA-ZD1B_Short_Barrel',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 14e3,
+		stats: {
+			accuracy: -4,
+			concealment: 1
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Káng Arms X1 Sniper Rifle'
+			]
+		}
+	},
+	'MS10 Short Barrel': {
+		name: 'MS10 Short Barrel',
+		image: 'MS10_Short_Barrel',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 9e3,
+		stats: {
+			accuracy: -4,
+			stability: -8,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			submachineGun: [
+				'Miyaka 10 Special Submachine Gun'
 			]
 		}
 	}

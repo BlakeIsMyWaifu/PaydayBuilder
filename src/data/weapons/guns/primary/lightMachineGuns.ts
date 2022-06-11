@@ -5,9 +5,11 @@ import barrel from '../modifications/barrel'
 import barrelExt, { BarrelExtModificationsList } from '../modifications/barrelExt'
 import bipod from '../modifications/bipod'
 import boost, { BoostModificationsList } from '../modifications/boost'
+import custom from '../modifications/custom'
 import foregrip from '../modifications/foregrip'
 import gadget, { GadgetModificationsList } from '../modifications/gadget'
 import grip from '../modifications/grip'
+import sight from '../modifications/sight'
 import stock from '../modifications/stock'
 import { Modification, WeaponData } from '../weaponTypes'
 
@@ -45,7 +47,8 @@ export type LightMachineGunList =
 	'M60 Light Machine Gun' |
 	'KSP Light Machine Gun' |
 	'Buzzsaw 42 Light Machine Gun' |
-	'Brenner-21 Light Machine Gun'
+	'Brenner-21 Light Machine Gun' |
+	'SG Versteckt 51D'
 
 const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 	'RPK Light Machine Gun': {
@@ -64,7 +67,7 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			damage: 120,
 			accuracy: 28,
 			stability: 8,
-			concealment: 1,
+			concealment: 5,
 			threat: 22,
 			reload: 4.56
 		},
@@ -178,12 +181,25 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			equipDelays: [0.9, 0.9],
 			ammoPickup: [7.5, 10.5],
 			recoilHorizontal: [-2.5, 3.5],
-			recoilVertical: [-0.5, 2],
+			recoilVertical: [-0.5, 2.0],
 			spread: 3.12,
 			damageModifier: [1.0, 0.8]
 		},
 		modifications: {
-			boost: mainBoost
+			barrel: [
+				barrel['Short Barrel (M60)']
+			],
+			barrelExt: mainBarrelExt,
+			bipod: [
+				bipod['Lion\'s Bipod']
+			],
+			boost: mainBoost,
+			foregrip: [
+				foregrip['Modernized Foregrip'],
+				foregrip['Tactical Foregrip (M60)'],
+				foregrip['Tropical Foregrip']
+			],
+			gadget: mainGadget
 		}
 	},
 	'KSP Light Machine Gun': {
@@ -325,6 +341,76 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 			gadget: mainGadget,
 			grip: [
 				grip['Ergo Grip (Brenner)']
+			]
+		}
+	},
+	'SG Versteckt 51D': {
+		name: 'SG Versteckt 51D',
+		image: 'hk51b',
+		source: content['McShay Weapon Pack'],
+		inventorySlot: 'primary',
+		reputation: 38,
+		weaponType: 'LMG',
+		firingMode: 'Fully automatic',
+		cost: 696800,
+		stats: {
+			magazine: 60,
+			totalAmmo: 180,
+			rateOfFire: 667,
+			damage: 110,
+			accuracy: 48,
+			stability: 28,
+			concealment: 19,
+			threat: 37,
+			reload: 3.65
+		},
+		extraStats: {
+			tacticalReload: 3.1,
+			equipDelays: [0.55, 0.6],
+			ammoPickup: [4.5, 6.3],
+			recoilHorizontal: [-2.3, 1.38],
+			recoilVertical: [2.3, 1.84],
+			spread: 3.6,
+			damageModifier: [1.0, 0.8]
+		},
+		modifications: {
+			barrel: [
+				barrel['Kalt Barrel']
+			],
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['Marmon Compensator']
+			],
+			boost: mainBoost,
+			custom: [
+				custom['Single Fire'],
+				custom['Auto Fire']
+			],
+			foregrip: [
+				foregrip['Schatten Foregrip']
+			],
+			gadget: mainGadget,
+			sight: [
+				sight['The Professional\'s Choice Sight'],
+				sight['Surgeon Sight'],
+				sight['See More Sight'],
+				sight['Combat Sight'],
+				sight['Speculator Sight'],
+				sight['Trigonom Sight'],
+				sight['Holographic Sight'],
+				sight['Compact Holosight'],
+				sight['Solar Sight'],
+				sight['Military Red Dot Sight (1)'],
+				sight['Military Red Dot Sight (2)'],
+				sight['Milspec Scope'],
+				sight['Acough Optic Scope'],
+				sight['Compact Profile Sight'],
+				sight['Maelstrom Sight'],
+				sight['Advanced Combat Sight'],
+				sight['Reconnaissance Sight']
+			],
+			stock: [
+				stock['Zittern Stock']
 			]
 		}
 	}

@@ -8,6 +8,7 @@ import gadget, { GadgetModificationsList } from '../modifications/gadget'
 import grip from '../modifications/grip'
 import lowerReceiver from '../modifications/lowerReceiver'
 import magazine from '../modifications/magazine'
+import receiver from '../modifications/receiver'
 import sight, { SightModificationsList } from '../modifications/sight'
 import stock from '../modifications/stock'
 import { Modification, WeaponData } from '../weaponTypes'
@@ -60,7 +61,9 @@ export type SecondarySpecialList =
 	'Commando 101 Rocket Launcher' |
 	'MA-17 Flamethrower' |
 	'Arbiter Grenade Launcher' |
-	'OVE9000 Saw'
+	'OVE9000 Saw' |
+	'Cash Blaster' |
+	'Basilisk 3V Grenade Launcher'
 
 const specials: Record<SecondarySpecialList, WeaponData> = {
 	'Pistol Crossbow': {
@@ -78,7 +81,7 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			rateOfFire: 50,
 			damage: 350,
 			accuracy: 96,
-			stability: 100,
+			stability: 96,
 			concealment: 26,
 			threat: 10,
 			reload: 1.2
@@ -87,8 +90,8 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			tacticalReload: null,
 			equipDelays: [0.5, 0.55],
 			ammoPickup: null,
-			recoilHorizontal: [-0.5, 0.5],
-			recoilVertical: [-0.1, 0.2],
+			recoilHorizontal: [-0.6, 0.6],
+			recoilVertical: [-0.12, 0.24],
 			spread: 0.17,
 			damageModifier: null
 		},
@@ -128,7 +131,7 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			rateOfFire: 30,
 			damage: 1300,
 			accuracy: 84,
-			stability: 92,
+			stability: 84,
 			concealment: 22,
 			threat: 37,
 			reload: 2.5
@@ -137,8 +140,8 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			tacticalReload: null,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [0.05, 0.65],
-			recoilHorizontal: [-0.35, 0.35],
-			recoilVertical: [2.03, 2.1],
+			recoilHorizontal: [-0.45, 0.45],
+			recoilVertical: [2.61, 2.7],
 			spread: 0.96,
 			damageModifier: null
 		},
@@ -166,7 +169,7 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			rateOfFire: 30,
 			damage: 12500,
 			accuracy: 96,
-			stability: 100,
+			stability: 96,
 			concealment: 5,
 			threat: 37,
 			reload: 4.7
@@ -175,8 +178,8 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			tacticalReload: null,
 			equipDelays: [0.85, 0.85],
 			ammoPickup: null,
-			recoilHorizontal: [-0.25, 0.25],
-			recoilVertical: [1.45, 1.5],
+			recoilHorizontal: [-0.3, 0.3],
+			recoilVertical: [1.74, 1.8],
 			spread: 0.24,
 			damageModifier: null
 		},
@@ -203,7 +206,7 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			rateOfFire: 50,
 			damage: 960,
 			accuracy: 96,
-			stability: 100,
+			stability: 96,
 			concealment: 18,
 			threat: 37,
 			reload: 6.98
@@ -212,8 +215,8 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			tacticalReload: [4.32, 0.83],
 			equipDelays: [1.0, 0.6],
 			ammoPickup: [0.05, 0.65],
-			recoilHorizontal: [-0.25, 0.25],
-			recoilVertical: [1.45, 1.5],
+			recoilHorizontal: [-0.3, 0.3],
+			recoilVertical: [1.74, 1.8],
 			spread: 0.24,
 			damageModifier: null
 		},
@@ -242,7 +245,7 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			rateOfFire: 60,
 			damage: 6200,
 			accuracy: 96,
-			stability: 100,
+			stability: 96,
 			concealment: 5,
 			threat: 37,
 			reload: 5.75
@@ -251,8 +254,8 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			tacticalReload: 6.0,
 			equipDelays: [0.85, 0.85],
 			ammoPickup: null,
-			recoilHorizontal: [-0.25, 0.25],
-			recoilVertical: [1.45, 1.5],
+			recoilHorizontal: [-0.3, 0.3],
+			recoilVertical: [1.74, 1.8],
 			spread: 0.24,
 			damageModifier: null
 		},
@@ -275,7 +278,7 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			rateOfFire: 2000,
 			damage: 7,
 			accuracy: 0,
-			stability: 8,
+			stability: 0,
 			concealment: 15,
 			threat: 37,
 			reload: 8.5
@@ -316,7 +319,7 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			rateOfFire: 80,
 			damage: 480,
 			accuracy: 96,
-			stability: 100,
+			stability: 96,
 			concealment: 18,
 			threat: 37,
 			reload: 4.5
@@ -325,8 +328,8 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			tacticalReload: 3.34,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [0.05, 0.65],
-			recoilHorizontal: [-0.25, 0.25],
-			recoilVertical: [1.45, 1.5],
+			recoilHorizontal: [-0.3, 0.3],
+			recoilVertical: [1.74, 1.8],
 			spread: 0.24,
 			damageModifier: null
 		},
@@ -362,7 +365,7 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			rateOfFire: 400,
 			damage: 23,
 			accuracy: 8,
-			stability: 32,
+			stability: 24,
 			concealment: 16,
 			threat: 24,
 			reload: 3.75
@@ -371,8 +374,8 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			tacticalReload: 3.75,
 			equipDelays: [0.8, 0.8],
 			ammoPickup: null,
-			recoilHorizontal: [-2.2, 2.2],
-			recoilVertical: [2.2, -2.2],
+			recoilHorizontal: [-2.4, 2.4],
+			recoilVertical: [2.4, -2.4],
 			spread: null,
 			damageModifier: null
 		},
@@ -385,6 +388,89 @@ const specials: Record<SecondarySpecialList, WeaponData> = {
 			magazine: [
 				magazine['Durable Blade'],
 				magazine['Sharp Blade']
+			]
+		}
+	},
+	'Cash Blaster': {
+		name: 'Cash Blaster',
+		image: 'money',
+		source: source['8th Anniversary Event'],
+		inventorySlot: 'secondary',
+		reputation: 0,
+		weaponType: 'Special',
+		firingMode: 'Fully automatic',
+		cost: 33600,
+		stats: {
+			magazine: 400,
+			totalAmmo: 800,
+			rateOfFire: 2000,
+			damage: 95,
+			accuracy: 0,
+			stability: 0,
+			concealment: 21,
+			threat: 37,
+			reload: 8.5
+		},
+		extraStats: {
+			tacticalReload: 8.5,
+			equipDelays: [0.85, 0.85],
+			ammoPickup: [2.0, 6.0],
+			recoilHorizontal: [0, 0],
+			recoilVertical: [0, 0],
+			spread: 6.0,
+			damageModifier: null
+		},
+		modifications: {
+			boost: mainBoostTotalAmmo,
+			gadget: mainGadget
+		}
+	},
+	'Basilisk 3V Grenade Launcher': {
+		name: 'Basilisk 3V Grenade Launcher',
+		image: 'ms3gl',
+		source: content['McShay Weapon Pack'],
+		inventorySlot: 'secondary',
+		reputation: 47,
+		weaponType: 'Special',
+		firingMode: 'Break Action',
+		cost: 736e3,
+		stats: {
+			magazine: 3,
+			totalAmmo: 9,
+			rateOfFire: 182,
+			damage: 320,
+			accuracy: 36,
+			stability: 76,
+			concealment: 21,
+			threat: 37,
+			reload: 7.33
+		},
+		extraStats: {
+			tacticalReload: [5.33, 1.0],
+			equipDelays: [1.0, 0.6],
+			ammoPickup: [0.55, 0.65],
+			recoilHorizontal: [-0.55, 0.55],
+			recoilVertical: [3.19, 3.3],
+			spread: 3.84,
+			damageModifier: null
+		},
+		modifications: {
+			ammunition: [
+				ammunition['Incendiary Round'],
+				ammunition['X1-a Tactical ZAPper'],
+				ammunition['Viper Grenade']
+			],
+			barrel: [
+				barrel['Fang Barrel']
+			],
+			boost: mainBoost,
+			gadget: mainGadget,
+			receiver: [
+				receiver.Serpent
+			],
+			sight: mainSight,
+			stock: [
+				stock['Copperhead Recoil Pad']
 			]
 		}
 	}

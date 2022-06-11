@@ -108,7 +108,15 @@ export type ForegripModificationsList =
 	'Aluminum Foregrip' |
 
 	// Uzi
-	'Tactical Foregrip (Uzi)'
+	'Tactical Foregrip (Uzi)' |
+
+	// SG Versteckt 51D
+	'Schatten Foregrip' |
+
+	// M60
+	'Modernized Foregrip' |
+	'Tactical Foregrip (M60)' |
+	'Tropical Foregrip'
 
 const foregrip: ModificationList<ForegripModificationsList> = {
 	'Railed Wooden Grip': {
@@ -1029,6 +1037,75 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		compatibleWeapons: {
 			submachineGun: [
 				'Uzi Submachine Gun'
+			]
+		}
+	},
+	'Schatten Foregrip': {
+		name: 'Schatten Foregrip',
+		image: 'wpn_fps_lmg_hk51b_fg_railed',
+		icon: 'inv_mod_foregrip',
+		slot: 'foregrip',
+		source: content['McShay Weapon Pack'],
+		cost: 44e3,
+		stats: {
+			stability: 8,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'SG Versteckt 51D'
+			]
+		}
+	},
+	'Modernized Foregrip': {
+		name: 'Modernized Foregrip',
+		image: 'wpn_fps_lmg_m60_fg_keymod',
+		icon: 'inv_mod_foregrip',
+		slot: 'foregrip',
+		source: content['Fugitive Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			stability: -8
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'M60 Light Machine Gun'
+			]
+		}
+	},
+	'Tactical Foregrip (M60)': {
+		name: 'Tactical Foregrip (M60)',
+		image: 'wpn_fps_lmg_m60_fg_tactical',
+		icon: 'inv_mod_foregrip',
+		slot: 'foregrip',
+		source: content['Fugitive Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			stability: -8
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'M60 Light Machine Gun'
+			]
+		}
+	},
+	'Tropical Foregrip': {
+		name: 'Tropical Foregrip',
+		image: 'wpn_fps_lmg_m60_fg_tropical',
+		icon: 'inv_mod_foregrip',
+		slot: 'foregrip',
+		source: content['Fugitive Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			accuracy: -4,
+			stability: 8,
+			threat: 9
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'M60 Light Machine Gun'
 			]
 		}
 	}

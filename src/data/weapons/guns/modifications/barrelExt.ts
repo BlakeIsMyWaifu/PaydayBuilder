@@ -147,7 +147,17 @@ export type BarrelExtModificationsList =
 	'Precision Barrel' |
 
 	// Uzi
-	'Silent Death'
+	'Silent Death' |
+
+	// SG Versteckt 51D + other?
+	'Marmon Compensator' |
+
+	// Argos III
+	'Try-Core Compensator' |
+
+	// KS12 Urban Rifle
+	'KS12-A Burst Muzzle' |
+	'KS12-S Long Silencer'
 
 const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Low Profile Suppressor': {
@@ -1257,6 +1267,83 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 		compatibleWeapons: {
 			submachineGun: [
 				'Uzi Submachine Gun'
+			]
+		}
+	},
+	'Marmon Compensator': {
+		name: 'Marmon Compensator',
+		image: 'wpn_fps_upg_ns_ass_smg_v6',
+		icon: 'inv_mod_barrel_ext',
+		slot: 'barrelExt',
+		source: content['Cartel Optics Mod Pack'],
+		cost: 44e3,
+		stats: {
+			damage: 1,
+			accuracy: 8,
+			stability: 4,
+			concealment: -3,
+			threat: 1
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'SG Versteckt 51D'
+			]
+		}
+	},
+	'Try-Core Compensator': {
+		name: 'Try-Core Compensator',
+		image: 'wpn_fps_sho_ultima_ns_comp',
+		icon: 'inv_mod_barrel_ext',
+		slot: 'barrelExt',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		cost: 7200,
+		stats: {
+			damage: 4,
+			stability: 12,
+			concealment: -3
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Argos III Shotgun'
+			]
+		}
+	},
+	'KS12-A Burst Muzzle': {
+		name: 'KS12-A Burst Muzzle',
+		image: 'wpn_fps_ass_shak12_ns_muzzle',
+		icon: 'inv_mod_barrel_ext',
+		slot: 'barrelExt',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 9e3,
+		stats: {
+			damage: 2,
+			accuracy: 4,
+			stability: 4,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'KS12 Urban Rifle'
+			]
+		}
+	},
+	'KS12-S Long Silencer': {
+		name: 'KS12-S Long Silencer',
+		image: 'wpn_fps_ass_shak12_ns_suppressor',
+		icon: 'inv_mod_silencer',
+		slot: 'barrelExt',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 9e3,
+		stats: {
+			damage: -2,
+			accuracy: 12,
+			stability: 4,
+			concealment: -5,
+			threat: -20
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'KS12 Urban Rifle'
 			]
 		}
 	}

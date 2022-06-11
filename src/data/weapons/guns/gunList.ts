@@ -1,11 +1,12 @@
-import { AkimboShotunsList } from './primary/akimboShotuns'
+import { AkimboShotgunsList } from './primary/akimboShotguns'
 import { AssaultRifleList } from './primary/assaultRifles'
 import { LightMachineGunList } from './primary/lightMachineGuns'
 import { PrimaryShotgunList } from './primary/shotgunsPrimary'
-import { SniperList } from './primary/snipers'
+import { PrimarySniperList } from './primary/snipersPrimary'
 import { PrimarySpecialList } from './primary/specialsPrimary'
 import { PistolList } from './secondary/pistols'
 import { SecondaryShotgunList } from './secondary/shotgunsSecondary'
+import { SecondarySniperList } from './secondary/snipersSecondary'
 import { SecondarySpecialList } from './secondary/specialsSecondary'
 import { SubmachineGunList } from './secondary/submachineGuns'
 
@@ -59,7 +60,8 @@ export const shotgunList: (PrimaryShotgunList | SecondaryShotgunList)[] = [
 	'Grimm 12G Shotgun',
 	'Street Sweeper Shotgun',
 	'The Judge Shotgun',
-	'Claire 12G Shotgun'
+	'Claire 12G Shotgun',
+	'Argos III Shotgun'
 ]
 
 export const lightMachineGunList: LightMachineGunList[] = [
@@ -68,10 +70,12 @@ export const lightMachineGunList: LightMachineGunList[] = [
 	'M60 Light Machine Gun',
 	'KSP Light Machine Gun',
 	'Buzzsaw 42 Light Machine Gun',
-	'Brenner-21 Light Machine Gun'
+	'Brenner-21 Light Machine Gun',
+	'SG Versteckt 51D'
 ]
 
-export const sniperList: SniperList[] = [
+export const sniperList: (PrimarySniperList | SecondarySniperList)[] = [
+	// primary
 	'Rattlesnake Sniper Rifle',
 	'R700 Sniper Rifle',
 	'Bernetti Rangehitter Sniper Rifle',
@@ -84,10 +88,12 @@ export const sniperList: SniperList[] = [
 	'Repeater 1874 Sniper Rifle',
 	'Grom Sniper Rifle',
 	'Nagant Sniper Rifle',
-	'Thanatos .50 cal Sniper Rifle'
+	'Thanatos .50 cal Sniper Rifle',
+	// secondary
+	'Pronghorn Sniper Rifle'
 ]
 
-export const akimboShotgunList: AkimboShotunsList[] = [
+export const akimboShotgunList: AkimboShotgunsList[] = [
 	'Akimbo Goliath 12G Shotguns',
 	'Brothers Grimm 12G Shotguns',
 	'Akimbo Judge Shotguns'
@@ -115,7 +121,9 @@ export const specialList: (PrimarySpecialList | SecondarySpecialList)[] = [
 	'Commando 101 Rocket Launcher',
 	'MA-17 Flamethrower',
 	'Arbiter Grenade Launcher',
-	'OVE9000 Saw'
+	'OVE9000 Saw',
+	'Cash Blaster',
+	'Basilisk 3V Grenade Launcher'
 ]
 
 export const pistolList: PistolList[] = [
@@ -147,7 +155,8 @@ export const pistolList: PistolList[] = [
 	'HOLT 9mm Pistol',
 	'Peacemaker .45 Revolver',
 	'Matever .357 Revolver',
-	'Deagle Pistol'
+	'Deagle Pistol',
+	'Gecko M2 Pistol'
 ]
 
 export const submachineGunList: SubmachineGunList[] = [
@@ -174,7 +183,8 @@ export const submachineGunList: SubmachineGunList[] = [
 	'Kross Vertex Submachine Gun',
 	'Tatonka Submachine Gun',
 	'Patchett L2A1 Submachine Gun',
-	'Uzi Submachine Gun'
+	'Uzi Submachine Gun',
+	'Wasp-DS SMG'
 ]
 
 export default {

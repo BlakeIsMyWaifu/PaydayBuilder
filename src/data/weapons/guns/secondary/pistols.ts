@@ -12,6 +12,7 @@ import magazine from '../modifications/magazine'
 import sight, { SightModificationsList } from '../modifications/sight'
 import slide from '../modifications/slide'
 import stock from '../modifications/stock'
+import underbarrel from '../modifications/underbarrel'
 import upperReceiver from '../modifications/upperReceiver'
 import { Modification, WeaponData } from '../weaponTypes'
 
@@ -80,7 +81,10 @@ export type PistolList =
 	'HOLT 9mm Pistol' |
 	'Peacemaker .45 Revolver' |
 	'Matever .357 Revolver' |
-	'Deagle Pistol'
+	'Deagle Pistol' |
+	'Gecko M2 Pistol' |
+	'Káng Arms Model 54' |
+	'RUS-12 Angry Tiger'
 
 const pistols: Record<PistolList, WeaponData> = {
 	'Interceptor .45 Pistol': {
@@ -98,17 +102,17 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 480,
 			damage: 80,
 			accuracy: 68,
-			stability: 60,
+			stability: 52,
 			concealment: 29,
-			threat: 9,
+			threat: 8,
 			reload: 2.2
 		},
 		extraStats: {
 			tacticalReload: 1.47,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.27, 3.19],
-			recoilHorizontal: [-0.75, 0.75],
-			recoilVertical: [1.8, 2.7],
+			recoilHorizontal: [-0.85, 0.85],
+			recoilVertical: [2.04, 3.06],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
 		},
@@ -146,7 +150,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 545,
 			damage: 53,
 			accuracy: 52,
-			stability: 68,
+			stability: 60,
 			concealment: 30,
 			threat: 8,
 			reload: 2.12
@@ -155,8 +159,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.47,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.83, 5.36],
-			recoilHorizontal: [-0.65, 0.65],
-			recoilVertical: [1.56, 2.34],
+			recoilHorizontal: [-0.75, 0.75],
+			recoilVertical: [1.8, 2.7],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
 		},
@@ -189,7 +193,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 545,
 			damage: 53,
 			accuracy: 44,
-			stability: 68,
+			stability: 60,
 			concealment: 30,
 			threat: 4,
 			reload: 2.12
@@ -198,8 +202,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.55,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.85, 5.39],
-			recoilHorizontal: [-0.65, 0.65],
-			recoilVertical: [1.56, 2.34],
+			recoilHorizontal: [-0.75, 0.75],
+			recoilVertical: [1.8, 2.7],
 			spread: 3.36,
 			damageModifier: [1.0, 0.7]
 		},
@@ -234,7 +238,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 480,
 			damage: 80,
 			accuracy: 68,
-			stability: 60,
+			stability: 52,
 			concealment: 29,
 			threat: 9,
 			reload: 2.12
@@ -243,8 +247,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.47,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.1, 2.94],
-			recoilHorizontal: [-0.75, 0.75],
-			recoilVertical: [1.8, 2.7],
+			recoilHorizontal: [-0.85, 0.85],
+			recoilVertical: [2.04, 3.06],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
 		},
@@ -284,7 +288,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 480,
 			damage: 80,
 			accuracy: 68,
-			stability: 60,
+			stability: 52,
 			concealment: 29,
 			threat: 10,
 			reload: 2.12
@@ -293,8 +297,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.47,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.25, 3.15],
-			recoilHorizontal: [-0.75, 0.75],
-			recoilVertical: [1.8, 2.7],
+			recoilHorizontal: [-0.85, 0.85],
+			recoilVertical: [2.04, 3.06],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
 		},
@@ -340,7 +344,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 545,
 			damage: 53,
 			accuracy: 56,
-			stability: 68,
+			stability: 60,
 			concealment: 30,
 			threat: 6,
 			reload: 2.12
@@ -349,8 +353,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.47,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.85, 5.93],
-			recoilHorizontal: [-0.65, 0.65],
-			recoilVertical: [1.56, 2.34],
+			recoilHorizontal: [-0.75, 0.75],
+			recoilVertical: [1.8, 2.7],
 			spread: 2.64,
 			damageModifier: [1.0, 0.7]
 		},
@@ -399,7 +403,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 400,
 			damage: 175,
 			accuracy: 76,
-			stability: 12,
+			stability: 4,
 			concealment: 26,
 			threat: 24,
 			reload: 2.25
@@ -408,8 +412,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 2.25,
 			equipDelays: [0.45, 0.5],
 			ammoPickup: [1.35, 1.89],
-			recoilHorizontal: [-1.35, 1.35],
-			recoilVertical: [3.24, 4.86],
+			recoilHorizontal: [-1.45, 1.45],
+			recoilVertical: [3.48, 5.22],
 			spread: 1.44,
 			damageModifier: [1.0, 0.8]
 		},
@@ -476,7 +480,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 480,
 			damage: 110,
 			accuracy: 64,
-			stability: 40,
+			stability: 32,
 			concealment: 28,
 			threat: 9,
 			reload: 2.12
@@ -485,8 +489,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.47,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.5, 2.1],
-			recoilHorizontal: [-0.8, 0.8],
-			recoilVertical: [3.2, 3.6],
+			recoilHorizontal: [-0.88, 0.88],
+			recoilVertical: [3.52, 3.96],
 			spread: 2.16,
 			damageModifier: [1.0, 0.7]
 		},
@@ -519,7 +523,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 400,
 			damage: 120,
 			accuracy: 68,
-			stability: 40,
+			stability: 32,
 			concealment: 29,
 			threat: 9,
 			reload: 2.12
@@ -528,8 +532,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.47,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.5, 2.1],
-			recoilHorizontal: [-1.0, 1.0],
-			recoilVertical: [2.4, 3.6],
+			recoilHorizontal: [-1.1, 1.1],
+			recoilVertical: [2.64, 3.96],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
 		},
@@ -561,7 +565,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 400,
 			damage: 120,
 			accuracy: 68,
-			stability: 40,
+			stability: 32,
 			concealment: 29,
 			threat: 9,
 			reload: 2.12
@@ -570,8 +574,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.47,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.5, 2.1],
-			recoilHorizontal: [-1.0, 1.0],
-			recoilVertical: [2.4, 3.6],
+			recoilHorizontal: [-1.1, 1.1],
+			recoilVertical: [2.64, 3.96],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
 		},
@@ -607,7 +611,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 545,
 			damage: 53,
 			accuracy: 44,
-			stability: 56,
+			stability: 48,
 			concealment: 30,
 			threat: 9,
 			reload: 2.15
@@ -616,8 +620,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.5,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.9, 5.46],
-			recoilHorizontal: [-0.8, 0.8],
-			recoilVertical: [1.92, 2.88],
+			recoilHorizontal: [-0.9, 0.9],
+			recoilVertical: [2.16, 3.24],
 			spread: 3.36,
 			damageModifier: [1.0, 0.7]
 		},
@@ -648,7 +652,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 480,
 			damage: 80,
 			accuracy: 68,
-			stability: 60,
+			stability: 52,
 			concealment: 29,
 			threat: 9,
 			reload: 2.2
@@ -657,8 +661,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.47,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.4, 3.36],
-			recoilHorizontal: [-0.75, 0.75],
-			recoilVertical: [1.8, 2.7],
+			recoilHorizontal: [-0.85, 0.85],
+			recoilVertical: [2.04, 3.06],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
 		},
@@ -699,7 +703,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 480,
 			damage: 80,
 			accuracy: 80,
-			stability: 68,
+			stability: 60,
 			concealment: 28,
 			threat: 10,
 			reload: 4.17
@@ -708,8 +712,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 4.0,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.25, 3.15],
-			recoilHorizontal: [-0.65, 0.65],
-			recoilVertical: [1.56, 2.34],
+			recoilHorizontal: [-0.75, 0.75],
+			recoilVertical: [1.8, 2.7],
 			spread: 1.2,
 			damageModifier: [1.0, 0.7]
 		},
@@ -750,7 +754,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 400,
 			damage: 180,
 			accuracy: 76,
-			stability: 32,
+			stability: 24,
 			concealment: 29,
 			threat: 9,
 			reload: 2.1
@@ -759,8 +763,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.33,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.4, 1.96],
-			recoilHorizontal: [-1.1, 1.1],
-			recoilVertical: [2.64, 3.96],
+			recoilHorizontal: [-1.2, 1.2],
+			recoilVertical: [2.88, 4.32],
 			spread: 1.44,
 			damageModifier: [1.0, 0.8]
 		},
@@ -791,7 +795,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 600,
 			damage: 120,
 			accuracy: 48,
-			stability: 44,
+			stability: 36,
 			concealment: 29,
 			threat: 9,
 			reload: 2.15
@@ -800,8 +804,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.5,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [0.23, 0.67],
-			recoilHorizontal: [-0.95, 0.95],
-			recoilVertical: [2.28, 3.42],
+			recoilHorizontal: [-1.05, 1.05],
+			recoilVertical: [2.52, 3.78],
 			spread: 3.12,
 			damageModifier: [1.0, 0.7]
 		},
@@ -833,7 +837,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 400,
 			damage: 180,
 			accuracy: 76,
-			stability: 12,
+			stability: 4,
 			concealment: 28,
 			threat: 24,
 			reload: 2.97
@@ -842,8 +846,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 2.97,
 			equipDelays: [0.45, 0.5],
 			ammoPickup: [1.35, 1.89],
-			recoilHorizontal: [-1.35, 1.35],
-			recoilVertical: [3.24, 4.86],
+			recoilHorizontal: [-1.45, 1.45],
+			recoilVertical: [3.48, 5.22],
 			spread: 1.44,
 			damageModifier: [1.0, 0.8]
 		},
@@ -873,7 +877,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 480,
 			damage: 80,
 			accuracy: 68,
-			stability: 68,
+			stability: 60,
 			concealment: 29,
 			threat: 9,
 			reload: 2.32
@@ -882,8 +886,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.52,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.25, 3.15],
-			recoilHorizontal: [-0.65, 0.65],
-			recoilVertical: [1.56, 2.34],
+			recoilHorizontal: [-0.75, 0.75],
+			recoilVertical: [1.8, 2.7],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
 		},
@@ -918,7 +922,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 400,
 			damage: 130,
 			accuracy: 76,
-			stability: 36,
+			stability: 28,
 			concealment: 26,
 			threat: 22,
 			reload: 2.47
@@ -927,8 +931,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 2.47,
 			equipDelays: [0.45, 0.5],
 			ammoPickup: [1.65, 2.31],
-			recoilHorizontal: [-0.63, 0.63],
-			recoilVertical: [3.36, 2.73],
+			recoilHorizontal: [-0.69, 0.69],
+			recoilVertical: [3.68, 2.99],
 			spread: 1.44,
 			damageModifier: [1.0, 0.7]
 		},
@@ -958,7 +962,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 545,
 			damage: 53,
 			accuracy: 52,
-			stability: 68,
+			stability: 60,
 			concealment: 30,
 			threat: 4,
 			reload: 2.12
@@ -967,8 +971,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.47,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.75, 5.25],
-			recoilHorizontal: [-0.65, 0.65],
-			recoilVertical: [1.56, 2.34],
+			recoilHorizontal: [-0.75, 0.75],
+			recoilVertical: [1.8, 2.7],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
 		},
@@ -1008,7 +1012,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 545,
 			damage: 53,
 			accuracy: 64,
-			stability: 68,
+			stability: 60,
 			concealment: 30,
 			threat: 8,
 			reload: 2.12
@@ -1017,8 +1021,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.47,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [3.83, 5.36],
-			recoilHorizontal: [0.65, 0.65],
-			recoilVertical: [1.56, 2.34],
+			recoilHorizontal: [0.75, 0.75],
+			recoilVertical: [1.8, 2.7],
 			spread: 2.16,
 			damageModifier: [1.0, 0.7]
 		},
@@ -1054,7 +1058,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 480,
 			damage: 80,
 			accuracy: 68,
-			stability: 60,
+			stability: 52,
 			concealment: 29,
 			threat: 9,
 			reload: 2.12
@@ -1063,8 +1067,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.47,
 			equipDelays: [0.5, 0.5],
 			ammoPickup: [2.38, 3.33],
-			recoilHorizontal: [-0.75, 0.75],
-			recoilVertical: [1.8, 2.7],
+			recoilHorizontal: [-0.85, 0.85],
+			recoilVertical: [2.04, 3.06],
 			spread: 1.92,
 			damageModifier: [1.0, 0.7]
 		},
@@ -1097,7 +1101,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 909,
 			damage: 35,
 			accuracy: 52,
-			stability: 64,
+			stability: 56,
 			concealment: 29,
 			threat: 10,
 			reload: 2.12
@@ -1106,8 +1110,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.47,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.6, 5.6],
-			recoilHorizontal: [0.42, 0.42],
-			recoilVertical: [0.42, 0.56],
+			recoilHorizontal: [-0.48, 0.48],
+			recoilVertical: [0.48, 0.64],
 			spread: 2.88,
 			damageModifier: [1.0, 0.7]
 		},
@@ -1148,7 +1152,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 1101,
 			damage: 25,
 			accuracy: 40,
-			stability: 72,
+			stability: 64,
 			concealment: 28,
 			threat: 10,
 			reload: 2.12
@@ -1157,8 +1161,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.47,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.95, 6.83],
-			recoilHorizontal: [-0.24, 0.24],
-			recoilVertical: [0.48, 0.6],
+			recoilHorizontal: [-0.28, 0.28],
+			recoilVertical: [0.56, 0.7],
 			spread: 3.6,
 			damageModifier: [1.0, 0.7]
 		},
@@ -1197,7 +1201,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 1000,
 			damage: 38,
 			accuracy: 60,
-			stability: 68,
+			stability: 60,
 			concealment: 26,
 			threat: 10,
 			reload: 2.12
@@ -1206,8 +1210,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.47,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.5, 5.25],
-			recoilHorizontal: [-0.65, 0.39],
-			recoilVertical: [0.65, 0.52],
+			recoilHorizontal: [-0.75, 0.45],
+			recoilVertical: [0.75, 0.6],
 			spread: 2.4,
 			damageModifier: [1.0, 0.7]
 		},
@@ -1239,7 +1243,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 750,
 			damage: 65,
 			accuracy: 56,
-			stability: 36,
+			stability: 28,
 			concealment: 25,
 			threat: 8,
 			reload: 2.7
@@ -1248,8 +1252,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 2.0,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [0.8, 2.8],
-			recoilHorizontal: [-0.63, 0.63],
-			recoilVertical: [0.63, 0.84],
+			recoilHorizontal: [-0.69, 0.69],
+			recoilVertical: [0.69, 0.92],
 			spread: 2.64,
 			damageModifier: [1.0, 0.7]
 		},
@@ -1288,7 +1292,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 480,
 			damage: 80,
 			accuracy: 60,
-			stability: 76,
+			stability: 68,
 			concealment: 28,
 			threat: 9,
 			reload: 2.15
@@ -1297,8 +1301,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.5,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [2.25, 3.15],
-			recoilHorizontal: [-0.55, 0.55],
-			recoilVertical: [1.32, 1.98],
+			recoilHorizontal: [-0.65, 0.65],
+			recoilVertical: [1.56, 2.34],
 			spread: 2.4,
 			damageModifier: [1.0, 0.7]
 		},
@@ -1331,7 +1335,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 400,
 			damage: 180,
 			accuracy: 84,
-			stability: 20,
+			stability: 12,
 			concealment: 26,
 			threat: 28,
 			reload: 7.09
@@ -1340,8 +1344,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: [3.76, 0.67],
 			equipDelays: [0.65, 0.65],
 			ammoPickup: [1.35, 1.89],
-			recoilHorizontal: [-1.25, 1.25],
-			recoilVertical: [7.25, 7.5],
+			recoilHorizontal: [-1.35, 1.35],
+			recoilVertical: [7.83, 8.1],
 			spread: 0.96,
 			damageModifier: [1.0, 0.8]
 		},
@@ -1374,7 +1378,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 400,
 			damage: 180,
 			accuracy: 84,
-			stability: 20,
+			stability: 12,
 			concealment: 20,
 			threat: 24,
 			reload: 3.6
@@ -1383,8 +1387,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 3.6,
 			equipDelays: [0.45, 0.5],
 			ammoPickup: [1.35, 1.89],
-			recoilHorizontal: [-1.25, 1.25],
-			recoilVertical: [3.0, 4.5],
+			recoilHorizontal: [-1.35, 1.35],
+			recoilVertical: [3.24, 4.86],
 			spread: 0.96,
 			damageModifier: [1.0, 0.8]
 		},
@@ -1416,7 +1420,7 @@ const pistols: Record<PistolList, WeaponData> = {
 			rateOfFire: 400,
 			damage: 120,
 			accuracy: 76,
-			stability: 36,
+			stability: 28,
 			concealment: 28,
 			threat: 24,
 			reload: 3.1
@@ -1425,8 +1429,8 @@ const pistols: Record<PistolList, WeaponData> = {
 			tacticalReload: 1.85,
 			equipDelays: [0.35, 0.5],
 			ammoPickup: [1.5, 2.1],
-			recoilHorizontal: [-1.05, 1.05],
-			recoilVertical: [2.52, 3.78],
+			recoilHorizontal: [-1.15, 1.15],
+			recoilVertical: [2.76, 4.14],
 			spread: 1.44,
 			damageModifier: [1.0, 0.7]
 		},
@@ -1452,6 +1456,166 @@ const pistols: Record<PistolList, WeaponData> = {
 			slide: [
 				slide['Long Barrel'],
 				slide['Custom Milled Barrel']
+			]
+		}
+	},
+	'Gecko M2 Pistol': {
+		name: 'Gecko M2 Pistol',
+		image: 'maxim9',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		inventorySlot: 'secondary',
+		reputation: 12,
+		weaponType: 'Pistol',
+		firingMode: 'Semi-Automatic',
+		cost: 208800,
+		stats: {
+			magazine: 17,
+			totalAmmo: 68,
+			rateOfFire: 480,
+			damage: 100,
+			accuracy: 64,
+			stability: 44,
+			concealment: 29,
+			threat: 9,
+			reload: 2.15
+		},
+		extraStats: {
+			tacticalReload: 1.5,
+			equipDelays: [0.35, 0.5],
+			ammoPickup: [1.7, 2.38],
+			recoilHorizontal: [-0.95, 0.95],
+			recoilVertical: [2.28, 3.42],
+			spread: 2.16,
+			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['UpShot Barrel'],
+				barrel['Pinnacle Barrel']
+			],
+			barrelExt: [
+				barrelExt['IPSC Compensator'],
+				barrelExt['Facepunch Compensator'],
+				barrelExt['Flash Hider']
+			],
+			boost: mainBoost,
+			gadget: mainGadget,
+			magazine: [
+				magazine['Stack S3 Magazine']
+			],
+			sight: mainSight
+		}
+	},
+	'Káng Arms Model 54': {
+		name: 'Káng Arms Model 54',
+		image: 'type54',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		inventorySlot: 'secondary',
+		reputation: 24,
+		weaponType: 'Pistol',
+		firingMode: 'Semi-Automatic',
+		cost: 534e3,
+		stats: {
+			magazine: 10,
+			totalAmmo: 60,
+			rateOfFire: 480,
+			damage: 85,
+			accuracy: 64,
+			stability: 36,
+			concealment: 28,
+			threat: 9,
+			reload: 2.15
+		},
+		extraStats: {
+			tacticalReload: 1.5,
+			equipDelays: [0.35, 0.5],
+			ammoPickup: [1.5, 2.1],
+			recoilHorizontal: [-1.05, 1.05],
+			recoilVertical: [2.52, 3.78],
+			spread: 2.16,
+			damageModifier: [1.0, 0.7]
+		},
+		modifications: {
+			barrel: [
+				barrel['KA54 Barrel Extender']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			gadget: mainGadget,
+			magazine: [
+				magazine['KA54 Extended Magazine']
+			],
+			sight: mainSight,
+			underbarrel: [
+				underbarrel['KA54 Bull Stopper Addon'],
+				underbarrel.Flechette,
+				underbarrel['AP Slug']
+			]
+		}
+	},
+	'RUS-12 Angry Tiger': {
+		name: 'RUS-12 Angry Tiger',
+		image: 'rsh12',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		inventorySlot: 'secondary',
+		reputation: 26,
+		weaponType: 'Pistol',
+		firingMode: 'Semi-Automatic',
+		cost: 581e3,
+		stats: {
+			magazine: 5,
+			totalAmmo: 20,
+			rateOfFire: 400,
+			damage: 210,
+			accuracy: 52,
+			stability: 20,
+			concealment: 25,
+			threat: 28,
+			reload: 2.25
+		},
+		extraStats: {
+			tacticalReload: 2.25,
+			equipDelays: [0.45, 0.5],
+			ammoPickup: [0.75, 0.25],
+			recoilHorizontal: [-1.25, 1.25],
+			recoilVertical: [7.25, 7.5],
+			spread: 2.88,
+			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrel: [
+				barrel['RUS-J Long Valley Barrel and Stabilizer'],
+				barrel['RUS-K Tactical Short Barrel']
+			],
+			barrelExt: [
+				barrelExt['IPSC Compensator'],
+				barrelExt['Facepunch Compensator'],
+				barrelExt['Flash Hider'],
+				barrelExt['Hurricane Compensator']
+			],
+			boost: mainBoost,
+			gadget: mainGadget,
+			grip: [
+				grip['RUS Custom Wood Grip']
+			],
+			sight: [
+				sight['The Professional\'s Choice Sight'],
+				sight['Surgeon Sight'],
+				sight['See More Sight'],
+				sight['Combat Sight'],
+				sight['Speculator Sight'],
+				sight['Trigonom Sight'],
+				sight['Holographic Sight'],
+				sight['Compact Holosight'],
+				sight['Solar Sight'],
+				sight['Military Red Dot Sight (1)'],
+				sight['Military Red Dot Sight (2)'],
+				sight['Milspec Scope'],
+				sight['Acough Optic Scope'],
+				sight['Compact Profile Sight'],
+				sight['Maelstrom Sight'],
+				sight['Advanced Combat Sight'],
+				sight['Reconnaissance Sight']
 			]
 		}
 	}

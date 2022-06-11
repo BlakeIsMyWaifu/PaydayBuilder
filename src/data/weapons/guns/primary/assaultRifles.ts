@@ -13,6 +13,7 @@ import lowerReceiver from '../modifications/lowerReceiver'
 import magazine from '../modifications/magazine'
 import sight, { SightModificationsList } from '../modifications/sight'
 import stock from '../modifications/stock'
+import underbarrel from '../modifications/underbarrel'
 import upperReceiver from '../modifications/upperReceiver'
 import { Modification, WeaponData } from '../weaponTypes'
 
@@ -105,7 +106,8 @@ export type AssaultRifleList =
 	'AMR-16 Rifle' |
 	'Little Friend 7.62 Assault Rifle' |
 	'Falcon Rifle' |
-	'Gewehr 3 Rifle'
+	'Gewehr 3 Rifle' |
+	'KS12 Urban Rifle'
 
 const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 	'AMCAR Rifle': {
@@ -121,7 +123,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			magazine: 20,
 			totalAmmo: 220,
 			rateOfFire: 545,
-			damage: 42,
+			damage: 45,
 			accuracy: 36,
 			stability: 76,
 			concealment: 21,
@@ -170,7 +172,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			magazine: 30,
 			totalAmmo: 240,
 			rateOfFire: 714,
-			damage: 42,
+			damage: 52,
 			accuracy: 36,
 			stability: 56,
 			concealment: 22,
@@ -281,7 +283,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			magazine: 30,
 			totalAmmo: 150,
 			rateOfFire: 857,
-			damage: 58,
+			damage: 59,
 			accuracy: 68,
 			stability: 68,
 			concealment: 20,
@@ -332,7 +334,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			magazine: 30,
 			totalAmmo: 150,
 			rateOfFire: 652,
-			damage: 56,
+			damage: 63,
 			accuracy: 48,
 			stability: 60,
 			concealment: 16,
@@ -410,7 +412,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			magazine: 30,
 			totalAmmo: 150,
 			rateOfFire: 600,
-			damage: 52,
+			damage: 62,
 			accuracy: 44,
 			stability: 60,
 			concealment: 20,
@@ -491,7 +493,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			magazine: 30,
 			totalAmmo: 150,
 			rateOfFire: 750,
-			damage: 55,
+			damage: 65,
 			accuracy: 64,
 			stability: 40,
 			concealment: 20,
@@ -558,7 +560,21 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			damageModifier: [1.0, 1.0]
 		},
 		modifications: {
-			boost: mainBoost
+			barrel: [
+				barrel['K-B100 Suppressor']
+			],
+			barrelExt: mainBarrelExt,
+			boost: mainBoost,
+			custom: mainCustom,
+			gadget: mainGadget,
+			magazine: [
+				magazine['K-B1 Speedmag']
+			],
+			sight: mainSight,
+			underbarrel: [
+				underbarrel['Frag Round'],
+				underbarrel['Viper Grenade']
+			]
 		}
 	},
 	'Cavity 9mm': {
@@ -687,10 +703,10 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 		firingMode: 'Selective firing',
 		cost: 349e3,
 		stats: {
-			magazine: 3,
+			magazine: 30,
 			totalAmmo: 240,
 			rateOfFire: 706,
-			damage: 44,
+			damage: 54,
 			accuracy: 40,
 			stability: 64,
 			concealment: 19,
@@ -869,15 +885,15 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			magazine: 100,
 			totalAmmo: 200,
 			rateOfFire: 667,
-			damage: 40,
+			damage: 70,
 			accuracy: 24,
 			stability: 52,
-			concealment: 20,
+			concealment: 14,
 			threat: 14,
-			reload: 4.7
+			reload: 3.92
 		},
 		extraStats: {
-			tacticalReload: 3.8,
+			tacticalReload: 3.17,
 			equipDelays: [0.6, 0.6],
 			ammoPickup: [6, 11],
 			recoilHorizontal: [-1.7, 1.7],
@@ -924,7 +940,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			magazine: 30,
 			totalAmmo: 150,
 			rateOfFire: 723,
-			damage: 58,
+			damage: 65,
 			accuracy: 64,
 			stability: 60,
 			concealment: 16,
@@ -1069,7 +1085,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			magazine: 30,
 			totalAmmo: 240,
 			rateOfFire: 1000,
-			damage: 41,
+			damage: 51,
 			accuracy: 36,
 			stability: 68,
 			concealment: 24,
@@ -1115,17 +1131,17 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			magazine: 30,
 			totalAmmo: 150,
 			rateOfFire: 857,
-			damage: 58,
+			damage: 78,
 			accuracy: 60,
 			stability: 64,
 			concealment: 17,
 			threat: 12,
-			reload: 4.75
+			reload: 3.65
 		},
 		extraStats: {
-			tacticalReload: 3.2,
+			tacticalReload: 2.46,
 			equipDelays: [0.6, 0.6],
-			ammoPickup: [4.5, 8.25],
+			ammoPickup: [5.4, 9.9],
 			recoilHorizontal: [-1.4, 1.4],
 			recoilVertical: [0.84, 1.12],
 			spread: 2.4,
@@ -1157,7 +1173,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			magazine: 30,
 			totalAmmo: 220,
 			rateOfFire: 896,
-			damage: 41,
+			damage: 50,
 			accuracy: 56,
 			stability: 64,
 			concealment: 26,
@@ -1199,7 +1215,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			magazine: 30,
 			totalAmmo: 150,
 			rateOfFire: 706,
-			damage: 56,
+			damage: 66,
 			accuracy: 60,
 			stability: 60,
 			concealment: 18,
@@ -1252,20 +1268,20 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 		firingMode: 'Selective firing',
 		cost: 773e3,
 		stats: {
-			magazine: 30,
-			totalAmmo: 150,
+			magazine: 35,
+			totalAmmo: 175,
 			rateOfFire: 845,
-			damage: 57,
+			damage: 67,
 			accuracy: 48,
 			stability: 68,
 			concealment: 15,
 			threat: 24,
-			reload: 4.2
+			reload: 3.0
 		},
 		extraStats: {
-			tacticalReload: 3.0,
+			tacticalReload: 2.14,
 			equipDelays: [0.6, 0.6],
-			ammoPickup: [4.5, 8.25],
+			ammoPickup: [5.25, 9.63],
 			recoilHorizontal: [-1.3, 1.3],
 			recoilVertical: [0.78, 1.04],
 			spread: 3.12,
@@ -1309,7 +1325,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			magazine: 30,
 			totalAmmo: 150,
 			rateOfFire: 800,
-			damage: 58,
+			damage: 62,
 			accuracy: 60,
 			stability: 52,
 			concealment: 26,
@@ -1502,7 +1518,7 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			sight: mainSight,
 			stock: [
 				stock['CQB Stock'],
-				stock['Marksman Stock'],
+				stock['Marksman Stock (Falcon)'],
 				stock['Wooden Stock (Falcon)']
 			]
 		}
@@ -1559,6 +1575,52 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 			stock: [
 				stock['Precision Stock'],
 				stock['Wooden Stock (Gewehr)']
+			]
+		}
+	},
+	'KS12 Urban Rifle': {
+		name: 'KS12 Urban Rifle',
+		image: 'shak12',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		inventorySlot: 'primary',
+		reputation: 40,
+		weaponType: 'Assault Rifle',
+		firingMode: 'Selective firing',
+		cost: 736e3,
+		stats: {
+			magazine: 30,
+			totalAmmo: 90,
+			rateOfFire: 500,
+			damage: 115,
+			accuracy: 44,
+			stability: 28,
+			concealment: 16,
+			threat: 10,
+			reload: 2.9
+		},
+		extraStats: {
+			tacticalReload: 2.1,
+			equipDelays: [0.6, 0.6],
+			ammoPickup: [2.7, 4.05],
+			recoilHorizontal: [-2.3, 2.3],
+			recoilVertical: [1.38, 1.84],
+			spread: 3.36,
+			damageModifier: [1.0, 1.0]
+		},
+		modifications: {
+			barrelExt: [
+				...mainBarrelExt,
+				barrelExt['KS12-A Burst Muzzle'],
+				barrelExt['KS12-S Long Silencer']
+			],
+			boost: mainBoost,
+			extra: [
+				extra['KS12-S Carry Handle']
+			],
+			gadget: mainGadget,
+			sight: mainSight,
+			upperReceiver: [
+				upperReceiver['KS12 DMR kit']
 			]
 		}
 	}

@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { ModificationList } from '../weaponTypes'
 
-export type LowerReceiverModifications =
+export type LowerReceiverModificationsList =
 	// Union 5.56
 	'Dunes Tactical Receiver' |
 
@@ -41,7 +41,7 @@ export type LowerReceiverModifications =
 	// Kobus 90
 	'Custom Assault Frame'
 
-const lowerReceiver: ModificationList<LowerReceiverModifications> = {
+const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 	'Dunes Tactical Receiver': {
 		name: 'Dunes Tactical Receiver',
 		image: 'wpn_fps_corgi_body_lower_strap',

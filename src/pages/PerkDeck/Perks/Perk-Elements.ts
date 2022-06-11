@@ -40,16 +40,19 @@ export const CardBackground = styled.img<CardBackgroundProps>`
 	opacity: ${props => props.selected ? 1 : 0.5};
 `
 
-interface CardIconProps {
+export interface CardIconBaseProps {
 	x: number;
 	y: number;
 }
 
-export const CardIcon = styled.div<CardIconProps>`
+export const CardIconBase = styled.div<CardIconBaseProps>`
 	background-position-x: calc((${props => props.x}% / 192) * 100) !important;
-	background-position-y: calc((${props => props.y}% / 1008) * 100) !important;
+	background-position-y: calc((${props => props.y}% / 1056) * 100) !important;
 	background: url('/images/perks/perks.png') 0 0 no-repeat;
-	background-size: 500% 2200%;
+	background-size: 500% 2300%;
+`
+
+export const CardIcon = styled(CardIconBase)`
 	height: 48px;
 	width: 48px;
 	top: 24px;

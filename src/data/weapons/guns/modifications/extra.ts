@@ -24,7 +24,16 @@ export type ExtraModificationsList =
 	'Deagle Scope Mount' |
 
 	// Mark 10
-	'Railed Handguard'
+	'Railed Handguard' |
+
+	// Argos III
+	'ShellSwitch M8 Ammo Cache' |
+
+	// Wasp-DS
+	'Rake Ultra Grip' |
+
+	// KS12 Urban Rifle
+	'KS12-S Carry Handle'
 
 const extra: ModificationList<ExtraModificationsList> = {
 	'Scope Mount (AK)': {
@@ -163,6 +172,53 @@ const extra: ModificationList<ExtraModificationsList> = {
 		compatibleWeapons: {
 			submachineGun: [
 				'Mark 10 Submachine Gun'
+			]
+		}
+	},
+	'ShellSwitch M8 Ammo Cache': {
+		name: 'ShellSwitch M8 Ammo Cache',
+		image: 'wpn_fps_sho_ultima_body_rack',
+		icon: 'inv_mod_extra',
+		slot: 'extra',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		cost: 7200,
+		stats: {
+			totalAmmo: 5,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Argos III Shotgun'
+			]
+		}
+	},
+	'Rake Ultra Grip': {
+		name: 'Rake Ultra Grip',
+		image: 'wpn_fps_smg_fmg9_grip_tape',
+		icon: 'inv_mod_extra',
+		slot: 'extra',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		cost: 7e3,
+		stats: {
+			stability: 4
+		},
+		compatibleWeapons: {
+			submachineGun: [
+				'Wasp-DS SMG'
+			]
+		}
+	},
+	'KS12-S Carry Handle': {
+		name: 'KS12-S Carry Handle',
+		image: 'KS12-S_Carry_Handle',
+		icon: 'inv_mod_extra',
+		slot: 'extra',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 9e3,
+		stats: {},
+		compatibleWeapons: {
+			assaultRifle: [
+				'KS12 Urban Rifle'
 			]
 		}
 	}

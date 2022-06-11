@@ -132,7 +132,13 @@ export type SightModificationsList =
 	'Barrel Sight 44' |
 
 	// Contractor
-	'Tritium Sights'
+	'Tritium Sights' |
+
+	// Pronghorn
+	'Iron Sights' |
+
+	// Káng Arms X1
+	'KA-ZD032 Iron Sight'
 
 const sight: ModificationList<SightModificationsList> = {
 	'The Professional\'s Choice Sight': {
@@ -532,6 +538,40 @@ const sight: ModificationList<SightModificationsList> = {
 		compatibleWeapons: {
 			pistol: [
 				'Contractor Pistol'
+			]
+		}
+	},
+	'Iron Sights': {
+		name: 'Iron Sights',
+		image: 'wpn_fps_snp_scout_o_iron_up',
+		icon: 'inv_mod_scope',
+		slot: 'sight',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			stability: -4,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Pronghorn Sniper Rifle'
+			]
+		}
+	},
+	'KA-ZD032 Iron Sight': {
+		name: 'KA-ZD032 Iron Sight',
+		image: 'KA-ZD032_Iron_Sight',
+		icon: 'inv_mod_scope',
+		slot: 'sight',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 9e3,
+		stats: {
+			stability: -4,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Káng Arms X1 Sniper Rifle'
 			]
 		}
 	}

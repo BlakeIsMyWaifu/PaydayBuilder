@@ -60,14 +60,15 @@ export type AmmunitionModificationsList =
 	'Explosive Bolt (Heavy Crossbow)' |
 	'Poison Bolt (Heavy Crossbow)' |
 
-	// China Puff 40mm. Piglet, GL40, Compact 40mm
+	// KETCHNOV Byk-1, Little Friend 7.62
+	// Compact 40mm, China Puff 40mm, Piglet, GL40, Arbiter, Basilisk 3V
 	'Incendiary Round' |
+	'X1-a Tactical ZAPper' |
+	'Viper Grenade' |
 
 	// Pistol Crossbow
 	'Explosive Bolts (Pistol Crossbow)' |
 	'Poisoned Bolts (Pistol Crossbow)'
-
-// X1-a Tactical ZAPper
 
 const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'000 Buckshot (Community)': {
@@ -191,7 +192,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Poisoned Arrows (Plainsrider)': {
 		name: 'Poisoned Arrows (Plainsrider)',
 		image: 'wpn_fps_upg_a_bow_poison',
-		icon: 'inv_mod_amo_poison',
+		icon: 'inv_mod_ammo_poison',
 		slot: 'ammunition',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -232,7 +233,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Poison Bolt (Light Crossbow)': {
 		name: 'Poison Bolt (Light Crossbow)',
 		image: 'wpn_fps_bow_frankish_m_poison',
-		icon: 'inv_mod_amo_poison',
+		icon: 'inv_mod_ammo_poison',
 		slot: 'ammunition',
 		source: content['Gage Chivalry Pack'],
 		cost: 9e3,
@@ -273,7 +274,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Poison Arrow (Airbow)': {
 		name: 'Poison Arrow (Airbow)',
 		image: 'wpn_fps_bow_ecp_m_poison',
-		icon: 'inv_mod_amo_poison',
+		icon: 'inv_mod_ammo_poison',
 		slot: 'ammunition',
 		source: content['h3h3 Character Pack'],
 		cost: 9e3,
@@ -313,7 +314,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Poison Arrow (English Longbow)': {
 		name: 'Poison Arrow (English Longbow)',
 		image: 'wpn_fps_bow_long_m_poison',
-		icon: 'inv_mod_amo_poison',
+		icon: 'inv_mod_ammo_poison',
 		slot: 'ammunition',
 		source: content['Gage Chivalry Pack'],
 		cost: 9e3,
@@ -351,7 +352,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Poison Arrow (DECA)': {
 		name: 'Poison Arrow (DECA)',
 		image: 'wpn_fps_bow_elastic_m_poison',
-		icon: 'inv_mod_amo_poison',
+		icon: 'inv_mod_ammo_poison',
 		slot: 'ammunition',
 		source: source['Base Game'],
 		cost: 9e3,
@@ -389,7 +390,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Poison Bolt (Heavy Crossbow)': {
 		name: 'Poison Bolt (Heavy Crossbow)',
 		image: 'wpn_fps_bow_arblast_m_poison',
-		icon: 'inv_mod_amo_poison',
+		icon: 'inv_mod_ammo_poison',
 		slot: 'ammunition',
 		source: content['Gage Chivalry Pack'],
 		cost: 9e3,
@@ -422,11 +423,75 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 			damage: -1270
 		},
 		compatibleWeapons: {
+			assaultRifle: [
+				'KETCHNOV Byk-1 Assault Rifle',
+				'Little Friend 7.62 Assault Rifle'
+			],
 			special: [
+				'Compact 40mm Grenade Launcher',
 				'China Puff 40mm Grenade Launcher',
 				'Piglet Grenade Launcher',
 				'GL40 Grenade Launcher',
-				'Compact 40mm Grenade Launcher'
+				'Arbiter Grenade Launcher',
+				'Basilisk 3V Grenade Launcher'
+			]
+		}
+	},
+	'X1-a Tactical ZAPper': {
+		name: 'X1-a Tactical ZAPper',
+		image: 'wpn_fps_upg_a_grenade_launcher_electric',
+		icon: 'inv_mod_ammo_explosive',
+		slot: 'ammunition',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 9e3,
+		acquisition: {
+			infinite: true
+		},
+		specialEffect: ['Electrocutes all targets within its radius'],
+		stats: {
+			damage: -180 // Different per weapon
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'KETCHNOV Byk-1 Assault Rifle',
+				'Little Friend 7.62 Assault Rifle'
+			],
+			special: [
+				'Compact 40mm Grenade Launcher',
+				'China Puff 40mm Grenade Launcher',
+				'Piglet Grenade Launcher',
+				'GL40 Grenade Launcher',
+				'Arbiter Grenade Launcher',
+				'Basilisk 3V Grenade Launcher'
+			]
+		}
+	},
+	'Viper Grenade': {
+		name: 'Viper Grenade',
+		image: 'wpn_fps_upg_a_grenade_launcher_poison',
+		icon: 'inv_mod_ammo_explosive',
+		slot: 'ammunition',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		acquisition: {
+			infinite: true
+		},
+		specialEffect: ['Spawns a poison gas cloud'],
+		stats: {
+			damage: 40 // Different per weapon
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'KETCHNOV Byk-1 Assault Rifle',
+				'Little Friend 7.62 Assault Rifle'
+			],
+			special: [
+				'Compact 40mm Grenade Launcher',
+				'China Puff 40mm Grenade Launcher',
+				'Piglet Grenade Launcher',
+				'GL40 Grenade Launcher',
+				'Arbiter Grenade Launcher',
+				'Basilisk 3V Grenade Launcher'
 			]
 		}
 	},
@@ -453,7 +518,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Poisoned Bolts (Pistol Crossbow)': {
 		name: 'Poisoned Bolts (Pistol Crossbow)',
 		image: 'wpn_fps_upg_a_crossbow_poison',
-		icon: 'inv_mod_amo_poison',
+		icon: 'inv_mod_ammo_poison',
 		slot: 'ammunition',
 		source: content['Gage Ninja Pack'],
 		cost: 9e3,

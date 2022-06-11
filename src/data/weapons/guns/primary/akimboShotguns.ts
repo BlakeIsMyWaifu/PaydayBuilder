@@ -44,12 +44,12 @@ const mainGadget: Modification<GadgetModificationsList>[] = [
 	gadget['LED Combo']
 ]
 
-export type AkimboShotunsList =
+export type AkimboShotgunsList =
 	'Akimbo Goliath 12G Shotguns' |
 	'Brothers Grimm 12G Shotguns' |
 	'Akimbo Judge Shotguns'
 
-const akimboShotuns: Record<AkimboShotunsList, WeaponData> = {
+const akimboShotguns: Record<AkimboShotgunsList, WeaponData> = {
 	'Akimbo Goliath 12G Shotguns': {
 		name: 'Akimbo Goliath 12G Shotguns',
 		image: 'x_rota',
@@ -113,7 +113,7 @@ const akimboShotuns: Record<AkimboShotunsList, WeaponData> = {
 		extraStats: {
 			tacticalReload: 3.0,
 			equipDelays: [0.5, 0.5],
-			ammoPickup: [3.8, 7.2],
+			ammoPickup: [4.8, 7.2],
 			recoilHorizontal: [-1.35, 1.35],
 			recoilVertical: [3.78, 3.24],
 			spread: 5.28,
@@ -177,4 +177,4 @@ const akimboShotuns: Record<AkimboShotunsList, WeaponData> = {
 	}
 }
 
-export default akimboShotuns
+export default akimboShotguns
