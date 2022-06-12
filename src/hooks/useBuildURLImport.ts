@@ -80,11 +80,12 @@ const decodeMelee = (value: string): MeleeList => {
 }
 
 const decodeMask = (value: string): MaskList => {
-	const collections = getCollectionList()
-	const [maskValue, ...collectionValue] = value.split('').reverse()
-	const collectionIndex = decodeValues(collectionValue.reverse().join(''))
-	const mask = Object.values(collections)[collectionIndex][decodeValues(maskValue)].name
-	return mask
+	return 'Cyber Monkey'
+	// const collections = getCollectionList()
+	// const [maskValue, ...collectionValue] = value.split('').reverse()
+	// const collectionIndex = decodeValues(collectionValue.reverse().join(''))
+	// const mask = Object.values(collections)[collectionIndex][decodeValues(maskValue)].name
+	// return mask
 }
 
 const decodeCharacter = (value: string): CharacterList => {

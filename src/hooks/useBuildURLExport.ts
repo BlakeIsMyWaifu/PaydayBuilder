@@ -137,12 +137,13 @@ const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 	}
 
 	const encodeMask = (): string => {
-		const collections = getCollectionList(),
-			maskCollection = masks[state.character.mask].collection,
-			collectionIndex = Object.keys(collections).findIndex(value => value === maskCollection),
-			collectionValue = encodeNumber(collectionIndex),
-			maskValue = collections[maskCollection].findIndex(value => value.name === state.character.mask)
-		return collectionValue + charString[maskValue]
+		return 'Cyber Monkey'
+		// const collections = getCollectionList(),
+		// 	maskCollection = masks[state.character.mask].collection,
+		// 	collectionIndex = Object.keys(collections).findIndex(value => value === maskCollection),
+		// 	collectionValue = encodeNumber(collectionIndex),
+		// 	maskValue = collections[maskCollection].findIndex(value => value.name === state.character.mask)
+		// return collectionValue + charString[maskValue]
 	}
 
 	const encodeArmoury = (slot: Slot): string => {
