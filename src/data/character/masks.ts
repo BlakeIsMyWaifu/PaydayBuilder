@@ -1,13 +1,31 @@
 import { ContentRarity } from 'data/source/downloadableContent'
 
-import collaboration from './mask/collaboration'
-import community from './mask/community'
-import dlc from './mask/dlc'
-import event from './mask/event'
-import infamous from './mask/infamous'
+import collaboration, { CollaborationCollectionList } from './mask/collaboration'
+import community, { CommunityCollectionList } from './mask/community'
+import dlc, { DlcCollectionList } from './mask/dlc'
+import event, { EventCollectionList } from './mask/event'
+import free, { FreeCollectionList } from './mask/free'
+import infamous, { InfamousCollectionList } from './mask/infamous'
 
-export type MaskList = string
+export interface AllMasks {
+	community: Category<CommunityCollectionList>;
+	free: Category<FreeCollectionList>;
+	dlc: Category<DlcCollectionList>;
+	event: Category<EventCollectionList>;
+	collaboration: Category<CollaborationCollectionList>;
+	infamous: Category<InfamousCollectionList>;
+}
 
+export type CategoryList = keyof AllMasks
+
+export type AllMasksWeak = Partial<Record<CategoryList, Category<string>>>
+
+export type Category<T extends string> = Record<T, Collection>
+
+export interface Collection {
+	id: number;
+	masks: Record<string, MaskData>;
+}
 export interface MaskData {
 	name: string;
 	image: string;
@@ -18,14 +36,21 @@ export interface MaskData {
 	cost: string;
 }
 
-export const allMasks = {
+export const allMasks: AllMasks = {
 	community,
+	free,
 	dlc,
 	event,
 	collaboration,
 	infamous
 }
 
-const masks: Record<string, MaskData> = {}
+//
+
+//
+
+const masks: Record<string, MaskData> = {} // LEGACY
+
+export type MaskList = string // LEGACY
 
 export default masks

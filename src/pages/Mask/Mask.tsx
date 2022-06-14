@@ -2,7 +2,7 @@ import Container from 'components/Container'
 import HorizontalBar from 'components/HorizontalBar'
 import Info from 'components/Info'
 import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
-import masks, { MaskData } from 'data/character/masks'
+import masks, { AllMasksWeak, Category, CategoryList, MaskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useMountEffect from 'hooks/useMountEffect'
 import useObjectState from 'hooks/useObjectState'
@@ -10,6 +10,7 @@ import { FC, RefObject, createRef, useCallback, useEffect, useRef, useState } fr
 import { changeMask } from 'slices/characterSlice'
 import { itemColours } from 'utils/colours'
 import findMask from 'utils/findMask'
+import { capitalizeEachWord } from 'utils/stringCases'
 
 import CollectionsTab from './CollectionsTab'
 import { MaskCollection, MaskCollectionTitle, MaskItemContainer, MaskWrapper, rainbowAnimation } from './Mask-Elements'
@@ -28,7 +29,7 @@ const Mask: FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const [categories, setCategories] = useObjectState<Record<string, Record<string, Record<string, MaskData>>>>({
+	const [categories, setCategories] = useObjectState<AllMasksWeak>({
 		community: {},
 		free: {},
 		dlc: {},
@@ -36,8 +37,7 @@ const Mask: FC = () => {
 		collaboration: {},
 		infamous: {}
 	})
-	const [selectedTab, setSelectedTab] = useState('Community')
-	const selectedTabLower = selectedTab.toLowerCase()
+	const [selectedTab, setSelectedTab] = useState<CategoryList | 'all'>('community')
 
 	const equippedMask = findMask(useAppSelector(state => state.character.mask))
 	const [selectedMask, setSelectedMask] = useState<MaskData>(equippedMask)
@@ -45,55 +45,56 @@ const Mask: FC = () => {
 	const itemContainerRef = useRef<HTMLDivElement>(null)
 	const collectionRefs = useRef<(HTMLDivElement | null)[] | RefObject<HTMLDivElement>[]>([])
 
-	const addToCategory = useCallback(async (category: string): Promise<void> => {
-		const loadMaskData = (category: string): Promise<Record<string, Record<string, MaskData>>> => new Promise((res, rej) => {
+	const addToCategory = useCallback(async (category: CategoryList): Promise<void> => {
+		const loadMaskData = (category: CategoryList): Promise<Category<string>> => new Promise((res, rej) => {
 			import(`../../data/character/mask/${category}`).then(data => {
-				res(data.default as unknown as Record<string, Record<string, MaskData>>)
+				res(data.default as unknown as Category<string>)
 			}).catch(err => rej(err))
 		})
 		const newCategoryData = await loadMaskData(category)
 		setCategories({ [category]: newCategoryData })
 	}, [setCategories])
 
-	const getCurrentData = useCallback((): Record<string, Record<string, MaskData>> => {
+	const getCurrentData = useCallback((): Category<string> => {
 		const allDataArray = Object.entries(categories ?? {}).map(([key, value]) => {
 			const collections = Object.entries(value).map(([title, data]) => [`${key}?${title}`, data])
 			return Object.fromEntries(collections)
 		})
-		const allData: Record<string, Record<string, MaskData>> = Object.assign({}, ...allDataArray)
-		return (selectedTab === 'All' ? allData : categories[selectedTabLower]) ?? {}
-	}, [categories, selectedTab, selectedTabLower])
+		const allData: Category<string> = Object.assign({}, ...allDataArray)
+		return (selectedTab === 'all' ? allData : categories[selectedTab]) ?? {}
+	}, [categories, selectedTab])
 
 	useMountEffect(() => {
 		addToCategory('community')
 	})
 
 	useEffect(() => {
-		if (selectedTab === 'All') {
-			['community', 'free', 'dlc', 'event', 'collaboration', 'infamous'].forEach(addToCategory)
+		if (selectedTab === 'all') {
+			const allCategories: CategoryList[] = ['community', 'free', 'dlc', 'event', 'collaboration', 'infamous']
+			allCategories.forEach(addToCategory)
 		} else {
-			addToCategory(selectedTabLower)
+			addToCategory(selectedTab)
 		}
-	}, [selectedTabLower, selectedTab, addToCategory])
+	}, [selectedTab, addToCategory])
 
 	return (
 		<Container rows='4rem 2rem 8fr 4rem' areas='"title title" "horizontalbar infotabs" "items info" "items back"' title='Mask'>
 
-			<HorizontalBar active={selectedTab} items={['All', 'Community', 'Free', 'DLC', 'Event', 'Collaboration', 'Infamous'].map(rarity => ({
-				label: rarity === 'Paid' ? 'DLC' : rarity,
+			<HorizontalBar active={selectedTab} items={['all', 'community', 'free', 'dlc', 'event', 'collaboration', 'infamous'].map(rarity => ({
+				label: rarity,
 				callback: () => {
-					setSelectedTab(rarity)
+					setSelectedTab(rarity as (CategoryList | 'all'))
 					itemContainerRef.current?.scrollTo(0, 0)
 				},
-				colour: itemColours[rarity === 'DLC' ? 'Paid' : rarity] ?? 'rainbow',
-				additionalStyling: rarity === 'All' ? rainbowAnimation : null
+				colour: itemColours[rarity === 'dlc' ? 'Paid' : capitalizeEachWord(rarity)] ?? 'rainbow',
+				additionalStyling: rarity === 'all' ? rainbowAnimation : null
 			}))} />
 
 			<MaskItemContainer ref={itemContainerRef}>
 				{
 					Object.entries(getCurrentData()).map(([collectionTitle, collectionMasks], i) => {
 
-						const { rarity } = Object.values(collectionMasks)[0]
+						const { rarity } = Object.values(collectionMasks.masks)[0]
 						const collectionColour = itemColours[rarity]
 
 						collectionRefs.current = Array.from({ length: Object.keys(getCurrentData()).length }, () => createRef<HTMLDivElement>())
@@ -106,7 +107,7 @@ const Mask: FC = () => {
 							<MaskCollectionTitle colour={collectionColour}>{title}</MaskCollectionTitle>
 							<MaskWrapper key={collectionTitle}>
 								{
-									Object.entries(collectionMasks).map(([maskName, maskData]) => {
+									Object.entries(collectionMasks.masks).map(([maskName, maskData]) => {
 										return <Item
 											key={maskName}
 											width={128}

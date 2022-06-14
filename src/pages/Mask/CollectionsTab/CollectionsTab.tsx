@@ -1,13 +1,14 @@
 import { InfoContainer, InfoTitle } from 'components/Info/Info-Elements'
-import { MaskData } from 'data/character/masks'
+import { Category } from 'data/character/masks'
 import { FC, MutableRefObject, RefObject } from 'react'
 import { itemColours } from 'utils/colours'
+import { capitalizeEachWord } from 'utils/stringCases'
 
 import { CollectionTitle, CollectionsContainer } from './CollectionsTab-Elements'
 
 interface CollectionsTabProps {
 	collectionRefs: MutableRefObject<(HTMLDivElement | null)[] | RefObject<HTMLDivElement>[]>;
-	collections: Record<string, Record<string, MaskData>> | undefined;
+	collections: Category<string> | undefined;
 }
 
 const CollectionsTab: FC<CollectionsTabProps> = ({ collectionRefs, collections }) => {
@@ -18,12 +19,12 @@ const CollectionsTab: FC<CollectionsTabProps> = ({ collectionRefs, collections }
 				{
 					collections && Object.keys(collections).map((collectionTitle, i) => {
 
-						const { rarity } = Object.values(collections[collectionTitle])[0]
+						const { rarity } = Object.values(collections[collectionTitle].masks)[0]
 						const title = collectionTitle.split('?').at(-1)
 
 						return <CollectionTitle
 							key={collectionTitle}
-							colour={itemColours[rarity]}
+							colour={itemColours[capitalizeEachWord(rarity)]}
 							onClick={() => (collectionRefs.current[i] as HTMLDivElement)?.scrollIntoView({ behavior: 'smooth' })}
 						>
 							{title}
