@@ -18,7 +18,7 @@ const bolt: ModificationList<BoltModificationList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Pronghorn Sniper Rifle'
+				'Pronghorn'
 			]
 		}
 	}

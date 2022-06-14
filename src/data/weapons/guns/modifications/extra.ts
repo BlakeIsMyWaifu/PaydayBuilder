@@ -52,15 +52,15 @@ const extra: ModificationList<ExtraModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AK Rifle',
+				'AK',
 				'AK.762',
-				'Golden AK.762 Rifle'
+				'Golden AK.762'
 			],
 			shotgun: [
-				'IZHMA 12G Shotgun'
+				'IZHMA 12G'
 			],
 			submachineGun: [
-				'Krinkov Submachine Gun'
+				'Krinkov'
 			]
 		}
 	},
@@ -78,7 +78,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'UAR Rifle'
+				'UAR'
 			]
 		}
 	},
@@ -98,7 +98,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'M308 Rifle'
+				'M308'
 			]
 		}
 	},
@@ -137,7 +137,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 		stats: {},
 		compatibleWeapons: {
 			pistol: [
-				'Bronco .44 Pistol'
+				'Bronco .44'
 			]
 		}
 	},
@@ -154,7 +154,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 		stats: {},
 		compatibleWeapons: {
 			pistol: [
-				'Deagle Pistol'
+				'Deagle'
 			]
 		}
 	},
@@ -171,7 +171,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Mark 10 Submachine Gun'
+				'Mark 10'
 			]
 		}
 	},
@@ -188,7 +188,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Argos III Shotgun'
+				'Argos III'
 			]
 		}
 	},
@@ -218,7 +218,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 		stats: {},
 		compatibleWeapons: {
 			assaultRifle: [
-				'KS12 Urban Rifle'
+				'KS12 Urban'
 			]
 		}
 	}

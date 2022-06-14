@@ -53,7 +53,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Commando 553 Rifle'
+				'Commando 553'
 			]
 		}
 	},
@@ -70,11 +70,11 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle',
-				'AMR-16 Rifle'
+				'CAR-4',
+				'AMR-16'
 			],
 			submachineGun: [
-				'Para Submachine Gun'
+				'Para'
 			]
 		}
 	},
@@ -94,11 +94,11 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle',
-				'AMR-16 Rifle'
+				'CAR-4',
+				'AMR-16'
 			],
 			submachineGun: [
-				'Para Submachine Gun'
+				'Para'
 			]
 		}
 	},
@@ -118,11 +118,11 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle',
-				'AMR-16 Rifle'
+				'CAR-4',
+				'AMR-16'
 			],
 			submachineGun: [
-				'Para Submachine Gun'
+				'Para'
 			]
 		}
 	},
@@ -139,8 +139,8 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Reinfeld 880 Shotgun',
-				'Locomotive 12G Shotgun'
+				'Reinfeld 880',
+				'Locomotive 12G'
 			]
 		}
 	},
@@ -228,7 +228,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bernetti 9 Pistol'
+				'Bernetti 9'
 			]
 		}
 	},
@@ -245,7 +245,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bronco .44 Pistol'
+				'Bronco .44'
 			]
 		}
 	},
@@ -262,7 +262,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Swedish K Submachine Gun'
+				'Swedish K'
 			]
 		}
 	},
@@ -304,7 +304,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'KS12 Urban Rifle'
+				'KS12 Urban'
 			]
 		}
 	}

@@ -74,7 +74,7 @@ const underbarrel: ModificationList<UnderbarrelModificationsList> = {
 		stats: {},
 		compatibleWeapons: {
 			assaultRifle: [
-				'KETCHNOV Byk-1 Assault Rifle'
+				'KETCHNOV Byk-1'
 			]
 		}
 	},
@@ -88,7 +88,7 @@ const underbarrel: ModificationList<UnderbarrelModificationsList> = {
 		stats: {},
 		compatibleWeapons: {
 			assaultRifle: [
-				'KETCHNOV Byk-1 Assault Rifle'
+				'KETCHNOV Byk-1'
 			]
 		}
 	}

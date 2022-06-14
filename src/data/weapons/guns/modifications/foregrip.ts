@@ -5,9 +5,9 @@ import { CompatibleWeapons, ModificationList } from '../weaponTypes'
 
 const AKRifles: CompatibleWeapons = {
 	assaultRifle: [
-		'AK Rifle',
+		'AK',
 		'AK.762',
-		'Golden AK.762 Rifle'
+		'Golden AK.762'
 	]
 }
 
@@ -225,7 +225,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Commando 553 Rifle'
+				'Commando 553'
 			]
 		}
 	},
@@ -242,7 +242,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Commando 553 Rifle'
+				'Commando 553'
 			]
 		}
 	},
@@ -259,7 +259,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Eagle Heavy Rifle'
+				'Eagle Heavy'
 			]
 		}
 	},
@@ -276,7 +276,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle'
+				'CAR-4'
 			]
 		}
 	},
@@ -298,7 +298,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle'
+				'CAR-4'
 			]
 		}
 	},
@@ -320,7 +320,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle'
+				'CAR-4'
 			]
 		}
 	},
@@ -341,7 +341,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle'
+				'CAR-4'
 			]
 		}
 	},
@@ -363,7 +363,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle'
+				'CAR-4'
 			]
 		}
 	},
@@ -444,7 +444,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'JP36 Rifle'
+				'JP36'
 			]
 		}
 	},
@@ -462,7 +462,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'JP36 Rifle'
+				'JP36'
 			]
 		}
 	},
@@ -483,7 +483,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'JP36 Rifle'
+				'JP36'
 			]
 		}
 	},
@@ -500,7 +500,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Queen\'s Wrath Rifle'
+				'Queen\'s Wrath'
 			]
 		}
 	},
@@ -517,7 +517,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Galant Rifle'
+				'Galant'
 			]
 		}
 	},
@@ -535,7 +535,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AK5 Rifle'
+				'AK5'
 			]
 		}
 	},
@@ -552,7 +552,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AK5 Rifle'
+				'AK5'
 			]
 		}
 	},
@@ -569,7 +569,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AMR-16 Rifle'
+				'AMR-16'
 			]
 		}
 	},
@@ -586,7 +586,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AMR-16 Rifle'
+				'AMR-16'
 			]
 		}
 	},
@@ -606,7 +606,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AMR-16 Rifle'
+				'AMR-16'
 			]
 		}
 	},
@@ -627,7 +627,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gewehr 3 Rifle'
+				'Gewehr 3'
 			]
 		}
 	},
@@ -647,7 +647,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gewehr 3 Rifle'
+				'Gewehr 3'
 			]
 		}
 	},
@@ -668,7 +668,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gewehr 3 Rifle'
+				'Gewehr 3'
 			]
 		}
 	},
@@ -688,7 +688,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gewehr 3 Rifle'
+				'Gewehr 3'
 			]
 		}
 	},
@@ -704,7 +704,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Reinfeld 880 Shotgun'
+				'Reinfeld 880'
 			]
 		}
 	},
@@ -721,7 +721,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'IZHMA 12G Shotgun'
+				'IZHMA 12G'
 			]
 		}
 	},
@@ -740,7 +740,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'IZHMA 12G Shotgun'
+				'IZHMA 12G'
 			]
 		}
 	},
@@ -757,10 +757,10 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Grimm 12G Shotgun'
+				'Grimm 12G'
 			],
 			akimboShotgun: [
-				'Brothers Grimm 12G Shotguns'
+				'Brothers Grimm 12G'
 			]
 		}
 	},
@@ -777,7 +777,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Grom Sniper Rifle'
+				'Grom'
 			]
 		}
 	},
@@ -796,7 +796,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'RPK Light Machine Gun'
+				'RPK'
 			]
 		}
 	},
@@ -814,7 +814,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'KSP Light Machine Gun'
+				'KSP'
 			]
 		}
 	},
@@ -832,7 +832,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'Brenner-21 Light Machine Gun'
+				'Brenner-21'
 			]
 		},
 		incompatibleSlot: ['bipod']
@@ -850,7 +850,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Compact-5 Submachine Gun'
+				'Compact-5'
 			]
 		}
 	},
@@ -867,7 +867,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Compact-5 Submachine Gun'
+				'Compact-5'
 			]
 		}
 	},
@@ -886,7 +886,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Compact-5 Submachine Gun'
+				'Compact-5'
 			]
 		},
 		incompatibleSlot: ['barrelExt']
@@ -909,7 +909,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Compact-5 Submachine Gun'
+				'Compact-5'
 			]
 		}
 	},
@@ -926,7 +926,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Chicago Typewriter Submachine Gun'
+				'Chicago Typewriter'
 			]
 		}
 	},
@@ -943,7 +943,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Para Submachine Gun'
+				'Para'
 			]
 		}
 	},
@@ -962,7 +962,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Para Submachine Gun'
+				'Para'
 			]
 		}
 	},
@@ -979,7 +979,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Signature Submachine Gun'
+				'Signature'
 			]
 		}
 	},
@@ -996,7 +996,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Krinkov Submachine Gun'
+				'Krinkov'
 			]
 		}
 	},
@@ -1015,7 +1015,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Krinkov Submachine Gun'
+				'Krinkov'
 			]
 		}
 	},
@@ -1036,7 +1036,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Uzi Submachine Gun'
+				'Uzi'
 			]
 		}
 	},
@@ -1070,7 +1070,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'M60 Light Machine Gun'
+				'M60'
 			]
 		}
 	},
@@ -1087,7 +1087,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'M60 Light Machine Gun'
+				'M60'
 			]
 		}
 	},
@@ -1105,7 +1105,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'M60 Light Machine Gun'
+				'M60'
 			]
 		}
 	}

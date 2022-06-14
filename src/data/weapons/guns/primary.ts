@@ -1,9 +1,9 @@
-import akimboShotguns from './primary/akimboShotguns'
-import assaultRifles from './primary/assaultRifles'
-import lightMachineGuns from './primary/lightMachineGuns'
-import shotguns from './primary/shotgunsPrimary'
-import snipers from './primary/snipersPrimary'
-import specials from './primary/specialsPrimary'
+import akimboShotguns from './primary/gunList/akimboShotguns'
+import assaultRifles from './primary/gunList/assaultRifles'
+import lightMachineGuns from './primary/gunList/lightMachineGuns'
+import shotguns from './primary/gunList/shotgunsPrimary'
+import snipers from './primary/gunList/snipersPrimary'
+import specials from './primary/gunList/specialsPrimary'
 
 const primary = {
 	'Assault Rifle': assaultRifles,

@@ -110,7 +110,7 @@ const boost: ModificationList<BoostModificationsList> = {
 		},
 		compatibleWeapons: {
 			special: [
-				'OVE9000 Saw',
+				'OVE9000',
 				'MA-17 Flamethrower',
 				'Vulcan Minigun',
 				'Flamethrower Mk.1',
@@ -121,16 +121,16 @@ const boost: ModificationList<BoostModificationsList> = {
 				'Pistol Crossbow'
 			],
 			sniper: [
-				'Platypus 70 Sniper Rifle',
-				'Rattlesnake Sniper Rifle',
-				'Lebensauger .308 Sniper Rifle',
-				'Desertfox Sniper Rifle',
-				'Contractor .308 Sniper Rifle',
-				'R93 Sniper Rifle',
-				'Repeater 1874 Sniper Rifle',
-				'Grom Sniper Rifle',
-				'Nagant Sniper Rifle',
-				'Thanatos .50 cal Sniper Rifle'
+				'Platypus 70',
+				'Rattlesnake',
+				'Lebensauger .308',
+				'Desertfox',
+				'Contractor .308',
+				'R93',
+				'Repeater 1874',
+				'Grom',
+				'Nagant',
+				'Thanatos .50 cal'
 			]
 		}
 	},
@@ -179,12 +179,12 @@ const boost: ModificationList<BoostModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Clarion Rifle'
+				'Clarion'
 			],
 			pistol: [
-				'Bernetti 9 Pistol',
-				'Bronco .44 Pistol',
-				'Gruber Kurz Pistol'
+				'Bernetti 9',
+				'Bronco .44',
+				'Gruber Kurz'
 			]
 		}
 	}

@@ -67,7 +67,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Interceptor .45 Pistol'
+				'Interceptor .45'
 			]
 		}
 	},
@@ -85,7 +85,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Interceptor .45 Pistol'
+				'Interceptor .45'
 			]
 		}
 	},
@@ -103,7 +103,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Gruber Kurz Pistol'
+				'Gruber Kurz'
 			]
 		}
 	},
@@ -121,7 +121,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Signature .40 Pistol'
+				'Signature .40'
 			]
 		}
 	},
@@ -140,7 +140,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Signature .40 Pistol'
+				'Signature .40'
 			]
 		}
 	},
@@ -159,7 +159,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Crosskill Pistol'
+				'Crosskill'
 			]
 		}
 	},
@@ -178,7 +178,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Crosskill Pistol'
+				'Crosskill'
 			]
 		}
 	},
@@ -197,7 +197,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bronco .44 Pistol'
+				'Bronco .44'
 			]
 		}
 	},
@@ -215,7 +215,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bronco .44 Pistol'
+				'Bronco .44'
 			]
 		}
 	},
@@ -235,7 +235,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bronco .44 Pistol'
+				'Bronco .44'
 			]
 		}
 	},
@@ -253,7 +253,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bronco .44 Pistol'
+				'Bronco .44'
 			]
 		}
 	},
@@ -270,7 +270,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Crosskill Chunky Compact Pistol'
+				'Crosskill Chunky Compact'
 			]
 		}
 	},
@@ -287,7 +287,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Crosskill Chunky Compact Pistol'
+				'Crosskill Chunky Compact'
 			]
 		}
 	},
@@ -306,7 +306,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Chimano Custom Pistol'
+				'Chimano Custom'
 			]
 		}
 	},
@@ -329,7 +329,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Broomstick Pistol'
+				'Broomstick'
 			]
 		}
 	},
@@ -348,7 +348,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Chimano Compact Pistol'
+				'Chimano Compact'
 			]
 		}
 	},
@@ -364,7 +364,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Crosskill Guard Pistol'
+				'Crosskill Guard'
 			]
 		}
 	},
@@ -385,7 +385,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'LEO Pistol'
+				'LEO'
 			]
 		}
 	},
@@ -407,7 +407,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'LEO Pistol'
+				'LEO'
 			]
 		}
 	},
@@ -424,7 +424,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Peacemaker .45 Revolver'
+				'Peacemaker .45'
 			]
 		}
 	},
@@ -441,7 +441,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Peacemaker .45 Revolver'
+				'Peacemaker .45'
 			]
 		}
 	},
@@ -459,7 +459,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Deagle Pistol'
+				'Deagle'
 			]
 		},
 		incompatibleSlot: [] // some barrel extensions
@@ -477,7 +477,7 @@ const slide: ModificationList<SlideModificationsList> = {
 		stats: {},
 		compatibleWeapons: {
 			pistol: [
-				'Deagle Pistol'
+				'Deagle'
 			]
 		},
 		incompatibleSlot: [] // suppressors

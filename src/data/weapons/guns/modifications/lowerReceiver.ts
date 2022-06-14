@@ -55,7 +55,7 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Union 5.56 Rifle'
+				'Union 5.56'
 			]
 		}
 	},
@@ -74,11 +74,11 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle',
-				'AMR-16 Rifle'
+				'CAR-4',
+				'AMR-16'
 			],
 			submachineGun: [
-				'Para Submachine Gun'
+				'Para'
 			]
 		}
 	},
@@ -100,7 +100,7 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'UAR Rifle'
+				'UAR'
 			]
 		}
 	},
@@ -118,7 +118,7 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Breaker 12G Shotgun'
+				'Breaker 12G'
 			]
 		}
 	},
@@ -135,7 +135,7 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Mosconi 12G Tactical Shotgun'
+				'Mosconi 12G Tactical'
 			]
 		}
 	},
@@ -152,10 +152,10 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 		stats: {},
 		compatibleWeapons: {
 			shotgun: [
-				'The Judge Shotgun'
+				'The Judge'
 			],
 			akimboShotgun: [
-				'Akimbo Judge Shotguns'
+				'Akimbo Judge'
 			]
 		}
 	},
@@ -175,7 +175,7 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			special: [
-				'OVE9000 Saw'
+				'OVE9000'
 			]
 		}
 	},
@@ -194,7 +194,7 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			special: [
-				'OVE9000 Saw'
+				'OVE9000'
 			]
 		}
 	},
@@ -211,7 +211,7 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 		stats: {},
 		compatibleWeapons: {
 			pistol: [
-				'Bernetti 9 Pistol'
+				'Bernetti 9'
 			]
 		}
 	},
@@ -247,7 +247,7 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Chimano Compact Pistol'
+				'Chimano Compact'
 			]
 		}
 	},
@@ -264,7 +264,7 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 		stats: {},
 		compatibleWeapons: {
 			submachineGun: [
-				'Mark 10 Submachine Gun'
+				'Mark 10'
 			]
 		}
 	},
@@ -281,7 +281,7 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 		stats: {},
 		compatibleWeapons: {
 			submachineGun: [
-				'Kobus 90 Submachine Gun'
+				'Kobus 90'
 			]
 		}
 	}

@@ -4,7 +4,7 @@ import source from 'data/source/miscSources'
 import { ModificationList } from '../weaponTypes'
 
 export type BarrelModificationsList =
-	// AK Rifle, AK.762, Golden AK.762
+	// AK, AK.762, Golden AK.762
 	'AK Slavic Dragon Barrel' |
 	'Modern Barrel' |
 	'DMR Kit (AK)' |
@@ -272,7 +272,7 @@ export type BarrelModificationsList =
 	// GSPS 12G
 	'Riot Barrel' |
 
-	// Pistol Crossbow
+	// Crossbow
 	'Carbon Limb' |
 	'Skeletal Limb' |
 
@@ -334,9 +334,9 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AK Rifle',
+				'AK',
 				'AK.762',
-				'Golden AK.762 Rifle'
+				'Golden AK.762'
 			]
 		}
 	},
@@ -356,9 +356,9 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AK Rifle',
+				'AK',
 				'AK.762',
-				'Golden AK.762 Rifle'
+				'Golden AK.762'
 			]
 		}
 	},
@@ -381,9 +381,9 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AK Rifle',
+				'AK',
 				'AK.762',
-				'Golden AK.762 Rifle'
+				'Golden AK.762'
 			]
 		}
 	},
@@ -401,8 +401,8 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle',
-				'AMR-16 Rifle'
+				'CAR-4',
+				'AMR-16'
 			]
 		}
 	},
@@ -419,7 +419,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle'
+				'CAR-4'
 			]
 		}
 	},
@@ -440,7 +440,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle'
+				'CAR-4'
 			]
 		},
 		incompatibleSlot: ['barrelExt']
@@ -465,8 +465,8 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle',
-				'AMR-16 Rifle'
+				'CAR-4',
+				'AMR-16'
 			]
 		}
 	},
@@ -484,7 +484,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'UAR Rifle'
+				'UAR'
 			]
 		}
 	},
@@ -503,7 +503,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'UAR Rifle'
+				'UAR'
 			]
 		}
 	},
@@ -521,7 +521,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AK5 Rifle'
+				'AK5'
 			]
 		}
 	},
@@ -539,7 +539,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Commando 553 Rifle'
+				'Commando 553'
 			]
 		}
 	},
@@ -558,7 +558,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Eagle Heavy Rifle'
+				'Eagle Heavy'
 			]
 		}
 	},
@@ -575,7 +575,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Eagle Heavy Rifle'
+				'Eagle Heavy'
 			]
 		}
 	},
@@ -596,7 +596,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Falcon Rifle'
+				'Falcon'
 			]
 		}
 	},
@@ -617,7 +617,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Falcon Rifle'
+				'Falcon'
 			]
 		}
 	},
@@ -639,7 +639,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Falcon Rifle'
+				'Falcon'
 			]
 		}
 	},
@@ -660,7 +660,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Falcon Rifle'
+				'Falcon'
 			]
 		}
 	},
@@ -681,7 +681,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Clarion Rifle'
+				'Clarion'
 			]
 		}
 	},
@@ -703,7 +703,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Clarion Rifle'
+				'Clarion'
 			]
 		}
 	},
@@ -725,7 +725,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Clarion Rifle'
+				'Clarion'
 			]
 		}
 	},
@@ -747,7 +747,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Clarion Rifle'
+				'Clarion'
 			]
 		}
 	},
@@ -768,7 +768,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gecko 7.62 Rifle'
+				'Gecko 7.62'
 			]
 		}
 	},
@@ -790,7 +790,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gecko 7.62 Rifle'
+				'Gecko 7.62'
 			]
 		}
 	},
@@ -810,7 +810,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gecko 7.62 Rifle'
+				'Gecko 7.62'
 			]
 		}
 	},
@@ -831,7 +831,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gecko 7.62 Rifle'
+				'Gecko 7.62'
 			]
 		}
 	},
@@ -855,7 +855,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gewehr 3 Rifle'
+				'Gewehr 3'
 			]
 		}
 	},
@@ -883,7 +883,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gewehr 3 Rifle'
+				'Gewehr 3'
 			]
 		}
 	},
@@ -900,7 +900,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Queen\'s Wrath Rifle'
+				'Queen\'s Wrath'
 			]
 		}
 	},
@@ -916,7 +916,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Queen\'s Wrath Rifle'
+				'Queen\'s Wrath'
 			]
 		}
 	},
@@ -934,7 +934,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Lion\'s Roar Rifle'
+				'Lion\'s Roar'
 			]
 		}
 	},
@@ -951,7 +951,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Lion\'s Roar Rifle'
+				'Lion\'s Roar'
 			]
 		}
 	},
@@ -970,7 +970,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Lion\'s Roar Rifle'
+				'Lion\'s Roar'
 			]
 		},
 		incompatibleSlot: ['barrelExt']
@@ -992,7 +992,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Valkyria Rifle'
+				'Valkyria'
 			]
 		}
 	},
@@ -1013,7 +1013,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Bootleg Rifle'
+				'Bootleg'
 			]
 		}
 	},
@@ -1030,7 +1030,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Union 5.56 Rifle'
+				'Union 5.56'
 			]
 		}
 	},
@@ -1047,7 +1047,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Galant Rifle'
+				'Galant'
 			]
 		}
 	},
@@ -1065,7 +1065,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Predator 12G Shotgun'
+				'Predator 12G'
 			]
 		}
 	},
@@ -1083,7 +1083,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Joceline O/U 12G Shotgun'
+				'Joceline O/U 12G'
 			]
 		}
 	},
@@ -1104,7 +1104,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'IZHMA 12G Shotgun'
+				'IZHMA 12G'
 			]
 		}
 	},
@@ -1127,7 +1127,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'M1014 Shotgun'
+				'M1014'
 			]
 		}
 	},
@@ -1149,7 +1149,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'M1014 Shotgun'
+				'M1014'
 			]
 		}
 	},
@@ -1172,7 +1172,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Raven Shotgun'
+				'Raven'
 			]
 		}
 	},
@@ -1194,7 +1194,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Raven Shotgun'
+				'Raven'
 			]
 		}
 	},
@@ -1215,7 +1215,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Steakout 12G Shotgun'
+				'Steakout 12G'
 			]
 		}
 	},
@@ -1239,7 +1239,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Steakout 12G Shotgun'
+				'Steakout 12G'
 			]
 		},
 		incompatibleSlot: ['barrelExt']
@@ -1258,7 +1258,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Breaker 12G Shotgun'
+				'Breaker 12G'
 			]
 		}
 	},
@@ -1276,7 +1276,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Mosconi 12G Shotgun'
+				'Mosconi 12G'
 			]
 		}
 	},
@@ -1294,7 +1294,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Breaker 12G Shotgun'
+				'Breaker 12G'
 			]
 		}
 	},
@@ -1312,7 +1312,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Reinfeld 88 Shotgun'
+				'Reinfeld 88'
 			]
 		}
 	},
@@ -1329,7 +1329,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Reinfeld 88 Shotgun'
+				'Reinfeld 88'
 			]
 		}
 	},
@@ -1348,7 +1348,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Mosconi 12G Tactical Shotgun'
+				'Mosconi 12G Tactical'
 			]
 		}
 	},
@@ -1367,7 +1367,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Mosconi 12G Tactical Shotgun'
+				'Mosconi 12G Tactical'
 			]
 		}
 	},
@@ -1384,10 +1384,10 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Goliath 12G Shotgun'
+				'Goliath 12G'
 			],
 			akimboShotgun: [
-				'Akimbo Goliath 12G Shotguns'
+				'Akimbo Goliath 12G'
 			]
 		}
 	},
@@ -1408,10 +1408,10 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Goliath 12G Shotgun'
+				'Goliath 12G'
 			],
 			akimboShotgun: [
-				'Akimbo Goliath 12G Shotguns'
+				'Akimbo Goliath 12G'
 			]
 		},
 		incompatibleSlot: ['barrelExt']
@@ -1432,7 +1432,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Rattlesnake Sniper Rifle'
+				'Rattlesnake'
 			]
 		}
 	},
@@ -1453,7 +1453,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'R93 Sniper Rifle'
+				'R93'
 			]
 		}
 	},
@@ -1477,7 +1477,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'R93 Sniper Rifle'
+				'R93'
 			]
 		}
 	},
@@ -1498,7 +1498,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Thanatos .50 cal Sniper Rifle'
+				'Thanatos .50 cal'
 			]
 		}
 	},
@@ -1518,7 +1518,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Thanatos .50 cal Sniper Rifle'
+				'Thanatos .50 cal'
 			]
 		}
 	},
@@ -1540,7 +1540,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Thanatos .50 cal Sniper Rifle'
+				'Thanatos .50 cal'
 			]
 		}
 	},
@@ -1560,7 +1560,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Nagant Sniper Rifle'
+				'Nagant'
 			]
 		}
 	},
@@ -1580,7 +1580,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Nagant Sniper Rifle'
+				'Nagant'
 			]
 		}
 	},
@@ -1604,7 +1604,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Nagant Sniper Rifle'
+				'Nagant'
 			]
 		}
 	},
@@ -1624,7 +1624,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Repeater 1874 Sniper Rifle'
+				'Repeater 1874'
 			]
 		}
 	},
@@ -1648,7 +1648,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Repeater 1874 Sniper Rifle'
+				'Repeater 1874'
 			]
 		}
 	},
@@ -1665,7 +1665,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Lebensauger .308 Sniper Rifle'
+				'Lebensauger .308'
 			]
 		}
 	},
@@ -1686,7 +1686,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Lebensauger .308 Sniper Rifle'
+				'Lebensauger .308'
 			]
 		}
 	},
@@ -1706,7 +1706,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Desertfox Sniper Rifle'
+				'Desertfox'
 			]
 		}
 	},
@@ -1730,7 +1730,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Desertfox Sniper Rifle'
+				'Desertfox'
 			]
 		}
 	},
@@ -1747,7 +1747,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Grom Sniper Rifle'
+				'Grom'
 			]
 		}
 	},
@@ -1767,7 +1767,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Grom Sniper Rifle'
+				'Grom'
 			]
 		}
 	},
@@ -1788,7 +1788,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'R700 Sniper Rifle'
+				'R700'
 			]
 		}
 	},
@@ -1811,7 +1811,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'R700 Sniper Rifle'
+				'R700'
 			]
 		}
 	},
@@ -1829,7 +1829,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Bernetti Rangehitter Sniper Rifle'
+				'Bernetti Rangehitter'
 			]
 		}
 	},
@@ -1850,7 +1850,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Bernetti Rangehitter Sniper Rifle'
+				'Bernetti Rangehitter'
 			]
 		}
 	},
@@ -1869,7 +1869,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'KSP Light Machine Gun'
+				'KSP'
 			]
 		}
 	},
@@ -1888,7 +1888,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'KSP Light Machine Gun'
+				'KSP'
 			]
 		}
 	},
@@ -1907,7 +1907,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'Brenner-21 Light Machine Gun'
+				'Brenner-21'
 			]
 		}
 	},
@@ -1928,7 +1928,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'Buzzsaw 42 Light Machine Gun'
+				'Buzzsaw 42'
 			]
 		}
 	},
@@ -1949,7 +1949,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'Buzzsaw 42 Light Machine Gun'
+				'Buzzsaw 42'
 			]
 		},
 		incompatibleSlot: ['barrelExt']
@@ -1971,7 +1971,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			special: [
-				'GL40 Grenade Launcher'
+				'GL40'
 			]
 		}
 	},
@@ -2034,7 +2034,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			special: [
-				'Piglet Grenade Launcher'
+				'Piglet'
 			]
 		}
 	},
@@ -2054,7 +2054,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'White Streak Pistol'
+				'White Streak'
 			]
 		},
 		incompatibleSlot: [] // Suppressors
@@ -2073,7 +2073,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'M13 9mm Pistol'
+				'M13 9mm'
 			]
 		}
 	},
@@ -2090,7 +2090,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Matever .357 Revolver'
+				'Matever .357'
 			]
 		}
 	},
@@ -2107,7 +2107,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Matever .357 Revolver'
+				'Matever .357'
 			]
 		}
 	},
@@ -2124,7 +2124,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Matever .357 Revolver'
+				'Matever .357'
 			]
 		}
 	},
@@ -2179,7 +2179,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bernetti Auto Pistol'
+				'Bernetti Auto'
 			]
 		}
 	},
@@ -2200,7 +2200,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Czech 92 Pistol'
+				'Czech 92'
 			]
 		}
 	},
@@ -2218,7 +2218,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Igor Automatik Pistol'
+				'Igor Automatik'
 			]
 		}
 	},
@@ -2236,7 +2236,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Frenchman Model 87 Revolver'
+				'Frenchman Model 87'
 			]
 		}
 	},
@@ -2253,7 +2253,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Frenchman Model 87 Revolver'
+				'Frenchman Model 87'
 			]
 		}
 	},
@@ -2269,7 +2269,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Parabellum Pistol'
+				'Parabellum'
 			]
 		}
 	},
@@ -2286,7 +2286,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Parabellum Pistol'
+				'Parabellum'
 			]
 		}
 	},
@@ -2303,7 +2303,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'5/7 AP Pistol'
+				'5/7 AP'
 			]
 		}
 	},
@@ -2319,7 +2319,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Castigo .44 Revolver'
+				'Castigo .44'
 			]
 		}
 	},
@@ -2336,7 +2336,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Chicago Typewriter Submachine Gun'
+				'Chicago Typewriter'
 			]
 		}
 	},
@@ -2353,7 +2353,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Chicago Typewriter Submachine Gun'
+				'Chicago Typewriter'
 			]
 		}
 	},
@@ -2370,7 +2370,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Para Submachine Gun'
+				'Para'
 			]
 		}
 	},
@@ -2389,7 +2389,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Kobus 90 Submachine Gun'
+				'Kobus 90'
 			]
 		}
 	},
@@ -2411,7 +2411,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Kobus 90 Submachine Gun'
+				'Kobus 90'
 			]
 		}
 	},
@@ -2432,7 +2432,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Kobus 90 Submachine Gun'
+				'Kobus 90'
 			]
 		},
 		incompatibleSlot: ['barrelExt']
@@ -2450,7 +2450,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Swedish K Submachine Gun'
+				'Swedish K'
 			]
 		}
 	},
@@ -2467,7 +2467,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Swedish K Submachine Gun'
+				'Swedish K'
 			]
 		}
 	},
@@ -2488,7 +2488,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Blaster 9mm Submachine Gun'
+				'Blaster 9mm'
 			]
 		}
 	},
@@ -2509,7 +2509,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Blaster 9mm Submachine Gun'
+				'Blaster 9mm'
 			]
 		}
 	},
@@ -2531,7 +2531,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Patchett L2A1 Submachine Gun'
+				'Patchett L2A1'
 			]
 		}
 	},
@@ -2553,7 +2553,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Patchett L2A1 Submachine Gun'
+				'Patchett L2A1'
 			]
 		}
 	},
@@ -2576,7 +2576,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Patchett L2A1 Submachine Gun'
+				'Patchett L2A1'
 			]
 		},
 		incompatibleSlot: ['barrelExt']
@@ -2600,7 +2600,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Patchett L2A1 Submachine Gun'
+				'Patchett L2A1'
 			]
 		}
 	},
@@ -2620,7 +2620,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Micro Uzi Submachine Gun'
+				'Micro Uzi'
 			]
 		}
 	},
@@ -2640,7 +2640,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Jackal Submachine Gun'
+				'Jackal'
 			]
 		}
 	},
@@ -2657,7 +2657,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'CR 805B Submachine Gun'
+				'CR 805B'
 			]
 		}
 	},
@@ -2674,7 +2674,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'CR 805B Submachine Gun'
+				'CR 805B'
 			]
 		}
 	},
@@ -2692,7 +2692,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'AK Gen 21 Tactical Submachine Gun'
+				'AK Gen 21 Tactical'
 			]
 		}
 	},
@@ -2711,7 +2711,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'AK Gen 21 Tactical Submachine Gun'
+				'AK Gen 21 Tactical'
 			]
 		}
 	},
@@ -2729,7 +2729,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Claire 12G Shotgun'
+				'Claire 12G'
 			]
 		}
 	},
@@ -2750,7 +2750,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Claire 12G Shotgun'
+				'Claire 12G'
 			]
 		}
 	},
@@ -2774,7 +2774,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Street Sweeper Shotgun'
+				'Street Sweeper'
 			]
 		},
 		incompatibleSlot: ['barrelExt']
@@ -2792,7 +2792,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'GSPS 12G Shotgun'
+				'GSPS 12G'
 			]
 		}
 	},
@@ -2851,7 +2851,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			special: [
-				'Arbiter Grenade Launcher'
+				'Arbiter'
 			]
 		}
 	},
@@ -2889,7 +2889,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			special: [
-				'Arbiter Grenade Launcher'
+				'Arbiter'
 			]
 		}
 	},
@@ -2907,7 +2907,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			special: [
-				'Basilisk 3V Grenade Launcher'
+				'Basilisk 3V'
 			]
 		}
 	},
@@ -2927,7 +2927,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Pronghorn Sniper Rifle'
+				'Pronghorn'
 			]
 		}
 	},
@@ -2964,7 +2964,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Gecko M2 Pistol'
+				'Gecko M2'
 			]
 		}
 	},
@@ -2982,7 +2982,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Gecko M2 Pistol'
+				'Gecko M2'
 			]
 		}
 	},
@@ -2999,7 +2999,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'M60 Light Machine Gun'
+				'M60'
 			]
 		}
 	},
@@ -3073,7 +3073,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'KETCHNOV Byk-1 Assault Rifle'
+				'KETCHNOV Byk-1'
 			]
 		}
 	},
@@ -3091,7 +3091,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Káng Arms X1 Sniper Rifle'
+				'Káng Arms X1'
 			]
 		}
 	},
@@ -3108,7 +3108,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Káng Arms X1 Sniper Rifle'
+				'Káng Arms X1'
 			]
 		}
 	},
@@ -3126,7 +3126,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Miyaka 10 Special Submachine Gun'
+				'Miyaka 10 Special'
 			]
 		}
 	}

@@ -22,7 +22,7 @@ const bayonet: ModificationList<BayonetModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Nagant Sniper Rifle'
+				'Nagant'
 			]
 		}
 	}

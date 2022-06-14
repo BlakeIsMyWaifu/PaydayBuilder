@@ -4,7 +4,7 @@ import { CompatibleWeapons, ModificationList } from '../weaponTypes'
 
 const fireModeWeapons: CompatibleWeapons = {
 	assaultRifle: [
-		'Golden AK.762 Rifle'
+		'Golden AK.762'
 	]
 }
 
