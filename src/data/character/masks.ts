@@ -1,24 +1,21 @@
 import { ContentRarity } from 'data/source/downloadableContent'
 
-import collaboration, { CollaborationCollectionList } from './mask/collaboration'
-import community, { CommunityCollectionList } from './mask/community'
-import dlc, { DlcCollectionList } from './mask/dlc'
-import event, { EventCollectionList } from './mask/event'
-import free, { FreeCollectionList } from './mask/free'
-import infamous, { InfamousCollectionList } from './mask/infamous'
+import collaboration from './mask/collaboration'
+import community from './mask/community'
+import dlc from './mask/dlc'
+import event from './mask/event'
+import free from './mask/free'
+import infamous from './mask/infamous'
 
-export interface AllMasks {
-	community: Category<CommunityCollectionList>;
-	free: Category<FreeCollectionList>;
-	dlc: Category<DlcCollectionList>;
-	event: Category<EventCollectionList>;
-	collaboration: Category<CollaborationCollectionList>;
-	infamous: Category<InfamousCollectionList>;
-}
+export type CategoryList =
+	| 'community'
+	| 'free'
+	| 'dlc'
+	| 'event'
+	| 'collaboration'
+	| 'infamous'
 
-export type CategoryList = keyof AllMasks
-
-export type AllMasksWeak = Partial<Record<CategoryList, Category<string>>>
+export type AllMasks = Partial<Record<CategoryList, Category<string>>>
 
 export type Category<T extends string> = Record<T, Collection>
 
@@ -36,14 +33,14 @@ export interface MaskData {
 	cost: string;
 }
 
-export const allMasks: AllMasks = {
+export const allMasks = {
 	community,
 	free,
 	dlc,
 	event,
 	collaboration,
 	infamous
-}
+} as const
 
 //
 

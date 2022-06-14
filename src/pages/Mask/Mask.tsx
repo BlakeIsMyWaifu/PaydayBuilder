@@ -2,7 +2,7 @@ import Container from 'components/Container'
 import HorizontalBar from 'components/HorizontalBar'
 import Info from 'components/Info'
 import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
-import masks, { AllMasksWeak, Category, CategoryList, MaskData } from 'data/character/masks'
+import masks, { AllMasks, Category, CategoryList, MaskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useMountEffect from 'hooks/useMountEffect'
 import useObjectState from 'hooks/useObjectState'
@@ -29,7 +29,7 @@ const Mask: FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const [categories, setCategories] = useObjectState<AllMasksWeak>({
+	const [categories, setCategories] = useObjectState<AllMasks>({
 		community: {},
 		free: {},
 		dlc: {},
