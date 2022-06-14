@@ -15,20 +15,20 @@ import payday2016SecretMask from './event/payday2016SecretMask'
 import sydneysSwimChallenge from './event/sydneysSwimChallenge'
 
 const event: Record<string, Record<string, MaskData>> = {
-	halloweenEvent,
-	humbleMaskPack,
-	humbleMaskPack2,
-	AlienwareAlphaMaskPack,
-	humbleMaskPack3,
-	humbleMaskPack4,
-	e32015SecretMasks,
-	merchandise,
-	humbleMaskPack5,
-	hoxtonsHousewarmingParty,
-	payday2016SecretMask,
-	sydneysSwimChallenge,
-	fedora,
-	lockeAndLoadDay9
+	'Halloween Event': halloweenEvent,
+	'Humble Mask Pack': humbleMaskPack,
+	'Humble Mask Pack 2': humbleMaskPack2,
+	'Alienware Alpha Mask Pack': AlienwareAlphaMaskPack,
+	'Humble Mask Pack 3': humbleMaskPack3,
+	'Humble Mask Pack 4': humbleMaskPack4,
+	'E3 2015 Secret Masks': e32015SecretMasks,
+	'Merchandise': merchandise,
+	'Humble Mask Pack 5': humbleMaskPack5,
+	'Hoxtons Housewarming Party': hoxtonsHousewarmingParty,
+	'Payday 2016 Secret Mask': payday2016SecretMask,
+	'Sydney Swim Challenge': sydneysSwimChallenge,
+	'Fedora': fedora,
+	'Locke and Load Day 9': lockeAndLoadDay9
 }
 
 export default event

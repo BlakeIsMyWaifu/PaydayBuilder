@@ -18,23 +18,23 @@ import theSecret from './infamous/theSecret'
 import unobtainable from './infamous/unobtainable'
 
 const infamous: Record<string, Record<string, MaskData>> = {
-	cardDrops,
-	achievement,
-	other,
-	bonnieCharacterPack,
-	hoxtonRevenge,
-	bodhiCharacterPack,
-	jimmyCharacterPack,
-	johnWick,
-	sangresCharacterPack,
-	dukeCharacterPack,
-	joyCharacterPack,
-	difficultySkulls,
-	holdout,
-	theSecret,
-	infamyReward,
-	achievementMilestones,
-	unobtainable
+	'Card Drops': cardDrops,
+	'Achievement': achievement,
+	'Other': other,
+	'Bonnie Character Pack': bonnieCharacterPack,
+	'Hoxton Revenge': hoxtonRevenge,
+	'Bodhi Character Pack': bodhiCharacterPack,
+	'Jimmy Character Pack': jimmyCharacterPack,
+	'John Wick': johnWick,
+	'Sangres Character Pack': sangresCharacterPack,
+	'Duke Character Pack': dukeCharacterPack,
+	'Joy Character Pack': joyCharacterPack,
+	'Difficulty Skulls': difficultySkulls,
+	'Holdout': holdout,
+	'The Secret': theSecret,
+	'Infamy Reward': infamyReward,
+	'Achievement Milestones': achievementMilestones,
+	'Unobtainable': unobtainable
 }
 
 export default infamous

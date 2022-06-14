@@ -28,7 +28,14 @@ const Mask: FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const [collections, setCollections] = useObjectState<Record<string, Record<string, Record<string, MaskData>>>>({})
+	const [categories, setCategories] = useObjectState<Record<string, Record<string, Record<string, MaskData>>>>({
+		community: {},
+		free: {},
+		dlc: {},
+		event: {},
+		collaboration: {},
+		infamous: {}
+	})
 	const [selectedTab, setSelectedTab] = useState('Community')
 	const selectedTabLower = selectedTab.toLowerCase()
 
@@ -38,24 +45,36 @@ const Mask: FC = () => {
 	const itemContainerRef = useRef<HTMLDivElement>(null)
 	const collectionRefs = useRef<(HTMLDivElement | null)[] | RefObject<HTMLDivElement>[]>([])
 
-	const addToCollection = useCallback(async (category: string): Promise<void> => {
+	const addToCategory = useCallback(async (category: string): Promise<void> => {
 		const loadMaskData = (category: string): Promise<Record<string, Record<string, MaskData>>> => new Promise((res, rej) => {
 			import(`../../data/character/mask/${category}`).then(data => {
 				res(data.default as unknown as Record<string, Record<string, MaskData>>)
 			}).catch(err => rej(err))
 		})
-		const newCollectionData = await loadMaskData(category)
-		setCollections({ [category]: newCollectionData })
-	}, [setCollections])
+		const newCategoryData = await loadMaskData(category)
+		setCategories({ [category]: newCategoryData })
+	}, [setCategories])
+
+	const getCurrentData = useCallback((): Record<string, Record<string, MaskData>> => {
+		const allDataArray = Object.entries(categories ?? {}).map(([key, value]) => {
+			const collections = Object.entries(value).map(([title, data]) => [`${key}?${title}`, data])
+			return Object.fromEntries(collections)
+		})
+		const allData: Record<string, Record<string, MaskData>> = Object.assign({}, ...allDataArray)
+		return (selectedTab === 'All' ? allData : categories[selectedTabLower]) ?? {}
+	}, [categories, selectedTab, selectedTabLower])
 
 	useMountEffect(() => {
-		addToCollection('community')
+		addToCategory('community')
 	})
 
 	useEffect(() => {
-		if (selectedTab === 'All') return
-		addToCollection(selectedTabLower)
-	}, [selectedTabLower, selectedTab, addToCollection])
+		if (selectedTab === 'All') {
+			['community', 'free', 'dlc', 'event', 'collaboration', 'infamous'].forEach(addToCategory)
+		} else {
+			addToCategory(selectedTabLower)
+		}
+	}, [selectedTabLower, selectedTab, addToCategory])
 
 	return (
 		<Container rows='4rem 2rem 8fr 4rem' areas='"title title" "horizontalbar infotabs" "items info" "items back"' title='Mask'>
@@ -72,15 +91,19 @@ const Mask: FC = () => {
 
 			<MaskItemContainer ref={itemContainerRef}>
 				{
-					collections[selectedTabLower] && Object.entries(collections[selectedTabLower]).map(([collectionTitle, collectionMasks], i) => {
+					Object.entries(getCurrentData()).map(([collectionTitle, collectionMasks], i) => {
 
-						const collectionColour = itemColours[selectedTab === 'DLC' ? 'Paid' : selectedTab]
-						collectionRefs.current = Array.from({ length: Object.keys(collections[selectedTabLower]).length }, () => createRef<HTMLDivElement>())
+						const { rarity } = Object.values(collectionMasks)[0]
+						const collectionColour = itemColours[rarity]
+
+						collectionRefs.current = Array.from({ length: Object.keys(getCurrentData()).length }, () => createRef<HTMLDivElement>())
+
+						const title = collectionTitle.split('?').at(-1)
 
 						return <MaskCollection key={collectionTitle} ref={ref => {
 							collectionRefs.current[i] = ref
 						}}>
-							<MaskCollectionTitle colour={collectionColour}>{collectionTitle}</MaskCollectionTitle>
+							<MaskCollectionTitle colour={collectionColour}>{title}</MaskCollectionTitle>
 							<MaskWrapper key={collectionTitle}>
 								{
 									Object.entries(collectionMasks).map(([maskName, maskData]) => {
@@ -107,7 +130,7 @@ const Mask: FC = () => {
 				mask: <MaskTab selectedMask={selectedMask} />,
 				collections: <CollectionsTab
 					collectionRefs={collectionRefs}
-					collections={collections[selectedTab.toLowerCase()]}
+					collections={getCurrentData()}
 				/>
 			}} />
 

@@ -16,16 +16,17 @@ const CollectionsTab: FC<CollectionsTabProps> = ({ collectionRefs, collections }
 			<InfoTitle>Collections</InfoTitle>
 			<CollectionsContainer>
 				{
-					collections && Object.keys(collections).map((collection, i) => {
+					collections && Object.keys(collections).map((collectionTitle, i) => {
 
-						const { rarity } = Object.values(collections[collection])[0]
+						const { rarity } = Object.values(collections[collectionTitle])[0]
+						const title = collectionTitle.split('?').at(-1)
 
 						return <CollectionTitle
-							key={collection}
+							key={collectionTitle}
 							colour={itemColours[rarity]}
 							onClick={() => (collectionRefs.current[i] as HTMLDivElement)?.scrollIntoView({ behavior: 'smooth' })}
 						>
-							{collection}
+							{title}
 						</CollectionTitle>
 					})
 				}

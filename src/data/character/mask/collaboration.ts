@@ -10,15 +10,15 @@ import shadowWarrior2Collaboration from './collaboration/shadowWarrior2Collabora
 import speedrunners from './collaboration/speedrunners'
 
 const collaboration: Record<string, Record<string, MaskData>> = {
-	hotlineMiami,
-	hotlineMiami2,
-	hotlineMiami2Deluxe,
-	speedrunners,
-	deadByDaylightDeluxe,
-	shadowWarrior2Collaboration,
-	antisphereCollaboration,
-	enterTheGungeon,
-	reservoirDogs
+	'Hotline Miami': hotlineMiami,
+	'Hotline Miami 2': hotlineMiami2,
+	'Hotline Miami 2 Deluxe': hotlineMiami2Deluxe,
+	'Speedrunners': speedrunners,
+	'Dead by Daylight Deluxe': deadByDaylightDeluxe,
+	'Shadow Warrior 2 Collaboration': shadowWarrior2Collaboration,
+	'Antisphere Collaboration': antisphereCollaboration,
+	'Enter the Gungeon': enterTheGungeon,
+	'Reservoir Dogs': reservoirDogs
 }
 
 export default collaboration
