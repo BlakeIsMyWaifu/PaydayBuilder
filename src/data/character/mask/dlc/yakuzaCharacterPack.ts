@@ -1,7 +1,7 @@
 import { MaskData } from 'data/character/masks'
 
 const yakuzaCharacterPack: Record<string, MaskData> = {
-	'Jiro---': {
+	'Jiro': {
 		name: 'Jiro',
 		image: 'jiro',
 		description: [

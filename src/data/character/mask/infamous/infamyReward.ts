@@ -196,6 +196,17 @@ const infamyReward: Record<string, MaskData> = {
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at Infamy level 94'
+	},
+	'Vile Carny': {
+		name: 'Vile Carny',
+		image: 'overkillpunk',
+		description: [
+			'All of us can go a little crazy from time to time. However, this mask is for when you go completely over the deep end. And to reach this level of heisting, you need to be out of your goddamn mind!'
+		],
+		collection: 'Infamous',
+		rarity: 'Infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
+		cost: ''
 	}
 }
 

@@ -1,6 +1,6 @@
 import { MaskData } from 'data/character/masks'
 
-const payday2016SecretMask: Record<string, MaskData> = {
+const paydaycon2016SecretMask: Record<string, MaskData> = {
 	'Mega Clover': {
 		name: 'Mega Clover',
 		image: 'pdc16_clover',
@@ -16,4 +16,4 @@ const payday2016SecretMask: Record<string, MaskData> = {
 	}
 }
 
-export default payday2016SecretMask
+export default paydaycon2016SecretMask

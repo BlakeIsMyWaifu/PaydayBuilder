@@ -1,7 +1,7 @@
 import { MaskData } from 'data/character/masks'
 
 const draganCharacterPack: Record<string, MaskData> = {
-	'Dragan---': {
+	'Dragan': {
 		name: 'Dragan',
 		image: 'dragan',
 		description: [

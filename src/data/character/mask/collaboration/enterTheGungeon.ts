@@ -1,7 +1,7 @@
 import { MaskData } from 'data/character/masks'
 
 const enterTheGungeon: Record<string, MaskData> = {
-	'The Bullet---': {
+	'The Bullet': {
 		name: 'The Bullet',
 		image: 'eng_01',
 		description: [

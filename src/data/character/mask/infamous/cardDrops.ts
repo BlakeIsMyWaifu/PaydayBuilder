@@ -1,18 +1,20 @@
 import { MaskData } from 'data/character/masks'
 
 const cardDrops: Record<string, MaskData> = {
-	'Dallas---': {
-		name: 'Dallas',
-		image: 'dallas',
+	'Anonymous': {
+		name: 'Anonymous',
+		image: 'anonymous',
 		description: [
-			'The mask that everyone fears.'
+			'Don the mask, become anonymous and do as you wish.',
+			'Do it because you mean it, do it because you were told to, or do it for the lulz.',
+			'Do all the things that regular society will not allow you. Like robbing a bank.'
 		],
 		collection: 'Infamous (Card Drops)',
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
-		cost: '$48,750'
+		cost: '$45,000'
 	},
-	'Chains---': {
+	'Chains': {
 		name: 'Chains',
 		image: 'chains',
 		description: [
@@ -23,22 +25,36 @@ const cardDrops: Record<string, MaskData> = {
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
 	},
-	'Hoxton---': {
-		name: 'Hoxton',
-		image: 'hoxton',
+	'Chains Begins': {
+		name: 'Chains Begins',
+		image: 'chains_clean',
 		description: [
-			'The mask of Hoxton.'
+			'This is a clean version of the iconic Chains mask, before it was painted.',
+			'Never liked how the original one turned out? This is your chance to change history.'
 		],
 		collection: 'Infamous (Card Drops)',
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
-		cost: '$48,750'
+		cost: '$61,250'
 	},
-	'Wolf---': {
-		name: 'Wolf',
-		image: 'wolf',
+	'Cthulhu': {
+		name: 'Cthulhu',
+		image: 'cthulhu',
 		description: [
-			'The mask of Wolf.'
+			'A mask with a hideous appearance, the very face of terror.',
+			'They say that an evil beast has many names. That must be why this beast is known as Tulu, Clulu, Clooloo, Cthulu, C\'thulhu, Cighulu, Cathulu, C\'thlu among other names,',
+			'Part human, part octopus and part dragon, this is one of the greatest evils known to man.'
+		],
+		collection: 'Infamous (Card Drops)',
+		rarity: 'Infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
+		cost: '$55,000'
+	},
+	'Dallas': {
+		name: 'Dallas',
+		image: 'dallas',
+		description: [
+			'The mask that everyone fears.'
 		],
 		collection: 'Infamous (Card Drops)',
 		rarity: 'Infamous',
@@ -57,17 +73,16 @@ const cardDrops: Record<string, MaskData> = {
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$67,500'
 	},
-	'Chains Begins': {
-		name: 'Chains Begins',
-		image: 'chains_clean',
+	'Hoxton': {
+		name: 'Hoxton',
+		image: 'hoxton',
 		description: [
-			'This is a clean version of the iconic Chains mask, before it was painted.',
-			'Never liked how the original one turned out? This is your chance to change history.'
+			'The mask of Hoxton.'
 		],
 		collection: 'Infamous (Card Drops)',
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
-		cost: '$61,250'
+		cost: '$48,750'
 	},
 	'Hoxton Begins': {
 		name: 'Hoxton Begins',
@@ -80,44 +95,6 @@ const cardDrops: Record<string, MaskData> = {
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$61,250'
-	},
-	'Wolf Begins': {
-		name: 'Wolf Begins',
-		image: 'wolf_clean',
-		description: [
-			'This is a clean version of the iconic Wolf mask,before it was painted.',
-			'Never liked how the original one turned out? This is your chance to change history.'
-		],
-		collection: 'Infamous (Card Drops)',
-		rarity: 'Infamous',
-		unlock: 'THIS IS AN INFAMOUS ITEM!',
-		cost: '$61,250'
-	},
-	'Anonymous': {
-		name: 'Anonymous',
-		image: 'anonymous',
-		description: [
-			'Don the mask, become anonymous and do as you wish.',
-			'Do it because you mean it, do it because you were told to, or do it for the lulz.',
-			'Do all the things that regular society will not allow you. Like robbing a bank.'
-		],
-		collection: 'Infamous (Card Drops)',
-		rarity: 'Infamous',
-		unlock: 'THIS IS AN INFAMOUS ITEM!',
-		cost: '$45,000'
-	},
-	'Cthulhu': {
-		name: 'Cthulhu',
-		image: 'cthulhu',
-		description: [
-			'A mask with a hideous appearance, the very face of terror.',
-			'They say that an evil beast has many names. That must be why this beast is known as Tulu, Clulu, Clooloo, Cthulu, C\'thulhu, Cighulu, Cathulu, C\'thlu among other names,',
-			'Part human, part octopus and part dragon, this is one of the greatest evils known to man.'
-		],
-		collection: 'Infamous (Card Drops)',
-		rarity: 'Infamous',
-		unlock: 'THIS IS AN INFAMOUS ITEM!',
-		cost: '$55,000'
 	},
 	'Dillinger Death Mask, The': {
 		name: 'Dillinger Death Mask, The',
@@ -145,6 +122,29 @@ const cardDrops: Record<string, MaskData> = {
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$55,000'
+	},
+	'Wolf': {
+		name: 'Wolf',
+		image: 'wolf',
+		description: [
+			'The mask of Wolf.'
+		],
+		collection: 'Infamous (Card Drops)',
+		rarity: 'Infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
+		cost: '$48,750'
+	},
+	'Wolf Begins': {
+		name: 'Wolf Begins',
+		image: 'wolf_clean',
+		description: [
+			'This is a clean version of the iconic Wolf mask,before it was painted.',
+			'Never liked how the original one turned out? This is your chance to change history.'
+		],
+		collection: 'Infamous (Card Drops)',
+		rarity: 'Infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
+		cost: '$61,250'
 	}
 }
 

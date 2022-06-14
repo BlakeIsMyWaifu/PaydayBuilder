@@ -1,20 +1,7 @@
 import { MaskData } from 'data/character/masks'
 
 const achievement: Record<string, MaskData> = {
-	'Somen Mempo': {
-		name: 'Somen Mempo',
-		image: 'samurai',
-		description: [
-			'In ancient Japan, samurai warriors wore somen masks to protect themselves in war and to incite fear in their enemies. Somen masks were tied to the large kabuto helmets, making the samurai look like demons from jigoku.',
-			'No one knows what fierce and ruthless warrior wore this intimidating mask in the past. Now however, it is ready for battle once more.',
-			'\'Boku no ikari wo osoreru\''
-		],
-		collection: 'Infamous (Achievement)',
-		rarity: 'Infamous',
-		unlock: 'THIS IS AN INFAMOUS ITEM!',
-		cost: 'Unlocked via \'I Will Walk Faceless Among Men\''
-	},
-	'Hoxton Reborn---': {
+	'Hoxton Reborn': {
 		name: 'Hoxton Reborn',
 		image: 'old_hoxton',
 		description: [
@@ -25,42 +12,6 @@ const achievement: Record<string, MaskData> = {
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'Why Don’t We Just Use a Spoon?\''
-	},
-	'The Hard Hat': {
-		name: 'The Hard Hat',
-		image: 'hectors_helmet',
-		description: [
-			'When you rat out the Payday gang, you need to expect some form of retribution. And the gang aren\'t big on wagging fingers and a stern telling off. You can expect bullets, and plenty of them. This hard hat is cold school riot cop tech - heavy iron, fronted with reinforced glass. Good luck getting through it.'
-		],
-		collection: 'Infamous (Achievement)',
-		rarity: 'Infamous',
-		unlock: 'THIS IS AN INFAMOUS ITEM!',
-		cost: 'Unlocked via \'I\'m An Avenger!\''
-	},
-	'Rad Mutant': {
-		name: 'Rad Mutant',
-		image: 'grendel',
-		description: [
-			'Genetic mutation is the key to our evolution. Assuming that our evolution is of the green, scaly, homicidal and irradiated kind.',
-			'This mask is an achievement reward.It can\'t drop during a PAYDAY and can\'t be sold. It can be returned to your mask stash for free, but any pattern, color or material as well as the customization fee to put these together will be lost.'
-		],
-		collection: 'Infamous (Achievement)',
-		rarity: 'Infamous',
-		unlock: 'THIS IS AN INFAMOUS ITEM!',
-		cost: 'Unlocked via \'They Don’t Pay Us Enough\''
-	},
-	'Mega Rust': {
-		name: 'Mega Rust',
-		image: 'mrm',
-		description: [
-			'The Mega Rust mask is an evolved version of the original mask. It symbolises transcendence and catharsis.',
-			'Thank you for your support.',
-			'OVERKILL salutes you!'
-		],
-		collection: 'Infamous (Achievement)',
-		rarity: 'Infamous',
-		unlock: 'THIS IS AN INFAMOUS ITEM!',
-		cost: 'Unlocked via \'A Vast Amount of Unlawful Transgressions\''
 	},
 	'Mega Sangres': {
 		name: 'Mega Sangres',
@@ -74,6 +25,55 @@ const achievement: Record<string, MaskData> = {
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'Only For Us Naughty Heisters\''
+	},
+	'Rad Mutant': {
+		name: 'Rad Mutant',
+		image: 'grendel',
+		description: [
+			'Genetic mutation is the key to our evolution. Assuming that our evolution is of the green, scaly, homicidal and irradiated kind.',
+			'This mask is an achievement reward.It can\'t drop during a PAYDAY and can\'t be sold. It can be returned to your mask stash for free, but any pattern, color or material as well as the customization fee to put these together will be lost.'
+		],
+		collection: 'Infamous (Achievement)',
+		rarity: 'Infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
+		cost: 'Unlocked via \'They Don’t Pay Us Enough\''
+	},
+	'Somen Mempo': {
+		name: 'Somen Mempo',
+		image: 'samurai',
+		description: [
+			'In ancient Japan, samurai warriors wore somen masks to protect themselves in war and to incite fear in their enemies. Somen masks were tied to the large kabuto helmets, making the samurai look like demons from jigoku.',
+			'No one knows what fierce and ruthless warrior wore this intimidating mask in the past. Now however, it is ready for battle once more.',
+			'\'Boku no ikari wo osoreru\''
+		],
+		collection: 'Infamous (Achievement)',
+		rarity: 'Infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
+		cost: 'Unlocked via \'I Will Walk Faceless Among Men\''
+	},
+	'The Hard Hat': {
+		name: 'The Hard Hat',
+		image: 'hectors_helmet',
+		description: [
+			'When you rat out the Payday gang, you need to expect some form of retribution. And the gang aren\'t big on wagging fingers and a stern telling off. You can expect bullets, and plenty of them. This hard hat is cold school riot cop tech - heavy iron, fronted with reinforced glass. Good luck getting through it.'
+		],
+		collection: 'Infamous (Achievement)',
+		rarity: 'Infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
+		cost: 'Unlocked via \'I\'m An Avenger!\''
+	},
+	'Mega Rust': {
+		name: 'Mega Rust',
+		image: 'mrm',
+		description: [
+			'The Mega Rust mask is an evolved version of the original mask. It symbolises transcendence and catharsis.',
+			'Thank you for your support.',
+			'OVERKILL salutes you!'
+		],
+		collection: 'Infamous (Achievement)',
+		rarity: 'Infamous',
+		unlock: 'THIS IS AN INFAMOUS ITEM!',
+		cost: 'Unlocked via \'A Vast Amount of Unlawful Transgressions\''
 	}
 }
 

@@ -1,7 +1,7 @@
 import { MaskData } from 'data/character/masks'
 
 const h3H3CharacterPack: Record<string, MaskData> = {
-	'Ethan---': {
+	'Ethan': {
 		name: 'Ethan',
 		image: 'ecp_male',
 		description: [
@@ -12,7 +12,7 @@ const h3H3CharacterPack: Record<string, MaskData> = {
 		unlock: 'THIS IS A h3h3 CHARACTER PACK ITEM!',
 		cost: 'Free'
 	},
-	'Hila---': {
+	'Hila': {
 		name: 'Hila',
 		image: 'ecp_female',
 		description: [

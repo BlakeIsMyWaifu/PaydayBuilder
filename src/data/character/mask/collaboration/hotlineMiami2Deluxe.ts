@@ -13,7 +13,7 @@ const hotlineMiami2Deluxe: Record<string, MaskData> = {
 		unlock: 'THIS IS A HOTLINE MIAMI 2 DELUXE ITEM!',
 		cost: 'Requires ownership of Hotline Miami 2: Wrong Number - Digital Special Edition on Steam.'
 	},
-	'Richard Returns---': {
+	'Richard Returns': {
 		name: 'Richard Returns',
 		image: 'richard_returns',
 		description: [

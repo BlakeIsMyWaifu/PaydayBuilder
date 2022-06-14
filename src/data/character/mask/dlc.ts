@@ -3,8 +3,10 @@ import aMerryPaydayChristmasSoundtrack from './dlc/aMerryPaydayChristmasSoundtra
 import armoredTransport from './dlc/armoredTransport'
 import bikerCharacterPack from './dlc/bikerCharacterPack'
 import borderCrossingHeist from './dlc/borderCrossingHeist'
+import bulucsMansionHeist from './dlc/bulucsMansion'
 import cloverCharacterPack from './dlc/cloverCharacterPack'
 import draganCharacterPack from './dlc/draganCharacterPack'
+import dragonPack from './dlc/dragonPack'
 import gageAssaultPack from './dlc/gageAssaultPack'
 import gageChivalryPack from './dlc/gageChivalryPack'
 import gageHistoricalPack from './dlc/gageHistoricalPack'
@@ -15,16 +17,23 @@ import gageSniperPack from './dlc/gageSniperPack'
 import gageSpecOpsPack from './dlc/gageSpecOpsPack'
 import gageWeaponPack1 from './dlc/gageWeaponPack1'
 import gageWeaponPack2 from './dlc/gageWeaponPack2'
+import goldenDaggerTailorPack from './dlc/goldenDaggerTailorPack'
+import guardiansTailorPack from './dlc/guardiansTailorPack'
 import h3H3CharacterPack from './dlc/h3H3CharacterPack'
 import hotlineMiami from './dlc/hotlineMiami'
 import johnWickHeistsPack from './dlc/johnWickHeistsPack'
 import johnWickWeaponPack from './dlc/johnWickWeaponPack'
 import lootbag from './dlc/lootbag'
+import megaCityTailorPack from './dlc/megaCityTailorPack'
+import mountainMasterHeist from './dlc/mountainMasterHeist'
 import payday2BundleRewards from './dlc/payday2BundleRewards'
 import poetryJam from './dlc/poetryJam'
 import ps4PreorderMask from './dlc/ps4PreorderMask'
+import sanMartinBankHeist from './dlc/sanMartinBankHeist'
 import scarfaceCharacterPack from './dlc/scarfaceCharacterPack'
+import scarfaceHeist from './dlc/scarfaceHeist'
 import sokolCharacterPack from './dlc/sokolCharacterPack'
+import southboundTailorPack from './dlc/southboundTailorPack'
 import sydneyCharacterPack from './dlc/sydneyCharacterPack'
 import theAlessoHeist from './dlc/theAlessoHeist'
 import theBigBankHeist from './dlc/theBigBankHeist'
@@ -41,54 +50,65 @@ import theOverkillPack from './dlc/theOverkillPack'
 import thePointBreakHeists from './dlc/thePointBreakHeists'
 import thespianMaskPack from './dlc/thespianMaskPack'
 import twistedMetal from './dlc/twistedMetal'
+import winterGhostsTailorPack from './dlc/winterGhostsTailorPack'
 import wolfPack from './dlc/wolfPack'
 import xboxOnePreorderMask from './dlc/xboxOnePreorderMask'
 import yakuzaCharacterPack from './dlc/yakuzaCharacterPack'
 import zagToys from './dlc/zagToys'
 
 const dlc: Record<string, Record<string, MaskData>> = {
-	'Lootbag': lootbag,
-	'A Mery Payday Christmas Soundtrack': aMerryPaydayChristmasSoundtrack,
-	'Armored Transport': armoredTransport,
-	'Gage Weapon Pack #1': gageWeaponPack1,
-	'Gage Weapon Pack #2': gageWeaponPack2,
-	'Poetry Jam': poetryJam,
-	'Gage Sniper Pack': gageSniperPack,
-	'The Big Bank Heist': theBigBankHeist,
-	'Gage Shotgun Pack': gageShotgunPack,
-	'Gage Assault Pack': gageAssaultPack,
-	'Hotline Miami': hotlineMiami,
-	'Gage Historical Pack': gageHistoricalPack,
-	'The Diamond Heist': theDiamondHeist,
-	'Clover Character Pack': cloverCharacterPack,
-	'Payday 2 Bundle Rewards': payday2BundleRewards,
-	'The Bomb Heists': theBombHeists,
-	'Dragan Character Pack': draganCharacterPack,
 	'The Butchers AK/CAR Mod Pack': theButchersAKCARModPack,
-	'The Overkill Pack': theOverkillPack,
-	'The Completely Overkill Pack': theCompletelyOverkillPack,
-	'The Butchers BBQ Pack': theButchersBBQPack,
-	'The Butchers Western Pack': theButchersWesternPack,
 	'The Alesso Heist': theAlessoHeist,
-	'The Golden Grin Casino Heist': theGoldenGrinCasinoHeist,
-	'Sokol Character Pack': sokolCharacterPack,
-	'Gage Ninja Pack': gageNinjaPack,
-	'Yakuza Character Pack': yakuzaCharacterPack,
-	'Gage Chivalry Pack': gageChivalryPack,
+	'Armored Transport': armoredTransport,
+	'The Butchers BBQ Pack': theButchersBBQPack,
 	'The Point Break Heists': thePointBreakHeists,
-	'The Goat Simulator Heist': theGoatSimulatorHeist,
-	'Wolf Pack': wolfPack,
-	'Sydney Character Pack': sydneyCharacterPack,
+	'San Martín Bank Heist': sanMartinBankHeist,
+	'The Big Bank Heist': theBigBankHeist,
 	'The Biker Heist': theBikerHeist,
-	'Biker Character Pack': bikerCharacterPack,
-	'John Wick Weapon Pack': johnWickWeaponPack,
-	'Gage Spec Ops Pack': gageSpecOpsPack,
+	'Mega City Tailor Pack': megaCityTailorPack,
+	'Clover Character Pack': cloverCharacterPack,
+	'Dragan Character Pack': draganCharacterPack,
+	'Sokol Character Pack': sokolCharacterPack,
 	'Scarface Character Pack': scarfaceCharacterPack,
-	'John Wick Heists Pack': johnWickHeistsPack,
-	'Gage Russian Weapon Pack': gageRussianWeaponPack,
-	'Zag Toys': zagToys,
-	'H3H3 Character Pack': h3H3CharacterPack,
+	'Buluc\'s Mansion heist': bulucsMansionHeist,
 	'Border Crossing Heist': borderCrossingHeist,
+	'Yakuza Character Pack': yakuzaCharacterPack,
+	'H3H3 Character Pack': h3H3CharacterPack,
+	'Scarface Heist Pack': scarfaceHeist,
+	'Gage Weapon Pack #1': gageWeaponPack1,
+	'Gage Assault Pack': gageAssaultPack,
+	'Gage Historical Pack': gageHistoricalPack,
+	'Gage Weapon Pack #2': gageWeaponPack2,
+	'Gage Shotgun Pack': gageShotgunPack,
+	'Gage Sniper Pack': gageSniperPack,
+	'Golden Dagger Tailor Pack': goldenDaggerTailorPack,
+	'Payday 2 Bundle Rewards': payday2BundleRewards,
+	'Gage Russian Weapon Pack': gageRussianWeaponPack,
+	'Hotline Miami': hotlineMiami,
+	'The Diamond Heist': theDiamondHeist,
+	'The Golden Grin Casino Heist': theGoldenGrinCasinoHeist,
+	'Sydney Character Pack': sydneyCharacterPack,
+	'The Overkill Pack': theOverkillPack,
+	'Wolf Pack': wolfPack,
+	'The Goat Simulator Heist': theGoatSimulatorHeist,
+	'John Wick Weapon Pack': johnWickWeaponPack,
+	'Poetry Jam': poetryJam,
+	'Guardians Tailor Pack': guardiansTailorPack,
+	'Winter Ghosts Tailor Pack': winterGhostsTailorPack,
+	'John Wick Heists Pack': johnWickHeistsPack,
+	'Gage Chivalry Pack': gageChivalryPack,
+	'Gage Spec Ops Pack': gageSpecOpsPack,
+	'The Bomb Heists': theBombHeists,
+	'Dragon Pack': dragonPack,
+	'Gage Ninja Pack': gageNinjaPack,
+	'Southbound Tailor Pack': southboundTailorPack,
+	'The Butchers Western Pack': theButchersWesternPack,
+	'Biker Character Pack': bikerCharacterPack,
+	'A Mery Payday Christmas Soundtrack': aMerryPaydayChristmasSoundtrack,
+	'Mountain Master Heist': mountainMasterHeist,
+	'Lootbag': lootbag,
+	'The Completely Overkill Pack': theCompletelyOverkillPack,
+	'Zag Toys': zagToys,
 	'Twisted Metal': twistedMetal,
 	'Thespian Mask Pack': thespianMaskPack,
 	'PS4 Preorder Mask': ps4PreorderMask,

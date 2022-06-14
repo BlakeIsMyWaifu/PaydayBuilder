@@ -23,22 +23,22 @@ const other: Record<string, MaskData> = {
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	'Mega Duke': {
-		name: 'Mega Duke',
-		image: 'mmh',
+	'Omen': {
+		name: 'Omen',
+		image: 'maw_01',
 		description: [
-			'Aristole, Plato, Confucius, Michelangelo, DaVinci, Newton, Galileo... artists and thinkers forever engraved in history. And somewhere in that history, the place of a heister is assured. Contained herein is their essence, so magnificent in combination that the very surface of the mask can barely contain it.'
+			'The mask is made from ancient stone, with carvings from each previous owner, and a symbol that radiates immense power. As the writing on the edge suggests, it is the beginning of the end for anyone who opposes the wearer.'
 		],
 		collection: 'Infamous (Other)',
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
 	},
-	'Omen': {
-		name: 'Omen',
-		image: 'maw_01',
+	'Mega Duke': {
+		name: 'Mega Duke',
+		image: 'mmh',
 		description: [
-			'The mask is made from ancient stone, with carvings from each previous owner, and a symbol that radiates immense power. As the writing on the edge suggests, it is the beginning of the end for anyone who opposes the wearer.'
+			'Aristole, Plato, Confucius, Michelangelo, DaVinci, Newton, Galileo... artists and thinkers forever engraved in history. And somewhere in that history, the place of a heister is assured. Contained herein is their essence, so magnificent in combination that the very surface of the mask can barely contain it.'
 		],
 		collection: 'Infamous (Other)',
 		rarity: 'Infamous',
