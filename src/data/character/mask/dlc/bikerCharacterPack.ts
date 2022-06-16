@@ -1,13 +1,21 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const bikerCharacterPack: Record<string, MaskData> = {
+import { DlcCollectionList } from '../dlc'
+
+type BikerCharacterPackList =
+	| 'Rust'
+	| 'Rust Begins'
+
+const bikerCharacterPack: Record<BikerCharacterPackList, MaskData<BikerCharacterPackList, DlcCollectionList>> = {
 	'Rust': {
 		name: 'Rust',
 		image: 'rust',
 		description: [
 			'The Devil is the moniker that has followed Rust for most of his life. Therefore, Rust\'s mask is a combination of a smiling clown with ominous horns protruding from his forehead, letting everyone know that the Devil is here.'
 		],
-		collection: 'Biker Character Pack DLC',
+		collection: 'Biker Character Pack',
+		source: content['Biker Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A BIKER CHARACTER PACK ITEM!',
 		cost: 'Free'
@@ -19,7 +27,8 @@ const bikerCharacterPack: Record<string, MaskData> = {
 			'This is a clean version of Rust\'s iconic mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
 		],
-		collection: 'Biker Character Pack DLC',
+		collection: 'Biker Character Pack',
+		source: content['Biker Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A BIKER CHARACTER PACK ITEM!',
 		cost: 'Free'

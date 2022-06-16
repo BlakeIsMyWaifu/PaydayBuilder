@@ -46,21 +46,21 @@ const Mask: FC = () => {
 	const collectionRefs = useRef<(HTMLDivElement | null)[] | RefObject<HTMLDivElement>[]>([])
 
 	const addToCategory = useCallback(async (category: CategoryList): Promise<void> => {
-		const loadMaskData = (category: CategoryList): Promise<Category<string>> => new Promise((res, rej) => {
+		const loadMaskData = (category: CategoryList): Promise<Category> => new Promise((res, rej) => {
 			import(`../../data/character/mask/${category}`).then(data => {
-				res(data.default as unknown as Category<string>)
+				res(data.default as unknown as Category)
 			}).catch(err => rej(err))
 		})
 		const newCategoryData = await loadMaskData(category)
 		setCategories({ [category]: newCategoryData })
 	}, [setCategories])
 
-	const getCurrentData = useCallback((): Category<string> => {
+	const getCurrentData = useCallback((): Category => {
 		const allDataArray = Object.entries(categories ?? {}).map(([key, value]) => {
 			const collections = Object.entries(value).map(([title, data]) => [`${key}?${title}`, data])
 			return Object.fromEntries(collections)
 		})
-		const allData: Category<string> = Object.assign({}, ...allDataArray)
+		const allData: Category = Object.assign({}, ...allDataArray)
 		return (selectedTab === 'all' ? allData : categories[selectedTab]) ?? {}
 	}, [categories, selectedTab])
 

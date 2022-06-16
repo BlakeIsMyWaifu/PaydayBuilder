@@ -1,13 +1,21 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const sokolCharacterPack: Record<string, MaskData> = {
+import { DlcCollectionList } from '../dlc'
+
+type SokolCharacterPackList =
+	| 'Sokol'
+	| 'Sokol Begins'
+
+const sokolCharacterPack: Record<SokolCharacterPackList, MaskData<SokolCharacterPackList, DlcCollectionList>> = {
 	'Sokol': {
 		name: 'Sokol',
 		image: 'sokol',
 		description: [
 			'If playing as a grinder for the St Petersburg Bombers hockey team taught Sokol the value of one thing, it was the importance of a terrifying mask that protects his handsome Russian face.'
 		],
-		collection: 'Sokol Character Pack DLC',
+		collection: 'Sokol Character Pack',
+		source: content['Sokol Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A SOKOL CHARACTER PACK ITEM!',
 		cost: 'Free'
@@ -19,7 +27,8 @@ const sokolCharacterPack: Record<string, MaskData> = {
 			'This is a clean version of Sokol\'s iconic mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
 		],
-		collection: 'Sokol Character Pack DLC',
+		collection: 'Sokol Character Pack',
+		source: content['Sokol Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A SOKOL CHARACTER PACK ITEM!',
 		cost: 'Free'

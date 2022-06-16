@@ -1,6 +1,12 @@
 import { MaskData } from 'data/character/masks'
+import source from 'data/source/miscSources'
 
-const twistedMetal: Record<string, MaskData> = {
+import { DlcCollectionList } from '../dlc'
+
+type TwistedMetalList =
+	| 'Sweettooth'
+
+const twistedMetal: Record<TwistedMetalList, MaskData<TwistedMetalList, DlcCollectionList>> = {
 	'Sweettooth': {
 		name: 'Sweettooth',
 		image: 'Sweettooth',
@@ -8,7 +14,8 @@ const twistedMetal: Record<string, MaskData> = {
 			'Sweet Tooth, real name Marcus \'Needles\' Kane is a character from the Twisted Metal video game series. Sweet Tooth is best known for being a killer clown that drives a combat ice cream truck.',
 			'It\'s said that he once had escaped from a mental institution. He now leads a life of crime.'
 		],
-		collection: 'Twisted Metal DLC',
+		collection: 'Twisted Metal',
+		source: source['Base Game'],
 		rarity: 'Paid',
 		unlock: '',
 		cost: '$10,250'

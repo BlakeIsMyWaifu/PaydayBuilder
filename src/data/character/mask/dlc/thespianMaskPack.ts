@@ -1,6 +1,12 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const thespianMaskPack: Record<string, MaskData> = {
+import { DlcCollectionList } from '../dlc'
+
+type ThespianMaskPackList =
+	| 'Thespian'
+
+const thespianMaskPack: Record<ThespianMaskPackList, MaskData<ThespianMaskPackList, DlcCollectionList>> = {
 	'Thespian': {
 		name: 'Thespian',
 		image: 'Thespian',
@@ -9,7 +15,8 @@ const thespianMaskPack: Record<string, MaskData> = {
 			'His helmet is popular gift in the criminal underworld and is given to thieves, thugs and career criminals who show loyalty and patience to their syndicate.',
 			'We at OVERKILL salute you for your loyalty and patience!'
 		],
-		collection: 'Thespian Mask Pack DLC',
+		collection: 'Thespian Mask Pack',
+		source: content['Thespian Mask Pack DLC'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A THESPIAN MASK PACK ITEM!',
 		cost: '$6,750'

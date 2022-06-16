@@ -1,13 +1,42 @@
 import { MaskData } from 'data/character/masks'
+import source from 'data/source/miscSources'
 
-const achievement: Record<string, MaskData> = {
+import { FreeCollectionList } from '../free'
+
+type AchievementList =
+	| 'Almir\'s Beard'
+	| 'Krampus'
+	| 'Mechanical Santa'
+	| 'Mrs. Claus'
+	| 'The Strinch'
+	| 'The Champ'
+	| 'The Tids'
+	| 'Funnyman'
+	| 'Dawg'
+	| 'No Me Gusta'
+	| 'Rageface'
+	| 'Greedy the Elf'
+	| 'Rudelf'
+	| 'Cloaker-san'
+	| 'Zero 68'
+	| 'Augmentation'
+	| 'Safety First'
+	| 'Paycheck Chains'
+	| 'Paycheck Dallas'
+	| 'Alces'
+	| 'Canis Lupus'
+	| 'Felis Lynx'
+	| 'Ursus Maritimus'
+
+const achievement: Record<AchievementList, MaskData<AchievementList, FreeCollectionList>> = {
 	'Almir\'s Beard': {
 		name: 'Almir\'s Beard',
 		image: 'almirs_beard',
 		description: [
 			'Some say that real men don\'t shave, but the truth is that real men can\'t shave. Ordinary razors simply bounce off the dense, magnificent foliage that is a truly full Almir beard.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked Unlocked via \'Riders On the Snowstorm\''
@@ -18,10 +47,11 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'Been a bad boy or girl this year? Then you can expect a visit from Krampus. Or a phone-call from Bain.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
-		cost: 'Unlocked via \'Cancelling Santa’s Christmas\''
+		cost: 'Unlocked via \'Cancelling Santa\'s Christmas\''
 	},
 	'Mechanical Santa': {
 		name: 'Mechanical Santa',
@@ -29,7 +59,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'This jolly, festive automaton has the heart of Santa. He keeps it in a box, under a pile of elf corpses, and surrounded by severed reindeer heads.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'Clasutrophobia\''
@@ -40,10 +71,11 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'When Santa is flying through December skies, someone has to stay home and keep the elves in line. No-one does that better than the whip-cracking, cigar-smoking kommandant of the Claus household.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
-		cost: 'Unlocked via \'Vlad’s Little Helpers\''
+		cost: 'Unlocked via \'Vlad\'s Little Helpers\''
 	},
 	'The Strinch': {
 		name: 'The Strinch',
@@ -51,7 +83,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'A seasoned heister over the festival period, the Strinch has been stealing Christmases since 1957. Also linked with the Halloween Heist of 1972.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'Stealing Christmas\''
@@ -62,7 +95,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'This is the Champ mask. Based on a bad day for Dallas. How bad?, imagine being on the business end of thirteen rounds with a professional boxer. Swollen brow, concussions, dislocated jaw - you name it, and this mask has it. Yeah, a really bad day for Dallas.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'Knockout!\''
@@ -73,7 +107,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'Some say his racing leathers are made from bleached dolphin skin, and that his oily secretions are prized in Chinese medicine. All we know is... he\'s called The Tids.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'Gone in 240 Seconds\''
@@ -84,7 +119,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'The Funnyman knows how to make people laugh. The Funnyman might go too far and take a hit or two. Beware though, because a person who can control others laughter knows how to get the last laugh.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'I Want to Get Away\''
@@ -95,7 +131,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'Such mask. Much disguise. Very robber.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'Jump! Jump! Jump!\''
@@ -106,7 +143,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'When you\'re robbing a bank and there\'s only a toast in the deposit box.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'Bunnyhopping\''
@@ -117,7 +155,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'Dodging a cloaker kick and your buddy gets hit. Lol.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'I Never Asked For This\''
@@ -128,7 +167,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'Santa\'s elves have a tough job. No medical, dental and they endure the whip of Mrs. Claus, but at least they have these fucking sweet hats.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'Pumped Up and Jolly\''
@@ -139,7 +179,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'Houston wore these at the Payday crews\' Christmas party until Hoxton told him he \'looked a proper tit\'. Ignore Hox. Embrace the spirit of Christmas.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'Euro Bag Simulator\''
@@ -151,7 +192,8 @@ const achievement: Record<string, MaskData> = {
 			'It\'s not only the American government that uses specially trained operatives for infiltration missions. Japan has their own unit called the Anbu, and while this mask is only a prototype, it\'s very similar to the actual thing they use.',
 			'Activate Night Vision Mode by holding down the Fire Mode button.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'Ghost Run\''
@@ -162,7 +204,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'Inspired by the immensely popular anime Zero 68, this mask is modeled after the helmet of the cyborg-ninja hero of the show.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'The Ground Is Too Cold\''
@@ -173,7 +216,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'The future is now. This special mouthpiece is believed to be developed for soldiers of the future, acting not only as a gasmask but also give the wearer the ability to breathe under water. Unfortunately, this one seems broken, but it still looks cool.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'The Pacifist\''
@@ -184,7 +228,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'A scientist inspired by the virtual-reality sex scene in Demolition Man made his own attempt at building a device where no physical contact would actually be needed when performing intercourse. The experiment was an utter failure but a few of the prototypes still exist.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'Crazy Ivan\''
@@ -195,7 +240,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'Paycheck Chains longs to be completely bonkers. But truth be told, behind that mask he\'s just a regular guy trying to make an indecent living. When trying to push his normal self into craziness, he took a poodle hostage during a robbery when a police'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '(sic) showed up. What crazy person would do that, right? But he picked the wrong vicious mongrel to mess with. The dog ended up biting everyone in the crew before they managed to escape the beast. News report(sic) after the robbery claimed the dog showed symptoms of rabies. Maybe Paycheck Chains will finally become as crazy as he wants to be...',
 		cost: 'Unlocked via \'Imitations\''
@@ -206,7 +252,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'Paycheck Dallas finally made the decision to stop using black plastic bags for concealment. He gathered the nerve to order a real Dallas-mask to honor his idol, but that online printing service didn\'t exactly deliver the real deal... Even so, with the mask, he\'s trying to step up his game and convinced the Paycheck gang to raid a china shop. The CCTV footage shows that Paycheck Dallas accidentally broke the biggest vase while storming in. That made him apologize to the owner, grabb'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '(sic) all small changes(sic) from the register and run for the door. Probably blushing like a tomato behind that smiling neon mask.',
 		cost: 'Unlocked via \'Imitations\''
@@ -217,7 +264,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'Make the hunted become the hunter and stagger your way through any heist with these impressive horns.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'All the Gold in Brooklyn\''
@@ -228,7 +276,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'Blow down the bank vaults and scare the crap out of all the little pigs with this mask.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'All the Gold in Brooklyn\''
@@ -239,7 +288,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'Never come between a cat and his prey, or a heister and his loot!'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'Obsessive Opening\''
@@ -250,7 +300,8 @@ const achievement: Record<string, MaskData> = {
 		description: [
 			'Fight global warming with a mighty roar while wearing this magnificent face covering.'
 		],
-		collection: 'Normal (Achievement)',
+		collection: 'Achievement',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Unlocked via \'Obsessive Opening\''

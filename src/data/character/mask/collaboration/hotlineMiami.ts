@@ -1,6 +1,15 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const hotlineMiami: Record<string, MaskData> = {
+import { CollaborationCollectionList } from '../collaboration'
+
+type HotlineMiamiList =
+	| 'Brandon'
+	| 'Don Juan'
+	| 'Richard'
+	| 'Tony'
+
+const hotlineMiami: Record<HotlineMiamiList, MaskData<HotlineMiamiList, CollaborationCollectionList>> = {
 	'Brandon': {
 		name: 'Brandon',
 		image: 'panther',
@@ -9,6 +18,7 @@ const hotlineMiami: Record<string, MaskData> = {
 			'Brandon is a panther, and panthers are large cats. One funny thing is that only the tiger, lion, leopard and jaguar has the anatomical structure which enables them to roar. Poor panther.'
 		],
 		collection: 'Hotline Miami',
+		source: content['Hotline Miami Exclusive Content'],
 		rarity: 'Collaboration',
 		unlock: '',
 		cost: 'Requires ownership of Hotline Miami on Steam.'
@@ -22,6 +32,7 @@ const hotlineMiami: Record<string, MaskData> = {
 			'Pro tip: In Hotline Miami, you get 2200 points while performing ground kills against the wall when using this mask.'
 		],
 		collection: 'Hotline Miami',
+		source: content['Hotline Miami Exclusive Content'],
 		rarity: 'Collaboration',
 		unlock: '',
 		cost: 'Requires ownership of Hotline Miami on Steam.'
@@ -37,6 +48,7 @@ const hotlineMiami: Record<string, MaskData> = {
 			'Why are we having this conversation?'
 		],
 		collection: 'Hotline Miami',
+		source: content['Hotline Miami Exclusive Content'],
 		rarity: 'Collaboration',
 		unlock: '',
 		cost: 'Requires ownership of Hotline Miami on Steam.'
@@ -49,6 +61,7 @@ const hotlineMiami: Record<string, MaskData> = {
 			'Tony was born in the 1970s and was of Italian-American nationality. Many people easily recognize Tony. Probably in part because of his Tiger mask, and in part because of his physical brutality when dealing with people he don\'t like.'
 		],
 		collection: 'Hotline Miami',
+		source: content['Hotline Miami Exclusive Content'],
 		rarity: 'Collaboration',
 		unlock: '',
 		cost: 'Requires ownership of Hotline Miami on Steam.'

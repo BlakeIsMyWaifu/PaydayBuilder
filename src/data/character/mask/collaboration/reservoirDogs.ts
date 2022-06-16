@@ -1,6 +1,14 @@
 import { MaskData } from 'data/character/masks'
+import source from 'data/source/miscSources'
 
-const reservoirDogs: Record<string, MaskData> = {
+import { CollaborationCollectionList } from '../collaboration'
+
+type ReservoirDogsList =
+	| 'Futuras'
+	| 'Producers'
+	| 'The Dons'
+
+const reservoirDogs: Record<ReservoirDogsList, MaskData<ReservoirDogsList, CollaborationCollectionList>> = {
 	'Futuras': {
 		name: 'Futuras',
 		image: 'rvd_02',
@@ -8,6 +16,7 @@ const reservoirDogs: Record<string, MaskData> = {
 			'Look no further for a bad ass cherry to put on top of your Ice Cream of Minigun mayhem.'
 		],
 		collection: 'Reservoir Dogs',
+		source: source['Base Game'],
 		rarity: 'Collaboration',
 		unlock: '\'THIS IS A RESERVOIR DOGS ITEM!',
 		cost: 'Free'
@@ -19,6 +28,7 @@ const reservoirDogs: Record<string, MaskData> = {
 			'These frames harken back to a time when moon-landings were envisioned, all dreams were possible and people all dressed a little nicer.'
 		],
 		collection: 'Reservoir Dogs',
+		source: source['Base Game'],
 		rarity: 'Collaboration',
 		unlock: '\'THIS IS A RESERVOIR DOGS ITEM!',
 		cost: 'Free'
@@ -30,6 +40,7 @@ const reservoirDogs: Record<string, MaskData> = {
 			'True class is eternal when accepted by scoundrels and heroes alike.'
 		],
 		collection: 'Reservoir Dogs',
+		source: source['Base Game'],
 		rarity: 'Collaboration',
 		unlock: '\'THIS IS A RESERVOIR DOGS ITEM!',
 		cost: 'Free'

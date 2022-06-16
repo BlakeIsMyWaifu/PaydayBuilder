@@ -1,13 +1,24 @@
 import { MaskData } from 'data/character/masks'
+import source from 'data/source/miscSources'
 
-const other: Record<string, MaskData> = {
+import { FreeCollectionList } from '../free'
+
+type OtherList =
+	| 'Tormentor'
+	| 'God Emperor'
+	| 'The 45th'
+	| 'Fire Rooster'
+	| 'The 46th'
+
+const other: Record<OtherList, MaskData<OtherList, FreeCollectionList>> = {
 	'Tormentor': {
 		name: 'Tormentor',
 		image: 'tormentor',
 		description: [
 			'A smile can hide the most murderous thought, but the eyes can never lie. Reading a person is mostly looking straight into their eyes. What\'s truly terrifying is people who wear their thoughts on their face and within a second it\'s hard for the beholder to suppress a scream.'
 		],
-		collection: 'Normal (Other)',
+		collection: 'Other',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Free'
@@ -20,7 +31,8 @@ const other: Record<string, MaskData> = {
 			'The Mega 45th mask is an evolved version of the original mask. It symbolises transcendence and catharsis.',
 			'Thank you for your support.'
 		],
-		collection: 'Normal (Other)',
+		collection: 'Other',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: 'OVERKILL salutes you!',
 		cost: 'Free'
@@ -32,7 +44,8 @@ const other: Record<string, MaskData> = {
 			'Commander-In-Chief, father. Has an ambition to serve this great nation for 8 years. A talkative man, no doubt.',
 			'The 45th is one of the most controversial presidents in history. Among criminals however, he remains extremely popular.'
 		],
-		collection: 'Normal (Other)',
+		collection: 'Other',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Free'
@@ -43,7 +56,8 @@ const other: Record<string, MaskData> = {
 		description: [
 			'You\'re a reliable firestarter, always on time and always on target. As the new year begins, you will set your sights on that shining gold, the most noble metal of them all. Your motives may be shady, but seven is magnificent and before you know it you\'ll be high-fiving to celebrate that perfect heist. Maybe you\'ll finally get that eight-ball tattoo.'
 		],
-		collection: 'Normal (Other)',
+		collection: 'Other',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Free'
@@ -57,7 +71,8 @@ const other: Record<string, MaskData> = {
 			'The 46th, some say, will bring order to chaos while others hold a very opposing opinion. Among criminals however, he remains extremely popular.',
 			'Concept by Roger Mata.'
 		],
-		collection: 'Normal (Other)',
+		collection: 'Other',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Free'

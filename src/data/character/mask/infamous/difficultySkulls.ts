@@ -1,6 +1,19 @@
 import { MaskData } from 'data/character/masks'
+import source from 'data/source/miscSources'
 
-const difficultySkulls: Record<string, MaskData> = {
+import { InfamousCollectionList } from '../infamous'
+
+type DifficultySkullsList =
+	| 'Normal Skull, The'
+	| 'Hard Skull, The'
+	| 'Very Hard Skull, The'
+	| 'OVERKILL Skull, The'
+	| 'Mayhem Skull, The'
+	| 'Death Wish Skull, The'
+	| 'Death Sentence Skull, The'
+	| 'One Down Skull, The'
+
+const difficultySkulls: Record<DifficultySkullsList, MaskData<DifficultySkullsList, InfamousCollectionList>> = {
 	'Normal Skull, The': {
 		name: 'Normal Skull, The',
 		image: 'dnm',
@@ -9,6 +22,7 @@ const difficultySkulls: Record<string, MaskData> = {
 			'You finished all heists on the Normal difficulty? What are you, some kind of gangster? Maybe this mask will suit you after all.'
 		],
 		collection: 'Difficulty Skulls',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'Criminal Origins\''
@@ -21,6 +35,7 @@ const difficultySkulls: Record<string, MaskData> = {
 			'You finished all heists on the Hard difficulty? What are you, some kind of pro? Maybe this mask will suit you after all.'
 		],
 		collection: 'Difficulty Skulls',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'Tough Act to Follow\''
@@ -33,6 +48,7 @@ const difficultySkulls: Record<string, MaskData> = {
 			'You finished all heists on the Very Hard difficulty? What are you, some kind of monster? Maybe this mask will suit you after all.'
 		],
 		collection: 'Difficulty Skulls',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'Shit Just Got Real\''
@@ -45,6 +61,7 @@ const difficultySkulls: Record<string, MaskData> = {
 			'You finished all heists on the OVERKILL difficulty? What are you, some kind of pit fiend? Maybe this mask will suit you after all.'
 		],
 		collection: 'Difficulty Skulls',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'Completely OVERKILL!\''
@@ -57,6 +74,7 @@ const difficultySkulls: Record<string, MaskData> = {
 			'You finished all heists on Mayhem difficulty? What are you, some kind of beast? Maybe this mask will suit you after all.'
 		],
 		collection: 'Difficulty Skulls',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'Master of Mayhem\''
@@ -69,6 +87,7 @@ const difficultySkulls: Record<string, MaskData> = {
 			'You finished all heists on the Death Wish difficulty? What are you, some kind of demon? Maybe this mask will suit you after all.'
 		],
 		collection: 'Difficulty Skulls',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'OVERKILL Salutes You!\''
@@ -81,6 +100,7 @@ const difficultySkulls: Record<string, MaskData> = {
 			'We at OVERKILL are surprised, baffled and genuinely impressed. You did it. You are among a certain few who stuck with it and actually finished the hardest difficulty we could think of. You fought, you suffered and you persevered. You have our eternal respect, you ruler of demons.'
 		],
 		collection: 'Difficulty Skulls',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'A Heister of Legend\''
@@ -93,6 +113,7 @@ const difficultySkulls: Record<string, MaskData> = {
 			'Look ye into the sky, as fire rains down from the heavens, followed by molten gold, to cover the land in a glittering metal blanket of awesome to illuminate your greatness as a heister. With every bar that is raised, you step up to the challenge, and have so done yet again. Construction of a throne is underway here at the OVERKILL office, so that we may bow to and worship your utterly divine skills at not getting beaten by anything we throw at you.'
 		],
 		collection: 'Difficulty Skulls',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked via \'One More Down, No More To Go\''

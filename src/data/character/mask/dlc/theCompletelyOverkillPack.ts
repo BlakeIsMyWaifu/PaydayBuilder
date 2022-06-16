@@ -1,6 +1,25 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const theCompletelyOverkillPack: Record<string, MaskData> = {
+import { DlcCollectionList } from '../dlc'
+
+type TheCompletelyOverkillPackList =
+	| 'Mega Chains'
+	| 'Mega Cthulhu'
+	| 'Mega Dallas'
+	| 'Mega Death Wish'
+	| 'Mega Doctor Crime'
+	| 'Mega Gage Blade'
+	| 'Mega Grin'
+	| 'Mega Hoxton'
+	| 'Mega Kawaii'
+	| 'Mega Kevin'
+	| 'Mega Mark'
+	| 'Mega Plague Doctor'
+	| 'Mega Watcher'
+	| 'Mega Wolf'
+
+const theCompletelyOverkillPack: Record<TheCompletelyOverkillPackList, MaskData<TheCompletelyOverkillPackList, DlcCollectionList>> = {
 	'Mega Chains': {
 		name: 'Mega Chains',
 		image: 'chains_glow',
@@ -10,6 +29,7 @@ const theCompletelyOverkillPack: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'The COMPLETELY OVERKILL Pack',
+		source: content['The COMPLETELY OVERKILL Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
@@ -23,6 +43,7 @@ const theCompletelyOverkillPack: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'The COMPLETELY OVERKILL Pack',
+		source: content['The COMPLETELY OVERKILL Pack II'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
@@ -36,6 +57,7 @@ const theCompletelyOverkillPack: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'The COMPLETELY OVERKILL Pack',
+		source: content['The COMPLETELY OVERKILL Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
@@ -49,6 +71,7 @@ const theCompletelyOverkillPack: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'The COMPLETELY OVERKILL Pack',
+		source: content['The COMPLETELY OVERKILL Pack II'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
@@ -62,6 +85,7 @@ const theCompletelyOverkillPack: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'The COMPLETELY OVERKILL Pack',
+		source: content['The COMPLETELY OVERKILL Pack III'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
@@ -75,6 +99,7 @@ const theCompletelyOverkillPack: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'The COMPLETELY OVERKILL Pack',
+		source: content['The COMPLETELY OVERKILL Pack III'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
@@ -88,6 +113,7 @@ const theCompletelyOverkillPack: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'The COMPLETELY OVERKILL Pack',
+		source: content['The COMPLETELY OVERKILL Pack III'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
@@ -101,6 +127,7 @@ const theCompletelyOverkillPack: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'The COMPLETELY OVERKILL Pack',
+		source: content['The COMPLETELY OVERKILL Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
@@ -114,6 +141,7 @@ const theCompletelyOverkillPack: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'The COMPLETELY OVERKILL Pack',
+		source: content['The COMPLETELY OVERKILL Pack II'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
@@ -127,6 +155,7 @@ const theCompletelyOverkillPack: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'The COMPLETELY OVERKILL Pack',
+		source: content['The COMPLETELY OVERKILL Pack II'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
@@ -140,6 +169,7 @@ const theCompletelyOverkillPack: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'The COMPLETELY OVERKILL Pack',
+		source: content['The COMPLETELY OVERKILL Pack III'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
@@ -153,6 +183,7 @@ const theCompletelyOverkillPack: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'The COMPLETELY OVERKILL Pack',
+		source: content['The COMPLETELY OVERKILL Pack II'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
@@ -166,6 +197,7 @@ const theCompletelyOverkillPack: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'The COMPLETELY OVERKILL Pack',
+		source: content['The COMPLETELY OVERKILL Pack III'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'
@@ -179,6 +211,7 @@ const theCompletelyOverkillPack: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'The COMPLETELY OVERKILL Pack',
+		source: content['The COMPLETELY OVERKILL Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A COMPLETELY OVERKILL PACK ITEM!',
 		cost: 'Free'

@@ -1,6 +1,12 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const lootbag: Record<string, MaskData> = {
+import { DlcCollectionList } from '../dlc'
+
+type LootbagList =
+	| 'The Skull'
+
+const lootbag: Record<LootbagList, MaskData<LootbagList, DlcCollectionList>> = {
 	'The Skull': {
 		name: 'The Skull',
 		image: 'skull',
@@ -9,7 +15,8 @@ const lootbag: Record<string, MaskData> = {
 			'Created in the heavens as a gift by the gods to men and women who believed in them early on, who built their shrines and spread their beliefs across the lands.',
 			'Thank you for believing in us! We salute you!'
 		],
-		collection: 'Lootbag DLC',
+		collection: 'Lootbag',
+		source: content.Lootbag,
 		rarity: 'Paid',
 		unlock: 'THIS IS A LOOT BAG ITEM!',
 		cost: '$6,750'

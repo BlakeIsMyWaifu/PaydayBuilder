@@ -1,13 +1,25 @@
 import { MaskData } from 'data/character/masks'
+import source from 'data/source/miscSources'
 
-const lockeAndLoad: Record<string, MaskData> = {
+import { FreeCollectionList } from '../free'
+
+type LockeAndLoadList =
+	| 'Retro Chains'
+	| 'Retro Dallas'
+	| 'Retro Hoxton'
+	| 'Retro Wolf'
+	| 'Z.A.M.S Helmet'
+	| 'Rhubarb'
+
+const lockeAndLoad: Record<LockeAndLoadList, MaskData<LockeAndLoadList, FreeCollectionList>> = {
 	'Retro Chains': {
 		name: 'Retro Chains',
 		image: 'cmo_04',
 		description: [
 			'Combat and shooter games that simulate intense situations between players is a great way to keep up your skills in between jobs. Chains likes games that train your situational awareness and award skillfull'
 		],
-		collection: 'Normal (Locke and Load)',
+		collection: 'Locke and Load',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '(sic) play by gaining the upperhand in a fight.',
 		cost: 'Free'
@@ -18,7 +30,8 @@ const lockeAndLoad: Record<string, MaskData> = {
 		description: [
 			'A good tactical game is the perfect way to prep before a big heist. Dallas prefers to kick-start his strategic mind with something difficult and calculating where you need to manage units and resources to achieve victory.'
 		],
-		collection: 'Normal (Locke and Load)',
+		collection: 'Locke and Load',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Free'
@@ -29,7 +42,8 @@ const lockeAndLoad: Record<string, MaskData> = {
 		description: [
 			'Solving logic puzzles as a brain teaser is a great way to unwind after some intense criminal activity. Hoxton likes games that lets'
 		],
-		collection: 'Normal (Locke and Load)',
+		collection: 'Locke and Load',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '(sic) him wrap his head around a problem and figure it out one step at a time with the clues given.',
 		cost: 'Free'
@@ -40,7 +54,8 @@ const lockeAndLoad: Record<string, MaskData> = {
 		description: [
 			'Violent games help Wolf getting into the mood'
 		],
-		collection: 'Normal (Locke and Load)',
+		collection: 'Locke and Load',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '(sic) for a heist. The more blood, gore and carnage the better. He prefers games that test your reaction and speed.(sic) Games where every second counts for your survival against a nearly endless horde of enemies.',
 		cost: 'Free'
@@ -51,7 +66,8 @@ const lockeAndLoad: Record<string, MaskData> = {
 		description: [
 			'Classic gear can be a wonderful thing. The mindset of a heroic thrill-seeker riding a 200BHP steel horse has many things in common with a heister that are not obvious at first glance- the aesthetic value of a piece of custom headgear being one of them!'
 		],
-		collection: 'Normal (Locke and Load)',
+		collection: 'Locke and Load',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Free'
@@ -63,7 +79,8 @@ const lockeAndLoad: Record<string, MaskData> = {
 			'A tribute to our legendary adventurer [MANY GUN] CLOVERAPTOR- solver of mysteries and bringer of The Mega Death! Giving up a dream of being a banker, he faced his destiny and faced the Cop Wizard and his minions, the Law Elementals. Who knows if it was his own will, or his pushy Crime Dad, that allowed him to prevail, but we will be forever grateful for his service.',
 			'OVERKILL Salutes You!'
 		],
-		collection: 'Normal (Locke and Load)',
+		collection: 'Locke and Load',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: 'Free'

@@ -29,10 +29,10 @@ export type EventCollectionList =
 	| 'Humble Mask Pack 4'
 	| 'Humble Mask Pack 5'
 	| 'Locke and Load Day 9'
-	| 'Paydaycon 2015 Secret Mask'
-	| 'Paydaycon 2016 Secret Mask'
-	| 'Hoxtons Housewarming Party'
-	| 'Sydney Swim Challenge'
+	| 'PAYDAYCON 2015 Secret Mask'
+	| 'PAYDAYCON 2016 Secret Mask'
+	| 'Hoxton\'s Housewarming Party'
+	| 'Sydney\'s Swim Challenge'
 	| 'Halloween 2021'
 	| 'Humble Mask Pack'
 	| 'Payday 2 8th Anniversary'
@@ -79,19 +79,19 @@ const event: Category<EventCollectionList> = {
 		id: 0,
 		masks: lockeAndLoadDay9
 	},
-	'Paydaycon 2015 Secret Mask': {
+	'PAYDAYCON 2015 Secret Mask': {
 		id: 0,
 		masks: paydaycon2015SecretMask
 	},
-	'Paydaycon 2016 Secret Mask': {
+	'PAYDAYCON 2016 Secret Mask': {
 		id: 0,
 		masks: paydaycon2016SecretMask
 	},
-	'Hoxtons Housewarming Party': {
+	'Hoxton\'s Housewarming Party': {
 		id: 0,
 		masks: hoxtonsHousewarmingParty
 	},
-	'Sydney Swim Challenge': {
+	'Sydney\'s Swim Challenge': {
 		id: 0,
 		masks: sydneysSwimChallenge
 	},

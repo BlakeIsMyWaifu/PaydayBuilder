@@ -1,13 +1,21 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const scarfaceCharacterPack: Record<string, MaskData> = {
+import { DlcCollectionList } from '../dlc'
+
+type ScarfaceCharacterPackList =
+	| 'Scarface'
+	| 'Scarface Begins'
+
+const scarfaceCharacterPack: Record<ScarfaceCharacterPackList, MaskData<ScarfaceCharacterPackList, DlcCollectionList>> = {
 	'Scarface': {
 		name: 'Scarface',
 		image: 'chc_terry',
 		description: [
 			'Scarface came to the US with nothing more than two empty hands and a bad attitude, the darkness in his heart matched only by the brilliance of his criminal mind. His mask tells the story, complete with the trail of blood he left in his wake as he began to make his mark.'
 		],
-		collection: 'Scarface Character Pack DLC',
+		collection: 'Scarface Character Pack',
+		source: content['Scarface Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A SCARFACE CHARACTER PACK ITEM!',
 		cost: 'Free'
@@ -19,7 +27,8 @@ const scarfaceCharacterPack: Record<string, MaskData> = {
 			'This is a clean version of the iconic Scarface mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
 		],
-		collection: 'Scarface Character Pack DLC',
+		collection: 'Scarface Character Pack',
+		source: content['Scarface Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A SCARFACE CHARACTER PACK ITEM!',
 		cost: 'Free'

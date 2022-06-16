@@ -1,6 +1,12 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const bulucsMansionHeist: Record<string, MaskData> = {
+import { DlcCollectionList } from '../dlc'
+
+type BulucsMansionHeistList =
+	| 'Undead Peacock'
+
+const bulucsMansionHeist: Record<BulucsMansionHeistList, MaskData<BulucsMansionHeistList, DlcCollectionList>> = {
 	'Undead Peacock': {
 		name: 'Undead Peacock',
 		image: 'buluc',
@@ -8,6 +14,7 @@ const bulucsMansionHeist: Record<string, MaskData> = {
 			'He who has the most outrageously hideous visage on his head, wins.'
 		],
 		collection: 'Buluc\'s Mansion Heist',
+		source: content['Buluc\'s Mansion Heist'],
 		rarity: 'Paid',
 		unlock: 'THIS ITEM IS A BULUC\'S MANSION HEIST ITEM!',
 		cost: ''

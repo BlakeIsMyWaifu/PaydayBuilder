@@ -1,6 +1,14 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const humbleMaskPack5: Record<string, MaskData> = {
+import { EventCollectionList } from '../event'
+
+type HumbleMaskPack5List =
+	| 'Floating Guy'
+	| 'Garreth'
+	| 'The Judge'
+
+const humbleMaskPack5: Record<HumbleMaskPack5List, MaskData<HumbleMaskPack5List, EventCollectionList>> = {
 	'Floating Guy': {
 		name: 'Floating Guy',
 		image: 'damned',
@@ -8,6 +16,7 @@ const humbleMaskPack5: Record<string, MaskData> = {
 			'As you walk down the corridor you see this scary, but also somewhat slow guy. Hovering there, ominously. Hard to tell if he\'s a threat or just floating around a bit. But then. A blast breaks the silence and you cease to exist. So next time you meet Floating Guy: come prepared and don\'t take him lightly.'
 		],
 		collection: 'Humble Mask Pack 5',
+		source: content['Humble Mask Pack 5'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HUMBLE MASK PACK 5 ITEM!',
 		cost: 'Free'
@@ -19,6 +28,7 @@ const humbleMaskPack5: Record<string, MaskData> = {
 			'In space you need a trusted companion. As everything from huge monsters on distant planets to space itself is deadly - you need an ally. Not just a hired gun. But instead a friend and a soldier that makes sure that you survive and others don\'t. Be happy that Garreth is on your team. Be happy that he helps you shepherd the herd'
 		],
 		collection: 'Humble Mask Pack 5',
+		source: content['Humble Mask Pack 5'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HUMBLE MASK PACK 5 ITEM!',
 		cost: 'Free'
@@ -30,6 +40,7 @@ const humbleMaskPack5: Record<string, MaskData> = {
 			'\'Those pesky youngsters think they can just run around doing whatever they feel like. Don\'t they understand? I exist for a reason. One must obey me - my ruling and my saying. Escaping the world, just feeling free? What kind of life is that? Riding around on those yellow bird creations. No respect for the empire or the emperor. Disgraceful!\''
 		],
 		collection: 'Humble Mask Pack 5',
+		source: content['Humble Mask Pack 5'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HUMBLE MASK PACK 5 ITEM!',
 		cost: 'Free'

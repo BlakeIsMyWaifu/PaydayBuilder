@@ -19,7 +19,7 @@ type SourceList =
 	'Winter Wonderland 2021' |
 	'8th Anniversary Event'
 
-const miscSources: Record<SourceList, SourceData> = {
+const source: Record<SourceList, SourceData> = {
 	'Base Game': {
 		name: 'Base Game',
 		rarity: 'Free',
@@ -77,4 +77,4 @@ const miscSources: Record<SourceList, SourceData> = {
 	}
 }
 
-export default miscSources
+export default source

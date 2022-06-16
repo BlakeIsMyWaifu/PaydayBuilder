@@ -1,13 +1,23 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const guardiansTailorPack: Record<string, MaskData> = {
+import { DlcCollectionList } from '../dlc'
+
+type GuardiansTailorPackList =
+	| 'Azure Dragon'
+	| 'Black Tortoise'
+	| 'Vermilion Bird'
+	| 'White Tiger'
+
+const guardiansTailorPack: Record<GuardiansTailorPackList, MaskData<GuardiansTailorPackList, DlcCollectionList>> = {
 	'Azure Dragon': {
 		name: 'Azure Dragon',
 		image: '???',
 		description: [
 			'Don this symbol of the four auspicious beats and wield the great power of the east to bring on the coming of spring!'
 		],
-		collection: 'Guardian Tailor Pack',
+		collection: 'Guardians Tailor Pack',
+		source: content['Guardians Tailor Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A GUARDIANS TAILOR PACK ITEM!',
 		cost: ''
@@ -18,7 +28,8 @@ const guardiansTailorPack: Record<string, MaskData> = {
 		description: [
 			'The darkest of the four auspicious beasts calls forth winter from the northlands!'
 		],
-		collection: 'Guardian Tailor Pack',
+		collection: 'Guardians Tailor Pack',
+		source: content['Guardians Tailor Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A GUARDIANS TAILOR PACK ITEM!',
 		cost: ''
@@ -29,7 +40,8 @@ const guardiansTailorPack: Record<string, MaskData> = {
 		description: [
 			'From the south comes this symbol of the four auspicious beasts, carrying with it the bright blistering heat of summer flame.'
 		],
-		collection: 'Guardian Tailor Pack',
+		collection: 'Guardians Tailor Pack',
+		source: content['Guardians Tailor Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A GUARDIANS TAILOR PACK ITEM!',
 		cost: ''
@@ -40,7 +52,8 @@ const guardiansTailorPack: Record<string, MaskData> = {
 		description: [
 			'The leaves falling onto the streets bear witness to this auspicious beast of the west, and coming of autumn.'
 		],
-		collection: 'Guardian Tailor Pack',
+		collection: 'Guardians Tailor Pack',
+		source: content['Guardians Tailor Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A GUARDIANS TAILOR PACK ITEM!',
 		cost: ''

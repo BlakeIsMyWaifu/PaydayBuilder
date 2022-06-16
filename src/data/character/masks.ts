@@ -1,4 +1,5 @@
-import { ContentRarity } from 'data/source/downloadableContent'
+import { ContentData, ContentRarity } from 'data/source/downloadableContent'
+import { SourceData } from 'data/source/miscSources'
 
 import collaboration from './mask/collaboration'
 import community from './mask/community'
@@ -15,19 +16,21 @@ export type CategoryList =
 	| 'collaboration'
 	| 'infamous'
 
-export type AllMasks = Partial<Record<CategoryList, Category<string>>>
+export type AllMasks = Partial<Record<CategoryList, Category>>
 
-export type Category<T extends string> = Record<T, Collection>
+export type Category<T extends string = string> = Record<T, Collection>
 
 export interface Collection {
 	id: number;
 	masks: Record<string, MaskData>;
 }
-export interface MaskData {
-	name: string;
+
+export interface MaskData<N extends string = string, C extends string = string> {
+	name: N;
 	image: string;
 	description: string[];
-	collection: string;
+	collection: C;
+	source: ContentData | SourceData;
 	rarity: ContentRarity;
 	unlock: string;
 	cost: string;

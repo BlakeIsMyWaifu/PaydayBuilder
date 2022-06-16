@@ -1,6 +1,12 @@
 import { MaskData } from 'data/character/masks'
+import source from 'data/source/miscSources'
 
-const merchandise: Record<string, MaskData> = {
+import { EventCollectionList } from '../event'
+
+type MerchandiseList =
+	| 'Dozer Mask'
+
+const merchandise: Record<MerchandiseList, MaskData<MerchandiseList, EventCollectionList>> = {
 	'Dozer Mask': {
 		name: 'Dozer Mask',
 		image: 'bobblehead_dozer',
@@ -10,6 +16,7 @@ const merchandise: Record<string, MaskData> = {
 			'This mask can only be obtained from a code accompanying the PAYDAY 2 DOZER BOBBLEHEAD bought from the online OVERKILL merchandise store.'
 		],
 		collection: 'Merchandise',
+		source: source['Base Game'],
 		rarity: 'Event',
 		unlock: 'THIS IS A MERCHANDISE ITEM!',
 		cost: 'Free'

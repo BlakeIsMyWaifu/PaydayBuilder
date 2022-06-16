@@ -1,6 +1,15 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const megaCityTailorPack: Record<string, MaskData> = {
+import { DlcCollectionList } from '../dlc'
+
+type MegaCityTailorPackList =
+	| 'Cyber Monkey'
+	| 'Electro Tiger'
+	| 'Robo Mantis'
+	| 'Viper Cyberjack'
+
+const megaCityTailorPack: Record<MegaCityTailorPackList, MaskData<MegaCityTailorPackList, DlcCollectionList>> = {
 	'Cyber Monkey': {
 		name: 'Cyber Monkey',
 		image: 'mnk',
@@ -8,6 +17,7 @@ const megaCityTailorPack: Record<string, MaskData> = {
 			'When you feel the need to heist in the concrete jungle.'
 		],
 		collection: 'Mega City Tailor Pack',
+		source: content['Mega City Tailor Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A MEGA CITY TAILOR PACK ITEM!',
 		cost: ''
@@ -19,6 +29,7 @@ const megaCityTailorPack: Record<string, MaskData> = {
 			'Roar with 100,000 volts when the cops come for you..'
 		],
 		collection: 'Mega City Tailor Pack',
+		source: content['Mega City Tailor Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A MEGA CITY TAILOR PACK ITEM!',
 		cost: ''
@@ -30,6 +41,7 @@ const megaCityTailorPack: Record<string, MaskData> = {
 			'Blend in with all the other AI units.'
 		],
 		collection: 'Mega City Tailor Pack',
+		source: content['Mega City Tailor Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A MEGA CITY TAILOR PACK ITEM!',
 		cost: ''
@@ -41,6 +53,7 @@ const megaCityTailorPack: Record<string, MaskData> = {
 			'Slither away or bite to kill whenever you are threatened.'
 		],
 		collection: 'Mega City Tailor Pack',
+		source: content['Mega City Tailor Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A MEGA CITY TAILOR PACK ITEM!',
 		cost: ''

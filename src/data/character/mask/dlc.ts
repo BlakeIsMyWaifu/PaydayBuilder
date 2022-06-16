@@ -3,7 +3,7 @@ import aMerryPaydayChristmasSoundtrack from './dlc/aMerryPaydayChristmasSoundtra
 import armoredTransport from './dlc/armoredTransport'
 import bikerCharacterPack from './dlc/bikerCharacterPack'
 import borderCrossingHeist from './dlc/borderCrossingHeist'
-import bulucsMansionHeist from './dlc/bulucsMansion'
+import bulucsMansionHeist from './dlc/bulucsMansionHeist'
 import cloverCharacterPack from './dlc/cloverCharacterPack'
 import draganCharacterPack from './dlc/draganCharacterPack'
 import dragonPack from './dlc/dragonPack'
@@ -57,10 +57,10 @@ import yakuzaCharacterPack from './dlc/yakuzaCharacterPack'
 import zagToys from './dlc/zagToys'
 
 export type DlcCollectionList =
-	| 'The Butchers AK/CAR Mod Pack'
+	| 'The Butcher\'s AK/CAR Mod Pack'
 	| 'The Alesso Heist'
 	| 'Armored Transport'
-	| 'The Butchers BBQ Pack'
+	| 'The Butcher\'s BBQ Pack'
 	| 'The Point Break Heists'
 	| 'San Martín Bank Heist'
 	| 'The Big Bank Heist'
@@ -70,25 +70,25 @@ export type DlcCollectionList =
 	| 'Dragan Character Pack'
 	| 'Sokol Character Pack'
 	| 'Scarface Character Pack'
-	| 'Buluc\'s Mansion heist'
+	| 'Buluc\'s Mansion Heist'
 	| 'Border Crossing Heist'
 	| 'Yakuza Character Pack'
 	| 'H3H3 Character Pack'
-	| 'Scarface Heist Pack'
-	| 'Gage Weapon Pack #1'
+	| 'Scarface Heist'
+	| 'Gage Weapon Pack #01'
 	| 'Gage Assault Pack'
 	| 'Gage Historical Pack'
-	| 'Gage Weapon Pack #2'
+	| 'Gage Weapon Pack #02'
 	| 'Gage Shotgun Pack'
 	| 'Gage Sniper Pack'
 	| 'Golden Dagger Tailor Pack'
-	| 'Payday 2 Bundle Rewards'
+	| 'PAYDAY 2 Bundle Rewards'
 	| 'Gage Russian Weapon Pack'
 	| 'Hotline Miami'
 	| 'The Diamond Heist'
 	| 'The Golden Grin Casino Heist'
 	| 'Sydney Character Pack'
-	| 'The Overkill Pack'
+	| 'The OVERKILL Pack'
 	| 'Wolf Pack'
 	| 'The Goat Simulator Heist'
 	| 'John Wick Weapon Pack'
@@ -102,20 +102,20 @@ export type DlcCollectionList =
 	| 'Dragon Pack'
 	| 'Gage Ninja Pack'
 	| 'Southbound Tailor Pack'
-	| 'The Butchers Western Pack'
+	| 'The Butcher\'s Western Pack'
 	| 'Biker Character Pack'
-	| 'A Mery Payday Christmas Soundtrack'
+	| 'A Merry Payday Christmas Soundtrack'
 	| 'Mountain Master Heist'
 	| 'Lootbag'
-	| 'The Completely Overkill Pack'
+	| 'The COMPLETELY OVERKILL Pack'
 	| 'Zag Toys'
 	| 'Twisted Metal'
 	| 'Thespian Mask Pack'
-	| 'PS4 Preorder Mask'
-	| 'Xbox One Preorder Mask'
+	| 'PS4 Pre-Order Mask'
+	| 'Xbox One Pre-Order Mask'
 
 const dlc: Category<DlcCollectionList> = {
-	'The Butchers AK/CAR Mod Pack': {
+	'The Butcher\'s AK/CAR Mod Pack': {
 		id: 0,
 		masks: theButchersAKCARModPack
 	},
@@ -127,7 +127,7 @@ const dlc: Category<DlcCollectionList> = {
 		id: 0,
 		masks: armoredTransport
 	},
-	'The Butchers BBQ Pack': {
+	'The Butcher\'s BBQ Pack': {
 		id: 0,
 		masks: theButchersBBQPack
 	},
@@ -167,7 +167,7 @@ const dlc: Category<DlcCollectionList> = {
 		id: 0,
 		masks: scarfaceCharacterPack
 	},
-	'Buluc\'s Mansion heist': {
+	'Buluc\'s Mansion Heist': {
 		id: 0,
 		masks: bulucsMansionHeist
 	},
@@ -183,11 +183,11 @@ const dlc: Category<DlcCollectionList> = {
 		id: 0,
 		masks: h3H3CharacterPack
 	},
-	'Scarface Heist Pack': {
+	'Scarface Heist': {
 		id: 0,
 		masks: scarfaceHeist
 	},
-	'Gage Weapon Pack #1': {
+	'Gage Weapon Pack #01': {
 		id: 0,
 		masks: gageWeaponPack1
 	},
@@ -199,7 +199,7 @@ const dlc: Category<DlcCollectionList> = {
 		id: 0,
 		masks: gageHistoricalPack
 	},
-	'Gage Weapon Pack #2': {
+	'Gage Weapon Pack #02': {
 		id: 0,
 		masks: gageWeaponPack2
 	},
@@ -215,7 +215,7 @@ const dlc: Category<DlcCollectionList> = {
 		id: 0,
 		masks: goldenDaggerTailorPack
 	},
-	'Payday 2 Bundle Rewards': {
+	'PAYDAY 2 Bundle Rewards': {
 		id: 0,
 		masks: payday2BundleRewards
 	},
@@ -239,7 +239,7 @@ const dlc: Category<DlcCollectionList> = {
 		id: 0,
 		masks: sydneyCharacterPack
 	},
-	'The Overkill Pack': {
+	'The OVERKILL Pack': {
 		id: 0,
 		masks: theOverkillPack
 	},
@@ -295,7 +295,7 @@ const dlc: Category<DlcCollectionList> = {
 		id: 0,
 		masks: southboundTailorPack
 	},
-	'The Butchers Western Pack': {
+	'The Butcher\'s Western Pack': {
 		id: 0,
 		masks: theButchersWesternPack
 	},
@@ -303,7 +303,7 @@ const dlc: Category<DlcCollectionList> = {
 		id: 0,
 		masks: bikerCharacterPack
 	},
-	'A Mery Payday Christmas Soundtrack': {
+	'A Merry Payday Christmas Soundtrack': {
 		id: 0,
 		masks: aMerryPaydayChristmasSoundtrack
 	},
@@ -315,7 +315,7 @@ const dlc: Category<DlcCollectionList> = {
 		id: 0,
 		masks: lootbag
 	},
-	'The Completely Overkill Pack': {
+	'The COMPLETELY OVERKILL Pack': {
 		id: 0,
 		masks: theCompletelyOverkillPack
 	},
@@ -331,11 +331,11 @@ const dlc: Category<DlcCollectionList> = {
 		id: 0,
 		masks: thespianMaskPack
 	},
-	'PS4 Preorder Mask': {
+	'PS4 Pre-Order Mask': {
 		id: 0,
 		masks: ps4PreorderMask
 	},
-	'Xbox One Preorder Mask': {
+	'Xbox One Pre-Order Mask': {
 		id: 0,
 		masks: xboxOnePreorderMask
 	}

@@ -1,6 +1,49 @@
 import { MaskData } from 'data/character/masks'
+import source from 'data/source/miscSources'
 
-const cardDrops: Record<string, MaskData> = {
+import { FreeCollectionList } from '../free'
+
+type CardDropsList =
+	| 'Alienware'
+	| 'Baby Rhino'
+	| 'The Big Lips'
+	| 'Blackhearted'
+	| 'The Brainiac'
+	| 'The Bullet'
+	| 'Calaca'
+	| 'The Cannula'
+	| 'The Crybaby'
+	| 'The Dripper'
+	| 'Doctor Crime'
+	| 'The Gagball'
+	| 'Greek Tragedy'
+	| 'Hockey Mask'
+	| 'The Hog'
+	| 'The Horned Beast'
+	| 'The Jaw'
+	| 'Kawaii'
+	| 'Kenneth'
+	| 'Mrs. Mannequin'
+	| 'Mr. Mannequin'
+	| 'Mr. Sackcloth'
+	| 'Mr. Smooth'
+	| 'Monkey Business'
+	| 'The Mummy'
+	| 'Oni'
+	| 'The Outlander'
+	| 'The Perfect Stranger'
+	| 'The Pout'
+	| 'The Rage'
+	| 'The Shogun'
+	| 'The Shrunken Head'
+	| 'The Starved'
+	| 'The Troll'
+	| 'The Undead'
+	| 'The Vampire'
+	| 'The Zipper'
+	| 'The Zombie'
+
+const cardDrops: Record<CardDropsList, MaskData<CardDropsList, FreeCollectionList>> = {
 	'Alienware': {
 		name: 'Alienware',
 		image: 'alienware',
@@ -8,7 +51,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Based on the visions of a madman who thought he saw an extraterrestrial being.',
 			'It is strange though, as the powerful materials is not from anywhere on Earth.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -20,7 +64,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Who would not want to wear the head of a baby rhino. Is it not cute? Putting it on makes you feel a little stupid, maybe because how it looks.',
 			'While wearing it, you are worried that it is a bit hard seeing through the mask. You will do fine as long as you do not wander off with your pig-headed friends.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -33,7 +78,8 @@ const cardDrops: Record<string, MaskData> = {
 			'The thing that gets people is the two fleshy folds that surround the mouth of this mask, the biggest lips you ever saw.',
 			'Open your mouth and say \'aaah\', directed the bank robber.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -45,7 +91,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Evil and treacherous in a haunting way, this mask is said to change the wearer in mysterious ways.',
 			'Worn long enough, it is said it turns the wearers heart into a black one, filled with lust for black deeds.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$8,250'
@@ -57,7 +104,8 @@ const cardDrops: Record<string, MaskData> = {
 			'This is the mask of someone who has a lot on his mind.',
 			'Putting on this mask sparks an excessive, almost explosive desire to learn more about crimes and how to commit them.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$9,000'
@@ -70,7 +118,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Scared that you will get stomped by a bulldozer, cloaker and a shield at the same time?',
 			'Wearing this mask will not help you, but you will get downed in style. The Bullet - out in Black Markets near you, right now!'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -83,7 +132,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Origins have been traced back to Aztec imagery, but no one is really sure.',
 			'Wearing the Calaca is all about finding the joy in death happening all around you. The death of others should be a joyous occasion!'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -95,7 +145,8 @@ const cardDrops: Record<string, MaskData> = {
 			'This mask is made of strange materials, holding it feels awkward. Wearing it feels even stranger.',
 			'Putting on the mask, you feel like an outsider, a foreigner, someone who constantly changes locations, staying away, not wanting to be recognized by anyone.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,000'
@@ -108,7 +159,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Probably crying civilians, being shouted to the ground by a criminal wearing a horrific mask.',
 			'Or maybe a bank manager with an empty vault.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,500'
@@ -121,7 +173,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Everyone who looks at it sees different things.',
 			'What do you see?'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$11,000'
@@ -134,7 +187,8 @@ const cardDrops: Record<string, MaskData> = {
 			'The character was created by writer-editor David Goldfarb and designed by artist Max Elmberg Sjöholm.',
 			'He made his first appearance in \'The Amazing Career Criminals: The PAYDAY gang meets Doctor Mayhem!\''
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -146,7 +200,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Take a walk on the submissive side with a gagball stuck to your face.',
 			'People wear these for a variety of reasons, one being roleplays involving bondage. This isn\'t necessarily the case though, as gagballs apparently can be used in bank robberies too.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,500'
@@ -159,7 +214,8 @@ const cardDrops: Record<string, MaskData> = {
 			'In old Greece, masks were used to worship the gods in ceremonial rites and celebrations.',
 			'This particular mask summarizes every heist in existence; the anger of someone triggering the alarm, the joy of opening the vault and the tragedy of being caught.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$9,750'
@@ -172,7 +228,8 @@ const cardDrops: Record<string, MaskData> = {
 			'It is also the iconic robber mask, hand-crafted using only high-quality materials. Instead of protecting you from pucks, it protects you from being recognized while going about, doing your thing.',
 			'You know, the thing you do so well. Stealing.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$8,250'
@@ -187,7 +244,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Make sure that you read them carefully!',
 			'Do you like hurting other people? Then this mask is for you.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -200,7 +258,8 @@ const cardDrops: Record<string, MaskData> = {
 			'It has a lion\'s body, bear feet and a leopard\'s mouth.',
 			'Not much else is know of this beast, nor who designed the mask.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$13,500'
@@ -212,7 +271,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Protect your glass chin with a metal jaw.',
 			'The only thing you will be chewing from now on with your jaw is law enforcers, right?'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,500'
@@ -225,7 +285,8 @@ const cardDrops: Record<string, MaskData> = {
 			'These are words not commonly used in criminology.',
 			'Because of you, they now are.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -238,7 +299,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Not much is known about it other than the name - Kenneth.',
 			'Now, this vengeful spirit has returned to earth to haunt mankind once more.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -251,7 +313,8 @@ const cardDrops: Record<string, MaskData> = {
 			'The face of an articulated doll used by tailors, dressmakers, artists, window dressers and now bank robbers.',
 			'They are most often used to display or fit clothing, but are also used to simulate how to teach first aid, CPR, tracheal intubation and now bank robbery.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -264,7 +327,8 @@ const cardDrops: Record<string, MaskData> = {
 			'The face of an articulated doll used by tailors, dressmakers, artists, window dressers and now bank robbers.',
 			'They are most often used to display or fit clothing, but are also used to simulate how to teach first aid, CPR, tracheal intubation and now bank robbery.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -276,7 +340,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Discourage crows, sparrows and law enforcers from entering your field of terror.',
 			'The legend goes that in distant lands, there lived a god who knew everything yet could not walk. The greed of man found the god and beheaded it, thinking they could gain its wisdom.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$9,750'
@@ -289,7 +354,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Legends says that four creatures merged together, forming a greater entity with the face of this mask.',
 			'To summarize, it is a scary fucking mask.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,000'
@@ -301,7 +367,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Worn by someone who does not take life that seriously.',
 			'Because it is a mask of a monkey.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$8,250'
@@ -313,7 +380,8 @@ const cardDrops: Record<string, MaskData> = {
 			'The face of a mummy that has had its skin and organs preserved. Either intentional or incidental exposure to extreme cold (ice mummies!), low humidity, lack of air or chemicals might have caused this.',
 			'Who knows what part of the world it is from? Having been preserved for the longest time, its ready to be exposed to the world again.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -326,7 +394,8 @@ const cardDrops: Record<string, MaskData> = {
 			'They are hideous, gigantic ogre-like creatures that have sharp claws and two horns growing from their heads.',
 			'Their skin may have any number of colors, though red and blue are the most common.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,500'
@@ -338,7 +407,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Have you ever had that feeling when you have no mouth but feel the urge to scream?',
 			'That is how you are going to feel if you are a civilian looking at a criminal wearing this mask, pointing a gun at you, shouting you to the floor.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -350,7 +420,8 @@ const cardDrops: Record<string, MaskData> = {
 			'The mask of a stranger in a strange land.',
 			'Masks like these were used in a lost civilization, in war, on soldiers; ceremonially, for burial rites and for shamanistic ceremonies to drive away evil spirits.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,500'
@@ -363,7 +434,8 @@ const cardDrops: Record<string, MaskData> = {
 			'It is a protrusion of the lips, especially as an expression of sullen discontent.',
 			'Who would not be discontent, having had their horns sawed off like that.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,500'
@@ -376,7 +448,8 @@ const cardDrops: Record<string, MaskData> = {
 			'It almost puts Wolf\'s mask to shame.',
 			'Almost.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$8,250'
@@ -389,7 +462,8 @@ const cardDrops: Record<string, MaskData> = {
 			'It is said that this mask was the mask of a mad and desperate warrior, who rose above the ranks and became a great general, winning many battles.',
 			'Common sense will not accomplish great things. You must become mad and desperate to do so.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$9,000'
@@ -401,7 +475,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Ritually prepared, the cranium is removed from the head, eyes and mouth sewn shut. Boiled in hot water, dried with hot rocks and sand and molded to keep the features of a human face.',
 			'Taken by ship to the Americas by Westerns long ago, it now somehow has ended up in your possession.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -413,7 +488,8 @@ const cardDrops: Record<string, MaskData> = {
 			'This mask has a hideous appearance, a bony facial structure and dehydrated skin.',
 			'It is the kind of mask gives you nightmares.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -425,7 +501,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Now here is a troll that is tired of hiding under the bridge.',
 			'Why not see the world, pillage a village, take the local inhabitants gold treasures and flee from the the angry mobs instead?'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'
@@ -438,7 +515,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Created in mysterious ways, this might as well be a zombie as it could be a Vampire.',
 			'If you are going to rob a bank, why not scare the living hell out of people while doing so?'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,000'
@@ -451,7 +529,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Vampires can appear as normal humans.',
 			'When attacked they will reveal their vampire visage where their face changes and they grow fangs and pointed teeth.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,000'
@@ -463,7 +542,8 @@ const cardDrops: Record<string, MaskData> = {
 			'The zipper mask consists of two parallel tracks of teeth that can be interlocked or separated by the pulling of a slide between them.',
 			'Separate the zipper when you need to communicate.'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$8,250'
@@ -475,7 +555,8 @@ const cardDrops: Record<string, MaskData> = {
 			'A zombie is an animated corpse that somehow has been brought to life again.',
 			'Brains?'
 		],
-		collection: 'Normal (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: '$7,250'

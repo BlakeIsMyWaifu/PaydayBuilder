@@ -1,6 +1,13 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const humbleMaskPack: Record<string, MaskData> = {
+import { EventCollectionList } from '../event'
+
+type HumbleMaskPackList =
+	| 'The Crossbreed'
+	| 'The Orc'
+
+const humbleMaskPack: Record<HumbleMaskPackList, MaskData<HumbleMaskPackList, EventCollectionList>> = {
 	'The Crossbreed': {
 		name: 'The Crossbreed',
 		image: 'ancient',
@@ -9,6 +16,7 @@ const humbleMaskPack: Record<string, MaskData> = {
 			'Strong, lean and intelligent, the Crossbreed takes the best from the DNA of each alien race that it meets, always making sure it evolves in the right direction.'
 		],
 		collection: 'Humble Mask Pack',
+		source: content['Humble Mask Pack'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HUMBLE MASK PACK ITEM!',
 		cost: 'Free'
@@ -21,6 +29,7 @@ const humbleMaskPack: Record<string, MaskData> = {
 			'This particular purple-skinned orc came from the Stonetremble clan who were known for their fierce warriors and overpowered, hybrid shamans.'
 		],
 		collection: 'Humble Mask Pack',
+		source: content['Humble Mask Pack'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HUMBLE MASK PACK ITEM!',
 		cost: 'Free'

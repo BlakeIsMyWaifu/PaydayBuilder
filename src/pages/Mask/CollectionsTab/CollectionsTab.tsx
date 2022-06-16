@@ -8,7 +8,7 @@ import { CollectionTitle, CollectionsContainer } from './CollectionsTab-Elements
 
 interface CollectionsTabProps {
 	collectionRefs: MutableRefObject<(HTMLDivElement | null)[] | RefObject<HTMLDivElement>[]>;
-	collections: Category<string> | undefined;
+	collections: Category | undefined;
 }
 
 const CollectionsTab: FC<CollectionsTabProps> = ({ collectionRefs, collections }) => {

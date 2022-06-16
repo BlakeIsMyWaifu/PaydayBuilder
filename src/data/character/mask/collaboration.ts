@@ -21,7 +21,7 @@ export type CollaborationCollectionList =
 	| 'Steelseries'
 	| 'Reservoir Dogs'
 	| 'Shadow Warrior 2 Collaboration'
-	| 'Speedrunners'
+	| 'SpeedRunners'
 	| 'Saints Row: The Third Remastered'
 
 const collaboration: Category<CollaborationCollectionList> = {
@@ -61,7 +61,7 @@ const collaboration: Category<CollaborationCollectionList> = {
 		id: 0,
 		masks: shadowWarrior2Collaboration
 	},
-	'Speedrunners': {
+	'SpeedRunners': {
 		id: 0,
 		masks: speedrunners
 	},

@@ -1,6 +1,7 @@
 import { Category } from '../masks'
 import achievement from './free/achievement'
 import aldstonesHeritage from './free/aldstonesHeritage'
+import aprilFools from './free/aprilFools'
 import cardDrops from './free/cardDrops'
 import crimefest2015 from './free/crimefest2015'
 import defaultMask from './free/defaultMask'
@@ -12,20 +13,21 @@ import springBreak2018 from './free/springBreak2018'
 import theSearchForKento from './free/theSearchForKento'
 
 export type FreeCollectionList =
-	| 'default'
+	| 'Default'
 	| 'Card Drops'
 	| 'Achievement'
 	| 'Crimefest 2015'
-	| 'Hoxtons Housewarming Party'
+	| 'Hoxton\'s Housewarming Party'
 	| 'The Search for Kento'
-	| 'Aldstones Heritage'
+	| 'Aldstone\'s Heritage'
 	| 'Locke and Load'
 	| 'Spring Break 2018'
-	| 'Little Heisters Holiday'
+	| 'Little Heisters\' Holiday!'
 	| 'Other'
+	| 'April Fools'
 
 const free: Category<FreeCollectionList> = {
-	'default': {
+	'Default': {
 		id: 0,
 		masks: defaultMask
 	},
@@ -41,7 +43,7 @@ const free: Category<FreeCollectionList> = {
 		id: 0,
 		masks: crimefest2015
 	},
-	'Hoxtons Housewarming Party': {
+	'Hoxton\'s Housewarming Party': {
 		id: 0,
 		masks: hoxtonsHousewarmingParty
 	},
@@ -49,7 +51,7 @@ const free: Category<FreeCollectionList> = {
 		id: 0,
 		masks: theSearchForKento
 	},
-	'Aldstones Heritage': {
+	'Aldstone\'s Heritage': {
 		id: 0,
 		masks: aldstonesHeritage
 	},
@@ -61,13 +63,17 @@ const free: Category<FreeCollectionList> = {
 		id: 0,
 		masks: springBreak2018
 	},
-	'Little Heisters Holiday': {
+	'Little Heisters\' Holiday!': {
 		id: 0,
 		masks: littleHeistersHoliday
 	},
 	'Other': {
 		id: 0,
 		masks: other
+	},
+	'April Fools': {
+		id: 0,
+		masks: aprilFools
 	}
 }
 

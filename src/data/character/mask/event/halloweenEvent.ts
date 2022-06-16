@@ -1,6 +1,33 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
+import source from 'data/source/miscSources'
 
-const halloweenEvent: Record<string, MaskData> = {
+import { EventCollectionList } from '../event'
+
+type HalloweenEventList =
+	| 'Frank'
+	| 'Pumpkin King'
+	| 'Venomorph'
+	| 'Witch'
+	| 'Angry Baby'
+	| 'Cry Baby'
+	| 'Happy Baby'
+	| 'Brazil Baby'
+	| 'Invader'
+	| 'Satan'
+	| 'Risen Chains'
+	| 'Risen Dallas'
+	| 'Risen Houston'
+	| 'Risen Wolf'
+	| 'Envy'
+	| 'Gluttony'
+	| 'Greed'
+	| 'Lust'
+	| 'Pride'
+	| 'Sloth'
+	| 'Wrath'
+
+const halloweenEvent: Record<HalloweenEventList, MaskData<HalloweenEventList, EventCollectionList>> = {
 	'Frank': {
 		name: 'Frank',
 		image: 'frank',
@@ -9,6 +36,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'However, he realized from the moment of his \'birth\' that even his own creator cannot stand being around him. Knowing this, Frank decided to become a bank robber instead. The end.'
 		],
 		collection: 'Halloween Event',
+		source: content['The First Annual Payday Halloween Special!'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$8,250'
@@ -21,6 +49,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'Jack was a clever little heister and managed to convince the devil that the loot he was carrying was worth to be shared. The Devil agreed and the two ran to the escape horses and got away.'
 		],
 		collection: 'Halloween Event',
+		source: content['The First Annual Payday Halloween Special!'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$8,250'
@@ -33,6 +62,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'In reality, you better go back and hide, because it will be dark soon, and these babies mostly only come at night... Mostly.'
 		],
 		collection: 'Halloween Event',
+		source: content['The First Annual Payday Halloween Special!'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$8,250'
@@ -46,6 +76,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'And then you have the broom, the hat and all that. Boo.'
 		],
 		collection: 'Halloween Event',
+		source: content['The First Annual Payday Halloween Special!'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$8,250'
@@ -58,6 +89,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'GRRRR grr GRRRR rawr GRRRRRRRRRRRRR, wahh, WAH, WAH, WAH, GRRR.'
 		],
 		collection: 'Halloween Event',
+		source: content['The First Annual Payday Halloween Special!'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$11,000'
@@ -70,6 +102,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'WAAAAAAAAAAAAAAAAAH, wah, WAAAAAAAAH, WAAAAAAH, Waaaah, waah, wah. Wah. WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!'
 		],
 		collection: 'Halloween Event',
+		source: content['The First Annual Payday Halloween Special!'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$11,000'
@@ -82,6 +115,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'GAGA? GAGA! GOGO! Bah. GAGAGA? GAGA GOGO GAGAGA? GAGA! Gagaga gogoga. Fff.'
 		],
 		collection: 'Halloween Event',
+		source: content['The First Annual Payday Halloween Special!'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$11,000'
@@ -94,6 +128,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'GAGAGA? GAGAGAGOGO? Boo! BOOO! Gagagaga boo gaga.'
 		],
 		collection: 'Halloween Event',
+		source: content['The First Annual Payday Halloween Special!'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: '$11,000'
@@ -105,6 +140,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'I want to belie... ZAP! May the for... ZAP! Live long a.. ZAP! Why can\'t we all just get along? Because ZAP! That\'s why.'
 		],
 		collection: 'Halloween Event',
+		source: content['The Third Annual Payday Halloween Special!'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked through Achievement'
@@ -116,6 +152,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'The second greatest trick the devil ever pulled was to be depicted as a big horned, red skinned demon. Now nobody knows who the person listening to music through their phone\'s speakers on the subway truly is.'
 		],
 		collection: 'Halloween Event',
+		source: content['The Third Annual Payday Halloween Special!'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked through Achievement'
@@ -128,6 +165,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'This mask is an achievement reward. It can\'t drop during a PAYDAY and it can\'t be sold. Instead, it can be returned to your mask stash for free, but any pattern, color or material as well as the customization fee to put that together will be lost.'
 		],
 		collection: 'Halloween Event',
+		source: content['The Fourth Annual Payday Halloween Special!'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked through Achievement'
@@ -139,6 +177,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'There needs to be a harsh statement made about the rotting corruption penetrating every sinew of today\'s society. The self-deception, the scrambling for a false sense of a security. But you\'re not safe, not now and not ever. The American Dream is a brutally scarred nightmare disguised to lead poor souls astray. Take what you need; grab your future by the throat and force down your ambitions until it chokes on it. Mark where you tread with the bodies you leave in your wake.'
 		],
 		collection: 'Halloween Event',
+		source: content['The Fourth Annual Payday Halloween Special!'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Free'
@@ -151,6 +190,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'This mask is an achievement reward. It can\'t drop during a PAYDAY and it can\'t be sold. Instead, it can be returned to your mask stash for free, but any pattern, color or material as well as the customization fee to put that together will be lost.'
 		],
 		collection: 'Halloween Event',
+		source: content['The Fourth Annual Payday Halloween Special!'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked through Achievement'
@@ -163,6 +203,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'This mask is an achievement reward. It can\'t drop during a PAYDAY and it can\'t be sold. Instead, it can be returned to your mask stash for free, but any pattern, color or material as well as the customization fee to put that together will be lost.'
 		],
 		collection: 'Halloween Event',
+		source: content['The Fourth Annual Payday Halloween Special!'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked through Achievement'
@@ -174,6 +215,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'It isn\'t fair, is it? There you stand, deserving of everything in life and the cosmos refuse to give unto you. The Others smile and dance, while you twist inward, wondering why no one has gifted you with whatever success everyone else has been given for free. Oh, you want it so, but how could you ever dare to take it?'
 		],
 		collection: 'Halloween Event',
+		source: source['Base Game'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked'
@@ -182,9 +224,10 @@ const halloweenEvent: Record<string, MaskData> = {
 		name: 'Gluttony',
 		image: 'sds_06',
 		description: [
-			'There it is, your unquenchable need to stuff your face and fill your belly with the ravaging furor of someone in a constant state of starvation. And when you stop, it\'s like a gaping hole opens up in the pit of your stomache,'
+			'There it is, your unquenchable need to stuff your face and fill your belly with the ravaging furor of someone in a constant state of starvation. And when you stop, it\'s like a gaping hole opens up in the pit of your stomach,'
 		],
 		collection: 'Halloween Event',
+		source: source['Base Game'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked'
@@ -196,6 +239,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'More is never enough. No amount of gold or treasure can satisfy you. It\'s all about obtaining the next pile of needless wealth to add to your bloated coffers, be they spiritual or physical. The plights of your fellows matter are inconsequential if you can gain from their suffering.'
 		],
 		collection: 'Halloween Event',
+		source: source['Base Game'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked'
@@ -207,6 +251,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'You lock your eyes on your prize until they water. Unattended, your slacking jaw lets slip a drop of saliva onto the floor as the need for possession takes over. The person you pine for is an object, the object is a person. It matters not, to your blinded senses.'
 		],
 		collection: 'Halloween Event',
+		source: source['Base Game'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked'
@@ -218,6 +263,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'You are unbreakable. The ship is filling with water, but you refuse to move. Such are your principles that you would rather go into the deep with a failing institution than admit your folly and admit yourself as fallible as your peers. Justice is what you deem it to be, and damned be those who would oppose your righteous wisdom.'
 		],
 		collection: 'Halloween Event',
+		source: source['Base Game'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked'
@@ -229,6 +275,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'Why bother? Let the universe expand, die and grow dark. You have endless time to lift your fingers in protest at whatever mindless chore that demands you exert yourself in the slightest. Your life energy oozes from your soul, wasted and dissolved in the emptiness as you remain perpetually drained of ambition.'
 		],
 		collection: 'Halloween Event',
+		source: source['Base Game'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked'
@@ -240,6 +287,7 @@ const halloweenEvent: Record<string, MaskData> = {
 			'There is a cold fire in your heart. All those who have wronged you will pay. If you so have to burn with them in the conflagration, you will extract payment for any perceived or actual slight against your person. There is no rationality to your rage- it must simply be indulged.'
 		],
 		collection: 'Halloween Event',
+		source: source['Base Game'],
 		rarity: 'Event',
 		unlock: 'THIS IS A HALLOWEEN ITEM!',
 		cost: 'Unlocked'

@@ -1,6 +1,11 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
+import { EventCollectionList } from '../event'
 
-const sydneysSwimChallenge: Record<string, MaskData> = {
+type SydneysSwimChallengeList =
+	| 'Mega Sydney'
+
+const sydneysSwimChallenge: Record<SydneysSwimChallengeList, MaskData<SydneysSwimChallengeList, EventCollectionList>> = {
 	'Mega Sydney': {
 		name: 'Mega Sydney',
 		image: 'swm_sydney',
@@ -10,6 +15,7 @@ const sydneysSwimChallenge: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'Sydney\'s Swim Challenge',
+		source: content['Sydney Mega Mask'],
 		rarity: 'Event',
 		unlock: 'THIS IS A SYDNEY SWIM ITEM!',
 		cost: 'Free'

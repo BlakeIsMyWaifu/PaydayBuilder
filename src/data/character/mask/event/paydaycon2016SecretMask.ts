@@ -1,6 +1,12 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const paydaycon2016SecretMask: Record<string, MaskData> = {
+import { EventCollectionList } from '../event'
+
+type Paydaycon2016SecretMaskList =
+	| 'Mega Clover'
+
+const paydaycon2016SecretMask: Record<Paydaycon2016SecretMaskList, MaskData<Paydaycon2016SecretMaskList, EventCollectionList>> = {
 	'Mega Clover': {
 		name: 'Mega Clover',
 		image: 'pdc16_clover',
@@ -10,6 +16,7 @@ const paydaycon2016SecretMask: Record<string, MaskData> = {
 			'OVERKILL salutes you!'
 		],
 		collection: 'PAYDAYCON 2016 Secret Mask',
+		source: content['PAYDAYCON 2016'],
 		rarity: 'Event',
 		unlock: 'THIS IS A PAYDAYCON 2016 SECRET ITEM!',
 		cost: 'Free'

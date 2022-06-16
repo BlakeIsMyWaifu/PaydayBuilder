@@ -1,6 +1,13 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const draganCharacterPack: Record<string, MaskData> = {
+import { DlcCollectionList } from '../dlc'
+
+type DraganCharacterPackList =
+	| 'Dragan'
+	| 'Dragan Begins'
+
+const draganCharacterPack: Record<DraganCharacterPackList, MaskData<DraganCharacterPackList, DlcCollectionList>> = {
 	'Dragan': {
 		name: 'Dragan',
 		image: 'dragan',
@@ -9,7 +16,8 @@ const draganCharacterPack: Record<string, MaskData> = {
 			'His mask represents a lot of his own characteristics, with the clear resemblance to some of the original crew\'s masks that tells of his ability to infiltrate and blend in while still having some features that tells of his unending ruthlessness.',
 			'The Croatian checker on the forehead serves as a reminder for both himself and his enemies to be aware that he is not your common western street thug.'
 		],
-		collection: 'Dragan Character Pack DLC',
+		collection: 'Dragan Character Pack',
+		source: content['Dragan Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A DRAGAN CHARACTER PACK ITEM!',
 		cost: 'Free'
@@ -21,7 +29,8 @@ const draganCharacterPack: Record<string, MaskData> = {
 			'This is a clean version of Dragan\'s iconic mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
 		],
-		collection: 'Dragan Character Pack DLC',
+		collection: 'Dragan Character Pack',
+		source: content['Dragan Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A DRAGAN CHARACTER PACK ITEM!',
 		cost: 'Free'

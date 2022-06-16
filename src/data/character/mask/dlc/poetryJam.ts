@@ -1,6 +1,15 @@
 import { MaskData } from 'data/character/masks'
+import source from 'data/source/miscSources'
 
-const poetryJam: Record<string, MaskData> = {
+import { DlcCollectionList } from '../dlc'
+
+type PoetryJamList =
+	| 'Criminal Ambitions'
+	| 'Metalhead'
+	| 'The Optimist'
+	| 'War Face'
+
+const poetryJam: Record<PoetryJamList, MaskData<PoetryJamList, DlcCollectionList>> = {
 	'Criminal Ambitions': {
 		name: 'Criminal Ambitions',
 		image: 'tcn',
@@ -8,7 +17,8 @@ const poetryJam: Record<string, MaskData> = {
 			'A mask only for the most ambitious heister.',
 			'Take all the loot, leave nothing behind.'
 		],
-		collection: 'Poetry Jam DLC',
+		collection: 'Poetry Jam',
+		source: source['Base Game'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A POETRY JAM ITEM!',
 		cost: 'Free'
@@ -21,7 +31,8 @@ const poetryJam: Record<string, MaskData> = {
 			'It looks more of a helmet than a mask. It has spikes pointing out of it and looks very much like a pimped out gas mask made of iron. It\'s unclear if it protects the wearer from any gas or melee weapons however.',
 			'It looks pretty rad though.'
 		],
-		collection: 'Poetry Jam DLC',
+		collection: 'Poetry Jam',
+		source: source['Base Game'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A POETRY JAM ITEM!',
 		cost: 'Free'
@@ -36,7 +47,8 @@ const poetryJam: Record<string, MaskData> = {
 			'through constructive reasoning and unbiased logic.',
 			'Or through forced upgrades. Which are compulsory.'
 		],
-		collection: 'Poetry Jam DLC',
+		collection: 'Poetry Jam',
+		source: source['Base Game'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A POETRY JAM ITEM!',
 		cost: 'Free'
@@ -50,7 +62,8 @@ const poetryJam: Record<string, MaskData> = {
 			'Bullshit. You didn\'t convince me, let me see your REAL war face!',
 			'...Actually, that one\'s pretty good...'
 		],
-		collection: 'Poetry Jam DLC',
+		collection: 'Poetry Jam',
+		source: source['Base Game'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A POETRY JAM ITEM!',
 		cost: 'Free'

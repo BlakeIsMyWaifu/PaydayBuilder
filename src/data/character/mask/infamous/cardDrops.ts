@@ -1,6 +1,23 @@
 import { MaskData } from 'data/character/masks'
+import source from 'data/source/miscSources'
 
-const cardDrops: Record<string, MaskData> = {
+import { InfamousCollectionList } from '../infamous'
+
+type CardDropsList =
+	| 'Anonymous'
+	| 'Chains'
+	| 'Chains Begins'
+	| 'Cthulhu'
+	| 'Dallas'
+	| 'Dallas Begins'
+	| 'Hoxton'
+	| 'Hoxton Begins'
+	| 'Dillinger Death Mask, The'
+	| 'Grin, The'
+	| 'Wolf'
+	| 'Wolf Begins'
+
+const cardDrops: Record<CardDropsList, MaskData<CardDropsList, InfamousCollectionList>> = {
 	'Anonymous': {
 		name: 'Anonymous',
 		image: 'anonymous',
@@ -9,7 +26,8 @@ const cardDrops: Record<string, MaskData> = {
 			'Do it because you mean it, do it because you were told to, or do it for the lulz.',
 			'Do all the things that regular society will not allow you. Like robbing a bank.'
 		],
-		collection: 'Infamous (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$45,000'
@@ -20,7 +38,8 @@ const cardDrops: Record<string, MaskData> = {
 		description: [
 			'The mask of Chains.'
 		],
-		collection: 'Infamous (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
@@ -32,7 +51,8 @@ const cardDrops: Record<string, MaskData> = {
 			'This is a clean version of the iconic Chains mask, before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
 		],
-		collection: 'Infamous (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$61,250'
@@ -45,7 +65,8 @@ const cardDrops: Record<string, MaskData> = {
 			'They say that an evil beast has many names. That must be why this beast is known as Tulu, Clulu, Clooloo, Cthulu, C\'thulhu, Cighulu, Cathulu, C\'thlu among other names,',
 			'Part human, part octopus and part dragon, this is one of the greatest evils known to man.'
 		],
-		collection: 'Infamous (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$55,000'
@@ -56,7 +77,8 @@ const cardDrops: Record<string, MaskData> = {
 		description: [
 			'The mask that everyone fears.'
 		],
-		collection: 'Infamous (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
@@ -68,7 +90,8 @@ const cardDrops: Record<string, MaskData> = {
 			'This is a clean version of the iconic Dallas mask,before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
 		],
-		collection: 'Infamous (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$67,500'
@@ -79,7 +102,8 @@ const cardDrops: Record<string, MaskData> = {
 		description: [
 			'The mask of Hoxton.'
 		],
-		collection: 'Infamous (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
@@ -91,7 +115,8 @@ const cardDrops: Record<string, MaskData> = {
 			'This is a clean version of the iconic Hoxton mask,before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
 		],
-		collection: 'Infamous (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$61,250'
@@ -104,7 +129,8 @@ const cardDrops: Record<string, MaskData> = {
 			'His gang robbed two dozen banks and even four police stations.',
 			'Dillinger himself escaped jail twice and was widely known as one of the meanest motherfuckers in the depression-era United States.'
 		],
-		collection: 'Infamous (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$61,250'
@@ -118,7 +144,8 @@ const cardDrops: Record<string, MaskData> = {
 			'One day, the man and his brother temporarily only had one client. The client got cold feet and wanted out. Rather than simply pulling out and having to pay a fine for breach of contract, the client starved the man and his brother\'s company to death.',
 			'The Man and his brother lost everything, and it is said that this mask was the very image of the man\'s facial expression the day that he went mad.'
 		],
-		collection: 'Infamous (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$55,000'
@@ -129,7 +156,8 @@ const cardDrops: Record<string, MaskData> = {
 		description: [
 			'The mask of Wolf.'
 		],
-		collection: 'Infamous (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
@@ -141,7 +169,8 @@ const cardDrops: Record<string, MaskData> = {
 			'This is a clean version of the iconic Wolf mask,before it was painted.',
 			'Never liked how the original one turned out? This is your chance to change history.'
 		],
-		collection: 'Infamous (Card Drops)',
+		collection: 'Card Drops',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$61,250'

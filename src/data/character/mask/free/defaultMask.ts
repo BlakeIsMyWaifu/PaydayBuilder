@@ -1,6 +1,35 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
+import source from 'data/source/miscSources'
 
-const defaultMask: Record<string, MaskData> = {
+import { FreeCollectionList } from '../free'
+
+type DefaultMaskList =
+	| 'Preferred Character'
+	| 'Dallas'
+	| 'Chains'
+	| 'Hoxton'
+	| 'Wolf'
+	| 'Collateral'
+	| 'Hoxton Reborn'
+	| 'Clover'
+	| 'Dragan'
+	| 'Richard Returns'
+	| 'Bonnie'
+	| 'Sokol'
+	| 'Jiro'
+	| 'Bodhi'
+	| 'Jimmy'
+	| 'Sydney'
+	| 'Rust'
+	| 'Scarface'
+	| 'Sangres'
+	| 'Duke'
+	| 'Joy'
+	| 'Ethan'
+	| 'Hila'
+
+const defaultMask: Record<DefaultMaskList, MaskData<DefaultMaskList, FreeCollectionList>> = {
 	'Preferred Character': {
 		name: 'Preferred Character',
 		image: 'character_locked',
@@ -8,6 +37,7 @@ const defaultMask: Record<string, MaskData> = {
 			'Equipping this mask slot will make you wear your preferred character\'s mask.'
 		],
 		collection: 'Default',
+		source: source['Base Game'],
 		rarity: 'Free',
 		unlock: '',
 		cost: ''
@@ -19,6 +49,7 @@ const defaultMask: Record<string, MaskData> = {
 			'The mask that everyone fears.'
 		],
 		collection: 'Default',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
@@ -30,6 +61,7 @@ const defaultMask: Record<string, MaskData> = {
 			'The mask of Chains.'
 		],
 		collection: 'Default',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
@@ -41,6 +73,7 @@ const defaultMask: Record<string, MaskData> = {
 			'The mask of Hoxton.'
 		],
 		collection: 'Default',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
@@ -52,6 +85,7 @@ const defaultMask: Record<string, MaskData> = {
 			'The mask of Wolf.'
 		],
 		collection: 'Default',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: '$48,750'
@@ -65,6 +99,7 @@ const defaultMask: Record<string, MaskData> = {
 			'In the end, he didn\'t even need to do the deed himself - he was already dead when he found him.'
 		],
 		collection: 'Default',
+		source: content['John Wick Character Pack'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
@@ -77,6 +112,7 @@ const defaultMask: Record<string, MaskData> = {
 			'All we can assume is that he has been changed forever, and that he is reborn into... Something different.'
 		],
 		collection: 'Default',
+		source: content['Hoxton Breakout Heist'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
@@ -88,6 +124,7 @@ const defaultMask: Record<string, MaskData> = {
 			'Clover\'s mask represents what Clover both fears and hates most of all - wearing a mask as your normal face. The surgically-shrunken nose, the botox\'d lips and the expression of all-consuming vanity and self-obsession - all are symbols of fear and weakness, twisted into a horrifying parody.'
 		],
 		collection: 'Default',
+		source: content['Clover Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A CLOVER CHARACTER PACK ITEM!',
 		cost: ''
@@ -101,6 +138,7 @@ const defaultMask: Record<string, MaskData> = {
 			'The Croatian checker on the forehead serves as a reminder for both himself and his enemies to be aware that he is not your common western street thug.'
 		],
 		collection: 'Default',
+		source: content['Dragan Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A DRAGAN CHARACTER PACK ITEM!',
 		cost: ''
@@ -112,6 +150,7 @@ const defaultMask: Record<string, MaskData> = {
 			'Is this mask a reflection of a deep-seated psychological problem? Possibly a dissociative identity disorder? Schizophrenia? Trauma of a disturbed psyche? Or is it not a reflection at all, but instead something to cause them?'
 		],
 		collection: 'Default',
+		source: content['Hotline Miami'],
 		rarity: 'Collaboration',
 		unlock: 'THIS IS A HOTLINE MIAMI 2 DELUXE ITEM!',
 		cost: ''
@@ -123,6 +162,7 @@ const defaultMask: Record<string, MaskData> = {
 			'Few nations have contributed to humanity as Scotland has. In every field of endeavor - science, arts, cuisine - it is the people of this blessed land that give freely and generously. With this mask, Bonnie is determined to reverse this trend.'
 		],
 		collection: 'Default',
+		source: content['Bonnie Character Pack'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
@@ -134,6 +174,7 @@ const defaultMask: Record<string, MaskData> = {
 			'If playing as a grinder for the St Petersburg Bombers hockey team taught Sokol the value of one thing, it was the importance of a terrifying mask that protects his handsome Russian face.'
 		],
 		collection: 'Default',
+		source: content['Sokol Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A SOKOL CHARACTER PACK ITEM!',
 		cost: ''
@@ -145,6 +186,7 @@ const defaultMask: Record<string, MaskData> = {
 			'Japan is a land of tradition. A land of warriors. Jiro\'s mask reflects this. The mask expresses Jiro\'s love for a traditional Japan, while the bared snarl represents his unshakable determination.'
 		],
 		collection: 'Default',
+		source: content['Yakuza Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A YAKUZA CHARACTER PACK ITEM!',
 		cost: ''
@@ -156,6 +198,7 @@ const defaultMask: Record<string, MaskData> = {
 			'Masks have always been used in spiritual traditions that relate to deities, the divine and those chasing the apotheosis of the self. Bodhi\'s mask reflects the man behind it. Strong, cunning, single-minded and centered.'
 		],
 		collection: 'Default',
+		source: content['Bodhi Character Pack'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
@@ -167,6 +210,7 @@ const defaultMask: Record<string, MaskData> = {
 			'Jimmy hasn\'t really made many masks before he made his signature mask - and it shows. His mask design captures his free spirit and his disregard to things as appearance, planning and such. Good is good enough for Jimmy, he doesn\'t get stuck in ideas and wants to move forward at all times.'
 		],
 		collection: 'Default',
+		source: content['Jimmy Character Pack'],
 		rarity: 'Infamous',
 		unlock: '',
 		cost: ''
@@ -178,6 +222,7 @@ const defaultMask: Record<string, MaskData> = {
 			'Smirk, Grin, Sneer - call it what you want. As you see this smiling punker mask approaching it\'s not synonyms that\'ll run through your head - it\'s bullets. Sydney will make sure of it.'
 		],
 		collection: 'Default',
+		source: content['Sydney Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A SYDNEY CHARACTER PACK ITEM!',
 		cost: ''
@@ -189,6 +234,7 @@ const defaultMask: Record<string, MaskData> = {
 			'The Devil is the moniker that has followed Rust for most of his life. Therefore, Rust\'s mask is a combination of a smiling clown with ominous horns protruding from his forehead, letting everyone know that the Devil is here.'
 		],
 		collection: 'Default',
+		source: content['Biker Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A BIKER CHARACTER PACK ITEM!',
 		cost: ''
@@ -200,6 +246,7 @@ const defaultMask: Record<string, MaskData> = {
 			'Scarface came to the US with nothing more than two empty hands and a bad attitude, the darkness in his heart matched only by the brilliance of his criminal mind. His mask tells the story, complete with the trail of blood he left in his wake as he began to make his mark.'
 		],
 		collection: 'Default',
+		source: content['Scarface Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A SCARFACE CHARACTER PACK ITEM!',
 		cost: ''
@@ -211,6 +258,7 @@ const defaultMask: Record<string, MaskData> = {
 			'The skull is Death, Sangres\' faithful companion throughout his career. The gold tooth is the coin that has been paid. The kill counter represents his past as a hitman, the blood-red ruby the new wealth he\'s seeking in the US. Sangres\' name speaks of the many bloody episodes in his life, and that red blood is also present on his mask.'
 		],
 		collection: 'Default',
+		source: content['Sangres Character Pack'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
@@ -223,6 +271,7 @@ const defaultMask: Record<string, MaskData> = {
 			'A big draw for Duke is his love for mystery- you never really know what\'s inside the safe until you open it, or behind the painting until you take it out of the frame. And with the Payday gang, the biggest mystery may be just around the corner...'
 		],
 		collection: 'Default',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: ''
@@ -234,6 +283,7 @@ const defaultMask: Record<string, MaskData> = {
 			'Bring back disco in style and confuse the hell out of your enemies when they gaze into your fabulously flashy face.'
 		],
 		collection: 'Default',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
@@ -245,6 +295,7 @@ const defaultMask: Record<string, MaskData> = {
 			'This mask exudes power and brute force, in stark contrast to the man who wears it. Equal parts clown-like sadness and begrudging anger, it perfectly captures the mood of someone who has somewhat reluctantly chosen to be a heister.'
 		],
 		collection: 'Default',
+		source: content['h3h3 Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A h3h3 CHARACTER PACK ITEM!',
 		cost: 'Free'
@@ -256,6 +307,7 @@ const defaultMask: Record<string, MaskData> = {
 			'Something about this mask radiates a playful malice and most who gaze upon it immediately feel a sense of unease, which is just the kind of thing you need when you\'re robbing a bank.'
 		],
 		collection: 'Default',
+		source: content['h3h3 Character Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A h3h3 CHARACTER PACK ITEM!',
 		cost: 'Free'

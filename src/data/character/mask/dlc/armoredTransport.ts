@@ -1,6 +1,15 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const armoredTransport: Record<string, MaskData> = {
+import { DlcCollectionList } from '../dlc'
+
+type ArmoredTransportList =
+	| 'The 37th'
+	| 'The 42nd'
+	| 'The 43rd'
+	| 'The 44th'
+
+const armoredTransport: Record<ArmoredTransportList, MaskData<ArmoredTransportList, DlcCollectionList>> = {
 	'The 37th': {
 		name: 'The 37th',
 		image: 'nixon',
@@ -8,7 +17,8 @@ const armoredTransport: Record<string, MaskData> = {
 			'Politician, Commander-In-Chief, father. Had an ambition to serve this great nation for 8 years. He wasn\'t a crook, for sure.',
 			'The 37th was the only president who resigned from office. Among criminals however, he remains extremely popular.'
 		],
-		collection: 'Armored Transport DLC',
+		collection: 'Armored Transport',
+		source: content['Armored Transport'],
 		rarity: 'Paid',
 		unlock: 'THIS IS AN ARMORED TRANSPORT ITEM!',
 		cost: '$10,800'
@@ -20,7 +30,8 @@ const armoredTransport: Record<string, MaskData> = {
 			'Politician, Commander-In-Chief, father. Served this great nation for 8 years. A ladies man, no doubt.',
 			'The 42nd was one of the most peaceful presidents in history. Among criminals however, he remains extremely popular.'
 		],
-		collection: 'Armored Transport DLC',
+		collection: 'Armored Transport',
+		source: content['Armored Transport'],
 		rarity: 'Paid',
 		unlock: 'THIS IS AN ARMORED TRANSPORT ITEM!',
 		cost: '$10,800'
@@ -32,7 +43,8 @@ const armoredTransport: Record<string, MaskData> = {
 			'Politician, Commander-In-Chief, father. Served this great nation for 8 years. A wordsmith, no doubt.',
 			'The 43rd was one of the most unpopular presidents in history. Among criminals however, he remains extremely popular.'
 		],
-		collection: 'Armored Transport DLC',
+		collection: 'Armored Transport',
+		source: content['Armored Transport'],
 		rarity: 'Paid',
 		unlock: 'THIS IS AN ARMORED TRANSPORT ITEM!',
 		cost: '$10,800'
@@ -44,7 +56,8 @@ const armoredTransport: Record<string, MaskData> = {
 			'Politician, Commander-In-Chief, father. Had an ambition to serve this great nation for 8 years. A hopeful man, and an award winner at that.',
 			'The 44th is one of the most ambitious presidents in history. Among criminals however, he remains extremely popular.'
 		],
-		collection: 'Armored Transport DLC',
+		collection: 'Armored Transport',
+		source: content['Armored Transport'],
 		rarity: 'Paid',
 		unlock: 'THIS IS AN ARMORED TRANSPORT ITEM!',
 		cost: '$10,800'

@@ -191,8 +191,11 @@ type ContentList =
 	'Buluc\'s Mansion Heist' |
 	'Buluc\'s Mansion Bundle' |
 	'Jiu Feng Smuggler Pack' |
+	'Dragon Pack' |
 	'Jiu Feng Smuggler Pack 2' |
+	'Guardians Tailor Pack' |
 	'Jiu Feng Smuggler Pack 3' |
+	'Mega City Tailor Pack' |
 	'Winter Ghosts Tailor Pack' |
 	'Jiu Feng Smuggler Pack 4' |
 	'Golden Dagger Tailor Pack' |
@@ -209,7 +212,7 @@ const pcExclusive: Platform = {
 	ps3: false
 }
 
-const downloadableContent: Record<ContentList, ContentData> = {
+const content: Record<ContentList, ContentData> = {
 	'Career Criminal Content': {
 		name: 'Career Criminal Content',
 		rarity: 'Pre-order',
@@ -2190,6 +2193,14 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		price: '$3.99',
 		platform: pcExclusive
 	},
+	'Dragon Pack': {
+		name: 'Dragon Pack',
+		rarity: 'Paid',
+		type: 'Outfit',
+		released: '2021, March 17',
+		price: '$6.99',
+		platform: pcExclusive
+	},
 	'Jiu Feng Smuggler Pack 2': {
 		name: 'Jiu Feng Smuggler Pack 2',
 		rarity: 'Paid',
@@ -2198,12 +2209,28 @@ const downloadableContent: Record<ContentList, ContentData> = {
 		price: '$3.99',
 		platform: pcExclusive
 	},
+	'Guardians Tailor Pack': {
+		name: 'Guardians Tailor Pack',
+		rarity: 'Paid',
+		type: 'Outfit',
+		released: '2021, June 16',
+		price: '$2.99',
+		platform: pcExclusive
+	},
 	'Jiu Feng Smuggler Pack 3': {
 		name: 'Jiu Feng Smuggler Pack 3',
 		rarity: 'Paid',
 		type: 'Weapon Pack',
 		released: '2021, September 22',
 		price: '$3.99',
+		platform: pcExclusive
+	},
+	'Mega City Tailor Pack': {
+		name: 'Mega City Tailor Pack',
+		rarity: 'Paid',
+		type: 'Outfit',
+		released: '2021, October 13',
+		price: '$2.99',
 		platform: pcExclusive
 	},
 	'Winter Ghosts Tailor Pack': {
@@ -2264,4 +2291,4 @@ const downloadableContent: Record<ContentList, ContentData> = {
 	}
 }
 
-export default downloadableContent
+export default content

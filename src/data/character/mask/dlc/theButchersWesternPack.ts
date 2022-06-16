@@ -1,13 +1,23 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const theButchersWesternPack: Record<string, MaskData> = {
+import { DlcCollectionList } from '../dlc'
+
+type TheButchersWesternPackList =
+	| 'Apache Mystic'
+	| 'Desert Skull'
+	| 'Lone Heister'
+	| 'Wild West Classic'
+
+const theButchersWesternPack: Record<TheButchersWesternPackList, MaskData<TheButchersWesternPackList, DlcCollectionList>> = {
 	'Apache Mystic': {
 		name: 'Apache Mystic',
 		image: 'kangee',
 		description: [
 			'The west that the white men entered was a land of mystery. A land populated with civilizations of warriors, who marked themselves, their lands and their mythologies with these sacred carvings.'
 		],
-		collection: 'The Butcher\'s Western Pack DLC',
+		collection: 'The Butcher\'s Western Pack',
+		source: content['The Butcher\'s Western Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A WESTERN PACK ITEM!',
 		cost: 'Unlocked through Achievement'
@@ -18,7 +28,8 @@ const theButchersWesternPack: Record<string, MaskData> = {
 		description: [
 			'When staggering through desolate barrancas, with only thoughts for company, the last thing you want to see is the parched bones of those who went before you. Suddenly those thoughts are screams.'
 		],
-		collection: 'The Butcher\'s Western Pack DLC',
+		collection: 'The Butcher\'s Western Pack',
+		source: content['The Butcher\'s Western Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A WESTERN PACK ITEM!',
 		cost: 'Unlocked through Achievement'
@@ -29,7 +40,8 @@ const theButchersWesternPack: Record<string, MaskData> = {
 		description: [
 			'Whether you\'re a murderous desperado or a lone, brooding ranger, sometimes you need to hide your identity. What does that better than a slender black eye-mask, covering a third of your face?'
 		],
-		collection: 'The Butcher\'s Western Pack DLC',
+		collection: 'The Butcher\'s Western Pack',
+		source: content['The Butcher\'s Western Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A WESTERN PACK ITEM!',
 		cost: 'Unlocked through Achievement'
@@ -40,7 +52,8 @@ const theButchersWesternPack: Record<string, MaskData> = {
 		description: [
 			'The wide-brimmed hat, the steely gaze and the scarf pulled up over the mouth. A combination so iconic, so classic and so effective that it remains the staple for gangsters and heisters everywhere.'
 		],
-		collection: 'The Butcher\'s Western Pack DLC',
+		collection: 'The Butcher\'s Western Pack',
+		source: content['The Butcher\'s Western Pack'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A WESTERN PACK ITEM!',
 		cost: 'Unlocked through Achievement'

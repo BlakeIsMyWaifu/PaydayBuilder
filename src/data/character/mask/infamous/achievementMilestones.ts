@@ -1,6 +1,18 @@
 import { MaskData } from 'data/character/masks'
+import source from 'data/source/miscSources'
 
-const achievementMilestones: Record<string, MaskData> = {
+import { InfamousCollectionList } from '../infamous'
+
+type AchievementMilestonesList =
+	| 'Mega Famine'
+	| 'Mega Conquest'
+	| 'Mega Tormentor'
+	| 'Mega Arch Nemesis'
+	| 'Mega Rad Mutant'
+	| 'Mega Greed'
+	| 'The Great Immortal'
+
+const achievementMilestones: Record<AchievementMilestonesList, MaskData<AchievementMilestonesList, InfamousCollectionList>> = {
 	'Mega Famine': {
 		name: 'Mega Famine',
 		image: 'ami_02',
@@ -8,6 +20,7 @@ const achievementMilestones: Record<string, MaskData> = {
 			'That loaf of bread you wanted. Imagine that hunger one thousandfold. More than just a lack of food, your very soul is deprived of sustenance until it\'s as empty on nourishment as your belly. If starvation could continue beyond death, this is the visage it would take. But such a plight can be a mighty motivator for heisting.'
 		],
 		collection: 'Achievement Milestones',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at 90 Achievements'
@@ -19,6 +32,7 @@ const achievementMilestones: Record<string, MaskData> = {
 			'If only the Kings of Old had such an artifact, they would have been invincible. What enemy could withstand bowing before you, as they gaze upon your magnificence? Sun Tzu can go suck a lemon, because with a mask like this, who needs to employ art in war?'
 		],
 		collection: 'Achievement Milestones',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at 200 Achievements'
@@ -30,6 +44,7 @@ const achievementMilestones: Record<string, MaskData> = {
 			'Torturer or tortured? Perhaps both, as the seething glow from your eyes sends chills of terror into the souls of the Law. hear the lamentations of the Uniformed Blue as you evade them skillfully, with evil glee flowing through your veins as you foil every one of their attempts to apprehend you.'
 		],
 		collection: 'Achievement Milestones',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at 350 Achievements'
@@ -41,6 +56,7 @@ const achievementMilestones: Record<string, MaskData> = {
 			'One move, then another. Your opponent makes a move and you respond. he stands there, atop the mountain of gold, daring you to come forward and take on his challenge. By wearing this mask, you declare your defiance, and the rivalry unending.'
 		],
 		collection: 'Achievement Milestones',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at 550 Achievements'
@@ -52,6 +68,7 @@ const achievementMilestones: Record<string, MaskData> = {
 			'As if high on radioactive spray paint, the power level has been turned up a notch and is now close to bursting. When you go on a heist, everyone around you will duck for cover as you roll by. Every geiger counter in town is about to go haywire.'
 		],
 		collection: 'Achievement Milestones',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at 750 Achievements'
@@ -63,6 +80,7 @@ const achievementMilestones: Record<string, MaskData> = {
 			'It burns into your heart and tears the flesh from your skull- orange flames to contrast the color of an unquenchable need for more. How many trips back into the vault will you make until you are satisfied? How many weapons will make you happy? All of them! Maybe.'
 		],
 		collection: 'Achievement Milestones',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at 950 Achievements'
@@ -74,6 +92,7 @@ const achievementMilestones: Record<string, MaskData> = {
 			'For a thousand years, the traveller slept, biding his time until the stars did align and a mortal of sufficient ability would unlock him from his unholy prison. Rejoice! For that day has come. Wield this power... wisely.'
 		],
 		collection: 'Achievement Milestones',
+		source: source['Base Game'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Unlocked at 1000 Achievements'

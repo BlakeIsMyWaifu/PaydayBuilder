@@ -1,6 +1,12 @@
 import { MaskData } from 'data/character/masks'
+import source from 'data/source/miscSources'
 
-const zagToys: Record<string, MaskData> = {
+import { DlcCollectionList } from '../dlc'
+
+type ZagToysList =
+	| 'The Almir'
+
+const zagToys: Record<ZagToysList, MaskData<ZagToysList, DlcCollectionList>> = {
 	'The Almir': {
 		name: 'The Almir',
 		image: 'ztm',
@@ -11,6 +17,7 @@ const zagToys: Record<string, MaskData> = {
 			';)'
 		],
 		collection: 'Zag Toys',
+		source: source['Base Game'],
 		rarity: 'Paid',
 		unlock: 'THIS IS A ZAG TOYS ITEM!',
 		cost: 'Free'

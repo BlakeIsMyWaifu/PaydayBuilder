@@ -1,6 +1,12 @@
 import { MaskData } from 'data/character/masks'
+import content from 'data/source/downloadableContent'
 
-const johnWick: Record<string, MaskData> = {
+import { InfamousCollectionList } from '../infamous'
+
+type JohnWickList =
+	| 'Collateral'
+
+const johnWick: Record<JohnWickList, MaskData<JohnWickList, InfamousCollectionList>> = {
 	'Collateral': {
 		name: 'Collateral',
 		image: 'jw_shades',
@@ -10,6 +16,7 @@ const johnWick: Record<string, MaskData> = {
 			'In the end, he didn\'t even need to do the deed himself - he was already dead when he found him.'
 		],
 		collection: 'John Wick',
+		source: content['John Wick Character Pack'],
 		rarity: 'Infamous',
 		unlock: 'THIS IS AN INFAMOUS ITEM!',
 		cost: 'Free'
