@@ -8,88 +8,88 @@ const mainGuns: CompatibleWeapons = {
 	assaultRifle: assaultRifleList,
 	shotgun: [
 		// primary
-		'Predator 12G Shotgun',
-		'Reinfeld 880 Shotgun',
-		'IZHMA 12G Shotgun',
-		'M1014 Shotgun',
-		'Raven Shotgun',
-		'Steakout 12G Shotgun',
-		'Breaker 12G Shotgun',
-		'Reinfeld 88 Shotgun',
-		'Mosconi 12G Tactical Shotgun',
+		'Predator 12G',
+		'Reinfeld 880',
+		'IZHMA 12G',
+		'M1014',
+		'Raven',
+		'Steakout 12G',
+		'Breaker 12G',
+		'Reinfeld 88',
+		'Mosconi 12G Tactical',
 		// secondary
-		'The Judge Shotgun',
-		'Locomotive 12G Shotgun',
-		'Goliath 12G Shotgun',
-		'Grimm 12G Shotgun',
-		'Street Sweeper Shotgun'
+		'The Judge',
+		'Locomotive 12G',
+		'Goliath 12G',
+		'Grimm 12G',
+		'Street Sweeper'
 	],
 	sniper: [
-		'Platypus 70 Sniper Rifle',
-		'Rattlesnake Sniper Rifle',
-		'R93 Sniper Rifle',
-		'Thanatos .50 cal Sniper Rifle',
-		'Nagant Sniper Rifle',
-		'Lebensauger .308 Sniper Rifle',
-		'Desertfox Sniper Rifle',
-		'Contractor .308 Sniper Rifle',
-		'Grom Sniper Rifle',
-		'R700 Sniper Rifle',
-		'Bernetti Rangehitter Sniper Rifle'
+		'Platypus 70',
+		'Rattlesnake',
+		'R93',
+		'Thanatos .50 cal',
+		'Nagant',
+		'Lebensauger .308',
+		'Desertfox',
+		'Contractor .308',
+		'Grom',
+		'R700',
+		'Bernetti Rangehitter'
 	],
 	special: [
-		'Piglet Grenade Launcher',
-		'Arbiter Grenade Launcher',
-		'HRL-7 Rocket Launcher'
+		'Piglet',
+		'Arbiter',
+		'HRL-7'
 	],
 	pistol: [
-		'Bronco .44 Pistol',
-		'Deagle Pistol'
+		'Bronco .44',
+		'Deagle'
 	],
 	submachineGun: submachineGunList
 }
 
 const mainSnipers: CompatibleWeapons = {
 	sniper: [
-		'Platypus 70 Sniper Rifle',
-		'Rattlesnake Sniper Rifle',
-		'R93 Sniper Rifle',
-		'Thanatos .50 cal Sniper Rifle',
-		'Nagant Sniper Rifle',
-		'Lebensauger .308 Sniper Rifle',
-		'Desertfox Sniper Rifle',
-		'Contractor .308 Sniper Rifle',
-		'Grom Sniper Rifle',
-		'R700 Sniper Rifle',
-		'Bernetti Rangehitter Sniper Rifle'
+		'Platypus 70',
+		'Rattlesnake',
+		'R93',
+		'Thanatos .50 cal',
+		'Nagant',
+		'Lebensauger .308',
+		'Desertfox',
+		'Contractor .308',
+		'Grom',
+		'R700',
+		'Bernetti Rangehitter'
 	]
 }
 
 const mainPistols: CompatibleWeapons = {
 	pistol: [
-		'Chimano 88 Pistol',
-		'Crosskill Pistol',
-		'Bernetti 9 Pistol',
-		'White Streak Pistol',
-		'Parabellum Pistol',
-		'Crosskill Guard Pistol',
-		'STRYK 18c Pistol',
-		'Deagle Pistol',
-		'M13 9mm Pistol',
-		'Gruber Kurz Pistol',
-		'Signature .40 Pistol',
+		'Chimano 88',
+		'Crosskill',
+		'Bernetti 9',
+		'White Streak',
+		'Parabellum',
+		'Crosskill Guard',
+		'STRYK 18c',
+		'Deagle',
+		'M13 9mm',
+		'Gruber Kurz',
+		'Signature .40',
 		'Baby Deagle',
-		'Contractor Pistol',
-		'LEO Pistol',
-		'Broomstick Pistol',
-		'Bernetti Auto Pistol',
-		'Czech 92 Pistol',
-		'Igor Automatik Pistol',
-		'HOLT 9mm Pistol',
-		'Interceptor .45 Pistol',
-		'Chimano Custom Pistol',
-		'5/7 AP Pistol',
-		'Chimano Compact Pistol'
+		'Contractor',
+		'LEO',
+		'Broomstick',
+		'Bernetti Auto',
+		'Czech 92',
+		'Igor Automatik',
+		'HOLT 9mm',
+		'Interceptor .45',
+		'Chimano Custom',
+		'5/7 AP',
+		'Chimano Compact'
 	]
 }
 
@@ -438,7 +438,7 @@ const sight: ModificationList<SightModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Repeater 1874 Sniper Rifle'
+				'Repeater 1874'
 			]
 		}
 	},
@@ -497,9 +497,9 @@ const sight: ModificationList<SightModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bernetti 9 Pistol',
-				'Crosskill Pistol',
-				'Deagle Pistol'
+				'Bernetti 9',
+				'Crosskill',
+				'Deagle'
 			]
 		}
 	},
@@ -518,7 +518,7 @@ const sight: ModificationList<SightModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Broomstick Pistol'
+				'Broomstick'
 			]
 		}
 	},
@@ -537,7 +537,7 @@ const sight: ModificationList<SightModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Contractor Pistol'
+				'Contractor'
 			]
 		}
 	},
@@ -554,7 +554,7 @@ const sight: ModificationList<SightModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Pronghorn Sniper Rifle'
+				'Pronghorn'
 			]
 		}
 	},
@@ -571,7 +571,7 @@ const sight: ModificationList<SightModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Káng Arms X1 Sniper Rifle'
+				'Káng Arms X1'
 			]
 		}
 	}

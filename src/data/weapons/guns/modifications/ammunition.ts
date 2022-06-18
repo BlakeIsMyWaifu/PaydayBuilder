@@ -5,25 +5,25 @@ import { CompatibleWeapons, ModificationList } from '../weaponTypes'
 
 const mainGuns: CompatibleWeapons = {
 	shotgun: [
-		'Reinfeld 880 Shotgun',
-		'IZHMA 12G Shotgun',
-		'Mosconi 12G Shotgun',
-		'Locomotive 12G Shotgun',
-		'Goliath 12G Shotgun',
-		'Breaker 12G Shotgun',
-		'M1014 Shotgun',
-		'Raven Shotgun',
-		'Steakout 12G Shotgun',
-		'GSPS 12G Shotgun',
-		'Street Sweeper Shotgun',
-		'Predator 12G Shotgun',
-		'Joceline O/U 12G Shotgun',
-		'The Judge Shotgun'
+		'Reinfeld 880',
+		'IZHMA 12G',
+		'Mosconi 12G',
+		'Locomotive 12G',
+		'Goliath 12G',
+		'Breaker 12G',
+		'M1014',
+		'Raven',
+		'Steakout 12G',
+		'GSPS 12G',
+		'Street Sweeper',
+		'Predator 12G',
+		'Joceline O/U 12G',
+		'The Judge'
 	],
 	akimboShotgun: [
-		'Akimbo Goliath 12G Shotguns',
-		'Brothers Grimm 12G Shotguns',
-		'Akimbo Judge Shotguns'
+		'Akimbo Goliath 12G',
+		'Brothers Grimm 12G',
+		'Akimbo Judge'
 	]
 }
 
@@ -424,16 +424,16 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'KETCHNOV Byk-1 Assault Rifle',
-				'Little Friend 7.62 Assault Rifle'
+				'KETCHNOV Byk-1',
+				'Little Friend 7.62'
 			],
 			special: [
-				'Compact 40mm Grenade Launcher',
-				'China Puff 40mm Grenade Launcher',
-				'Piglet Grenade Launcher',
-				'GL40 Grenade Launcher',
-				'Arbiter Grenade Launcher',
-				'Basilisk 3V Grenade Launcher'
+				'Compact 40mm',
+				'China Puff 40mm',
+				'Piglet',
+				'GL40',
+				'Arbiter',
+				'Basilisk 3V'
 			]
 		}
 	},
@@ -453,16 +453,16 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'KETCHNOV Byk-1 Assault Rifle',
-				'Little Friend 7.62 Assault Rifle'
+				'KETCHNOV Byk-1',
+				'Little Friend 7.62'
 			],
 			special: [
-				'Compact 40mm Grenade Launcher',
-				'China Puff 40mm Grenade Launcher',
-				'Piglet Grenade Launcher',
-				'GL40 Grenade Launcher',
-				'Arbiter Grenade Launcher',
-				'Basilisk 3V Grenade Launcher'
+				'Compact 40mm',
+				'China Puff 40mm',
+				'Piglet',
+				'GL40',
+				'Arbiter',
+				'Basilisk 3V'
 			]
 		}
 	},
@@ -482,16 +482,16 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'KETCHNOV Byk-1 Assault Rifle',
-				'Little Friend 7.62 Assault Rifle'
+				'KETCHNOV Byk-1',
+				'Little Friend 7.62'
 			],
 			special: [
-				'Compact 40mm Grenade Launcher',
-				'China Puff 40mm Grenade Launcher',
-				'Piglet Grenade Launcher',
-				'GL40 Grenade Launcher',
-				'Arbiter Grenade Launcher',
-				'Basilisk 3V Grenade Launcher'
+				'Compact 40mm',
+				'China Puff 40mm',
+				'Piglet',
+				'GL40',
+				'Arbiter',
+				'Basilisk 3V'
 			]
 		}
 	},

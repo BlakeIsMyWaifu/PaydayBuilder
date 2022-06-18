@@ -6,17 +6,17 @@ import { CompatibleWeapons, ModificationList } from '../weaponTypes'
 
 const mainSnipers: CompatibleWeapons = {
 	sniper: [
-		'Platypus 70 Sniper Rifle',
-		'Rattlesnake Sniper Rifle',
-		'R93 Sniper Rifle',
-		'Thanatos .50 cal Sniper Rifle',
-		'Nagant Sniper Rifle',
-		'Lebensauger .308 Sniper Rifle',
-		'Desertfox Sniper Rifle',
-		'Contractor .308 Sniper Rifle',
-		'Grom Sniper Rifle',
-		'R700 Sniper Rifle',
-		'Bernetti Rangehitter Sniper Rifle'
+		'Platypus 70',
+		'Rattlesnake',
+		'R93',
+		'Thanatos .50 cal',
+		'Nagant',
+		'Lebensauger .308',
+		'Desertfox',
+		'Contractor .308',
+		'Grom',
+		'R700',
+		'Bernetti Rangehitter'
 	]
 }
 
@@ -24,30 +24,30 @@ const mainGuns: CompatibleWeapons = {
 	assaultRifle: assaultRifleList,
 	shotgun: [
 		// primary
-		'Predator 12G Shotgun',
-		'Reinfeld 880 Shotgun',
-		'IZHMA 12G Shotgun',
-		'M1014 Shotgun',
-		'Raven Shotgun',
-		'Steakout 12G Shotgun',
-		'Breaker 12G Shotgun',
-		'Reinfeld 88 Shotgun',
-		'Mosconi 12G Tactical Shotgun',
+		'Predator 12G',
+		'Reinfeld 880',
+		'IZHMA 12G',
+		'M1014',
+		'Raven',
+		'Steakout 12G',
+		'Breaker 12G',
+		'Reinfeld 88',
+		'Mosconi 12G Tactical',
 		// secondary
-		'The Judge Shotgun',
-		'Locomotive 12G Shotgun',
-		'Goliath 12G Shotgun',
-		'Grimm 12G Shotgun',
-		'Street Sweeper Shotgun',
-		'GSPS 12G Shotgun'
+		'The Judge',
+		'Locomotive 12G',
+		'Goliath 12G',
+		'Grimm 12G',
+		'Street Sweeper',
+		'GSPS 12G'
 	],
 	akimboShotgun: akimboShotgunList,
 	sniper: Object.values(mainSnipers),
 	lightMachineGun: lightMachineGunList,
 	special: [
 		'Vulcan Minigun',
-		'Piglet Grenade Launcher',
-		'Arbiter Grenade Launcher'
+		'Piglet',
+		'Arbiter'
 	]
 }
 
@@ -55,95 +55,95 @@ const gunsWithSights: CompatibleWeapons = {
 	assaultRifle: assaultRifleList,
 	sniper: Object.values(mainSnipers),
 	special: [
-		'Arbiter Grenade Launcher',
-		'HRL-7 Rocket Launcher'
+		'Arbiter',
+		'HRL-7'
 	]
 }
 
 const gunsWithMagnifier: CompatibleWeapons = {
 	assaultRifle: [
-		'AMCAR Rifle',
-		'AK Rifle',
-		'CAR-4 Rifle',
-		'UAR Rifle',
-		'JP36 Rifle',
-		'M308 Rifle',
-		'AK5 Rifle',
-		'AMR-16 Rifle',
-		'Commando 553 Rifle',
-		'Eagle Heavy Rifle',
+		'AMCAR',
+		'AK',
+		'CAR-4',
+		'UAR',
+		'JP36',
+		'M308',
+		'AK5',
+		'AMR-16',
+		'Commando 553',
+		'Eagle Heavy',
 		'Cavity 9mm',
-		'AK17 Rifle',
-		'Bootleg Rifle',
-		'Queen\'s Wrath Rifle',
-		'Clarion Rifle',
-		'Lion\'s Roar Rifle',
-		'Gecko 7.62 Rifle',
-		'Little Friend 7.62 Assault Rifle',
-		'Falcon Rifle',
-		'Gewehr 3 Rifle'
+		'AK17',
+		'Bootleg',
+		'Queen\'s Wrath',
+		'Clarion',
+		'Lion\'s Roar',
+		'Gecko 7.62',
+		'Little Friend 7.62',
+		'Falcon',
+		'Gewehr 3'
 	],
 	sniper: Object.values(mainSnipers),
 	special: [
-		'Arbiter Grenade Launcher',
-		'HRL-7 Rocket Launcher',
-		'Piglet Grenade Launcher'
+		'Arbiter',
+		'HRL-7',
+		'Piglet'
 	],
 	submachineGun: [
-		'Mark 10 Submachine Gun',
-		'Compact-5 Submachine Gun',
-		'CMP Submachine Gun',
-		'Para Submachine Gun',
-		'SpecOps Submachine Gun',
-		'CR 805B Submachine Gun',
-		'Cobra Submachine Gun',
-		'Jackal Submachine Gun',
-		'Blaster 9mm Submachine Gun',
-		'Kross Vertex Submachine Gun',
-		'Tatonka Submachine Gun',
-		'Uzi Submachine Gun',
-		'Chicago Typewriter Submachine Gun'
+		'Mark 10',
+		'Compact-5',
+		'CMP',
+		'Para',
+		'SpecOps',
+		'CR 805B',
+		'Cobra',
+		'Jackal',
+		'Blaster 9mm',
+		'Kross Vertex',
+		'Tatonka',
+		'Uzi',
+		'Chicago Typewriter'
 	],
 	pistol: [
-		'Bronco .44 Pistol',
-		'Deagle Pistol'
+		'Bronco .44',
+		'Deagle'
 	],
 	shotgun: [
-		'Reinfeld 880 Shotgun',
-		'Locomotive 12G Shotgun',
-		'Goliath 12G Shotgun',
-		'M1014 Shotgun',
-		'Raven Shotgun',
-		'Steakout 12G Shotgun',
-		'Street Sweeper Shotgun',
-		'Predator 12G Shotgun',
-		'The Judge Shotgun'
+		'Reinfeld 880',
+		'Locomotive 12G',
+		'Goliath 12G',
+		'M1014',
+		'Raven',
+		'Steakout 12G',
+		'Street Sweeper',
+		'Predator 12G',
+		'The Judge'
 	]
 }
 
 const mainPistols: CompatibleWeapons = {
 	pistol: [
-		'Chimano 88 Pistol',
-		'Crosskill Pistol',
-		'Bernetti 9 Pistol',
-		'White Streak Pistol',
-		'STRYK 18c Pistol',
-		'Deagle Pistol',
-		'Gruber Kurz Pistol',
-		'Signature .40 Pistol',
+		'Chimano 88',
+		'Crosskill',
+		'Bernetti 9',
+		'White Streak',
+		'STRYK 18c',
+		'Deagle',
+		'Gruber Kurz',
+		'Signature .40',
 		'Baby Deagle',
-		'Contractor Pistol',
-		'LEO Pistol',
-		'Broomstick Pistol',
-		'Matever .357 Revolver',
-		'Interceptor .45 Pistol',
-		'Chimano Custom Pistol',
-		'5/7 AP Pistol',
-		'Chimano Custom Pistol'
+		'Contractor',
+		'LEO',
+		'Broomstick',
+		'Matever .357',
+		'Interceptor .45',
+		'Chimano Custom',
+		'5/7 AP',
+		'Chimano Custom'
 	],
 	submachineGun: [
-		'Cobra Submachine Gun',
-		'Micro Uzi Submachine Gun'
+		'Cobra',
+		'Micro Uzi'
 	]
 }
 

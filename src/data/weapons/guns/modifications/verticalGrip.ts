@@ -22,7 +22,7 @@ const verticalGrip: ModificationList<VerticalGripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Jackal Submachine Gun'
+				'Jackal'
 			]
 		}
 	}

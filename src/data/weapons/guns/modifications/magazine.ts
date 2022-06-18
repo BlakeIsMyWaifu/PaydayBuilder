@@ -5,13 +5,13 @@ import { CompatibleWeapons, ModificationList } from '../weaponTypes'
 
 const AKRifles: CompatibleWeapons = {
 	assaultRifle: [
-		'AK Rifle',
+		'AK',
 		'AK.762',
-		'Golden AK.762 Rifle',
-		'AK17 Rifle'
+		'Golden AK.762',
+		'AK17'
 	],
 	submachineGun: [
-		'Krinkov Submachine Gun'
+		'Krinkov'
 	]
 }
 
@@ -224,26 +224,26 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'JP36 Rifle',
-				'UAR Rifle',
-				'AK Rifle',
+				'JP36',
+				'UAR',
+				'AK',
 				'AK.762',
-				'Golden AK.762 Rifle',
-				'AK17 Rifle',
-				'CAR-4 Rifle',
-				'AMCAR Rifle',
-				'AMR-16 Rifle',
-				'AK5 Rifle',
-				'Queen\'s Wrath Rifle',
-				'Union 5.56 Rifle'
+				'Golden AK.762',
+				'AK17',
+				'CAR-4',
+				'AMCAR',
+				'AMR-16',
+				'AK5',
+				'Queen\'s Wrath',
+				'Union 5.56'
 			],
 			submachineGun: [
-				'Krinkov Submachine Gun',
-				'CR 805B Submachine Gun',
-				'Para Submachine Gun',
-				'Heather Submachine Gun',
-				'Mark 10 Submachine Gun',
-				'Kobus 90 Submachine Gun'
+				'Krinkov',
+				'CR 805B',
+				'Para',
+				'Heather',
+				'Mark 10',
+				'Kobus 90'
 			]
 		}
 	},
@@ -260,11 +260,11 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AMCAR Rifle',
-				'AMR-16 Rifle'
+				'AMCAR',
+				'AMR-16'
 			],
 			submachineGun: [
-				'Para Submachine Gun'
+				'Para'
 			]
 		}
 	},
@@ -281,12 +281,12 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle',
-				'AK5 Rifle',
-				'Queen\'s Wrath Rifle'
+				'CAR-4',
+				'AK5',
+				'Queen\'s Wrath'
 			],
 			submachineGun: [
-				'CR 805B Submachine Gun'
+				'CR 805B'
 			]
 		}
 	},
@@ -302,14 +302,14 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle',
-				'AK5 Rifle',
-				'AMR-16 Rifle',
-				'Queen\'s Wrath Rifle'
+				'CAR-4',
+				'AK5',
+				'AMR-16',
+				'Queen\'s Wrath'
 			],
 			submachineGun: [
-				'Para Submachine Gun',
-				'CR 805B Submachine Gun'
+				'Para',
+				'CR 805B'
 			]
 		}
 	},
@@ -331,15 +331,15 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AMCAR Rifle',
-				'CAR-4 Rifle',
-				'AK5 Rifle',
-				'AMR-16 Rifle',
-				'Queen\'s Wrath Rifle'
+				'AMCAR',
+				'CAR-4',
+				'AK5',
+				'AMR-16',
+				'Queen\'s Wrath'
 			],
 			submachineGun: [
-				'Para Submachine Gun',
-				'CR 805B Submachine Gun'
+				'Para',
+				'CR 805B'
 			]
 		}
 	},
@@ -356,14 +356,14 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle',
-				'AK5 Rifle',
-				'AMR-16 Rifle',
-				'Queen\'s Wrath Rifle'
+				'CAR-4',
+				'AK5',
+				'AMR-16',
+				'Queen\'s Wrath'
 			],
 			submachineGun: [
-				'Para Submachine Gun',
-				'CR 805B Submachine Gun'
+				'Para',
+				'CR 805B'
 			]
 		}
 	},
@@ -383,15 +383,15 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AMCAR Rifle',
-				'CAR-4 Rifle',
-				'AK5 Rifle',
-				'AMR-16 Rifle',
-				'Queen\'s Wrath Rifle'
+				'AMCAR',
+				'CAR-4',
+				'AK5',
+				'AMR-16',
+				'Queen\'s Wrath'
 			],
 			submachineGun: [
-				'Para Submachine Gun',
-				'CR 805B Submachine Gun'
+				'Para',
+				'CR 805B'
 			]
 		}
 	},
@@ -413,7 +413,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Falcon Rifle'
+				'Falcon'
 			]
 		}
 	},
@@ -430,7 +430,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Reinfeld 880 Shotgun'
+				'Reinfeld 880'
 			]
 		}
 	},
@@ -447,11 +447,11 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Grimm 12G Shotgun',
-				'IZHMA 12G Shotgun'
+				'Grimm 12G',
+				'IZHMA 12G'
 			],
 			akimboShotgun: [
-				'Brothers Grimm 12G Shotguns'
+				'Brothers Grimm 12G'
 			]
 		}
 	},
@@ -471,7 +471,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Steakout 12G Shotgun'
+				'Steakout 12G'
 			]
 		}
 	},
@@ -491,7 +491,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			special: [
-				'OVE9000 Saw'
+				'OVE9000'
 			]
 		}
 	},
@@ -510,7 +510,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			special: [
-				'OVE9000 Saw'
+				'OVE9000'
 			]
 		}
 	},
@@ -567,7 +567,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Interceptor .45 Pistol'
+				'Interceptor .45'
 			]
 		}
 	},
@@ -588,7 +588,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Interceptor .45 Pistol'
+				'Interceptor .45'
 			]
 		}
 	},
@@ -605,10 +605,10 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'STRYK 18c Pistol',
-				'Chimano 88 Pistol',
-				'Chimano Custom Pistol',
-				'Chimano Compact Pistol'
+				'STRYK 18c',
+				'Chimano 88',
+				'Chimano Custom',
+				'Chimano Compact'
 			]
 		}
 	},
@@ -624,7 +624,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Signature .40 Pistol'
+				'Signature .40'
 			]
 		}
 	},
@@ -641,7 +641,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Crosskill Pistol'
+				'Crosskill'
 			]
 		}
 	},
@@ -662,7 +662,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Crosskill Pistol'
+				'Crosskill'
 			]
 		}
 	},
@@ -679,7 +679,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bernetti 9 Pistol'
+				'Bernetti 9'
 			]
 		}
 	},
@@ -696,7 +696,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Crosskill Chunky Compact Pistol'
+				'Crosskill Chunky Compact'
 			]
 		}
 	},
@@ -716,7 +716,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'White Streak Pistol'
+				'White Streak'
 			]
 		}
 	},
@@ -736,7 +736,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Broomstick Pistol'
+				'Broomstick'
 			]
 		}
 	},
@@ -752,7 +752,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'5/7 AP Pistol'
+				'5/7 AP'
 			]
 		}
 	},
@@ -772,7 +772,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Contractor Pistol'
+				'Contractor'
 			]
 		}
 	},
@@ -789,7 +789,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Chimano Compact Pistol'
+				'Chimano Compact'
 			]
 		}
 	},
@@ -806,7 +806,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Crosskill Guard Pistol'
+				'Crosskill Guard'
 			]
 		}
 	},
@@ -825,7 +825,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'LEO Pistol'
+				'LEO'
 			]
 		}
 	},
@@ -845,7 +845,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bernetti Auto Pistol'
+				'Bernetti Auto'
 			]
 		}
 	},
@@ -862,7 +862,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Igor Automatik Pistol'
+				'Igor Automatik'
 			]
 		}
 	},
@@ -879,7 +879,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'HOLT 9mm Pistol'
+				'HOLT 9mm'
 			]
 		}
 	},
@@ -896,7 +896,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Deagle Pistol'
+				'Deagle'
 			]
 		}
 	},
@@ -913,7 +913,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Swedish K Submachine Gun'
+				'Swedish K'
 			]
 		}
 	},
@@ -930,7 +930,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'SpecOps Submachine Gun'
+				'SpecOps'
 			]
 		}
 	},
@@ -948,7 +948,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Mark 10 Submachine Gun'
+				'Mark 10'
 			]
 		}
 	},
@@ -968,7 +968,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Compact-5 Submachine Gun'
+				'Compact-5'
 			]
 		}
 	},
@@ -989,7 +989,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Cobra Submachine Gun'
+				'Cobra'
 			]
 		}
 	},
@@ -1006,7 +1006,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'CMP Submachine Gun'
+				'CMP'
 			]
 		}
 	},
@@ -1022,7 +1022,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Signature Submachine Gun'
+				'Signature'
 			]
 		}
 	},
@@ -1042,7 +1042,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Jackal Submachine Gun'
+				'Jackal'
 			]
 		}
 	},
@@ -1062,7 +1062,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Jackal Submachine Gun'
+				'Jackal'
 			]
 		}
 	},
@@ -1083,7 +1083,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Blaster 9mm Submachine Gun'
+				'Blaster 9mm'
 			]
 		}
 	},
@@ -1103,7 +1103,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Patchett L2A1 Submachine Gun'
+				'Patchett L2A1'
 			]
 		}
 	},
@@ -1123,7 +1123,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Patchett L2A1 Submachine Gun'
+				'Patchett L2A1'
 			]
 		}
 	},
@@ -1139,7 +1139,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Locomotive 12G Shotgun'
+				'Locomotive 12G'
 			]
 		}
 	},
@@ -1190,7 +1190,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Pronghorn Sniper Rifle'
+				'Pronghorn'
 			]
 		}
 	},
@@ -1226,7 +1226,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Gecko M2 Pistol'
+				'Gecko M2'
 			]
 		}
 	},
@@ -1262,7 +1262,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'KETCHNOV Byk-1 Assault Rifle'
+				'KETCHNOV Byk-1'
 			]
 		}
 	},
@@ -1279,7 +1279,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Káng Arms X1 Sniper Rifle'
+				'Káng Arms X1'
 			]
 		}
 	},
@@ -1296,7 +1296,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Miyaka 10 Special Submachine Gun'
+				'Miyaka 10 Special'
 			]
 		}
 	}

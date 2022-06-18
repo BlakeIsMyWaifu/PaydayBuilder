@@ -5,7 +5,6 @@ import perkDecks from 'data/abilities/perks'
 import armours from 'data/character/armours'
 import characters from 'data/character/characters'
 import equipments, { EquipmentData } from 'data/character/equipment'
-import masks from 'data/character/masks'
 import melees from 'data/weapons/melees'
 import throwables from 'data/weapons/throwables'
 import { useAppSelector } from 'hooks/reduxHooks'
@@ -14,6 +13,7 @@ import MeleeStatsTable from 'pages/Melee/MeleeStatsTable'
 import WeaponsStatsTable from 'pages/Weapons/WeaponStatsTable'
 import { FC, useState } from 'react'
 import { Link } from 'react-router-dom'
+import findMask from 'utils/findMask'
 import findWeapon from 'utils/findWeapon'
 
 import { HoverInfo } from '../Home'
@@ -25,7 +25,7 @@ import { EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, Sele
 const Tabs: FC = () => {
 
 	const characterState = useAppSelector(state => state.character)
-	const mask = masks[characterState.mask]
+	const mask = findMask(characterState.mask)
 	const character = characters[characterState.character]
 	const armour = armours[characterState.armour]
 	const equipmentPrimary = equipments[characterState.equipment.primary]

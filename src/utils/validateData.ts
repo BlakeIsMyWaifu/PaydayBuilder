@@ -1,8 +1,9 @@
+import { } from 'data/character/masks'
+
 import perkDecks from 'data/abilities/perks'
 import armours from 'data/character/armours'
 import characters from 'data/character/characters'
 import equipments from 'data/character/equipment'
-import masks from 'data/character/masks'
 import { Modification, ModificationSlot, Weapon } from 'data/weapons/guns/weaponTypes'
 import melees from 'data/weapons/melees'
 import throwables from 'data/weapons/throwables'
@@ -14,6 +15,7 @@ import { SkillsState, skillsDefaultState } from 'slices/skillsSlice'
 import { WeaponsState, weaponsDefaultState } from 'slices/weaponsSlice'
 import * as z from 'zod'
 
+import findMask from './findMask'
 import findWeapon from './findWeapon'
 
 export const validateJson = (data: unknown): boolean => {
@@ -143,7 +145,8 @@ export const validateArmoury = ({ primary, secondary }: OptionalArmouryState): A
 }
 
 export const validateCharacter = ({ mask, character, armour, equipment }: OptionalCharacterState): CharacterState => {
-	const validMask = (mask && masks[mask]?.name) || characterDefaultState.mask
+	// const validMask = (mask && masks[mask]?.name) || characterDefaultState.mask
+	const validMask = findMask(mask ?? '').name
 	const validCharacter = (character && characters[character]?.name) || characterDefaultState.character
 	const validArmour = (armour && armours[armour]?.name) || characterDefaultState.armour
 	const validEquipment = {

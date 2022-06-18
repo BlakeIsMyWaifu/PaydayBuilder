@@ -3,14 +3,14 @@ import { TreeNames } from 'data/abilities/skills'
 import armours, { ArmourData } from 'data/character/armours'
 import characters from 'data/character/characters'
 import equipments from 'data/character/equipment'
-import masks from 'data/character/masks'
+import { CategoryList, allMasks } from 'data/character/masks'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
 import { ModificationSlot, Slot } from 'data/weapons/guns/weaponTypes'
 import melees from 'data/weapons/melees'
 import throwables, { ThrowableData } from 'data/weapons/throwables'
 import { useAppSelector } from 'hooks/reduxHooks'
-import { getCollectionList } from 'pages/Mask/Mask'
+import findMask from 'utils/findMask'
 import findWeapon from 'utils/findWeapon'
 
 import { charString } from './useBuildURLImport'
@@ -64,14 +64,14 @@ const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 
 				upgrades.reverse().forEach((skill, i) => {
 					if (skill === 'basic') {
-						subtreeBasicChar = subtreeBasicChar | 1
+						subtreeBasicChar |= 1
 					}
 					else if (skill === 'aced') {
-						subtreeAcedChar = subtreeAcedChar | 1
+						subtreeAcedChar |= 1
 					}
 					if (i !== 5) {
-						subtreeBasicChar = subtreeBasicChar << 1
-						subtreeAcedChar = subtreeAcedChar << 1
+						subtreeBasicChar <<= 1
+						subtreeAcedChar <<= 1
 					}
 				})
 
@@ -137,12 +137,20 @@ const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 	}
 
 	const encodeMask = (): string => {
-		const collections = getCollectionList(),
-			maskCollection = masks[state.character.mask].collection,
-			collectionIndex = Object.keys(collections).findIndex(value => value === maskCollection),
-			collectionValue = encodeNumber(collectionIndex),
-			maskValue = collections[maskCollection].findIndex(value => value.name === state.character.mask)
-		return collectionValue + charString[maskValue]
+		const mask = findMask(state.character.mask)
+
+		const rarity = mask.rarity.toLowerCase()
+		const category = rarity === 'paid' ? 'dlc' : (rarity === 'free' ? 'normal' : rarity) as CategoryList
+		const categoryIndex = ['community', 'normal', 'dlc', 'event', 'collaboration', 'infamous'].findIndex(cat => cat === category)
+
+		const collectionIndex = Object.entries(allMasks[category]).find(([a]) => a === mask.collection)?.[1].id ?? 0
+		const encodedCollection = encodeNumber(collectionIndex)
+
+		const collection = Object.values(allMasks[category])[collectionIndex].masks
+		const maskId = Object.keys(collection).findIndex(name => name === mask.name)
+		const encodedMaskId = encodeNumber(maskId)
+
+		return `${categoryIndex}${encodedCollection}${encodedMaskId}`
 	}
 
 	const encodeArmoury = (slot: Slot): string => {

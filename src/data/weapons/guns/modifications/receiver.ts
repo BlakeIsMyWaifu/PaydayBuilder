@@ -18,7 +18,7 @@ const receiver: ModificationList<ReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			special: [
-				'Basilisk 3V Grenade Launcher'
+				'Basilisk 3V'
 			]
 		}
 	}

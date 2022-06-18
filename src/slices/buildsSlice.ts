@@ -12,7 +12,7 @@ export interface BuildsState {
 	builds: Record<number, BuildSave>;
 }
 
-export const defaultBuild = 's=0-90-90-9000&p=0&a=0&t=6&d=0&m=0&k=000&c=0&ap=_&as=_&w=0-0'
+export const defaultBuild = 's=0-90-90-9000&p=0&a=0&t=6&d=0&m=0&k=100&c=0&ap=_&as=_&w=0-0'
 
 export const buildsDefaultState: BuildsState = {
 	current: 0,
