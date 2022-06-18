@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type TheOverkillPackList =
+export type TheOverkillPackList =
 	| 'General Overkill'
 
 const theOverkillPack: Record<TheOverkillPackList, MaskData<TheOverkillPackList, DlcCollectionList>> = {

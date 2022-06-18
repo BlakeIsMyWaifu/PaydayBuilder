@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type GageWeaponPack2List =
+export type GageWeaponPack2List =
 	| 'Alpha Force'
 	| 'Commander Crime'
 	| 'The Gage Blade'

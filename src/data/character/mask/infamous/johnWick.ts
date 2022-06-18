@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { InfamousCollectionList } from '../infamous'
 
-type JohnWickList =
+export type JohnWickList =
 	| 'Collateral'
 
 const johnWick: Record<JohnWickList, MaskData<JohnWickList, InfamousCollectionList>> = {

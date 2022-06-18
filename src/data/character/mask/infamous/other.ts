@@ -4,7 +4,7 @@ import source from 'data/source/miscSources'
 
 import { InfamousCollectionList } from '../infamous'
 
-type OtherList =
+export type OtherList =
 	| 'StarVR'
 	| 'Mega Death'
 	| 'Omen'

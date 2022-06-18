@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { CommunityCollectionList } from '../community'
 
-type TheSolusProjectCommunityList =
+export type TheSolusProjectCommunityList =
 	| 'Planetary Tomb Guardian'
 
 const theSolusProjectCommunity: Record<TheSolusProjectCommunityList, MaskData<TheSolusProjectCommunityList, CommunityCollectionList>> = {

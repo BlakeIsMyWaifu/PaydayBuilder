@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type GageSpecOpsPackList =
+export type GageSpecOpsPackList =
 	| 'Batshit Crazy'
 	| 'A.W.O.L'
 	| 'Bloody Bandana'

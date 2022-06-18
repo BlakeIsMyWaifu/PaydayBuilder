@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { InfamousCollectionList } from '../infamous'
 
-type HoxtonRevengeList =
+export type HoxtonRevengeList =
 	| 'Hoxton Reborn Begins'
 
 const hoxtonRevenge: Record<HoxtonRevengeList, MaskData<HoxtonRevengeList, InfamousCollectionList>> = {

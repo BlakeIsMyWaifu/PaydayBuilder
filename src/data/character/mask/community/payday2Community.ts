@@ -4,7 +4,7 @@ import source from 'data/source/miscSources'
 
 import { CommunityCollectionList } from '../community'
 
-type Payday2CommunityList =
+export type Payday2CommunityList =
 	| 'Mark'
 	| 'Hockey Heat'
 	| 'Happy Santa'

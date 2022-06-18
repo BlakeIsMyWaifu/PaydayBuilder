@@ -1,16 +1,16 @@
 import { MaskData } from 'data/character/masks'
 import source from 'data/source/miscSources'
 
-import { FreeCollectionList } from '../free'
+import { NormalCollectionList } from '../normal'
 
-type OtherList =
+export type OtherList =
 	| 'Tormentor'
 	| 'God Emperor'
 	| 'The 45th'
 	| 'Fire Rooster'
 	| 'The 46th'
 
-const other: Record<OtherList, MaskData<OtherList, FreeCollectionList>> = {
+const other: Record<OtherList, MaskData<OtherList, NormalCollectionList>> = {
 	'Tormentor': {
 		name: 'Tormentor',
 		image: 'tormentor',

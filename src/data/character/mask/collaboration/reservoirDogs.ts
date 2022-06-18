@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { CollaborationCollectionList } from '../collaboration'
 
-type ReservoirDogsList =
+export type ReservoirDogsList =
 	| 'Futuras'
 	| 'Producers'
 	| 'The Dons'

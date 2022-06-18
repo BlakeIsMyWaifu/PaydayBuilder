@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { DlcCollectionList } from '../dlc'
 
-type Ps4PreorderMaskList =
+export type Ps4PreorderMaskList =
 	| 'The Griefer'
 
 const ps4PreorderMask: Record<Ps4PreorderMaskList, MaskData<Ps4PreorderMaskList, DlcCollectionList>> = {

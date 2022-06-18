@@ -1,9 +1,9 @@
 import { MaskData } from 'data/character/masks'
 import content from 'data/source/downloadableContent'
 
-import { FreeCollectionList } from '../free'
+import { NormalCollectionList } from '../normal'
 
-type HoxtonsHouseWarmingPartyList =
+export type HoxtonsHouseWarmingPartyList =
 	| 'Al Capone'
 	| 'Charles \'Lucky\' Luciano'
 	| 'George \'Bugs\' Moran'
@@ -14,7 +14,7 @@ type HoxtonsHouseWarmingPartyList =
 	| 'Pickle Face'
 	| 'The Awkward Seal'
 
-const hoxtonsHouseWarmingParty: Record<HoxtonsHouseWarmingPartyList, MaskData<HoxtonsHouseWarmingPartyList, FreeCollectionList>> = {
+const hoxtonsHouseWarmingParty: Record<HoxtonsHouseWarmingPartyList, MaskData<HoxtonsHouseWarmingPartyList, NormalCollectionList>> = {
 	'Al Capone': {
 		name: 'Al Capone',
 		image: 'gti_al_capone',

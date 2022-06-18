@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { DlcCollectionList } from '../dlc'
 
-type TwistedMetalList =
+export type TwistedMetalList =
 	| 'Sweettooth'
 
 const twistedMetal: Record<TwistedMetalList, MaskData<TwistedMetalList, DlcCollectionList>> = {

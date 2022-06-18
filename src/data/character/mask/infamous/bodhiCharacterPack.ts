@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { InfamousCollectionList } from '../infamous'
 
-type BodhiCharacterPackList =
+export type BodhiCharacterPackList =
 	| 'Bodhi'
 	| 'Bodhi Begins'
 

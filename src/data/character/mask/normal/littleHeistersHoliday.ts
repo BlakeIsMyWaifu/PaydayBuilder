@@ -1,9 +1,9 @@
 import { MaskData } from 'data/character/masks'
 import source from 'data/source/miscSources'
 
-import { FreeCollectionList } from '../free'
+import { NormalCollectionList } from '../normal'
 
-type LittleHeistersHolidayList =
+export type LittleHeistersHolidayList =
 	| 'Bird Brain'
 	| 'Hyena Two-Face'
 	| 'Mad Cat'
@@ -13,7 +13,7 @@ type LittleHeistersHolidayList =
 	| 'Relic Mask of the Soul'
 	| 'Relic Mask of the Will'
 
-const littleHeistersHoliday: Record<LittleHeistersHolidayList, MaskData<LittleHeistersHolidayList, FreeCollectionList>> = {
+const littleHeistersHoliday: Record<LittleHeistersHolidayList, MaskData<LittleHeistersHolidayList, NormalCollectionList>> = {
 	'Bird Brain': {
 		name: 'Bird Brain',
 		image: 'xm20_owl',

@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type MegaCityTailorPackList =
+export type MegaCityTailorPackList =
 	| 'Cyber Monkey'
 	| 'Electro Tiger'
 	| 'Robo Mantis'

@@ -3,7 +3,7 @@ import abilities from 'data/abilities/crewAbilities'
 import boosts from 'data/abilities/crewBoosts'
 import { PerkDeckList } from 'data/abilities/perks'
 import characters from 'data/character/characters'
-import masks from 'data/character/masks'
+import { MaskList, allMasks } from 'data/character/masks'
 import { CrewData } from 'pages/CrewManagement'
 
 export interface AbilitiesState {
@@ -13,7 +13,7 @@ export interface AbilitiesState {
 }
 
 const defaultCrew = (i: number): CrewData => ({
-	mask: Object.keys(masks)[i],
+	mask: Object.keys(allMasks.normal.Default.masks)[i] as MaskList,
 	character: Object.keys(characters)[i],
 	outfit: null,
 	weapon: 0,

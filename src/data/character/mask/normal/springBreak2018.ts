@@ -1,16 +1,16 @@
 import { MaskData } from 'data/character/masks'
 import source from 'data/source/miscSources'
 
-import { FreeCollectionList } from '../free'
+import { NormalCollectionList } from '../normal'
 
-type SpringBreak2018List =
+export type SpringBreak2018List =
 	| 'PNV - BriteNite'
 	| 'Boxey'
 	| 'Crazy Lou'
 	| 'Frou Frou'
 	| 'Klaus'
 
-const springBreak2018: Record<SpringBreak2018List, MaskData<SpringBreak2018List, FreeCollectionList>> = {
+const springBreak2018: Record<SpringBreak2018List, MaskData<SpringBreak2018List, NormalCollectionList>> = {
 	'PNV - BriteNite': {
 		name: 'PNV - BriteNite',
 		image: 'flm',

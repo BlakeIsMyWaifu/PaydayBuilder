@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { EventCollectionList } from '../event'
 
-type AlienwareAlphaMaskPackList =
+export type AlienwareAlphaMaskPackList =
 	| 'Alpha Grey'
 	| 'The Anomaly'
 

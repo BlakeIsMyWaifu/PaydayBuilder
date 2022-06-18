@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type MountainMasterHeistList =
+export type MountainMasterHeistList =
 	| 'Mountain Master Crown'
 
 const mountainMasterHeist: Record<MountainMasterHeistList, MaskData<MountainMasterHeistList, DlcCollectionList>> = {

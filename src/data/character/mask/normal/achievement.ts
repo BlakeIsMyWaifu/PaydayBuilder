@@ -1,9 +1,9 @@
 import { MaskData } from 'data/character/masks'
 import source from 'data/source/miscSources'
 
-import { FreeCollectionList } from '../free'
+import { NormalCollectionList } from '../normal'
 
-type AchievementList =
+export type AchievementList =
 	| 'Almir\'s Beard'
 	| 'Krampus'
 	| 'Mechanical Santa'
@@ -28,7 +28,7 @@ type AchievementList =
 	| 'Felis Lynx'
 	| 'Ursus Maritimus'
 
-const achievement: Record<AchievementList, MaskData<AchievementList, FreeCollectionList>> = {
+const achievement: Record<AchievementList, MaskData<AchievementList, NormalCollectionList>> = {
 	'Almir\'s Beard': {
 		name: 'Almir\'s Beard',
 		image: 'almirs_beard',

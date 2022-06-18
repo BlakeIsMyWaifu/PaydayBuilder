@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { DlcCollectionList } from '../dlc'
 
-type ZagToysList =
+export type ZagToysList =
 	| 'The Almir'
 
 const zagToys: Record<ZagToysList, MaskData<ZagToysList, DlcCollectionList>> = {

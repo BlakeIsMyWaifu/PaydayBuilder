@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type ScarfaceHeistList =
+export type ScarfaceHeistList =
 	| 'Exalted'
 	| 'Golden Hour'
 	| 'Barrori Flex'

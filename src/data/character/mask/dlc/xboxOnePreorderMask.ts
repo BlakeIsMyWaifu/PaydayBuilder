@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { DlcCollectionList } from '../dlc'
 
-type XboxOnePreorderMaskList =
+export type XboxOnePreorderMaskList =
 	| 'The Intuition'
 
 const xboxOnePreorderMask: Record<XboxOnePreorderMaskList, MaskData<XboxOnePreorderMaskList, DlcCollectionList>> = {

@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { CommunityCollectionList } from '../community'
 
-type DeadByDaylightCommunityList =
+export type DeadByDaylightCommunityList =
 	| 'Devourer'
 	| 'Unborn'
 	| 'Blister Head'

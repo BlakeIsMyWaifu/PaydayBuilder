@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type ScarfaceCharacterPackList =
+export type ScarfaceCharacterPackList =
 	| 'Scarface'
 	| 'Scarface Begins'
 

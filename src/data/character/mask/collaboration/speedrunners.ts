@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { CollaborationCollectionList } from '../collaboration'
 
-type SpeedrunnersList =
+export type SpeedrunnersList =
 	| 'Hothead'
 	| 'SpeedRunner'
 	| 'The Falcon'

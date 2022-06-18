@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type TheBikerHeistList =
+export type TheBikerHeistList =
 	| 'The Classic'
 	| 'Speed Devil'
 	| 'Flaming Skull'

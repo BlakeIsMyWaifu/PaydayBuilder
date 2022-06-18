@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { EventCollectionList } from '../event'
 
-type Halloween2021List =
+export type Halloween2021List =
 	| 'Boney Black Top'
 	| 'Deadhead Blues'
 	| 'Red Dead Bonehead Fred'

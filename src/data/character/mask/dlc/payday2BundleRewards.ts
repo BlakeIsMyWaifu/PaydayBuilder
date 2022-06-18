@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type Payday2BundleRewardsList =
+export type Payday2BundleRewardsList =
 	| 'Arch Nemesis'
 	| 'The Nun'
 	| 'Robo-Arnold'

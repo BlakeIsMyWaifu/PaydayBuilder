@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { InfamousCollectionList } from '../infamous'
 
-type HoldoutList =
+export type HoldoutList =
 	| 'Classy Monocle'
 	| 'Fancy Top Hat'
 	| 'Spirit Fox'

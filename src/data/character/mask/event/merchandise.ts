@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { EventCollectionList } from '../event'
 
-type MerchandiseList =
+export type MerchandiseList =
 	| 'Dozer Mask'
 
 const merchandise: Record<MerchandiseList, MaskData<MerchandiseList, EventCollectionList>> = {

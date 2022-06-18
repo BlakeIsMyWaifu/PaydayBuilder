@@ -4,7 +4,7 @@ import source from 'data/source/miscSources'
 
 import { EventCollectionList } from '../event'
 
-type HalloweenEventList =
+export type HalloweenEventList =
 	| 'Frank'
 	| 'Pumpkin King'
 	| 'Venomorph'

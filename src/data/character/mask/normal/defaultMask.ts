@@ -2,9 +2,9 @@ import { MaskData } from 'data/character/masks'
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { FreeCollectionList } from '../free'
+import { NormalCollectionList } from '../normal'
 
-type DefaultMaskList =
+export type DefaultMaskList =
 	| 'Preferred Character'
 	| 'Dallas'
 	| 'Chains'
@@ -29,7 +29,7 @@ type DefaultMaskList =
 	| 'Ethan'
 	| 'Hila'
 
-const defaultMask: Record<DefaultMaskList, MaskData<DefaultMaskList, FreeCollectionList>> = {
+const defaultMask: Record<DefaultMaskList, MaskData<DefaultMaskList, NormalCollectionList>> = {
 	'Preferred Character': {
 		name: 'Preferred Character',
 		image: 'character_locked',

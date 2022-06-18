@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { InfamousCollectionList } from '../infamous'
 
-type DukeCharacterPackList =
+export type DukeCharacterPackList =
 	| 'Duke'
 	| 'Duke Begins'
 

@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { InfamousCollectionList } from '../infamous'
 
-type AchievementMilestonesList =
+export type AchievementMilestonesList =
 	| 'Mega Famine'
 	| 'Mega Conquest'
 	| 'Mega Tormentor'

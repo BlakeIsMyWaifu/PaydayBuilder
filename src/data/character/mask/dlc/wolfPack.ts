@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type WolfPackList =
+export type WolfPackList =
 	| 'Hans'
 	| 'The Dragon Head'
 	| 'The Viking'

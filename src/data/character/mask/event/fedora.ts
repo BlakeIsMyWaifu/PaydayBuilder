@@ -1,7 +1,7 @@
 import { MaskData } from 'data/character/masks'
 import source from 'data/source/miscSources'
 
-type FedoraList =
+export type FedoraList =
 	| 'The Fedora'
 
 const fedora: Record<FedoraList, MaskData<FedoraList>> = {

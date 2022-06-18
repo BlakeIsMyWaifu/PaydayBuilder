@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type YakuzaCharacterPackList =
+export type YakuzaCharacterPackList =
 	| 'Jiro'
 	| 'Jiro Begins'
 

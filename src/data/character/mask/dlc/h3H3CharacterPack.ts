@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type H3H3CharacterPackList =
+export type H3H3CharacterPackList =
 	| 'Ethan'
 	| 'Hila'
 	| 'Ethan Begins'

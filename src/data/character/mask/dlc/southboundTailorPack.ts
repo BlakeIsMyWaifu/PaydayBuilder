@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type SouthboundTailorPackList =
+export type SouthboundTailorPackList =
 	| 'Blood Money'
 	| 'Don\'t Mess With Texas'
 	| 'Speedway'

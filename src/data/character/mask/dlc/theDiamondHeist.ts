@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type TheDiamondHeistList =
+export type TheDiamondHeistList =
 	| 'Anubis'
 	| 'Medusa'
 	| 'Pazuzu'

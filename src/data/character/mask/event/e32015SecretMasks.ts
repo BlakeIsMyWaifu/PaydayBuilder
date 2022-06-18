@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { EventCollectionList } from '../event'
 
-type E32015SecretMasksList =
+export type E32015SecretMasksList =
 	| 'Jack of Cards'
 	| 'Queen of Cards'
 	| 'King of Cards'

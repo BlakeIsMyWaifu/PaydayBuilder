@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type BulucsMansionHeistList =
+export type BulucsMansionHeistList =
 	| 'Undead Peacock'
 
 const bulucsMansionHeist: Record<BulucsMansionHeistList, MaskData<BulucsMansionHeistList, DlcCollectionList>> = {

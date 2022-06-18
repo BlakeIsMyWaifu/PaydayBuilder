@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type BorderCrossingHeistList =
+export type BorderCrossingHeistList =
 	| 'Hippika'
 
 const borderCrossingHeist: Record<BorderCrossingHeistList, MaskData<BorderCrossingHeistList, DlcCollectionList>> = {

@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type CloverCharacterPackList =
+export type CloverCharacterPackList =
 	| 'Clover'
 	| 'Clover Begins'
 

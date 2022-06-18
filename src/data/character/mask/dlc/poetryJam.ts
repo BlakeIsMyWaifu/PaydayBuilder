@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { DlcCollectionList } from '../dlc'
 
-type PoetryJamList =
+export type PoetryJamList =
 	| 'Criminal Ambitions'
 	| 'Metalhead'
 	| 'The Optimist'

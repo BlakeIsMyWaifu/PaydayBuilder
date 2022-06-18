@@ -1,9 +1,9 @@
 import { MaskData } from 'data/character/masks'
 import source from 'data/source/miscSources'
 
-import { FreeCollectionList } from '../free'
+import { NormalCollectionList } from '../normal'
 
-type LockeAndLoadList =
+export type LockeAndLoadList =
 	| 'Retro Chains'
 	| 'Retro Dallas'
 	| 'Retro Hoxton'
@@ -11,7 +11,7 @@ type LockeAndLoadList =
 	| 'Z.A.M.S Helmet'
 	| 'Rhubarb'
 
-const lockeAndLoad: Record<LockeAndLoadList, MaskData<LockeAndLoadList, FreeCollectionList>> = {
+const lockeAndLoad: Record<LockeAndLoadList, MaskData<LockeAndLoadList, NormalCollectionList>> = {
 	'Retro Chains': {
 		name: 'Retro Chains',
 		image: 'cmo_04',

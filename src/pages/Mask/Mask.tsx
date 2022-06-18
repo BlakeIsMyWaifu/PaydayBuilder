@@ -2,7 +2,7 @@ import Container from 'components/Container'
 import HorizontalBar from 'components/HorizontalBar'
 import Info from 'components/Info'
 import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
-import masks, { AllMasks, Category, CategoryList, MaskData } from 'data/character/masks'
+import { AllMasks, Category, CategoryList, MaskData } from 'data/character/masks'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useMountEffect from 'hooks/useMountEffect'
 import useObjectState from 'hooks/useObjectState'
@@ -16,22 +16,13 @@ import CollectionsTab from './CollectionsTab'
 import { MaskCollection, MaskCollectionTitle, MaskItemContainer, MaskWrapper, rainbowAnimation } from './Mask-Elements'
 import MaskTab from './MaskTab'
 
-export const getCollectionList = (): Record<string, MaskData[]> => {
-	const out: Record<string, MaskData[]> = {}
-	Object.values(masks).forEach(mask => {
-		const collection = out[mask.collection]
-		out[mask.collection] = collection ? [...collection, mask] : [mask]
-	})
-	return out
-}
-
 const Mask: FC = () => {
 
 	const dispatch = useAppDispatch()
 
 	const [categories, setCategories] = useObjectState<AllMasks>({
 		community: {},
-		free: {},
+		normal: {},
 		dlc: {},
 		event: {},
 		collaboration: {},
@@ -70,7 +61,7 @@ const Mask: FC = () => {
 
 	useEffect(() => {
 		if (selectedTab === 'all') {
-			const allCategories: CategoryList[] = ['community', 'free', 'dlc', 'event', 'collaboration', 'infamous']
+			const allCategories: CategoryList[] = ['community', 'normal', 'dlc', 'event', 'collaboration', 'infamous']
 			allCategories.forEach(addToCategory)
 		} else {
 			addToCategory(selectedTab)
@@ -80,7 +71,7 @@ const Mask: FC = () => {
 	return (
 		<Container rows='4rem 2rem 8fr 4rem' areas='"title title" "horizontalbar infotabs" "items info" "items back"' title='Mask'>
 
-			<HorizontalBar active={selectedTab} items={['all', 'community', 'free', 'dlc', 'event', 'collaboration', 'infamous'].map(rarity => ({
+			<HorizontalBar active={selectedTab} items={['all', 'community', 'normal', 'dlc', 'event', 'collaboration', 'infamous'].map(rarity => ({
 				label: rarity,
 				callback: () => {
 					setSelectedTab(rarity as (CategoryList | 'all'))

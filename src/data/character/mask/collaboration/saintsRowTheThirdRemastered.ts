@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { CollaborationCollectionList } from '../collaboration'
 
-type SaintsRowTheThirdRemasteredList =
+export type SaintsRowTheThirdRemasteredList =
 	'Shady Business'
 
 const saintsRowTheThirdRemastered: Record<SaintsRowTheThirdRemasteredList, MaskData<SaintsRowTheThirdRemasteredList, CollaborationCollectionList>> = {

@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type TheCompletelyOverkillPackList =
+export type TheCompletelyOverkillPackList =
 	| 'Mega Chains'
 	| 'Mega Cthulhu'
 	| 'Mega Dallas'

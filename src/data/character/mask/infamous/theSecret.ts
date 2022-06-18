@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { InfamousCollectionList } from '../infamous'
 
-type TheSecretList =
+export type TheSecretList =
 	| 'Secret Chains Mask'
 	| 'Secret Dallas Mask'
 	| 'Secret Hoxton Mask'

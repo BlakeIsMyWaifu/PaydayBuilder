@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type ThePointBreakHeistsList =
+export type ThePointBreakHeistsList =
 	| 'Maui'
 	| 'Oro'
 	| 'Tane'

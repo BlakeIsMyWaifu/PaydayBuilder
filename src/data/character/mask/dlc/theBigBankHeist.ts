@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type TheBigBankHeistList =
+export type TheBigBankHeistList =
 	| 'The 16th'
 	| 'The 18th'
 	| 'The 1st'

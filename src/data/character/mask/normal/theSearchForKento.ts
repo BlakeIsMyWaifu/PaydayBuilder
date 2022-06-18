@@ -1,9 +1,9 @@
 import { MaskData } from 'data/character/masks'
 import content from 'data/source/downloadableContent'
 
-import { FreeCollectionList } from '../free'
+import { NormalCollectionList } from '../normal'
 
-type TheSearchForKentoList =
+export type TheSearchForKentoList =
 	| 'Byrne'
 	| 'Fluffedup'
 	| 'Stoibs'
@@ -13,7 +13,7 @@ type TheSearchForKentoList =
 	| 'One-Eyed Jessicah'
 	| 'Schneider'
 
-const theSearchForKento: Record<TheSearchForKentoList, MaskData<TheSearchForKentoList, FreeCollectionList>> = {
+const theSearchForKento: Record<TheSearchForKentoList, MaskData<TheSearchForKentoList, NormalCollectionList>> = {
 	'Byrne': {
 		name: 'Byrne',
 		image: 'mp2_03',

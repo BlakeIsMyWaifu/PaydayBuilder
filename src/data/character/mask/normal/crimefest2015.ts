@@ -2,9 +2,9 @@ import { MaskData } from 'data/character/masks'
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { FreeCollectionList } from '../free'
+import { NormalCollectionList } from '../normal'
 
-type Crimefest2015List =
+export type Crimefest2015List =
 	| 'Baba Yaga'
 	| 'Russian Hat'
 	| 'Sputnik'
@@ -18,7 +18,7 @@ type Crimefest2015List =
 	| 'Groucho'
 	| 'Tinted Love'
 
-const crimefest2015: Record<Crimefest2015List, MaskData<Crimefest2015List, FreeCollectionList>> = {
+const crimefest2015: Record<Crimefest2015List, MaskData<Crimefest2015List, NormalCollectionList>> = {
 	'Baba Yaga': {
 		name: 'Baba Yaga',
 		image: 'baba_yaga',

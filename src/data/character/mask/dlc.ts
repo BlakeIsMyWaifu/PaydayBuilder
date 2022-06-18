@@ -1,60 +1,60 @@
 import { Category } from '../masks'
-import aMerryPaydayChristmasSoundtrack from './dlc/aMerryPaydayChristmasSoundtrack'
-import armoredTransport from './dlc/armoredTransport'
-import bikerCharacterPack from './dlc/bikerCharacterPack'
-import borderCrossingHeist from './dlc/borderCrossingHeist'
-import bulucsMansionHeist from './dlc/bulucsMansionHeist'
-import cloverCharacterPack from './dlc/cloverCharacterPack'
-import draganCharacterPack from './dlc/draganCharacterPack'
-import dragonPack from './dlc/dragonPack'
-import gageAssaultPack from './dlc/gageAssaultPack'
-import gageChivalryPack from './dlc/gageChivalryPack'
-import gageHistoricalPack from './dlc/gageHistoricalPack'
-import gageNinjaPack from './dlc/gageNinjaPack'
-import gageRussianWeaponPack from './dlc/gageRussianWeaponPack'
-import gageShotgunPack from './dlc/gageShotgunPack'
-import gageSniperPack from './dlc/gageSniperPack'
-import gageSpecOpsPack from './dlc/gageSpecOpsPack'
-import gageWeaponPack1 from './dlc/gageWeaponPack1'
-import gageWeaponPack2 from './dlc/gageWeaponPack2'
-import goldenDaggerTailorPack from './dlc/goldenDaggerTailorPack'
-import guardiansTailorPack from './dlc/guardiansTailorPack'
-import h3H3CharacterPack from './dlc/h3H3CharacterPack'
-import hotlineMiami from './dlc/hotlineMiami'
-import johnWickHeistsPack from './dlc/johnWickHeistsPack'
-import johnWickWeaponPack from './dlc/johnWickWeaponPack'
-import lootbag from './dlc/lootbag'
-import megaCityTailorPack from './dlc/megaCityTailorPack'
-import mountainMasterHeist from './dlc/mountainMasterHeist'
-import payday2BundleRewards from './dlc/payday2BundleRewards'
-import poetryJam from './dlc/poetryJam'
-import ps4PreorderMask from './dlc/ps4PreorderMask'
-import sanMartinBankHeist from './dlc/sanMartinBankHeist'
-import scarfaceCharacterPack from './dlc/scarfaceCharacterPack'
-import scarfaceHeist from './dlc/scarfaceHeist'
-import sokolCharacterPack from './dlc/sokolCharacterPack'
-import southboundTailorPack from './dlc/southboundTailorPack'
-import sydneyCharacterPack from './dlc/sydneyCharacterPack'
-import theAlessoHeist from './dlc/theAlessoHeist'
-import theBigBankHeist from './dlc/theBigBankHeist'
-import theBikerHeist from './dlc/theBikerHeist'
-import theBombHeists from './dlc/theBombHeists'
-import theButchersAKCARModPack from './dlc/theButchersAKCARModPack'
-import theButchersBBQPack from './dlc/theButchersBBQPack'
-import theButchersWesternPack from './dlc/theButchersWesternPack'
-import theCompletelyOverkillPack from './dlc/theCompletelyOverkillPack'
-import theDiamondHeist from './dlc/theDiamondHeist'
-import theGoatSimulatorHeist from './dlc/theGoatSimulatorHeist'
-import theGoldenGrinCasinoHeist from './dlc/theGoldenGrinCasinoHeist'
-import theOverkillPack from './dlc/theOverkillPack'
-import thePointBreakHeists from './dlc/thePointBreakHeists'
-import thespianMaskPack from './dlc/thespianMaskPack'
-import twistedMetal from './dlc/twistedMetal'
-import winterGhostsTailorPack from './dlc/winterGhostsTailorPack'
-import wolfPack from './dlc/wolfPack'
-import xboxOnePreorderMask from './dlc/xboxOnePreorderMask'
-import yakuzaCharacterPack from './dlc/yakuzaCharacterPack'
-import zagToys from './dlc/zagToys'
+import aMerryPaydayChristmasSoundtrack, { AMerryPaydayChristmasSoundtrackList } from './dlc/aMerryPaydayChristmasSoundtrack'
+import armoredTransport, { ArmoredTransportList } from './dlc/armoredTransport'
+import bikerCharacterPack, { BikerCharacterPackList } from './dlc/bikerCharacterPack'
+import borderCrossingHeist, { BorderCrossingHeistList } from './dlc/borderCrossingHeist'
+import bulucsMansionHeist, { BulucsMansionHeistList } from './dlc/bulucsMansionHeist'
+import cloverCharacterPack, { CloverCharacterPackList } from './dlc/cloverCharacterPack'
+import draganCharacterPack, { DraganCharacterPackList } from './dlc/draganCharacterPack'
+import dragonPack, { DragonPackList } from './dlc/dragonPack'
+import gageAssaultPack, { GageAssaultPackList } from './dlc/gageAssaultPack'
+import gageChivalryPack, { GageChivalryPackList } from './dlc/gageChivalryPack'
+import gageHistoricalPack, { GageHistoricalPackList } from './dlc/gageHistoricalPack'
+import gageNinjaPack, { GageNinjaPackList } from './dlc/gageNinjaPack'
+import gageRussianWeaponPack, { GageRussianWeaponPackList } from './dlc/gageRussianWeaponPack'
+import gageShotgunPack, { GageShotgunPackList } from './dlc/gageShotgunPack'
+import gageSniperPack, { GageSniperPackList } from './dlc/gageSniperPack'
+import gageSpecOpsPack, { GageSpecOpsPackList } from './dlc/gageSpecOpsPack'
+import gageWeaponPack1, { GageWeaponPack1List } from './dlc/gageWeaponPack1'
+import gageWeaponPack2, { GageWeaponPack2List } from './dlc/gageWeaponPack2'
+import goldenDaggerTailorPack, { GoldenDaggerTailorPackList } from './dlc/goldenDaggerTailorPack'
+import guardiansTailorPack, { GuardiansTailorPackList } from './dlc/guardiansTailorPack'
+import h3H3CharacterPack, { H3H3CharacterPackList } from './dlc/h3H3CharacterPack'
+import hotlineMiami, { HotLineMiamiList } from './dlc/hotlineMiami'
+import johnWickHeistsPack, { JohnWickHeistsPackList } from './dlc/johnWickHeistsPack'
+import johnWickWeaponPack, { JohnWickWeaponPackList } from './dlc/johnWickWeaponPack'
+import lootbag, { LootbagList } from './dlc/lootbag'
+import megaCityTailorPack, { MegaCityTailorPackList } from './dlc/megaCityTailorPack'
+import mountainMasterHeist, { MountainMasterHeistList } from './dlc/mountainMasterHeist'
+import payday2BundleRewards, { Payday2BundleRewardsList } from './dlc/payday2BundleRewards'
+import poetryJam, { PoetryJamList } from './dlc/poetryJam'
+import ps4PreorderMask, { Ps4PreorderMaskList } from './dlc/ps4PreorderMask'
+import sanMartinBankHeist, { SanMartinBankHeistList } from './dlc/sanMartinBankHeist'
+import scarfaceCharacterPack, { ScarfaceCharacterPackList } from './dlc/scarfaceCharacterPack'
+import scarfaceHeist, { ScarfaceHeistList } from './dlc/scarfaceHeist'
+import sokolCharacterPack, { SokolCharacterPackList } from './dlc/sokolCharacterPack'
+import southboundTailorPack, { SouthboundTailorPackList } from './dlc/southboundTailorPack'
+import sydneyCharacterPack, { SydneyCharacterPackList } from './dlc/sydneyCharacterPack'
+import theAlessoHeist, { TheAlessoHeistList } from './dlc/theAlessoHeist'
+import theBigBankHeist, { TheBigBankHeistList } from './dlc/theBigBankHeist'
+import theBikerHeist, { TheBikerHeistList } from './dlc/theBikerHeist'
+import theBombHeists, { TheBombHeistsList } from './dlc/theBombHeists'
+import theButchersAKCARModPack, { TheButchersAKCARModPackList } from './dlc/theButchersAKCARModPack'
+import theButchersBBQPack, { TheButchersBBQPackList } from './dlc/theButchersBBQPack'
+import theButchersWesternPack, { TheButchersWesternPackList } from './dlc/theButchersWesternPack'
+import theCompletelyOverkillPack, { TheCompletelyOverkillPackList } from './dlc/theCompletelyOverkillPack'
+import theDiamondHeist, { TheDiamondHeistList } from './dlc/theDiamondHeist'
+import theGoatSimulatorHeist, { TheGoatSimulatorHeistList } from './dlc/theGoatSimulatorHeist'
+import theGoldenGrinCasinoHeist, { TheGoldenGrinCasinoHeistList } from './dlc/theGoldenGrinCasinoHeist'
+import theOverkillPack, { TheOverkillPackList } from './dlc/theOverkillPack'
+import thePointBreakHeists, { ThePointBreakHeistsList } from './dlc/thePointBreakHeists'
+import thespianMaskPack, { ThespianMaskPackList } from './dlc/thespianMaskPack'
+import twistedMetal, { TwistedMetalList } from './dlc/twistedMetal'
+import winterGhostsTailorPack, { WinterGhostsTailorPackList } from './dlc/winterGhostsTailorPack'
+import wolfPack, { WolfPackList } from './dlc/wolfPack'
+import xboxOnePreorderMask, { XboxOnePreorderMaskList } from './dlc/xboxOnePreorderMask'
+import yakuzaCharacterPack, { YakuzaCharacterPackList } from './dlc/yakuzaCharacterPack'
+import zagToys, { ZagToysList } from './dlc/zagToys'
 
 export type DlcCollectionList =
 	| 'The Butcher\'s AK/CAR Mod Pack'
@@ -114,229 +114,287 @@ export type DlcCollectionList =
 	| 'PS4 Pre-Order Mask'
 	| 'Xbox One Pre-Order Mask'
 
+export type DlcMaskList =
+	| TheButchersAKCARModPackList
+	| TheAlessoHeistList
+	| ArmoredTransportList
+	| TheButchersBBQPackList
+	| ThePointBreakHeistsList
+	| SanMartinBankHeistList
+	| TheBigBankHeistList
+	| TheBikerHeistList
+	| MegaCityTailorPackList
+	| CloverCharacterPackList
+	| DraganCharacterPackList
+	| SokolCharacterPackList
+	| ScarfaceCharacterPackList
+	| BulucsMansionHeistList
+	| BorderCrossingHeistList
+	| YakuzaCharacterPackList
+	| H3H3CharacterPackList
+	| ScarfaceHeistList
+	| GageWeaponPack1List
+	| GageAssaultPackList
+	| GageHistoricalPackList
+	| GageWeaponPack2List
+	| GageShotgunPackList
+	| GageSniperPackList
+	| GoldenDaggerTailorPackList
+	| Payday2BundleRewardsList
+	| GageRussianWeaponPackList
+	| HotLineMiamiList
+	| TheDiamondHeistList
+	| TheGoldenGrinCasinoHeistList
+	| SydneyCharacterPackList
+	| TheOverkillPackList
+	| WolfPackList
+	| TheGoatSimulatorHeistList
+	| JohnWickWeaponPackList
+	| PoetryJamList
+	| GuardiansTailorPackList
+	| WinterGhostsTailorPackList
+	| JohnWickHeistsPackList
+	| GageChivalryPackList
+	| GageSpecOpsPackList
+	| TheBombHeistsList
+	| DragonPackList
+	| GageNinjaPackList
+	| SouthboundTailorPackList
+	| TheButchersWesternPackList
+	| BikerCharacterPackList
+	| AMerryPaydayChristmasSoundtrackList
+	| MountainMasterHeistList
+	| LootbagList
+	| TheCompletelyOverkillPackList
+	| ZagToysList
+	| TwistedMetalList
+	| ThespianMaskPackList
+	| Ps4PreorderMaskList
+	| XboxOnePreorderMaskList
+
 const dlc: Category<DlcCollectionList> = {
 	'The Butcher\'s AK/CAR Mod Pack': {
 		id: 0,
 		masks: theButchersAKCARModPack
 	},
 	'The Alesso Heist': {
-		id: 0,
+		id: 1,
 		masks: theAlessoHeist
 	},
 	'Armored Transport': {
-		id: 0,
+		id: 2,
 		masks: armoredTransport
 	},
 	'The Butcher\'s BBQ Pack': {
-		id: 0,
+		id: 3,
 		masks: theButchersBBQPack
 	},
 	'The Point Break Heists': {
-		id: 0,
+		id: 4,
 		masks: thePointBreakHeists
 	},
 	'San Martín Bank Heist': {
-		id: 0,
+		id: 5,
 		masks: sanMartinBankHeist
 	},
 	'The Big Bank Heist': {
-		id: 0,
+		id: 6,
 		masks: theBigBankHeist
 	},
 	'The Biker Heist': {
-		id: 0,
+		id: 7,
 		masks: theBikerHeist
 	},
 	'Mega City Tailor Pack': {
-		id: 0,
+		id: 8,
 		masks: megaCityTailorPack
 	},
 	'Clover Character Pack': {
-		id: 0,
+		id: 9,
 		masks: cloverCharacterPack
 	},
 	'Dragan Character Pack': {
-		id: 0,
+		id: 10,
 		masks: draganCharacterPack
 	},
 	'Sokol Character Pack': {
-		id: 0,
+		id: 11,
 		masks: sokolCharacterPack
 	},
 	'Scarface Character Pack': {
-		id: 0,
+		id: 12,
 		masks: scarfaceCharacterPack
 	},
 	'Buluc\'s Mansion Heist': {
-		id: 0,
+		id: 13,
 		masks: bulucsMansionHeist
 	},
 	'Border Crossing Heist': {
-		id: 0,
+		id: 14,
 		masks: borderCrossingHeist
 	},
 	'Yakuza Character Pack': {
-		id: 0,
+		id: 15,
 		masks: yakuzaCharacterPack
 	},
 	'H3H3 Character Pack': {
-		id: 0,
+		id: 16,
 		masks: h3H3CharacterPack
 	},
 	'Scarface Heist': {
-		id: 0,
+		id: 17,
 		masks: scarfaceHeist
 	},
 	'Gage Weapon Pack #01': {
-		id: 0,
+		id: 18,
 		masks: gageWeaponPack1
 	},
 	'Gage Assault Pack': {
-		id: 0,
+		id: 19,
 		masks: gageAssaultPack
 	},
 	'Gage Historical Pack': {
-		id: 0,
+		id: 20,
 		masks: gageHistoricalPack
 	},
 	'Gage Weapon Pack #02': {
-		id: 0,
+		id: 21,
 		masks: gageWeaponPack2
 	},
 	'Gage Shotgun Pack': {
-		id: 0,
+		id: 22,
 		masks: gageShotgunPack
 	},
 	'Gage Sniper Pack': {
-		id: 0,
+		id: 23,
 		masks: gageSniperPack
 	},
 	'Golden Dagger Tailor Pack': {
-		id: 0,
+		id: 24,
 		masks: goldenDaggerTailorPack
 	},
 	'PAYDAY 2 Bundle Rewards': {
-		id: 0,
+		id: 25,
 		masks: payday2BundleRewards
 	},
 	'Gage Russian Weapon Pack': {
-		id: 0,
+		id: 26,
 		masks: gageRussianWeaponPack
 	},
 	'Hotline Miami': {
-		id: 0,
+		id: 27,
 		masks: hotlineMiami
 	},
 	'The Diamond Heist': {
-		id: 0,
+		id: 28,
 		masks: theDiamondHeist
 	},
 	'The Golden Grin Casino Heist': {
-		id: 0,
+		id: 29,
 		masks: theGoldenGrinCasinoHeist
 	},
 	'Sydney Character Pack': {
-		id: 0,
+		id: 30,
 		masks: sydneyCharacterPack
 	},
 	'The OVERKILL Pack': {
-		id: 0,
+		id: 31,
 		masks: theOverkillPack
 	},
 	'Wolf Pack': {
-		id: 0,
+		id: 32,
 		masks: wolfPack
 	},
 	'The Goat Simulator Heist': {
-		id: 0,
+		id: 33,
 		masks: theGoatSimulatorHeist
 	},
 	'John Wick Weapon Pack': {
-		id: 0,
+		id: 34,
 		masks: johnWickWeaponPack
 	},
 	'Poetry Jam': {
-		id: 0,
+		id: 35,
 		masks: poetryJam
 	},
 	'Guardians Tailor Pack': {
-		id: 0,
+		id: 36,
 		masks: guardiansTailorPack
 	},
 	'Winter Ghosts Tailor Pack': {
-		id: 0,
+		id: 37,
 		masks: winterGhostsTailorPack
 	},
 	'John Wick Heists Pack': {
-		id: 0,
+		id: 38,
 		masks: johnWickHeistsPack
 	},
 	'Gage Chivalry Pack': {
-		id: 0,
+		id: 39,
 		masks: gageChivalryPack
 	},
 	'Gage Spec Ops Pack': {
-		id: 0,
+		id: 40,
 		masks: gageSpecOpsPack
 	},
 	'The Bomb Heists': {
-		id: 0,
+		id: 41,
 		masks: theBombHeists
 	},
 	'Dragon Pack': {
-		id: 0,
+		id: 42,
 		masks: dragonPack
 	},
 	'Gage Ninja Pack': {
-		id: 0,
+		id: 43,
 		masks: gageNinjaPack
 	},
 	'Southbound Tailor Pack': {
-		id: 0,
+		id: 44,
 		masks: southboundTailorPack
 	},
 	'The Butcher\'s Western Pack': {
-		id: 0,
+		id: 45,
 		masks: theButchersWesternPack
 	},
 	'Biker Character Pack': {
-		id: 0,
+		id: 46,
 		masks: bikerCharacterPack
 	},
 	'A Merry Payday Christmas Soundtrack': {
-		id: 0,
+		id: 47,
 		masks: aMerryPaydayChristmasSoundtrack
 	},
 	'Mountain Master Heist': {
-		id: 0,
+		id: 48,
 		masks: mountainMasterHeist
 	},
 	'Lootbag': {
-		id: 0,
+		id: 49,
 		masks: lootbag
 	},
 	'The COMPLETELY OVERKILL Pack': {
-		id: 0,
+		id: 50,
 		masks: theCompletelyOverkillPack
 	},
 	'Zag Toys': {
-		id: 0,
+		id: 51,
 		masks: zagToys
 	},
 	'Twisted Metal': {
-		id: 0,
+		id: 52,
 		masks: twistedMetal
 	},
 	'Thespian Mask Pack': {
-		id: 0,
+		id: 53,
 		masks: thespianMaskPack
 	},
 	'PS4 Pre-Order Mask': {
-		id: 0,
+		id: 54,
 		masks: ps4PreorderMask
 	},
 	'Xbox One Pre-Order Mask': {
-		id: 0,
+		id: 55,
 		masks: xboxOnePreorderMask
 	}
 }

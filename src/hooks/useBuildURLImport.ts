@@ -3,14 +3,13 @@ import skills, { TreeNames } from 'data/abilities/skills'
 import armours, { ArmourList } from 'data/character/armours'
 import characters, { CharacterList } from 'data/character/characters'
 import equipments, { EquipmentList } from 'data/character/equipment'
-import { MaskList } from 'data/character/masks'
+import { CategoryList, MaskList, allMasks } from 'data/character/masks'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
 import { AllWeaponList, Modification, ModificationSlot, WeaponData, WeaponFind, WeaponType } from 'data/weapons/guns/weaponTypes'
 import melees, { MeleeList } from 'data/weapons/melees'
 import throwables, { ThrowableData, ThrowableList } from 'data/weapons/throwables'
 import { useAppDispatch } from 'hooks/reduxHooks'
-import { getCollectionList } from 'pages/Mask/Mask'
 import { SetStateAction, useCallback, useEffect, useState } from 'react'
 import { Dispatch } from 'react'
 import { changePerkDeck } from 'slices/abilitiesSlice'
@@ -80,12 +79,17 @@ const decodeMelee = (value: string): MeleeList => {
 }
 
 const decodeMask = (value: string): MaskList => {
-	return 'Cyber Monkey'
-	// const collections = getCollectionList()
-	// const [maskValue, ...collectionValue] = value.split('').reverse()
-	// const collectionIndex = decodeValues(collectionValue.reverse().join(''))
-	// const mask = Object.values(collections)[collectionIndex][decodeValues(maskValue)].name
-	// return mask
+	const [categoryIndex, encodedCollection, encodedMaskId] = value.split('')
+
+	const category = Object.keys(allMasks)[+categoryIndex] as CategoryList
+
+	const collectionId = decodeValues(encodedCollection)
+	const collections = Object.values(allMasks[category])
+	const collection = collections.find(col => col.id === collectionId) ?? collections[0]
+
+	const maskId = decodeValues(encodedMaskId)
+
+	return Object.keys(collection.masks)[maskId] as MaskList
 }
 
 const decodeCharacter = (value: string): CharacterList => {

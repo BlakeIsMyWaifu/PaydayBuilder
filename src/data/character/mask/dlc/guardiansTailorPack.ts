@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type GuardiansTailorPackList =
+export type GuardiansTailorPackList =
 	| 'Azure Dragon'
 	| 'Black Tortoise'
 	| 'Vermilion Bird'

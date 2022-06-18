@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type AMerryPaydayChristmasSoundtrackList =
+export type AMerryPaydayChristmasSoundtrackList =
 	| 'Furious Santa'
 	| 'Surprised Santa'
 	| 'Tipsy Santa'

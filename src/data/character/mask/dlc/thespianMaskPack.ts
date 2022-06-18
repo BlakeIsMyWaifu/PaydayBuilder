@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type ThespianMaskPackList =
+export type ThespianMaskPackList =
 	| 'Thespian'
 
 const thespianMaskPack: Record<ThespianMaskPackList, MaskData<ThespianMaskPackList, DlcCollectionList>> = {

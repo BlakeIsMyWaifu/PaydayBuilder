@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type TheGoatSimulatorHeistList =
+export type TheGoatSimulatorHeistList =
 	| 'Goat Goat'
 	| 'Mastermind Goat'
 	| 'Scout Goat'

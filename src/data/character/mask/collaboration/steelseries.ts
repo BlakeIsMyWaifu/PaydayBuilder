@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { CollaborationCollectionList } from '../collaboration'
 
-type SteelseriesList =
+export type SteelseriesList =
 	| 'Lars the Troll'
 
 const steelseries: Record<SteelseriesList, MaskData<SteelseriesList, CollaborationCollectionList>> = {

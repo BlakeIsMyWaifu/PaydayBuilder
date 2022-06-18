@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type GageAssaultPackList =
+export type GageAssaultPackList =
 	| 'Black Death'
 	| 'Crow Goblin'
 	| 'Professor Wrath'

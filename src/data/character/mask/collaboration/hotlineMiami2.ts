@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { CollaborationCollectionList } from '../collaboration'
 
-type HotlineMiami2List =
+export type HotlineMiami2List =
 	| 'Alex'
 	| 'Biker'
 	| 'Corey'

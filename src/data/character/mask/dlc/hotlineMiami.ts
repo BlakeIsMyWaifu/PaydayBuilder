@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type HotLineMiamiList =
+export type HotLineMiamiList =
 	| 'Aubrey'
 	| 'Dennis'
 	| 'Graham'

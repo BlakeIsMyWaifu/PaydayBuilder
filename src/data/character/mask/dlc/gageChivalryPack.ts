@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type GageChivalryPackList =
+export type GageChivalryPackList =
 	| 'Agatha Knight Veteran'
 	| 'Agatha Vanguard Veteran'
 	| 'Mason Knight Veteran'

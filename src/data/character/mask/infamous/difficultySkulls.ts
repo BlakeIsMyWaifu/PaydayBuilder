@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { InfamousCollectionList } from '../infamous'
 
-type DifficultySkullsList =
+export type DifficultySkullsList =
 	| 'Normal Skull, The'
 	| 'Hard Skull, The'
 	| 'Very Hard Skull, The'

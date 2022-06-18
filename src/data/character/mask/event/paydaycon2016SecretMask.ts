@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { EventCollectionList } from '../event'
 
-type Paydaycon2016SecretMaskList =
+export type Paydaycon2016SecretMaskList =
 	| 'Mega Clover'
 
 const paydaycon2016SecretMask: Record<Paydaycon2016SecretMaskList, MaskData<Paydaycon2016SecretMaskList, EventCollectionList>> = {

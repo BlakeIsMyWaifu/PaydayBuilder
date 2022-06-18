@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type GageHistoricalPackList =
+export type GageHistoricalPackList =
 	| 'British Bulldog'
 	| 'Old Blood and Guts'
 	| 'The Constable'

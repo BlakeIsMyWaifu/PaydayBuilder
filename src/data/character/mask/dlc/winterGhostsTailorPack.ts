@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type WinterGhostsTailorPackList =
+export type WinterGhostsTailorPackList =
 	| 'Deer of Winters Past'
 	| 'Kitsune Kari'
 	| 'Leshy'

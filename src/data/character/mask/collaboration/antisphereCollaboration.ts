@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { CollaborationCollectionList } from '../collaboration'
 
-type AntisphereCollaborationList =
+export type AntisphereCollaborationList =
 	| 'DOME'
 	| 'DRONE'
 	| 'INTERCEPTOR'

@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { InfamousCollectionList } from '../infamous'
 
-type BonnieCharacterPackList =
+export type BonnieCharacterPackList =
 	| 'Bonnie'
 	| 'Bonnie Begins'
 

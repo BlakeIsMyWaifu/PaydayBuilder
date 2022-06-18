@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type ArmoredTransportList =
+export type ArmoredTransportList =
 	| 'The 37th'
 	| 'The 42nd'
 	| 'The 43rd'

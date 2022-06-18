@@ -1,9 +1,9 @@
 import { MaskData } from 'data/character/masks'
 import source from 'data/source/miscSources'
 
-import { FreeCollectionList } from '../free'
+import { NormalCollectionList } from '../normal'
 
-type CardDropsList =
+export type CardDropsList =
 	| 'Alienware'
 	| 'Baby Rhino'
 	| 'The Big Lips'
@@ -43,7 +43,7 @@ type CardDropsList =
 	| 'The Zipper'
 	| 'The Zombie'
 
-const cardDrops: Record<CardDropsList, MaskData<CardDropsList, FreeCollectionList>> = {
+const cardDrops: Record<CardDropsList, MaskData<CardDropsList, NormalCollectionList>> = {
 	'Alienware': {
 		name: 'Alienware',
 		image: 'alienware',

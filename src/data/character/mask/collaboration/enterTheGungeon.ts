@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { CollaborationCollectionList } from '../collaboration'
 
-type EnterTheGungeonList =
+export type EnterTheGungeonList =
 	| 'The Bullet'
 	| 'The Cultist'
 	| 'The Marine'

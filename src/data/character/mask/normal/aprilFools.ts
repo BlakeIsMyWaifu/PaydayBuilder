@@ -2,9 +2,9 @@ import { MaskData } from 'data/character/masks'
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { FreeCollectionList } from '../free'
+import { NormalCollectionList } from '../normal'
 
-type AprilFoolsList =
+export type AprilFoolsList =
 	| 'Black Beanie'
 	| 'Green Beanie'
 	| 'Navy Beanie'
@@ -14,7 +14,7 @@ type AprilFoolsList =
 	| 'Hoxton, The Infiltrator'
 	| 'Wolf, The Maniac'
 
-const aprilFools: Record<AprilFoolsList, MaskData<AprilFoolsList, FreeCollectionList>> = {
+const aprilFools: Record<AprilFoolsList, MaskData<AprilFoolsList, NormalCollectionList>> = {
 	'Black Beanie': {
 		name: 'Black Beanie',
 		image: 'bny_03',

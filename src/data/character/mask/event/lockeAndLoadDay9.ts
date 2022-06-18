@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { EventCollectionList } from '../event'
 
-type LockeAndLoadDay9List =
+export type LockeAndLoadDay9List =
 	| 'Simon'
 
 const lockeAndLoadDay9: Record<LockeAndLoadDay9List, MaskData<LockeAndLoadDay9List, EventCollectionList>> = {

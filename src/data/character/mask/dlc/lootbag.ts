@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type LootbagList =
+export type LootbagList =
 	| 'The Skull'
 
 const lootbag: Record<LootbagList, MaskData<LootbagList, DlcCollectionList>> = {

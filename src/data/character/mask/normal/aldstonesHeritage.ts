@@ -1,15 +1,15 @@
 import { MaskData } from 'data/character/masks'
 import source from 'data/source/miscSources'
 
-import { FreeCollectionList } from '../free'
+import { NormalCollectionList } from '../normal'
 
-type AldstonesHeritageList =
+export type AldstonesHeritageList =
 	| 'Kurgan\'s Gas Mask'
 	| 'Rivet\'s Bandana'
 	| 'Sterling\'s Beret'
 	| 'Wolfgang\'s Cap'
 
-const aldstonesHeritage: Record<AldstonesHeritageList, MaskData<AldstonesHeritageList, FreeCollectionList>> = {
+const aldstonesHeritage: Record<AldstonesHeritageList, MaskData<AldstonesHeritageList, NormalCollectionList>> = {
 	'Kurgan\'s Gas Mask': {
 		name: 'Kurgan\'s Gas Mask',
 		image: 'jfr_03',

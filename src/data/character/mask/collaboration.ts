@@ -1,15 +1,15 @@
 import { Category } from '../masks'
-import antisphereCollaboration from './collaboration/antisphereCollaboration'
-import deadByDaylightDeluxe from './collaboration/deadByDaylightDeluxe'
-import enterTheGungeon from './collaboration/enterTheGungeon'
-import hotlineMiami from './collaboration/hotlineMiami'
-import hotlineMiami2 from './collaboration/hotlineMiami2'
-import hotlineMiami2Deluxe from './collaboration/hotlineMiami2Deluxe'
-import reservoirDogs from './collaboration/reservoirDogs'
-import saintsRowTheThirdRemastered from './collaboration/saintsRowTheThirdRemastered'
-import shadowWarrior2Collaboration from './collaboration/shadowWarrior2Collaboration'
-import speedrunners from './collaboration/speedrunners'
-import steelseries from './collaboration/steelseries'
+import antisphereCollaboration, { AntisphereCollaborationList } from './collaboration/antisphereCollaboration'
+import deadByDaylightDeluxe, { DeadByDaylightDeluxeList } from './collaboration/deadByDaylightDeluxe'
+import enterTheGungeon, { EnterTheGungeonList } from './collaboration/enterTheGungeon'
+import hotlineMiami, { HotlineMiamiList } from './collaboration/hotlineMiami'
+import hotlineMiami2, { HotlineMiami2List } from './collaboration/hotlineMiami2'
+import hotlineMiami2Deluxe, { HotlineMiami2DeluxeList } from './collaboration/hotlineMiami2Deluxe'
+import reservoirDogs, { ReservoirDogsList } from './collaboration/reservoirDogs'
+import saintsRowTheThirdRemastered, { SaintsRowTheThirdRemasteredList } from './collaboration/saintsRowTheThirdRemastered'
+import shadowWarrior2Collaboration, { ShadowWarrior2CollaborationList } from './collaboration/shadowWarrior2Collaboration'
+import speedrunners, { SpeedrunnersList } from './collaboration/speedrunners'
+import steelseries, { SteelseriesList } from './collaboration/steelseries'
 
 export type CollaborationCollectionList =
 	| 'Antisphere Collaboration'
@@ -24,49 +24,62 @@ export type CollaborationCollectionList =
 	| 'SpeedRunners'
 	| 'Saints Row: The Third Remastered'
 
+export type CollaborationMaskList =
+	| AntisphereCollaborationList
+	| DeadByDaylightDeluxeList
+	| EnterTheGungeonList
+	| HotlineMiami2List
+	| HotlineMiami2DeluxeList
+	| HotlineMiamiList
+	| SteelseriesList
+	| ReservoirDogsList
+	| ShadowWarrior2CollaborationList
+	| SpeedrunnersList
+	| SaintsRowTheThirdRemasteredList
+
 const collaboration: Category<CollaborationCollectionList> = {
 	'Antisphere Collaboration': {
 		id: 0,
 		masks: antisphereCollaboration
 	},
 	'Dead by Daylight Deluxe': {
-		id: 0,
+		id: 1,
 		masks: deadByDaylightDeluxe
 	},
 	'Enter the Gungeon': {
-		id: 0,
+		id: 2,
 		masks: enterTheGungeon
 	},
 	'Hotline Miami 2': {
-		id: 0,
+		id: 3,
 		masks: hotlineMiami2
 	},
 	'Hotline Miami 2 Deluxe': {
-		id: 0,
+		id: 4,
 		masks: hotlineMiami2Deluxe
 	},
 	'Hotline Miami': {
-		id: 0,
+		id: 5,
 		masks: hotlineMiami
 	},
 	'Steelseries': {
-		id: 0,
+		id: 6,
 		masks: steelseries
 	},
 	'Reservoir Dogs': {
-		id: 0,
+		id: 7,
 		masks: reservoirDogs
 	},
 	'Shadow Warrior 2 Collaboration': {
-		id: 0,
+		id: 8,
 		masks: shadowWarrior2Collaboration
 	},
 	'SpeedRunners': {
-		id: 0,
+		id: 9,
 		masks: speedrunners
 	},
 	'Saints Row: The Third Remastered': {
-		id: 0,
+		id: 10,
 		masks: saintsRowTheThirdRemastered
 	}
 }

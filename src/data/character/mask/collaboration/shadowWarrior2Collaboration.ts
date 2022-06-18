@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { CollaborationCollectionList } from '../collaboration'
 
-type ShadowWarrior2CollaborationList =
+export type ShadowWarrior2CollaborationList =
 	| 'Ameonna'
 	| 'Co-Cop Ninja'
 	| 'Hata Mari'

@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type DragonPackList =
+export type DragonPackList =
 	| 'Laughing Dragon'
 	| 'Mahakala'
 	| 'Serenity'

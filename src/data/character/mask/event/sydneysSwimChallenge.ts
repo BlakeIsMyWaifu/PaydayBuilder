@@ -1,8 +1,9 @@
 import { MaskData } from 'data/character/masks'
 import content from 'data/source/downloadableContent'
+
 import { EventCollectionList } from '../event'
 
-type SydneysSwimChallengeList =
+export type SydneysSwimChallengeList =
 	| 'Mega Sydney'
 
 const sydneysSwimChallenge: Record<SydneysSwimChallengeList, MaskData<SydneysSwimChallengeList, EventCollectionList>> = {

@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type TheGoldenGrinCasinoHeistList =
+export type TheGoldenGrinCasinoHeistList =
 	| 'Murmillo Galea Helmet'
 	| 'Sports Utility Mask'
 	| 'King, The'

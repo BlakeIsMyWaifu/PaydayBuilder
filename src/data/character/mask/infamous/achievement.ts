@@ -4,7 +4,7 @@ import source from 'data/source/miscSources'
 
 import { InfamousCollectionList } from '../infamous'
 
-type AchievementList =
+export type AchievementList =
 	| 'Hoxton Reborn'
 	| 'Mega Sangres'
 	| 'Rad Mutant'

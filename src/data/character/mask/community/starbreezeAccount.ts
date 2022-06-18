@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 
 import { CommunityCollectionList } from '../community'
 
-type StarbreezeAccountList =
+export type StarbreezeAccountList =
 	| 'Frayed Harvest'
 
 const starbreezeAccount: Record<StarbreezeAccountList, MaskData<StarbreezeAccountList, CommunityCollectionList>> = {

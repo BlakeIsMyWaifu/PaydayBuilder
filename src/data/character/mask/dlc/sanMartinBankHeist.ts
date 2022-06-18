@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type SanMartinBankHeistList =
+export type SanMartinBankHeistList =
 	| 'Sombrero'
 
 const sanMartinBankHeist: Record<SanMartinBankHeistList, MaskData<SanMartinBankHeistList, DlcCollectionList>> = {

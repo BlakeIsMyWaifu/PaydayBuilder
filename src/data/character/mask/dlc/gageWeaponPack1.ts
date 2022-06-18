@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type GageWeaponPack1List =
+export type GageWeaponPack1List =
 	| 'Arnold'
 	| 'Chuck'
 	| 'Dolph'

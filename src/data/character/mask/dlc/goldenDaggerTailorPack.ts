@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type GoldenDaggerTailorPackList =
+export type GoldenDaggerTailorPackList =
 	| 'Crimson Striker Helmet'
 	| 'Golden Draped Visor'
 	| 'Hornet Striker Helmet'

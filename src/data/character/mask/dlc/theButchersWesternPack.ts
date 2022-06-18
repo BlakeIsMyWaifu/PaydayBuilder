@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type TheButchersWesternPackList =
+export type TheButchersWesternPackList =
 	| 'Apache Mystic'
 	| 'Desert Skull'
 	| 'Lone Heister'

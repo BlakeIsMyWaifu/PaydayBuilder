@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type JohnWickHeistsPackList =
+export type JohnWickHeistsPackList =
 	| 'Lady Liberty'
 	| 'Captain'
 	| 'Bird of Prey'

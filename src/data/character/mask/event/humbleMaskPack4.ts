@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { EventCollectionList } from '../event'
 
-type HumbleMaskPack4List =
+export type HumbleMaskPack4List =
 	| 'Borsuk'
 	| 'Mask of the Moon'
 

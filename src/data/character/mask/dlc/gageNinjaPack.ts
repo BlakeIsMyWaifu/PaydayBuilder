@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type GageNinjaPackList =
+export type GageNinjaPackList =
 	| 'Kage'
 	| 'Kuro Zukin'
 	| 'Shirai'

@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 
 import { DlcCollectionList } from '../dlc'
 
-type TheButchersBBQPackList =
+export type TheButchersBBQPackList =
 	| 'Firefighter\'s Helmet'
 	| 'Graug'
 	| 'The Chef'
