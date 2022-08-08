@@ -33,7 +33,10 @@ export type UpperReceiverModificationsList =
 	'Swedish Body' |
 
 	// Jacket's Piece
-	'80\'s Calling'
+	'80\'s Calling' |
+
+	// KS12 Urban Rifle
+	'KS12 DMR kit'
 
 const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'Heat Treated Body': {
@@ -50,7 +53,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Commando 553 Rifle'
+				'Commando 553'
 			]
 		}
 	},
@@ -67,11 +70,11 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle',
-				'AMR-16 Rifle'
+				'CAR-4',
+				'AMR-16'
 			],
 			submachineGun: [
-				'Para Submachine Gun'
+				'Para'
 			]
 		}
 	},
@@ -91,11 +94,11 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle',
-				'AMR-16 Rifle'
+				'CAR-4',
+				'AMR-16'
 			],
 			submachineGun: [
-				'Para Submachine Gun'
+				'Para'
 			]
 		}
 	},
@@ -115,11 +118,11 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'CAR-4 Rifle',
-				'AMR-16 Rifle'
+				'CAR-4',
+				'AMR-16'
 			],
 			submachineGun: [
-				'Para Submachine Gun'
+				'Para'
 			]
 		}
 	},
@@ -136,8 +139,8 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Reinfeld 880 Shotgun',
-				'Locomotive 12G Shotgun'
+				'Reinfeld 880',
+				'Locomotive 12G'
 			]
 		}
 	},
@@ -225,7 +228,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bernetti 9 Pistol'
+				'Bernetti 9'
 			]
 		}
 	},
@@ -242,7 +245,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bronco .44 Pistol'
+				'Bronco .44'
 			]
 		}
 	},
@@ -259,7 +262,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Swedish K Submachine Gun'
+				'Swedish K'
 			]
 		}
 	},
@@ -281,6 +284,27 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		compatibleWeapons: {
 			submachineGun: [
 				'Jacket\'s Piece'
+			]
+		}
+	},
+	'KS12 DMR kit': {
+		name: 'KS12 DMR kit',
+		image: 'KS12_DMR_kit',
+		icon: 'inv_mod_upper_receiver',
+		slot: 'upperReceiver',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 28e3,
+		stats: {
+			magazine: -10,
+			totalAmmo: -31,
+			damage: 85,
+			accuracy: 8,
+			stability: -4,
+			concealment: -3
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'KS12 Urban'
 			]
 		}
 	}

@@ -1,101 +1,108 @@
-import { AkimboShotunsList } from './primary/akimboShotuns'
-import { AssaultRifleList } from './primary/assaultRifles'
-import { LightMachineGunList } from './primary/lightMachineGuns'
-import { PrimaryShotgunList } from './primary/shotgunsPrimary'
-import { SniperList } from './primary/snipers'
-import { PrimarySpecialList } from './primary/specialsPrimary'
-import { PistolList } from './secondary/pistols'
-import { SecondaryShotgunList } from './secondary/shotgunsSecondary'
-import { SecondarySpecialList } from './secondary/specialsSecondary'
-import { SubmachineGunList } from './secondary/submachineGuns'
+import { AkimboShotgunsList } from './primary/gunList/akimboShotguns'
+import { AssaultRifleList } from './primary/gunList/assaultRifles'
+import { LightMachineGunList } from './primary/gunList/lightMachineGuns'
+import { PrimaryShotgunList } from './primary/gunList/shotgunsPrimary'
+import { PrimarySniperList } from './primary/gunList/snipersPrimary'
+import { PrimarySpecialList } from './primary/gunList/specialsPrimary'
+import { PistolList } from './secondary/gunList/pistols'
+import { SecondaryShotgunList } from './secondary/gunList/shotgunsSecondary'
+import { SecondarySniperList } from './secondary/gunList/snipersSecondary'
+import { SecondarySpecialList } from './secondary/gunList/specialsSecondary'
+import { SubmachineGunList } from './secondary/gunList/submachineGuns'
 
 export const assaultRifleList: AssaultRifleList[] = [
-	'AMCAR Rifle',
-	'Commando 553 Rifle',
-	'Eagle Heavy Rifle',
-	'Union 5.56 Rifle',
-	'AK Rifle',
-	'CAR-4 Rifle',
-	'UAR Rifle',
-	'KETCHNOV Byk-1 Assault Rifle',
+	'AMCAR',
+	'Commando 553',
+	'Eagle Heavy',
+	'Union 5.56',
+	'AK',
+	'CAR-4',
+	'UAR',
+	'KETCHNOV Byk-1',
 	'Cavity 9mm',
 	'AK.762',
-	'JP36 Rifle',
-	'AK17 Rifle',
-	'Golden AK.762 Rifle',
-	'Bootleg Rifle',
-	'Queen\'s Wrath Rifle',
-	'Galant Rifle',
-	'M308 Rifle',
-	'Clarion Rifle',
-	'Lion\'s Roar Rifle',
-	'Valkyria Rifle',
-	'AK5 Rifle',
-	'Gecko 7.62 Rifle',
-	'Tempest-21 Rifle',
-	'AMR-16 Rifle',
-	'Little Friend 7.62 Assault Rifle',
-	'Falcon Rifle',
-	'Gewehr 3 Rifle'
+	'JP36',
+	'AK17',
+	'Golden AK.762',
+	'Bootleg',
+	'Queen\'s Wrath',
+	'Galant',
+	'M308',
+	'Clarion',
+	'Lion\'s Roar',
+	'Valkyria',
+	'AK5',
+	'Gecko 7.62',
+	'Tempest-21',
+	'AMR-16',
+	'Little Friend 7.62',
+	'Falcon',
+	'Gewehr 3',
+	'KS12 Urban'
 ]
 
 export const shotgunList: (PrimaryShotgunList | SecondaryShotgunList)[] = [
 	// primary
-	'Predator 12G Shotgun',
-	'Breaker 12G Shotgun',
-	'Reinfeld 880 Shotgun',
-	'Mosconi 12G Tactical Shotgun',
-	'M1014 Shotgun',
-	'Raven Shotgun',
-	'IZHMA 12G Shotgun',
-	'Reinfeld 88 Shotgun',
-	'Mosconi 12G Shotgun',
-	'Joceline O/U 12G Shotgun',
-	'Steakout 12G Shotgun',
+	'Predator 12G',
+	'Breaker 12G',
+	'Reinfeld 880',
+	'Mosconi 12G Tactical',
+	'M1014',
+	'Raven',
+	'IZHMA 12G',
+	'Reinfeld 88',
+	'Mosconi 12G',
+	'Joceline O/U 12G',
+	'Steakout 12G',
 	// secondary
-	'Locomotive 12G Shotgun',
-	'GSPS 12G Shotgun',
-	'Goliath 12G Shotgun',
-	'Grimm 12G Shotgun',
-	'Street Sweeper Shotgun',
-	'The Judge Shotgun',
-	'Claire 12G Shotgun'
+	'Locomotive 12G',
+	'GSPS 12G',
+	'Goliath 12G',
+	'Grimm 12G',
+	'Street Sweeper',
+	'The Judge',
+	'Claire 12G',
+	'Argos III'
 ]
 
 export const lightMachineGunList: LightMachineGunList[] = [
-	'RPK Light Machine Gun',
-	'KSP 58 Light Machine Gun',
-	'M60 Light Machine Gun',
-	'KSP Light Machine Gun',
-	'Buzzsaw 42 Light Machine Gun',
-	'Brenner-21 Light Machine Gun'
+	'RPK',
+	'KSP 58',
+	'M60',
+	'KSP',
+	'Buzzsaw 42',
+	'Brenner-21',
+	'SG Versteckt 51D'
 ]
 
-export const sniperList: SniperList[] = [
-	'Rattlesnake Sniper Rifle',
-	'R700 Sniper Rifle',
-	'Bernetti Rangehitter Sniper Rifle',
-	'Káng Arms X1 Sniper Rifle',
-	'Platypus 70 Sniper Rifle',
-	'Lebensauger .308 Sniper Rifle',
-	'Desertfox Sniper Rifle',
-	'Contractor .308 Sniper Rifle',
-	'R93 Sniper Rifle',
-	'Repeater 1874 Sniper Rifle',
-	'Grom Sniper Rifle',
-	'Nagant Sniper Rifle',
-	'Thanatos .50 cal Sniper Rifle'
+export const sniperList: (PrimarySniperList | SecondarySniperList)[] = [
+	// primary
+	'Rattlesnake',
+	'R700',
+	'Bernetti Rangehitter',
+	'Káng Arms X1',
+	'Platypus 70',
+	'Lebensauger .308',
+	'Desertfox',
+	'Contractor .308',
+	'R93',
+	'Repeater 1874',
+	'Grom',
+	'Nagant',
+	'Thanatos .50 cal',
+	// secondary
+	'Pronghorn'
 ]
 
-export const akimboShotgunList: AkimboShotunsList[] = [
-	'Akimbo Goliath 12G Shotguns',
-	'Brothers Grimm 12G Shotguns',
-	'Akimbo Judge Shotguns'
+export const akimboShotgunList: AkimboShotgunsList[] = [
+	'Akimbo Goliath 12G',
+	'Brothers Grimm 12G',
+	'Akimbo Judge'
 ]
 
 export const specialList: (PrimarySpecialList | SecondarySpecialList)[] = [
 	// primary
-	'OVE9000 Saw',
+	'OVE9000',
 	'Plainsrider Bow',
 	'Light Crossbow',
 	'Airbow',
@@ -104,77 +111,81 @@ export const specialList: (PrimarySpecialList | SecondarySpecialList)[] = [
 	'DECA Technologies Compound Bow',
 	'Vulcan Minigun',
 	'Heavy Crossbow',
-	'Piglet Grenade Launcher',
+	'Piglet',
 	'Flamethrower Mk.1',
-	'GL40 Grenade Launcher',
+	'GL40',
 	// secondary
 	'Pistol Crossbow',
-	'Compact 40mm Grenade Launcher',
-	'HRL-7 Rocket Launcher',
-	'China Puff 40mm Grenade Launcher',
-	'Commando 101 Rocket Launcher',
+	'Compact 40mm',
+	'HRL-7',
+	'China Puff 40mm',
+	'Commando 101',
 	'MA-17 Flamethrower',
-	'Arbiter Grenade Launcher',
-	'OVE9000 Saw'
+	'Arbiter',
+	'OVE9000',
+	'Cash Blaster',
+	'Basilisk 3V'
 ]
 
 export const pistolList: PistolList[] = [
-	'Interceptor .45 Pistol',
-	'Chimano 88 Pistol',
-	'Gruber Kurz Pistol',
-	'Signature .40 Pistol',
-	'Crosskill Pistol',
-	'Bernetti 9 Pistol',
-	'Bronco .44 Pistol',
-	'Crosskill Chunky Compact Pistol',
-	'White Streak Pistol',
+	'Interceptor .45',
+	'Chimano 88',
+	'Gruber Kurz',
+	'Signature .40',
+	'Crosskill',
+	'Bernetti 9',
+	'Bronco .44',
+	'Crosskill Chunky Compact',
+	'White Streak',
 	'Baby Deagle',
-	'M13 9mm Pistol',
-	'Chimano Custom Pistol',
-	'Broomstick Pistol',
-	'Parabellum Pistol',
-	'5/7 AP Pistol',
-	'Castigo .44 Revolver',
-	'Contractor Pistol',
-	'Frenchman Model 87 Revolver',
-	'Chimano Compact Pistol',
-	'Crosskill Guard Pistol',
-	'LEO Pistol',
-	'STRYK 18c Pistol',
-	'Bernetti Auto Pistol',
-	'Czech 92 Pistol',
-	'Igor Automatik Pistol',
-	'HOLT 9mm Pistol',
-	'Peacemaker .45 Revolver',
-	'Matever .357 Revolver',
-	'Deagle Pistol'
+	'M13 9mm',
+	'Chimano Custom',
+	'Broomstick',
+	'Parabellum',
+	'5/7 AP',
+	'Castigo .44',
+	'Contractor',
+	'Frenchman Model 87',
+	'Chimano Compact',
+	'Crosskill Guard',
+	'LEO',
+	'STRYK 18c',
+	'Bernetti Auto',
+	'Czech 92',
+	'Igor Automatik',
+	'HOLT 9mm',
+	'Peacemaker .45',
+	'Matever .357',
+	'Deagle',
+	'Gecko M2'
 ]
 
 export const submachineGunList: SubmachineGunList[] = [
-	'Swedish K Submachine Gun',
-	'SpecOps Submachine Gun',
-	'Mark 10 Submachine Gun',
-	'CR 805B Submachine Gun',
-	'AK Gen 21 Tactical Submachine Gun',
+	'Swedish K',
+	'SpecOps',
+	'Mark 10',
+	'CR 805B',
+	'AK Gen 21 Tactical',
 	'Jacket\'s Piece',
-	'Compact-5 Submachine Gun',
-	'Chicago Typewriter Submachine Gun',
-	'Miyaka 10 Special Submachine Gun',
-	'Cobra Submachine Gun',
-	'CMP Submachine Gun',
-	'Para Submachine Gun',
-	'Micro Uzi Submachine Gun',
-	'Signature Submachine Gun',
-	'Jackal Submachine Gun',
-	'MP40 Submachine Gun',
-	'Heather Submachine Gun',
-	'Krinkov Submachine Gun',
-	'Blaster 9mm Submachine Gun',
-	'Kobus 90 Submachine Gun',
-	'Kross Vertex Submachine Gun',
-	'Tatonka Submachine Gun',
-	'Patchett L2A1 Submachine Gun',
-	'Uzi Submachine Gun'
+	'Compact-5',
+	'Chicago Typewriter',
+	'Miyaka 10 Special',
+	'Cobra',
+	'CMP',
+	'Para',
+	'Micro Uzi',
+	'Signature',
+	'Jackal',
+	'MP40',
+	'Heather',
+	'Krinkov',
+	'Blaster 9mm',
+	'Kobus 90',
+	'Kross Vertex',
+	'Tatonka',
+	'Patchett L2A1',
+	'Uzi',
+	'Wasp-DS SMG'
 ]
 
 export default {

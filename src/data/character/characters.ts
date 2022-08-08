@@ -142,7 +142,7 @@ const characters: Record<string, CharacterData> = {
 		name: 'Bodhi',
 		age: 'Unknown',
 		description: [
-			'Bodhi is known as one of the greatest legends in the world of crime, but few know the man behind the mask. As the founding father of the Ex-Presidents gang, Bodhi\'s renowned in the criminal underworld for his extreme athleticism and daring heists. His recent feats of strength in Mumbai and Austria got Bain’s attention, granting him an invitation to the Payday Gang.'
+			'Bodhi is known as one of the greatest legends in the world of crime, but few know the man behind the mask. As the founding father of the Ex-Presidents gang, Bodhi\'s renowned in the criminal underworld for his extreme athleticism and daring heists. His recent feats of strength in Mumbai and Austria got Bain\'s attention, granting him an invitation to the Payday Gang.'
 		],
 		image: 'bodhi',
 		nationality: 'Venezuelan',

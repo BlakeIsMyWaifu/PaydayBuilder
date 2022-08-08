@@ -9,7 +9,7 @@ export const armouryDefaultState: ArmouryState = {
 		0: {
 			id: 0,
 			weaponFind: {
-				name: 'AMCAR Rifle',
+				name: 'AMCAR',
 				type: 'Assault Rifle',
 				slot: 'primary'
 			},
@@ -20,7 +20,7 @@ export const armouryDefaultState: ArmouryState = {
 		0: {
 			id: 0,
 			weaponFind: {
-				name: 'Chimano 88 Pistol',
+				name: 'Chimano 88',
 				type: 'Pistol',
 				slot: 'secondary'
 			},

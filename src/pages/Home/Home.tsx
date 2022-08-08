@@ -47,8 +47,8 @@ const Home: FC = () => {
 				<Tabs />
 
 				<VersionContainer>
-					<VersionText>Payday Version: 207</VersionText>
-					<VersionText>Builder Version: 0.2.4</VersionText>
+					<VersionText>Payday Version: 222</VersionText>
+					<VersionText>Builder Version: 0.2.5</VersionText>
 				</VersionContainer>
 
 				<ConfigContainer>

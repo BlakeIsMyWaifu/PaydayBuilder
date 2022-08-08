@@ -5,36 +5,36 @@ import { CompatibleWeapons, ModificationList } from '../weaponTypes'
 
 const mainGuns: CompatibleWeapons = {
 	assaultRifle: [
-		'AK Rifle',
+		'AK',
 		'AK.762',
-		'Golden AK.762 Rifle',
-		'AK17 Rifle',
-		'AMCAR Rifle',
-		'CAR-4 Rifle',
-		'AMR-16 Rifle',
-		'Bootleg Rifle',
-		'Commando 553 Rifle'
+		'Golden AK.762',
+		'AK17',
+		'AMCAR',
+		'CAR-4',
+		'AMR-16',
+		'Bootleg',
+		'Commando 553'
 	],
 	shotgun: [
-		'Reinfeld 880 Shotgun',
-		'IZHMA 12G Shotgun',
-		'Locomotive 12G Shotgun'
+		'Reinfeld 880',
+		'IZHMA 12G',
+		'Locomotive 12G'
 	],
 	sniper: [
-		'Contractor .308 Sniper Rifle'
+		'Contractor .308'
 	],
 	lightMachineGun: [
-		'KSP Light Machine Gun',
-		'RPK Light Machine Gun'
+		'KSP',
+		'RPK'
 	],
 	special: [
-		'Piglet Grenade Launcher'
+		'Piglet'
 	],
 	submachineGun: [
-		'Para Submachine Gun',
-		'Krinkov Submachine Gun',
+		'Para',
+		'Krinkov',
 		'Jacket\'s Piece',
-		'Kross Vertex Submachine Gun'
+		'Kross Vertex'
 	]
 }
 
@@ -88,7 +88,7 @@ export type StockModificationsList =
 
 	// Falcon
 	'CQB Stock' |
-	'Marksman Stock' |
+	'Marksman Stock (Falcon)' |
 	'Wooden Stock (Falcon)' |
 
 	// Gewehr 3
@@ -244,13 +244,32 @@ export type StockModificationsList =
 	'Tactical Shorty Stock' |
 
 	// GSPS 12G
-	'Stakeout Stock' |
+	'Stakeout Stock (GSPS)' |
 
 	// Claire 12G
 	'Deadman\'s Stock' |
 
 	// China Puff 40mm
-	'Riot Stock'
+	'Riot Stock' |
+
+	// Basilisk 3V
+	'Copperhead Recoil Pad' |
+
+	// Pronghorn
+	'Stakeout Stock (Pronghorn)' |
+	'Marksman Stock (Pronghorn)' |
+
+	// SG Versteckt 51D
+	'Zittern Stock' |
+
+	// Argos III
+	'Flak Frame Null Stock' |
+
+	// Wasp-DS
+	'Bounce Slate RX Stock' |
+
+	// Miyaka 10 Special
+	'MS10 Tactical Stock'
 
 const stock: ModificationList<StockModificationsList> = {
 	'Standard Stock (Main)': {
@@ -266,24 +285,24 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AK Rifle',
+				'AK',
 				'AK.762',
-				'Golden AK.762 Rifle'
+				'Golden AK.762'
 			],
 			shotgun: [
-				'Reinfeld 880 Shotgun',
-				'IZHMA 12G Shotgun',
-				'Locomotive 12G Shotgun'
+				'Reinfeld 880',
+				'IZHMA 12G',
+				'Locomotive 12G'
 			],
 			lightMachineGun: [
-				'RPK Light Machine Gun',
-				'KSP Light Machine Gun'
+				'RPK',
+				'KSP'
 			],
 			submachineGun: [
-				'Para Submachine Gun',
-				'Krinkov Submachine Gun',
+				'Para',
+				'Krinkov',
 				'Jacket\'s Piece',
-				'Kross Vertex Submachine Gun'
+				'Kross Vertex'
 			]
 		}
 	},
@@ -314,13 +333,13 @@ const stock: ModificationList<StockModificationsList> = {
 		compatibleWeapons: {
 			assaultRifle: [
 				'AK.762',
-				'Golden AK.762 Rifle'
+				'Golden AK.762'
 			],
 			shotgun: [
-				'IZHMA 12G Shotgun'
+				'IZHMA 12G'
 			],
 			submachineGun: [
-				'Krinkov Submachine Gun'
+				'Krinkov'
 			]
 		}
 	},
@@ -337,15 +356,15 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AK Rifle',
+				'AK',
 				'AK.762',
-				'Golden AK.762 Rifle'
+				'Golden AK.762'
 			],
 			shotgun: [
-				'IZHMA 12G Shotgun'
+				'IZHMA 12G'
 			],
 			submachineGun: [
-				'Krinkov Submachine Gun'
+				'Krinkov'
 			]
 		},
 		incompatibleSlot: ['grip']
@@ -400,18 +419,18 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AK Rifle',
+				'AK',
 				'AK.762',
-				'Golden AK.762 Rifle'
+				'Golden AK.762'
 			],
 			shotgun: [
-				'IZHMA 12G Shotgun'
+				'IZHMA 12G'
 			],
 			lightMachineGun: [
-				'RPK Light Machine Gun'
+				'RPK'
 			],
 			submachineGun: [
-				'Krinkov Submachine Gun'
+				'Krinkov'
 			]
 		}
 	},
@@ -457,7 +476,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Commando 553 Rifle'
+				'Commando 553'
 			]
 		}
 	},
@@ -474,7 +493,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Eagle Heavy Rifle'
+				'Eagle Heavy'
 			]
 		}
 	},
@@ -491,10 +510,10 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AK Rifle'
+				'AK'
 			],
 			lightMachineGun: [
-				'RPK Light Machine Gun'
+				'RPK'
 			]
 		}
 	},
@@ -510,7 +529,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'JP36 Rifle'
+				'JP36'
 			]
 		}
 	},
@@ -528,7 +547,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'JP36 Rifle'
+				'JP36'
 			]
 		}
 	},
@@ -544,7 +563,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Galant Rifle'
+				'Galant'
 			]
 		}
 	},
@@ -561,7 +580,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'M308 Rifle'
+				'M308'
 			]
 		}
 	},
@@ -579,7 +598,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'M308 Rifle'
+				'M308'
 			]
 		}
 	},
@@ -597,7 +616,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'M308 Rifle'
+				'M308'
 			]
 		}
 	},
@@ -617,7 +636,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Valkyria Rifle'
+				'Valkyria'
 			]
 		}
 	},
@@ -634,7 +653,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AK5 Rifle'
+				'AK5'
 			]
 		}
 	},
@@ -651,7 +670,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'AK5 Rifle'
+				'AK5'
 			]
 		}
 	},
@@ -672,7 +691,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gecko 7.62 Rifle'
+				'Gecko 7.62'
 			]
 		}
 	},
@@ -692,7 +711,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gecko 7.62 Rifle'
+				'Gecko 7.62'
 			]
 		}
 	},
@@ -713,7 +732,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gecko 7.62 Rifle'
+				'Gecko 7.62'
 			]
 		}
 	},
@@ -734,7 +753,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gecko 7.62 Rifle'
+				'Gecko 7.62'
 			]
 		}
 	},
@@ -755,7 +774,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gecko 7.62 Rifle'
+				'Gecko 7.62'
 			]
 		}
 	},
@@ -775,7 +794,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gecko 7.62 Rifle'
+				'Gecko 7.62'
 			]
 		}
 	},
@@ -794,12 +813,12 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Falcon Rifle'
+				'Falcon'
 			]
 		}
 	},
-	'Marksman Stock': {
-		name: 'Marksman Stock',
+	'Marksman Stock (Falcon)': {
+		name: 'Marksman Stock (Falcon)',
 		image: 'wpn_fps_ass_fal_s_03',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
@@ -815,7 +834,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Falcon Rifle'
+				'Falcon'
 			]
 		}
 	},
@@ -834,7 +853,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Falcon Rifle'
+				'Falcon'
 			]
 		}
 	},
@@ -855,7 +874,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gewehr 3 Rifle'
+				'Gewehr 3'
 			]
 		}
 	},
@@ -875,7 +894,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gewehr 3 Rifle'
+				'Gewehr 3'
 			]
 		}
 	},
@@ -893,7 +912,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Predator 12G Shotgun'
+				'Predator 12G'
 			]
 		},
 		incompatibleSlot: ['sight']
@@ -912,7 +931,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Predator 12G Shotgun'
+				'Predator 12G'
 			]
 		}
 	},
@@ -929,7 +948,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Predator 12G Shotgun'
+				'Predator 12G'
 			]
 		}
 	},
@@ -946,7 +965,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Breaker 12G Shotgun'
+				'Breaker 12G'
 			]
 		}
 	},
@@ -963,7 +982,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Reinfeld 880 Shotgun'
+				'Reinfeld 880'
 			]
 		}
 	},
@@ -980,7 +999,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Reinfeld 880 Shotgun'
+				'Reinfeld 880'
 			]
 		}
 	},
@@ -997,7 +1016,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Reinfeld 880 Shotgun'
+				'Reinfeld 880'
 			]
 		}
 	},
@@ -1014,8 +1033,8 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Reinfeld 880 Shotgun',
-				'Locomotive 12G Shotgun'
+				'Reinfeld 880',
+				'Locomotive 12G'
 			]
 		},
 		incompatibleSlot: ['sight']
@@ -1034,7 +1053,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Mosconi 12G Shotgun'
+				'Mosconi 12G'
 			]
 		}
 	},
@@ -1054,7 +1073,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'M1014 Shotgun'
+				'M1014'
 			]
 		}
 	},
@@ -1075,7 +1094,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'M1014 Shotgun'
+				'M1014'
 			]
 		}
 	},
@@ -1092,7 +1111,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Reinfeld 88 Shotgun'
+				'Reinfeld 88'
 			]
 		}
 	},
@@ -1108,7 +1127,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Joceline O/U 12G Shotgun'
+				'Joceline O/U 12G'
 			]
 		}
 	},
@@ -1126,7 +1145,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Joceline O/U 12G Shotgun'
+				'Joceline O/U 12G'
 			]
 		}
 	},
@@ -1146,7 +1165,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Rattlesnake Sniper Rifle'
+				'Rattlesnake'
 			]
 		}
 	},
@@ -1165,7 +1184,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'R700 Sniper Rifle'
+				'R700'
 			]
 		}
 	},
@@ -1184,7 +1203,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'R700 Sniper Rifle'
+				'R700'
 			]
 		}
 	},
@@ -1200,7 +1219,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Bernetti Rangehitter Sniper Rifle'
+				'Bernetti Rangehitter'
 			]
 		}
 	},
@@ -1220,7 +1239,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'R93 Sniper Rifle'
+				'R93'
 			]
 		}
 	},
@@ -1237,7 +1256,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Grom Sniper Rifle'
+				'Grom'
 			]
 		}
 	},
@@ -1257,7 +1276,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Nagant Sniper Rifle'
+				'Nagant'
 			]
 		}
 	},
@@ -1274,7 +1293,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'RPK Light Machine Gun'
+				'RPK'
 			]
 		}
 	},
@@ -1294,7 +1313,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'KSP 58 Light Machine Gun'
+				'KSP 58'
 			]
 		}
 	},
@@ -1311,7 +1330,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'KSP Light Machine Gun'
+				'KSP'
 			]
 		}
 	},
@@ -1351,7 +1370,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			special: [
-				'Piglet Grenade Launcher'
+				'Piglet'
 			]
 		}
 	},
@@ -1371,7 +1390,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			special: [
-				'GL40 Grenade Launcher'
+				'GL40'
 			]
 		}
 	},
@@ -1391,7 +1410,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Broomstick Pistol'
+				'Broomstick'
 			]
 		}
 	},
@@ -1408,7 +1427,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'STRYK 18c Pistol'
+				'STRYK 18c'
 			]
 		}
 	},
@@ -1428,7 +1447,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bernetti Auto Pistol'
+				'Bernetti Auto'
 			]
 		}
 	},
@@ -1445,7 +1464,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Igor Automatik Pistol'
+				'Igor Automatik'
 			]
 		}
 	},
@@ -1462,7 +1481,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Peacemaker .45 Revolver'
+				'Peacemaker .45'
 			]
 		}
 	},
@@ -1479,7 +1498,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Swedish K Submachine Gun'
+				'Swedish K'
 			]
 		}
 	},
@@ -1496,7 +1515,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'SpecOps Submachine Gun'
+				'SpecOps'
 			]
 		}
 	},
@@ -1514,7 +1533,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Mark 10 Submachine Gun'
+				'Mark 10'
 			]
 		}
 	},
@@ -1531,7 +1550,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'AK Gen 21 Tactical Submachine Gun'
+				'AK Gen 21 Tactical'
 			]
 		}
 	},
@@ -1547,7 +1566,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Compact-5 Submachine Gun'
+				'Compact-5'
 			]
 		}
 	},
@@ -1564,7 +1583,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Compact-5 Submachine Gun'
+				'Compact-5'
 			]
 		}
 	},
@@ -1583,7 +1602,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Compact-5 Submachine Gun'
+				'Compact-5'
 			]
 		}
 	},
@@ -1600,7 +1619,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Chicago Typewriter Submachine Gun'
+				'Chicago Typewriter'
 			]
 		}
 	},
@@ -1617,7 +1636,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Chicago Typewriter Submachine Gun'
+				'Chicago Typewriter'
 			]
 		}
 	},
@@ -1637,7 +1656,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Cobra Submachine Gun'
+				'Cobra'
 			]
 		}
 	},
@@ -1657,7 +1676,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Cobra Submachine Gun'
+				'Cobra'
 			]
 		}
 	},
@@ -1675,7 +1694,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'CMP Submachine Gun'
+				'CMP'
 			]
 		}
 	},
@@ -1692,7 +1711,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Para Submachine Gun'
+				'Para'
 			]
 		}
 	},
@@ -1712,7 +1731,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Micro Uzi Submachine Gun'
+				'Micro Uzi'
 			]
 		}
 	},
@@ -1732,7 +1751,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Micro Uzi Submachine Gun'
+				'Micro Uzi'
 			]
 		}
 	},
@@ -1749,7 +1768,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Signature Submachine Gun'
+				'Signature'
 			]
 		}
 	},
@@ -1769,7 +1788,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Jackal Submachine Gun'
+				'Jackal'
 			]
 		}
 	},
@@ -1789,7 +1808,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Jackal Submachine Gun'
+				'Jackal'
 			]
 		}
 	},
@@ -1806,7 +1825,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'MP40 Submachine Gun'
+				'MP40'
 			]
 		}
 	},
@@ -1822,7 +1841,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Heather Submachine Gun'
+				'Heather'
 			]
 		}
 	},
@@ -1842,7 +1861,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Blaster 9mm Submachine Gun'
+				'Blaster 9mm'
 			]
 		}
 	},
@@ -1862,7 +1881,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Patchett L2A1 Submachine Gun'
+				'Patchett L2A1'
 			]
 		}
 	},
@@ -1883,7 +1902,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Patchett L2A1 Submachine Gun'
+				'Patchett L2A1'
 			]
 		}
 	},
@@ -1904,7 +1923,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Patchett L2A1 Submachine Gun'
+				'Patchett L2A1'
 			]
 		}
 	},
@@ -1925,7 +1944,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Uzi Submachine Gun'
+				'Uzi'
 			]
 		}
 	},
@@ -1946,7 +1965,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Uzi Submachine Gun'
+				'Uzi'
 			]
 		}
 	},
@@ -1966,7 +1985,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Uzi Submachine Gun'
+				'Uzi'
 			]
 		}
 	},
@@ -1983,7 +2002,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Locomotive 12G Shotgun'
+				'Locomotive 12G'
 			]
 		}
 	},
@@ -2000,7 +2019,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Locomotive 12G Shotgun'
+				'Locomotive 12G'
 			]
 		}
 	},
@@ -2017,12 +2036,12 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Locomotive 12G Shotgun'
+				'Locomotive 12G'
 			]
 		}
 	},
-	'Stakeout Stock': {
-		name: 'Stakeout Stock',
+	'Stakeout Stock (GSPS)': {
+		name: 'Stakeout Stock (GSPS)',
 		image: 'wpn_fps_shot_m37_s_short',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
@@ -2034,7 +2053,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'GSPS 12G Shotgun'
+				'GSPS 12G'
 			]
 		}
 	},
@@ -2052,7 +2071,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'Claire 12G Shotgun'
+				'Claire 12G'
 			]
 		}
 	},
@@ -2069,7 +2088,128 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			special: [
-				'China Puff 40mm Grenade Launcher'
+				'China Puff 40mm'
+			]
+		}
+	},
+	'Copperhead Recoil Pad': {
+		name: 'Copperhead Recoil Pad',
+		image: '???',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			accuracy: 8,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			special: [
+				'Basilisk 3V'
+			]
+		}
+	},
+	'Stakeout Stock (Pronghorn)': {
+		name: 'Stakeout Stock (Pronghorn)',
+		image: 'wpn_fps_snp_scout_s_pads_none',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			accuracy: -8,
+			stability: -4,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Pronghorn'
+			]
+		}
+	},
+	'Marksman Stock (Pronghorn)': {
+		name: 'Marksman Stock (Pronghorn)',
+		image: 'wpn_fps_snp_scout_s_pads_one',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			stability: -4,
+			concealment: 1
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Pronghorn'
+			]
+		}
+	},
+	'Zittern Stock': {
+		name: 'Zittern Stock',
+		image: 'wpn_fps_lmg_hk51b_s_extended',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			stability: 8,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'SG Versteckt 51D'
+			]
+		}
+	},
+	'Flak Frame Null Stock': {
+		name: 'Flak Frame Null Stock',
+		image: 'wpn_fps_sho_ultima_s_light',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		cost: 7200,
+		stats: {
+			stability: 8,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Argos III'
+			]
+		}
+	},
+	'Bounce Slate RX Stock': {
+		name: 'Bounce Slate RX Stock',
+		image: 'wpn_fps_smg_fmg9_stock_padded',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['Jiu Feng Smuggler Pack 4'],
+		cost: 7200,
+		stats: {
+			accuracy: 8,
+			stability: 8,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			submachineGun: [
+				'Wasp-DS SMG'
+			]
+		}
+	},
+	'MS10 Tactical Stock': {
+		name: 'MS10 Tactical Stock',
+		image: 'MS10_Tactical_Stock',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 9e3,
+		stats: {
+			stability: 12,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			submachineGun: [
+				'Miyaka 10 Special'
 			]
 		}
 	}

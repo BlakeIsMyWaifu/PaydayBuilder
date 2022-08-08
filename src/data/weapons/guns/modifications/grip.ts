@@ -5,40 +5,40 @@ import { CompatibleWeapons, ModificationList } from '../weaponTypes'
 
 const AKRifles: CompatibleWeapons = {
 	assaultRifle: [
-		'AK Rifle',
+		'AK',
 		'AK.762',
-		'Golden AK.762 Rifle',
-		'AK17 Rifle'
+		'Golden AK.762',
+		'AK17'
 	],
 	shotgun: [
-		'IZHMA 12G Shotgun'
+		'IZHMA 12G'
 	],
 	lightMachineGun: [
-		'RPK Light Machine Gun'
+		'RPK'
 	],
 	submachineGun: [
-		'Krinkov Submachine Gun',
-		'Tatonka Submachine Gun'
+		'Krinkov',
+		'Tatonka'
 	]
 }
 
 const mainGuns: CompatibleWeapons = {
 	assaultRifle: [
-		'CAR-4 Rifle',
-		'AMR-16 Rifle',
-		'Eagle Heavy Rifle',
-		'Bootleg Rifle'
+		'CAR-4',
+		'AMR-16',
+		'Eagle Heavy',
+		'Bootleg'
 	],
 	sniper: [
-		'Thanatos .50 cal Sniper Rifle',
-		'Contractor .308 Sniper Rifle'
+		'Thanatos .50 cal',
+		'Contractor .308'
 	],
 	submachineGun: [
-		'Para Submachine Gun'
+		'Para'
 	],
 	shotgun: [
-		'Reinfeld 880 Shotgun',
-		'Locomotive 12G Shotgun'
+		'Reinfeld 880',
+		'Locomotive 12G'
 	]
 }
 
@@ -172,7 +172,13 @@ export type GripModificationsList =
 
 	// Pistol Crossbow
 	'Camo Grip' |
-	'Walnut Grip'
+	'Walnut Grip' |
+
+	// RUS-12 Angry Tiger
+	'RUS Custom Wood Grip' |
+
+	// Miyaka 10 Special
+	'MS10 Comfort Wood Grip'
 
 const grip: ModificationList<GripModificationsList> = {
 	'AK Rubber Grip': {
@@ -252,7 +258,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Commando 553 Rifle'
+				'Commando 553'
 			]
 		}
 	},
@@ -348,7 +354,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Queen\'s Wrath Rifle'
+				'Queen\'s Wrath'
 			]
 		}
 	},
@@ -369,7 +375,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Clarion Rifle'
+				'Clarion'
 			]
 		}
 	},
@@ -390,7 +396,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gecko 7.62 Rifle'
+				'Gecko 7.62'
 			]
 		}
 	},
@@ -410,7 +416,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Falcon Rifle'
+				'Falcon'
 			]
 		}
 	},
@@ -429,7 +435,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gewehr 3 Rifle'
+				'Gewehr 3'
 			]
 		}
 	},
@@ -450,7 +456,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			assaultRifle: [
-				'Gewehr 3 Rifle'
+				'Gewehr 3'
 			]
 		}
 	},
@@ -467,7 +473,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Lebensauger .308 Sniper Rifle'
+				'Lebensauger .308'
 			]
 		}
 	},
@@ -484,7 +490,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Lebensauger .308 Sniper Rifle'
+				'Lebensauger .308'
 			]
 		}
 	},
@@ -501,7 +507,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			sniper: [
-				'Lebensauger .308 Sniper Rifle'
+				'Lebensauger .308'
 			]
 		}
 	},
@@ -518,7 +524,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'Brenner-21 Light Machine Gun'
+				'Brenner-21'
 			]
 		}
 	},
@@ -570,10 +576,10 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Chimano 88 Pistol',
-				'STRYK 18c Pistol',
-				'Chimano Custom Pistol',
-				'Chimano Compact Pistol'
+				'Chimano 88',
+				'STRYK 18c',
+				'Chimano Custom',
+				'Chimano Compact'
 			]
 		}
 	},
@@ -590,10 +596,10 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Chimano 88 Pistol',
-				'STRYK 18c Pistol',
-				'Chimano Custom Pistol',
-				'Chimano Compact Pistol'
+				'Chimano 88',
+				'STRYK 18c',
+				'Chimano Custom',
+				'Chimano Compact'
 			]
 		}
 	},
@@ -609,7 +615,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Gruber Kurz Pistol'
+				'Gruber Kurz'
 			]
 		}
 	},
@@ -626,7 +632,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Signature .40 Pistol'
+				'Signature .40'
 			]
 		}
 	},
@@ -642,7 +648,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Crosskill Pistol'
+				'Crosskill'
 			]
 		}
 	},
@@ -659,7 +665,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Crosskill Pistol'
+				'Crosskill'
 			]
 		}
 	},
@@ -678,7 +684,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Crosskill Pistol'
+				'Crosskill'
 			]
 		}
 	},
@@ -694,7 +700,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bernetti 9 Pistol'
+				'Bernetti 9'
 			]
 		}
 	},
@@ -713,7 +719,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bernetti 9 Pistol'
+				'Bernetti 9'
 			]
 		}
 	},
@@ -729,7 +735,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bronco .44 Pistol'
+				'Bronco .44'
 			]
 		}
 	},
@@ -762,7 +768,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'M13 9mm Pistol'
+				'M13 9mm'
 			]
 		}
 	},
@@ -778,8 +784,8 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'STRYK 18c Pistol',
-				'Chimano Custom Pistol'
+				'STRYK 18c',
+				'Chimano Custom'
 			]
 		}
 	},
@@ -793,7 +799,7 @@ const grip: ModificationList<GripModificationsList> = {
 		stats: {},
 		compatibleWeapons: {
 			pistol: [
-				'Parabellum Pistol'
+				'Parabellum'
 			]
 		}
 	},
@@ -809,7 +815,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Castigo .44 Revolver'
+				'Castigo .44'
 			]
 		}
 	},
@@ -825,7 +831,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Castigo .44 Revolver'
+				'Castigo .44'
 			]
 		}
 	},
@@ -841,7 +847,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Frenchman Model 87 Revolver'
+				'Frenchman Model 87'
 			]
 		}
 	},
@@ -857,7 +863,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Crosskill Guard Pistol'
+				'Crosskill Guard'
 			]
 		}
 	},
@@ -873,7 +879,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Crosskill Guard Pistol'
+				'Crosskill Guard'
 			]
 		}
 	},
@@ -893,7 +899,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bernetti Auto Pistol'
+				'Bernetti Auto'
 			]
 		}
 	},
@@ -912,7 +918,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Bernetti Auto Pistol'
+				'Bernetti Auto'
 			]
 		}
 	},
@@ -931,7 +937,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Czech 92 Pistol'
+				'Czech 92'
 			]
 		}
 	},
@@ -951,7 +957,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Czech 92 Pistol'
+				'Czech 92'
 			]
 		}
 	},
@@ -968,7 +974,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Igor Automatik Pistol'
+				'Igor Automatik'
 			]
 		}
 	},
@@ -985,7 +991,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Igor Automatik Pistol'
+				'Igor Automatik'
 			]
 		}
 	},
@@ -1001,7 +1007,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'HOLT 9mm Pistol'
+				'HOLT 9mm'
 			]
 		}
 	},
@@ -1017,7 +1023,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'HOLT 9mm Pistol'
+				'HOLT 9mm'
 			]
 		}
 	},
@@ -1034,7 +1040,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Peacemaker .45 Revolver'
+				'Peacemaker .45'
 			]
 		}
 	},
@@ -1050,7 +1056,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Matever .357 Revolver'
+				'Matever .357'
 			]
 		}
 	},
@@ -1068,7 +1074,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Deagle Pistol'
+				'Deagle'
 			]
 		}
 	},
@@ -1085,7 +1091,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				'Deagle Pistol'
+				'Deagle'
 			]
 		}
 	},
@@ -1102,7 +1108,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Swedish K Submachine Gun'
+				'Swedish K'
 			]
 		}
 	},
@@ -1119,7 +1125,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Swedish K Submachine Gun'
+				'Swedish K'
 			]
 		}
 	},
@@ -1136,7 +1142,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Chicago Typewriter Submachine Gun'
+				'Chicago Typewriter'
 			]
 		}
 	},
@@ -1156,7 +1162,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Cobra Submachine Gun'
+				'Cobra'
 			]
 		}
 	},
@@ -1177,7 +1183,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			submachineGun: [
-				'Cobra Submachine Gun'
+				'Cobra'
 			]
 		}
 	},
@@ -1216,6 +1222,38 @@ const grip: ModificationList<GripModificationsList> = {
 		compatibleWeapons: {
 			special: [
 				'Pistol Crossbow'
+			]
+		}
+	},
+	'RUS Custom Wood Grip': {
+		name: 'RUS Custom Wood Grip',
+		image: 'RUS_Custom_Wood_Grip',
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['Jiu Feng Smuggler Pack 3'],
+		cost: 21e3,
+		stats: {
+			stability: 24
+		},
+		compatibleWeapons: {
+			pistol: [
+				'RUS-12 Angry Tiger'
+			]
+		}
+	},
+	'MS10 Comfort Wood Grip': {
+		name: 'MS10 Comfort Wood Grip',
+		image: 'MS10_Comfort_Wood_Grip',
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 9e3,
+		stats: {
+			stability: 4
+		},
+		compatibleWeapons: {
+			submachineGun: [
+				'Miyaka 10 Special'
 			]
 		}
 	}

@@ -19,11 +19,11 @@ const bipod: ModificationList<BipodModificationsList> = {
 		stats: {},
 		compatibleWeapons: {
 			lightMachineGun: [
-				'KSP 58 Light Machine Gun',
-				'RPK Light Machine Gun',
-				'KSP Light Machine Gun',
-				'Buzzsaw 42 Light Machine Gun',
-				'Brenner-21 Light Machine Gun'
+				'KSP 58',
+				'RPK',
+				'KSP',
+				'Buzzsaw 42',
+				'Brenner-21'
 			]
 		},
 		incompatibleSlot: [] // brenner 21 incompatible with foregrip

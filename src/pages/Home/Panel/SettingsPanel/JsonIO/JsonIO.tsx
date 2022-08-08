@@ -52,7 +52,7 @@ const JsonIO: FC<JsonIOProps> = ({ setToggleSettings }) => {
 
 	const dataToJson = (data: DataToJson): Partial<BuildJson> => {
 		const filterObject = <T extends object>(obj: T): object => Object.fromEntries(Object.entries(obj).filter(([_, v]) => v))
-		const compareStates = (equipped: string, defaultState: string): string | undefined => equipped !== defaultState ? equipped : undefined
+		const compareStates = <T extends string>(equipped: T, defaultState: T): T | undefined => equipped !== defaultState ? (equipped as T) : undefined
 
 		const filteredAbilities: OptionalAbilitiesState = filterObject<OptionalAbilitiesState>({
 			perkdeck: (compareStates(data.abilities.perkdeck, abilitiesDefaultState.perkdeck) as PerkDeckList)
