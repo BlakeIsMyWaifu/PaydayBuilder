@@ -1,4 +1,4 @@
-import { CardIconBase } from 'pages/PerkDeck/Perks/Perk-Elements'
+import { CardIconBase } from 'components/PerkDeck/Perks/Perk-Elements'
 import styled from 'styled-components'
 import { dim } from 'utils/colours'
 import corner from 'utils/corner'

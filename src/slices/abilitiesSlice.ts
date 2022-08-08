@@ -1,10 +1,10 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { CrewData } from 'components/CrewManagement'
 import abilities from 'data/abilities/crewAbilities'
 import boosts from 'data/abilities/crewBoosts'
 import { PerkDeckList } from 'data/abilities/perks'
 import characters from 'data/character/characters'
 import { MaskList, allMasks } from 'data/character/masks'
-import { CrewData } from 'pages/CrewManagement'
 
 export interface AbilitiesState {
 	perkdeck: PerkDeckList;

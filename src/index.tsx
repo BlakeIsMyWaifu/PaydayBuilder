@@ -1,17 +1,15 @@
+import App from 'App'
+import { FC } from 'react'
 import { StrictMode } from 'react'
-import ReactDOMClient from 'react-dom/client'
 import { Provider } from 'react-redux'
 import store from 'store'
 
-import App from './App'
-
-const container = document.getElementById('root') as HTMLElement
-
-const root = ReactDOMClient.createRoot(container)
-
-root.render(
+const Index: FC = () => (
 	<StrictMode>
 		<Provider store={store}>
 			<App />
 		</Provider>
-	</StrictMode>)
+	</StrictMode>
+)
+
+export default Index

@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import { LoadedBuild } from 'hooks/useBuildURLImport'
-import { Container, PanelContent, Title } from 'pages/Home/Panel/Panel-Elements'
+import { Container, PanelContent, Title } from 'components/Home/Panel/Panel-Elements'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaFolderOpen, FaPlusSquare, FaTrash, FaUndoAlt } from 'react-icons/fa'
 import { addBuild, changeBuild, defaultBuild, removeBuild, updateName } from 'slices/buildsSlice'

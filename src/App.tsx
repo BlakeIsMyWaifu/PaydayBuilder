@@ -1,5 +1,3 @@
-import './App.css'
-
 import { BackgroundContainer, BackgroundImage } from 'App-Elements'
 import { FC } from 'react'
 import AppRoutes from 'routes/AppRoutes'

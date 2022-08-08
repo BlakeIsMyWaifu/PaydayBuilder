@@ -5,22 +5,22 @@ import Loader from 'routes/Loader'
 import LoadURL from './LoadURL'
 import UpdateBuild from './UpdateBuild'
 
-const Home = lazy(() => import('pages/Home'))
+const Home = lazy(() => import('components/Home'))
 
-const Mask = lazy(() => import('pages/Mask'))
-const Character = lazy(() => import('pages/Character'))
-const Armour = lazy(() => import('pages/Armour'))
-const Equipment = lazy(() => import('pages/Equipment'))
+const Mask = lazy(() => import('components/Mask'))
+const Character = lazy(() => import('components/Character'))
+const Armour = lazy(() => import('components/Armour'))
+const Equipment = lazy(() => import('components/Equipment'))
 
-const Weapons = lazy(() => import('pages/Weapons'))
-const Blackmarket = lazy(() => import('pages/Blackmarket'))
-const Throwable = lazy(() => import('pages/Throwable'))
-const Melee = lazy(() => import('pages/Melee'))
+const Weapons = lazy(() => import('components/Weapons'))
+const Blackmarket = lazy(() => import('components/Blackmarket'))
+const Throwable = lazy(() => import('components/Throwable'))
+const Melee = lazy(() => import('components/Melee'))
 
-const Skills = lazy(() => import('pages/Skills'))
-const PerkDeck = lazy(() => import('pages/PerkDeck'))
-const CrewManagement = lazy(() => import('pages/CrewManagement'))
-const Infamy = lazy(() => import('pages/Infamy'))
+const Skills = lazy(() => import('components/Skills'))
+const PerkDeck = lazy(() => import('components/PerkDeck'))
+const CrewManagement = lazy(() => import('components/CrewManagement'))
+const Infamy = lazy(() => import('components/Infamy'))
 
 const AppRoutes: FC = () => {
 	return (

@@ -1,6 +1,6 @@
+import { HoverInfo } from 'components/Home'
 import skills from 'data/abilities/skills'
 import { useAppSelector } from 'hooks/reduxHooks'
-import { HoverInfo } from 'pages/Home'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { grey } from 'utils/colours'
 import skillTreePoints from 'utils/skillTreePoints'

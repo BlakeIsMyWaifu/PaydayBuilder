@@ -1,4 +1,4 @@
-import { HoverInfo } from 'pages/Home'
+import { HoverInfo } from 'components/Home'
 import { Dispatch, FC, ReactNode, SetStateAction } from 'react'
 
 import { Container, SelectorLink, Title } from './Selector-Elements'
