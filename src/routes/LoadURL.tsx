@@ -14,7 +14,7 @@ const LoadURL: FC = () => {
 		setData({ data: query.toString(), addNewBuild: true })
 	})
 
-	return query.toString().length ? <Navigate to='/' /> : <></>
+	return query.toString().length ? <Navigate to='/' /> : null
 }
 
 export default LoadURL

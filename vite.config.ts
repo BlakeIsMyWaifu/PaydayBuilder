@@ -13,5 +13,8 @@ export default defineConfig({
 		ViteTips(),
 		dynamicImport()
 	],
-	publicDir: 'public'
+	publicDir: 'public',
+	server: {
+		port: 3000
+	}
 })

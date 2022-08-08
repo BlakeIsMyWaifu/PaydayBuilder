@@ -7,6 +7,7 @@ import TextOutput from 'pages/Home/Panel/SettingsPanel/TextIO/TextOutput'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaGithub } from 'react-icons/fa'
 import { changeLeftFacing } from 'slices/settingsSlice'
+import { isDev } from 'utils/isDev'
 
 import CheckboxInput from './CheckboxInput'
 import JsonIO from './JsonIO'
@@ -43,6 +44,13 @@ const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettin
 						}}
 					/>
 				</Setting>
+
+				{
+					isDev() && <Setting>
+						<SettingsTitle>Export to localhost</SettingsTitle>
+						<TextOutput value={`localhost:3000/?${builds[current].data}`} callback={value => navigator.clipboard.writeText(value)} />
+					</Setting>
+				}
 
 				<Setting>
 					<SettingsTitle>Export to pd2.dev</SettingsTitle>
