@@ -11,8 +11,8 @@ import equipments, { EquipmentData } from 'data/character/equipment'
 import melees from 'data/weapons/melees'
 import throwables from 'data/weapons/throwables'
 import { useAppSelector } from 'hooks/reduxHooks'
+import Link from 'next/link'
 import { FC, useState } from 'react'
-import { Link } from 'react-router-dom'
 import findMask from 'utils/findMask'
 import findWeapon from 'utils/findWeapon'
 
@@ -135,15 +135,17 @@ const Tabs: FC = () => {
 						setHoverInfo={setHoverInfo}
 						enableLink={false}
 					>
-						<Link to='primary'>
-							<Image
-								src={`/images/weapons/${primaryData.image}.png`}
-								leftFacing={leftFacing}
-								onMouseEnter={() => setHoverInfo({
-									title: primaryData.name,
-									table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={primaryWeapon} />
-								})}
-							/>
+						<Link href='primary'>
+							<a>
+								<Image
+									src={`/images/weapons/${primaryData.image}.png`}
+									leftFacing={leftFacing}
+									onMouseEnter={() => setHoverInfo({
+										title: primaryData.name,
+										table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={primaryWeapon} />
+									})}
+								/>
+							</a>
 						</Link>
 						<ModIcons
 							weapon={primaryWeapon}
@@ -157,15 +159,17 @@ const Tabs: FC = () => {
 						setHoverInfo={setHoverInfo}
 						enableLink={false}
 					>
-						<Link to='secondary'>
-							<Image
-								src={`/images/weapons/${secondaryData.image}.png`}
-								leftFacing={leftFacing}
-								onMouseEnter={() => setHoverInfo({
-									title: secondaryData.name,
-									table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={secondaryWeapon} />
-								})}
-							/>
+						<Link href='secondary'>
+							<a>
+								<Image
+									src={`/images/weapons/${secondaryData.image}.png`}
+									leftFacing={leftFacing}
+									onMouseEnter={() => setHoverInfo({
+										title: secondaryData.name,
+										table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={secondaryWeapon} />
+									})}
+								/>
+							</a>
 						</Link>
 						<ModIcons
 							weapon={secondaryWeapon}

@@ -20,8 +20,10 @@ const Selector: FC<SelectorProps> = ({ title, children, infoData, setHoverInfo, 
 			onMouseLeave={() => setHoverInfo(null)}
 		>
 			{
-				enableLink ? <Title>{title}</Title> : <SelectorLink to={`/${title.replaceAll(' ', '')}`}>
-					<Title>{title}</Title>
+				enableLink ? <Title>{title}</Title> : <SelectorLink href={`/${title.replaceAll(' ', '')}`}>
+					<a>
+						<Title>{title}</Title>
+					</a>
 				</SelectorLink>
 			}
 
@@ -30,8 +32,10 @@ const Selector: FC<SelectorProps> = ({ title, children, infoData, setHoverInfo, 
 	)
 
 	return enableLink ? (
-		<SelectorLink to={`/${title.replaceAll(' ', '')}`}>
-			{inners}
+		<SelectorLink href={`/${title.replaceAll(' ', '')}`}>
+			<a>
+				{inners}
+			</a>
 		</SelectorLink>
 	) : inners
 }

@@ -1,8 +1,13 @@
-import dynamic from 'next/dynamic'
+import Home from 'components/Home/Home'
+import Page from 'components/Page'
+import { FC } from 'react'
 
-const Index = dynamic(() => import('../index'), {
-	ssr: false
-})
+const index: FC = () => {
+	return (
+		<Page>
+			<Home />
+		</Page>
+	)
+}
 
-// eslint-disable-next-line react/display-name
-export default (): JSX.Element => <Index />
+export default index

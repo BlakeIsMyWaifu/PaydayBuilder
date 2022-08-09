@@ -1,5 +1,5 @@
 import { ContainerProps } from 'components/Container'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import styled from 'styled-components'
 import { blue } from 'utils/colours'
 

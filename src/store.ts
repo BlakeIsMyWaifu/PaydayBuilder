@@ -9,11 +9,12 @@ import weaponsReducer from 'slices/weaponsSlice'
 
 const saveToLocalStorage = (state: RootState): void => {
 	const serializedState = JSON.stringify(state.builds)
-	localStorage.setItem('builds', serializedState)
+	// localStorage.setItem('builds', serializedState)
 }
 
 const loadFromLocalStorage = (): Partial<RootState> => {
-	const serializedState = localStorage.getItem('builds')
+	// const serializedState = localStorage.getItem('builds')
+	const serializedState = null
 	const partial: Partial<RootState> = {
 		builds: serializedState ? JSON.parse(serializedState) : buildsDefaultState
 	}

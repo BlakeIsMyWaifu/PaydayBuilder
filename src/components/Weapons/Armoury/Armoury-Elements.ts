@@ -1,6 +1,6 @@
 import { Item } from 'components/Item-Elements'
 import { ActionText, ActionsContainer } from 'components/ItemAction-Elements'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import styled from 'styled-components'
 import { blue } from 'utils/colours'
 
