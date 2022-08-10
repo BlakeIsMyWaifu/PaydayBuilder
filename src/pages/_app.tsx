@@ -2,6 +2,7 @@ import 'fonts/fonts.css'
 
 import { GlobalStyle } from 'GlobalStyle'
 import { AppProps } from 'next/app'
+import Head from 'next/head'
 import { FC, useEffect } from 'react'
 import { Provider } from 'react-redux'
 import store from 'store'
@@ -26,7 +27,7 @@ const BackgroundImage = styled.img`
 	z-index: -1;
 `
 
-const App: FC<AppProps> = ({ Component }) => {
+const App: FC<AppProps> = ({ Component, pageProps }) => {
 
 	useEffect(() => {
 		if (!isDev) {
@@ -42,6 +43,13 @@ const App: FC<AppProps> = ({ Component }) => {
 	return (
 		<Provider store={store}>
 
+			<Head>
+				<meta charSet='UTF-8' />
+				<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+				<title>Payday Builder</title>
+				<link rel='shortcut icon' href='/favicon.ico' />
+			</Head>
+
 			<GlobalStyle />
 
 			<div onContextMenu={event => isDev() ? null : event.preventDefault()}>
@@ -50,7 +58,7 @@ const App: FC<AppProps> = ({ Component }) => {
 					<BackgroundImage src='/images/loading_bg.png' />
 				</BackgroundContainer>
 
-				<Component />
+				<Component {...pageProps} />
 
 			</div>
 		</Provider>
