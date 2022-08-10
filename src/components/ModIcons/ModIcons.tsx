@@ -1,7 +1,7 @@
+import { HoverInfo } from 'components/Home'
+import WeaponsStatsTable from 'components/Weapons/WeaponStatsTable'
 import modificationList, { modificationIcons } from 'data/weapons/guns/modificationList'
 import { ModificationSlot, Weapon } from 'data/weapons/guns/weaponTypes'
-import { HoverInfo } from 'pages/Home'
-import WeaponsStatsTable from 'pages/Weapons/WeaponStatsTable'
 import { Dispatch, FC, SetStateAction } from 'react'
 import findWeapon from 'utils/findWeapon'
 import { capitalizeEachWord, spaceBetween } from 'utils/stringCases'
@@ -23,11 +23,13 @@ const ModIcons: FC<ModIconsProps> = ({ weapon, link, setHoverInfo }) => {
 		<ModIconContainer>
 
 			{
-				setHoverInfo && <ModLink to={weaponData.inventorySlot}>
-					<Background onMouseOver={() => setHoverInfo({
-						title: weaponData.name,
-						table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={weapon} />
-					})} />
+				setHoverInfo && <ModLink href={weaponData.inventorySlot}>
+					<a>
+						<Background onMouseOver={() => setHoverInfo({
+							title: weaponData.name,
+							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={weapon} />
+						})} />
+					</a>
 				</ModLink>
 			}
 
@@ -51,8 +53,10 @@ const ModIcons: FC<ModIconsProps> = ({ weapon, link, setHoverInfo }) => {
 					/>
 					return <ModWrapper key={modSlot}>
 						{
-							link ? <ModLink to={`/blackmarket/${weaponData.inventorySlot}/${weapon.id}/${modSlot}`}>
-								{modIcon}
+							link ? <ModLink href={`/blackmarket/${weaponData.inventorySlot}/${weapon.id}/${modSlot}`}>
+								<a>
+									{modIcon}
+								</a>
 							</ModLink> : modIcon
 						}
 					</ModWrapper>

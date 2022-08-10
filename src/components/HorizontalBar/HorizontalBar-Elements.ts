@@ -43,7 +43,7 @@ export const ItemContainer = styled.div`
 
 interface HorizontalItemProps {
 	colour?: string;
-	additionalStyling: FlattenInterpolation<any> | null;
+	additionalStyling: FlattenInterpolation<unknown> | null;
 	active: boolean;
 }
 
@@ -52,7 +52,9 @@ export const Item = styled.p<HorizontalItemProps>`
 	cursor: pointer;
 	white-space: nowrap;
 	color: ${props => props.colour || (props.active ? '#fff' : blue)};
+
 	${props => props.additionalStyling};
+	
 	&:first-child {
 		padding-left: 12px;
 	}

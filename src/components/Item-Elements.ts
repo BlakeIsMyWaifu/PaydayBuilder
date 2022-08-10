@@ -11,7 +11,7 @@ export const ItemContainer = styled.div`
 	${corner};
 `
 
-interface ItemProps {
+export interface ItemProps {
 	width: number;
 	rowAmount: number;
 	selected: boolean;
