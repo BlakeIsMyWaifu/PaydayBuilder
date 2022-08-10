@@ -10,7 +10,6 @@ import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/w
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import useWeaponStats from 'hooks/useWeaponStats'
 import { FC, useState } from 'react'
-import { useParams } from 'react-router'
 import { changeMod, removeMod, resetWeaponMods } from 'slices/armourySlice'
 import { itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
@@ -18,9 +17,13 @@ import { modificationsFromNames } from 'utils/modificationsFromNames'
 
 import BlackmarketStatsTable from './BlackmarketStatsTable'
 
-const WeaponChecker: FC = () => {
+interface WeaponCheckerProps {
+	slot: string;
+	id: string;
+	modtype?: string;
+}
 
-	const { slot, id, modtype } = useParams()
+const WeaponChecker: FC<WeaponCheckerProps> = ({ slot, id, modtype }) => {
 
 	const armoury = useAppSelector(state => state.armoury)
 
@@ -44,7 +47,7 @@ const WeaponChecker: FC = () => {
 			modtype={modtype || ''}
 		/>
 	) : (
-		<Container title='Blackmarket'>
+		<Container>
 			<h1>Error, invalid weapon</h1>
 		</Container>
 	)

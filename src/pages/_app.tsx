@@ -1,3 +1,5 @@
+import 'fonts/fonts.css'
+
 import { GlobalStyle } from 'GlobalStyle'
 import { AppProps } from 'next/app'
 import { FC, useEffect } from 'react'

@@ -155,8 +155,10 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, setBui
 							dispatch(changeWeapon({ slot, weapon: selectedWeaponId }))
 						}}>Equip Weapon</WeaponActionText>
 
-						<BlackmarketLink to={`/blackmarket/${slot}/${selectedWeaponId}`}>
-							<WeaponActionText>Modify Weapon</WeaponActionText>
+						<BlackmarketLink href={`/blackmarket/${slot}/${selectedWeaponId}`}>
+							<a>
+								<WeaponActionText>Modify Weapon</WeaponActionText>
+							</a>
 						</BlackmarketLink>
 
 						<WeaponActionText onClick={() => {

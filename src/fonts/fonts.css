@@ -1,0 +1,4 @@
+@font-face {
+	font-family: 'PaydayFont';
+	src: local('PaydayFont'), url('./DINEngschrift.woff') format('woff');
+}

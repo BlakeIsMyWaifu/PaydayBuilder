@@ -32,9 +32,4 @@ export const GlobalStyle = createGlobalStyle`
 	a {
 		text-decoration: none;
 	}
-
-	@font-face {
-		font-family: 'PaydayFont';
-		src: local('PaydayFont'), url('fonts/DINEngschrift.woff') format('woff');
-	}
 `
