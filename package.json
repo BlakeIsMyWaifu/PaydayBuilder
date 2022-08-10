@@ -1,7 +1,7 @@
 {
   "name": "payday-builder",
   "private": true,
-  "version": "0.2.5",
+  "version": "0.3.0",
   "description": "Payday 2 Build Helper Website",
   "author": "Joel Dohm-Karatjas",
   "license": "MIT",
@@ -24,8 +24,6 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-redux": "^8.0.2",
-    "react-router": "^6.3.0",
-    "react-router-dom": "^6.3.0",
     "redux": "^4.2.0",
     "styled-components": "^5.3.5",
     "zod": "^3.17.10"
@@ -34,8 +32,6 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@types/react-redux": "^7.1.24",
-    "@types/react-router": "^5.1.18",
-    "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.25",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
