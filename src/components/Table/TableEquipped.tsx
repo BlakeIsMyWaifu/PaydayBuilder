@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import statLimit from 'data/weapons/guns/statLimit'
 import { ModificationStats } from 'data/weapons/guns/weaponTypes'
 import { FC, ReactNode } from 'react'

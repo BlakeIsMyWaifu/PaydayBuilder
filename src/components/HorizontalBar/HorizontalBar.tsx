@@ -10,6 +10,7 @@ interface HorizontalActionBarProps {
 		label: string;
 		callback: () => void;
 		colour?: string;
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		additionalStyling?: FlattenInterpolation<any> | null;
 		id?: number;
 	}[];
