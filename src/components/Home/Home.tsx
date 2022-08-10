@@ -48,7 +48,7 @@ const Home: FC = () => {
 
 				<VersionContainer>
 					<VersionText>Payday Version: 222</VersionText>
-					<VersionText>Builder Version: 0.3.0</VersionText>
+					<VersionText>Builder Version: 0.3.1</VersionText>
 				</VersionContainer>
 
 				<ConfigContainer>
