@@ -15,11 +15,15 @@ const initialState: SettingsStateSlice = {
 const createStateSlice: Slice<SettingsStore, SettingsStateSlice> = () => initialState
 
 interface SettingsActionSlice {
-	changeLeftFacing: () => void;
+	toggleLeftFacing: () => void;
 }
 
-const createActionSlice: Slice<SettingsStore, SettingsActionSlice> = () => ({
-	changeLeftFacing: () => null
+const createActionSlice: Slice<SettingsStore, SettingsActionSlice> = set => ({
+	toggleLeftFacing: () => {
+		set(state => ({
+			leftFacing: !state.leftFacing
+		}))
+	}
 })
 
 export const useSettingsStore = create<SettingsStore>()((...a) => ({
