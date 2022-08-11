@@ -4,8 +4,6 @@ import { GlobalStyle } from 'GlobalStyle'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { FC, useEffect } from 'react'
-import { Provider } from 'react-redux'
-import store from 'store'
 import styled from 'styled-components'
 import { isDev } from 'utils/isDev'
 
@@ -41,8 +39,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 	}, [])
 
 	return (
-		<Provider store={store}>
-
+		<>
 			<Head>
 				<meta charSet='UTF-8' />
 				<meta name='viewport' content='width=device-width, initial-scale=1.0' />
@@ -61,7 +58,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 				<Component {...pageProps} />
 
 			</div>
-		</Provider>
+		</>
 	)
 }
 
