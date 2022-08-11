@@ -5,8 +5,9 @@ import { PerkDeckList } from 'data/abilities/perks'
 import characters from 'data/character/characters'
 import { MaskList, allMasks } from 'data/character/masks'
 import create from 'zustand'
+import { devtools } from 'zustand/middleware'
 
-import { Slice } from './storeTypes'
+import { Slice, createActionName } from './storeTypes'
 
 type AbilityStore = AbilityStateSlice & AbilityActionSlice
 
@@ -37,13 +38,15 @@ interface AbilityActionSlice {
 	changePerkDeck: (perkdeck: PerkDeckList) => void;
 }
 
+const actionName = createActionName('abilities')
+
 const createActionSlice: Slice<AbilityStore, AbilityActionSlice> = set => ({
 	changePerkDeck: perkdeck => {
-		set({ perkdeck })
+		set({ perkdeck }, ...actionName('changePerkDeck'))
 	}
 })
 
-export const useAbilityStore = create<AbilityStore>()((...a) => ({
+export const useAbilityStore = create<AbilityStore>()(devtools((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-}))
+}), { name: 'Abilities Store' }))

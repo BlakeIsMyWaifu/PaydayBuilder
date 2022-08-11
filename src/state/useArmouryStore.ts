@@ -1,8 +1,9 @@
 import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { findNextNum } from 'utils/maths'
 import create from 'zustand'
+import { devtools } from 'zustand/middleware'
 
-import { Slice } from './storeTypes'
+import { Slice, createActionName } from './storeTypes'
 
 type ArmouryStore = ArmouryStateSlice & ArmouryActionSlice
 
@@ -44,6 +45,8 @@ interface ArmouryActionSlice {
 	resetWeaponMods: (slot: Slot, id: number) => void;
 }
 
+const actionName = createActionName('armoury')
+
 const createActionSlice: Slice<ArmouryStore, ArmouryActionSlice> = (set, get) => ({
 	addWeapon: (weapon, mods) => {
 		const slot = weapon.inventorySlot
@@ -62,15 +65,15 @@ const createActionSlice: Slice<ArmouryStore, ArmouryActionSlice> = (set, get) =>
 				...state[slot],
 				[nextNum]: newWeapon
 			}
-		}))
+		}), ...actionName('addWeapon'))
 	},
 	removeWeapon: (slot, id) => {
 		const weapons = get()[slot]
 		delete weapons[id]
-		set({ [slot]: weapons })
+		set({ [slot]: weapons }, ...actionName('removeWeapon'))
 	},
 	resetArmoury: slot => {
-		set({ [slot]: initialState[slot] })
+		set({ [slot]: initialState[slot] }, ...actionName('resetArmoury'))
 	},
 	changeMod: (slot, id, newMod) => {
 		set(state => ({
@@ -84,7 +87,7 @@ const createActionSlice: Slice<ArmouryStore, ArmouryActionSlice> = (set, get) =>
 					}
 				}
 			}
-		}))
+		}), ...actionName('changeMod'))
 	},
 	removeMod: (slot, id, modSlot) => {
 		const { modifications } = get()[slot][id]
@@ -97,7 +100,7 @@ const createActionSlice: Slice<ArmouryStore, ArmouryActionSlice> = (set, get) =>
 					modifications
 				}
 			}
-		}))
+		}), ...actionName('removeMod'))
 	},
 	resetWeaponMods: (slot, id) => {
 		set(state => ({
@@ -108,11 +111,11 @@ const createActionSlice: Slice<ArmouryStore, ArmouryActionSlice> = (set, get) =>
 					modifications: {}
 				}
 			}
-		}))
+		}), ...actionName('resetWeaponMods'))
 	}
 })
 
-export const useArmouryStore = create<ArmouryStore>()((...a) => ({
+export const useArmouryStore = create<ArmouryStore>()(devtools((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-}))
+}), { name: 'Armoury Store' }))

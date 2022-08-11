@@ -4,8 +4,9 @@ import { EquipmentList } from 'data/character/equipment'
 import { MaskList } from 'data/character/masks'
 import { Slot } from 'data/weapons/guns/weaponTypes'
 import create from 'zustand'
+import { devtools } from 'zustand/middleware'
 
-import { Slice } from './storeTypes'
+import { Slice, createActionName } from './storeTypes'
 
 type CharacterStore = CharacterStateSlice & CharacterActionSlice
 
@@ -38,15 +39,17 @@ interface CharacterActionSlice {
 	changeEquipment: (slot: Slot, equipment: EquipmentList | null) => void;
 }
 
+const actionName = createActionName('character')
+
 const createActionSlice: Slice<CharacterStore, CharacterActionSlice> = set => ({
 	changeMask: mask => {
-		set({ mask })
+		set({ mask }, ...actionName('changeMask'))
 	},
 	changeCharacter: character => {
-		set({ character })
+		set({ character }, ...actionName('changeCharacter'))
 	},
 	changeArmour: armour => {
-		set({ armour })
+		set({ armour }, ...actionName('changeArmour'))
 	},
 	changeEquipment: (slot, equipment) => {
 		set(state => ({
@@ -54,11 +57,11 @@ const createActionSlice: Slice<CharacterStore, CharacterActionSlice> = set => ({
 				...state.equipment,
 				[slot]: equipment
 			}
-		}))
+		}), ...actionName('changeEquipment'))
 	}
 })
 
-export const useCharacterStore = create<CharacterStore>()((...a) => ({
+export const useCharacterStore = create<CharacterStore>()(devtools((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-}))
+}), { name: 'Character Store' }))

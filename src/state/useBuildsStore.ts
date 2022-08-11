@@ -1,7 +1,8 @@
 import { findNextNum } from 'utils/maths'
 import create from 'zustand'
+import { devtools } from 'zustand/middleware'
 
-import { Slice } from './storeTypes'
+import { Slice, createActionName } from './storeTypes'
 
 type BuildsStore = BuildsStateSlice & BuildsActionSlice
 
@@ -39,6 +40,8 @@ interface BuildsActionSlice {
 	changeBuild: (id: number) => void;
 }
 
+const actionName = createActionName('builds')
+
 const createActionSlice: Slice<BuildsStore, BuildsActionSlice> = (set, get) => ({
 	addBuild: equipBuild => {
 		const nextNum = findNextNum(get().builds)
@@ -53,12 +56,12 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice> = (set, get) => (
 					data: defaultBuild
 				}
 			}
-		}))
+		}), ...actionName('addBuild'))
 	},
 	removeBuild: id => {
 		const { builds } = get()
 		delete builds[id]
-		set({ builds })
+		set({ builds }, ...actionName('removeBuild'))
 	},
 	updateName: (id, name) => {
 		set(state => ({
@@ -69,7 +72,7 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice> = (set, get) => (
 					name
 				}
 			}
-		}))
+		}), ...actionName('updateName'))
 	},
 	updateData: (id, data) => {
 		set(state => ({
@@ -80,14 +83,14 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice> = (set, get) => (
 					data
 				}
 			}
-		}))
+		}), ...actionName('updateData'))
 	},
 	changeBuild: id => {
-		set({ current: id })
+		set({ current: id }, ...actionName('changeBuild'))
 	}
 })
 
-export const useBuildsStore = create<BuildsStore>()((...a) => ({
+export const useBuildsStore = create<BuildsStore>()(devtools((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-}))
+}), { name: 'Builds Store' }))

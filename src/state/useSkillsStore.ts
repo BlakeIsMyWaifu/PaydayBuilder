@@ -1,8 +1,9 @@
 import skills, { SkillData, TreeNames } from 'data/abilities/skills'
 import SkillTreePoints from 'utils/skillTreePoints'
 import create from 'zustand'
+import { devtools } from 'zustand/middleware'
 
-import { Slice } from './storeTypes'
+import { Slice, createActionName } from './storeTypes'
 
 type SkillsStore = SkillsStateSlice & SkillsActionSlice
 
@@ -64,6 +65,8 @@ interface SkillsActionSlice {
 	resetTree: (treeName: TreeNames) => void;
 	resetSkills: () => void;
 }
+
+const actionName = createActionName('skills')
 
 const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, get) => ({
 	changeSkillState: ({ tree, subtree, skill, oldLevel, direction }) => {
@@ -127,7 +130,7 @@ const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, get) => (
 					}
 				}
 			}
-		}))
+		}), ...actionName('changeSkillState'))
 	},
 	resetTree: treeName => {
 		set(state => ({
@@ -136,14 +139,14 @@ const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, get) => (
 				...state.trees,
 				[treeName]: initialState.trees[treeName]
 			}
-		}))
+		}), ...actionName('resetTree'))
 	},
 	resetSkills: () => {
-		set(initialState)
+		set(initialState, ...actionName('resetSkills'))
 	}
 })
 
-export const useSkillsStore = create<SkillsStore>()((...a) => ({
+export const useSkillsStore = create<SkillsStore>()(devtools((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-}))
+}), { name: 'Skills Store' }))

@@ -2,8 +2,9 @@ import { Slot } from 'data/weapons/guns/weaponTypes'
 import { MeleeList } from 'data/weapons/melees'
 import { ThrowableList } from 'data/weapons/throwables'
 import create from 'zustand'
+import { devtools } from 'zustand/middleware'
 
-import { Slice } from './storeTypes'
+import { Slice, createActionName } from './storeTypes'
 
 type WeaponsStore = WeaponsStateSlice & WeaponsActionSlice
 
@@ -29,19 +30,21 @@ interface WeaponsActionSlice {
 	changeMelee: (melee: MeleeList) => void;
 }
 
+const actionName = createActionName('weapons')
+
 const createActionSlice: Slice<WeaponsStore, WeaponsActionSlice> = set => ({
 	changeWeapon: (slot, weaponId) => {
-		set({ [slot]: weaponId })
+		set({ [slot]: weaponId }, ...actionName('changeWeapon'))
 	},
 	changeThrowable: throwable => {
-		set({ throwable })
+		set({ throwable }, ...actionName('changeThrowable'))
 	},
 	changeMelee: melee => {
-		set({ melee })
+		set({ melee }, ...actionName('changeMelee'))
 	}
 })
 
-export const useWeaponsStore = create<WeaponsStore>()((...a) => ({
+export const useWeaponsStore = create<WeaponsStore>()(devtools((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-}))
+}), { name: 'Weapons Store' }))
