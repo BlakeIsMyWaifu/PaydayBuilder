@@ -1,7 +1,15 @@
-import { StateCreator } from 'zustand'
+import { StateCreator, StoreMutators } from 'zustand'
 
-type DevTools = ['zustand/devtools', never]
+export type DevTools = ['zustand/devtools', never]
 
-export type Slice<T extends object, K extends object> = StateCreator<T, [DevTools], [], K>
+export type SubscribeWithSelector = ['zustand/subscribeWithSelector', never]
+
+export type Persist<T = unknown> = ['zustand/persist', T]
+
+export type Slice<
+	Store extends object,
+	Slice extends object,
+	Middleware extends [keyof StoreMutators<unknown, unknown>, unknown][] = [DevTools]
+	> = StateCreator<Store, Middleware, [], Slice>
 
 export const createActionName = (storeName: string) => (actionName: string): [false, string] => [false, `${storeName}/${actionName}`]

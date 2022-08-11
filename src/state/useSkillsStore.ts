@@ -5,7 +5,7 @@ import { devtools } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
 
-type SkillsStore = SkillsStateSlice & SkillsActionSlice
+// State
 
 type SkillUpgradeTypes = 'locked' | 'available' | 'basic' | 'aced'
 
@@ -15,11 +15,6 @@ export interface Subtrees {
 		points: number;
 		upgrades: Record<string, SkillUpgradeTypes>;
 	};
-}
-
-interface SkillsStateSlice {
-	points: number;
-	trees: Record<string, Subtrees>;
 }
 
 const getTrees = (): Record<string, Subtrees> => {
@@ -45,12 +40,19 @@ const getSubtrees = (tree: TreeNames): Subtrees => {
 
 const getUpgrades = (subtree: SkillData[]): Record<string, SkillUpgradeTypes> => Object.assign({}, ...subtree.map(skill => ({ [skill.name]: skill.tier === 1 ? 'available' : 'locked' })))
 
+interface SkillsStateSlice {
+	points: number;
+	trees: Record<string, Subtrees>;
+}
+
 const initialState: SkillsStateSlice = {
 	points: 120,
 	trees: getTrees()
 }
 
 const createStateSlice: Slice<SkillsStore, SkillsStateSlice> = () => initialState
+
+// Action
 
 interface ChangeSkillState {
 	tree: TreeNames;
@@ -145,6 +147,10 @@ const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, get) => (
 		set(initialState, ...actionName('resetSkills'))
 	}
 })
+
+// Store
+
+type SkillsStore = SkillsStateSlice & SkillsActionSlice
 
 export const useSkillsStore = create<SkillsStore>()(devtools((...a) => ({
 	...createStateSlice(...a),

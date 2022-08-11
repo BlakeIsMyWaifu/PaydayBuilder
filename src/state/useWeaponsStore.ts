@@ -6,7 +6,7 @@ import { devtools } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
 
-type WeaponsStore = WeaponsStateSlice & WeaponsActionSlice
+// State
 
 interface WeaponsStateSlice {
 	primary: number;
@@ -23,6 +23,8 @@ const initialState: WeaponsStateSlice = {
 }
 
 const createStateSlice: Slice<WeaponsStore, WeaponsStateSlice> = () => initialState
+
+// Action
 
 interface WeaponsActionSlice {
 	changeWeapon: (slot: Slot, weaponId: number) => void;
@@ -43,6 +45,10 @@ const createActionSlice: Slice<WeaponsStore, WeaponsActionSlice> = set => ({
 		set({ melee }, ...actionName('changeMelee'))
 	}
 })
+
+// Store
+
+type WeaponsStore = WeaponsStateSlice & WeaponsActionSlice
 
 export const useWeaponsStore = create<WeaponsStore>()(devtools((...a) => ({
 	...createStateSlice(...a),

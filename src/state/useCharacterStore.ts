@@ -8,7 +8,7 @@ import { devtools } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
 
-type CharacterStore = CharacterStateSlice & CharacterActionSlice
+// State
 
 interface CharacterStateSlice {
 	mask: MaskList;
@@ -31,6 +31,8 @@ const initialState: CharacterStateSlice = {
 }
 
 const createStateSlice: Slice<CharacterStore, CharacterStateSlice> = () => initialState
+
+// Action
 
 interface CharacterActionSlice {
 	changeMask: (mask: MaskList) => void;
@@ -60,6 +62,10 @@ const createActionSlice: Slice<CharacterStore, CharacterActionSlice> = set => ({
 		}), ...actionName('changeEquipment'))
 	}
 })
+
+// Store
+
+type CharacterStore = CharacterStateSlice & CharacterActionSlice
 
 export const useCharacterStore = create<CharacterStore>()(devtools((...a) => ({
 	...createStateSlice(...a),

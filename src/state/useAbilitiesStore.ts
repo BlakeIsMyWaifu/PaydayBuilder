@@ -9,13 +9,7 @@ import { devtools } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
 
-type AbilityStore = AbilityStateSlice & AbilityActionSlice
-
-interface AbilityStateSlice {
-	perkdeck: PerkDeckList;
-	crewmanagement: [CrewData, CrewData, CrewData];
-	infamy: null;
-}
+// State
 
 const defaultCrew = (i: number): CrewData => ({
 	mask: Object.keys(allMasks.normal.Default.masks)[i] as MaskList,
@@ -26,6 +20,12 @@ const defaultCrew = (i: number): CrewData => ({
 	boost: Object.values(boosts)[i].name
 })
 
+interface AbilityStateSlice {
+	perkdeck: PerkDeckList;
+	crewmanagement: [CrewData, CrewData, CrewData];
+	infamy: null;
+}
+
 const initialState: AbilityStateSlice = {
 	perkdeck: 'Crew Chief',
 	crewmanagement: [defaultCrew(0), defaultCrew(1), defaultCrew(2)],
@@ -33,6 +33,8 @@ const initialState: AbilityStateSlice = {
 }
 
 const createStateSlice: Slice<AbilityStore, AbilityStateSlice> = () => initialState
+
+// Action
 
 interface AbilityActionSlice {
 	changePerkDeck: (perkdeck: PerkDeckList) => void;
@@ -45,6 +47,10 @@ const createActionSlice: Slice<AbilityStore, AbilityActionSlice> = set => ({
 		set({ perkdeck }, ...actionName('changePerkDeck'))
 	}
 })
+
+// Store
+
+type AbilityStore = AbilityStateSlice & AbilityActionSlice
 
 export const useAbilityStore = create<AbilityStore>()(devtools((...a) => ({
 	...createStateSlice(...a),

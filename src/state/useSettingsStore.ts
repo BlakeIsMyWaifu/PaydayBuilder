@@ -3,7 +3,7 @@ import { devtools } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
 
-type SettingsStore = SettingsStateSlice & SettingsActionSlice
+// State
 
 interface SettingsStateSlice {
 	leftFacing: boolean;
@@ -14,6 +14,8 @@ const initialState: SettingsStateSlice = {
 }
 
 const createStateSlice: Slice<SettingsStore, SettingsStateSlice> = () => initialState
+
+// Action
 
 interface SettingsActionSlice {
 	toggleLeftFacing: () => void;
@@ -28,6 +30,10 @@ const createActionSlice: Slice<SettingsStore, SettingsActionSlice> = set => ({
 		}), ...actionName('toggleLeftFacing'))
 	}
 })
+
+// Store
+
+type SettingsStore = SettingsStateSlice & SettingsActionSlice
 
 export const useSettingsStore = create<SettingsStore>()(devtools((...a) => ({
 	...createStateSlice(...a),

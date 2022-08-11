@@ -4,7 +4,7 @@ import { devtools } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
 
-type BuildsStore = BuildsStateSlice & BuildsActionSlice
+// State
 
 interface BuildSave {
 	id: number;
@@ -31,6 +31,8 @@ const initialState: BuildsStateSlice = {
 }
 
 const createStateSlice: Slice<BuildsStore, BuildsStateSlice> = () => initialState
+
+// Action
 
 interface BuildsActionSlice {
 	addBuild: (equipBuild: boolean) => void;
@@ -89,6 +91,10 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice> = (set, get) => (
 		set({ current: id }, ...actionName('changeBuild'))
 	}
 })
+
+// Store
+
+type BuildsStore = BuildsStateSlice & BuildsActionSlice
 
 export const useBuildsStore = create<BuildsStore>()(devtools((...a) => ({
 	...createStateSlice(...a),

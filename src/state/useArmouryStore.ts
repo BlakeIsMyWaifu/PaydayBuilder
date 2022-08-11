@@ -5,7 +5,7 @@ import { devtools } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
 
-type ArmouryStore = ArmouryStateSlice & ArmouryActionSlice
+// State
 
 type ArmouryStateSlice = Record<Slot, Record<number, Weapon>>
 
@@ -35,6 +35,8 @@ const initialState: ArmouryStateSlice = {
 }
 
 const createStateSlice: Slice<ArmouryStore, ArmouryStateSlice> = () => initialState
+
+// Action
 
 interface ArmouryActionSlice {
 	addWeapon: (weapon: WeaponData, mods?: Partial<Record<ModificationSlot, string>>) => void;
@@ -114,6 +116,10 @@ const createActionSlice: Slice<ArmouryStore, ArmouryActionSlice> = (set, get) =>
 		}), ...actionName('resetWeaponMods'))
 	}
 })
+
+// Store
+
+type ArmouryStore = ArmouryStateSlice & ArmouryActionSlice
 
 export const useArmouryStore = create<ArmouryStore>()(devtools((...a) => ({
 	...createStateSlice(...a),
