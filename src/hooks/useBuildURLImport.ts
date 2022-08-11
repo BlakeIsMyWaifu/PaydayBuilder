@@ -13,10 +13,10 @@ import { useAppDispatch } from 'hooks/reduxHooks'
 import { SetStateAction, useCallback, useEffect, useState } from 'react'
 import { Dispatch } from 'react'
 import { addBuild } from 'slices/buildsSlice'
-import { changeSkillState, resetSkills } from 'slices/skillsSlice'
 import { useAbilityStore } from 'state/useAbilitiesStore'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useCharacterStore } from 'state/useCharacterStore'
+import { useSkillsStore } from 'state/useSkillsStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import findWeapon from 'utils/findWeapon'
 
@@ -162,10 +162,12 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 	const changeThrowable = useWeaponsStore(state => state.changeThrowable)
 	const changeMelee = useWeaponsStore(state => state.changeMelee)
 	const changeWeapon = useWeaponsStore(state => state.changeWeapon)
+	const resetSkills = useSkillsStore(state => state.resetSkills)
+	const changeSkillState = useSkillsStore(state => state.changeSkillState)
 
 	const loadSkills = useCallback((skillsValue: string): void => {
 
-		dispatch(resetSkills())
+		resetSkills()
 
 		const trees: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
 
@@ -186,22 +188,22 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 					const skillAcedBit = subtreeAcedChar & mask
 
 					if (skillBasicBit !== 0 || skillAcedBit !== 0) {
-						dispatch(changeSkillState({
+						changeSkillState({
 							tree: treeName,
 							subtree: subtree.name,
 							skill,
 							oldLevel: 'available',
 							direction: 'upgrade'
-						}))
+						})
 
 						if (skillAcedBit !== 0) {
-							dispatch(changeSkillState({
+							changeSkillState({
 								tree: treeName,
 								subtree: subtree.name,
 								skill,
 								oldLevel: 'basic',
 								direction: 'upgrade'
-							}))
+							})
 						}
 					}
 					mask <<= 1
@@ -210,7 +212,7 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 				skillsValue = skillsValue.slice(2)
 			})
 		})
-	}, [dispatch])
+	}, [changeSkillState, resetSkills])
 
 	const loadBuildFromIterable = useCallback((input: string): void => {
 		if (!input) return

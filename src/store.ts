@@ -1,10 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import buildsReducer from 'slices/buildsSlice'
-import skillsReducer from 'slices/skillsSlice'
 
 const rootReducer = combineReducers({
-	builds: buildsReducer,
-	skills: skillsReducer
+	builds: buildsReducer
 })
 
 export const store = configureStore({

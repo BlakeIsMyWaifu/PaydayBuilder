@@ -1,4 +1,5 @@
 import skills, { SkillData, TreeNames } from 'data/abilities/skills'
+import SkillTreePoints from 'utils/skillTreePoints'
 import create from 'zustand'
 
 import { Slice } from './storeTypes'
@@ -7,7 +8,7 @@ type SkillsStore = SkillsStateSlice & SkillsActionSlice
 
 type SkillUpgradeTypes = 'locked' | 'available' | 'basic' | 'aced'
 
-interface Subtrees {
+export interface Subtrees {
 	[key: string]: {
 		tier: number;
 		points: number;
@@ -50,16 +51,96 @@ const initialState: SkillsStateSlice = {
 
 const createStateSlice: Slice<SkillsStore, SkillsStateSlice> = () => initialState
 
+interface ChangeSkillState {
+	tree: TreeNames;
+	subtree: string;
+	skill: SkillData;
+	oldLevel: SkillUpgradeTypes;
+	direction: 'upgrade' | 'downgrade';
+}
+
 interface SkillsActionSlice {
-	changeSkillState: () => void;
-	resetTree: () => void;
+	changeSkillState: (newSkillState: ChangeSkillState) => void;
+	resetTree: (treeName: TreeNames) => void;
 	resetSkills: () => void;
 }
 
-const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = () => ({
-	changeSkillState: () => null,
-	resetTree: () => null,
-	resetSkills: () => null
+const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, get) => ({
+	changeSkillState: ({ tree, subtree, skill, oldLevel, direction }) => {
+		const acedCost = {
+			1: 3,
+			2: 4,
+			3: 6,
+			4: 8
+		}
+
+		const tierCost = [0, 1, 3, 16]
+
+		const skillTierIndex = [1, 2, 2, 3, 3, 4]
+
+		let newLevel: 'available' | 'basic' | 'aced'
+		let cost: number
+
+		if (direction === 'upgrade') {
+			newLevel = oldLevel === 'available' ? 'basic' : 'aced'
+			cost = oldLevel === 'available' ? skill.tier : acedCost[skill.tier]
+		} else {
+			newLevel = oldLevel === 'basic' ? 'available' : 'basic'
+			cost = (oldLevel === 'basic' ? skill.tier : acedCost[skill.tier]) * -1
+		}
+
+		const currentSubtree = get().trees[tree][subtree]
+		const points = currentSubtree.points + cost
+
+		let newTier: number
+		for (newTier = 0; newTier < 4; newTier++) {
+			if (points < tierCost[newTier]) break
+		}
+
+		const unlocked: Record<string, SkillUpgradeTypes> = {}
+		if (newTier !== currentSubtree.tier) {
+			const skills = Object.keys(currentSubtree.upgrades)
+			for (let i = 0; i < 6; i++) {
+				if (newTier === skillTierIndex[i] && direction === 'upgrade') {
+					unlocked[skills[i]] = 'available'
+				}
+				if (newTier < skillTierIndex[i] && direction === 'downgrade') {
+					unlocked[skills[i]] = 'locked'
+				}
+			}
+		}
+
+		set(state => ({
+			points: state.points - cost,
+			trees: {
+				...state.trees,
+				[tree]: {
+					...state.trees[tree],
+					[subtree]: {
+						points,
+						tier: newTier,
+						upgrades: {
+							...state.trees[tree][subtree].upgrades,
+							...unlocked,
+							[skill.name]: newLevel
+						}
+					}
+				}
+			}
+		}))
+	},
+	resetTree: treeName => {
+		set(state => ({
+			points: state.points + SkillTreePoints(treeName, state.trees),
+			trees: {
+				...state.trees,
+				[treeName]: initialState.trees[treeName]
+			}
+		}))
+	},
+	resetSkills: () => {
+		set(initialState)
+	}
 })
 
 export const useSkillsStore = create<SkillsStore>()((...a) => ({
