@@ -5,7 +5,6 @@ import { ActionText, ActionsContainer } from 'components/ItemAction-Elements'
 import { Slot, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch } from 'hooks/reduxHooks'
 import { Dispatch, FC, SetStateAction, useState } from 'react'
-import { addWeapon } from 'slices/armourySlice'
 import { changeWeapon } from 'slices/weaponsSlice'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useSettingsStore } from 'state/useSettingsStore'
@@ -33,10 +32,10 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWe
 	const [selectedTab, setSelectedTab] = useState<string>(Object.keys(data)[0])
 	const [selectedWeapon, setSelectedWeapon] = useState<WeaponData>(Object.values(data[selectedTab])[0])
 
+	const addWeapon = useArmouryStore(state => state.addWeapon)
+
 	const addWeaponHelper = (weapon: WeaponData): void => {
-		dispatch(addWeapon({
-			weapon
-		}))
+		addWeapon(weapon)
 		const id = +Object.keys(armoury)[Object.keys(armoury).length - 1] + 1
 		dispatch(changeWeapon({ slot, weapon: id }))
 		setSelectedWeaponId(id)

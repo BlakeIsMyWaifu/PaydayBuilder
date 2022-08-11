@@ -196,7 +196,7 @@ export type ModIcon =
 	'inv_mod_vertical_grip' |
 	'inv_mod_weapon_cosmetics'
 
-export interface Modification<ModificationName> {
+export interface Modification<ModificationName = string> {
 	name: ModificationName;
 	image: string;
 	icon: ModIcon;

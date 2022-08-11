@@ -9,7 +9,6 @@ import { Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { useAppDispatch } from 'hooks/reduxHooks'
 import { Dispatch, FC, Fragment, SetStateAction } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
-import { addWeapon, removeWeapon, resetArmoury } from 'slices/armourySlice'
 import { changeWeapon } from 'slices/weaponsSlice'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useBuildStore } from 'state/useBuildsStore'
@@ -53,6 +52,10 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, setBui
 
 	const isActiveBuild = activeBuildId === activeTabId
 	const weaponsData = isActiveBuild ? Object.values(armoury) : getBuildWeapons(activeTabId)
+
+	const resetArmoury = useArmouryStore(state => state.resetArmoury)
+	const removeWeapon = useArmouryStore(state => state.removeWeapon)
+	const addWeapon = useArmouryStore(state => state.addWeapon)
 
 	return (
 		<Container
@@ -127,7 +130,7 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, setBui
 					setEnableBuy(true)
 					changeActiveTab(activeBuildId)
 					dispatch(changeWeapon({ slot, weapon: 0 }))
-					dispatch(resetArmoury(slot))
+					resetArmoury(slot)
 				}}>Delete All Weapons</ResetText>
 			</ResetContainer>
 
@@ -166,7 +169,7 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, setBui
 						</BlackmarketLink>
 
 						<WeaponActionText onClick={() => {
-							dispatch(removeWeapon({ slot, id: selectedWeaponId }))
+							removeWeapon(slot, selectedWeaponId)
 
 							const armouryValues = Object.values(armoury)
 							const filteredArmoury = armouryValues.filter(value => value.id !== selectedWeaponId).reverse()
@@ -188,10 +191,7 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, setBui
 							const { weaponFind, modifications } = weaponsData[selectedWeaponId - 1]
 							const weaponData = findWeapon(weaponFind)
 							const nextNum = findNextNum(armoury)
-							dispatch(addWeapon({
-								weapon: weaponData,
-								mods: modifications
-							}))
+							addWeapon(weaponData, modifications)
 							dispatch(changeWeapon({
 								slot,
 								weapon: nextNum

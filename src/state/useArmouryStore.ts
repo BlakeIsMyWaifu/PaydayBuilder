@@ -1,4 +1,5 @@
-import { Slot, Weapon } from 'data/weapons/guns/weaponTypes'
+import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
+import { findNextNum } from 'utils/maths'
 import create from 'zustand'
 
 import { Slice } from './storeTypes'
@@ -35,21 +36,80 @@ const initialState: ArmouryStateSlice = {
 const createStateSlice: Slice<ArmouryStore, ArmouryStateSlice> = () => initialState
 
 interface ArmouryActionSlice {
-	addWeapon: () => void;
-	removeWeapon: () => void;
-	resetArmoury: () => void;
-	changeMod: () => void;
-	removeMod: () => void;
-	resetWeaponMods: () => void;
+	addWeapon: (weapon: WeaponData, mods?: Partial<Record<ModificationSlot, string>>) => void;
+	removeWeapon: (slot: Slot, id: number) => void;
+	resetArmoury: (slot: Slot) => void;
+	changeMod: (slot: Slot, id: number, newMod: Modification) => void;
+	removeMod: (slot: Slot, id: number, modSlot: ModificationSlot) => void;
+	resetWeaponMods: (slot: Slot, id: number) => void;
 }
 
-const createActionSlice: Slice<ArmouryStore, ArmouryActionSlice> = () => ({
-	addWeapon: () => null,
-	removeWeapon: () => null,
-	resetArmoury: () => null,
-	changeMod: () => null,
-	removeMod: () => null,
-	resetWeaponMods: () => null
+const createActionSlice: Slice<ArmouryStore, ArmouryActionSlice> = (set, get) => ({
+	addWeapon: (weapon, mods) => {
+		const slot = weapon.inventorySlot
+		const nextNum = findNextNum(get()[slot])
+		const newWeapon: Weapon = {
+			id: nextNum,
+			weaponFind: {
+				name: weapon.name,
+				type: weapon.weaponType,
+				slot
+			},
+			modifications: mods ?? {}
+		}
+		set(state => ({
+			[slot]: {
+				...state[slot],
+				[nextNum]: newWeapon
+			}
+		}))
+	},
+	removeWeapon: (slot, id) => {
+		const weapons = get()[slot]
+		delete weapons[id]
+		set({ [slot]: weapons })
+	},
+	resetArmoury: slot => {
+		set({ [slot]: initialState[slot] })
+	},
+	changeMod: (slot, id, newMod) => {
+		set(state => ({
+			[slot]: {
+				...state[slot],
+				[id]: {
+					...state[slot][id],
+					modifications: {
+						...state[slot][id].modifications,
+						[newMod.slot]: newMod.name
+					}
+				}
+			}
+		}))
+	},
+	removeMod: (slot, id, modSlot) => {
+		const { modifications } = get()[slot][id]
+		delete modifications[modSlot]
+		set(state => ({
+			[slot]: {
+				...state[slot],
+				[id]: {
+					...state[slot][id],
+					modifications
+				}
+			}
+		}))
+	},
+	resetWeaponMods: (slot, id) => {
+		set(state => ({
+			[slot]: {
+				...state[slot],
+				[id]: {
+					...state[slot][id],
+					modifications: {}
+				}
+			}
+		}))
+	}
 })
 
 export const useArmouryStore = create<ArmouryStore>()((...a) => ({

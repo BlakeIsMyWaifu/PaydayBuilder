@@ -7,10 +7,8 @@ import { ActionText, ActionsContainer } from 'components/ItemAction-Elements'
 import { ModIcon, ModWrapper } from 'components/ModIcons/ModIcons-Elements'
 import { ResetContainer, ResetText } from 'components/Reset-Elements'
 import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
-import { useAppDispatch } from 'hooks/reduxHooks'
 import useWeaponStats from 'hooks/useWeaponStats'
 import { FC, useState } from 'react'
-import { changeMod, removeMod, resetWeaponMods } from 'slices/armourySlice'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
@@ -64,29 +62,27 @@ interface BlackmarketProps {
 
 const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, modtype }) => {
 
-	const dispatch = useAppDispatch()
-
 	const equippedModifications = modificationsFromNames(modifications)
 
 	const validModtype = Object.keys(weapon.modifications).includes(modtype) ? modtype : Object.keys(weapon.modifications)[0]
 
 	const [selectedTab, setSelectedTab] = useState<ModificationSlot>(validModtype as ModificationSlot)
-	const [selectedItem, setSelectedItem] = useState<Modification<string>>(equippedModifications[selectedTab] || weapon.modifications[selectedTab]?.[0] || weapon.modifications.boost[0])
+	const [selectedItem, setSelectedItem] = useState<Modification>(equippedModifications[selectedTab] || weapon.modifications[selectedTab]?.[0] || weapon.modifications.boost[0])
+
+	const changeMod = useArmouryStore(state => state.changeMod)
+	const resetWeaponMods = useArmouryStore(state => state.resetWeaponMods)
+	const removeMod = useArmouryStore(state => state.removeMod)
 
 	const equipModHelper = (): void => {
 		if (!selectedItem) return
-		dispatch(changeMod({
-			slot,
-			id,
-			newMod: selectedItem
-		}))
+		changeMod(slot, id, selectedItem)
 	}
 
 	const changeTab = (tab: ModificationSlot): void => {
 		if (selectedTab === tab) return
 		const equippedItem = equippedModifications[tab]
 		const firstItem = Object.values(weapon.modifications[tab] || {})[0]
-		setSelectedItem(equippedItem || firstItem as Modification<string>)
+		setSelectedItem(equippedItem || firstItem as Modification)
 		setSelectedTab(tab)
 	}
 
@@ -109,7 +105,7 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, mo
 
 			<ItemContainer>
 				{
-					Object.values(weapon.modifications[(selectedTab as ModificationSlot)] || {}).map((mod: Modification<string>) => {
+					Object.values(weapon.modifications[(selectedTab as ModificationSlot)] || {}).map((mod: Modification) => {
 						return <Item
 							key={mod.name}
 							width={192}
@@ -142,7 +138,7 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, mo
 			</InfoContainer>
 
 			<ResetContainer>
-				<ResetText onClick={() => dispatch(resetWeaponMods({ slot, id }))}>Reset all modifications</ResetText>
+				<ResetText onClick={() => resetWeaponMods(slot, id)}>Reset all modifications</ResetText>
 			</ResetContainer>
 
 			<DetectionRisk flexDirection='row' corner={true} />
@@ -151,18 +147,10 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, mo
 				{
 					selectedItem === equippedModifications[selectedItem.slot] ?
 						<ActionText onClick={() => {
-							dispatch(removeMod({
-								slot,
-								id,
-								modSlot: selectedItem.slot
-							}))
+							removeMod(slot, id, selectedItem.slot)
 						}}>Remove Modification</ActionText> :
 						<ActionText onClick={() => {
-							dispatch(changeMod({
-								slot,
-								id,
-								newMod: selectedItem
-							}))
+							changeMod(slot, id, selectedItem)
 						}}>Craft Modification</ActionText>
 				}
 			</ActionsContainer>

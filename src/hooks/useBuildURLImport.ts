@@ -12,11 +12,11 @@ import throwables, { ThrowableData, ThrowableList } from 'data/weapons/throwable
 import { useAppDispatch } from 'hooks/reduxHooks'
 import { SetStateAction, useCallback, useEffect, useState } from 'react'
 import { Dispatch } from 'react'
-import { AddWeaponAction, addWeapon, resetArmoury } from 'slices/armourySlice'
 import { addBuild } from 'slices/buildsSlice'
 import { changeSkillState, resetSkills } from 'slices/skillsSlice'
 import { changeMelee, changeThrowable, changeWeapon } from 'slices/weaponsSlice'
 import { useAbilityStore } from 'state/useAbilitiesStore'
+import { useArmouryStore } from 'state/useArmouryStore'
 import { useCharacterStore } from 'state/useCharacterStore'
 import findWeapon from 'utils/findWeapon'
 
@@ -97,13 +97,18 @@ const decodeCharacter = (value: string): CharacterList => {
 	return Object.keys(characters)[characterIndex]
 }
 
-export const decodeArmoury = (value: string, data: Record<string, Record<string, WeaponData>>): AddWeaponAction[] => {
+interface DecodeArmoury {
+	weapon: WeaponData;
+	mods?: Partial<Record<ModificationSlot, string>>;
+}
+
+export const decodeArmoury = (value: string, data: Record<string, Record<string, WeaponData>>): DecodeArmoury[] => {
 	if (value === '_') return []
 
 	const slot = Object.values(Object.values(data)[0])[0].inventorySlot
 	const weaponBytes = decompressData(value).split('_')
 
-	const weapons: AddWeaponAction[] = weaponBytes.map(weaponValues => {
+	const weapons: DecodeArmoury[] = weaponBytes.map(weaponValues => {
 		const [typeValue, gunValue, ...modsValue] = weaponValues.split('')
 		const type = Object.keys(data)[decodeValues(typeValue)]
 		const weaponName = Object.keys(data[type as keyof typeof data])[decodeValues(gunValue)]
@@ -119,11 +124,10 @@ export const decodeArmoury = (value: string, data: Record<string, Record<string,
 			const weaponMods = Object.entries(weaponData.modifications)
 			const modType = weaponMods[i][0]
 			const modData = weaponMods[i][1][decodeValues(modValue) - 1]
-			return [modType, (modData as Modification<string>).name]
+			return [modType, (modData as Modification).name]
 		}).filter(v => v[0].length))
 
 		return {
-			slot,
 			weapon: weaponData,
 			mods
 		}
@@ -153,6 +157,8 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 	const changeCharacter = useCharacterStore(state => state.changeCharacter)
 	const changeArmour = useCharacterStore(state => state.changeArmour)
 	const changeEquipment = useCharacterStore(state => state.changeEquipment)
+	const resetArmoury = useArmouryStore(state => state.resetArmoury)
+	const addWeapon = useArmouryStore(state => state.addWeapon)
 
 	const loadSkills = useCallback((skillsValue: string): void => {
 
@@ -247,24 +253,24 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 			},
 			ap: value => {
 				const weapons = decodeArmoury(value, primary)
-				dispatch(resetArmoury('primary'))
+				resetArmoury('primary')
 				dispatch(changeWeapon({
 					slot: 'primary',
 					weapon: 0
 				}))
-				weapons.forEach(weapon => {
-					dispatch(addWeapon(weapon))
+				weapons.forEach(({ weapon, mods }) => {
+					addWeapon(weapon, mods)
 				})
 			},
 			as: value => {
 				const weapons = decodeArmoury(value, secondary)
-				dispatch(resetArmoury('secondary'))
+				resetArmoury('secondary')
 				dispatch(changeWeapon({
 					slot: 'secondary',
 					weapon: 0
 				}))
-				weapons.forEach(weapon => {
-					dispatch(addWeapon(weapon))
+				weapons.forEach(({ weapon, mods }) => {
+					addWeapon(weapon, mods)
 				})
 			},
 			w: value => {
@@ -281,16 +287,7 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 		}
 
 		parameters.forEach((value, key) => decodeAndDispatch[key](value))
-	}, [
-		addNewBuild,
-		changeArmour,
-		changeCharacter,
-		changeEquipment,
-		changeMask,
-		changePerkDeck,
-		dispatch,
-		loadSkills
-	])
+	}, [addNewBuild, addWeapon, changeArmour, changeCharacter, changeEquipment, changeMask, changePerkDeck, dispatch, loadSkills, resetArmoury])
 
 	useEffect(() => {
 		loadBuildFromIterable(data)

@@ -7,7 +7,7 @@ import { green, red } from 'utils/colours'
 interface ModIconsTableProps {
 	weapon: WeaponData;
 	modifications: Partial<Record<ModificationSlot, string>>;
-	hoveredMod: Modification<string>;
+	hoveredMod: Modification;
 }
 
 const ModIconsTable: FC<ModIconsTableProps> = ({ weapon, modifications, hoveredMod }) => {
