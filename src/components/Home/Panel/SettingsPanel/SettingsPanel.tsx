@@ -1,10 +1,9 @@
 import { Container, Title } from 'components/Home/Panel/Panel-Elements'
 import TextInput from 'components/Home/Panel/SettingsPanel/TextIO/TextInput'
 import TextOutput from 'components/Home/Panel/SettingsPanel/TextIO/TextOutput'
-import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaGithub } from 'react-icons/fa'
-import { useBuildsStore } from 'state/useBuildsStore'
+import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import { useSettingsStore } from 'state/useSettingsStore'
 import { isDev } from 'utils/isDev'
 
@@ -15,14 +14,13 @@ import { ContactIconWrapper, ContactLink, ContactText, Setting, SettingsPanelCon
 interface SettingsPanelProps {
 	toggleSettings: boolean;
 	setToggleSettings: Dispatch<SetStateAction<boolean>>;
-	setLoadedBuild: Dispatch<SetStateAction<LoadedBuild>>;
 }
 
-const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettings, setLoadedBuild }) => {
+const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettings }) => {
 
 	const leftFacing = useSettingsStore(state => state.leftFacing)
 	const toggleLeftFacing = useSettingsStore(state => state.toggleLeftFacing)
-	const { current, builds } = useBuildsStore()
+	const { current, builds, importBuild } = useBuildsStore()
 
 	return (
 		<Container toggle={toggleSettings}>
@@ -35,7 +33,7 @@ const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettin
 					<TextInput
 						placeholder='Example: https://pd2builder.netlify.app/?s=10-90-90-900'
 						callback={input => {
-							setLoadedBuild({ data: input, addNewBuild: true })
+							importBuild(input, builds[current].data !== defaultBuild)
 							setToggleSettings(false)
 						}}
 					/>

@@ -1,4 +1,3 @@
-import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaChevronLeft, FaChevronRight, FaThList } from 'react-icons/fa'
 import { useBuildsStore } from 'state/useBuildsStore'
@@ -9,12 +8,11 @@ interface BuildSelectorProps {
 	toggleBuilds: boolean;
 	setToggleBuilds: Dispatch<SetStateAction<boolean>>;
 	setToggleSettings: Dispatch<SetStateAction<boolean>>;
-	setLoadedBuild: Dispatch<SetStateAction<LoadedBuild>>;
 }
 
-const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, setToggleSettings, setLoadedBuild }) => {
+const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, setToggleSettings }) => {
 
-	const { current, builds } = useBuildsStore()
+	const { current, builds, importBuild } = useBuildsStore()
 
 	const changeBuild = useBuildsStore(state => state.changeBuild)
 	const updateName = useBuildsStore(state => state.updateName)
@@ -29,7 +27,7 @@ const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, 
 	const updateBuild = (index: number): void => {
 		const build = Object.values(builds)[index]
 		changeBuild(build.id)
-		setLoadedBuild({ data: build.data, addNewBuild: false })
+		importBuild(build.data, false)
 	}
 
 	interface ArrowProps {

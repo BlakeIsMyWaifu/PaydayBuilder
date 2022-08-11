@@ -1,4 +1,5 @@
 import skills, { SkillData, TreeNames } from 'data/abilities/skills'
+import { decodeValues, decompressData } from 'utils/decodeBuild'
 import { encodeSkills } from 'utils/encodeBuild'
 import SkillTreePoints from 'utils/skillTreePoints'
 import create from 'zustand'
@@ -68,6 +69,7 @@ interface SkillsActionSlice {
 	changeSkillState: (newSkillState: ChangeSkillState) => void;
 	resetTree: (treeName: TreeNames) => void;
 	resetSkills: () => void;
+	importSkillsData: (skillsDataCompressed: string) => void;
 }
 
 const actionName = createActionName('skills')
@@ -147,6 +149,56 @@ const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, get) => (
 	},
 	resetSkills: () => {
 		set(initialState, ...actionName('resetSkills'))
+	},
+	importSkillsData: skillsDataCompressed => {
+		let skillsData = decompressData(skillsDataCompressed)
+
+		get().resetSkills()
+
+		const trees: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
+
+		trees.forEach(treeName => {
+			Object.values(skills[treeName].subtrees).forEach(subtree => {
+
+				const subtreeBasicChar = decodeValues(skillsData.substring(0, 1))
+				const subtreeAcedChar = decodeValues(skillsData.substring(1, 2))
+				let mask = 1
+
+				// semicolons needed
+				const upgrades = [...Object.values(subtree.upgrades)];
+				[upgrades[1], upgrades[2]] = [upgrades[2], upgrades[1]];
+				[upgrades[3], upgrades[4]] = [upgrades[4], upgrades[3]]
+
+				upgrades.forEach(skill => {
+
+					const skillBasicBit = subtreeBasicChar & mask
+					const skillAcedBit = subtreeAcedChar & mask
+
+					if (skillBasicBit !== 0 || skillAcedBit !== 0) {
+						get().changeSkillState({
+							tree: treeName,
+							subtree: subtree.name,
+							skill,
+							oldLevel: 'available',
+							direction: 'upgrade'
+						})
+
+						if (skillAcedBit !== 0) {
+							get().changeSkillState({
+								tree: treeName,
+								subtree: subtree.name,
+								skill,
+								oldLevel: 'basic',
+								direction: 'upgrade'
+							})
+						}
+					}
+					mask <<= 1
+				})
+
+				skillsData = skillsData.slice(2)
+			})
+		})
 	}
 })
 

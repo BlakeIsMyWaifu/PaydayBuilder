@@ -1,8 +1,16 @@
+import primary from 'data/weapons/guns/primary'
+import secondary from 'data/weapons/guns/secondary'
+import { decodeArmour, decodeArmoury, decodeCharacter, decodeEquipment, decodeMask, decodeMelee, decodePerkDeck, decodeThrowable, decodeWeapons } from 'utils/decodeBuild'
 import { findNextNum } from 'utils/maths'
 import create from 'zustand'
 import { devtools } from 'zustand/middleware'
 
 import { DevTools, Slice, createActionName } from './storeTypes'
+import { useAbilityStore } from './useAbilitiesStore'
+import { useArmouryStore } from './useArmouryStore'
+import { useCharacterStore } from './useCharacterStore'
+import { useSkillsStore } from './useSkillsStore'
+import { useWeaponsStore } from './useWeaponsStore'
 
 // State
 
@@ -41,6 +49,7 @@ interface BuildsActionSlice {
 	updateData: (id: number, data: string) => void;
 	updateDataPartial: (key: string, value: string) => void;
 	changeBuild: (id: number) => void;
+	importBuild: (buildData: string, newBuild?: boolean) => void;
 }
 
 const actionName = createActionName('builds')
@@ -104,6 +113,75 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice, [DevTools]> = (se
 	},
 	changeBuild: id => {
 		set({ current: id }, ...actionName('changeBuild'))
+	},
+	importBuild: (buildData, newBuild) => {
+		if (newBuild) {
+			get().addBuild(true)
+		}
+
+		const { changePerkDeck } = useAbilityStore.getState()
+		const { changeArmour, changeEquipment, changeMask, changeCharacter } = useCharacterStore.getState()
+		const { changeThrowable, changeMelee, changeWeapon } = useWeaponsStore.getState()
+		const { resetArmoury, addWeapon } = useArmouryStore.getState()
+
+		const split = buildData.split('/?')
+		const parameters = new URLSearchParams(split.at(-1))
+
+		const decodeAndDispatch: Record<string, (value: string) => void> = {
+			s: value => useSkillsStore.getState().importSkillsData(value),
+			p: value => {
+				const perkDeck = decodePerkDeck(value)
+				changePerkDeck(perkDeck)
+			},
+			a: value => {
+				const armour = decodeArmour(value)
+				changeArmour(armour)
+			},
+			t: value => {
+				const throwable = decodeThrowable(value)
+				changeThrowable(throwable)
+			},
+			d: value => {
+				const [primary, secondary] = decodeEquipment(value)
+				changeEquipment('primary', primary)
+				changeEquipment('secondary', secondary)
+			},
+			m: value => {
+				const melee = decodeMelee(value)
+				changeMelee(melee)
+			},
+			k: value => {
+				const mask = decodeMask(value)
+				changeMask(mask)
+			},
+			c: value => {
+				const character = decodeCharacter(value)
+				changeCharacter(character)
+			},
+			ap: value => {
+				const weapons = decodeArmoury(value, primary)
+				resetArmoury('primary')
+				changeWeapon('primary', 0)
+				weapons.forEach(({ weapon, mods }) => {
+					addWeapon(weapon, mods)
+				})
+			},
+			as: value => {
+				const weapons = decodeArmoury(value, secondary)
+				resetArmoury('secondary')
+				changeWeapon('secondary', 0)
+				weapons.forEach(({ weapon, mods }) => {
+					addWeapon(weapon, mods)
+				})
+			},
+			w: value => {
+				const [primaryIndex, secondaryIndex] = decodeWeapons(value)
+				changeWeapon('primary', primaryIndex)
+				changeWeapon('secondary', secondaryIndex)
+			}
+		}
+
+		parameters.forEach((value, key) => decodeAndDispatch[key](value))
 	}
 })
 

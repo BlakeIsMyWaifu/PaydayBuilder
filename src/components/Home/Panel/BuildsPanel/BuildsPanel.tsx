@@ -1,5 +1,4 @@
 import { Container, PanelContent, Title } from 'components/Home/Panel/Panel-Elements'
-import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaFolderOpen, FaPlusSquare, FaTrash, FaUndoAlt } from 'react-icons/fa'
 import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
@@ -10,12 +9,11 @@ import { BuildButton, BuildName, BuildWrapper, Builds, NewBuild } from './Builds
 interface BuildsPanelProps {
 	toggleBuilds: boolean;
 	setToggleBuilds: Dispatch<SetStateAction<boolean>>;
-	setLoadedBuild: Dispatch<SetStateAction<LoadedBuild>>;
 }
 
-const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setLoadedBuild }) => {
+const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds }) => {
 
-	const { current, builds, addBuild, removeBuild, updateName, changeBuild } = useBuildsStore()
+	const { current, builds, addBuild, removeBuild, updateName, changeBuild, importBuild } = useBuildsStore()
 
 	return (
 		<Container toggle={toggleBuilds}>
@@ -39,10 +37,10 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setL
 								{
 									id !== current ? <BuildButton title='Open Build' onClick={() => {
 										changeBuild(id)
-										setLoadedBuild({ data, addNewBuild: false })
+										importBuild(data, false)
 										setToggleBuilds(false)
 									}}> <FaFolderOpen /> </BuildButton> : <BuildButton title='Reset Build' onClick={() => {
-										setLoadedBuild({ data: defaultBuild, addNewBuild: false })
+										importBuild(defaultBuild, false)
 									}}> <FaUndoAlt /> </BuildButton>
 								}
 								<BuildButton
@@ -53,7 +51,7 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setL
 											const prevId = Object.values(builds).reverse().find(value => value.id !== id)?.id ?? 0
 											changeBuild(prevId)
 											removeBuild(id)
-											setLoadedBuild({ data: builds[prevId].data, addNewBuild: false })
+											importBuild(builds[prevId].data, false)
 										}
 									}}
 								> <FaTrash /> </BuildButton>
@@ -64,7 +62,7 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setL
 
 				<NewBuild title='New Build' onClick={() => {
 					addBuild(true)
-					setLoadedBuild({ data: defaultBuild, addNewBuild: false })
+					importBuild(defaultBuild, false)
 				}}> <FaPlusSquare /> </NewBuild>
 
 			</PanelContent>

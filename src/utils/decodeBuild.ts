@@ -11,7 +11,7 @@ import findWeapon from './findWeapon'
 
 export const charString = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,@'
 
-const decodeValues = (value: string): number => {
+export const decodeValues = (value: string): number => {
 	if (value.length === 2) {
 		const [firstValue, secondValue] = value.split('')
 		return (decodeValues(firstValue) * charString.length) + decodeValues(secondValue)
@@ -19,7 +19,7 @@ const decodeValues = (value: string): number => {
 	return charString.indexOf(value)
 }
 
-const decompressData = (data: string): string => {
+export const decompressData = (data: string): string => {
 	let decompressed = ''
 	for (let i = 0; i < data.length; i++) {
 		if (data.charAt(i + 1) === '-') {
@@ -31,55 +31,6 @@ const decompressData = (data: string): string => {
 	}
 	return decompressed
 }
-
-// export const loadSkills = (skillsValue: string): void => {
-
-// 	resetSkills()
-
-// 	const trees: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
-
-// 	trees.forEach(treeName => {
-// 		Object.values(skills[treeName].subtrees).forEach(subtree => {
-
-// 			const subtreeBasicChar = decodeValues(skillsValue.substring(0, 1))
-// 			const subtreeAcedChar = decodeValues(skillsValue.substring(1, 2))
-// 			let mask = 1
-
-// 			const upgrades = [...Object.values(subtree.upgrades)];
-// 			[upgrades[1], upgrades[2]] = [upgrades[2], upgrades[1]]; // semicolons needed
-// 			[upgrades[3], upgrades[4]] = [upgrades[4], upgrades[3]]
-
-// 			upgrades.forEach(skill => {
-
-// 				const skillBasicBit = subtreeBasicChar & mask
-// 				const skillAcedBit = subtreeAcedChar & mask
-
-// 				if (skillBasicBit !== 0 || skillAcedBit !== 0) {
-// 					changeSkillState({
-// 						tree: treeName,
-// 						subtree: subtree.name,
-// 						skill,
-// 						oldLevel: 'available',
-// 						direction: 'upgrade'
-// 					})
-
-// 					if (skillAcedBit !== 0) {
-// 						changeSkillState({
-// 							tree: treeName,
-// 							subtree: subtree.name,
-// 							skill,
-// 							oldLevel: 'basic',
-// 							direction: 'upgrade'
-// 						})
-// 					}
-// 				}
-// 				mask <<= 1
-// 			})
-
-// 			skillsValue = skillsValue.slice(2)
-// 		})
-// 	})
-// }
 
 export const decodePerkDeck = (value: string): PerkDeckList => {
 	const perkIndex = decodeValues(value)

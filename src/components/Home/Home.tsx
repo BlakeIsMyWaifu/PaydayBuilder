@@ -1,5 +1,4 @@
 import Container from 'components/Container'
-import useBuildURLImport from 'hooks/useBuildURLImport'
 import { FC, ReactElement, useState } from 'react'
 import { FaCog } from 'react-icons/fa'
 
@@ -21,20 +20,16 @@ const Home: FC = () => {
 
 	const [toggleSettings, setToggleSettings] = useState(false)
 
-	const setData = useBuildURLImport()
-
 	return (
 		<>
 			<BuildsPanel
 				toggleBuilds={toggleBuilds}
 				setToggleBuilds={setToggleBuilds}
-				setLoadedBuild={setData}
 			/>
 
 			<SettingsPanel
 				toggleSettings={toggleSettings}
 				setToggleSettings={setToggleSettings}
-				setLoadedBuild={setData}
 			/>
 
 			<Container
@@ -57,7 +52,6 @@ const Home: FC = () => {
 						toggleBuilds={toggleBuilds}
 						setToggleBuilds={setToggleBuilds}
 						setToggleSettings={setToggleSettings}
-						setLoadedBuild={setData}
 					/>
 
 					<SettingsButton onClick={() => {
