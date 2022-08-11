@@ -1,9 +1,10 @@
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Container, PanelContent, Title } from 'components/Home/Panel/Panel-Elements'
+import { useAppDispatch } from 'hooks/reduxHooks'
+import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaFolderOpen, FaPlusSquare, FaTrash, FaUndoAlt } from 'react-icons/fa'
 import { addBuild, changeBuild, defaultBuild, removeBuild, updateName } from 'slices/buildsSlice'
+import { useBuildStore } from 'state/useBuildsStore'
 import { blue, red } from 'utils/colours'
 
 import { BuildButton, BuildName, BuildWrapper, Builds, NewBuild } from './BuildsPanel-Elements'
@@ -18,7 +19,7 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setL
 
 	const dispatch = useAppDispatch()
 
-	const { current, builds } = useAppSelector(state => state.builds)
+	const { current, builds } = useBuildStore()
 
 	return (
 		<Container toggle={toggleBuilds}>

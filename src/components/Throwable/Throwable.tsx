@@ -3,19 +3,21 @@ import { InfoContainer, InfoDescription, InfoRequirement, InfoTitle, InfoUnlock 
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } from 'components/Item-Elements'
 import perkDecks from 'data/abilities/perks'
 import throwables from 'data/weapons/throwables'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
+import { useAppDispatch } from 'hooks/reduxHooks'
 import { FC, useState } from 'react'
 import { changeThrowable } from 'slices/weaponsSlice'
+import { useAbilityStore } from 'state/useAbilitiesStore'
+import { useWeaponStore } from 'state/useWeaponStore'
 import { itemColours } from 'utils/colours'
 
 const Throwable: FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const equippedThrowable = throwables[useAppSelector(state => state.weapons.throwable)]
+	const equippedThrowable = throwables[useWeaponStore(state => state.throwable)]
 	const [selectedThrowable, setSelectedThrowable] = useState(equippedThrowable)
 
-	const perkDeckName = useAppSelector(state => perkDecks[state.abilities.perkdeck].name)
+	const perkDeckName = useAbilityStore(state => perkDecks[state.perkdeck].name)
 
 	return (
 		<Container title='Throwable'>

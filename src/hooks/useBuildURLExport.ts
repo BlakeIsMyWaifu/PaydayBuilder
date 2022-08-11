@@ -9,7 +9,11 @@ import secondary from 'data/weapons/guns/secondary'
 import { ModificationSlot, Slot } from 'data/weapons/guns/weaponTypes'
 import melees from 'data/weapons/melees'
 import throwables, { ThrowableData } from 'data/weapons/throwables'
-import { useAppSelector } from 'hooks/reduxHooks'
+import { useAbilityStore } from 'state/useAbilitiesStore'
+import { useArmouryStore } from 'state/useArmouryStore'
+import { useCharacterStore } from 'state/useCharacterStore'
+import { useSkillsStore } from 'state/useSkillsStore'
+import { useWeaponStore } from 'state/useWeaponStore'
 import findMask from 'utils/findMask'
 import findWeapon from 'utils/findWeapon'
 
@@ -21,7 +25,11 @@ interface UseBuildURLExportProps {
 
 const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 
-	const state = useAppSelector(state => state)
+	const abilities = useAbilityStore()
+	const character = useCharacterStore()
+	const weapons = useWeaponStore()
+	const skills = useSkillsStore()
+	const armoury = useArmouryStore()
 
 	const encodeNumber = (index: number): string => {
 		if (index <= charString.length) return charString[index]
@@ -33,14 +41,14 @@ const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 	const buildToString = (): string => {
 		const parameters = new URLSearchParams()
 		parameters.set('s', encodeSkills())
-		parameters.set('p', encodeString(perkDecks, state.abilities.perkdeck))
-		parameters.set('a', encodeString(sortedArmour(), state.character.armour))
-		parameters.set('t', encodeString(sortedThrowables(), state.weapons.throwable))
+		parameters.set('p', encodeString(perkDecks, abilities.perkdeck))
+		parameters.set('a', encodeString(sortedArmour(), character.armour))
+		parameters.set('t', encodeString(sortedThrowables(), weapons.throwable))
 		parameters.set('d', encodeEquipment())
 		if (!simple) {
 			parameters.set('m', encodeMelee())
 			parameters.set('k', encodeMask())
-			parameters.set('c', encodeString(characters, state.character.character))
+			parameters.set('c', encodeString(characters, character.character))
 			parameters.set('ap', encodeArmoury('primary'))
 			parameters.set('as', encodeArmoury('secondary'))
 			parameters.set('w', encodeWeapons())
@@ -54,7 +62,7 @@ const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 		const trees: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
 
 		trees.forEach(treeNames => {
-			Object.values(state.skills.trees[treeNames]).forEach(subtree => {
+			Object.values(skills.trees[treeNames]).forEach(subtree => {
 				let subtreeBasicChar = 0
 				let subtreeAcedChar = 0
 
@@ -126,18 +134,18 @@ const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 	}
 
 	const encodeEquipment = (): string => {
-		const primaryValue = encodeString(equipments, state.character.equipment.primary)
-		const equippedSecondary = state.character.equipment.secondary
+		const primaryValue = encodeString(equipments, character.equipment.primary)
+		const equippedSecondary = character.equipment.secondary
 		return equippedSecondary ? primaryValue + encodeString(equipments, equippedSecondary) : primaryValue
 	}
 
 	const encodeMelee = (): string => {
-		const index = Object.keys(melees).findIndex(value => value === state.weapons.melee)
+		const index = Object.keys(melees).findIndex(value => value === weapons.melee)
 		return encodeNumber(index)
 	}
 
 	const encodeMask = (): string => {
-		const mask = findMask(state.character.mask)
+		const mask = findMask(character.mask)
 
 		const rarity = mask.rarity.toLowerCase()
 		const category = rarity === 'paid' ? 'dlc' : (rarity === 'free' ? 'normal' : rarity) as CategoryList
@@ -155,7 +163,7 @@ const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 
 	const encodeArmoury = (slot: Slot): string => {
 		const data = slot === 'primary' ? primary : secondary
-		const weapons = Object.values(state.armoury[slot]).slice(1).map(weapon => {
+		const weapons = Object.values(armoury[slot]).slice(1).map(weapon => {
 			const weaponTypeValue = Object.keys(data).findIndex(value => value === weapon.weaponFind.type)
 			const weaponValue = Object.keys(data[(weapon.weaponFind.type as keyof typeof data)]).findIndex(value => value === weapon.weaponFind.name)
 			const weaponData = findWeapon(weapon.weaponFind)
@@ -170,9 +178,9 @@ const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 	}
 
 	const encodeWeapons = (): string => {
-		const primaryIndex = Object.keys(state.armoury.primary).findIndex(value => +value === state.weapons.primary)
+		const primaryIndex = Object.keys(armoury.primary).findIndex(value => +value === weapons.primary)
 		const primaryValue = encodeNumber(primaryIndex)
-		const secondaryIndex = Object.keys(state.armoury.secondary).findIndex(value => +value === state.weapons.secondary)
+		const secondaryIndex = Object.keys(armoury.secondary).findIndex(value => +value === weapons.secondary)
 		const secondaryValue = encodeNumber(secondaryIndex)
 		return `${primaryValue}-${secondaryValue}`
 	}

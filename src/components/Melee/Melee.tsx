@@ -3,9 +3,11 @@ import DetectionRisk from 'components/DetectionRisk'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info/Info-Elements'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
 import melees from 'data/weapons/melees'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
+import { useAppDispatch } from 'hooks/reduxHooks'
 import { FC, useState } from 'react'
 import { changeMelee } from 'slices/weaponsSlice'
+import { useSettingsStore } from 'state/useSettingsStore'
+import { useWeaponStore } from 'state/useWeaponStore'
 import { itemColours } from 'utils/colours'
 
 import MeleeStatsTable from './MeleeStatsTable'
@@ -14,10 +16,10 @@ export const Melee: FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const equippedMelee = melees[useAppSelector(state => state.weapons.melee)]
+	const equippedMelee = melees[useWeaponStore(state => state.melee)]
 	const [selectedMelee, setSelectedMelee] = useState(equippedMelee)
 
-	const leftFacing = useAppSelector(state => state.settings.leftFacing)
+	const leftFacing = useSettingsStore(state => state.leftFacing)
 
 	return (
 		<Container

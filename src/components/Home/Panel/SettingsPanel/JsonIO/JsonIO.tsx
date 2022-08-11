@@ -1,7 +1,7 @@
 import { PerkDeckList } from 'data/abilities/perks'
 import skillsData, { TreeNames } from 'data/abilities/skills'
 import { Weapon } from 'data/weapons/guns/weaponTypes'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
+import { useAppDispatch } from 'hooks/reduxHooks'
 import { Dispatch, FC, SetStateAction, useRef } from 'react'
 import { AbilitiesState, abilitiesDefaultState } from 'slices/abilitiesSlice'
 import { changePerkDeck } from 'slices/abilitiesSlice'
@@ -9,6 +9,11 @@ import { ArmouryState, addWeapon } from 'slices/armourySlice'
 import { CharacterState, changeArmour, changeCharacter, changeEquipment, changeMask, characterDefaultState } from 'slices/characterSlice'
 import { SkillsState, changeSkillState, resetSkills } from 'slices/skillsSlice'
 import { WeaponsState, changeMelee, changeThrowable, changeWeapon, weaponsDefaultState } from 'slices/weaponsSlice'
+import { useAbilityStore } from 'state/useAbilitiesStore'
+import { useArmouryStore } from 'state/useArmouryStore'
+import { useCharacterStore } from 'state/useCharacterStore'
+import { useSkillsStore } from 'state/useSkillsStore'
+import { useWeaponStore } from 'state/useWeaponStore'
 import findWeapon from 'utils/findWeapon'
 import { validateAbilities, validateArmoury, validateCharacter, validateSchema, validateSkills, validateWeapons } from 'utils/validateData'
 
@@ -48,7 +53,11 @@ const JsonIO: FC<JsonIOProps> = ({ setToggleSettings }) => {
 	const fileInputRef = useRef<HTMLInputElement>(null)
 	const downloadAnchorRef = useRef<HTMLAnchorElement>(null)
 
-	const state = useAppSelector(state => state)
+	const armoury = useArmouryStore()
+	const abilities = useAbilityStore()
+	const character = useCharacterStore()
+	const skills = useSkillsStore()
+	const weapons = useWeaponStore()
 
 	const dataToJson = (data: DataToJson): Partial<BuildJson> => {
 		const filterObject = <T extends object>(obj: T): object => Object.fromEntries(Object.entries(obj).filter(([_, v]) => v))
@@ -147,13 +156,13 @@ const JsonIO: FC<JsonIOProps> = ({ setToggleSettings }) => {
 		if (Object.keys(validArmoury.primary).length) {
 			dispatch(changeWeapon({
 				slot: 'primary',
-				weapon: Object.keys(state.armoury.primary).length + Object.keys(validArmoury.primary).indexOf(validWeapons.primary.toString())
+				weapon: Object.keys(armoury.primary).length + Object.keys(validArmoury.primary).indexOf(validWeapons.primary.toString())
 			}))
 		}
 		if (Object.keys(validArmoury.secondary).length) {
 			dispatch(changeWeapon({
 				slot: 'secondary',
-				weapon: Object.keys(state.armoury.secondary).length + Object.keys(validArmoury.secondary).indexOf(validWeapons.secondary.toString())
+				weapon: Object.keys(armoury.secondary).length + Object.keys(validArmoury.secondary).indexOf(validWeapons.secondary.toString())
 			}))
 		}
 		dispatch(changeThrowable(validWeapons.throwable))
@@ -169,10 +178,9 @@ const JsonIO: FC<JsonIOProps> = ({ setToggleSettings }) => {
 				node?.click()
 			}} />
 			<Button text='Export' callback={() => {
-				const { abilities, armoury, character, skills, weapons } = state
 				const data = encodeURIComponent(JSON.stringify(dataToJson({ abilities, armoury, character, skills, weapons }), null, 2))
 				const node = downloadAnchorRef.current
-				node?.setAttribute('href', 'data:text/json;charset=utf-8,' + data)
+				node?.setAttribute('href', `data:text/json;charset=utf-8,${data}`)
 				node?.click()
 			}} />
 
@@ -183,7 +191,7 @@ const JsonIO: FC<JsonIOProps> = ({ setToggleSettings }) => {
 					const json = JSON.parse(event.target.result)
 					jsonToData(json)
 				}
-				const files = (event.target as HTMLInputElement).files
+				const { files } = (event.target as HTMLInputElement)
 				if (files) {
 					reader.readAsText((files as FileList)[0])
 				}

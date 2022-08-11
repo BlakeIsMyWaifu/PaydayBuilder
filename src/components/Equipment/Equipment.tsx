@@ -3,9 +3,11 @@ import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info/Info-
 import { ItemEquipped, ItemName, LockedIcon } from 'components/Item-Elements'
 import { ActionText, ActionsContainer } from 'components/ItemAction-Elements'
 import equipments, { EquipmentData } from 'data/character/equipment'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
+import { useAppDispatch } from 'hooks/reduxHooks'
 import { FC, useState } from 'react'
 import { changeEquipment } from 'slices/characterSlice'
+import { useCharacterStore } from 'state/useCharacterStore'
+import { useSkillsStore } from 'state/useSkillsStore'
 import { itemColours } from 'utils/colours'
 
 import { EquipmentImage, EquipmentWrapper, Item } from './Equipment-Elements'
@@ -14,11 +16,11 @@ const Equipment: FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const { primary: equippedPrimary, secondary: equippedSecondary } = useAppSelector(state => state.character.equipment)
+	const { primary: equippedPrimary, secondary: equippedSecondary } = useCharacterStore(state => state.equipment)
 
 	const [selectedEquipment, setSelectedEquipment] = useState<EquipmentData>(equipments[equippedPrimary])
 
-	const skillTrees = useAppSelector(state => state.skills.trees)
+	const skillTrees = useSkillsStore(state => state.trees)
 
 	const getEquipmentAmount = (equipment: EquipmentData): number[] => {
 		let outAmount: number[] = equipment.amount

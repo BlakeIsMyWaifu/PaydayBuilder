@@ -1,12 +1,12 @@
-import { useAppSelector } from 'hooks/reduxHooks'
 import { FC } from 'react'
+import { useSkillsStore } from 'state/useSkillsStore'
 import { red } from 'utils/colours'
 
 import { Container, PointsNumber, PointsText } from './Points-Elements'
 
 const Points: FC = () => {
 
-	const points = useAppSelector(state => state.skills.points)
+	const points = useSkillsStore(state => state.points)
 
 	const colour = points ? '#fff' : red
 

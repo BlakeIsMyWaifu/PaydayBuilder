@@ -1,7 +1,7 @@
 import { HoverInfo } from 'components/Home'
 import skills from 'data/abilities/skills'
-import { useAppSelector } from 'hooks/reduxHooks'
 import { Dispatch, FC, SetStateAction } from 'react'
+import { useSkillsStore } from 'state/useSkillsStore'
 import { grey } from 'utils/colours'
 import skillTreePoints from 'utils/skillTreePoints'
 
@@ -15,7 +15,7 @@ interface SelectorSkillProps {
 
 const SelectorSkills: FC<SelectorSkillProps> = ({ infoData, setHoverInfo }) => {
 
-	const currentTrees = useAppSelector(state => state.skills.trees)
+	const currentTrees = useSkillsStore(state => state.trees)
 
 	return (
 		<Selector title='skills' setHoverInfo={setHoverInfo} infoData={infoData} >

@@ -2,16 +2,17 @@ import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/Info/Info-Elements'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
 import characters, { CharacterData } from 'data/character/characters'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
+import { useAppDispatch } from 'hooks/reduxHooks'
 import { FC, useState } from 'react'
 import { changeCharacter } from 'slices/characterSlice'
+import { useCharacterStore } from 'state/useCharacterStore'
 import { itemColours } from 'utils/colours'
 
 const Character: FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const equippedCharacter = characters[useAppSelector(state => state.character.character)]
+	const equippedCharacter = characters[useCharacterStore(state => state.character)]
 	const [selectedCharacter, setSelectedCharacter] = useState<CharacterData>(equippedCharacter)
 
 	return (

@@ -1,12 +1,14 @@
 import { Container, Title } from 'components/Home/Panel/Panel-Elements'
 import TextInput from 'components/Home/Panel/SettingsPanel/TextIO/TextInput'
 import TextOutput from 'components/Home/Panel/SettingsPanel/TextIO/TextOutput'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
+import { useAppDispatch } from 'hooks/reduxHooks'
 import useBuildURLExport from 'hooks/useBuildURLExport'
 import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaGithub } from 'react-icons/fa'
 import { changeLeftFacing } from 'slices/settingsSlice'
+import { useBuildStore } from 'state/useBuildsStore'
+import { useSettingsStore } from 'state/useSettingsStore'
 import { isDev } from 'utils/isDev'
 
 import CheckboxInput from './CheckboxInput'
@@ -23,8 +25,8 @@ const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettin
 
 	const dispatch = useAppDispatch()
 
-	const { leftFacing } = useAppSelector(state => state.settings)
-	const { current, builds } = useAppSelector(state => state.builds)
+	const leftFacing = useSettingsStore(state => state.leftFacing)
+	const { current, builds } = useBuildStore()
 
 	const buildSimple = useBuildURLExport({ simple: true })
 

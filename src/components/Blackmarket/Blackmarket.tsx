@@ -7,10 +7,11 @@ import { ActionText, ActionsContainer } from 'components/ItemAction-Elements'
 import { ModIcon, ModWrapper } from 'components/ModIcons/ModIcons-Elements'
 import { ResetContainer, ResetText } from 'components/Reset-Elements'
 import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
+import { useAppDispatch } from 'hooks/reduxHooks'
 import useWeaponStats from 'hooks/useWeaponStats'
 import { FC, useState } from 'react'
 import { changeMod, removeMod, resetWeaponMods } from 'slices/armourySlice'
+import { useArmouryStore } from 'state/useArmouryStore'
 import { itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
 import { modificationsFromNames } from 'utils/modificationsFromNames'
@@ -25,7 +26,7 @@ interface WeaponCheckerProps {
 
 const WeaponChecker: FC<WeaponCheckerProps> = ({ slot, id, modtype }) => {
 
-	const armoury = useAppSelector(state => state.armoury)
+	const armoury = useArmouryStore()
 
 	const getWeapon = (slot: string | undefined, id: string | undefined): Weapon | null => {
 		if (!slot || !id) return null

@@ -6,11 +6,15 @@ import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'componen
 import ModIcons from 'components/ModIcons'
 import { ResetContainer, ResetText } from 'components/Reset-Elements'
 import { Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
+import { useAppDispatch } from 'hooks/reduxHooks'
 import { Dispatch, FC, Fragment, SetStateAction } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
 import { addWeapon, removeWeapon, resetArmoury } from 'slices/armourySlice'
 import { changeWeapon } from 'slices/weaponsSlice'
+import { useArmouryStore } from 'state/useArmouryStore'
+import { useBuildStore } from 'state/useBuildsStore'
+import { useSettingsStore } from 'state/useSettingsStore'
+import { useWeaponStore } from 'state/useWeaponStore'
 import { blue, itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
 import { findNextNum } from 'utils/maths'
@@ -35,11 +39,11 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, setBui
 
 	const dispatch = useAppDispatch()
 
-	const armoury = useAppSelector(state => state.armoury[slot])
-	const equippedWeaponId = useAppSelector(state => state.weapons[slot])
-	const leftFacing = useAppSelector(state => state.settings.leftFacing)
+	const armoury = useArmouryStore(state => state[slot])
+	const equippedWeaponId = useWeaponStore(state => state[slot])
+	const leftFacing = useSettingsStore(state => state.leftFacing)
 
-	const { current: activeBuildId, builds } = useAppSelector(state => state.builds)
+	const { current: activeBuildId, builds } = useBuildStore()
 	const activeBuildName = builds[activeBuildId].name || 'New Build'
 
 	const getBuildWeapons = (tabId: number): Weapon[] => {

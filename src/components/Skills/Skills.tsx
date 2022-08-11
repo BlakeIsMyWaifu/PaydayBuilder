@@ -3,10 +3,12 @@ import HorizontalBar from 'components/HorizontalBar'
 import { ResetContainer, ResetText } from 'components/Reset-Elements'
 import skills, { SkillData, TreeData, TreeNames } from 'data/abilities/skills'
 import equipments from 'data/character/equipment'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
+import { useAppDispatch } from 'hooks/reduxHooks'
 import { FC, WheelEvent, useEffect, useState } from 'react'
 import { changeArmour, changeEquipment } from 'slices/characterSlice'
 import { resetSkills, resetTree } from 'slices/skillsSlice'
+import { useCharacterStore } from 'state/useCharacterStore'
+import { useSkillsStore } from 'state/useSkillsStore'
 
 import Info from './Info'
 import Points from './Points'
@@ -31,12 +33,12 @@ const Skills: FC = () => {
 		setCurrentTree(skills[treeNameOrder[index]])
 	}
 
-	const jackOfAllTrades = useAppSelector(state => state.skills.trees.technician.Engineer.upgrades['Jack of All Trades'])
-	const engineering = useAppSelector(state => state.skills.trees.technician.Engineer.upgrades.Engineering)
-	const equippedEquipment = useAppSelector(state => state.character.equipment)
+	const jackOfAllTrades = useSkillsStore(state => state.trees.technician.Engineer.upgrades['Jack of All Trades'])
+	const engineering = useSkillsStore(state => state.trees.technician.Engineer.upgrades.Engineering)
+	const equippedEquipment = useCharacterStore(state => state.equipment)
 
-	const ironMan = useAppSelector(state => state.skills.trees.enforcer.Tank.upgrades['Iron Man'])
-	const equippedArmour = useAppSelector(state => state.character.armour)
+	const ironMan = useSkillsStore(state => state.trees.enforcer.Tank.upgrades['Iron Man'])
+	const equippedArmour = useCharacterStore(state => state.armour)
 
 	useEffect(() => {
 		const handleKeys = (event: KeyboardEvent): void => {

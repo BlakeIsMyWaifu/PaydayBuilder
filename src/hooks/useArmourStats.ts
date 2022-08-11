@@ -1,5 +1,6 @@
 import armours, { ArmourList, ArmourStats } from 'data/character/armours'
-import { CustomStatsHook, useAppSelector } from 'hooks/reduxHooks'
+import { CustomStatsHook } from 'hooks/reduxHooks'
+import { useSkillsStore } from 'state/useSkillsStore'
 
 interface CompleteArmourStats extends ArmourStats {
 	health: number;
@@ -14,9 +15,9 @@ const useArmourStats = (armourName: ArmourList): CustomStatsHook<CompleteArmourS
 		return { armour, health: 230, concealment, speed, dodge, steadiness, stamina }
 	}
 
-	const dieHard = useAppSelector(state => state.skills.trees.enforcer['Tank'].upgrades['Die Hard'])
-	const innerPockets = useAppSelector(state => state.skills.trees.ghost['Artful Dodger'].upgrades['Inner Pockets'])
-	const ironMan = useAppSelector(state => state.skills.trees.enforcer['Tank'].upgrades['Iron Man'])
+	const dieHard = useSkillsStore(state => state.trees.enforcer.Tank.upgrades['Die Hard'])
+	const innerPockets = useSkillsStore(state => state.trees.ghost['Artful Dodger'].upgrades['Inner Pockets'])
+	const ironMan = useSkillsStore(state => state.trees.enforcer.Tank.upgrades['Iron Man'])
 
 	const skillStats = (): CompleteArmourStats => {
 		const hasBallistic = armourName.includes('Ballistic Vest')

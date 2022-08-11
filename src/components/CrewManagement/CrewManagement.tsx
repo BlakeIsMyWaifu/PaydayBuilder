@@ -4,8 +4,8 @@ import { CrewAbilityList } from 'data/abilities/crewAbilities'
 import { CrewBoostsList } from 'data/abilities/crewBoosts'
 import { CharacterList } from 'data/character/characters'
 import { MaskList } from 'data/character/masks'
-import { useAppSelector } from 'hooks/reduxHooks'
 import { FC } from 'react'
+import { useAbilityStore } from 'state/useAbilitiesStore'
 
 import { LoadoutContainer } from './CrewManagement-Elements'
 import Loadout from './Loadout'
@@ -21,7 +21,7 @@ export interface CrewData {
 
 const CrewManagement: FC = () => {
 
-	const crew = useAppSelector(state => state.abilities.crewmanagement)
+	const crew = useAbilityStore(state => state.crewmanagement)
 
 	return (
 		<Container title='Crew Management'>

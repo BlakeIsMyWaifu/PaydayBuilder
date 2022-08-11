@@ -1,5 +1,5 @@
-import { useAppSelector } from 'hooks/reduxHooks'
 import { FC } from 'react'
+import { useArmouryStore } from 'state/useArmouryStore'
 import findMask from 'utils/findMask'
 import findWeapon from 'utils/findWeapon'
 
@@ -13,7 +13,7 @@ interface LoadoutProps {
 
 const Loadout: FC<LoadoutProps> = ({ data, index }) => {
 
-	const { primary } = useAppSelector(state => state.armoury)
+	const primary = useArmouryStore(state => state.primary)
 
 	return (
 		<Container>

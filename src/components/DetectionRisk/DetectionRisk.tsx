@@ -1,8 +1,10 @@
-import { useAppSelector } from 'hooks/reduxHooks'
 import useArmourStats from 'hooks/useArmourStats'
 import useMeleeStats from 'hooks/useMeleeStats'
 import useWeaponStats from 'hooks/useWeaponStats'
 import { FC, MouseEvent, memo } from 'react'
+import { useArmouryStore } from 'state/useArmouryStore'
+import { useCharacterStore } from 'state/useCharacterStore'
+import { useWeaponStore } from 'state/useWeaponStore'
 import findWeapon from 'utils/findWeapon'
 
 import { Container, Image, ImageContainer, ImageEnabled, ImageWrapper, Number, Title } from './DetectionRisk-Elements'
@@ -50,14 +52,14 @@ interface DetectionRiskProps {
 
 const DetectionRisk: FC<DetectionRiskProps> = ({ flexDirection, corner, size = 96 }) => {
 
-	const weapons = useAppSelector(state => state.weapons),
-		primaryWeapon = useAppSelector(state => state.armoury.primary)[weapons.primary],
-		secondaryWeapon = useAppSelector(state => state.armoury.secondary)[weapons.secondary],
+	const weapons = useWeaponStore(),
+		primaryWeapon = useArmouryStore(state => state.primary)[weapons.primary],
+		secondaryWeapon = useArmouryStore(state => state.secondary)[weapons.secondary],
 		primaryConcealment = useWeaponStats(findWeapon(primaryWeapon.weaponFind), primaryWeapon.modifications).total.concealment,
 		secondaryConcealment = useWeaponStats(findWeapon(secondaryWeapon.weaponFind), secondaryWeapon.modifications).total.concealment,
 
 		meleeConcealment = useMeleeStats(weapons.melee).total.concealment,
-		armourConcealment = useArmourStats(useAppSelector(state => state.character.armour)).total.concealment,
+		armourConcealment = useArmourStats(useCharacterStore(state => state.armour)).total.concealment,
 
 		totalConcealment = primaryConcealment + secondaryConcealment + meleeConcealment + armourConcealment,
 		detection = concealmentToDetectionRisk(totalConcealment),

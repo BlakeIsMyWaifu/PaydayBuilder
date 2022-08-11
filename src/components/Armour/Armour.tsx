@@ -3,9 +3,11 @@ import DetectionRisk from 'components/DetectionRisk'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info/Info-Elements'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } from 'components/Item-Elements'
 import armours, { ArmourData } from 'data/character/armours'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
+import { useAppDispatch } from 'hooks/reduxHooks'
 import { FC, useState } from 'react'
 import { changeArmour } from 'slices/characterSlice'
+import { useCharacterStore } from 'state/useCharacterStore'
+import { useSkillsStore } from 'state/useSkillsStore'
 
 import { ArmourStatsTable } from './ArmourStatsTable'
 
@@ -13,10 +15,10 @@ export const Armour: FC = () => {
 
 	const dispatch = useAppDispatch()
 
-	const equippedArmour = armours[useAppSelector(state => state.character.armour)]
+	const equippedArmour = armours[useCharacterStore(state => state.armour)]
 	const [selectedArmour, setSelectedArmour] = useState<ArmourData>(equippedArmour)
 
-	const ironManUnlocked = useAppSelector(state => state.skills.trees.enforcer['Tank'].upgrades['Iron Man']) === 'aced'
+	const ironManUnlocked = useSkillsStore(state => state.trees.enforcer.Tank.upgrades['Iron Man']) === 'aced'
 
 	return (
 		<Container

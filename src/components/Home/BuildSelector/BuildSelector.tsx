@@ -1,8 +1,9 @@
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
+import { useAppDispatch } from 'hooks/reduxHooks'
 import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaChevronLeft, FaChevronRight, FaThList } from 'react-icons/fa'
 import { changeBuild, updateName } from 'slices/buildsSlice'
+import { useBuildStore } from 'state/useBuildsStore'
 
 import { Arrow, BuildList, BuildName, Container, Wrapper } from './BuildSelector-Elements'
 
@@ -17,14 +18,13 @@ const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, 
 
 	const dispatch = useAppDispatch()
 
-	const { current, builds } = useAppSelector(state => state.builds)
+	const { current, builds } = useBuildStore()
 
 	const getNextBuildId = (direction: number): number => {
 		const currentIndex = Object.keys(builds).findIndex(value => +value === current),
-			length = Object.keys(builds).length,
-			shiftedIndex = currentIndex + direction,
-			newIndex = shiftedIndex < 0 ? length - 1 : (shiftedIndex === length ? 0 : shiftedIndex)
-		return newIndex
+			{ length } = Object.keys(builds),
+			shiftedIndex = currentIndex + direction
+		return shiftedIndex < 0 ? length - 1 : (shiftedIndex === length ? 0 : shiftedIndex)
 	}
 
 	const updateBuild = (index: number): void => {

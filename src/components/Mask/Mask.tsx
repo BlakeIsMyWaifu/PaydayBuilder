@@ -3,11 +3,12 @@ import HorizontalBar from 'components/HorizontalBar'
 import Info from 'components/Info'
 import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
 import { AllMasks, Category, CategoryList, MaskData } from 'data/character/masks'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
+import { useAppDispatch } from 'hooks/reduxHooks'
 import useMountEffect from 'hooks/useMountEffect'
 import useObjectState from 'hooks/useObjectState'
 import { FC, RefObject, createRef, useCallback, useEffect, useRef, useState } from 'react'
 import { changeMask } from 'slices/characterSlice'
+import { useCharacterStore } from 'state/useCharacterStore'
 import { itemColours } from 'utils/colours'
 import findMask from 'utils/findMask'
 import { capitalizeEachWord } from 'utils/stringCases'
@@ -30,7 +31,7 @@ const Mask: FC = () => {
 	})
 	const [selectedTab, setSelectedTab] = useState<CategoryList | 'all'>('community')
 
-	const equippedMask = findMask(useAppSelector(state => state.character.mask))
+	const equippedMask = findMask(useCharacterStore(state => state.mask))
 	const [selectedMask, setSelectedMask] = useState<MaskData>(equippedMask)
 
 	const itemContainerRef = useRef<HTMLDivElement>(null)

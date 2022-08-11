@@ -10,9 +10,13 @@ import characters from 'data/character/characters'
 import equipments, { EquipmentData } from 'data/character/equipment'
 import melees from 'data/weapons/melees'
 import throwables from 'data/weapons/throwables'
-import { useAppSelector } from 'hooks/reduxHooks'
 import Link from 'next/link'
 import { FC, useState } from 'react'
+import { useAbilityStore } from 'state/useAbilitiesStore'
+import { useArmouryStore } from 'state/useArmouryStore'
+import { useCharacterStore } from 'state/useCharacterStore'
+import { useSettingsStore } from 'state/useSettingsStore'
+import { useWeaponStore } from 'state/useWeaponStore'
 import findMask from 'utils/findMask'
 import findWeapon from 'utils/findWeapon'
 
@@ -24,15 +28,15 @@ import { EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, Sele
 
 const Tabs: FC = () => {
 
-	const characterState = useAppSelector(state => state.character)
+	const characterState = useCharacterStore()
 	const mask = findMask(characterState.mask)
 	const character = characters[characterState.character]
 	const armour = armours[characterState.armour]
 	const equipmentPrimary = equipments[characterState.equipment.primary]
 	const equipmentSecondary: EquipmentData | null = equipments[characterState.equipment.secondary || '']
 
-	const armoury = useAppSelector(state => state.armoury)
-	const weaponsState = useAppSelector(state => state.weapons)
+	const armoury = useArmouryStore()
+	const weaponsState = useWeaponStore()
 
 	const primaryWeapon = armoury.primary[weaponsState.primary]
 	const secondaryWeapon = armoury.secondary[weaponsState.secondary]
@@ -41,12 +45,12 @@ const Tabs: FC = () => {
 	const throwable = throwables[weaponsState.throwable]
 	const melee = melees[weaponsState.melee]
 
-	const perkDeck = perkDecks[useAppSelector(state => state.abilities.perkdeck)]
+	const perkDeck = perkDecks[useAbilityStore(state => state.perkdeck)]
 	const perkDeckIndex = Object.keys(perkDecks).indexOf(perkDeck.name)
 
 	const [hoverInfo, setHoverInfo] = useState<HoverInfo | null>(null)
 
-	const leftFacing = useAppSelector(state => state.settings.leftFacing)
+	const leftFacing = useSettingsStore(state => state.leftFacing)
 
 	return (
 		<>
