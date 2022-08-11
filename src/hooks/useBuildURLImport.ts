@@ -9,12 +9,11 @@ import secondary from 'data/weapons/guns/secondary'
 import { AllWeaponList, Modification, ModificationSlot, WeaponData, WeaponFind, WeaponType } from 'data/weapons/guns/weaponTypes'
 import melees, { MeleeList } from 'data/weapons/melees'
 import throwables, { ThrowableData, ThrowableList } from 'data/weapons/throwables'
-import { useAppDispatch } from 'hooks/reduxHooks'
 import { SetStateAction, useCallback, useEffect, useState } from 'react'
 import { Dispatch } from 'react'
-import { addBuild } from 'slices/buildsSlice'
 import { useAbilityStore } from 'state/useAbilitiesStore'
 import { useArmouryStore } from 'state/useArmouryStore'
+import { useBuildsStore } from 'state/useBuildsStore'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useSkillsStore } from 'state/useSkillsStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
@@ -150,8 +149,7 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 
 	const [{ data, addNewBuild }, setData] = useState<LoadedBuild>({ data: '', addNewBuild: false })
 
-	const dispatch = useAppDispatch()
-
+	const addBuild = useBuildsStore(state => state.addBuild)
 	const changePerkDeck = useAbilityStore(state => state.changePerkDeck)
 	const changeMask = useCharacterStore(state => state.changeMask)
 	const changeCharacter = useCharacterStore(state => state.changeCharacter)
@@ -222,7 +220,7 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 		if (!parameters.toString().length) return
 
 		if (addNewBuild) {
-			dispatch(addBuild({ changeToNewBuild: true }))
+			addBuild(true)
 		}
 
 		const decodeAndDispatch: Record<string, (value: string) => void> = {
@@ -280,7 +278,21 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 		}
 
 		parameters.forEach((value, key) => decodeAndDispatch[key](value))
-	}, [addNewBuild, addWeapon, changeArmour, changeCharacter, changeEquipment, changeMask, changeMelee, changePerkDeck, changeThrowable, changeWeapon, dispatch, loadSkills, resetArmoury])
+	}, [
+		addBuild,
+		addNewBuild,
+		addWeapon,
+		changeArmour,
+		changeCharacter,
+		changeEquipment,
+		changeMask,
+		changeMelee,
+		changePerkDeck,
+		changeThrowable,
+		changeWeapon,
+		loadSkills,
+		resetArmoury
+	])
 
 	useEffect(() => {
 		loadBuildFromIterable(data)

@@ -5,7 +5,7 @@ import useBuildURLExport from 'hooks/useBuildURLExport'
 import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaGithub } from 'react-icons/fa'
-import { useBuildStore } from 'state/useBuildsStore'
+import { useBuildsStore } from 'state/useBuildsStore'
 import { useSettingsStore } from 'state/useSettingsStore'
 import { isDev } from 'utils/isDev'
 
@@ -23,7 +23,7 @@ const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettin
 
 	const leftFacing = useSettingsStore(state => state.leftFacing)
 	const toggleLeftFacing = useSettingsStore(state => state.toggleLeftFacing)
-	const { current, builds } = useBuildStore()
+	const { current, builds } = useBuildsStore()
 
 	const buildSimple = useBuildURLExport({ simple: true })
 

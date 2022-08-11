@@ -2,7 +2,7 @@ import { InfoContainer } from 'components/Info/Info-Elements'
 import { Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { decodeArmoury } from 'hooks/useBuildURLImport'
 import { Dispatch, FC, SetStateAction, useMemo } from 'react'
-import { useBuildStore } from 'state/useBuildsStore'
+import { useBuildsStore } from 'state/useBuildsStore'
 
 import { BuildTitle, StatusTitle } from './BuildsArmoury-Elements'
 
@@ -22,7 +22,7 @@ interface BuildsArmouryProps {
 
 const BuildsArmoury: FC<BuildsArmouryProps> = ({ data, buildTabs, setBuildTabs, changeActiveTab }) => {
 
-	const activeBuildId = useBuildStore(state => state.current)
+	const activeBuildId = useBuildsStore(state => state.current)
 
 	const slot = useMemo(() => Object.values(Object.values(data)[0])[0].inventorySlot, [data])
 

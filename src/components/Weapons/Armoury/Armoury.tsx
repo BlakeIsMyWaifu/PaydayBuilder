@@ -9,7 +9,7 @@ import { Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { Dispatch, FC, Fragment, SetStateAction } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
 import { useArmouryStore } from 'state/useArmouryStore'
-import { useBuildStore } from 'state/useBuildsStore'
+import { useBuildsStore } from 'state/useBuildsStore'
 import { useSettingsStore } from 'state/useSettingsStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import { blue, itemColours } from 'utils/colours'
@@ -38,7 +38,7 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, setBui
 	const equippedWeaponId = useWeaponsStore(state => state[slot])
 	const leftFacing = useSettingsStore(state => state.leftFacing)
 
-	const { current: activeBuildId, builds } = useBuildStore()
+	const { current: activeBuildId, builds } = useBuildsStore()
 	const activeBuildName = builds[activeBuildId].name || 'New Build'
 
 	const getBuildWeapons = (tabId: number): Weapon[] => {

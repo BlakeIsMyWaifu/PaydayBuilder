@@ -1,9 +1,7 @@
-import { useAppDispatch } from 'hooks/reduxHooks'
 import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaChevronLeft, FaChevronRight, FaThList } from 'react-icons/fa'
-import { changeBuild, updateName } from 'slices/buildsSlice'
-import { useBuildStore } from 'state/useBuildsStore'
+import { useBuildsStore } from 'state/useBuildsStore'
 
 import { Arrow, BuildList, BuildName, Container, Wrapper } from './BuildSelector-Elements'
 
@@ -16,9 +14,10 @@ interface BuildSelectorProps {
 
 const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, setToggleSettings, setLoadedBuild }) => {
 
-	const dispatch = useAppDispatch()
+	const { current, builds } = useBuildsStore()
 
-	const { current, builds } = useBuildStore()
+	const changeBuild = useBuildsStore(state => state.changeBuild)
+	const updateName = useBuildsStore(state => state.updateName)
 
 	const getNextBuildId = (direction: number): number => {
 		const currentIndex = Object.keys(builds).findIndex(value => +value === current),
@@ -29,7 +28,7 @@ const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, 
 
 	const updateBuild = (index: number): void => {
 		const build = Object.values(builds)[index]
-		dispatch(changeBuild({ id: build.id }))
+		changeBuild(build.id)
 		setLoadedBuild({ data: build.data, addNewBuild: false })
 	}
 
@@ -54,10 +53,7 @@ const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, 
 					placeholder='New Build . . .'
 					value={builds[current].name}
 					onChange={event => {
-						dispatch(updateName({
-							id: current,
-							name: event.target.value
-						}))
+						updateName(current, event.target.value)
 					}}
 				/>
 				<Arrow {...arrowProps(1)}> <FaChevronRight /> </Arrow>

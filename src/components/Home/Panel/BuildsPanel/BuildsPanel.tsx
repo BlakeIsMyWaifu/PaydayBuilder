@@ -1,10 +1,8 @@
 import { Container, PanelContent, Title } from 'components/Home/Panel/Panel-Elements'
-import { useAppDispatch } from 'hooks/reduxHooks'
 import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaFolderOpen, FaPlusSquare, FaTrash, FaUndoAlt } from 'react-icons/fa'
-import { addBuild, changeBuild, defaultBuild, removeBuild, updateName } from 'slices/buildsSlice'
-import { useBuildStore } from 'state/useBuildsStore'
+import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import { blue, red } from 'utils/colours'
 
 import { BuildButton, BuildName, BuildWrapper, Builds, NewBuild } from './BuildsPanel-Elements'
@@ -17,9 +15,7 @@ interface BuildsPanelProps {
 
 const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setLoadedBuild }) => {
 
-	const dispatch = useAppDispatch()
-
-	const { current, builds } = useBuildStore()
+	const { current, builds, addBuild, removeBuild, updateName, changeBuild } = useBuildsStore()
 
 	return (
 		<Container toggle={toggleBuilds}>
@@ -37,15 +33,12 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setL
 									placeholder='New Build . . .'
 									value={name}
 									onChange={event => {
-										dispatch(updateName({
-											id,
-											name: event.target.value
-										}))
+										updateName(id, event.target.value)
 									}}
 								/>
 								{
 									id !== current ? <BuildButton title='Open Build' onClick={() => {
-										dispatch(changeBuild({ id }))
+										changeBuild(id)
 										setLoadedBuild({ data, addNewBuild: false })
 										setToggleBuilds(false)
 									}}> <FaFolderOpen /> </BuildButton> : <BuildButton title='Reset Build' onClick={() => {
@@ -58,8 +51,8 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setL
 									onClick={() => {
 										if (isLastBuild) {
 											const prevId = Object.values(builds).reverse().find(value => value.id !== id)?.id ?? 0
-											dispatch(changeBuild({ id: prevId }))
-											dispatch(removeBuild(id))
+											changeBuild(prevId)
+											removeBuild(id)
 											setLoadedBuild({ data: builds[prevId].data, addNewBuild: false })
 										}
 									}}
@@ -70,7 +63,7 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setL
 				</Builds>
 
 				<NewBuild title='New Build' onClick={() => {
-					dispatch(addBuild({ changeToNewBuild: true }))
+					addBuild(true)
 					setLoadedBuild({ data: defaultBuild, addNewBuild: false })
 				}}> <FaPlusSquare /> </NewBuild>
 
