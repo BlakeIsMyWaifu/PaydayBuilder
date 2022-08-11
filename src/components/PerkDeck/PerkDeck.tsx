@@ -27,7 +27,7 @@ const PerkDeck: FC = () => {
 
 	const [hoveredCard, setHoveredCard] = useState<PerkCard | null>(null)
 
-	const equippedPerk = perkDecks[useAbilityStore(state => state.perkdeck)]
+	const equippedPerk = perkDecks[useAbilityStore(state => state.perkDeck)]
 
 	const [selectedPerk, setSelectedPerk] = useState(equippedPerk)
 

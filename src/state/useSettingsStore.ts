@@ -1,7 +1,7 @@
 import create from 'zustand'
 import { devtools } from 'zustand/middleware'
 
-import { Slice, createActionName } from './storeTypes'
+import { DevTools, Slice, createActionName } from './storeTypes'
 
 // State
 
@@ -13,7 +13,7 @@ const initialState: SettingsStateSlice = {
 	leftFacing: false
 }
 
-const createStateSlice: Slice<SettingsStore, SettingsStateSlice> = () => initialState
+const createStateSlice: Slice<SettingsStore, SettingsStateSlice, [DevTools]> = () => initialState
 
 // Action
 
@@ -23,7 +23,7 @@ interface SettingsActionSlice {
 
 const actionName = createActionName('settings')
 
-const createActionSlice: Slice<SettingsStore, SettingsActionSlice> = set => ({
+const createActionSlice: Slice<SettingsStore, SettingsActionSlice, [DevTools]> = set => ({
 	toggleLeftFacing: () => {
 		set(state => ({
 			leftFacing: !state.leftFacing

@@ -45,7 +45,7 @@ const Tabs: FC = () => {
 	const throwable = throwables[weaponsState.throwable]
 	const melee = melees[weaponsState.melee]
 
-	const perkDeck = perkDecks[useAbilityStore(state => state.perkdeck)]
+	const perkDeck = perkDecks[useAbilityStore(state => state.perkDeck)]
 	const perkDeckIndex = Object.keys(perkDecks).indexOf(perkDeck.name)
 
 	const [hoverInfo, setHoverInfo] = useState<HoverInfo | null>(null)

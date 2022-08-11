@@ -1,9 +1,11 @@
 import skills, { SkillData, TreeNames } from 'data/abilities/skills'
+import { encodeSkills } from 'utils/encodeBuild'
 import SkillTreePoints from 'utils/skillTreePoints'
 import create from 'zustand'
-import { devtools } from 'zustand/middleware'
+import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
+import { updateDataPartial } from './useBuildsStore'
 
 // State
 
@@ -40,7 +42,7 @@ const getSubtrees = (tree: TreeNames): Subtrees => {
 
 const getUpgrades = (subtree: SkillData[]): Record<string, SkillUpgradeTypes> => Object.assign({}, ...subtree.map(skill => ({ [skill.name]: skill.tier === 1 ? 'available' : 'locked' })))
 
-interface SkillsStateSlice {
+export interface SkillsStateSlice {
 	points: number;
 	trees: Record<string, Subtrees>;
 }
@@ -152,7 +154,13 @@ const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, get) => (
 
 type SkillsStore = SkillsStateSlice & SkillsActionSlice
 
-export const useSkillsStore = create<SkillsStore>()(devtools((...a) => ({
+export const useSkillsStore = create<SkillsStore>()(devtools(subscribeWithSelector((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-}), { name: 'Skills Store' }))
+})), { name: 'Skills Store' }))
+
+// Subscriptions
+
+useSkillsStore.subscribe(state => state.trees, state => {
+	updateDataPartial('s', encodeSkills(state))
+})

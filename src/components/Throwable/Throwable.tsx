@@ -13,7 +13,7 @@ const Throwable: FC = () => {
 	const equippedThrowable = throwables[useWeaponsStore(state => state.throwable)]
 	const [selectedThrowable, setSelectedThrowable] = useState(equippedThrowable)
 
-	const perkDeckName = useAbilityStore(state => perkDecks[state.perkdeck].name)
+	const perkDeckName = useAbilityStore(state => perkDecks[state.perkDeck].name)
 
 	const changeThrowable = useWeaponsStore(state => state.changeThrowable)
 

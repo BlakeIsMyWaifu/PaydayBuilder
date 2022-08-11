@@ -17,7 +17,7 @@ interface PerkProps {
 
 const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPerk, setSelectedPerk }) => {
 
-	const equippedPerk = perkDecks[useAbilityStore(state => state.perkdeck)]
+	const equippedPerk = perkDecks[useAbilityStore(state => state.perkDeck)]
 	const changePerkDeck = useAbilityStore(state => state.changePerkDeck)
 
 	const changeThrowable = useWeaponsStore(state => state.changeThrowable)

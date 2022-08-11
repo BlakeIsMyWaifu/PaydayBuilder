@@ -1,13 +1,15 @@
 import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
+import { encodeArmoury } from 'utils/encodeBuild'
 import { findNextNum } from 'utils/maths'
 import create from 'zustand'
-import { devtools } from 'zustand/middleware'
+import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
+import { updateDataPartial } from './useBuildsStore'
 
 // State
 
-type ArmouryStateSlice = Record<Slot, Record<number, Weapon>>
+export type ArmouryStateSlice = Record<Slot, Record<number, Weapon>>
 
 const initialState: ArmouryStateSlice = {
 	primary: {
@@ -121,7 +123,17 @@ const createActionSlice: Slice<ArmouryStore, ArmouryActionSlice> = (set, get) =>
 
 type ArmouryStore = ArmouryStateSlice & ArmouryActionSlice
 
-export const useArmouryStore = create<ArmouryStore>()(devtools((...a) => ({
+export const useArmouryStore = create<ArmouryStore>()(devtools(subscribeWithSelector((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-}), { name: 'Armoury Store' }))
+})), { name: 'Armoury Store' }))
+
+// Subscriptions
+
+useArmouryStore.subscribe(state => state.primary, state => {
+	updateDataPartial('ap', encodeArmoury(state))
+})
+
+useArmouryStore.subscribe(state => state.secondary, state => {
+	updateDataPartial('as', encodeArmoury(state))
+})

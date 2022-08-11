@@ -4,10 +4,12 @@ import boosts from 'data/abilities/crewBoosts'
 import { PerkDeckList } from 'data/abilities/perks'
 import characters from 'data/character/characters'
 import { MaskList, allMasks } from 'data/character/masks'
+import { encodePerkDeck } from 'utils/encodeBuild'
 import create from 'zustand'
-import { devtools } from 'zustand/middleware'
+import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
+import { updateDataPartial } from './useBuildsStore'
 
 // State
 
@@ -20,14 +22,14 @@ const defaultCrew = (i: number): CrewData => ({
 	boost: Object.values(boosts)[i].name
 })
 
-interface AbilityStateSlice {
-	perkdeck: PerkDeckList;
+export interface AbilityStateSlice {
+	perkDeck: PerkDeckList;
 	crewmanagement: [CrewData, CrewData, CrewData];
 	infamy: null;
 }
 
 const initialState: AbilityStateSlice = {
-	perkdeck: 'Crew Chief',
+	perkDeck: 'Crew Chief',
 	crewmanagement: [defaultCrew(0), defaultCrew(1), defaultCrew(2)],
 	infamy: null
 }
@@ -44,7 +46,7 @@ const actionName = createActionName('abilities')
 
 const createActionSlice: Slice<AbilityStore, AbilityActionSlice> = set => ({
 	changePerkDeck: perkdeck => {
-		set({ perkdeck }, ...actionName('changePerkDeck'))
+		set({ perkDeck: perkdeck }, ...actionName('changePerkDeck'))
 	}
 })
 
@@ -52,7 +54,13 @@ const createActionSlice: Slice<AbilityStore, AbilityActionSlice> = set => ({
 
 type AbilityStore = AbilityStateSlice & AbilityActionSlice
 
-export const useAbilityStore = create<AbilityStore>()(devtools((...a) => ({
+export const useAbilityStore = create<AbilityStore>()(devtools(subscribeWithSelector((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-}), { name: 'Abilities Store' }))
+})), { name: 'Abilities Store' }))
+
+// Subscriptions
+
+useAbilityStore.subscribe(state => state.perkDeck, state => {
+	updateDataPartial('p', encodePerkDeck(state))
+})

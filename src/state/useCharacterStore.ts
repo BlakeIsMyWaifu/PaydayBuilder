@@ -3,14 +3,16 @@ import { CharacterList } from 'data/character/characters'
 import { EquipmentList } from 'data/character/equipment'
 import { MaskList } from 'data/character/masks'
 import { Slot } from 'data/weapons/guns/weaponTypes'
+import { encodeArmour, encodeCharacter, encodeEquipment, encodeMask } from 'utils/encodeBuild'
 import create from 'zustand'
-import { devtools } from 'zustand/middleware'
+import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
+import { updateDataPartial } from './useBuildsStore'
 
 // State
 
-interface CharacterStateSlice {
+export interface CharacterStateSlice {
 	mask: MaskList;
 	character: CharacterList;
 	armour: ArmourList;
@@ -67,7 +69,25 @@ const createActionSlice: Slice<CharacterStore, CharacterActionSlice> = set => ({
 
 type CharacterStore = CharacterStateSlice & CharacterActionSlice
 
-export const useCharacterStore = create<CharacterStore>()(devtools((...a) => ({
+export const useCharacterStore = create<CharacterStore>()(devtools(subscribeWithSelector((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-}), { name: 'Character Store' }))
+})), { name: 'Character Store' }))
+
+// Subscriptions
+
+useCharacterStore.subscribe(state => state.mask, state => {
+	updateDataPartial('k', encodeMask(state))
+})
+
+useCharacterStore.subscribe(state => state.character, state => {
+	updateDataPartial('c', encodeCharacter(state))
+})
+
+useCharacterStore.subscribe(state => state.armour, state => {
+	updateDataPartial('a', encodeArmour(state))
+})
+
+useCharacterStore.subscribe(state => state.equipment, state => {
+	updateDataPartial('d', encodeEquipment(state))
+})

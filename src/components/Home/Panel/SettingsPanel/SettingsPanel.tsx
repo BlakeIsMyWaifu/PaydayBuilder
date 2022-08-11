@@ -1,7 +1,6 @@
 import { Container, Title } from 'components/Home/Panel/Panel-Elements'
 import TextInput from 'components/Home/Panel/SettingsPanel/TextIO/TextInput'
 import TextOutput from 'components/Home/Panel/SettingsPanel/TextIO/TextOutput'
-import useBuildURLExport from 'hooks/useBuildURLExport'
 import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaGithub } from 'react-icons/fa'
@@ -24,8 +23,6 @@ const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettin
 	const leftFacing = useSettingsStore(state => state.leftFacing)
 	const toggleLeftFacing = useSettingsStore(state => state.toggleLeftFacing)
 	const { current, builds } = useBuildsStore()
-
-	const buildSimple = useBuildURLExport({ simple: true })
 
 	return (
 		<Container toggle={toggleSettings}>
@@ -58,7 +55,7 @@ const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettin
 
 				<Setting>
 					<SettingsTitle>Export to pd2builder</SettingsTitle>
-					<TextOutput value={`https://pd2builder.netlify.app/?${buildSimple}`} callback={value => navigator.clipboard.writeText(value)} />
+					<TextOutput value={`https://pd2builder.netlify.app/?${builds[current].data.split('&m=')[0]}`} callback={value => navigator.clipboard.writeText(value)} />
 				</Setting>
 
 				<Setting>

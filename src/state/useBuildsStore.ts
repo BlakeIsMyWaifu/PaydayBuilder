@@ -2,7 +2,7 @@ import { findNextNum } from 'utils/maths'
 import create from 'zustand'
 import { devtools } from 'zustand/middleware'
 
-import { Slice, createActionName } from './storeTypes'
+import { DevTools, Slice, createActionName } from './storeTypes'
 
 // State
 
@@ -30,7 +30,7 @@ const initialState: BuildsStateSlice = {
 	}
 }
 
-const createStateSlice: Slice<BuildsStore, BuildsStateSlice> = () => initialState
+const createStateSlice: Slice<BuildsStore, BuildsStateSlice, [DevTools]> = () => initialState
 
 // Action
 
@@ -39,12 +39,13 @@ interface BuildsActionSlice {
 	removeBuild: (id: number) => void;
 	updateName: (id: number, name: string) => void;
 	updateData: (id: number, data: string) => void;
+	updateDataPartial: (key: string, value: string) => void;
 	changeBuild: (id: number) => void;
 }
 
 const actionName = createActionName('builds')
 
-const createActionSlice: Slice<BuildsStore, BuildsActionSlice> = (set, get) => ({
+const createActionSlice: Slice<BuildsStore, BuildsActionSlice, [DevTools]> = (set, get) => ({
 	addBuild: equipBuild => {
 		const nextNum = findNextNum(get().builds)
 		const id = equipBuild ? nextNum : get().current
@@ -87,6 +88,20 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice> = (set, get) => (
 			}
 		}), ...actionName('updateData'))
 	},
+	updateDataPartial: (key, value) => {
+		const { data, id } = get().builds[get().current]
+		const parameters = new URLSearchParams(data)
+		parameters.set(key, value)
+		set(state => ({
+			builds: {
+				...state.builds,
+				[id]: {
+					...state.builds[id],
+					data: parameters.toString()
+				}
+			}
+		}), ...actionName('updateDataPartial'))
+	},
 	changeBuild: id => {
 		set({ current: id }, ...actionName('changeBuild'))
 	}
@@ -100,3 +115,5 @@ export const useBuildsStore = create<BuildsStore>()(devtools((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
 }), { name: 'Builds Store' }))
+
+export const { updateDataPartial } = useBuildsStore.getState()
