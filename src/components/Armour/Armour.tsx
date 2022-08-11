@@ -3,9 +3,7 @@ import DetectionRisk from 'components/DetectionRisk'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info/Info-Elements'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } from 'components/Item-Elements'
 import armours, { ArmourData } from 'data/character/armours'
-import { useAppDispatch } from 'hooks/reduxHooks'
 import { FC, useState } from 'react'
-import { changeArmour } from 'slices/characterSlice'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useSkillsStore } from 'state/useSkillsStore'
 
@@ -13,12 +11,12 @@ import { ArmourStatsTable } from './ArmourStatsTable'
 
 export const Armour: FC = () => {
 
-	const dispatch = useAppDispatch()
-
 	const equippedArmour = armours[useCharacterStore(state => state.armour)]
 	const [selectedArmour, setSelectedArmour] = useState<ArmourData>(equippedArmour)
 
 	const ironManUnlocked = useSkillsStore(state => state.trees.enforcer.Tank.upgrades['Iron Man']) === 'aced'
+
+	const changeArmour = useCharacterStore(state => state.changeArmour)
 
 	return (
 		<Container
@@ -36,7 +34,7 @@ export const Armour: FC = () => {
 							width={196}
 							rowAmount={5}
 							selected={armour.name === selectedArmour.name}
-							onClick={() => armour.name === selectedArmour.name && !locked ? dispatch(changeArmour(armour.name)) : setSelectedArmour(armour)}
+							onClick={() => armour.name === selectedArmour.name && !locked ? changeArmour(armour.name) : setSelectedArmour(armour)}
 						>
 							<ItemName>{armour.name}</ItemName>
 							{armour.name === equippedArmour.name && <ItemEquipped />}

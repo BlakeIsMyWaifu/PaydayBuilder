@@ -2,18 +2,16 @@ import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/Info/Info-Elements'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
 import characters, { CharacterData } from 'data/character/characters'
-import { useAppDispatch } from 'hooks/reduxHooks'
 import { FC, useState } from 'react'
-import { changeCharacter } from 'slices/characterSlice'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { itemColours } from 'utils/colours'
 
 const Character: FC = () => {
 
-	const dispatch = useAppDispatch()
-
 	const equippedCharacter = characters[useCharacterStore(state => state.character)]
 	const [selectedCharacter, setSelectedCharacter] = useState<CharacterData>(equippedCharacter)
+
+	const changeCharacter = useCharacterStore(state => state.changeCharacter)
 
 	return (
 		<Container title='Character'>
@@ -26,7 +24,7 @@ const Character: FC = () => {
 							width={128}
 							rowAmount={10}
 							selected={character.name === selectedCharacter.name}
-							onClick={() => character.name === selectedCharacter.name ? dispatch(changeCharacter(character.name)) : setSelectedCharacter(character)}
+							onClick={() => character.name === selectedCharacter.name ? changeCharacter(character.name) : setSelectedCharacter(character)}
 						>
 							<ItemName colour={itemColours[character.source.rarity]}>{character.name}</ItemName>
 							{character.name === equippedCharacter.name && <ItemEquipped />}

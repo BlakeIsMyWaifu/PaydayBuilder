@@ -3,11 +3,9 @@ import HorizontalBar from 'components/HorizontalBar'
 import Info from 'components/Info'
 import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
 import { AllMasks, Category, CategoryList, MaskData } from 'data/character/masks'
-import { useAppDispatch } from 'hooks/reduxHooks'
 import useMountEffect from 'hooks/useMountEffect'
 import useObjectState from 'hooks/useObjectState'
 import { FC, RefObject, createRef, useCallback, useEffect, useRef, useState } from 'react'
-import { changeMask } from 'slices/characterSlice'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { itemColours } from 'utils/colours'
 import findMask from 'utils/findMask'
@@ -18,8 +16,6 @@ import { MaskCollection, MaskCollectionTitle, MaskItemContainer, MaskWrapper, ra
 import MaskTab from './MaskTab'
 
 const Mask: FC = () => {
-
-	const dispatch = useAppDispatch()
 
 	const [categories, setCategories] = useObjectState<AllMasks>({
 		community: {},
@@ -36,6 +32,8 @@ const Mask: FC = () => {
 
 	const itemContainerRef = useRef<HTMLDivElement>(null)
 	const collectionRefs = useRef<(HTMLDivElement | null)[] | RefObject<HTMLDivElement>[]>([])
+
+	const changeMask = useCharacterStore(state => state.changeMask)
 
 	const addToCategory = useCallback(async (category: CategoryList): Promise<void> => {
 		const loadMaskData = (category: CategoryList): Promise<Category> => new Promise((res, rej) => {
@@ -105,7 +103,7 @@ const Mask: FC = () => {
 											width={128}
 											rowAmount={10}
 											selected={maskName === selectedMask.name}
-											onClick={() => maskName === selectedMask.name ? dispatch(changeMask(maskName)) : setSelectedMask(maskData)}
+											onClick={() => maskName === selectedMask.name ? changeMask(maskName) : setSelectedMask(maskData)}
 										>
 											<ItemName colour={itemColours[maskData.rarity]}>{maskName.replaceAll(' ', '\n')}</ItemName>
 											{maskName === equippedMask.name && <ItemEquipped />}

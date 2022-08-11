@@ -3,9 +3,7 @@ import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info/Info-
 import { ItemEquipped, ItemName, LockedIcon } from 'components/Item-Elements'
 import { ActionText, ActionsContainer } from 'components/ItemAction-Elements'
 import equipments, { EquipmentData } from 'data/character/equipment'
-import { useAppDispatch } from 'hooks/reduxHooks'
 import { FC, useState } from 'react'
-import { changeEquipment } from 'slices/characterSlice'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useSkillsStore } from 'state/useSkillsStore'
 import { itemColours } from 'utils/colours'
@@ -13,8 +11,6 @@ import { itemColours } from 'utils/colours'
 import { EquipmentImage, EquipmentWrapper, Item } from './Equipment-Elements'
 
 const Equipment: FC = () => {
-
-	const dispatch = useAppDispatch()
 
 	const { primary: equippedPrimary, secondary: equippedSecondary } = useCharacterStore(state => state.equipment)
 
@@ -37,14 +33,16 @@ const Equipment: FC = () => {
 	const engineeringState = skillTrees.technician['Engineer'].upgrades.Engineering
 	const engineeringUnlocked = engineeringState === 'basic' || engineeringState === 'aced'
 
+	const changeEquipment = useCharacterStore(state => state.changeEquipment)
+
 	const equipEquipment = (button: number): void => {
 		if (button !== 0 && button !== 2) return
 		if (selectedEquipment.name === 'Silenced Sentry Gun' && !engineeringUnlocked) return
 		const slot = button ? 'secondary' : 'primary'
-		if (slot === 'primary' && selectedEquipment.name === equippedSecondary) dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
+		if (slot === 'primary' && selectedEquipment.name === equippedSecondary) changeEquipment('secondary', null)
 		if (slot === 'secondary' && jackOfAllTrades !== 'aced') return
 		if (slot === 'secondary' && selectedEquipment.name === equippedPrimary) return
-		dispatch(changeEquipment({ equipment: selectedEquipment.name, slot }))
+		changeEquipment(slot, selectedEquipment.name)
 	}
 
 	return (

@@ -2,6 +2,7 @@ import { ArmourList } from 'data/character/armours'
 import { CharacterList } from 'data/character/characters'
 import { EquipmentList } from 'data/character/equipment'
 import { MaskList } from 'data/character/masks'
+import { Slot } from 'data/weapons/guns/weaponTypes'
 import create from 'zustand'
 
 import { Slice } from './storeTypes'
@@ -31,17 +32,30 @@ const initialState: CharacterStateSlice = {
 const createStateSlice: Slice<CharacterStore, CharacterStateSlice> = () => initialState
 
 interface CharacterActionSlice {
-	changeMask: () => void;
-	changeCharacter: () => void;
-	changeArmour: () => void;
-	changeEquipment: () => void;
+	changeMask: (mask: MaskList) => void;
+	changeCharacter: (character: CharacterList) => void;
+	changeArmour: (armour: ArmourList) => void;
+	changeEquipment: (slot: Slot, equipment: EquipmentList | null) => void;
 }
 
-const createActionSlice: Slice<CharacterStore, CharacterActionSlice> = () => ({
-	changeMask: () => null,
-	changeCharacter: () => null,
-	changeArmour: () => null,
-	changeEquipment: () => null
+const createActionSlice: Slice<CharacterStore, CharacterActionSlice> = set => ({
+	changeMask: mask => {
+		set({ mask })
+	},
+	changeCharacter: character => {
+		set({ character })
+	},
+	changeArmour: armour => {
+		set({ armour })
+	},
+	changeEquipment: (slot, equipment) => {
+		set(state => ({
+			equipment: {
+				...state.equipment,
+				[slot]: equipment
+			}
+		}))
+	}
 })
 
 export const useCharacterStore = create<CharacterStore>()((...a) => ({

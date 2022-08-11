@@ -5,7 +5,6 @@ import skills, { SkillData, TreeData, TreeNames } from 'data/abilities/skills'
 import equipments from 'data/character/equipment'
 import { useAppDispatch } from 'hooks/reduxHooks'
 import { FC, WheelEvent, useEffect, useState } from 'react'
-import { changeArmour, changeEquipment } from 'slices/characterSlice'
 import { resetSkills, resetTree } from 'slices/skillsSlice'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useSkillsStore } from 'state/useSkillsStore'
@@ -40,6 +39,9 @@ const Skills: FC = () => {
 	const ironMan = useSkillsStore(state => state.trees.enforcer.Tank.upgrades['Iron Man'])
 	const equippedArmour = useCharacterStore(state => state.armour)
 
+	const changeArmour = useCharacterStore(state => state.changeArmour)
+	const changeEquipment = useCharacterStore(state => state.changeEquipment)
+
 	useEffect(() => {
 		const handleKeys = (event: KeyboardEvent): void => {
 			if (event.key === 'f') {
@@ -58,20 +60,20 @@ const Skills: FC = () => {
 
 	useEffect(() => {
 		if (jackOfAllTrades !== 'aced' && equippedEquipment.secondary) {
-			dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
+			changeEquipment('secondary', null)
 		}
-	}, [dispatch, equippedEquipment.secondary, jackOfAllTrades])
+	}, [changeEquipment, dispatch, equippedEquipment.secondary, jackOfAllTrades])
 
 	useEffect(() => {
 		if (engineering !== 'basic' && engineering !== 'aced') {
-			if (equippedEquipment.primary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: Object.keys(equipments)[0], slot: 'primary' }))
-			if (equippedEquipment.secondary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
+			if (equippedEquipment.primary === 'Silenced Sentry Gun') changeEquipment('primary', Object.keys(equipments)[0])
+			if (equippedEquipment.secondary === 'Silenced Sentry Gun') changeEquipment('secondary', null)
 		}
-	}, [dispatch, engineering, equippedEquipment])
+	}, [changeEquipment, dispatch, engineering, equippedEquipment])
 
 	useEffect(() => {
-		if (ironMan !== 'aced' && equippedArmour === 'Improved Combined Tactical Vest') dispatch(changeArmour('Two-Piece Suit'))
-	}, [ironMan, equippedArmour, dispatch])
+		if (ironMan !== 'aced' && equippedArmour === 'Improved Combined Tactical Vest') changeArmour('Two-Piece Suit')
+	}, [ironMan, equippedArmour, dispatch, changeArmour])
 
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "horizontalbar points" "skills info" "subtreelabels back"' title='Skills'>

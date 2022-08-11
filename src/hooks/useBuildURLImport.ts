@@ -14,10 +14,10 @@ import { SetStateAction, useCallback, useEffect, useState } from 'react'
 import { Dispatch } from 'react'
 import { AddWeaponAction, addWeapon, resetArmoury } from 'slices/armourySlice'
 import { addBuild } from 'slices/buildsSlice'
-import { changeArmour, changeCharacter, changeEquipment, changeMask } from 'slices/characterSlice'
 import { changeSkillState, resetSkills } from 'slices/skillsSlice'
 import { changeMelee, changeThrowable, changeWeapon } from 'slices/weaponsSlice'
 import { useAbilityStore } from 'state/useAbilitiesStore'
+import { useCharacterStore } from 'state/useCharacterStore'
 import findWeapon from 'utils/findWeapon'
 
 export const charString = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,@'
@@ -149,6 +149,10 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 	const dispatch = useAppDispatch()
 
 	const changePerkDeck = useAbilityStore(state => state.changePerkDeck)
+	const changeMask = useCharacterStore(state => state.changeMask)
+	const changeCharacter = useCharacterStore(state => state.changeCharacter)
+	const changeArmour = useCharacterStore(state => state.changeArmour)
+	const changeEquipment = useCharacterStore(state => state.changeEquipment)
 
 	const loadSkills = useCallback((skillsValue: string): void => {
 
@@ -218,7 +222,7 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 			},
 			a: value => {
 				const armour = decodeArmour(value)
-				dispatch(changeArmour(armour))
+				changeArmour(armour)
 			},
 			t: value => {
 				const throwable = decodeThrowable(value)
@@ -226,8 +230,8 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 			},
 			d: value => {
 				const [primary, secondary] = decodeEquipment(value)
-				dispatch(changeEquipment({ slot: 'primary', equipment: primary }))
-				dispatch(changeEquipment({ slot: 'secondary', equipment: secondary }))
+				changeEquipment('primary', primary)
+				changeEquipment('secondary', secondary)
 			},
 			m: value => {
 				const melee = decodeMelee(value)
@@ -235,11 +239,11 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 			},
 			k: value => {
 				const mask = decodeMask(value)
-				dispatch(changeMask(mask))
+				changeMask(mask)
 			},
 			c: value => {
 				const character = decodeCharacter(value)
-				dispatch(changeCharacter(character))
+				changeCharacter(character)
 			},
 			ap: value => {
 				const weapons = decodeArmoury(value, primary)
@@ -277,7 +281,16 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 		}
 
 		parameters.forEach((value, key) => decodeAndDispatch[key](value))
-	}, [addNewBuild, changePerkDeck, dispatch, loadSkills])
+	}, [
+		addNewBuild,
+		changeArmour,
+		changeCharacter,
+		changeEquipment,
+		changeMask,
+		changePerkDeck,
+		dispatch,
+		loadSkills
+	])
 
 	useEffect(() => {
 		loadBuildFromIterable(data)
