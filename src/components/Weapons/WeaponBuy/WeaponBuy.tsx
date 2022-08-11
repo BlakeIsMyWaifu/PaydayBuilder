@@ -3,12 +3,10 @@ import HorizontalBar from 'components/HorizontalBar'
 import { Item, ItemContainer, ItemImage, ItemName } from 'components/Item-Elements'
 import { ActionText, ActionsContainer } from 'components/ItemAction-Elements'
 import { Slot, WeaponData } from 'data/weapons/guns/weaponTypes'
-import { useAppDispatch } from 'hooks/reduxHooks'
 import { Dispatch, FC, SetStateAction, useState } from 'react'
-import { changeWeapon } from 'slices/weaponsSlice'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useSettingsStore } from 'state/useSettingsStore'
-import { useWeaponStore } from 'state/useWeaponStore'
+import { useWeaponsStore } from 'state/useWeaponsStore'
 import { itemColours } from 'utils/colours'
 
 import WeaponInfo from '../WeaponInfo'
@@ -22,10 +20,8 @@ interface WeaponBuyProps {
 
 const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWeaponId }) => {
 
-	const dispatch = useAppDispatch()
-
 	const armoury = useArmouryStore(state => state[slot])
-	const equippedWeaponId = useWeaponStore(state => state[slot])
+	const equippedWeaponId = useWeaponsStore(state => state[slot])
 	const equippedWeapon = armoury[equippedWeaponId]
 	const leftFacing = useSettingsStore(state => state.leftFacing)
 
@@ -33,11 +29,12 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWe
 	const [selectedWeapon, setSelectedWeapon] = useState<WeaponData>(Object.values(data[selectedTab])[0])
 
 	const addWeapon = useArmouryStore(state => state.addWeapon)
+	const changeWeapon = useWeaponsStore(state => state.changeWeapon)
 
 	const addWeaponHelper = (weapon: WeaponData): void => {
 		addWeapon(weapon)
 		const id = +Object.keys(armoury)[Object.keys(armoury).length - 1] + 1
-		dispatch(changeWeapon({ slot, weapon: id }))
+		changeWeapon(slot, id)
 		setSelectedWeaponId(id)
 		setEnableBuy(false)
 	}

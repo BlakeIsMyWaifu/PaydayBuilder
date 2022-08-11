@@ -1,9 +1,8 @@
 import perkDecks, { PerkCard, PerkData } from 'data/abilities/perks'
 import throwables from 'data/weapons/throwables'
-import { useAppDispatch } from 'hooks/reduxHooks'
 import { Dispatch, FC, RefObject, SetStateAction } from 'react'
-import { changeThrowable } from 'slices/weaponsSlice'
 import { useAbilityStore } from 'state/useAbilitiesStore'
+import { useWeaponsStore } from 'state/useWeaponsStore'
 
 import { Card, CardBackground, CardIcon, CardWrapper, Container, Title } from './Perk-Elements'
 
@@ -18,10 +17,10 @@ interface PerkProps {
 
 const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPerk, setSelectedPerk }) => {
 
-	const dispatch = useAppDispatch()
-
 	const equippedPerk = perkDecks[useAbilityStore(state => state.perkdeck)]
 	const changePerkDeck = useAbilityStore(state => state.changePerkDeck)
+
+	const changeThrowable = useWeaponsStore(state => state.changeThrowable)
 
 	return (
 		<Container ref={perkref}>
@@ -35,7 +34,7 @@ const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPer
 				}
 				const throwable = perk.throwable ? throwables[perk.throwable] : throwables['Frag Grenade']
 				if (perk.throwable || equippedPerk.throwable) {
-					dispatch(changeThrowable(throwable.name))
+					changeThrowable(throwable.name)
 				}
 				changePerkDeck(perk.name)
 			}}>

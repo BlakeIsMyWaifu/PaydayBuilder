@@ -13,7 +13,7 @@ import { useAbilityStore } from 'state/useAbilitiesStore'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useSkillsStore } from 'state/useSkillsStore'
-import { useWeaponStore } from 'state/useWeaponStore'
+import { useWeaponsStore } from 'state/useWeaponsStore'
 import findMask from 'utils/findMask'
 import findWeapon from 'utils/findWeapon'
 
@@ -27,7 +27,7 @@ const useBuildURLExport = ({ simple }: UseBuildURLExportProps): string => {
 
 	const abilities = useAbilityStore()
 	const character = useCharacterStore()
-	const weapons = useWeaponStore()
+	const weapons = useWeaponsStore()
 	const skills = useSkillsStore()
 	const armoury = useArmouryStore()
 

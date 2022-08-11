@@ -16,7 +16,7 @@ import { useAbilityStore } from 'state/useAbilitiesStore'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useSettingsStore } from 'state/useSettingsStore'
-import { useWeaponStore } from 'state/useWeaponStore'
+import { useWeaponsStore } from 'state/useWeaponsStore'
 import findMask from 'utils/findMask'
 import findWeapon from 'utils/findWeapon'
 
@@ -36,7 +36,7 @@ const Tabs: FC = () => {
 	const equipmentSecondary: EquipmentData | null = equipments[characterState.equipment.secondary || '']
 
 	const armoury = useArmouryStore()
-	const weaponsState = useWeaponStore()
+	const weaponsState = useWeaponsStore()
 
 	const primaryWeapon = armoury.primary[weaponsState.primary]
 	const secondaryWeapon = armoury.secondary[weaponsState.secondary]

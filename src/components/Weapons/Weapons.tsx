@@ -4,7 +4,7 @@ import { Slot, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { FC, useMemo, useState } from 'react'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useBuildStore } from 'state/useBuildsStore'
-import { useWeaponStore } from 'state/useWeaponStore'
+import { useWeaponsStore } from 'state/useWeaponsStore'
 
 import Armoury from './Armoury'
 import { BuildTab } from './Armoury/BuildsArmoury/BuildsArmoury'
@@ -19,7 +19,7 @@ const Weapons: FC<WeaponsProps> = ({ slot }) => {
 	const data: Record<string, Record<string, WeaponData>> = useMemo(() => slot === 'primary' ? primary : secondary, [slot])
 
 	const armoury = useArmouryStore(state => state[slot])
-	const equippedWeaponId = useWeaponStore(state => state[slot])
+	const equippedWeaponId = useWeaponsStore(state => state[slot])
 	const { current, builds } = useBuildStore()
 
 	const slotParameter = slot === 'primary' ? 'ap' : 'as'

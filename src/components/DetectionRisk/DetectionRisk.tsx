@@ -4,7 +4,7 @@ import useWeaponStats from 'hooks/useWeaponStats'
 import { FC, MouseEvent, memo } from 'react'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useCharacterStore } from 'state/useCharacterStore'
-import { useWeaponStore } from 'state/useWeaponStore'
+import { useWeaponsStore } from 'state/useWeaponsStore'
 import findWeapon from 'utils/findWeapon'
 
 import { Container, Image, ImageContainer, ImageEnabled, ImageWrapper, Number, Title } from './DetectionRisk-Elements'
@@ -52,7 +52,7 @@ interface DetectionRiskProps {
 
 const DetectionRisk: FC<DetectionRiskProps> = ({ flexDirection, corner, size = 96 }) => {
 
-	const weapons = useWeaponStore(),
+	const weapons = useWeaponsStore(),
 		primaryWeapon = useArmouryStore(state => state.primary)[weapons.primary],
 		secondaryWeapon = useArmouryStore(state => state.secondary)[weapons.secondary],
 		primaryConcealment = useWeaponStats(findWeapon(primaryWeapon.weaponFind), primaryWeapon.modifications).total.concealment,
