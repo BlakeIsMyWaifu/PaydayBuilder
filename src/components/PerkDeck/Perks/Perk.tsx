@@ -2,7 +2,6 @@ import perkDecks, { PerkCard, PerkData } from 'data/abilities/perks'
 import throwables from 'data/weapons/throwables'
 import { useAppDispatch } from 'hooks/reduxHooks'
 import { Dispatch, FC, RefObject, SetStateAction } from 'react'
-import { changePerkDeck } from 'slices/abilitiesSlice'
 import { changeThrowable } from 'slices/weaponsSlice'
 import { useAbilityStore } from 'state/useAbilitiesStore'
 
@@ -22,6 +21,7 @@ const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPer
 	const dispatch = useAppDispatch()
 
 	const equippedPerk = perkDecks[useAbilityStore(state => state.perkdeck)]
+	const changePerkDeck = useAbilityStore(state => state.changePerkDeck)
 
 	return (
 		<Container ref={perkref}>
@@ -37,7 +37,7 @@ const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPer
 				if (perk.throwable || equippedPerk.throwable) {
 					dispatch(changeThrowable(throwable.name))
 				}
-				dispatch(changePerkDeck(perk.name))
+				changePerkDeck(perk.name)
 			}}>
 				{
 					perk.cards.map((card, i) => {

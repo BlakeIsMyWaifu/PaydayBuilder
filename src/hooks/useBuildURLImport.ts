@@ -12,12 +12,12 @@ import throwables, { ThrowableData, ThrowableList } from 'data/weapons/throwable
 import { useAppDispatch } from 'hooks/reduxHooks'
 import { SetStateAction, useCallback, useEffect, useState } from 'react'
 import { Dispatch } from 'react'
-import { changePerkDeck } from 'slices/abilitiesSlice'
 import { AddWeaponAction, addWeapon, resetArmoury } from 'slices/armourySlice'
 import { addBuild } from 'slices/buildsSlice'
 import { changeArmour, changeCharacter, changeEquipment, changeMask } from 'slices/characterSlice'
 import { changeSkillState, resetSkills } from 'slices/skillsSlice'
 import { changeMelee, changeThrowable, changeWeapon } from 'slices/weaponsSlice'
+import { useAbilityStore } from 'state/useAbilitiesStore'
 import findWeapon from 'utils/findWeapon'
 
 export const charString = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,@'
@@ -148,6 +148,8 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 
 	const dispatch = useAppDispatch()
 
+	const changePerkDeck = useAbilityStore(state => state.changePerkDeck)
+
 	const loadSkills = useCallback((skillsValue: string): void => {
 
 		dispatch(resetSkills())
@@ -212,7 +214,7 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 			s: value => loadSkills(decompressData(value)),
 			p: value => {
 				const perkDeck = decodePerkDeck(value)
-				dispatch(changePerkDeck(perkDeck))
+				changePerkDeck(perkDeck)
 			},
 			a: value => {
 				const armour = decodeArmour(value)
@@ -275,7 +277,7 @@ const useBuildURLImport = (): Dispatch<SetStateAction<LoadedBuild>> => {
 		}
 
 		parameters.forEach((value, key) => decodeAndDispatch[key](value))
-	}, [addNewBuild, dispatch, loadSkills])
+	}, [addNewBuild, changePerkDeck, dispatch, loadSkills])
 
 	useEffect(() => {
 		loadBuildFromIterable(data)

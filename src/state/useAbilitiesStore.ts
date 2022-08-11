@@ -37,8 +37,10 @@ interface AbilityActionSlice {
 	changePerkDeck: (perkdeck: PerkDeckList) => void;
 }
 
-const createActionSlice: Slice<AbilityStore, AbilityActionSlice> = () => ({
-	changePerkDeck: () => null
+const createActionSlice: Slice<AbilityStore, AbilityActionSlice> = set => ({
+	changePerkDeck: perkdeck => {
+		set({ perkdeck })
+	}
 })
 
 export const useAbilityStore = create<AbilityStore>()((...a) => ({
