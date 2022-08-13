@@ -9,8 +9,7 @@ import { useSettingsStore } from 'state/useSettingsStore'
 import { isDev } from 'utils/isDev'
 
 import CheckboxInput from './CheckboxInput'
-import JsonIO from './JsonIO'
-import { ContactIconWrapper, ContactLink, ContactText, Setting, SettingsPanelContent, SettingsSingleLine, SettingsTitle } from './SettingsPanel-Elements'
+import { ContactIconWrapper, ContactLink, ContactText, Setting, SettingsPanelContent, SettingsSingleLine, SettingsSubtitle, SettingsTitle } from './SettingsPanel-Elements'
 
 interface SettingsPanelProps {
 	toggleSettings: boolean;
@@ -29,6 +28,8 @@ const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettin
 			<SettingsPanelContent>
 
 				<Title>Settings</Title>
+
+				<SettingsSubtitle>Import / Export</SettingsSubtitle>
 
 				<Setting>
 					<SettingsTitle>Import from URL</SettingsTitle>
@@ -58,10 +59,7 @@ const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettin
 					<TextOutput value={`https://pd2builder.netlify.app/?${builds[current].data.split('&m=')[0]}`} callback={value => navigator.clipboard.writeText(value)} />
 				</Setting>
 
-				<Setting>
-					<SettingsTitle>Import / Export JSON</SettingsTitle>
-					<JsonIO setToggleSettings={setToggleSettings} />
-				</Setting>
+				<SettingsSubtitle>Appearance</SettingsSubtitle>
 
 				<SettingsSingleLine>
 					<SettingsTitle>Left Facing Weapons</SettingsTitle>
