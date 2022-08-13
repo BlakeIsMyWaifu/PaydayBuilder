@@ -12,10 +12,10 @@ import melees from 'data/weapons/melees'
 import throwables from 'data/weapons/throwables'
 import Link from 'next/link'
 import { FC, useState } from 'react'
+import { useSettingsContext } from 'state/settingsContext'
 import { useAbilityStore } from 'state/useAbilitiesStore'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useCharacterStore } from 'state/useCharacterStore'
-import { useSettingsStore } from 'state/useSettingsStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import findMask from 'utils/findMask'
 import findWeapon from 'utils/findWeapon'
@@ -50,7 +50,7 @@ const Tabs: FC = () => {
 
 	const [hoverInfo, setHoverInfo] = useState<HoverInfo | null>(null)
 
-	const leftFacing = useSettingsStore(state => state.leftFacing)
+	const { leftFacing } = useSettingsContext().state
 
 	return (
 		<>

@@ -1,6 +1,6 @@
-import { Dispatch, FC, SetStateAction } from 'react'
+import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { FaChevronLeft, FaChevronRight, FaThList } from 'react-icons/fa'
-import { useBuildsStore } from 'state/useBuildsStore'
+import { BuildSave, useBuildsStore } from 'state/useBuildsStore'
 
 import { Arrow, BuildList, BuildName, Container, Wrapper } from './BuildSelector-Elements'
 
@@ -16,6 +16,12 @@ const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, 
 
 	const changeBuild = useBuildsStore(state => state.changeBuild)
 	const updateName = useBuildsStore(state => state.updateName)
+
+	const [serverBuilds, setServerBuilds] = useState<Record<number, BuildSave>>({})
+
+	useEffect(() => {
+		setServerBuilds(builds)
+	}, [setServerBuilds, builds])
 
 	const getNextBuildId = (direction: number): number => {
 		const currentIndex = Object.keys(builds).findIndex(value => +value === current),
@@ -36,7 +42,7 @@ const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, 
 	}
 
 	const arrowProps = (direction: 1 | -1): ArrowProps => ({
-		title: `Switch to: ${Object.values(builds)[getNextBuildId(direction)]?.name || 'New Build . . .'}`,
+		title: `Switch to: ${Object.values(serverBuilds)[getNextBuildId(direction)]?.name ?? 'New Build . . .'}`,
 		onClick: () => {
 			updateBuild(getNextBuildId(direction))
 		}

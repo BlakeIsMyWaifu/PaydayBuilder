@@ -1,9 +1,12 @@
 import 'fonts/fonts.css'
 
 import { GlobalStyle } from 'GlobalStyle'
+import useMountEffect from 'hooks/useMountEffect'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
+import { SettingsProvider, UpdateSettingsContext } from 'state/settingsContext'
+import { useBuildsStore } from 'state/useBuildsStore'
 import styled from 'styled-components'
 import { isDev } from 'utils/isDev'
 
@@ -27,7 +30,13 @@ const BackgroundImage = styled.img`
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
 
-	useEffect(() => {
+	const { current, builds, importBuild } = useBuildsStore()
+
+	useMountEffect(() => {
+		importBuild(builds[current].data)
+	})
+
+	useMountEffect(() => {
 		if (!isDev) {
 			const reset = (): void => {
 				localStorage.clear()
@@ -36,16 +45,19 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 			window.addEventListener('error', reset)
 			return window.removeEventListener('error', reset)
 		}
-	}, [])
+	})
 
 	return (
-		<>
+		<SettingsProvider>
+
 			<Head>
 				<meta charSet='UTF-8' />
 				<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 				<title>Payday Builder</title>
 				<link rel='shortcut icon' href='/favicon.ico' />
 			</Head>
+
+			<UpdateSettingsContext />
 
 			<GlobalStyle />
 
@@ -58,7 +70,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 				<Component {...pageProps} />
 
 			</div>
-		</>
+		</SettingsProvider>
 	)
 }
 

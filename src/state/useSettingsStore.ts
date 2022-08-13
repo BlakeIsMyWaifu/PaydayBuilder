@@ -1,7 +1,7 @@
 import create from 'zustand'
-import { devtools } from 'zustand/middleware'
+import { devtools, persist } from 'zustand/middleware'
 
-import { DevTools, Slice, createActionName } from './storeTypes'
+import { DevTools, Persist, Slice, createActionName } from './storeTypes'
 
 // State
 
@@ -13,7 +13,7 @@ const initialState: SettingsStateSlice = {
 	leftFacing: false
 }
 
-const createStateSlice: Slice<SettingsStore, SettingsStateSlice, [DevTools]> = () => initialState
+const createStateSlice: Slice<SettingsStore, SettingsStateSlice, Middlewares> = () => initialState
 
 // Action
 
@@ -23,7 +23,7 @@ interface SettingsActionSlice {
 
 const actionName = createActionName('settings')
 
-const createActionSlice: Slice<SettingsStore, SettingsActionSlice, [DevTools]> = set => ({
+const createActionSlice: Slice<SettingsStore, SettingsActionSlice, Middlewares> = set => ({
 	toggleLeftFacing: () => {
 		set(state => ({
 			leftFacing: !state.leftFacing
@@ -35,7 +35,9 @@ const createActionSlice: Slice<SettingsStore, SettingsActionSlice, [DevTools]> =
 
 type SettingsStore = SettingsStateSlice & SettingsActionSlice
 
-export const useSettingsStore = create<SettingsStore>()(devtools((...a) => ({
+type Middlewares = [DevTools, Persist]
+
+export const useSettingsStore = create<SettingsStore>()(devtools(persist((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-}), { name: 'Settings Store' }))
+}), { name: 'Settings' }), { name: 'Settings Store' }))

@@ -4,8 +4,8 @@ import { Item, ItemContainer, ItemImage, ItemName } from 'components/Item-Elemen
 import { ActionText, ActionsContainer } from 'components/ItemAction-Elements'
 import { Slot, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { Dispatch, FC, SetStateAction, useState } from 'react'
+import { useSettingsContext } from 'state/settingsContext'
 import { useArmouryStore } from 'state/useArmouryStore'
-import { useSettingsStore } from 'state/useSettingsStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import { itemColours } from 'utils/colours'
 
@@ -23,7 +23,8 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWe
 	const armoury = useArmouryStore(state => state[slot])
 	const equippedWeaponId = useWeaponsStore(state => state[slot])
 	const equippedWeapon = armoury[equippedWeaponId]
-	const leftFacing = useSettingsStore(state => state.leftFacing)
+
+	const { leftFacing } = useSettingsContext().state
 
 	const [selectedTab, setSelectedTab] = useState<string>(Object.keys(data)[0])
 	const [selectedWeapon, setSelectedWeapon] = useState<WeaponData>(Object.values(data[selectedTab])[0])

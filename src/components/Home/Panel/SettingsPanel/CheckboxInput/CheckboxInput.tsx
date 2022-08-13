@@ -1,22 +1,18 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
 import { Container, Input, Label } from './CheckboxInput-Elements'
 
 interface CheckboxInputProps {
-	defaultState: boolean;
+	state: boolean;
 	callback: (isToggled: boolean) => void;
 }
 
-const CheckboxInput: FC<CheckboxInputProps> = ({ defaultState, callback }) => {
-
-	const [isToggled, setIsToggled] = useState(defaultState)
-
+const CheckboxInput: FC<CheckboxInputProps> = ({ state, callback }) => {
 	return (
 		<Container>
-			<Input type='checkbox' checked={isToggled} readOnly />
+			<Input type='checkbox' checked={state} readOnly />
 			<Label onClick={() => {
-				setIsToggled(!isToggled)
-				callback(!isToggled)
+				callback(state)
 			}} />
 		</Container>
 	)

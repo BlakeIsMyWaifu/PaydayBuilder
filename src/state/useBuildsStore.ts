@@ -3,9 +3,9 @@ import secondary from 'data/weapons/guns/secondary'
 import { decodeArmour, decodeArmoury, decodeCharacter, decodeEquipment, decodeMask, decodeMelee, decodePerkDeck, decodeThrowable, decodeWeapons } from 'utils/decodeBuild'
 import { findNextNum } from 'utils/maths'
 import create from 'zustand'
-import { devtools } from 'zustand/middleware'
+import { devtools, persist } from 'zustand/middleware'
 
-import { DevTools, Slice, createActionName } from './storeTypes'
+import { DevTools, Persist, Slice, createActionName } from './storeTypes'
 import { useAbilityStore } from './useAbilitiesStore'
 import { useArmouryStore } from './useArmouryStore'
 import { useCharacterStore } from './useCharacterStore'
@@ -14,7 +14,7 @@ import { useWeaponsStore } from './useWeaponsStore'
 
 // State
 
-interface BuildSave {
+export interface BuildSave {
 	id: number;
 	name: string;
 	data: string;
@@ -38,7 +38,7 @@ const initialState: BuildsStateSlice = {
 	}
 }
 
-const createStateSlice: Slice<BuildsStore, BuildsStateSlice, [DevTools]> = () => initialState
+const createStateSlice: Slice<BuildsStore, BuildsStateSlice, Middlewares> = () => initialState
 
 // Action
 
@@ -54,7 +54,7 @@ interface BuildsActionSlice {
 
 const actionName = createActionName('builds')
 
-const createActionSlice: Slice<BuildsStore, BuildsActionSlice, [DevTools]> = (set, get) => ({
+const createActionSlice: Slice<BuildsStore, BuildsActionSlice, Middlewares> = (set, get) => ({
 	addBuild: equipBuild => {
 		const nextNum = findNextNum(get().builds)
 		const id = equipBuild ? nextNum : get().current
@@ -189,9 +189,11 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice, [DevTools]> = (se
 
 type BuildsStore = BuildsStateSlice & BuildsActionSlice
 
-export const useBuildsStore = create<BuildsStore>()(devtools((...a) => ({
+type Middlewares = [DevTools, Persist]
+
+export const useBuildsStore = create<BuildsStore>()(devtools(persist((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-}), { name: 'Builds Store' }))
+}), { name: 'Builds' }), { name: 'Builds Store' }))
 
 export const { updateDataPartial } = useBuildsStore.getState()

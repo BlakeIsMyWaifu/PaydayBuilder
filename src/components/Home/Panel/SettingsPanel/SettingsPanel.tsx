@@ -3,6 +3,7 @@ import TextInput from 'components/Home/Panel/SettingsPanel/TextIO/TextInput'
 import TextOutput from 'components/Home/Panel/SettingsPanel/TextIO/TextOutput'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaGithub } from 'react-icons/fa'
+import { useSettingsContext } from 'state/settingsContext'
 import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import { useSettingsStore } from 'state/useSettingsStore'
 import { isDev } from 'utils/isDev'
@@ -18,9 +19,10 @@ interface SettingsPanelProps {
 
 const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettings }) => {
 
-	const leftFacing = useSettingsStore(state => state.leftFacing)
 	const toggleLeftFacing = useSettingsStore(state => state.toggleLeftFacing)
 	const { current, builds, importBuild } = useBuildsStore()
+
+	const { leftFacing } = useSettingsContext().state
 
 	return (
 		<Container toggle={toggleSettings}>
@@ -63,7 +65,7 @@ const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettin
 
 				<SettingsSingleLine>
 					<SettingsTitle>Left Facing Weapons</SettingsTitle>
-					<CheckboxInput defaultState={leftFacing} callback={toggleLeftFacing} />
+					<CheckboxInput state={leftFacing} callback={toggleLeftFacing} />
 				</SettingsSingleLine>
 
 			</SettingsPanelContent>

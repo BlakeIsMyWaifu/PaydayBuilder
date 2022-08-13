@@ -1,7 +1,7 @@
 import { Container, PanelContent, Title } from 'components/Home/Panel/Panel-Elements'
-import { Dispatch, FC, SetStateAction } from 'react'
+import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { FaFolderOpen, FaPlusSquare, FaTrash, FaUndoAlt } from 'react-icons/fa'
-import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
+import { BuildSave, defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import { blue, red } from 'utils/colours'
 
 import { BuildButton, BuildName, BuildWrapper, Builds, NewBuild } from './BuildsPanel-Elements'
@@ -15,6 +15,12 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds }) =>
 
 	const { current, builds, addBuild, removeBuild, updateName, changeBuild, importBuild } = useBuildsStore()
 
+	const [serverBuilds, setServerBuilds] = useState<Record<number, BuildSave>>({})
+
+	useEffect(() => {
+		setServerBuilds(builds)
+	}, [setServerBuilds, builds])
+
 	return (
 		<Container toggle={toggleBuilds}>
 			<PanelContent>
@@ -23,7 +29,7 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds }) =>
 
 				<Builds>
 					{
-						Object.values(builds).map(({ id, name, data }) => {
+						Object.values(serverBuilds).map(({ id, name, data }) => {
 							const isLastBuild = Object.keys(builds).length > 1
 							return <BuildWrapper key={id}>
 								<BuildName

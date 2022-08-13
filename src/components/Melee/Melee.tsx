@@ -4,7 +4,7 @@ import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'component
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
 import melees from 'data/weapons/melees'
 import { FC, useState } from 'react'
-import { useSettingsStore } from 'state/useSettingsStore'
+import { useSettingsContext } from 'state/settingsContext'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import { itemColours } from 'utils/colours'
 
@@ -15,8 +15,9 @@ export const Melee: FC = () => {
 	const equippedMelee = melees[useWeaponsStore(state => state.melee)]
 	const [selectedMelee, setSelectedMelee] = useState(equippedMelee)
 
-	const leftFacing = useSettingsStore(state => state.leftFacing)
 	const changeMelee = useWeaponsStore(state => state.changeMelee)
+
+	const { leftFacing } = useSettingsContext().state
 
 	return (
 		<Container
