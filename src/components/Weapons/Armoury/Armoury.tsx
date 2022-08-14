@@ -6,7 +6,7 @@ import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'componen
 import ModIcons from 'components/ModIcons'
 import { ResetContainer, ResetText } from 'components/Reset-Elements'
 import { Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
-import { Dispatch, FC, Fragment, SetStateAction } from 'react'
+import { Dispatch, FC, Fragment, SetStateAction, useState } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
 import { useSettingsContext } from 'state/settingsContext'
 import { useArmouryStore } from 'state/useArmouryStore'
@@ -24,15 +24,13 @@ interface ArmouryProps {
 	slot: Slot;
 	data: Record<string, Record<string, WeaponData>>;
 	setEnableBuy: Dispatch<SetStateAction<boolean>>;
-	buildTabs: BuildTab[];
-	setBuildTabs: Dispatch<SetStateAction<BuildTab[]>>;
 	activeTabId: number;
 	changeActiveTab: (tabId: number) => void;
 	selectedWeaponId: number;
 	setSelectedWeaponId: Dispatch<SetStateAction<number>>;
 }
 
-const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, setBuildTabs, activeTabId, changeActiveTab, selectedWeaponId, setSelectedWeaponId }) => {
+const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, changeActiveTab, selectedWeaponId, setSelectedWeaponId }) => {
 
 	const armoury = useArmouryStore(state => state[slot])
 	const equippedWeaponId = useWeaponsStore(state => state[slot])
@@ -42,8 +40,16 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, buildTabs, setBui
 	const { current: activeBuildId, builds } = useBuildsStore()
 	const activeBuildName = builds[activeBuildId].name || 'New Build'
 
+	const slotParameter = slot === 'primary' ? 'ap' : 'as'
+
+	const [buildTabs, setBuildTabs] = useState<BuildTab[]>(Object.values(builds).map(build => ({
+		...build,
+		name: build.name || 'New Build',
+		active: false
+	})).filter(build => build.id !== activeBuildId && !build.data.includes(`&${slotParameter}=_&`)))
+
 	const getBuildWeapons = (tabId: number): Weapon[] => {
-		const build = buildTabs.find(build => build.id === tabId) || buildTabs[0]
+		const build = buildTabs.find(build => build.id === tabId) ?? buildTabs[0]
 		return typeof build.data === 'string' ? [] : build.data
 	}
 

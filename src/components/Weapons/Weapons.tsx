@@ -8,7 +8,6 @@ import { useBuildsStore } from 'state/useBuildsStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 
 import Armoury from './Armoury'
-import { BuildTab } from './Armoury/BuildsArmoury/BuildsArmoury'
 import WeaponBuy from './WeaponBuy'
 
 interface WeaponsProps {
@@ -31,12 +30,6 @@ const Weapons: FC<WeaponsProps> = ({ slot }) => {
 		setEnableBuy(builds[current].data.includes(`&${slotParameter}=_&`))
 	})
 
-	const [buildTabs, setBuildTabs] = useState<BuildTab[]>(Object.values(builds).map(build => ({
-		...build,
-		name: build.name || 'New Build',
-		active: false
-	})).filter(build => build.id !== current && !build.data.includes(`&${slotParameter}=_&`)))
-
 	const [activeTabId, setActiveTabId] = useState<number>(builds[current].id)
 	const [selectedWeaponId, setSelectedWeaponId] = useState<number>(armoury[equippedWeaponId].id)
 
@@ -45,7 +38,7 @@ const Weapons: FC<WeaponsProps> = ({ slot }) => {
 		setActiveTabId(tabId)
 	}
 
-	const armouryProps = { slot, data, setEnableBuy, buildTabs, setBuildTabs, activeTabId, changeActiveTab, selectedWeaponId, setSelectedWeaponId }
+	const armouryProps = { slot, data, setEnableBuy, activeTabId, changeActiveTab, selectedWeaponId, setSelectedWeaponId }
 
 	return enableBuy ?
 		<WeaponBuy
