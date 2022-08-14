@@ -6,6 +6,7 @@ import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'componen
 import ModIcons from 'components/ModIcons'
 import { ResetContainer, ResetText } from 'components/Reset-Elements'
 import { Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
+import { useRouter } from 'next/router'
 import { Dispatch, FC, Fragment, SetStateAction, useState } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
 import { useSettingsContext } from 'state/settingsContext'
@@ -61,6 +62,18 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 	const addWeapon = useArmouryStore(state => state.addWeapon)
 	const changeWeapon = useWeaponsStore(state => state.changeWeapon)
 
+	const router = useRouter()
+
+	const duplicateWeapon = (): void => {
+		const { weaponFind, modifications } = weaponsData[selectedWeaponId - 1]
+		const weaponData = findWeapon(weaponFind)
+		const nextNum = findNextNum(armoury)
+		addWeapon(weaponData, modifications)
+		changeWeapon(slot, nextNum)
+		setSelectedWeaponId(Object.keys(armoury).length)
+		changeActiveTab(activeBuildId)
+	}
+
 	return (
 		<Container
 			columns='3fr 1.5fr'
@@ -97,7 +110,13 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 							selected={selectedWeaponId === id}
 							onClick={() => {
 								if (selectedWeaponId === id && isActiveBuild) {
-									changeWeapon(slot, id)
+									if (equippedWeaponId === id) {
+										router.push(`/blackmarket/${slot}/${selectedWeaponId}`)
+									} else {
+										changeWeapon(slot, id)
+									}
+								} else if (selectedWeaponId === id && !isActiveBuild) {
+									duplicateWeapon()
 								} else {
 									setSelectedWeaponId(id)
 								}
@@ -191,15 +210,7 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 						}}>Delete Weapon</WeaponActionText>
 
 					</WeaponActionsContainer> : <WeaponActionsContainer>
-						<WeaponActionText onClick={() => {
-							const { weaponFind, modifications } = weaponsData[selectedWeaponId - 1]
-							const weaponData = findWeapon(weaponFind)
-							const nextNum = findNextNum(armoury)
-							addWeapon(weaponData, modifications)
-							changeWeapon(slot, nextNum)
-							setSelectedWeaponId(Object.keys(armoury).length)
-							changeActiveTab(activeBuildId)
-						}}>Duplicate Weapon</WeaponActionText>
+						<WeaponActionText onClick={duplicateWeapon}>Duplicate Weapon</WeaponActionText>
 					</WeaponActionsContainer>
 				}
 			</DetectionAndActionsContainer>

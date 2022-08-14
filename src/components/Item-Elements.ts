@@ -21,6 +21,7 @@ export const Item = styled.div<ItemProps>`
 	position: relative;
 	line-height: 0;
 	width: max(${props => 100 / (props.rowAmount || 10)}%, ${props => props.width}px);
+	cursor: pointer;
 	${props => props.selected && corner};
 `
 
