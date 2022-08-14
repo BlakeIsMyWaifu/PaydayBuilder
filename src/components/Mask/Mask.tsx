@@ -107,7 +107,7 @@ const Mask: FC = () => {
 										>
 											<ItemName colour={itemColours[maskData.rarity]}>{maskName.replaceAll(' ', '\n')}</ItemName>
 											{maskName === equippedMask.name && <ItemEquipped />}
-											<ItemImage src={`/images/masks/${maskData.image}.png`} onMouseDown={event => event.preventDefault()} />
+											<ItemImage src={`/images/masks/${maskData.image || 'character_locked'}.png`} onMouseDown={event => event.preventDefault()} />
 										</Item>
 									})
 								}
