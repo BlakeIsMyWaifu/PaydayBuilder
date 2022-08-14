@@ -4,7 +4,8 @@ import { GlobalStyle } from 'GlobalStyle'
 import useMountEffect from 'hooks/useMountEffect'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import { FC } from 'react'
+import { useRouter } from 'next/router'
+import { FC, useEffect, useState } from 'react'
 import { SettingsProvider, UpdateSettingsContext } from 'state/settingsContext'
 import { useBuildsStore } from 'state/useBuildsStore'
 import styled from 'styled-components'
@@ -32,9 +33,24 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 
 	const { current, builds, importBuild } = useBuildsStore()
 
-	useMountEffect(() => {
-		importBuild(builds[current].data)
-	})
+	const router = useRouter()
+
+	const [hasImportedURL, setHasImportURL] = useState<boolean>(false)
+
+	useEffect(() => {
+		if (hasImportedURL || !router.isReady) return
+
+		setHasImportURL(true)
+
+		if (Object.keys(router.query).length) {
+			const buildData = Object.entries(router.query).map(([k, v]) => `${k}=${v}`).join('&')
+			importBuild(buildData, buildData !== builds[current].data)
+		} else {
+			importBuild(builds[current].data)
+		}
+		// Don't want to call this every time the build changes, only on page load
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [router.isReady])
 
 	useMountEffect(() => {
 		if (!isDev) {
