@@ -1,9 +1,7 @@
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Container, PanelContent, Title } from 'components/Home/Panel/Panel-Elements'
-import { Dispatch, FC, SetStateAction } from 'react'
+import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { FaFolderOpen, FaPlusSquare, FaTrash, FaUndoAlt } from 'react-icons/fa'
-import { addBuild, changeBuild, defaultBuild, removeBuild, updateName } from 'slices/buildsSlice'
+import { BuildSave, defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import { blue, red } from 'utils/colours'
 
 import { BuildButton, BuildName, BuildWrapper, Builds, NewBuild } from './BuildsPanel-Elements'
@@ -11,14 +9,17 @@ import { BuildButton, BuildName, BuildWrapper, Builds, NewBuild } from './Builds
 interface BuildsPanelProps {
 	toggleBuilds: boolean;
 	setToggleBuilds: Dispatch<SetStateAction<boolean>>;
-	setLoadedBuild: Dispatch<SetStateAction<LoadedBuild>>;
 }
 
-const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setLoadedBuild }) => {
+const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds }) => {
 
-	const dispatch = useAppDispatch()
+	const { current, builds, addBuild, removeBuild, updateName, changeBuild, importBuild } = useBuildsStore()
 
-	const { current, builds } = useAppSelector(state => state.builds)
+	const [serverBuilds, setServerBuilds] = useState<Record<number, BuildSave>>({})
+
+	useEffect(() => {
+		setServerBuilds(builds)
+	}, [setServerBuilds, builds])
 
 	return (
 		<Container toggle={toggleBuilds}>
@@ -28,7 +29,7 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setL
 
 				<Builds>
 					{
-						Object.values(builds).map(({ id, name, data }) => {
+						Object.values(serverBuilds).map(({ id, name, data }) => {
 							const isLastBuild = Object.keys(builds).length > 1
 							return <BuildWrapper key={id}>
 								<BuildName
@@ -36,19 +37,16 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setL
 									placeholder='New Build . . .'
 									value={name}
 									onChange={event => {
-										dispatch(updateName({
-											id,
-											name: event.target.value
-										}))
+										updateName(id, event.target.value)
 									}}
 								/>
 								{
 									id !== current ? <BuildButton title='Open Build' onClick={() => {
-										dispatch(changeBuild({ id }))
-										setLoadedBuild({ data, addNewBuild: false })
+										changeBuild(id)
+										importBuild(data, false)
 										setToggleBuilds(false)
 									}}> <FaFolderOpen /> </BuildButton> : <BuildButton title='Reset Build' onClick={() => {
-										setLoadedBuild({ data: defaultBuild, addNewBuild: false })
+										importBuild(defaultBuild, false)
 									}}> <FaUndoAlt /> </BuildButton>
 								}
 								<BuildButton
@@ -57,9 +55,9 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setL
 									onClick={() => {
 										if (isLastBuild) {
 											const prevId = Object.values(builds).reverse().find(value => value.id !== id)?.id ?? 0
-											dispatch(changeBuild({ id: prevId }))
-											dispatch(removeBuild(id))
-											setLoadedBuild({ data: builds[prevId].data, addNewBuild: false })
+											changeBuild(prevId)
+											removeBuild(id)
+											importBuild(builds[prevId].data, false)
 										}
 									}}
 								> <FaTrash /> </BuildButton>
@@ -69,8 +67,8 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds, setL
 				</Builds>
 
 				<NewBuild title='New Build' onClick={() => {
-					dispatch(addBuild({ changeToNewBuild: true }))
-					setLoadedBuild({ data: defaultBuild, addNewBuild: false })
+					addBuild(true)
+					importBuild(defaultBuild, false)
 				}}> <FaPlusSquare /> </NewBuild>
 
 			</PanelContent>

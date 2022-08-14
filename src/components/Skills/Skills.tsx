@@ -3,10 +3,9 @@ import HorizontalBar from 'components/HorizontalBar'
 import { ResetContainer, ResetText } from 'components/Reset-Elements'
 import skills, { SkillData, TreeData, TreeNames } from 'data/abilities/skills'
 import equipments from 'data/character/equipment'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import { FC, WheelEvent, useEffect, useState } from 'react'
-import { changeArmour, changeEquipment } from 'slices/characterSlice'
-import { resetSkills, resetTree } from 'slices/skillsSlice'
+import { useCharacterStore } from 'state/useCharacterStore'
+import { useSkillsStore } from 'state/useSkillsStore'
 
 import Info from './Info'
 import Points from './Points'
@@ -14,8 +13,6 @@ import { SubtreeLabel, SubtreeLabelWrapper, Tree, highlightActive } from './Skil
 import Subtree from './Subtree'
 
 const Skills: FC = () => {
-
-	const dispatch = useAppDispatch()
 
 	const [currentTree, setCurrentTree] = useState<TreeData>(skills.mastermind)
 
@@ -31,19 +28,24 @@ const Skills: FC = () => {
 		setCurrentTree(skills[treeNameOrder[index]])
 	}
 
-	const jackOfAllTrades = useAppSelector(state => state.skills.trees.technician.Engineer.upgrades['Jack of All Trades'])
-	const engineering = useAppSelector(state => state.skills.trees.technician.Engineer.upgrades.Engineering)
-	const equippedEquipment = useAppSelector(state => state.character.equipment)
+	const jackOfAllTrades = useSkillsStore(state => state.trees.technician.Engineer.upgrades['Jack of All Trades'])
+	const engineering = useSkillsStore(state => state.trees.technician.Engineer.upgrades.Engineering)
+	const equippedEquipment = useCharacterStore(state => state.equipment)
 
-	const ironMan = useAppSelector(state => state.skills.trees.enforcer.Tank.upgrades['Iron Man'])
-	const equippedArmour = useAppSelector(state => state.character.armour)
+	const ironMan = useSkillsStore(state => state.trees.enforcer.Tank.upgrades['Iron Man'])
+	const equippedArmour = useCharacterStore(state => state.armour)
+
+	const changeArmour = useCharacterStore(state => state.changeArmour)
+	const changeEquipment = useCharacterStore(state => state.changeEquipment)
+	const resetTree = useSkillsStore(state => state.resetTree)
+	const resetSkills = useSkillsStore(state => state.resetSkills)
 
 	useEffect(() => {
 		const handleKeys = (event: KeyboardEvent): void => {
 			if (event.key === 'f') {
-				dispatch(resetTree(currentTree.name))
+				resetTree(currentTree.name)
 			} else if (event.key === 'r') {
-				dispatch(resetSkills())
+				resetSkills()
 			}
 		}
 
@@ -52,24 +54,24 @@ const Skills: FC = () => {
 		return () => {
 			window.removeEventListener('keydown', handleKeys)
 		}
-	}, [currentTree, dispatch])
+	}, [currentTree, resetSkills, resetTree])
 
 	useEffect(() => {
 		if (jackOfAllTrades !== 'aced' && equippedEquipment.secondary) {
-			dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
+			changeEquipment('secondary', null)
 		}
-	}, [dispatch, equippedEquipment.secondary, jackOfAllTrades])
+	}, [changeEquipment, equippedEquipment.secondary, jackOfAllTrades])
 
 	useEffect(() => {
 		if (engineering !== 'basic' && engineering !== 'aced') {
-			if (equippedEquipment.primary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: Object.keys(equipments)[0], slot: 'primary' }))
-			if (equippedEquipment.secondary === 'Silenced Sentry Gun') dispatch(changeEquipment({ equipment: null, slot: 'secondary' }))
+			if (equippedEquipment.primary === 'Silenced Sentry Gun') changeEquipment('primary', Object.keys(equipments)[0])
+			if (equippedEquipment.secondary === 'Silenced Sentry Gun') changeEquipment('secondary', null)
 		}
-	}, [dispatch, engineering, equippedEquipment])
+	}, [changeEquipment, engineering, equippedEquipment])
 
 	useEffect(() => {
-		if (ironMan !== 'aced' && equippedArmour === 'Improved Combined Tactical Vest') dispatch(changeArmour('Two-Piece Suit'))
-	}, [ironMan, equippedArmour, dispatch])
+		if (ironMan !== 'aced' && equippedArmour === 'Improved Combined Tactical Vest') changeArmour('Two-Piece Suit')
+	}, [ironMan, equippedArmour, changeArmour])
 
 	return (
 		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "horizontalbar points" "skills info" "subtreelabels back"' title='Skills'>
@@ -106,8 +108,8 @@ const Skills: FC = () => {
 			</SubtreeLabelWrapper>
 
 			<ResetContainer>
-				<ResetText onClick={() => dispatch(resetTree(currentTree.name))}>[F] Reset this tree</ResetText>
-				<ResetText onClick={() => dispatch(resetSkills())}>[R] Reset all trees</ResetText>
+				<ResetText onClick={() => resetTree(currentTree.name)}>[F] Reset this tree</ResetText>
+				<ResetText onClick={() => resetSkills()}>[R] Reset all trees</ResetText>
 			</ResetContainer>
 
 			<Points />

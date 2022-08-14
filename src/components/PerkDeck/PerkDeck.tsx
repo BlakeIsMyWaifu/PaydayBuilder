@@ -3,9 +3,9 @@ import HorizontalBar from 'components/HorizontalBar'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info/Info-Elements'
 import { ItemContainer } from 'components/Item-Elements'
 import perkDecks, { PerkCard } from 'data/abilities/perks'
-import { useAppSelector } from 'hooks/reduxHooks'
 import useMountEffect from 'hooks/useMountEffect'
 import { FC, createRef, useRef, useState } from 'react'
+import { useAbilityStore } from 'state/useAbilitiesStore'
 
 import Perk from './Perks'
 
@@ -27,7 +27,7 @@ const PerkDeck: FC = () => {
 
 	const [hoveredCard, setHoveredCard] = useState<PerkCard | null>(null)
 
-	const equippedPerk = perkDecks[useAppSelector(state => state.abilities.perkdeck)]
+	const equippedPerk = perkDecks[useAbilityStore(state => state.perkDeck)]
 
 	const [selectedPerk, setSelectedPerk] = useState(equippedPerk)
 

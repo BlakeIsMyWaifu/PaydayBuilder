@@ -1,12 +1,12 @@
 import { Data, Head, Label, Row, Table } from 'components/Table/Table-Elements'
 import skills from 'data/abilities/skills'
-import { useAppSelector } from 'hooks/reduxHooks'
 import { FC } from 'react'
+import { useSkillsStore } from 'state/useSkillsStore'
 import { blue, dimBlue, grey } from 'utils/colours'
 
 const SkillTable: FC = () => {
 
-	const trees = useAppSelector(state => state.skills.trees)
+	const trees = useSkillsStore(state => state.trees)
 
 	return (
 		<Table>

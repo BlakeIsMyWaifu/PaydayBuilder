@@ -1,4 +1,4 @@
-import { Subtrees } from 'slices/skillsSlice'
+import { Subtrees } from 'state/useSkillsStore'
 
 const SkillTreePoints = (tree: string, trees: Record<string, Subtrees>): number => {
 	let treePoints = 0

@@ -8,8 +8,8 @@ import { twoDP } from 'utils/maths'
 interface BlackmarketStatsTableProps {
 	weapon: WeaponData;
 	totalStats: WeaponStats;
-	selectedItem: Modification<string>;
-	equippedMod?: Modification<string>;
+	selectedItem: Modification;
+	equippedMod?: Modification;
 }
 
 const BlackmarketStatsTable: FC<BlackmarketStatsTableProps> = ({ totalStats, selectedItem, equippedMod }) => {

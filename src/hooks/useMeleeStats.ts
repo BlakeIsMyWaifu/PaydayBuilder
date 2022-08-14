@@ -1,5 +1,6 @@
 import melees, { MeleeList, MeleeStats } from 'data/weapons/melees'
-import { CustomStatsHook, useAppSelector } from 'hooks/reduxHooks'
+import { CustomStatsHook } from 'hooks/customStatsHook'
+import { useSkillsStore } from 'state/useSkillsStore'
 
 const useMeleeStats = (meleeName: MeleeList): CustomStatsHook<MeleeStats> => {
 
@@ -15,14 +16,14 @@ const useMeleeStats = (meleeName: MeleeList): CustomStatsHook<MeleeStats> => {
 			unequipDelay: toTwoDecimal(meleeStats.unequipDelay)
 		}
 		if (specialType) {
-			stats['specialType'] = specialType
-			stats['specialTime'] = specialTime
+			stats.specialType = specialType
+			stats.specialTime = specialTime
 		}
 		return stats
 	}
 
-	const innerPockets = useAppSelector(state => state.skills.trees.ghost['Artful Dodger'].upgrades['Inner Pockets'])
-	const pumpingIron = useAppSelector(state => state.skills.trees.fugitive['Brawler'].upgrades['Pumping Iron'])
+	const innerPockets = useSkillsStore(state => state.trees.ghost['Artful Dodger'].upgrades['Inner Pockets'])
+	const pumpingIron = useSkillsStore(state => state.trees.fugitive.Brawler.upgrades['Pumping Iron'])
 
 	const skillStats = (): MeleeStats => {
 		const stats: MeleeStats = {

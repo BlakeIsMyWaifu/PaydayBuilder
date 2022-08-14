@@ -1,7 +1,8 @@
 import Container from 'components/Container'
-import useBuildURLImport from 'hooks/useBuildURLImport'
-import { FC, ReactElement, useState } from 'react'
+import { useRouter } from 'next/router'
+import { FC, ReactElement, useEffect, useState } from 'react'
 import { FaCog } from 'react-icons/fa'
+import { useBuildsStore } from 'state/useBuildsStore'
 
 import BuildSelector from './BuildSelector'
 import { ConfigContainer, SettingsButton, VersionContainer, VersionText } from './Home-Elements'
@@ -21,20 +22,26 @@ const Home: FC = () => {
 
 	const [toggleSettings, setToggleSettings] = useState(false)
 
-	const setData = useBuildURLImport()
+	const router = useRouter()
+
+	const { current, builds } = useBuildsStore()
+
+	useEffect(() => {
+		router.push(`?${builds[current].data}`)
+		// If router is added, it will endlessly loop
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [current, builds])
 
 	return (
 		<>
 			<BuildsPanel
 				toggleBuilds={toggleBuilds}
 				setToggleBuilds={setToggleBuilds}
-				setLoadedBuild={setData}
 			/>
 
 			<SettingsPanel
 				toggleSettings={toggleSettings}
 				setToggleSettings={setToggleSettings}
-				setLoadedBuild={setData}
 			/>
 
 			<Container
@@ -48,7 +55,7 @@ const Home: FC = () => {
 
 				<VersionContainer>
 					<VersionText>Payday Version: 222</VersionText>
-					<VersionText>Builder Version: 0.3.0</VersionText>
+					<VersionText>Builder Version: 0.3.1</VersionText>
 				</VersionContainer>
 
 				<ConfigContainer>
@@ -57,7 +64,6 @@ const Home: FC = () => {
 						toggleBuilds={toggleBuilds}
 						setToggleBuilds={setToggleBuilds}
 						setToggleSettings={setToggleSettings}
-						setLoadedBuild={setData}
 					/>
 
 					<SettingsButton onClick={() => {

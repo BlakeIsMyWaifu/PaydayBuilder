@@ -1,8 +1,11 @@
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
 import { Slot, WeaponData } from 'data/weapons/guns/weaponTypes'
-import { useAppSelector } from 'hooks/reduxHooks'
+import useMountEffect from 'hooks/useMountEffect'
 import { FC, useMemo, useState } from 'react'
+import { useArmouryStore } from 'state/useArmouryStore'
+import { useBuildsStore } from 'state/useBuildsStore'
+import { useWeaponsStore } from 'state/useWeaponsStore'
 
 import Armoury from './Armoury'
 import { BuildTab } from './Armoury/BuildsArmoury/BuildsArmoury'
@@ -16,13 +19,17 @@ const Weapons: FC<WeaponsProps> = ({ slot }) => {
 
 	const data: Record<string, Record<string, WeaponData>> = useMemo(() => slot === 'primary' ? primary : secondary, [slot])
 
-	const armoury = useAppSelector(state => state.armoury[slot])
-	const equippedWeaponId = useAppSelector(state => state.weapons[slot])
-	const { current, builds } = useAppSelector(state => state.builds)
+	const armoury = useArmouryStore(state => state[slot])
+	const equippedWeaponId = useWeaponsStore(state => state[slot])
+	const { current, builds } = useBuildsStore()
 
 	const slotParameter = slot === 'primary' ? 'ap' : 'as'
 
-	const [enableBuy, setEnableBuy] = useState<boolean>(!(Object.keys(armoury).length - 1))
+	const [enableBuy, setEnableBuy] = useState(true)
+
+	useMountEffect(() => {
+		setEnableBuy(builds[current].data.includes(`&${slotParameter}=_&`))
+	})
 
 	const [buildTabs, setBuildTabs] = useState<BuildTab[]>(Object.values(builds).map(build => ({
 		...build,

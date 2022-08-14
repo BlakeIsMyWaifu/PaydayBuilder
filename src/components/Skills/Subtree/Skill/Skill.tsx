@@ -1,7 +1,6 @@
 import { SkillData, SubtreeData, TreeNames } from 'data/abilities/skills'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import { Dispatch, FC, MouseEvent, SetStateAction, useState } from 'react'
-import { changeSkillState } from 'slices/skillsSlice'
+import { useSkillsStore } from 'state/useSkillsStore'
 import { grey } from 'utils/colours'
 
 import { Aced, Container, Icon, Label, Locked, SkillIcon } from './Skill-Elements'
@@ -15,9 +14,7 @@ export interface SkillProps {
 
 const Skill: FC<SkillProps> = ({ treeName, subtree, skill, setSkillHovered }) => {
 
-	const dispatch = useAppDispatch()
-
-	const subtreeState = useAppSelector(state => state.skills.trees[treeName][subtree.name])
+	const subtreeState = useSkillsStore(state => state.trees[treeName][subtree.name])
 
 	const skillState = subtreeState.upgrades[skill.name]
 
@@ -32,7 +29,8 @@ const Skill: FC<SkillProps> = ({ treeName, subtree, skill, setSkillHovered }) =>
 
 	const tierCost = [0, 1, 3, 16]
 
-	const points = useAppSelector(state => state.skills.points)
+	const points = useSkillsStore(state => state.points)
+	const changeSkillState = useSkillsStore(state => state.changeSkillState)
 
 	const clickSkills = (event: MouseEvent): void => {
 		event.preventDefault()
@@ -80,13 +78,13 @@ const Skill: FC<SkillProps> = ({ treeName, subtree, skill, setSkillHovered }) =>
 			}
 		}
 
-		dispatch(changeSkillState({
+		changeSkillState({
 			tree: treeName,
 			subtree: subtree.name,
-			skill: skill,
+			skill,
 			oldLevel: skillState,
 			direction: event.button ? 'downgrade' : 'upgrade'
-		}))
+		})
 	}
 
 	return (

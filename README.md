@@ -50,7 +50,7 @@ Go to [http://localhost:3000](http://localhost:3000)
 - TypeScript
 - React
 - NextJS
-- Redux
+- Zustand
 - Styled Components
 
 ### How to contribute

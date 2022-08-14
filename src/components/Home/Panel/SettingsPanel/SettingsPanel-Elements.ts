@@ -18,6 +18,11 @@ export const SettingsTitle = styled.h1`
 	margin-left: 2.5rem;
 `
 
+export const SettingsSubtitle = styled.h2`
+	font-size: 1.2rem;
+	margin-top: 2.5rem;
+`
+
 export const SettingsPanelContent = styled(PanelContent)`
 	height: calc(100% - 3rem);
 `

@@ -3,21 +3,21 @@ import DetectionRisk from 'components/DetectionRisk'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info/Info-Elements'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
 import melees from 'data/weapons/melees'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import { FC, useState } from 'react'
-import { changeMelee } from 'slices/weaponsSlice'
+import { useSettingsContext } from 'state/settingsContext'
+import { useWeaponsStore } from 'state/useWeaponsStore'
 import { itemColours } from 'utils/colours'
 
 import MeleeStatsTable from './MeleeStatsTable'
 
 export const Melee: FC = () => {
 
-	const dispatch = useAppDispatch()
-
-	const equippedMelee = melees[useAppSelector(state => state.weapons.melee)]
+	const equippedMelee = melees[useWeaponsStore(state => state.melee)]
 	const [selectedMelee, setSelectedMelee] = useState(equippedMelee)
 
-	const leftFacing = useAppSelector(state => state.settings.leftFacing)
+	const changeMelee = useWeaponsStore(state => state.changeMelee)
+
+	const { leftFacing } = useSettingsContext().state
 
 	return (
 		<Container
@@ -34,7 +34,7 @@ export const Melee: FC = () => {
 							width={192}
 							rowAmount={8}
 							selected={melee.name === selectedMelee.name}
-							onClick={() => melee.name === selectedMelee.name ? dispatch(changeMelee(melee.name)) : setSelectedMelee(melee)}
+							onClick={() => melee.name === selectedMelee.name ? changeMelee(melee.name) : setSelectedMelee(melee)}
 						>
 							<ItemName colour={itemColours[melee.source.rarity]}>{melee.name}</ItemName>
 							{melee.name === equippedMelee.name && <ItemEquipped />}

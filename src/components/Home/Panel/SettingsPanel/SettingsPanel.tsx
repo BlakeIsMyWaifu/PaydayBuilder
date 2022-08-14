@@ -1,32 +1,27 @@
 import { Container, Title } from 'components/Home/Panel/Panel-Elements'
 import TextInput from 'components/Home/Panel/SettingsPanel/TextIO/TextInput'
 import TextOutput from 'components/Home/Panel/SettingsPanel/TextIO/TextOutput'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import useBuildURLExport from 'hooks/useBuildURLExport'
-import { LoadedBuild } from 'hooks/useBuildURLImport'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaGithub } from 'react-icons/fa'
-import { changeLeftFacing } from 'slices/settingsSlice'
+import { useSettingsContext } from 'state/settingsContext'
+import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
+import { useSettingsStore } from 'state/useSettingsStore'
 import { isDev } from 'utils/isDev'
 
 import CheckboxInput from './CheckboxInput'
-import JsonIO from './JsonIO'
-import { ContactIconWrapper, ContactLink, ContactText, Setting, SettingsPanelContent, SettingsSingleLine, SettingsTitle } from './SettingsPanel-Elements'
+import { ContactIconWrapper, ContactLink, ContactText, Setting, SettingsPanelContent, SettingsSingleLine, SettingsSubtitle, SettingsTitle } from './SettingsPanel-Elements'
 
 interface SettingsPanelProps {
 	toggleSettings: boolean;
 	setToggleSettings: Dispatch<SetStateAction<boolean>>;
-	setLoadedBuild: Dispatch<SetStateAction<LoadedBuild>>;
 }
 
-const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettings, setLoadedBuild }) => {
+const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettings }) => {
 
-	const dispatch = useAppDispatch()
+	const toggleLeftFacing = useSettingsStore(state => state.toggleLeftFacing)
+	const { current, builds, importBuild } = useBuildsStore()
 
-	const { leftFacing } = useAppSelector(state => state.settings)
-	const { current, builds } = useAppSelector(state => state.builds)
-
-	const buildSimple = useBuildURLExport({ simple: true })
+	const { leftFacing } = useSettingsContext().state
 
 	return (
 		<Container toggle={toggleSettings}>
@@ -34,12 +29,14 @@ const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettin
 
 				<Title>Settings</Title>
 
+				<SettingsSubtitle>Import / Export</SettingsSubtitle>
+
 				<Setting>
 					<SettingsTitle>Import from URL</SettingsTitle>
 					<TextInput
 						placeholder='Example: https://pd2builder.netlify.app/?s=10-90-90-900'
 						callback={input => {
-							setLoadedBuild({ data: input, addNewBuild: true })
+							importBuild(input, builds[current].data !== defaultBuild)
 							setToggleSettings(false)
 						}}
 					/>
@@ -59,17 +56,14 @@ const SettingsPanel: FC<SettingsPanelProps> = ({ toggleSettings, setToggleSettin
 
 				<Setting>
 					<SettingsTitle>Export to pd2builder</SettingsTitle>
-					<TextOutput value={`https://pd2builder.netlify.app/?${buildSimple}`} callback={value => navigator.clipboard.writeText(value)} />
+					<TextOutput value={`https://pd2builder.netlify.app/?${builds[current].data.split('&m=')[0]}`} callback={value => navigator.clipboard.writeText(value)} />
 				</Setting>
 
-				<Setting>
-					<SettingsTitle>Import / Export JSON</SettingsTitle>
-					<JsonIO setToggleSettings={setToggleSettings} />
-				</Setting>
+				<SettingsSubtitle>Appearance</SettingsSubtitle>
 
 				<SettingsSingleLine>
 					<SettingsTitle>Left Facing Weapons</SettingsTitle>
-					<CheckboxInput defaultState={leftFacing} callback={isToggled => dispatch(changeLeftFacing(isToggled))} />
+					<CheckboxInput state={leftFacing} callback={toggleLeftFacing} />
 				</SettingsSingleLine>
 
 			</SettingsPanelContent>
