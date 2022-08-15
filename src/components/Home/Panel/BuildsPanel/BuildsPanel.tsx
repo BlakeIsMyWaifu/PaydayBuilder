@@ -37,7 +37,7 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds }) =>
 									placeholder='New Build . . .'
 									value={name}
 									onChange={event => {
-										updateName(id, event.target.value)
+										updateName(event.target.value, id)
 									}}
 								/>
 								{

@@ -9,7 +9,7 @@ import create from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
-import { updateDataPartial } from './useBuildsStore'
+import { updateData } from './useBuildsStore'
 
 // State
 
@@ -62,5 +62,5 @@ export const useAbilityStore = create<AbilityStore>()(devtools(subscribeWithSele
 // Subscriptions
 
 useAbilityStore.subscribe(state => state.perkDeck, state => {
-	updateDataPartial('p', encodePerkDeck(state))
+	updateData('p', encodePerkDeck(state))
 })

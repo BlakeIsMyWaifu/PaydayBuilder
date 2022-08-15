@@ -5,7 +5,7 @@ import create from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
-import { updateDataPartial } from './useBuildsStore'
+import { updateData } from './useBuildsStore'
 
 // State
 
@@ -131,9 +131,9 @@ export const useArmouryStore = create<ArmouryStore>()(devtools(subscribeWithSele
 // Subscriptions
 
 useArmouryStore.subscribe(state => state.primary, state => {
-	updateDataPartial('ap', encodeArmoury(state))
+	updateData('ap', encodeArmoury(state))
 })
 
 useArmouryStore.subscribe(state => state.secondary, state => {
-	updateDataPartial('as', encodeArmoury(state))
+	updateData('as', encodeArmoury(state))
 })

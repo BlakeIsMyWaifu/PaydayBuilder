@@ -8,7 +8,7 @@ import create from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
-import { updateDataPartial } from './useBuildsStore'
+import { updateData } from './useBuildsStore'
 
 // State
 
@@ -77,17 +77,17 @@ export const useCharacterStore = create<CharacterStore>()(devtools(subscribeWith
 // Subscriptions
 
 useCharacterStore.subscribe(state => state.mask, state => {
-	updateDataPartial('k', encodeMask(state))
+	updateData('k', encodeMask(state))
 })
 
 useCharacterStore.subscribe(state => state.character, state => {
-	updateDataPartial('c', encodeCharacter(state))
+	updateData('c', encodeCharacter(state))
 })
 
 useCharacterStore.subscribe(state => state.armour, state => {
-	updateDataPartial('a', encodeArmour(state))
+	updateData('a', encodeArmour(state))
 })
 
 useCharacterStore.subscribe(state => state.equipment, state => {
-	updateDataPartial('d', encodeEquipment(state))
+	updateData('d', encodeEquipment(state))
 })

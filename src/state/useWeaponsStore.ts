@@ -6,7 +6,7 @@ import create from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
-import { updateDataPartial } from './useBuildsStore'
+import { updateData } from './useBuildsStore'
 
 // State
 
@@ -60,13 +60,13 @@ export const useWeaponsStore = create<WeaponsStore>()(devtools(subscribeWithSele
 // Subscriptions
 
 useWeaponsStore.subscribe(state => [state.primary, state.secondary], ([primaryId, secondaryId]) => {
-	updateDataPartial('w', encodeWeapons(primaryId, secondaryId))
+	updateData('w', encodeWeapons(primaryId, secondaryId))
 })
 
 useWeaponsStore.subscribe(state => state.throwable, state => {
-	updateDataPartial('t', encodeThrowable(state))
+	updateData('t', encodeThrowable(state))
 })
 
 useWeaponsStore.subscribe(state => state.melee, state => {
-	updateDataPartial('m', encodeMelee(state))
+	updateData('m', encodeMelee(state))
 })

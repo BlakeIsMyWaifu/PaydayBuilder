@@ -45,6 +45,8 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 			nonEncodedQuery.s = router.query.s?.toString()
 				.replaceAll(',', '%2C')
 				.replaceAll('@', '%40')
+			nonEncodedQuery.n = router.query.n?.toString()
+				.replaceAll(' ', '+')
 			const urlData = Object.entries(nonEncodedQuery).map(([k, v]) => `${k}=${v}`).join('&')
 			importBuild(urlData, urlData !== builds[current].data && builds[current].data !== defaultBuild)
 		} else {

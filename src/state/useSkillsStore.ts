@@ -6,7 +6,7 @@ import create from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
-import { updateDataPartial } from './useBuildsStore'
+import { updateData } from './useBuildsStore'
 
 // State
 
@@ -214,5 +214,5 @@ export const useSkillsStore = create<SkillsStore>()(devtools(subscribeWithSelect
 // Subscriptions
 
 useSkillsStore.subscribe(state => state.trees, state => {
-	updateDataPartial('s', encodeSkills(state))
+	updateData('s', encodeSkills(state))
 })

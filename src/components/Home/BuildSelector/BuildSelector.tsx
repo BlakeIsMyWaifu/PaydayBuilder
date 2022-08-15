@@ -57,7 +57,7 @@ const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, 
 					placeholder='New Build . . .'
 					value={builds[current].name}
 					onChange={event => {
-						updateName(current, event.target.value)
+						updateName(event.target.value)
 					}}
 				/>
 				<Arrow {...arrowProps(1)}> <FaChevronRight /> </Arrow>

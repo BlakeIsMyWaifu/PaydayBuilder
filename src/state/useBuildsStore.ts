@@ -25,7 +25,7 @@ interface BuildsStateSlice {
 	builds: Record<number, BuildSave>;
 }
 
-export const defaultBuild = 's=0-90-90-9000&p=0&a=0&t=6&d=0&m=0&k=100&c=0&ap=_&as=_&w=0-0'
+export const defaultBuild = 's=0-90-90-9000&p=0&a=0&t=6&d=0&m=0&k=100&c=0&ap=_&as=_&w=0-0&n=_'
 
 const initialState: BuildsStateSlice = {
 	current: 0,
@@ -45,9 +45,8 @@ const createStateSlice: Slice<BuildsStore, BuildsStateSlice, Middlewares> = () =
 interface BuildsActionSlice {
 	addBuild: (equipBuild: boolean) => void;
 	removeBuild: (id: number) => void;
-	updateName: (id: number, name: string) => void;
-	updateData: (id: number, data: string) => void;
-	updateDataPartial: (key: string, value: string) => void;
+	updateName: (name: string, id?: number) => void;
+	updateData: (key: string, value: string) => void;
 	changeBuild: (id: number) => void;
 	importBuild: (buildData: string, newBuild?: boolean) => void;
 }
@@ -75,29 +74,24 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice, Middlewares> = (s
 		delete builds[id]
 		set({ builds }, ...actionName('removeBuild'))
 	},
-	updateName: (id, name) => {
+	updateName: (name, id) => {
+		const buildId = id ?? get().current
+
+		const buildData = new URLSearchParams(get().builds[buildId].data)
+		buildData.set('n', name || '_')
+
 		set(state => ({
 			builds: {
 				...state.builds,
-				[id]: {
-					...state.builds[id],
-					name
+				[buildId]: {
+					...state.builds[buildId],
+					name,
+					data: buildData.toString()
 				}
 			}
 		}), ...actionName('updateName'))
 	},
-	updateData: (id, data) => {
-		set(state => ({
-			builds: {
-				...state.builds,
-				[id]: {
-					...state.builds[id],
-					data
-				}
-			}
-		}), ...actionName('updateData'))
-	},
-	updateDataPartial: (key, value) => {
+	updateData: (key, value) => {
 		const { data, id } = get().builds[get().current]
 		const parameters = new URLSearchParams(data)
 		parameters.set(key, value)
@@ -109,7 +103,7 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice, Middlewares> = (s
 					data: parameters.toString()
 				}
 			}
-		}), ...actionName('updateDataPartial'))
+		}), ...actionName('updateData'))
 	},
 	changeBuild: id => {
 		set({ current: id }, ...actionName('changeBuild'))
@@ -178,6 +172,10 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice, Middlewares> = (s
 				const [primaryIndex, secondaryIndex] = decodeWeapons(value)
 				changeWeapon('primary', primaryIndex)
 				changeWeapon('secondary', secondaryIndex)
+			},
+			n: value => {
+				const name = value === '_' ? '' : value
+				get().updateName(name)
 			}
 		}
 
@@ -196,4 +194,4 @@ export const useBuildsStore = create<BuildsStore>()(devtools(persist((...a) => (
 	...createActionSlice(...a)
 }), { name: 'Builds' }), { name: 'Builds Store' }))
 
-export const { updateDataPartial } = useBuildsStore.getState()
+export const { updateData } = useBuildsStore.getState()
