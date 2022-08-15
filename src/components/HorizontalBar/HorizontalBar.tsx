@@ -1,4 +1,4 @@
-import { FC, RefObject, WheelEvent, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { FC, RefObject, WheelEvent, useEffect, useRef, useState } from 'react'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 import { FlattenInterpolation } from 'styled-components'
 
@@ -41,7 +41,7 @@ const HorizontalBar: FC<HorizontalActionBarProps> = ({ active, items, scroll }) 
 		updateSize()
 	}, [items])
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		window.addEventListener('resize', updateSize)
 		updateSize()
 		return () => window.removeEventListener('resize', updateSize)
