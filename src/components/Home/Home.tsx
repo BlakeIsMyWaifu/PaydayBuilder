@@ -1,14 +1,12 @@
 import Container from 'components/Container'
-import { useRouter } from 'next/router'
-import { FC, ReactElement, useEffect, useState } from 'react'
+import { FC, ReactElement, useState } from 'react'
 import { FaCog } from 'react-icons/fa'
-import { useBuildsStore } from 'state/useBuildsStore'
 
 import BuildSelector from './BuildSelector'
 import { ConfigContainer, SettingsButton, VersionContainer, VersionText } from './Home-Elements'
 import BuildsPanel from './Panel/BuildsPanel'
 import SettingsPanel from './Panel/SettingsPanel'
-import Tabs from './Tabs/Tab'
+import Tabs from './Tabs'
 
 export interface HoverInfo {
 	title: string;
@@ -21,16 +19,6 @@ const Home: FC = () => {
 	const [toggleBuilds, setToggleBuilds] = useState(false)
 
 	const [toggleSettings, setToggleSettings] = useState(false)
-
-	const router = useRouter()
-
-	const { current, builds } = useBuildsStore()
-
-	useEffect(() => {
-		router.push(`?${builds[current].data}`)
-		// If router is added, it will endlessly loop
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [current, builds])
 
 	return (
 		<>
@@ -55,7 +43,7 @@ const Home: FC = () => {
 
 				<VersionContainer>
 					<VersionText>Payday Version: 222</VersionText>
-					<VersionText>Builder Version: 0.3.1</VersionText>
+					<VersionText>Builder Version: 0.3.2</VersionText>
 				</VersionContainer>
 
 				<ConfigContainer>
