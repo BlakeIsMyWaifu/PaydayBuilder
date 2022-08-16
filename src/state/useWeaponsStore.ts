@@ -59,7 +59,8 @@ export const useWeaponsStore = create<WeaponsStore>()(devtools(subscribeWithSele
 
 // Subscriptions
 
-useWeaponsStore.subscribe(state => [state.primary, state.secondary], ([primaryId, secondaryId]) => {
+useWeaponsStore.subscribe(state => [state.primary, state.secondary], ([primaryId, secondaryId], [prevPrimaryId, prevSecondaryId]) => {
+	if (primaryId === prevPrimaryId && secondaryId === prevSecondaryId) return
 	updateData('w', encodeWeapons(primaryId, secondaryId))
 })
 

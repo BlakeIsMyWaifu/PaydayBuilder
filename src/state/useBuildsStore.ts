@@ -103,7 +103,7 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice, Middlewares> = (s
 					data: parameters.toString()
 				}
 			}
-		}), ...actionName('updateData'))
+		}), ...actionName(`updateData/${key}`))
 	},
 	changeBuild: id => {
 		set({ current: id }, ...actionName('changeBuild'))
@@ -175,6 +175,7 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice, Middlewares> = (s
 			},
 			n: value => {
 				const name = value === '_' ? '' : value
+				if (get().builds[get().current].name === name) return
 				get().updateName(name)
 			}
 		}

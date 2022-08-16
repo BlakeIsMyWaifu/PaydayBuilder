@@ -98,7 +98,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 					<BackgroundImage src='/images/loading_bg.png' />
 				</BackgroundContainer>
 
-				<Component {...pageProps} />
+				{hasImportedURL && <Component {...pageProps} />}
 
 			</div>
 		</SettingsProvider>

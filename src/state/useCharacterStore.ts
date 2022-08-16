@@ -88,6 +88,7 @@ useCharacterStore.subscribe(state => state.armour, state => {
 	updateData('a', encodeArmour(state))
 })
 
-useCharacterStore.subscribe(state => state.equipment, state => {
+useCharacterStore.subscribe(state => state.equipment, (state, prevState) => {
+	if (JSON.stringify(state) === JSON.stringify(prevState)) return
 	updateData('d', encodeEquipment(state))
 })
