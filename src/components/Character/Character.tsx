@@ -13,6 +13,11 @@ const Character: FC = () => {
 
 	const changeCharacter = useCharacterStore(state => state.changeCharacter)
 
+	const equipCharacterHandler = (): void => {
+		if (selectedCharacter.name === equippedCharacter.name) return
+		changeCharacter(selectedCharacter.name)
+	}
+
 	return (
 		<Container title='Character'>
 
@@ -24,7 +29,7 @@ const Character: FC = () => {
 							width={128}
 							rowAmount={10}
 							selected={character.name === selectedCharacter.name}
-							onClick={() => character.name === selectedCharacter.name ? changeCharacter(character.name) : setSelectedCharacter(character)}
+							onClick={() => character.name === selectedCharacter.name ? equipCharacterHandler() : setSelectedCharacter(character)}
 						>
 							<ItemName colour={itemColours[character.source.rarity]}>{character.name}</ItemName>
 							{character.name === equippedCharacter.name && <ItemEquipped />}

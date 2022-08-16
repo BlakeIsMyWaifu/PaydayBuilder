@@ -22,6 +22,11 @@ const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPer
 
 	const changeThrowable = useWeaponsStore(state => state.changeThrowable)
 
+	const equipPerkDeckHandler = (): void => {
+		if (selectedPerk.name === equippedPerk.name) return
+		changePerkDeck(selectedPerk.name)
+	}
+
 	return (
 		<Container ref={perkref}>
 
@@ -36,7 +41,7 @@ const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPer
 				if (perk.throwable || equippedPerk.throwable) {
 					changeThrowable(throwable.name)
 				}
-				changePerkDeck(perk.name)
+				equipPerkDeckHandler()
 			}}>
 				{
 					perk.cards.map((card, i) => {

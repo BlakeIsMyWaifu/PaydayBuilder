@@ -133,7 +133,6 @@ export const useArmouryStore = create<ArmouryStore>()(devtools(subscribeWithSele
 // Subscriptions
 
 useArmouryStore.subscribe(state => state.primary, state => {
-	console.log(state)
 	updateData('ap', encodeArmoury(state))
 })
 

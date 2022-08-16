@@ -18,6 +18,11 @@ export const Armour: FC = () => {
 
 	const changeArmour = useCharacterStore(state => state.changeArmour)
 
+	const equipArmourHandler = (): void => {
+		if (selectedArmour.name === equippedArmour.name) return
+		changeArmour(selectedArmour.name)
+	}
+
 	return (
 		<Container
 			rows='4rem 8fr 120px 4rem'
@@ -34,7 +39,7 @@ export const Armour: FC = () => {
 							width={196}
 							rowAmount={5}
 							selected={armour.name === selectedArmour.name}
-							onClick={() => armour.name === selectedArmour.name && !locked ? changeArmour(armour.name) : setSelectedArmour(armour)}
+							onClick={() => armour.name === selectedArmour.name && !locked ? equipArmourHandler() : setSelectedArmour(armour)}
 						>
 							<ItemName>{armour.name}</ItemName>
 							{armour.name === equippedArmour.name && <ItemEquipped />}

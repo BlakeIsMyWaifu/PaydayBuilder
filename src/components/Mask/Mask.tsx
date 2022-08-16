@@ -67,6 +67,11 @@ const Mask: FC = () => {
 		}
 	}, [selectedTab, addToCategory])
 
+	const equipMaskHandler = (): void => {
+		if (selectedMask.name === equippedMask.name) return
+		changeMask(selectedMask.name)
+	}
+
 	return (
 		<Container rows='4rem 2rem 8fr 4rem' areas='"title title" "horizontalbar infotabs" "items info" "items back"' title='Mask'>
 
@@ -103,7 +108,7 @@ const Mask: FC = () => {
 											width={128}
 											rowAmount={10}
 											selected={maskName === selectedMask.name}
-											onClick={() => maskName === selectedMask.name ? changeMask(maskName) : setSelectedMask(maskData)}
+											onClick={() => maskName === selectedMask.name ? equipMaskHandler() : setSelectedMask(maskData)}
 										>
 											<ItemName colour={itemColours[maskData.rarity]}>{maskName.replaceAll(' ', '\n')}</ItemName>
 											{maskName === equippedMask.name && <ItemEquipped />}

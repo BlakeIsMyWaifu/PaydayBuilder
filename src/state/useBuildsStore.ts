@@ -180,7 +180,9 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice, Middlewares> = (s
 			}
 		}
 
-		parameters.forEach((value, key) => decodeAndDispatch[key]?.(value))
+		parameters.forEach((value, key) => {
+			decodeAndDispatch[key]?.(value)
+		})
 	}
 })
 

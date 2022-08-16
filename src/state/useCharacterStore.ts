@@ -45,17 +45,21 @@ interface CharacterActionSlice {
 
 const actionName = createActionName('character')
 
-const createActionSlice: Slice<CharacterStore, CharacterActionSlice> = set => ({
+const createActionSlice: Slice<CharacterStore, CharacterActionSlice> = (set, get) => ({
 	changeMask: mask => {
+		if (mask === get().mask) return
 		set({ mask }, ...actionName('changeMask'))
 	},
 	changeCharacter: character => {
+		if (character === get().character) return
 		set({ character }, ...actionName('changeCharacter'))
 	},
 	changeArmour: armour => {
+		if (armour === get().armour) return
 		set({ armour }, ...actionName('changeArmour'))
 	},
 	changeEquipment: (slot, equipment) => {
+		if (equipment === get().equipment[slot]) return
 		set(state => ({
 			equipment: {
 				...state.equipment,
@@ -88,7 +92,6 @@ useCharacterStore.subscribe(state => state.armour, state => {
 	updateData('a', encodeArmour(state))
 })
 
-useCharacterStore.subscribe(state => state.equipment, (state, prevState) => {
-	if (JSON.stringify(state) === JSON.stringify(prevState)) return
+useCharacterStore.subscribe(state => state.equipment, state => {
 	updateData('d', encodeEquipment(state))
 })

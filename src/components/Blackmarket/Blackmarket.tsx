@@ -74,7 +74,7 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, mo
 	const removeMod = useArmouryStore(state => state.removeMod)
 
 	const equipModHelper = (): void => {
-		if (!selectedItem) return
+		if (selectedItem === equippedModifications[selectedTab]) return
 		changeMod(slot, id, selectedItem)
 	}
 

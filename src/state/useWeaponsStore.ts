@@ -36,14 +36,17 @@ interface WeaponsActionSlice {
 
 const actionName = createActionName('weapons')
 
-const createActionSlice: Slice<WeaponsStore, WeaponsActionSlice> = set => ({
+const createActionSlice: Slice<WeaponsStore, WeaponsActionSlice> = (set, get) => ({
 	changeWeapon: (slot, weaponId) => {
+		if (weaponId === get()[slot]) return
 		set({ [slot]: weaponId }, ...actionName('changeWeapon'))
 	},
 	changeThrowable: throwable => {
+		if (throwable === get().throwable) return
 		set({ throwable }, ...actionName('changeThrowable'))
 	},
 	changeMelee: melee => {
+		if (melee === get().melee) return
 		set({ melee }, ...actionName('changeMelee'))
 	}
 })

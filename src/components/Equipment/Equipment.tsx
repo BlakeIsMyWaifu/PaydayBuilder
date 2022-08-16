@@ -38,10 +38,14 @@ const Equipment: FC = () => {
 	const equipEquipment = (button: number): void => {
 		if (button !== 0 && button !== 2) return
 		if (selectedEquipment.name === 'Silenced Sentry Gun' && !engineeringUnlocked) return
+
 		const slot = button ? 'secondary' : 'primary'
 		if (slot === 'primary' && selectedEquipment.name === equippedSecondary) changeEquipment('secondary', null)
 		if (slot === 'secondary' && jackOfAllTrades !== 'aced') return
 		if (slot === 'secondary' && selectedEquipment.name === equippedPrimary) return
+
+		if (slot === 'primary' && selectedEquipment.name === equippedPrimary) return
+		if (slot === 'secondary' && selectedEquipment.name === equippedSecondary) return
 		changeEquipment(slot, selectedEquipment.name)
 	}
 

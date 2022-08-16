@@ -19,6 +19,11 @@ export const Melee: FC = () => {
 
 	const { leftFacing } = useSettingsContext().state
 
+	const equipMeleeHander = (): void => {
+		if (selectedMelee.name === equippedMelee.name) return
+		changeMelee(selectedMelee.name)
+	}
+
 	return (
 		<Container
 			rows='4rem 8fr 120px 4rem'
@@ -34,7 +39,7 @@ export const Melee: FC = () => {
 							width={192}
 							rowAmount={8}
 							selected={melee.name === selectedMelee.name}
-							onClick={() => melee.name === selectedMelee.name ? changeMelee(melee.name) : setSelectedMelee(melee)}
+							onClick={() => melee.name === selectedMelee.name ? equipMeleeHander() : setSelectedMelee(melee)}
 						>
 							<ItemName colour={itemColours[melee.source.rarity]}>{melee.name}</ItemName>
 							{melee.name === equippedMelee.name && <ItemEquipped />}

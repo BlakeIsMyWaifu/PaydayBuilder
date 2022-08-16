@@ -44,8 +44,9 @@ interface AbilityActionSlice {
 
 const actionName = createActionName('abilities')
 
-const createActionSlice: Slice<AbilityStore, AbilityActionSlice> = set => ({
+const createActionSlice: Slice<AbilityStore, AbilityActionSlice> = (set, get) => ({
 	changePerkDeck: perkdeck => {
+		if (perkdeck === get().perkDeck) return
 		set({ perkDeck: perkdeck }, ...actionName('changePerkDeck'))
 	}
 })

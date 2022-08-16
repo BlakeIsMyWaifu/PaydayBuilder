@@ -17,6 +17,11 @@ const Throwable: FC = () => {
 
 	const changeThrowable = useWeaponsStore(state => state.changeThrowable)
 
+	const equipThrowableHandler = (): void => {
+		if (selectedThrowable.name === equippedThrowable.name) return
+		changeThrowable(selectedThrowable.name)
+	}
+
 	return (
 		<Container title='Throwable'>
 
@@ -34,7 +39,7 @@ const Throwable: FC = () => {
 									setSelectedThrowable(throwable)
 								} else {
 									if (locked) return
-									changeThrowable(throwable.name)
+									equipThrowableHandler()
 								}
 							}}
 						>
