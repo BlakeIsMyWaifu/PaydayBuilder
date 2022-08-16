@@ -60,7 +60,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 
 	useEffect(() => {
 		if (!hasImportedURL) return
-		router.push(`?${builds[current].data}`)
+		router.push(`${router.asPath.split('?').at(0)}/?${builds[current].data}`.replace('//', '/'))
 		// If router is added, it will endlessly loop
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [current, builds, hasImportedURL, router.route])
