@@ -64,7 +64,25 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 
 	const router = useRouter()
 
-	const duplicateWeapon = (): void => {
+	const deleteWeaponHandler = (): void => {
+		removeWeapon(slot, selectedWeaponId)
+
+		const armouryValues = Object.values(armoury)
+		const filteredArmoury = armouryValues.filter(value => value.id !== selectedWeaponId).reverse()
+
+		if (equippedWeaponId === selectedWeaponId) {
+			changeWeapon(slot, filteredArmoury[0].id)
+		}
+
+		if (Object.keys(armoury).length === 1) {
+			setEnableBuy(true)
+			setSelectedWeaponId(0)
+		} else {
+			setSelectedWeaponId(filteredArmoury[0].id)
+		}
+	}
+
+	const duplicateWeaponHandler = (): void => {
 		const { weaponFind, modifications } = weaponsData[selectedWeaponId - 1]
 		const weaponData = findWeapon(weaponFind)
 		const nextNum = findNextNum(armoury)
@@ -116,7 +134,7 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 										changeWeapon(slot, id)
 									}
 								} else if (selectedWeaponId === id && !isActiveBuild) {
-									duplicateWeapon()
+									duplicateWeaponHandler()
 								} else {
 									setSelectedWeaponId(id)
 								}
@@ -191,26 +209,10 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 							</a>
 						</BlackmarketLink>
 
-						<WeaponActionText onClick={() => {
-							removeWeapon(slot, selectedWeaponId)
-
-							const armouryValues = Object.values(armoury)
-							const filteredArmoury = armouryValues.filter(value => value.id !== selectedWeaponId).reverse()
-
-							if (equippedWeaponId === selectedWeaponId) {
-								changeWeapon(slot, filteredArmoury[0].id)
-							}
-
-							if (Object.keys(armoury).length === 2) {
-								setEnableBuy(true)
-								setSelectedWeaponId(0)
-							} else {
-								setSelectedWeaponId(filteredArmoury[0].id)
-							}
-						}}>Delete Weapon</WeaponActionText>
+						<WeaponActionText onClick={deleteWeaponHandler}>Delete Weapon</WeaponActionText>
 
 					</WeaponActionsContainer> : <WeaponActionsContainer>
-						<WeaponActionText onClick={duplicateWeapon}>Duplicate Weapon</WeaponActionText>
+						<WeaponActionText onClick={duplicateWeaponHandler}>Duplicate Weapon</WeaponActionText>
 					</WeaponActionsContainer>
 				}
 			</DetectionAndActionsContainer>

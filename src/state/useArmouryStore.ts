@@ -75,6 +75,8 @@ const createActionSlice: Slice<ArmouryStore, ArmouryActionSlice> = (set, get) =>
 		const weapons = get()[slot]
 		delete weapons[id]
 		set({ [slot]: weapons }, ...actionName('removeWeapon'))
+		// Not sure why but deleting doesn't trigger the subscriptions
+		updateData(slot === 'primary' ? 'ap' : 'as', encodeArmoury(weapons))
 	},
 	resetArmoury: slot => {
 		set({ [slot]: initialState[slot] }, ...actionName('resetArmoury'))
@@ -131,6 +133,7 @@ export const useArmouryStore = create<ArmouryStore>()(devtools(subscribeWithSele
 // Subscriptions
 
 useArmouryStore.subscribe(state => state.primary, state => {
+	console.log(state)
 	updateData('ap', encodeArmoury(state))
 })
 
