@@ -25,7 +25,7 @@
     "incremental": true,
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "src",
-    "downlevelIteration": true
+    "downlevelIteration": true,
   },
   "include": [
     "src",
