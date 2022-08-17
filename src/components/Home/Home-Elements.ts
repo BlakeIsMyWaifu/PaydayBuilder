@@ -7,7 +7,7 @@ export const ConfigContainer = styled.div`
 	align-items: center;
 `
 
-export const SettingsButton = styled.button`
+export const ControlPanelButton = styled.button`
 	height: 2.5rem;
 	font-size: 2.5rem;
 `

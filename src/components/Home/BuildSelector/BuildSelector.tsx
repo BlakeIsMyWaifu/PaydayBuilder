@@ -7,10 +7,10 @@ import { Arrow, BuildList, BuildName, Container, Wrapper } from './BuildSelector
 interface BuildSelectorProps {
 	toggleBuilds: boolean;
 	setToggleBuilds: Dispatch<SetStateAction<boolean>>;
-	setToggleSettings: Dispatch<SetStateAction<boolean>>;
+	setToggleControl: Dispatch<SetStateAction<boolean>>;
 }
 
-const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, setToggleSettings }) => {
+const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, setToggleControl }) => {
 
 	const { current, builds, importBuild } = useBuildsStore()
 
@@ -62,7 +62,7 @@ const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, 
 				/>
 				<Arrow {...arrowProps(1)}> <FaChevronRight /> </Arrow>
 				<BuildList title='Open Builds List' onClick={() => {
-					setToggleSettings(false)
+					setToggleControl(false)
 					setToggleBuilds(!toggleBuilds)
 				}}><FaThList /></BuildList>
 			</Wrapper>

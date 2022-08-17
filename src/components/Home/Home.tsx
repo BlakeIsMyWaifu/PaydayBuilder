@@ -3,9 +3,9 @@ import { FC, ReactElement, useState } from 'react'
 import { FaCog } from 'react-icons/fa'
 
 import BuildSelector from './BuildSelector'
-import { ConfigContainer, SettingsButton, VersionContainer, VersionText } from './Home-Elements'
+import { ConfigContainer, ControlPanelButton, VersionContainer, VersionText } from './Home-Elements'
 import BuildsPanel from './Panel/BuildsPanel'
-import SettingsPanel from './Panel/SettingsPanel'
+import ControlPanel from './Panel/ControlPanel'
 import Tabs from './Tabs'
 
 export interface HoverInfo {
@@ -18,7 +18,7 @@ const Home: FC = () => {
 
 	const [toggleBuilds, setToggleBuilds] = useState(false)
 
-	const [toggleSettings, setToggleSettings] = useState(false)
+	const [toggleControl, setToggleControl] = useState(false)
 
 	return (
 		<>
@@ -27,9 +27,9 @@ const Home: FC = () => {
 				setToggleBuilds={setToggleBuilds}
 			/>
 
-			<SettingsPanel
-				toggleSettings={toggleSettings}
-				setToggleSettings={setToggleSettings}
+			<ControlPanel
+				toggleControl={toggleControl}
+				setToggleControl={setToggleControl}
 			/>
 
 			<Container
@@ -51,15 +51,15 @@ const Home: FC = () => {
 					<BuildSelector
 						toggleBuilds={toggleBuilds}
 						setToggleBuilds={setToggleBuilds}
-						setToggleSettings={setToggleSettings}
+						setToggleControl={setToggleControl}
 					/>
 
-					<SettingsButton onClick={() => {
+					<ControlPanelButton onClick={() => {
 						setToggleBuilds(false)
-						setToggleSettings(!toggleSettings)
+						setToggleControl(!toggleControl)
 					}}>
-						<FaCog />
-					</SettingsButton>
+						<FaCog title='Control Panel' />
+					</ControlPanelButton>
 
 				</ConfigContainer>
 

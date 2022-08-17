@@ -1,6 +1,20 @@
 import styled from 'styled-components'
 
-import { PanelContent } from '../Panel-Elements'
+import { Container, PanelContent } from '../Panel-Elements'
+
+export const ControlPanelContainer = styled(Container)`
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+`
+
+export const Section = styled.div`
+	margin-top: 2.5rem;
+`
+
+export const SectionTitle = styled.h2`
+	font-size: 1.2rem;
+`
 
 export const Setting = styled.div`
 	padding-top: 16px;
@@ -13,18 +27,17 @@ export const SettingsSingleLine = styled.div`
 	justify-content: space-between;
 `
 
-export const SettingsTitle = styled.h1`
+export const SettingTitle = styled.h1`
 	font-size: 1.5rem;
 	margin-left: 2.5rem;
 `
 
-export const SettingsSubtitle = styled.h2`
-	font-size: 1.2rem;
-	margin-top: 2.5rem;
-`
-
-export const SettingsPanelContent = styled(PanelContent)`
-	height: calc(100% - 3rem);
+export const ControlPanelContent = styled(PanelContent)`
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+	overflow-x: hidden;
 `
 
 export const ContactLink = styled.a`
