@@ -3,6 +3,7 @@ import { Dispatch, FC, SetStateAction } from 'react'
 import { FaGithub } from 'react-icons/fa'
 
 import { ContactIconWrapper, ContactLink, ContactText, ControlPanelContainer, ControlPanelContent } from './ControlPanel-Elements'
+import Account from './Sections/Account'
 import Appearance from './Sections/Appearance'
 import IO from './Sections/IO'
 
@@ -19,6 +20,7 @@ const ControlPanel: FC<SettingsPanelProps> = ({ toggleControl, setToggleControl 
 			<Title>Control Panel</Title>
 
 			<ControlPanelContent>
+				<Account />
 				<IO setToggleControl={setToggleControl} />
 				<Appearance />
 			</ControlPanelContent>

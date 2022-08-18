@@ -1,12 +1,10 @@
 import superjson from 'superjson'
 
 import { createRouter } from './context'
-import { exampleRouter } from './example'
-import { protectedExampleRouter } from './protected-example-router'
+import { sessionRouter } from './session'
 
 export const appRouter = createRouter()
 	.transformer(superjson)
-	.merge('example.', exampleRouter)
-	.merge('question.', protectedExampleRouter)
+	.merge('session', sessionRouter)
 
 export type AppRouter = typeof appRouter
