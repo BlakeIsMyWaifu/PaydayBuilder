@@ -7,10 +7,6 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Example {
-    id String @id @default(cuid())
-}
-
 model Account {
     id                String  @id @default(cuid())
     userId            String
@@ -45,6 +41,8 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+
+    Build Build[]
 }
 
 model VerificationToken {
@@ -53,4 +51,12 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model Build {
+    id        String   @id @default(cuid())
+    userId    String
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    data      String   @db.Text
+    createdAt DateTime @default(now())
 }

@@ -21,6 +21,7 @@ export const Container = styled.div<ContainerProps>`
 export const PanelContent = styled.div`
 	display: flex;
 	flex-direction: column;
+	height: 100%;
 `
 
 export const Title = styled.h1`

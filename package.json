@@ -16,7 +16,8 @@
     "lint": "next lint",
     "open-browser": "start http://localhost:3000",
     "eslint": "eslint . --fix",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "migrate": "prisma migrate dev"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.4",
