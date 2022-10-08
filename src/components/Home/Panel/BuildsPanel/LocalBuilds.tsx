@@ -28,13 +28,18 @@ const LocalBuilds: FC<LocalBuildsProps> = ({ setToggleBuilds }) => {
 		}
 	})
 
+	const { data: sessionData, isLoading } = trpc.useQuery([
+		'session.getSession'
+	])
+
 	return (
 		<>
 			<BuildSectionTitle>Local Builds</BuildSectionTitle>
 
 			{
-				Object.values(clientBuilds).map(({ id, name, data }) => {
+				Object.values(clientBuilds).map(({ id, name, data: buildData }) => {
 					const isLastBuild = Object.keys(builds).length > 1
+					const isLoggedIn = !isLoading && !!sessionData
 
 					return <BuildWrapper key={id}>
 						<BuildName
@@ -49,7 +54,7 @@ const LocalBuilds: FC<LocalBuildsProps> = ({ setToggleBuilds }) => {
 						{
 							id !== current ? <BuildButton title='Open Build' onClick={() => {
 								changeBuild(id)
-								importBuild(data, false)
+								importBuild(buildData, false)
 								setToggleBuilds(false)
 							}}> <FaFolderOpen /> </BuildButton> : <BuildButton title='Reset Build' onClick={() => {
 								importBuild(defaultBuild, false)
@@ -69,10 +74,14 @@ const LocalBuilds: FC<LocalBuildsProps> = ({ setToggleBuilds }) => {
 							}}
 						> <FaTrash /> </BuildButton>
 
-						<BuildButton title='Upload Build' onClick={() => {
-							if (pushNewBuild.isLoading) return
-							pushNewBuild.mutate(builds[current].data)
-						}}
+						<BuildButton
+							title={isLoggedIn ? 'Upload Build' : 'Log in to cloud save'}
+							disabled={!isLoggedIn}
+							colour={isLoggedIn ? blue : red}
+							onClick={() => {
+								if (pushNewBuild.isLoading) return
+								pushNewBuild.mutate(builds[current].data)
+							}}
 						> <FaUpload /> </BuildButton>
 					</BuildWrapper>
 				})

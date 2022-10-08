@@ -13,7 +13,6 @@ interface SettingsPanelProps {
 }
 
 const ControlPanel: FC<SettingsPanelProps> = ({ toggleControl, setToggleControl }) => {
-
 	return (
 		<ControlPanelContainer toggle={toggleControl}>
 
