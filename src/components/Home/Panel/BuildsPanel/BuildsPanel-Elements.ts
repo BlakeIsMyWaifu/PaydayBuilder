@@ -6,9 +6,13 @@ export const Builds = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
-	padding-top: 24px;
+	padding: 24px 8px 0 0;
+	height: 100%;
 	overflow-y: auto;
-	/* overflow-x: hidden; */
+`
+
+export const BuildSectionTitle = styled.h2`
+	font-size: 1.2rem;
 `
 
 export const BuildWrapper = styled.div`
@@ -45,7 +49,7 @@ interface BuildButtonProps {
 export const BuildButton = styled.button<BuildButtonProps>`
 	height: 100%;
 	aspect-ratio: 1;
-	color: ${props => props.colour || blue}
+	color: ${props => props.colour || blue};
 `
 
 export const NewBuild = styled.button`

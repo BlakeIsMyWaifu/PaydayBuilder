@@ -1,7 +1,7 @@
 import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { encodeArmoury } from 'utils/encodeBuild'
 import { findNextNum } from 'utils/maths'
-import create from 'zustand'
+import { create } from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'

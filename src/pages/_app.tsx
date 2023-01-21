@@ -1,14 +1,18 @@
 import 'fonts/fonts.css'
 
+import { withTRPC } from '@trpc/next'
 import { GlobalStyle } from 'GlobalStyle'
 import useMountEffect from 'hooks/useMountEffect'
+import { SessionProvider } from 'next-auth/react'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { FC, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { AppRouter } from 'server/router'
 import { SettingsProvider, UpdateSettingsContext } from 'state/settingsContext'
 import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import styled from 'styled-components'
+import superjson from 'superjson'
 import { isDev } from 'utils/isDev'
 
 const BackgroundContainer = styled.div`
@@ -29,7 +33,7 @@ const BackgroundImage = styled.img`
 	z-index: -1;
 `
 
-const App: FC<AppProps> = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX.Element => {
 
 	const router = useRouter()
 
@@ -65,8 +69,6 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [current, builds, hasImportedURL, router.route])
 
-	// localhost:3000/?s=0-90-90-9000&p=0&a=0&t=6&d=0&m=0&k=011&c=0&ap=_&as=_&w=0-0
-
 	useMountEffect(() => {
 		if (!isDev) {
 			const reset = (): void => {
@@ -79,30 +81,47 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 	})
 
 	return (
-		<SettingsProvider>
+		<SessionProvider session={session}>
+			<SettingsProvider>
 
-			<Head>
-				<meta charSet='UTF-8' />
-				<meta name='viewport' content='width=device-width, initial-scale=1.0' />
-				<title>Payday Builder</title>
-				<link rel='shortcut icon' href='/favicon.ico' />
-			</Head>
+				<Head>
+					<meta charSet='UTF-8' />
+					<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+					<title>Payday Builder</title>
+					<link rel='shortcut icon' href='/favicon.ico' />
+				</Head>
 
-			<UpdateSettingsContext />
+				<UpdateSettingsContext />
 
-			<GlobalStyle />
+				<GlobalStyle />
 
-			<div onContextMenu={event => isDev() ? null : event.preventDefault()}>
+				<div onContextMenu={event => isDev() ? null : event.preventDefault()}>
 
-				<BackgroundContainer>
-					<BackgroundImage src='/images/loading_bg.png' />
-				</BackgroundContainer>
+					<BackgroundContainer>
+						<BackgroundImage src='/images/loading_bg.png' />
+					</BackgroundContainer>
 
-				{hasImportedURL && <Component {...pageProps} />}
+					{hasImportedURL && <Component {...pageProps} />}
 
-			</div>
-		</SettingsProvider>
+				</div>
+			</SettingsProvider>
+		</SessionProvider>
 	)
 }
 
-export default App
+const getBaseUrl = (): string => {
+	if (typeof window !== undefined) return ''
+	if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`
+	return `http://localhost:${process.env.PORT ?? 3000}`
+}
+
+export default withTRPC<AppRouter>({
+	config() {
+		const url = `${getBaseUrl()}/api/trpc`
+		return {
+			url,
+			transformer: superjson
+		}
+	},
+	ssr: false
+})(App)
