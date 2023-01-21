@@ -2,7 +2,7 @@ import { Slot } from 'data/weapons/guns/weaponTypes'
 import { MeleeList } from 'data/weapons/melees'
 import { ThrowableList } from 'data/weapons/throwables'
 import { encodeMelee, encodeThrowable, encodeWeapons } from 'utils/encodeBuild'
-import create from 'zustand'
+import { create } from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'

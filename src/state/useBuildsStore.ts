@@ -2,7 +2,7 @@ import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
 import { decodeArmour, decodeArmoury, decodeCharacter, decodeEquipment, decodeMask, decodeMelee, decodePerkDeck, decodeThrowable, decodeWeapons } from 'utils/decodeBuild'
 import { findNextNum } from 'utils/maths'
-import create from 'zustand'
+import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 
 import { DevTools, Persist, Slice, createActionName } from './storeTypes'

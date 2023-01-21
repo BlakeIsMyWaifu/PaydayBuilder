@@ -2,7 +2,7 @@ import skills, { SkillData, TreeNames } from 'data/abilities/skills'
 import { decodeValues, decompressData } from 'utils/decodeBuild'
 import { encodeSkills } from 'utils/encodeBuild'
 import SkillTreePoints from 'utils/skillTreePoints'
-import create from 'zustand'
+import { create } from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
 import { Slice, createActionName } from './storeTypes'
