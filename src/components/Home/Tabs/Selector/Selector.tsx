@@ -21,9 +21,7 @@ const Selector: FC<SelectorProps> = ({ title, children, infoData, setHoverInfo, 
 		>
 			{
 				enableLink ? <Title>{title}</Title> : <SelectorLink href={`/${title.replaceAll(' ', '')}`}>
-					<a>
-						<Title>{title}</Title>
-					</a>
+					<Title>{title}</Title>
 				</SelectorLink>
 			}
 
@@ -33,9 +31,7 @@ const Selector: FC<SelectorProps> = ({ title, children, infoData, setHoverInfo, 
 
 	return enableLink ? (
 		<SelectorLink href={`/${title.replaceAll(' ', '')}`}>
-			<a>
-				{inners}
-			</a>
+			{inners}
 		</SelectorLink>
 	) : inners
 }

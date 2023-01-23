@@ -204,9 +204,7 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 						}}>Equip Weapon</WeaponActionText>
 
 						<BlackmarketLink href={`/blackmarket/${slot}/${selectedWeaponId}`}>
-							<a>
-								<WeaponActionText>Modify Weapon</WeaponActionText>
-							</a>
+							<WeaponActionText>Modify Weapon</WeaponActionText>
 						</BlackmarketLink>
 
 						<WeaponActionText onClick={deleteWeaponHandler}>Delete Weapon</WeaponActionText>
