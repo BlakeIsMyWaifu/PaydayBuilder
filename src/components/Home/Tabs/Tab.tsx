@@ -140,16 +140,14 @@ const Tabs: FC = () => {
 						enableLink={false}
 					>
 						<Link href='primary'>
-							<a>
-								<Image
-									src={`/images/weapons/${primaryData.image}.png`}
-									leftFacing={leftFacing}
-									onMouseEnter={() => setHoverInfo({
-										title: primaryData.name,
-										table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={primaryWeapon} />
-									})}
-								/>
-							</a>
+							<Image
+								src={`/images/weapons/${primaryData.image}.png`}
+								leftFacing={leftFacing}
+								onMouseEnter={() => setHoverInfo({
+									title: primaryData.name,
+									table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={primaryWeapon} />
+								})}
+							/>
 						</Link>
 						<ModIcons
 							weapon={primaryWeapon}
@@ -164,16 +162,14 @@ const Tabs: FC = () => {
 						enableLink={false}
 					>
 						<Link href='secondary'>
-							<a>
-								<Image
-									src={`/images/weapons/${secondaryData.image}.png`}
-									leftFacing={leftFacing}
-									onMouseEnter={() => setHoverInfo({
-										title: secondaryData.name,
-										table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={secondaryWeapon} />
-									})}
-								/>
-							</a>
+							<Image
+								src={`/images/weapons/${secondaryData.image}.png`}
+								leftFacing={leftFacing}
+								onMouseEnter={() => setHoverInfo({
+									title: secondaryData.name,
+									table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={secondaryWeapon} />
+								})}
+							/>
 						</Link>
 						<ModIcons
 							weapon={secondaryWeapon}

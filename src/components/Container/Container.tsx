@@ -31,9 +31,7 @@ const Container: FC<ContainerProps> = ({
 			{
 				backButton && <BackWrapper>
 					<BackLink href={backLocation} onMouseDown={event => event.preventDefault()}>
-						<a>
-							<BackText>Back</BackText>
-						</a>
+						<BackText>Back</BackText>
 					</BackLink>
 				</BackWrapper>
 			}

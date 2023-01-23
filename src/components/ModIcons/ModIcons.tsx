@@ -24,12 +24,10 @@ const ModIcons: FC<ModIconsProps> = ({ weapon, link, setHoverInfo }) => {
 
 			{
 				setHoverInfo && <ModLink href={weaponData.inventorySlot}>
-					<a>
-						<Background onMouseOver={() => setHoverInfo({
-							title: weaponData.name,
-							table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={weapon} />
-						})} />
-					</a>
+					<Background onMouseOver={() => setHoverInfo({
+						title: weaponData.name,
+						table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={weapon} />
+					})} />
 				</ModLink>
 			}
 
@@ -54,9 +52,7 @@ const ModIcons: FC<ModIconsProps> = ({ weapon, link, setHoverInfo }) => {
 					return <ModWrapper key={modSlot}>
 						{
 							link ? <ModLink href={`/blackmarket/${weaponData.inventorySlot}/${weapon.id}/${modSlot}`}>
-								<a>
-									{modIcon}
-								</a>
+								{modIcon}
 							</ModLink> : modIcon
 						}
 					</ModWrapper>
