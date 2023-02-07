@@ -40,9 +40,15 @@ Inspired by [pd2builder](https://github.com/r-paydaybuilds/pd2builder)
 
 Requires [Node.js](https://nodejs.org/en/) <br />
 `$ git clone https://github.com/BlakeIsMyWaifu/PaydayBuilder` <br />
-`$ npm ci` <br />
-`$ npm start` <br />
-Go to [http://localhost:3000](http://localhost:3000)
+`$ yarn install` <br />
+
+To build and run a production build <br />
+`$ yarn build` <br />
+`$ yarn start` <br />
+`$ yarn open-browser` <br />
+
+To start a development server <br />
+`yarn dev`
 
 #### Technologies
 
