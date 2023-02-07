@@ -7,9 +7,7 @@ import { Section, SectionTitle } from '../ControlPanel-Elements'
 
 const Account: FC = () => {
 
-	const { data, isLoading } = trpc.useQuery([
-		'session.getSession'
-	])
+	const { data, isLoading } = trpc.session.getSession.useQuery()
 
 	return (
 		<Section>

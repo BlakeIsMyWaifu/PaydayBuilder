@@ -15,7 +15,7 @@ interface BuildsPanelProps {
 
 const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds }) => {
 
-	const session = trpc.useQuery(['session.getSession'])
+	const session = trpc.session.getSession.useQuery()
 
 	const addBuild = useBuildsStore(state => state.addBuild)
 	const importBuild = useBuildsStore(state => state.importBuild)

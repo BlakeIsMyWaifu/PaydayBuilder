@@ -22,15 +22,13 @@ const LocalBuilds: FC<LocalBuildsProps> = ({ setToggleBuilds }) => {
 
 	const utils = trpc.useContext()
 
-	const pushNewBuild = trpc.useMutation(['builds.pushNewBuild'], {
+	const pushNewBuild = trpc.builds.pushNewBuild.useMutation({
 		onSuccess() {
-			utils.invalidateQueries(['builds.getAllBuilds'])
+			utils.builds.getAllBuilds.invalidate()
 		}
 	})
 
-	const { data: sessionData, isLoading } = trpc.useQuery([
-		'session.getSession'
-	])
+	const { data: sessionData, isLoading } = trpc.session.getSession.useQuery()
 
 	return (
 		<>

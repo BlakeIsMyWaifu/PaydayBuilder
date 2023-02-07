@@ -11,11 +11,11 @@ const ServerBuilds: FC = () => {
 
 	const utils = trpc.useContext()
 
-	const builds = trpc.useQuery(['builds.getAllBuilds'])
+	const builds = trpc.builds.getAllBuilds.useQuery()
 
-	const deleteBuild = trpc.useMutation(['builds.deleteBuild'], {
+	const deleteBuild = trpc.builds.deleteBuild.useMutation({
 		onSuccess() {
-			utils.invalidateQueries(['builds.getAllBuilds'])
+			utils.builds.getAllBuilds.invalidate()
 		}
 	})
 
