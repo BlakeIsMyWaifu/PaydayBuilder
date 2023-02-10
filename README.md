@@ -42,6 +42,8 @@ Requires [Node.js](https://nodejs.org/en/) <br />
 `$ git clone https://github.com/BlakeIsMyWaifu/PaydayBuilder` <br />
 `$ yarn install` <br />
 
+Rename `.env.example` to `.env` and update the information inside
+
 To build and run a production build <br />
 `$ yarn build` <br />
 `$ yarn start` <br />
@@ -52,11 +54,12 @@ To start a development server <br />
 
 #### Technologies
 
-- Node.js
 - TypeScript
-- React
-- NextJS
+- Next.js
 - Zustand
+- Auth.js
+- tRPC
+- Prisma
 - Styled Components
 
 ### How to contribute
@@ -68,8 +71,7 @@ Issues could be either bug reports or feature requests.
 
 #### Submit pull requests
 
-We will accept any PRs you might want to submit if they are on-track with our plans here: [Payday Builder TODO List](https://github.com/BlakeIsMyWaifu/PaydayBuilder/projects/1).
-Again, contributions are always valuable.
+You should either submit an issue or get in touch before creating a pull request.
 
 ## Contact
 
