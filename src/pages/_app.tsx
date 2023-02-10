@@ -1,5 +1,6 @@
 import 'fonts/fonts.css'
 
+import Cookies from 'components/Cookies/Cookies'
 import { GlobalStyle } from 'GlobalStyle'
 import useMountEffect from 'hooks/useMountEffect'
 import { SessionProvider } from 'next-auth/react'
@@ -92,6 +93,8 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 				<UpdateSettingsContext />
 
 				<GlobalStyle />
+
+				<Cookies />
 
 				<div onContextMenu={event => isDev() ? null : event.preventDefault()}>
 
