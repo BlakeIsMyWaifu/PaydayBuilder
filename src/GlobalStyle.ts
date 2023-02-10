@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 		text-transform: uppercase;
 	}
 
-	p, h1, h2, h3, h4, h5, span {
+	p, h1, h2, h3, h4, h5, span, input {
 		color: white;
 		font-weight: normal;
 		text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -19,13 +19,13 @@ export const GlobalStyle = createGlobalStyle`
 		scrollbar-color: #fff rgba(0, 0, 0, 0);
 	}
 
-	button {
+	button, input {
 		color: #0F639F;
 		background: none;
 		border: none;
 		cursor: pointer;
 	}
-	button:hover {
+	button:hover, input:hover {
 		color: white;
 	}
 

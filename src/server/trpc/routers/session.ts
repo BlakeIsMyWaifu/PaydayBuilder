@@ -7,9 +7,3 @@ export const sessionRouter = createTRPCRouter({
 			return ctx.session
 		})
 })
-
-// .query('getSession', {
-// 	resolve({ ctx }) {
-// 		return ctx.session
-// 	}
-// })
