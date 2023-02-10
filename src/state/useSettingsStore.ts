@@ -7,10 +7,12 @@ import { DevTools, Persist, Slice, createActionName } from './storeTypes'
 
 interface SettingsStateSlice {
 	leftFacing: boolean;
+	acceptedCookies: boolean;
 }
 
 const initialState: SettingsStateSlice = {
-	leftFacing: false
+	leftFacing: false,
+	acceptedCookies: false
 }
 
 const createStateSlice: Slice<SettingsStore, SettingsStateSlice, Middlewares> = () => initialState
@@ -19,6 +21,7 @@ const createStateSlice: Slice<SettingsStore, SettingsStateSlice, Middlewares> = 
 
 interface SettingsActionSlice {
 	toggleLeftFacing: () => void;
+	acceptCookies: () => void;
 }
 
 const actionName = createActionName('settings')
@@ -28,6 +31,9 @@ const createActionSlice: Slice<SettingsStore, SettingsActionSlice, Middlewares> 
 		set(state => ({
 			leftFacing: !state.leftFacing
 		}), ...actionName('toggleLeftFacing'))
+	},
+	acceptCookies: () => {
+		set({ acceptedCookies: true }, ...actionName('acceptCookies'))
 	}
 })
 

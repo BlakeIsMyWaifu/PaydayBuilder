@@ -7,20 +7,27 @@ import { Section, SectionTitle } from '../ControlPanel-Elements'
 
 const Account: FC = () => {
 
-	const { data, isLoading } = trpc.useQuery([
-		'session.getSession'
-	])
+	const healthCheck = trpc.health.healthCheck.useQuery(undefined, {
+		refetchOnMount: false,
+		refetchOnWindowFocus: false
+	})
+
+	const getSession = trpc.session.getSession.useQuery()
 
 	return (
 		<Section>
 			<SectionTitle>Account</SectionTitle>
 			{
-				isLoading
+				getSession.isLoading && healthCheck.isLoading
 					? <Button text='Loading . . .' callback={() => null} />
 					: (
-						data?.user?.name
-							? <Button text='Logout' callback={signOut} />
-							: <Button text='Login' callback={signIn} />
+						healthCheck.data
+							? (
+								getSession.data?.user?.name
+									? <Button text='Logout' callback={signOut} />
+									: <Button text='Register / Login' callback={signIn} />
+							)
+							: <Button text='Database Unavailable' callback={() => null} />
 					)
 			}
 		</Section>

@@ -1,6 +1,6 @@
 import 'fonts/fonts.css'
 
-import { withTRPC } from '@trpc/next'
+import Cookies from 'components/Cookies/Cookies'
 import { GlobalStyle } from 'GlobalStyle'
 import useMountEffect from 'hooks/useMountEffect'
 import { SessionProvider } from 'next-auth/react'
@@ -8,12 +8,11 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { AppRouter } from 'server/router'
 import { SettingsProvider, UpdateSettingsContext } from 'state/settingsContext'
 import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import styled from 'styled-components'
-import superjson from 'superjson'
 import { isDev } from 'utils/isDev'
+import { trpc } from 'utils/trpc'
 
 const BackgroundContainer = styled.div`
 	position: absolute;
@@ -95,6 +94,8 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 
 				<GlobalStyle />
 
+				<Cookies />
+
 				<div onContextMenu={event => isDev() ? null : event.preventDefault()}>
 
 					<BackgroundContainer>
@@ -109,19 +110,4 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 	)
 }
 
-const getBaseUrl = (): string => {
-	if (typeof window !== undefined) return ''
-	if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`
-	return `http://localhost:${process.env.PORT ?? 3000}`
-}
-
-export default withTRPC<AppRouter>({
-	config() {
-		const url = `${getBaseUrl()}/api/trpc`
-		return {
-			url,
-			transformer: superjson
-		}
-	},
-	ssr: false
-})(App)
+export default trpc.withTRPC(App)
