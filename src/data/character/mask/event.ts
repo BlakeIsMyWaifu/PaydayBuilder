@@ -1,4 +1,5 @@
 import { Category } from '../masks'
+import aCriminalCarol, { ACriminalCarolList } from './event/aCriminalCarol'
 import alienwareAlphaMaskPack, { AlienwareAlphaMaskPackList } from './event/alienwareAlphaMaskPack'
 import e32015SecretMasks, { E32015SecretMasksList } from './event/e32015SecretMasks'
 import fedora, { FedoraList } from './event/fedora'
@@ -13,14 +14,17 @@ import humbleMaskPack5, { HumbleMaskPack5List } from './event/humbleMaskPack5'
 import lockeAndLoadDay9, { LockeAndLoadDay9List } from './event/lockeAndLoadDay9'
 import merchandise, { MerchandiseList } from './event/merchandise'
 import payday28thAnniversary, { Payday28thAnniversaryList } from './event/payday28thAnniversary'
+import payday29thAnniversary, { Payday29thAnniversaryList } from './event/payday29thAnniversary'
 import paydaycon2015SecretMask, { Paydaycon2015SecretMaskList } from './event/paydaycon2015SecretMask'
 import paydaycon2016SecretMask, { Paydaycon2016SecretMaskList } from './event/paydaycon2016SecretMask'
 import paydayFranchise10thAnniversary, { PaydayFranchise10thAnniversaryList } from './event/paydayFranchise10thAnniversary'
+import paydayFranchise11thAnniversary, { PaydayFranchise11thAnniversaryList } from './event/paydayFranchise11thAnniversary'
 import sydneysSwimChallenge, { SydneysSwimChallengeList } from './event/sydneysSwimChallenge'
 
 export type EventCollectionList =
 	| 'Halloween Event'
 	| 'Payday Franchise 10th Anniversary'
+	| 'Payday Franchise 11th Anniversary'
 	| 'Alienware Alpha Mask Pack'
 	| 'E3 2015 Secret Masks'
 	| 'Fedora'
@@ -28,6 +32,8 @@ export type EventCollectionList =
 	| 'Humble Mask Pack 3'
 	| 'Humble Mask Pack 4'
 	| 'Humble Mask Pack 5'
+	| 'Payday 2 8th Anniversary'
+	| 'Payday 2 9th Anniversary'
 	| 'Locke and Load Day 9'
 	| 'PAYDAYCON 2015 Secret Mask'
 	| 'PAYDAYCON 2016 Secret Mask'
@@ -35,12 +41,13 @@ export type EventCollectionList =
 	| 'Sydney\'s Swim Challenge'
 	| 'Halloween 2021'
 	| 'Humble Mask Pack'
-	| 'Payday 2 8th Anniversary'
+	| 'A Criminal Carol'
 	| 'Merchandise'
 
 export type EventMaskList =
 	| HalloweenEventList
 	| PaydayFranchise10thAnniversaryList
+	| PaydayFranchise11thAnniversaryList
 	| AlienwareAlphaMaskPackList
 	| E32015SecretMasksList
 	| FedoraList
@@ -48,6 +55,8 @@ export type EventMaskList =
 	| HumbleMaskPack3List
 	| HumbleMaskPack4List
 	| HumbleMaskPack5List
+	| Payday28thAnniversaryList
+	| Payday29thAnniversaryList
 	| LockeAndLoadDay9List
 	| Paydaycon2015SecretMaskList
 	| Paydaycon2016SecretMaskList
@@ -55,7 +64,7 @@ export type EventMaskList =
 	| SydneysSwimChallengeList
 	| Halloween2021List
 	| HumbleMaskPackList
-	| Payday28thAnniversaryList
+	| ACriminalCarolList
 	| MerchandiseList
 
 const event: Category<EventCollectionList> = {
@@ -66,6 +75,10 @@ const event: Category<EventCollectionList> = {
 	'Payday Franchise 10th Anniversary': {
 		id: 1,
 		masks: paydayFranchise10thAnniversary
+	},
+	'Payday Franchise 11th Anniversary': {
+		id: 18,
+		masks: paydayFranchise11thAnniversary
 	},
 	'Alienware Alpha Mask Pack': {
 		id: 2,
@@ -95,6 +108,14 @@ const event: Category<EventCollectionList> = {
 		id: 8,
 		masks: humbleMaskPack5
 	},
+	'Payday 2 8th Anniversary': {
+		id: 17,
+		masks: payday28thAnniversary
+	},
+	'Payday 2 9th Anniversary': {
+		id: 19,
+		masks: payday29thAnniversary
+	},
 	'Locke and Load Day 9': {
 		id: 9,
 		masks: lockeAndLoadDay9
@@ -123,12 +144,12 @@ const event: Category<EventCollectionList> = {
 		id: 15,
 		masks: humbleMaskPack
 	},
-	'Payday 2 8th Anniversary': {
-		id: 16,
-		masks: payday28thAnniversary
+	'A Criminal Carol': {
+		id: 20,
+		masks: aCriminalCarol
 	},
 	'Merchandise': {
-		id: 17,
+		id: 16,
 		masks: merchandise
 	}
 }
