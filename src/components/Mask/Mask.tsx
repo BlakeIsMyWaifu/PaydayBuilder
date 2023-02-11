@@ -3,6 +3,7 @@ import HorizontalBar from 'components/HorizontalBar'
 import Info from 'components/Info'
 import { Item, ItemEquipped, ItemImage, ItemName } from 'components/Item-Elements'
 import { AllMasks, Category, CategoryList, MaskData } from 'data/character/masks'
+import { ContentRarity } from 'data/source/downloadableContent'
 import useMountEffect from 'hooks/useMountEffect'
 import useObjectState from 'hooks/useObjectState'
 import { FC, RefObject, createRef, useCallback, useEffect, useRef, useState } from 'react'
@@ -72,16 +73,23 @@ const Mask: FC = () => {
 		changeMask(selectedMask.name)
 	}
 
+	const stringToRarity = (rarity: CategoryList): ContentRarity => {
+		if (rarity === 'dlc') return 'Paid'
+		return capitalizeEachWord(rarity) as ContentRarity
+	}
+
+	const allCategories: (CategoryList | 'all')[] = ['all', 'community', 'normal', 'dlc', 'event', 'collaboration', 'infamous']
+
 	return (
 		<Container rows='4rem 2rem 8fr 4rem' areas='"title title" "horizontalbar infotabs" "items info" "items back"' title='Mask'>
 
-			<HorizontalBar active={selectedTab} items={['all', 'community', 'normal', 'dlc', 'event', 'collaboration', 'infamous'].map(rarity => ({
+			<HorizontalBar active={selectedTab} items={allCategories.map(rarity => ({
 				label: rarity,
 				callback: () => {
 					setSelectedTab(rarity as (CategoryList | 'all'))
 					itemContainerRef.current?.scrollTo(0, 0)
 				},
-				colour: itemColours[rarity === 'dlc' ? 'Paid' : capitalizeEachWord(rarity)] ?? 'rainbow',
+				colour: rarity !== 'all' ? itemColours[stringToRarity(rarity)] : 'rainbow',
 				additionalStyling: rarity === 'all' ? rainbowAnimation : null
 			}))} />
 

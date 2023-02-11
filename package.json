@@ -9,6 +9,9 @@
     "type": "git",
     "url": "https://github.com/BlakeIsMyWaifu/PaydayBuilder.git"
   },
+  "engines": {
+    "node": ">=17.0.0"
+  },
   "scripts": {
     "dev": "run-p dev:*",
     "dev:next": "next dev",

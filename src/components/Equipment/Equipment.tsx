@@ -1,5 +1,5 @@
 import Container from 'components/Container'
-import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info/Info-Elements'
+import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/Info/Info-Elements'
 import { ItemEquipped, ItemName, LockedIcon } from 'components/Item-Elements'
 import { ActionText, ActionsContainer } from 'components/ItemAction-Elements'
 import equipments, { EquipmentData } from 'data/character/equipment'
@@ -66,7 +66,7 @@ const Equipment: FC = () => {
 							selected={equipment.name === selectedEquipment.name}
 							onMouseDown={event => equipment.name !== selectedEquipment.name ? setSelectedEquipment(equipment) : equipEquipment(event.button)}
 						>
-							<ItemName colour={itemColours[equipment.amount === amount ? 'normal' : 'dlc']}>{equipment.name} (x{amount.join('/x')})</ItemName>
+							<ItemName colour={itemColours[equipment.amount === amount ? 'Free' : 'Community']}>{equipment.name} (x{amount.join('/x')})</ItemName>
 							{equipment.name === equippedPrimary && <ItemEquipped> {jackOfAllTradesUnlocked ? 'Primary' : ''}</ItemEquipped>}
 							{equipment.name === equippedSecondary && <ItemEquipped> Secondary</ItemEquipped>}
 							{locked && <LockedIcon />}
@@ -74,6 +74,7 @@ const Equipment: FC = () => {
 								src={`/images/equipment/${equipment.name}.png`}
 								locked={locked}
 								onContextMenu={event => event.preventDefault()}
+								onMouseDown={event => event.preventDefault()}
 							/>
 						</Item>
 					})
@@ -83,6 +84,7 @@ const Equipment: FC = () => {
 			<InfoContainer>
 				<InfoTitle>{selectedEquipment.name} (x{getEquipmentAmount(selectedEquipment).join('/x')})</InfoTitle>
 				<InfoDescription>{selectedEquipment.description.join('\n\n')}</InfoDescription>
+				<InfoUnlock colour={itemColours[selectedEquipment.source.rarity]}>{selectedEquipment.source.name}</InfoUnlock>
 			</InfoContainer>
 
 			{

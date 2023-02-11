@@ -1,3 +1,5 @@
+import { ContentRarity } from 'data/source/downloadableContent'
+
 export const raisinBlack = '#26252E'
 export const grey = '#2C2F33'
 export const lightgrey = '#808080'
@@ -10,7 +12,7 @@ export const purple = '#ff1aff'
 export const dim = 'rgba(0, 0, 0, 0.3)'
 export const dimBlue = 'rgba(15, 99, 159, 0.3)'
 
-export const itemColours: Record<string, string> = {
+export const itemColours: Record<ContentRarity, string> = {
 	'Pre-order': '#fff',
 	Free: '#fff',
 	Community: '#3baefe',

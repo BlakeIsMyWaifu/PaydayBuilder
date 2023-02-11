@@ -2,7 +2,7 @@ import perkDecks, { PerkDeckList } from 'data/abilities/perks'
 import { TreeNames } from 'data/abilities/skills'
 import armours, { ArmourList } from 'data/character/armours'
 import characters, { CharacterList } from 'data/character/characters'
-import equipments from 'data/character/equipment'
+import equipments, { EquipmentData } from 'data/character/equipment'
 import { CategoryList, allMasks } from 'data/character/masks'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
@@ -98,19 +98,25 @@ export const encodeArmour = (armour: ArmourList): string => {
 
 // TODO order needs to be fixed
 export const encodeThrowable = (throwable: ThrowableList): string => {
-	const newData: Record<string, ThrowableData> = { ...throwables }
-	delete newData['X1-ZAPer']
-	const sortedThrowables = {
-		...newData,
+	let sortedThrowables: Record<string, ThrowableData> = structuredClone(throwables)
+	delete sortedThrowables['X1-ZAPer']
+	sortedThrowables = {
+		...sortedThrowables,
 		'X1-ZAPer': throwables['X1-ZAPer']
 	}
 	return encodeString(sortedThrowables, throwable)
 }
 
 export const encodeEquipment = (equipment: CharacterStateSlice['equipment']): string => {
-	const primaryValue = encodeString(equipments, equipment.primary)
+	let sortedEquipment: Record<string, EquipmentData> = structuredClone(equipments)
+	delete sortedEquipment['Ordnance Bag']
+	sortedEquipment = {
+		...sortedEquipment,
+		'Ordnance Bag': equipments['Ordnance Bag']
+	}
+	const primaryValue = encodeString(sortedEquipment, equipment.primary)
 	const equippedSecondary = equipment.secondary
-	return equippedSecondary ? primaryValue + encodeString(equipments, equippedSecondary) : primaryValue
+	return equippedSecondary ? primaryValue + encodeString(sortedEquipment, equippedSecondary) : primaryValue
 }
 
 export const encodeArmoury = (armoury: Record<number, Weapon>): string => {

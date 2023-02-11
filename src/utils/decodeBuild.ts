@@ -1,7 +1,7 @@
 import perkDecks, { PerkDeckList } from 'data/abilities/perks'
 import armours, { ArmourList } from 'data/character/armours'
 import characters, { CharacterList } from 'data/character/characters'
-import equipments, { EquipmentList } from 'data/character/equipment'
+import equipments, { EquipmentData, EquipmentList } from 'data/character/equipment'
 import { CategoryList, MaskList, allMasks } from 'data/character/masks'
 import { AllWeaponList, Modification, ModificationSlot, WeaponData, WeaponFind, WeaponType } from 'data/weapons/guns/weaponTypes'
 import melees, { MeleeList } from 'data/weapons/melees'
@@ -46,7 +46,7 @@ export const decodeArmour = (value: string): ArmourList => {
 
 export const decodeThrowable = (value: string): ThrowableList => {
 	const throwableIndex = decodeValues(value)
-	let sortedThrowables: Record<string, ThrowableData> = { ...throwables }
+	let sortedThrowables: Record<string, ThrowableData> = structuredClone(throwables)
 	delete sortedThrowables['X1-ZAPer']
 	sortedThrowables = {
 		...sortedThrowables,
@@ -56,9 +56,15 @@ export const decodeThrowable = (value: string): ThrowableList => {
 }
 
 export const decodeEquipment = (value: string): [EquipmentList, EquipmentList | null] => {
+	let sortedEquipment: Record<string, EquipmentData> = structuredClone(equipments)
+	delete sortedEquipment['Ordnance Bag']
+	sortedEquipment = {
+		...sortedEquipment,
+		'Ordnance Bag': equipments['Ordnance Bag']
+	}
 	const primaryIndex = decodeValues(value.substring(0, 1))
 	const secondaryIndex = value.length > 1 ? decodeValues(value.substring(1, 2)) : null
-	const equipmentList = Object.keys(equipments)
+	const equipmentList = Object.keys(sortedEquipment)
 	return [equipmentList[primaryIndex], secondaryIndex ? equipmentList[secondaryIndex] : null]
 }
 
