@@ -1,6 +1,6 @@
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
-import { decodeArmour, decodeArmoury, decodeCharacter, decodeEquipment, decodeMask, decodeMelee, decodePerkDeck, decodeThrowable, decodeWeapons } from 'utils/decodeBuild'
+import { decodeArmour, decodeArmoury, decodeCharacter, decodeCopycat, decodeEquipment, decodeMask, decodeMelee, decodePerkDeck, decodeThrowable, decodeWeapons } from 'utils/decodeBuild'
 import { findNextNum } from 'utils/maths'
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
@@ -25,7 +25,7 @@ interface BuildsStateSlice {
 	builds: Record<number, BuildSave>;
 }
 
-export const defaultBuild = 's=0-90-90-9000&p=0&a=0&t=6&d=0&m=0&k=100&c=0&ap=_&as=_&w=0-0&n=_'
+export const defaultBuild = 's=0-90-90-9000&p=0&c=1-5&a=0&t=6&d=0&m=0&k=100&h=0&ap=_&as=_&w=0-0&n=_'
 
 const initialState: BuildsStateSlice = {
 	current: 0,
@@ -113,7 +113,7 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice, Middlewares> = (s
 			get().addBuild(true)
 		}
 
-		const { changePerkDeck } = useAbilityStore.getState()
+		const { changePerkDeck, setCopycatValues } = useAbilityStore.getState()
 		const { changeArmour, changeEquipment, changeMask, changeCharacter } = useCharacterStore.getState()
 		const { changeThrowable, changeMelee, changeWeapon } = useWeaponsStore.getState()
 		const { resetArmoury, addWeapon } = useArmouryStore.getState()
@@ -126,6 +126,10 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice, Middlewares> = (s
 			p: value => {
 				const perkDeck = decodePerkDeck(value)
 				changePerkDeck(perkDeck)
+			},
+			c: value => {
+				const copycatValues = decodeCopycat(value)
+				setCopycatValues(copycatValues)
 			},
 			a: value => {
 				const armour = decodeArmour(value)
@@ -148,7 +152,7 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice, Middlewares> = (s
 				const mask = decodeMask(value)
 				changeMask(mask)
 			},
-			c: value => {
+			h: value => {
 				const character = decodeCharacter(value)
 				changeCharacter(character)
 			},

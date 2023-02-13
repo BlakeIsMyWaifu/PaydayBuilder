@@ -6,6 +6,7 @@ import { CategoryList, MaskList, allMasks } from 'data/character/masks'
 import { AllWeaponList, Modification, ModificationSlot, WeaponData, WeaponFind, WeaponType } from 'data/weapons/guns/weaponTypes'
 import melees, { MeleeList } from 'data/weapons/melees'
 import throwables, { ThrowableData, ThrowableList } from 'data/weapons/throwables'
+import { CopycatValues } from 'state/useAbilitiesStore'
 
 import findWeapon from './findWeapon'
 
@@ -35,6 +36,14 @@ export const decompressData = (data: string): string => {
 export const decodePerkDeck = (value: string): PerkDeckList => {
 	const perkIndex = decodeValues(value)
 	return Object.values(perkDecks)[perkIndex].name
+}
+
+export const decodeCopycat = (value: string): CopycatValues => {
+	const decompressedData = decompressData(value)
+	const dataArray = decompressedData.split('')
+	const decodedValues = dataArray.map(value => decodeValues(value) - 1)
+	if (decodedValues.length !== 5) return [0, 0, 0, 0, 0]
+	return decodedValues as CopycatValues
 }
 
 export const decodeArmour = (value: string): ArmourList => {

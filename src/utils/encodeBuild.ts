@@ -9,6 +9,7 @@ import secondary from 'data/weapons/guns/secondary'
 import { ModificationSlot, Slot, Weapon } from 'data/weapons/guns/weaponTypes'
 import melees from 'data/weapons/melees'
 import throwables, { ThrowableData, ThrowableList } from 'data/weapons/throwables'
+import { CopycatValues } from 'state/useAbilitiesStore'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { CharacterStateSlice } from 'state/useCharacterStore'
 import { SkillsStateSlice } from 'state/useSkillsStore'
@@ -88,6 +89,11 @@ export const encodeSkills = (trees: SkillsStateSlice['trees']): string => {
 }
 
 export const encodePerkDeck = (perkDeck: PerkDeckList): string => encodeString(perkDecks, perkDeck)
+
+export const encodeCopycat = (copycatValues: CopycatValues): string => {
+	const out = copycatValues.map(value => encodeNumber(value + 1))
+	return compressData(out.join(''))
+}
 
 export const encodeArmour = (armour: ArmourList): string => {
 	const sortedArmour = Object.fromEntries(Object.entries(armours).sort((a, b) => {
