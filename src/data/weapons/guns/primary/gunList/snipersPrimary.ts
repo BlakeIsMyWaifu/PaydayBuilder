@@ -14,19 +14,19 @@ import repeater1874 from '../sniper/repeater1874'
 import thanatos50Cal from '../sniper/thanatos50Cal'
 
 export type PrimarySniperList =
-	'Rattlesnake' |
-	'R700' |
-	'Bernetti Rangehitter' |
-	'Káng Arms X1' |
-	'Platypus 70' |
-	'Lebensauger .308' |
-	'Desertfox' |
-	'Contractor .308' |
-	'R93' |
-	'Repeater 1874' |
-	'Grom' |
-	'Nagant' |
-	'Thanatos .50 cal'
+	| 'Rattlesnake'
+	| 'R700'
+	| 'Bernetti Rangehitter'
+	| 'Káng Arms X1'
+	| 'Platypus 70'
+	| 'Lebensauger .308'
+	| 'Desertfox'
+	| 'Contractor .308'
+	| 'R93'
+	| 'Repeater 1874'
+	| 'Grom'
+	| 'Nagant'
+	| 'Thanatos .50 cal'
 
 const snipers: Record<PrimarySniperList, WeaponData> = {
 	'Rattlesnake': rattlesnake,

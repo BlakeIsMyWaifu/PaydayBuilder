@@ -5,6 +5,7 @@ import gadget, { GadgetModificationsList } from '../../modifications/gadget'
 import { Modification } from '../../weaponTypes'
 
 export const akimboShotgunAmmunition: Modification<AmmunitionModificationsList>[] = [
+	ammunition['Tombstone Slug'],
 	ammunition['000 Buckshot (Community)'],
 	ammunition['000 Buckshot (DLC)'],
 	ammunition['HE Round'],
@@ -34,5 +35,6 @@ export const akimboShotgunGadget: Modification<GadgetModificationsList>[] = [
 	gadget['Tactical Laser Module'],
 	gadget['Compact Laser Module'],
 	gadget['Military Laser Module'],
-	gadget['LED Combo']
+	gadget['LED Combo'],
+	gadget['Stealth Laser Module']
 ]

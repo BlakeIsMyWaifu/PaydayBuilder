@@ -13,110 +13,113 @@ const AKRifles: CompatibleWeapons = {
 
 export type ForegripModificationsList =
 	// AK Rifle, AK.762, Golden AK.762
-	'Railed Wooden Grip' |
-	'The Tactical Russian Handguard' |
-	'Battleproven Handguard' |
-	'Lightweight Rail' |
-	'Crabs Rail' |
-	'Keymod Rail' |
+	| 'Railed Wooden Grip'
+	| 'The Tactical Russian Handguard'
+	| 'Battleproven Handguard'
+	| 'Lightweight Rail'
+	| 'Crabs Rail'
+	| 'Keymod Rail'
 
 	// Commando 553
-	'Enhanced Foregrip' |
-	'Railed Foregrip (Commando)' |
+	| 'Enhanced Foregrip'
+	| 'Railed Foregrip (Commando)'
 
 	// Eagle Heavy
-	'Rail Extension' |
+	| 'Rail Extension'
 
 	// CAR-4
-	'Aftermarket Special Handguard' |
-	'Competition Foregrip' |
-	'Gazelle Rail' |
-	'OVAL Foregrip' |
-	'E.M.O. Foregrip' |
+	| 'Aftermarket Special Handguard'
+	| 'Competition Foregrip'
+	| 'Gazelle Rail'
+	| 'OVAL Foregrip'
+	| 'E.M.O. Foregrip'
 
 	// Cavity 9mm
-	'Appalachian Foregrip' |
-	'Delabarre Foregrip' |
-	'Tooth Fairy Suppressor' |
+	| 'Appalachian Foregrip'
+	| 'Delabarre Foregrip'
+	| 'Tooth Fairy Suppressor'
 
 	// JP36
-	'Compact Foregrip' |
-	'Polizei Special Foregrip' |
-	'JP36 Long Foregrip' |
+	| 'Compact Foregrip'
+	| 'Polizei Special Foregrip'
+	| 'JP36 Long Foregrip'
 
 	// Queen's Wrath
-	'Versatile Foregrip' |
+	| 'Versatile Foregrip'
 
 	// Galant
-	'Custom Foregrip' |
+	| 'Custom Foregrip'
 
 	// AK5
-	'Karbin Ceres Handguard' |
-	'Belgian Heat Handguard' |
+	| 'Karbin Ceres Handguard'
+	| 'Belgian Heat Handguard'
 
 	// AMR-16
-	'Tactical Handguard' |
-	'Blast From The Past Handguard' |
-	'Long Ergo Foregrip' |
+	| 'Tactical Handguard'
+	| 'Blast From The Past Handguard'
+	| 'Long Ergo Foregrip'
 
 	// Gewehr 3
-	'Precision Foregrip' |
-	'Tactical Foregrip (Gewehr)' |
-	'Wooden Foregrip' |
-	'Plastic Foregrip' |
+	| 'Precision Foregrip'
+	| 'Tactical Foregrip (Gewehr)'
+	| 'Wooden Foregrip'
+	| 'Plastic Foregrip'
 
 	// Reinfeld 880
-	'Zombie Hunter Pump' |
+	| 'Zombie Hunter Pump'
 
 	// IZHMA 12G
-	'The Tactical Russian Rail' |
-	'Hollow Handle' |
+	| 'The Tactical Russian Rail'
+	| 'Hollow Handle'
+
+	// VD-12
+	| 'Front Mounting Rail'
 
 	// Grimm 12G, Brothers Grimm 12G
-	'Little Brother Foregrip' |
+	| 'Little Brother Foregrip'
 
 	// Grom
-	'Lightweight Foregrip' |
+	| 'Lightweight Foregrip'
 
 	// RPK
-	'Tactical Foregrip (RPK)' |
+	| 'Tactical Foregrip (RPK)'
 
 	//KSP
-	'Railed Foregrip (KSP)' |
+	| 'Railed Foregrip (KSP)'
 
 	// Brenner 21
-	'Short Foregrip (Brenner)' |
+	| 'Short Foregrip (Brenner)'
 
 	// Compact-5
-	'Sehr Kurze Barrel' |
-	'Polizei Tactical Barrel' |
-	'The Ninja Barrel' |
-	'Enlightened Foregrip' |
+	| 'Sehr Kurze Barrel'
+	| 'Polizei Tactical Barrel'
+	| 'The Ninja Barrel'
+	| 'Enlightened Foregrip'
 
 	// Chicago Typewriter
-	'Discrete Foregrip' |
+	| 'Discrete Foregrip'
 
 	// Para
-	'Railed Handguard' |
-	'Aftermarket Shorty' |
+	| 'Railed Handguard'
+	| 'Aftermarket Shorty'
 
 	// Signature
-	'Short Foregrip (Signature)' |
+	| 'Short Foregrip (Signature)'
 
 	// Krinkov
-	'Moscow Special Rail' |
-	'Aluminum Foregrip' |
+	| 'Moscow Special Rail'
+	| 'Aluminum Foregrip'
 
 	// Uzi
-	'Tactical Foregrip (Uzi)' |
+	| 'Tactical Foregrip (Uzi)'
 
 	// SG Versteckt 51D
-	'Schatten Foregrip' |
+	| 'Schatten Foregrip'
 
 	// M60
-	'Modernized Foregrip' |
-	'Tactical Foregrip (M60)' |
-	'Tropical Foregrip'
+	| 'Modernized Foregrip'
+	| 'Tactical Foregrip (M60)'
+	| 'Tropical Foregrip'
 
 const foregrip: ModificationList<ForegripModificationsList> = {
 	'Railed Wooden Grip': {
@@ -741,6 +744,23 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		compatibleWeapons: {
 			shotgun: [
 				'IZHMA 12G'
+			]
+		}
+	},
+	'Front Mounting Rail': {
+		name: 'Front Mounting Rail',
+		image: '', // TODO image
+		icon: 'inv_mod_foregrip',
+		slot: 'foregrip',
+		source: content['McShay Weapon Pack 2'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'VD-12 Shotgun'
 			]
 		}
 	},

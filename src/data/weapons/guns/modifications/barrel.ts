@@ -5,316 +5,325 @@ import { ModificationList } from '../weaponTypes'
 
 export type BarrelModificationsList =
 	// AK, AK.762, Golden AK.762
-	'AK Slavic Dragon Barrel' |
-	'Modern Barrel' |
-	'DMR Kit (AK)' |
+	| 'AK Slavic Dragon Barrel'
+	| 'Modern Barrel'
+	| 'DMR Kit (AK)'
 
 	// CAR-4, AMR-16
-	'Long Barrel (CAR)' |
-	'Short Barrel (CAR)' |
-	'Stealth Barrel' |
-	'DMR Kit (CAR)' |
+	| 'Long Barrel (CAR)'
+	| 'Short Barrel (CAR)'
+	| 'Stealth Barrel'
+	| 'DMR Kit (CAR)'
 
 	// UAR
-	'Short Barrel (UAR)' |
-	'Long Barrel (UAR)' |
+	| 'Short Barrel (UAR)'
+	| 'Long Barrel (UAR)'
 
 	// AK5
-	'CQB Barrel (AK5)' |
+	| 'CQB Barrel (AK5)'
 
 	// Commando 553
-	'Long Barrel (Commando)' |
+	| 'Long Barrel (Commando)'
 
 	// Eagle Heavy
-	'Short Barrel (Eagle Heavy)' |
-	'Long Barrel (Eagle Heavy)' |
+	| 'Short Barrel (Eagle Heavy)'
+	| 'Long Barrel (Eagle Heavy)'
 
 	// Falcon
-	'CQB Foregrip (Falcon)' |
-	'Retro Foregrip' |
-	'Marksman Foregrip' |
-	'Wooden Foregrip' |
+	| 'CQB Foregrip (Falcon)'
+	| 'Retro Foregrip'
+	| 'Marksman Foregrip'
+	| 'Wooden Foregrip'
 
 	// Clarion
-	'Long Barrel (Clarion)' |
-	'Short Barrel (Clarion)' |
-	'Sniper Barrel' |
-	'Suppressed Barrel (Clarion)' |
+	| 'Long Barrel (Clarion)'
+	| 'Short Barrel (Clarion)'
+	| 'Sniper Barrel'
+	| 'Suppressed Barrel (Clarion)'
 
 	// Gecko 7.62
-	'Fabulous Foregrip' |
-	'CQB Foregrip (Gecko)' |
-	'Light Foregrip' |
-	'Sniper Foregrip' |
+	| 'Fabulous Foregrip'
+	| 'CQB Foregrip (Gecko)'
+	| 'Light Foregrip'
+	| 'Sniper Foregrip'
 
 	// Gewehr 3
-	'Assault Kit' |
-	'DMR Kit (Gewehr)' |
+	| 'Assault Kit'
+	| 'DMR Kit (Gewehr)'
 
 	// Queen's Wrath
-	'Prodigious Barrel' |
-	'Diminutive Barrel' |
+	| 'Prodigious Barrel'
+	| 'Diminutive Barrel'
 
 	// Lion's Roar
-	'CQB Barrel (Lion\'s Roar)' |
-	'Precision Barrel' |
-	'Silenced Barrel (Lion\'s Roar)' |
+	| 'CQB Barrel (Lion\'s Roar)'
+	| 'Precision Barrel'
+	| 'Silenced Barrel (Lion\'s Roar)'
 
 	// Valkyria
-	'Prototype Barrel (Valkyria)' |
+	| 'Prototype Barrel (Valkyria)'
 
 	// Bootleg
-	'AML Barrel' |
+	| 'AML Barrel'
 
 	// Union 5.56
-	'Short Barrel (Union)' |
+	| 'Short Barrel (Union)'
 
 	// Galant
-	'Tanker Barrel' |
+	| 'Tanker Barrel'
 
 	// KETCHNOV Byk-1?
 
 	// Predator 12G
-	'Extended Mag' |
+	| 'Extended Mag'
 
 	// Joceline O/U 12G
-	'Sawed Off Barrel (Joceline)' |
+	| 'Sawed Off Barrel (Joceline)'
 
 	// IZHMA
-	'Short Barrel (IZHMA)' |
+	| 'Short Barrel (IZHMA)'
 
 	// M1014
-	'Short Barrel (M1014)' |
-	'Long Barrel (M1014)' |
+	| 'Short Barrel (M1014)'
+	| 'Long Barrel (M1014)'
 
 	// Raven
-	'Short Barrel (Raven)' |
-	'Long Barrel (Raven)' |
+	| 'Short Barrel (Raven)'
+	| 'Long Barrel (Raven)'
 
 	// Steakout 12G
-	'Long Barrel (Steakout)' |
-	'Suppressed Barrel (Steakout)' |
+	| 'Long Barrel (Steakout)'
+	| 'Suppressed Barrel (Steakout)'
 
 	// Breaker 12G
-	'Long Barrel (Breaker)' |
-	'Short Barrel (Breaker)' |
+	| 'Long Barrel (Breaker)'
+	| 'Short Barrel (Breaker)'
 
 	// Mosconi 12G
-	'Road Warrior Barrel' |
+	| 'Road Warrior Barrel'
 
 	// Reinfeld 88
-	'Huntsman Barrel' |
-	'Ventilated Barrel' |
+	| 'Huntsman Barrel'
+	| 'Ventilated Barrel'
 
 	// Mosconi 12G Tactical
-	'CE Extender' |
-	'CE Muffler' |
+	| 'CE Extender'
+	| 'CE Muffler'
 
 	// Akimbo Goliath 12G, Goliath 12G
-	'Short Barrel (Goliath)' |
-	'Silenced Barrel (Goliath)' |
+	| 'Short Barrel (Goliath)'
+	| 'Silenced Barrel (Goliath)'
+
+	// VD-12
+	| 'Long Barrel (VD-12)'
+	| 'Short Barrel (VD-12)'
 
 	// Rattlesnake
-	'Long Barrel (Rattlesnake)' |
+	| 'Long Barrel (Rattlesnake)'
 
 	// R93
-	'Short Barrel (R93)' |
-	'Compensated Suppressor' |
+	| 'Short Barrel (R93)'
+	| 'Compensated Suppressor'
 
 	// Thanatos .50 cal
-	'Tank Buster Barrel' |
-	'CQB Barrel (Thanatos)' |
-	'Suppressed Barrel (Thanatos)' |
+	| 'Tank Buster Barrel'
+	| 'CQB Barrel (Thanatos)'
+	| 'Suppressed Barrel (Thanatos)'
 
 	// Nagant
-	'Short Barrel (Nagant)' |
-	'Long Barrel (Nagant)' |
-	'Silenced Barrel (Nagant)' |
+	| 'Short Barrel (Nagant)'
+	| 'Long Barrel (Nagant)'
+	| 'Silenced Barrel (Nagant)'
 
 	// Repeater 1874
-	'Long Range Barrel' |
-	'Outlaw\'s Silenced Barrel' |
+	| 'Long Range Barrel'
+	| 'Outlaw\'s Silenced Barrel'
 
 	// Lebensauger .308
-	'Langer Barrel' |
-	'Gedämpfter Barrel' |
+	| 'Langer Barrel'
+	| 'Gedämpfter Barrel'
 
 	// Desertfox
-	'Long Barrel (Desertfox)' |
-	'Silenced Barrel (Desertfox)' |
+	| 'Long Barrel (Desertfox)'
+	| 'Silenced Barrel (Desertfox)'
 
 	// Grom
-	'Grievky Compensator' |
-	'Tikho Barrel' |
+	| 'Grievky Compensator'
+	| 'Tikho Barrel'
 
 	// R700
-	'Short Barrel (R700)' |
-	'Medium Barrel (R700)' |
+	| 'Short Barrel (R700)'
+	| 'Medium Barrel (R700)'
 
 	// Bernetti Rangehitter
-	'Deep Range Barrel' |
-	'Wind Whistler Barrel' |
+	| 'Deep Range Barrel'
+	| 'Wind Whistler Barrel'
 
 	// Káng Arms X1?
 
 	// KSP 58
-	'Short Barrel (KSP 58)' |
+	| 'Short Barrel (KSP 58)'
 
 	// KSP
-	'Long Barrel (KSP)' |
+	| 'Long Barrel (KSP)'
 
 	// Brenner 21
-	'Long Barrel (Brenner)' |
+	| 'Long Barrel (Brenner)'
 
 	// Buzzsaw 42
-	'Light Barrel' |
-	'Heatsinked Suppressed Barrel (Buzzsaw)' |
+	| 'Light Barrel'
+	| 'Heatsinked Suppressed Barrel (Buzzsaw)'
 
 	// M60?
 
 	// GL40
-	'Pirate Barrel' |
+	| 'Pirate Barrel'
 
 	// Vulcan Minigun
-	'Aerial Assault Barrel' |
-	'The Stump Barrel' |
+	| 'Aerial Assault Barrel'
+	| 'The Stump Barrel'
 
 	// Piglet
-	'Short Barrel (Piglet)' |
+	| 'Short Barrel (Piglet)'
+
+	// Hailstorm Mk 5
+	| 'v1.4 Barrel'
+	| 'v3.8 Barrel'
+	| 'v2.2 Barrel'
 
 	// White Streak
-	'Prototype Barrel (White Streak)' |
+	| 'Prototype Barrel (White Streak)'
 
 	// M13 9mm
-	'Threaded Barrel (M13)' |
+	| 'Threaded Barrel (M13)'
 
 	// Matever .357
-	'Pesante Barrel' |
-	'Medio Barrel' |
-	'Pisccolo Barrel' |
+	| 'Pesante Barrel'
+	| 'Medio Barrel'
+	| 'Pisccolo Barrel'
 
 	// Baby Deagle
-	'Ported Barrel' |
-	'Threaded Barrel (Baby Deagle)' |
+	| 'Ported Barrel'
+	| 'Threaded Barrel (Baby Deagle)'
 
 	// Bernetti Auto
-	'Weller Barrel' |
+	| 'Weller Barrel'
 
 	// Czech 92
-	'Sicario Barrel' |
+	| 'Sicario Barrel'
 
 	// Igor Automatik
-	'Tirador Barrel' |
+	| 'Tirador Barrel'
 
 	// Frenchman Model 87
-	'Opera Long Barrel' |
-	'Napoleon Barrel' |
+	| 'Opera Long Barrel'
+	| 'Napoleon Barrel'
 
 	// Parabellum
-	'Reinforced Barrel' |
-	'Short Barrel (Parabellum)' |
+	| 'Reinforced Barrel'
+	| 'Short Barrel (Parabellum)'
 
 	// 5/7 AP
-	'TiN Treated Barrel' |
+	| 'TiN Treated Barrel'
 
 	// Castigo .44
-	'Diablo Barrel' |
+	| 'Diablo Barrel'
 
 	// Chicago Typewriter
-	'Stubby Barrel' |
-	'Long Barrel (Chicago Typewriter)' |
+	| 'Stubby Barrel'
+	| 'Long Barrel (Chicago Typewriter)'
 
 	// Para
-	'Medium Barrel (Para)' |
+	| 'Medium Barrel (Para)'
 
 	// Kobus 90
-	'Long Barrel (Kobus)' |
-	'Civilian Market Barrel' |
-	'Mall Ninja Barrel' |
+	| 'Long Barrel (Kobus)'
+	| 'Civilian Market Barrel'
+	| 'Mall Ninja Barrel'
 
 	// Swedish K
-	'Grease Barrel' |
-	'Swedish Barrel' |
+	| 'Grease Barrel'
+	| 'Swedish Barrel'
 
 	// Blaster 9mm
-	'Short Barrel (Blaster)' |
-	'Ghetto Blaster' |
+	| 'Short Barrel (Blaster)'
+	| 'Ghetto Blaster'
 
 	// Patchett L2A1
-	'Long Barrel (Patchett)' |
-	'Short Barrel (Patchett)' |
-	'Heatsinked Suppressed Barrel (Patchett)' |
-	'Suppressed Barrel (Patchett)' |
+	| 'Long Barrel (Patchett)'
+	| 'Short Barrel (Patchett)'
+	| 'Heatsinked Suppressed Barrel (Patchett)'
+	| 'Suppressed Barrel (Patchett)'
 
 	// Micro Uzi
-	'Custom Barrel' |
+	| 'Custom Barrel'
 
 	// Jackal
-	'Civilian Barrel' |
+	| 'Civilian Barrel'
 
 	// CR 805B
-	'Medium Barrel (CR)' |
-	'Short Barrel (CR)' |
+	| 'Medium Barrel (CR)'
+	| 'Short Barrel (CR)'
 
 	// AK Gen 21
-	'MG8 Precision Barrel' |
-	'BY90 Wide Suppressor' |
+	| 'MG8 Precision Barrel'
+	| 'BY90 Wide Suppressor'
 
 	// Miyaka 10 Special?
 
 	// Claire 12G
-	'Sawed Off Barrel (Claire)' |
+	| 'Sawed Off Barrel (Claire)'
 
 	// Street Sweeper
-	'Long Barrel (Street Sweeper)' |
-	'Suppressed Barrel (Street Sweeper)' |
+	| 'Long Barrel (Street Sweeper)'
+	| 'Suppressed Barrel (Street Sweeper)'
 
 	// GSPS 12G
-	'Riot Barrel' |
+	| 'Riot Barrel'
 
 	// Crossbow
-	'Carbon Limb' |
-	'Skeletal Limb' |
+	| 'Carbon Limb'
+	| 'Skeletal Limb'
 
 	// MA-17 Flamethrower
-	'Merlin Nozzle' |
+	| 'Merlin Nozzle'
 
 	// Arbiter
-	'Bombardier Barrel' |
-	'Long Barrel (Arbiter)' |
+	| 'Bombardier Barrel'
+	| 'Long Barrel (Arbiter)'
 
 	// Basilisk 3V
-	'Fang Barrel' |
+	| 'Fang Barrel'
 
 	// Pronghorn
-	'Longshot Suppressor' |
+	| 'Longshot Suppressor'
 
 	// SG Versteckt 51D
-	'Kalt Barrel' |
+	| 'Kalt Barrel'
 
 	// Gecko M2
-	'UpShot Barrel' |
-	'Pinnacle Barrel' |
+	| 'UpShot Barrel'
+	| 'Pinnacle Barrel'
 
 	// M60
-	'Short Barrel (M60)' |
+	| 'Short Barrel (M60)'
 
 	// Káng Arms Model 54
-	'KA54 Barrel Extender' |
+	| 'KA54 Barrel Extender'
 
 	// RUS-12 Angry Tiger
-	'RUS-J Long Valley Barrel and Stabilizer' |
-	'RUS-K Tactical Short Barrel' |
+	| 'RUS-J Long Valley Barrel and Stabilizer'
+	| 'RUS-K Tactical Short Barrel'
 
 	//KETCHNOV BYK-1
-	'K-B100 Suppressor' |
+	| 'K-B100 Suppressor'
 
 	// Káng Arms X1
-	'KA-ZD1A Long Barrel' |
-	'KA-ZD1B Short Barrel' |
+	| 'KA-ZD1A Long Barrel'
+	| 'KA-ZD1B Short Barrel'
 
 	// Miyaka 10 Special
-	'MS10 Short Barrel'
+	| 'MS10 Short Barrel'
 
 const barrel: ModificationList<BarrelModificationsList> = {
 	'AK Slavic Dragon Barrel': {
@@ -1416,6 +1425,43 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		incompatibleSlot: ['barrelExt']
 	},
+	'Long Barrel (VD-12)': {
+		name: 'Long Barrel (VD-12)',
+		image: 'wpn_fps_sho_sko12_b_long', // TODO image
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 2'],
+		cost: 9e3,
+		stats: {
+			damage: 2,
+			accuracy: 8,
+			stability: 4,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'VD-12 Shotgun'
+			]
+		}
+	},
+	'Short Barrel (VD-12)': {
+		name: 'Short Barrel (VD-12)',
+		image: 'wpn_fps_sho_sko12_b_short', // TODO image
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 2'],
+		cost: 9e3,
+		stats: {
+			accuracy: -4,
+			stability: -4,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'VD-12 Shotgun'
+			]
+		}
+	},
 	'Long Barrel (Rattlesnake)': {
 		name: 'Long Barrel (Rattlesnake)',
 		image: 'wpn_fps_snp_msr_b_long',
@@ -2035,6 +2081,67 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		compatibleWeapons: {
 			special: [
 				'Piglet'
+			]
+		}
+	},
+	'v1.4 Barrel': {
+		name: 'v1.4 Barrel',
+		image: 'wpn_fps_hailstorm_b_extended', // TODO image
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 2'],
+		cost: 9e3,
+		stats: {
+			damage: 1,
+			accuracy: 4,
+			stability: 4,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			special: [
+				'Hailstorm Mk 5'
+			]
+		}
+	},
+	'v3.8 Barrel': {
+		name: 'v3.8 Barrel',
+		image: 'wpn_fps_hailstorm_b_ext_suppressed', // TODO image
+		icon: 'inv_mod_silencer',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 2'],
+		cost: 9e3,
+		specialEffect: ['Silences Weapon'],
+		stats: {
+			damage: -2,
+			accuracy: 8,
+			stability: 4,
+			concealment: -3,
+			threat: -18
+		},
+		compatibleWeapons: {
+			special: [
+				'Hailstorm Mk 5'
+			]
+		}
+	},
+	'v2.2 Barrel': {
+		name: 'v2.2 Barrel',
+		image: 'wpn_fps_hailstorm_b_suppressed', // TODO image
+		icon: 'inv_mod_silencer',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 2'],
+		cost: 9e3,
+		specialEffect: ['Silences Weapon'],
+		stats: {
+			damage: -1,
+			accuracy: 4,
+			stability: 4,
+			concealment: -2,
+			threat: -18
+		},
+		compatibleWeapons: {
+			special: [
+				'Hailstorm Mk 5'
 			]
 		}
 	},

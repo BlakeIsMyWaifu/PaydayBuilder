@@ -8,13 +8,13 @@ import rpk from '../lightMachineGun/rpk'
 import sgVersteckt51D from '../lightMachineGun/sgVersteckt51D'
 
 export type LightMachineGunList =
-	'RPK' |
-	'KSP 58' |
-	'M60' |
-	'KSP' |
-	'Buzzsaw 42' |
-	'Brenner-21' |
-	'SG Versteckt 51D'
+	| 'RPK'
+	| 'KSP 58'
+	| 'M60'
+	| 'KSP'
+	| 'Buzzsaw 42'
+	| 'Brenner-21'
+	| 'SG Versteckt 51D'
 
 const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 	'RPK': rpk,

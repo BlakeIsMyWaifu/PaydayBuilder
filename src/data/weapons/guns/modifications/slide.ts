@@ -5,53 +5,53 @@ import { ModificationList } from '../weaponTypes'
 
 export type SlideModificationsList =
 	// Interceptor .45
-	'Expert Slide' |
-	'Match Slide' |
+	| 'Expert Slide'
+	| 'Match Slide'
 
 	// Gruber Kurz
-	'Long Slide (Gruber Kurz)' |
+	| 'Long Slide (Gruber Kurz)'
 
 	// Signature .40
-	'Two Tone Slide' |
-	'Long Slide (Signature .40)' |
+	| 'Two Tone Slide'
+	| 'Long Slide (Signature .40)'
 
 	// Crosskill
-	'Vented Slide' |
-	'Long Vented Slide' |
+	| 'Vented Slide'
+	| 'Long Vented Slide'
 
 	// Bronco .44
-	'Aggressor Barrel' |
-	'Pocket Surprise Barrel' |
-	'Ventilated Barrel' |
-	'Overcompensating Barrel' |
+	| 'Aggressor Barrel'
+	| 'Pocket Surprise Barrel'
+	| 'Ventilated Barrel'
+	| 'Overcompensating Barrel'
 
 	// Crosskill Chunky Compact
-	'Chunky Hunter Barrel' |
-	'Crosskill Platinum Bull Slide' |
+	| 'Chunky Hunter Barrel'
+	| 'Crosskill Platinum Bull Slide'
 
 	// Chimano Custom
-	'Long Slide (Chimano Custom)' |
+	| 'Long Slide (Chimano Custom)'
 
 	// Broomstick
-	'Precision Barrel (Broomstick)' |
+	| 'Precision Barrel (Broomstick)'
 
 	// Chimano Compact
-	'Striking Slide' |
+	| 'Striking Slide'
 
 	// Crosskill Guard
-	'Milled Slide' |
+	| 'Milled Slide'
 
 	// LEO
-	'Custom Slide' |
-	'Long Slide (LEO)' |
+	| 'Custom Slide'
+	| 'Long Slide (LEO)'
 
 	// Peacemaker .45
-	'Precision Barrel (Peacemaker)' |
-	'Shootout Barrel' |
+	| 'Precision Barrel (Peacemaker)'
+	| 'Shootout Barrel'
 
 	// Deagle
-	'Long Barrel' |
-	'Custom Milled Barrel'
+	| 'Long Barrel'
+	| 'Custom Milled Barrel'
 
 const slide: ModificationList<SlideModificationsList> = {
 	'Expert Slide': {

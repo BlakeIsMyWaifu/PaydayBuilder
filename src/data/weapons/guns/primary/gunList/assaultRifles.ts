@@ -29,34 +29,34 @@ import union556 from '../assaultRifle/union556'
 import valkyria from '../assaultRifle/valkyria'
 
 export type AssaultRifleList =
-	'AMCAR' |
-	'Commando 553' |
-	'Eagle Heavy' |
-	'Union 5.56' |
-	'AK' |
-	'CAR-4' |
-	'UAR' |
-	'KETCHNOV Byk-1' |
-	'Cavity 9mm' |
-	'AK.762' |
-	'JP36' |
-	'AK17' |
-	'Golden AK.762' |
-	'Bootleg' |
-	'Queen\'s Wrath' |
-	'Galant' |
-	'M308' |
-	'Clarion' |
-	'Lion\'s Roar' |
-	'Valkyria' |
-	'AK5' |
-	'Gecko 7.62' |
-	'Tempest-21' |
-	'AMR-16' |
-	'Little Friend 7.62' |
-	'Falcon' |
-	'Gewehr 3' |
-	'KS12 Urban'
+	| 'AMCAR'
+	| 'Commando 553'
+	| 'Eagle Heavy'
+	| 'Union 5.56'
+	| 'AK'
+	| 'CAR-4'
+	| 'UAR'
+	| 'KETCHNOV Byk-1'
+	| 'Cavity 9mm'
+	| 'AK.762'
+	| 'JP36'
+	| 'AK17'
+	| 'Golden AK.762'
+	| 'Bootleg'
+	| 'Queen\'s Wrath'
+	| 'Galant'
+	| 'M308'
+	| 'Clarion'
+	| 'Lion\'s Roar'
+	| 'Valkyria'
+	| 'AK5'
+	| 'Gecko 7.62'
+	| 'Tempest-21'
+	| 'AMR-16'
+	| 'Little Friend 7.62'
+	| 'Falcon'
+	| 'Gewehr 3'
+	| 'KS12 Urban'
 
 const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 	'AMCAR': amcar,

@@ -44,141 +44,149 @@ const mainGuns: CompatibleWeapons = {
 
 export type GripModificationsList =
 	// AK Rifles
-	'AK Rubber Grip' |
-	'AK Plastic Grip' |
-	'AK Wood Grip' |
-	'Aluminum Grip' |
+	| 'AK Rubber Grip'
+	| 'AK Plastic Grip'
+	| 'AK Wood Grip'
+	| 'Aluminum Grip'
 
 	// Commando 553
-	'Enhanced Grip' |
+	| 'Enhanced Grip'
 
 	// Main Guns
-	'Ergo Grip (Main)' |
-	'Pro Grip' |
-	'Rubber Grip' |
-	'Straight Grip' |
-	'Contractor Grip' |
-	'Titanium Skeleton Grip' |
+	| 'Ergo Grip (Main)'
+	| 'Pro Grip'
+	| 'Rubber Grip'
+	| 'Straight Grip'
+	| 'Contractor Grip'
+	| 'Titanium Skeleton Grip'
 
 	// Queen's Wrath
-	'Delightful Grip' |
+	| 'Delightful Grip'
 
 	// Clarion
-	'G2 Grip' |
+	| 'G2 Grip'
 
 	// Gecko 7.62
-	'Sniper Grip' |
+	| 'Sniper Grip'
 
 	// Falcon
-	'Tactical Grip' |
+	| 'Tactical Grip'
 
 	// Gewehr 3
-	'Retro Grip' |
-	'Precision Grip' |
+	| 'Retro Grip'
+	| 'Precision Grip'
+
+	// VD-12
+	| 'VD-12 Grip'
 
 	// Lebensauger .308
-	'Leichter Grip' |
-	'Subtiler Grip' |
-	'Walnuss Grip' |
+	| 'Leichter Grip'
+	| 'Subtiler Grip'
+	| 'Walnuss Grip'
 
 	// Brenner 21
-	'Ergo Grip (Brenner)' |
+	| 'Ergo Grip (Brenner)'
 
 	// DECA Technologies Compound Bow
-	'Wooden Grip (DECA)' |
-	'Ergonomic Grip (DECA)' |
+	| 'Wooden Grip (DECA)'
+	| 'Ergonomic Grip (DECA)'
+
+	// Hailstorm Mk5
+	| 'Whiteout Grip'
+	| 'Crystalline Grip'
+	| 'FZRA Grip'
 
 	// Chimano 88, STYYK 18c, Chimano Custom, Chimano Compact
-	'Laser Grip (Chimano)' |
-	'Platypus Grip' |
+	| 'Laser Grip (Chimano)'
+	| 'Platypus Grip'
 
 	// Gruber Kurz
-	'Laser Grip (Gruber Kurz)' |
+	| 'Laser Grip (Gruber Kurz)'
 
 	// Signature .40
-	'Ergo Grip (Signature .40)' |
+	| 'Ergo Grip (Signature .40)'
 
 	// Crosskill
-	'Ergo Grip (Crosskill)' |
-	'Bling Grip (Crosskill)' |
-	'Engraved Crosskill Grips' |
+	| 'Ergo Grip (Crosskill)'
+	| 'Bling Grip (Crosskill)'
+	| 'Engraved Crosskill Grips'
 
 	// Bernetti 9
-	'Ergo Grip (Bernetti 9)' |
-	'Engraved Bernetti Grips' |
+	| 'Ergo Grip (Bernetti 9)'
+	| 'Engraved Bernetti Grips'
 
 	// Bronco .44
-	'Ergo Wooden Grip' |
+	| 'Ergo Wooden Grip'
 
 	// Baby Deagle
-	'Spike Grip' |
+	| 'Spike Grip'
 
 	// M13 9mm
-	'Wooden Grip (M13)' |
+	| 'Wooden Grip (M13)'
 
 	// STRYK 18c, Chimano Custom
-	'Ergo Grip (STRYK / Chimano Custom)' |
+	| 'Ergo Grip (STRYK / Chimano Custom)'
 
 	// Parabellum
-	'Engraved Grip' |
+	| 'Engraved Grip'
 
 	// Castigo .44
-	'Carnival Grip' |
-	'Cruz Grip' |
+	| 'Carnival Grip'
+	| 'Cruz Grip'
 
 	// Frenchman Model 87
-	'Mule Bone Grip' |
+	| 'Mule Bone Grip'
 
 	// Crosskill Guard
-	'Blinged Grip' |
-	'Ergonomic Grip (Crosskill Guard)' |
+	| 'Blinged Grip'
+	| 'Ergonomic Grip (Crosskill Guard)'
 
 	// Bernetti Auto
-	'Cartel Grip (Bernetti Auto)' |
-	'Weller Grip' |
+	| 'Cartel Grip (Bernetti Auto)'
+	| 'Weller Grip'
 
 	// Czech 92
-	'Cartel Grip (Czech)' |
-	'Sicario Grip' |
+	| 'Cartel Grip (Czech)'
+	| 'Sicario Grip'
 
 	// Igor Automatik
-	'Federales Grip' |
-	'Cartel Grip (Igor)' |
+	| 'Federales Grip'
+	| 'Cartel Grip (Igor)'
 
 	// HOLT 9mm
-	'Ergonomic Grip (HOLT)' |
-	'Bling Grip (HOLT)' |
+	| 'Ergonomic Grip (HOLT)'
+	| 'Bling Grip (HOLT)'
 
 	// Peacemaker .45
-	'Grand Grip' |
+	| 'Grand Grip'
 
 	// Matever .357
-	'Noir Grip' |
+	| 'Noir Grip'
 
 	// Deagle
-	'Ergo Grip (Deagle)' |
-	'Bling Grip (Deagle)' |
+	| 'Ergo Grip (Deagle)'
+	| 'Bling Grip (Deagle)'
 
 	// Swedish K
-	'Ergo Grip (Swedish)' |
-	'Bling Grip (Swedish)' |
+	| 'Ergo Grip (Swedish)'
+	| 'Bling Grip (Swedish)'
 
 	// Chicago Typewriter
-	'Discrete Grip' |
+	| 'Discrete Grip'
 
 	// Cobra
-	'Ergo Grip (Cobra)' |
-	'Wooden Grip (Cobra)' |
+	| 'Ergo Grip (Cobra)'
+	| 'Wooden Grip (Cobra)'
 
 	// Pistol Crossbow
-	'Camo Grip' |
-	'Walnut Grip' |
+	| 'Camo Grip'
+	| 'Walnut Grip'
 
 	// RUS-12 Angry Tiger
-	'RUS Custom Wood Grip' |
+	| 'RUS Custom Wood Grip'
 
 	// Miyaka 10 Special
-	'MS10 Comfort Wood Grip'
+	| 'MS10 Comfort Wood Grip'
 
 const grip: ModificationList<GripModificationsList> = {
 	'AK Rubber Grip': {
@@ -460,6 +468,23 @@ const grip: ModificationList<GripModificationsList> = {
 			]
 		}
 	},
+	'VD-12 Grip': {
+		name: 'VD-12 Grip',
+		image: '', // TODO image
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 2'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			concealment: 1
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'VD-12 Shotgun'
+			]
+		}
+	},
 	'Leichter Grip': {
 		name: 'Leichter Grip',
 		image: 'wpn_fps_snp_wa2000_g_light',
@@ -559,6 +584,56 @@ const grip: ModificationList<GripModificationsList> = {
 		compatibleWeapons: {
 			special: [
 				'DECA Technologies Compound Bow'
+			]
+		}
+	},
+	'Whiteout Grip': {
+		name: 'Whiteout Grip',
+		image: 'wpn_fps_hailstorm_g_bubble', // TODO image
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 2'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			stability: -4
+		},
+		compatibleWeapons: {
+			special: [
+				'Hailstorm Mk 5'
+			]
+		}
+	},
+	'Crystalline Grip': {
+		name: 'Crystalline Grip',
+		image: 'wpn_fps_hailstorm_g_crystal', // TODO image
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 2'],
+		cost: 9e3,
+		stats: {
+			accuracy: -4,
+			stability: 4
+		},
+		compatibleWeapons: {
+			special: [
+				'Hailstorm Mk 5'
+			]
+		}
+	},
+	'FZRA Grip': {
+		name: 'FZRA Grip',
+		image: 'wpn_fps_hailstorm_g_noise', // TODO image
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 2'],
+		cost: 9e3,
+		stats: {
+			concealment: 1
+		},
+		compatibleWeapons: {
+			special: [
+				'Hailstorm Mk 5'
 			]
 		}
 	},

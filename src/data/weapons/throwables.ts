@@ -3,27 +3,27 @@ import content, { ContentData } from 'data/source/downloadableContent'
 import source, { SourceData } from 'data/source/miscSources'
 
 export type ThrowableList =
-	'Matryoshka Grenade' |
-	'Incendiary Grenade' |
-	'HEF Grenade' |
-	'Ace of Spades' |
-	'Concussion Grenade' |
-	'Viper Grenade' |
-	'Frag Grenade' |
-	'Molotove Cocktail' |
-	'Dynamite' |
-	'Shuriken' |
-	'Javelin' |
-	'Throwing Knife' |
-	'Throwing Axe' |
-	'X1-ZAPer' |
-	'Stoic\'s Hip Flask' |
-	'Pocket ECM' |
-	'Smoke Bomb' |
-	'Gas Dispenser' |
-	'Injector' |
-	'Leech Ampule' |
-	'Snowball'
+	| 'Matryoshka Grenade'
+	| 'Incendiary Grenade'
+	| 'HEF Grenade'
+	| 'Ace of Spades'
+	| 'Concussion Grenade'
+	| 'Viper Grenade'
+	| 'Frag Grenade'
+	| 'Molotove Cocktail'
+	| 'Dynamite'
+	| 'Shuriken'
+	| 'Javelin'
+	| 'Throwing Knife'
+	| 'Throwing Axe'
+	| 'X1-ZAPer'
+	| 'Stoic\'s Hip Flask'
+	| 'Pocket ECM'
+	| 'Smoke Bomb'
+	| 'Gas Dispenser'
+	| 'Injector'
+	| 'Leech Ampule'
+	| 'Snowball'
 
 export interface ThrowableData {
 	name: ThrowableList;

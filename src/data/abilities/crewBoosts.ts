@@ -4,14 +4,14 @@ export interface CrewBoost {
 }
 
 export type CrewBoostsList =
-	'Reinforcer' |
-	'Protector' |
-	'Distractor' |
-	'Invigorator' |
-	'Healer' |
-	'Concealer' |
-	'Stockpiler' |
-	'Accelerator'
+	| 'Reinforcer'
+	| 'Protector'
+	| 'Distractor'
+	| 'Invigorator'
+	| 'Healer'
+	| 'Concealer'
+	| 'Stockpiler'
+	| 'Accelerator'
 
 const boosts: Record<CrewBoostsList, CrewBoost> = {
 	Reinforcer: {

@@ -5,41 +5,41 @@ import { ModificationList } from '../weaponTypes'
 
 export type LowerReceiverModificationsList =
 	// Union 5.56
-	'Dunes Tactical Receiver' |
+	| 'Dunes Tactical Receiver'
 
 	// CAR-4, AMR-16, Para
-	'THRUST Lower Receiver' |
+	| 'THRUST Lower Receiver'
 
 	// UAR
-	'Raptor Polymer Body' |
+	| 'Raptor Polymer Body'
 
 	// Breaker 12G
-	'Treated Body' |
+	| 'Treated Body'
 
 	// Mosconi 12G Tactical
-	'CE Rail Stabilizer' |
+	| 'CE Rail Stabilizer'
 
 	// The Judge, Akimbo Judge
-	'Custom Reinforced Frame' |
+	| 'Custom Reinforced Frame'
 
 	// OVE9000
-	'Silent Motor' |
-	'Fast Motor' |
+	| 'Silent Motor'
+	| 'Fast Motor'
 
 	// Bernetti 9
-	'Custom Titanium Frame' |
+	| 'Custom Titanium Frame'
 
 	// Baby Deagle
-	'Spike Kit' |
+	| 'Spike Kit'
 
 	// Chimano Compact
-	'Striking Body Kit' |
+	| 'Striking Body Kit'
 
 	// Mark 10
-	'Custom Built Frame' |
+	| 'Custom Built Frame'
 
 	// Kobus 90
-	'Custom Assault Frame'
+	| 'Custom Assault Frame'
 
 const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 	'Dunes Tactical Receiver': {

@@ -26,31 +26,31 @@ import uzi from '../submachineGun/uzi'
 import waspDsSmg from '../submachineGun/waspDsSmg'
 
 export type SubmachineGunList =
-	'Swedish K' |
-	'SpecOps' |
-	'Mark 10' |
-	'CR 805B' |
-	'AK Gen 21 Tactical' |
-	'Jacket\'s Piece' |
-	'Compact-5' |
-	'Chicago Typewriter' |
-	'Miyaka 10 Special' |
-	'Cobra' |
-	'CMP' |
-	'Para' |
-	'Micro Uzi' |
-	'Signature' |
-	'Jackal' |
-	'MP40' |
-	'Heather' |
-	'Krinkov' |
-	'Blaster 9mm' |
-	'Kobus 90' |
-	'Kross Vertex' |
-	'Tatonka' |
-	'Patchett L2A1' |
-	'Uzi' |
-	'Wasp-DS SMG'
+	| 'Swedish K'
+	| 'SpecOps'
+	| 'Mark 10'
+	| 'CR 805B'
+	| 'AK Gen 21 Tactical'
+	| 'Jacket\'s Piece'
+	| 'Compact-5'
+	| 'Chicago Typewriter'
+	| 'Miyaka 10 Special'
+	| 'Cobra'
+	| 'CMP'
+	| 'Para'
+	| 'Micro Uzi'
+	| 'Signature'
+	| 'Jackal'
+	| 'MP40'
+	| 'Heather'
+	| 'Krinkov'
+	| 'Blaster 9mm'
+	| 'Kobus 90'
+	| 'Kross Vertex'
+	| 'Tatonka'
+	| 'Patchett L2A1'
+	| 'Uzi'
+	| 'Wasp-DS SMG'
 
 const submachineGuns: Record<SubmachineGunList, WeaponData> = {
 	'Swedish K': swedishK,

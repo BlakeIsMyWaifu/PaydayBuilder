@@ -20,7 +20,8 @@ export const specialGadget: Modification<GadgetModificationsList>[] = [
 	gadget['Tactical Laser Module'],
 	gadget['Compact Laser Module'],
 	gadget['Military Laser Module'],
-	gadget['LED Combo']
+	gadget['LED Combo'],
+	gadget['Stealth Laser Module']
 ]
 
 export const specialSight: Modification<SightModificationsList>[] = [

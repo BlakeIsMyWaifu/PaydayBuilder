@@ -43,121 +43,119 @@ const mainPistolsWithBroomstick: CompatibleWeapons = {
 
 export type BarrelExtModificationsList =
 	// Assault Rifles
-	//s
-	//s
-	'Low Profile Suppressor' |
-	'Medium Suppressor' |
-	'The Bigger The Better Suppressor' |
-	'Stubby Compensator' |
-	'The Tank Compensator' |
-	'Fire Breather Nozzle' |
-	'Tactical Compensator' |
-	'Competitor\'s Compensator' |
-	'Funnel of Fun Nozzle' |
-	'Ported Compensator' |
+	| 'Low Profile Suppressor'
+	| 'Medium Suppressor'
+	| 'The Bigger The Better Suppressor'
+	| 'Stubby Compensator'
+	| 'The Tank Compensator'
+	| 'Fire Breather Nozzle'
+	| 'Tactical Compensator'
+	| 'Competitor\'s Compensator'
+	| 'Funnel of Fun Nozzle'
+	| 'Ported Compensator'
 	// Misc
-	'PBS Suppressor' |
+	| 'PBS Suppressor'
 
 	// Shotguns
-	'Shark Teeth Nozzle' |
-	'The Silent Killer Suppressor' |
-	'King\'s Crown Compensator' |
-	'Shh!' |
-	'Donald\'s Horizontal Leveller' |
+	| 'Shark Teeth Nozzle'
+	| 'The Silent Killer Suppressor'
+	| 'King\'s Crown Compensator'
+	| 'Shh!'
+	| 'Donald\'s Horizontal Leveller'
 
 	// Platypus 70
-	'Beak Suppressor' |
+	| 'Beak Suppressor'
 
 	// Rattlesnake
-	'Sniper Suppressor' |
+	| 'Sniper Suppressor'
 
 	// Contractor .308
-	'Contractor Silencer' |
+	| 'Contractor Silencer'
 
 	// Pistols
-	'IPSC Compensator' |
-	'Facepunch Compensator' |
-	'Flash Hider' |
-	'Roctec Suppressor' |
-	'Champion\'s Suppressor' |
-	'Standard Issue Suppressor' |
-	'Size Doesn\'t Matter Suppressor' |
-	'Monolith Suppressor' |
-	'Asepsis Suppressor' |
-	'Budget Suppressor' |
-	'Jungle Ninja Suppressor' |
-	'Hurricane Compensator' |
+	| 'IPSC Compensator'
+	| 'Facepunch Compensator'
+	| 'Flash Hider'
+	| 'Roctec Suppressor'
+	| 'Champion\'s Suppressor'
+	| 'Standard Issue Suppressor'
+	| 'Size Doesn\'t Matter Suppressor'
+	| 'Monolith Suppressor'
+	| 'Asepsis Suppressor'
+	| 'Budget Suppressor'
+	| 'Jungle Ninja Suppressor'
+	| 'Hurricane Compensator'
 
 	// Interceptor .45
-	'Ventilated .45' |
-	'Velocity .45' |
+	| 'Ventilated .45'
+	| 'Velocity .45'
 
 	// STRYK 18c, Chimano Custom
-	'Ventilated Compensator' |
-	'Velocity Compensator' |
+	| 'Ventilated Compensator'
+	| 'Velocity Compensator'
 
 	// Crosskill
-	'Aggressor Compensator' |
-	'Punisher Compensator' |
+	| 'Aggressor Compensator'
+	| 'Punisher Compensator'
 
 	// Bernetti 9
-	'The Competitor Compensator' |
-	'The Professional Compensator' |
+	| 'The Competitor Compensator'
+	| 'The Professional Compensator'
 
 	// Deagle
-	'La Femme Compensator' |
-	'OVERKILL Compensator' |
+	| 'La Femme Compensator'
+	| 'OVERKILL Compensator'
 
 	// Signature .40
-	'Ventilated .40' |
-	'Velocity .40' |
+	| 'Ventilated .40'
+	| 'Velocity .40'
 
 	// Broomstick
-	'Damper.L 44 Nozzle' |
+	| 'Damper.L 44 Nozzle'
 
 	// Contractor
-	'Contractor Compensator' |
+	| 'Contractor Compensator'
 
 	// SpecOps
-	'Suppressed Barrel' |
+	| 'Suppressed Barrel'
 
 	// Mark 10, Jacket's Piece
-	'Werbell\'s Suppressor' |
-	'Slotted Barrel Extension' |
+	| 'Werbell\'s Suppressor'
+	| 'Slotted Barrel Extension'
 
 	// Cobra
-	'Suppressor' |
+	| 'Suppressor'
 
 	// CMP
-	'Tactical Suppressor' |
+	| 'Tactical Suppressor'
 
 	// Micro Uzi
-	'Futomaki Suppressor' |
-	'Maki Suppressor' |
-	'Spring Suppressor' |
+	| 'Futomaki Suppressor'
+	| 'Maki Suppressor'
+	| 'Spring Suppressor'
 
 	// Jackal
-	'Silentgear Silencer' |
+	| 'Silentgear Silencer'
 
 	// Heather
-	'Tishina Suppressor' |
+	| 'Tishina Suppressor'
 
 	// Kross Vertex
-	'HPS Suppressor' |
-	'Precision Barrel' |
+	| 'HPS Suppressor'
+	| 'Precision Barrel'
 
 	// Uzi
-	'Silent Death' |
+	| 'Silent Death'
 
 	// SG Versteckt 51D + other?
-	'Marmon Compensator' |
+	| 'Marmon Compensator'
 
 	// Argos III
-	'Try-Core Compensator' |
+	| 'Try-Core Compensator'
 
 	// KS12 Urban Rifle
-	'KS12-A Burst Muzzle' |
-	'KS12-S Long Silencer'
+	| 'KS12-A Burst Muzzle'
+	| 'KS12-S Long Silencer'
 
 const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Low Profile Suppressor': {

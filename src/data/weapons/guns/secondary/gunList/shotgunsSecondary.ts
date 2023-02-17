@@ -9,14 +9,14 @@ import streetSweeper from '../shotgun/streetSweeper'
 import theJudge from '../shotgun/theJudge'
 
 export type SecondaryShotgunList =
-	'Locomotive 12G' |
-	'GSPS 12G' |
-	'Goliath 12G' |
-	'Grimm 12G' |
-	'Street Sweeper' |
-	'The Judge' |
-	'Claire 12G' |
-	'Argos III'
+	| 'Locomotive 12G'
+	| 'GSPS 12G'
+	| 'Goliath 12G'
+	| 'Grimm 12G'
+	| 'Street Sweeper'
+	| 'The Judge'
+	| 'Claire 12G'
+	| 'Argos III'
 
 const shotguns: Record<SecondaryShotgunList, WeaponData> = {
 	'Locomotive 12G': locomotive12G,

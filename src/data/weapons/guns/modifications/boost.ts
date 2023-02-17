@@ -15,25 +15,25 @@ const allWeapons: CompatibleWeapons = {
 }
 
 export type BoostModificationsList =
-	'Concealment' |
-	'Stability' |
-	'Accuracy' |
-	'Team Boost' |
+	| 'Concealment'
+	| 'Stability'
+	| 'Accuracy'
+	| 'Team Boost'
 
 	// Shotgun accuracy reduction
-	'Accuracy (- Shotguns)' |
+	| 'Accuracy (- Shotguns)'
 
 	// Total Ammo Main
-	'Total Ammo (Main)' |
+	| 'Total Ammo (Main)'
 
 	// Ammo Plainsrider
-	'Total Ammo (Plainsrider)' |
+	| 'Total Ammo (Plainsrider)'
 
 	// Damage MA-17 Flamethrower, Flamethrower Mk.1
-	'Damage (Flamethrower)' |
+	| 'Damage (Flamethrower)'
 
 	// Concealment Pistols
-	'Concealment (Extra)'
+	| 'Concealment (Extra)'
 
 const boost: ModificationList<BoostModificationsList> = {
 	'Concealment': {

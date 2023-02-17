@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import { ModificationList } from '../weaponTypes'
 
 export type ReceiverModificationsList =
-	'Serpent'
+	| 'Serpent'
 
 const receiver: ModificationList<ReceiverModificationsList> = {
 	'Serpent': {

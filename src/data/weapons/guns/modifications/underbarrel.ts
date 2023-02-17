@@ -4,13 +4,13 @@ import { ModificationList } from '../weaponTypes'
 
 export type UnderbarrelModificationsList =
 	// Káng Arms Model 54
-	'KA54 Bull Stopper Addon' |
-	'Flechette' |
-	'AP Slug' |
+	| 'KA54 Bull Stopper Addon'
+	| 'Flechette'
+	| 'AP Slug'
 
 	// KETCHNOV BYK-1
-	'Frag Round' |
-	'Viper Grenade'
+	| 'Frag Round'
+	| 'Viper Grenade'
 
 const underbarrel: ModificationList<UnderbarrelModificationsList> = {
 	'KA54 Bull Stopper Addon': {

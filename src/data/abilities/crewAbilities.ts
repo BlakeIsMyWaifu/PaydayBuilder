@@ -5,10 +5,10 @@ export interface CrewAbility {
 }
 
 export type CrewAbilityList =
-	'Quick' |
-	'Inspiring' |
-	'Sharpeyed' |
-	'Piercing'
+	| 'Quick'
+	| 'Inspiring'
+	| 'Sharpeyed'
+	| 'Piercing'
 
 const abilities: Record<CrewAbilityList, CrewAbility> = {
 	Quick: {

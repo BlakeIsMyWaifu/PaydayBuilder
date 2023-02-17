@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import { ModificationList } from '../weaponTypes'
 
 export type BoltModificationList =
-	'Quickdraw Speedbolt'
+	| 'Quickdraw Speedbolt'
 
 const bolt: ModificationList<BoltModificationList> = {
 	'Quickdraw Speedbolt': {

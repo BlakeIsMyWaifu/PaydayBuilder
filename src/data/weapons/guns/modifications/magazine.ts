@@ -17,152 +17,152 @@ const AKRifles: CompatibleWeapons = {
 
 export type MagazineModificationsList =
 	// AK Rifles
-	'AK Quadstacked Mag' |
-	'Low Drag Magazine' |
-	'Speed Pull Magazine' |
+	| 'AK Quadstacked Mag'
+	| 'Low Drag Magazine'
+	| 'Speed Pull Magazine'
 
 	// AMCAR, AMR-16, Para
-	'Milspec Mag.' |
+	| 'Milspec Mag.'
 
 	// Random Guns One
-	'Vintage Mag.' |
-	'Tactical Mag.' |
-	'CAR Quadstacked Mag' |
-	'Expert Mag' |
-	'L5 Magazine' |
+	| 'Vintage Mag.'
+	| 'Tactical Mag.'
+	| 'CAR Quadstacked Mag'
+	| 'Expert Mag'
+	| 'L5 Magazine'
 
 	// Falcon
-	'Extended Magazine (Falcon)' |
+	| 'Extended Magazine (Falcon)'
 
 	// Reinfeld 880
-	'Extended Mag. (Reinfeld 880)' |
+	| 'Extended Mag. (Reinfeld 880)'
 
 	// Grimm 12G, Brothers Grimm 12G, IZHMA 12G
-	'Big Brother Magazine' |
+	| 'Big Brother Magazine'
 
 	// Steakout 12G
-	'Drum Mag' |
+	| 'Drum Mag'
 
 	// OVE9000
-	'Durable Blade' |
-	'Sharp Blade' |
+	| 'Durable Blade'
+	| 'Sharp Blade'
 
 	// Flamethrower Mk.1
-	'Rare' |
-	'Well Done' |
+	| 'Rare'
+	| 'Well Done'
 
 	// Interceptor .45
-	'Extended Mag. (Interceptor)' |
-	'I want more Magazine!' |
+	| 'Extended Mag. (Interceptor)'
+	| 'I want more Magazine!'
 
 	// STRYK 18c, Chimano 88, Chimano Custom, Chimano Compact
-	'Extended Mag. (Chimano)' |
+	| 'Extended Mag. (Chimano)'
 
 	// Signature .40
-	'Extended Mag. (Signature .40)' |
+	| 'Extended Mag. (Signature .40)'
 
 	// Crosskill
-	'12rnd Mag.' |
-	'Magazine with Ameritude!' |
+	| '12rnd Mag.'
+	| 'Magazine with Ameritude!'
 
 	// Bernetti 9
-	'Extended Mag. (Bernetti 9)' |
+	| 'Extended Mag. (Bernetti 9)'
 
 	// Crosskill Chunky Compact
-	'Crosskill Long Mag' |
+	| 'Crosskill Long Mag'
 
 	// White Streak
-	'Extended Magazine (White Streak)' |
+	| 'Extended Magazine (White Streak)'
 
 	// Broomstick
-	'High Capacity Mag' |
+	| 'High Capacity Mag'
 
 	// 5/7 AP
-	'Extended Magazine (5/7 AP)' |
+	| 'Extended Magazine (5/7 AP)'
 
 	// Contractor
-	'Extended Magazine (Contractor)' |
+	| 'Extended Magazine (Contractor)'
 
 	// Chimano Compact
-	'Striking Mag' |
+	| 'Striking Mag'
 
 	// Crosskill Guard
-	'Extended Mag (Crosskill Guard)' |
+	| 'Extended Mag (Crosskill Guard)'
 
 	// LEO
-	'Extended Mag (LEO)' |
+	| 'Extended Mag (LEO)'
 
 	// Bernetti Auto
-	'Extended Magazine (Bernetti Auto)' |
+	| 'Extended Magazine (Bernetti Auto)'
 
 	// Igor Automatik
-	'Extended Magazine (Igor)' |
+	| 'Extended Magazine (Igor)'
 
 	// HOLT 9mm
-	'Extended Magazine (HOLT)' |
+	| 'Extended Magazine (HOLT)'
 
 	// Deagle
-	'Extended Mag. (Deagle)' |
+	| 'Extended Mag. (Deagle)'
 
 	// Swedish K
-	'Extended Mag. (Swedish)' |
+	| 'Extended Mag. (Swedish)'
 
 	// SpecOps
-	'Extended Mag. (SpecOps)' |
+	| 'Extended Mag. (SpecOps)'
 
 	// Mark 10
-	'Extended Mag. (Mark 10)' |
+	| 'Extended Mag. (Mark 10)'
 
 	// Compact-5
-	'Straight Magazine' |
+	| 'Straight Magazine'
 
 	// Cobra
-	'Extended Mag (Cobra)' |
+	| 'Extended Mag (Cobra)'
 
 	// CMP
-	'Extended Mag. (CMP)' |
+	| 'Extended Mag. (CMP)'
 
 	// Signature
-	'Extended Magazine (Signature)' |
+	| 'Extended Magazine (Signature)'
 
 	// Jackal
-	'Extended Magazine (Jackal)' |
-	'Short Magazine (Jackal)' |
+	| 'Extended Magazine (Jackal)'
+	| 'Short Magazine (Jackal)'
 
 	// Blaster 9mm
-	'Extended Mag (Blaster)' |
+	| 'Extended Mag (Blaster)'
 
 	// Patchett L2A1
-	'Extended Mag (Patchett)' |
-	'Short Mag (Patchett)' |
+	| 'Extended Mag (Patchett)'
+	| 'Short Mag (Patchett)'
 
 	// Locomotive 12G
-	'Extended Mag. (Locomotive)' |
+	| 'Extended Mag. (Locomotive)'
 
 	// MA-17 Flamethrower
-	'High Temperature Mixture' |
-	'Low Temperature Mixture' |
+	| 'High Temperature Mixture'
+	| 'Low Temperature Mixture'
 
 	// Pronghorn
-	'Standoff Extended Magazine' |
+	| 'Standoff Extended Magazine'
 
 	// Wasp-DS
-	'Celerity X9 Magazine' |
+	| 'Celerity X9 Magazine'
 
 	// Gecko M2
-	'Stack S3 Magazine' |
+	| 'Stack S3 Magazine'
 
 	// Káng Arms Model 54
-	'KA54 Extended Magazine' |
+	| 'KA54 Extended Magazine'
 
 	// KETCHNOV BYK-1
-	'K-B1 Speedmag' |
+	| 'K-B1 Speedmag'
 
 	// Káng Arms X1
-	'KA-ZDM2 Extended Magazine' |
+	| 'KA-ZDM2 Extended Magazine'
 
 	// Miyaka 10 Special
-	'MS10 Speedmag'
+	| 'MS10 Speedmag'
 
 const magazine: ModificationList<MagazineModificationsList> = {
 	'AK Quadstacked Mag': {

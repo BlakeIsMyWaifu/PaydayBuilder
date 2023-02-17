@@ -95,50 +95,50 @@ const mainPistols: CompatibleWeapons = {
 
 export type SightModificationsList =
 	// Main guns
-	'The Professional\'s Choice Sight' |
-	'Surgeon Sight' |
-	'See More Sight' |
-	'Combat Sight' |
-	'Speculator Sight' |
-	'Trigonom Sight' |
-	'Holographic Sight' |
-	'Compact Holosight' |
-	'Solar Sight' |
-	'Military Red Dot Sight (1)' |
-	'Military Red Dot Sight (2)' |
-	'Milspec Scope' |
-	'Acough Optic Scope' |
-	'Compact Profile Sight' |
-	'Maelstrom Sight' |
-	'Advanced Combat Sight' |
-	'Reconnaissance Sight' |
+	| 'The Professional\'s Choice Sight'
+	| 'Surgeon Sight'
+	| 'See More Sight'
+	| 'Combat Sight'
+	| 'Speculator Sight'
+	| 'Trigonom Sight'
+	| 'Holographic Sight'
+	| 'Compact Holosight'
+	| 'Solar Sight'
+	| 'Military Red Dot Sight (1)'
+	| 'Military Red Dot Sight (2)'
+	| 'Milspec Scope'
+	| 'Acough Optic Scope'
+	| 'Compact Profile Sight'
+	| 'Maelstrom Sight'
+	| 'Advanced Combat Sight'
+	| 'Reconnaissance Sight'
 
 	// Snipers
-	'Theia Magnified Scope' |
-	'Box Buddy Sight' |
+	| 'Theia Magnified Scope'
+	| 'Box Buddy Sight'
 
 	// Repeater 1874
-	'A5 Scope' |
+	| 'A5 Scope'
 
 	// Pistols
-	'Pistol Red Dot Sight' |
-	'SKOLD Micro Reflex Sight' |
-	'Riktpunkt Holosight' |
+	| 'Pistol Red Dot Sight'
+	| 'SKOLD Micro Reflex Sight'
+	| 'Riktpunkt Holosight'
 
 	// Bernetti 9, Crosskill, Deagle
-	'Marksman Sight' |
+	| 'Marksman Sight'
 
 	// Broomstick
-	'Barrel Sight 44' |
+	| 'Barrel Sight 44'
 
 	// Contractor
-	'Tritium Sights' |
+	| 'Tritium Sights'
 
 	// Pronghorn
-	'Iron Sights' |
+	| 'Iron Sights'
 
 	// Káng Arms X1
-	'KA-ZD032 Iron Sight'
+	| 'KA-ZD032 Iron Sight'
 
 const sight: ModificationList<SightModificationsList> = {
 	'The Professional\'s Choice Sight': {
