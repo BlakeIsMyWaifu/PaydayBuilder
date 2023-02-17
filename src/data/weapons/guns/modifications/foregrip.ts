@@ -121,6 +121,9 @@ export type ForegripModificationsList =
 	| 'Tactical Foregrip (M60)'
 	| 'Tropical Foregrip'
 
+	// Aran G2
+	| 'Kanden Foregrip'
+
 const foregrip: ModificationList<ForegripModificationsList> = {
 	'Railed Wooden Grip': {
 		name: 'Railed Wooden Grip',
@@ -760,7 +763,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'VD-12 Shotgun'
+				'VD-12'
 			]
 		}
 	},
@@ -1126,6 +1129,24 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 		compatibleWeapons: {
 			lightMachineGun: [
 				'M60'
+			]
+		}
+	},
+	'Kanden Foregrip': {
+		name: 'Kanden Foregrip',
+		image: 'wpn_fps_snp_contender_frontgrip_long', // TODO image
+		icon: 'inv_mod_foregrip',
+		slot: 'foregrip',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			accuracy: 8,
+			stability: 4,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Aran G2'
 			]
 		}
 	}

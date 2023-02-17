@@ -167,6 +167,10 @@ export type BarrelModificationsList =
 	// KSP
 	| 'Long Barrel (KSP)'
 
+	// Akron HC
+	| 'Short Barrel (Akron HC)'
+	| 'DMR Barrel'
+
 	// Brenner 21
 	| 'Long Barrel (Brenner)'
 
@@ -297,6 +301,10 @@ export type BarrelModificationsList =
 
 	// Pronghorn
 	| 'Longshot Suppressor'
+
+	// Aran G2
+	| 'Long Barrel (Aran G2)'
+	| 'Short Barrel (Aran G2)'
 
 	// SG Versteckt 51D
 	| 'Kalt Barrel'
@@ -1440,7 +1448,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'VD-12 Shotgun'
+				'VD-12'
 			]
 		}
 	},
@@ -1458,7 +1466,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'VD-12 Shotgun'
+				'VD-12'
 			]
 		}
 	},
@@ -1935,6 +1943,42 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		compatibleWeapons: {
 			lightMachineGun: [
 				'KSP'
+			]
+		}
+	},
+	'Short Barrel (Akron HC)': {
+		name: 'Short Barrel (Akron HC)',
+		image: 'wpn_fps_lmg_hcar_barrel_short', // TODO image
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 3'],
+		cost: 14e3,
+		stats: {
+			accuracy: -4,
+			stability: -4,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'Akron HC'
+			]
+		}
+	},
+	'DMR Barrel': {
+		name: 'DMR Barrel',
+		image: 'wpn_fps_lmg_hcar_barrel_dmr', // TODO image
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 3'],
+		cost: 21e3,
+		stats: {
+			magazine: -10,
+			totalAmmo: -80,
+			damage: 40
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'Akron HC'
 			]
 		}
 	},
@@ -3035,6 +3079,42 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		compatibleWeapons: {
 			sniper: [
 				'Pronghorn'
+			]
+		}
+	},
+	'Long Barrel (Aran G2)': {
+		name: 'Long Barrel (Aran G2)',
+		image: 'wpn_fps_snp_contender_barrel_long', // TODO image
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			damage: 12,
+			accuracy: 4,
+			concealment: -3
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Aran G2'
+			]
+		}
+	},
+	'Short Barrel (Aran G2)': {
+		name: 'Short Barrel (Aran G2)',
+		image: 'wpn_fps_snp_contender_barrel_short', // TODO image
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			accuracy: -8,
+			stability: -8,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Aran G2'
 			]
 		}
 	},

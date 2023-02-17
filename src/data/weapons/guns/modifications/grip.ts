@@ -72,6 +72,11 @@ export type GripModificationsList =
 	// Falcon
 	| 'Tactical Grip'
 
+	// Rodion
+	| 'Verge AK Grip'
+	| 'Ergonomic AK Grip'
+	| 'Ultimatum AK Grip'
+
 	// Gewehr 3
 	| 'Retro Grip'
 	| 'Precision Grip'
@@ -187,6 +192,9 @@ export type GripModificationsList =
 
 	// Miyaka 10 Special
 	| 'MS10 Comfort Wood Grip'
+
+	// Aran G2
+	| 'Bounty Grip'
 
 const grip: ModificationList<GripModificationsList> = {
 	'AK Rubber Grip': {
@@ -428,6 +436,58 @@ const grip: ModificationList<GripModificationsList> = {
 			]
 		}
 	},
+	'Verge AK Grip': {
+		name: 'Verge AK Grip',
+		image: 'wpn_fps_upg_ak_g_edg', // TODO image
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			accuracy: 8,
+			stability: 8,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'Rodion 3B'
+			]
+		}
+	},
+	'Ergonomic AK Grip': {
+		name: 'Ergonomic AK Grip',
+		image: 'wpn_fps_upg_ak_g_gradus', // TODO image
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			concealment: 1
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'Rodion 3B'
+			]
+		}
+	},
+	'Ultimatum AK Grip': {
+		name: 'Ultimatum AK Grip',
+		image: 'wpn_fps_upg_ak_g_rk9', // TODO image
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			stability: 4
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'Rodion 3B'
+			]
+		}
+	},
 	'Retro Grip': {
 		name: 'Retro Grip',
 		image: 'wpn_fps_ass_g3_g_retro',
@@ -481,7 +541,7 @@ const grip: ModificationList<GripModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'VD-12 Shotgun'
+				'VD-12'
 			]
 		}
 	},
@@ -1329,6 +1389,24 @@ const grip: ModificationList<GripModificationsList> = {
 		compatibleWeapons: {
 			submachineGun: [
 				'Miyaka 10 Special'
+			]
+		}
+	},
+	'Bounty Grip': {
+		name: 'Bounty Grip',
+		image: 'wpn_fps_upg_m4_g_contender', // TODO image
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			stability: 8,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Aran G2'
 			]
 		}
 	}

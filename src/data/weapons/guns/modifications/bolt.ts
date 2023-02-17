@@ -4,6 +4,7 @@ import { ModificationList } from '../weaponTypes'
 
 export type BoltModificationList =
 	| 'Quickdraw Speedbolt'
+	| 'Taktika Deluxe Charging Handle'
 
 const bolt: ModificationList<BoltModificationList> = {
 	'Quickdraw Speedbolt': {
@@ -19,6 +20,24 @@ const bolt: ModificationList<BoltModificationList> = {
 		compatibleWeapons: {
 			sniper: [
 				'Pronghorn'
+			]
+		}
+	},
+	'Taktika Deluxe Charging Handle': {
+		name: 'Taktika Deluxe Charging Handle',
+		image: 'wpn_fps_ass_tkb_bolt_rp4', // TODO image
+		icon: 'inv_mod_bolt',
+		slot: 'bolt',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			stability: 4,
+			concealment: -1,
+			reload: -0.3
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'Rodion 3B'
 			]
 		}
 	}

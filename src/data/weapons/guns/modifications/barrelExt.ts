@@ -157,6 +157,9 @@ export type BarrelExtModificationsList =
 	| 'KS12-A Burst Muzzle'
 	| 'KS12-S Long Silencer'
 
+	// Aran G2
+	| 'Phantom Suppressor'
+
 const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Low Profile Suppressor': {
 		name: 'Low Profile Suppressor',
@@ -1342,6 +1345,24 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 		compatibleWeapons: {
 			assaultRifle: [
 				'KS12 Urban'
+			]
+		}
+	},
+	'Phantom Suppressor': {
+		name: 'Phantom Suppressor',
+		image: 'wpn_fps_snp_contender_suppressor', // TODO image
+		icon: 'inv_mod_barrel_ext',
+		slot: 'barrelExt',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			stability: 4,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Aran G2'
 			]
 		}
 	}

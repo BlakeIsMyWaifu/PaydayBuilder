@@ -13,6 +13,9 @@ export type LowerReceiverModificationsList =
 	// UAR
 	| 'Raptor Polymer Body'
 
+	// Rodion 3B
+	| 'Arkady Ammo Pouch'
+
 	// Breaker 12G
 	| 'Treated Body'
 
@@ -101,6 +104,25 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 		compatibleWeapons: {
 			assaultRifle: [
 				'UAR'
+			]
+		}
+	},
+	'Arkady Ammo Pouch': {
+		name: 'Arkady Ammo Pouch',
+		image: 'wpn_fps_ass_tkb_body_pouch', // TODO image
+		icon: 'inv_mod_lower_receiver',
+		slot: 'lowerReceiver',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			totalAmmo: 45,
+			accuracy: -4,
+			stability: 4,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'Rodion 3B'
 			]
 		}
 	},

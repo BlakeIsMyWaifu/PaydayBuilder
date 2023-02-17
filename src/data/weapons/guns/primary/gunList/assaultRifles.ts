@@ -23,6 +23,7 @@ import lionsRoar from '../assaultRifle/lionsRoar'
 import littleFriend762 from '../assaultRifle/littleFriend762'
 import m308 from '../assaultRifle/m308'
 import queensWrath from '../assaultRifle/queensWrath'
+import rodion3B from '../assaultRifle/rodion3B'
 import tempest21 from '../assaultRifle/tempest21'
 import uar from '../assaultRifle/uar'
 import union556 from '../assaultRifle/union556'
@@ -53,10 +54,11 @@ export type AssaultRifleList =
 	| 'Gecko 7.62'
 	| 'Tempest-21'
 	| 'AMR-16'
+	| 'KS12 Urban'
 	| 'Little Friend 7.62'
 	| 'Falcon'
+	| 'Rodion 3B'
 	| 'Gewehr 3'
-	| 'KS12 Urban'
 
 const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 	'AMCAR': amcar,
@@ -83,10 +85,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 	'Gecko 7.62': gecko762,
 	'Tempest-21': tempest21,
 	'AMR-16': amr16,
+	'KS12 Urban': ks12Urban,
 	'Little Friend 7.62': littleFriend762,
 	'Falcon': falcon,
-	'Gewehr 3': gewehr3,
-	'KS12 Urban': ks12Urban
+	'Rodion 3B': rodion3B,
+	'Gewehr 3': gewehr3
 }
 
 export default assaultRifles

@@ -91,6 +91,9 @@ export type StockModificationsList =
 	| 'Marksman Stock (Falcon)'
 	| 'Wooden Stock (Falcon)'
 
+	// Rodion 3B
+	| 'Shoulder Pad'
+
 	// Gewehr 3
 	| 'Precision Stock'
 	| 'Wooden Stock (Gewehr)'
@@ -261,6 +264,9 @@ export type StockModificationsList =
 	// Pronghorn
 	| 'Stakeout Stock (Pronghorn)'
 	| 'Marksman Stock (Pronghorn)'
+
+	// Aran G2
+	| 'Bounty Stock'
 
 	// SG Versteckt 51D
 	| 'Zittern Stock'
@@ -860,6 +866,22 @@ const stock: ModificationList<StockModificationsList> = {
 			]
 		}
 	},
+	'Shoulder Pad': {
+		name: 'Shoulder Pad',
+		image: 'wpn_fps_ass_tkb_s_tigr', // TODO image
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			stability: 4
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'Rodion 3B'
+			]
+		}
+	},
 	'Precision Stock': {
 		name: 'Precision Stock',
 		image: 'wpn_fps_ass_g3_s_sniper',
@@ -1130,7 +1152,7 @@ const stock: ModificationList<StockModificationsList> = {
 		},
 		compatibleWeapons: {
 			shotgun: [
-				'VD-12 Shotgun'
+				'VD-12'
 			]
 		}
 	},
@@ -2160,6 +2182,24 @@ const stock: ModificationList<StockModificationsList> = {
 		compatibleWeapons: {
 			sniper: [
 				'Pronghorn'
+			]
+		}
+	},
+	'Bounty Stock': {
+		name: 'Bounty Stock',
+		image: 'wpn_fps_upg_m4_s_contender',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			accuracy: 8,
+			stability: 8,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Aran G2'
 			]
 		}
 	},

@@ -30,7 +30,7 @@ const mainGuns: CompatibleWeapons = {
 		'M1014',
 		'Raven',
 		'Steakout 12G',
-		'VD-12 Shotgun',
+		'VD-12',
 		'Breaker 12G',
 		'Reinfeld 88',
 		'Mosconi 12G Tactical',

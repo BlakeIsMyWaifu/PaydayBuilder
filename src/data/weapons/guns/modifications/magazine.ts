@@ -34,6 +34,13 @@ export type MagazineModificationsList =
 	// Falcon
 	| 'Extended Magazine (Falcon)'
 
+	// Rodion 3B
+	| 'Siberian Speed Pull Magazine'
+
+	// Akron HC
+	| 'Large Magazine'
+	| 'Standard Magazine'
+
 	// Reinfeld 880
 	| 'Extended Mag. (Reinfeld 880)'
 
@@ -414,6 +421,58 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		compatibleWeapons: {
 			assaultRifle: [
 				'Falcon'
+			]
+		}
+	},
+	'Siberian Speed Pull Magazine': {
+		name: 'Siberian Speed Pull Magazine',
+		image: 'wpn_fps_ass_tkb_m_bakelite',
+		icon: 'inv_mod_magazine',
+		slot: 'magazine',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			stability: 4,
+			concealment: -2,
+			reload: -0.6
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'Rodion 3B'
+			]
+		}
+	},
+	'Large Magazine': {
+		name: 'Large Magazine',
+		image: 'wpn_fps_lmg_hcar_m_drum', // TODO image
+		icon: 'inv_mod_magazine',
+		slot: 'magazine',
+		source: content['McShay Weapon Pack 3'],
+		cost: 21e3,
+		stats: {
+			magazine: 50,
+			concealment: -4
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'Akron HC'
+			]
+		}
+	},
+	'Standard Magazine': {
+		name: 'Standard Magazine',
+		image: 'wpn_fps_lmg_hcar_m_stick', // TODO image
+		icon: 'inv_mod_magazine',
+		slot: 'magazine',
+		source: content['McShay Weapon Pack 3'],
+		cost: 21e3,
+		stats: {
+			magazine: 20,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'Akron HC'
 			]
 		}
 	},

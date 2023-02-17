@@ -2,10 +2,8 @@
 
 ## Weapons
 
-* McShay Weapon Pack 3
-  * Rodion 3B
-  * Akron HC
-  * Aran G2
+* A Criminal Carol 2022
+  * North Star
 </br>
 
 * Akimbo Pistols
