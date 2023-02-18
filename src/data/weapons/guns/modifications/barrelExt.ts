@@ -160,6 +160,9 @@ export type BarrelExtModificationsList =
 	// Aran G2
 	| 'Phantom Suppressor'
 
+	// North Star
+	| 'Tiwaz Silencer'
+
 const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Low Profile Suppressor': {
 		name: 'Low Profile Suppressor',
@@ -1363,6 +1366,26 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 		compatibleWeapons: {
 			sniper: [
 				'Aran G2'
+			]
+		}
+	},
+	'Tiwaz Silencer': {
+		name: 'Tiwaz Silencer',
+		image: '', // ! missing
+		icon: 'inv_mod_silencer',
+		slot: 'barrelExt',
+		source: content['A Criminal Carol'],
+		cost: 9e3,
+		stats: {
+			damage: -2,
+			accuracy: 8,
+			stability: -4,
+			concealment: -2,
+			threat: -22
+		},
+		compatibleWeapons: {
+			sniper: [
+				'North Star'
 			]
 		}
 	}

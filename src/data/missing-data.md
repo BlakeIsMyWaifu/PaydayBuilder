@@ -2,10 +2,6 @@
 
 ## Weapons
 
-* A Criminal Carol 2022
-  * North Star
-</br>
-
 * Akimbo Pistols
   * Baby Deagle
   * Bernetti 9
