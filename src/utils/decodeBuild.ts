@@ -56,10 +56,17 @@ export const decodeArmour = (value: string): ArmourList => {
 export const decodeThrowable = (value: string): ThrowableList => {
 	const throwableIndex = decodeValues(value)
 	let sortedThrowables: Record<string, ThrowableData> = structuredClone(throwables)
-	delete sortedThrowables['X1-ZAPer']
+	const removedThrowables: ThrowableList[] = ['X1-ZAPer', 'Leech Ampule', 'Viper Grenade', 'Adhesive Grenade', 'Snowball']
+	removedThrowables.forEach(removedThrowable => {
+		delete sortedThrowables[removedThrowable]
+	})
 	sortedThrowables = {
 		...sortedThrowables,
-		'X1-ZAPer': throwables['X1-ZAPer']
+		'X1-ZAPer': throwables['X1-ZAPer'],
+		'Leech Ampule': throwables['Leech Ampule'],
+		'Viper Grenade': throwables['Viper Grenade'],
+		'Adhesive Grenade': throwables['Adhesive Grenade'],
+		'Snowball': throwables.Snowball
 	}
 	return Object.keys(sortedThrowables)[throwableIndex] as ThrowableList
 }

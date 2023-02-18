@@ -102,13 +102,19 @@ export const encodeArmour = (armour: ArmourList): string => {
 	return encodeString(sortedArmour, armour)
 }
 
-// TODO order needs to be fixed
 export const encodeThrowable = (throwable: ThrowableList): string => {
-	let sortedThrowables: Record<string, ThrowableData> = structuredClone(throwables)
-	delete sortedThrowables['X1-ZAPer']
+	let sortedThrowables: Partial<Record<ThrowableList, ThrowableData>> = structuredClone(throwables)
+	const removedThrowables: ThrowableList[] = ['X1-ZAPer', 'Leech Ampule', 'Viper Grenade', 'Adhesive Grenade', 'Snowball']
+	removedThrowables.forEach(removedThrowable => {
+		delete sortedThrowables[removedThrowable]
+	})
 	sortedThrowables = {
 		...sortedThrowables,
-		'X1-ZAPer': throwables['X1-ZAPer']
+		'X1-ZAPer': throwables['X1-ZAPer'],
+		'Leech Ampule': throwables['Leech Ampule'],
+		'Viper Grenade': throwables['Viper Grenade'],
+		'Adhesive Grenade': throwables['Adhesive Grenade'],
+		'Snowball': throwables.Snowball
 	}
 	return encodeString(sortedThrowables, throwable)
 }
