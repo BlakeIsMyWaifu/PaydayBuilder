@@ -186,7 +186,7 @@ const Tabs: FC = () => {
 							description: throwable.description
 						}}
 					>
-						<Image src={`/images/throwables/${throwable.image}.png`} />
+						<Image src={`/images/throwables/${throwable.image}.webp`} />
 					</Selector>
 
 					<Selector
