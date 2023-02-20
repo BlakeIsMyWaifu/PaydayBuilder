@@ -45,7 +45,7 @@ export const Armour: FC = () => {
 							{armour.name === equippedArmour.name && <ItemEquipped />}
 							{locked && <LockedIcon />}
 							<ItemImage
-								src={`/images/armours/${armour.name}.png`}
+								src={`/images/armours/${armour.name}.webp`}
 								onMouseDown={event => event.preventDefault()}
 								locked={locked}
 							/>

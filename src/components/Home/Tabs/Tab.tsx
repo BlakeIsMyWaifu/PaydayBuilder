@@ -108,7 +108,7 @@ const Tabs: FC = () => {
 							table: <ArmourStatsTable selectedArmour={armour.name} />
 						}}
 					>
-						<Image src={`/images/armours/${armour.name}.png`} />
+						<Image src={`/images/armours/${armour.name}.webp`} />
 					</Selector>
 
 					<Selector
