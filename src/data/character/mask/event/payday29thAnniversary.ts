@@ -10,7 +10,7 @@ export type Payday29thAnniversaryList =
 const payday29thAnniversary: Record<Payday29thAnniversaryList, MaskData<Payday29thAnniversaryList, EventCollectionList>> = {
 	'Nine Hundred Degrees': {
 		name: 'Nine Hundred Degrees',
-		image: 'megaskulldia', // ! wrong size
+		image: 'megaskulldia',
 		description: [
 			'Blerrie! Looks like the diamonds I used to make that mask were imbued with some king of mystical energy! Are you noticing any prophetic visions? Maybe some new god-like powers? No? Just the burning eyes? Well, it\'s a cool look anyway!'
 		],
@@ -22,7 +22,7 @@ const payday29thAnniversary: Record<Payday29thAnniversaryList, MaskData<Payday29
 	},
 	'Nine Lives': {
 		name: 'Nine Lives',
-		image: 'skulldia', // ! wrong size
+		image: 'skulldia',
 		description: [
 			'Gotta hand it to you chops. You\'ve accomplished quite a bit in nine short years. How many places have you robbed? How many locks have you picked? How many kêrels and dentists and slimy stuck up power-hungry kaks have you sent to meet their blerrie maker? And I know we started things bumpy, but look at us now! You welcomed me in your gang. That meant the world, friends.',
 			'I got this mask made as a little token of my thanks. Those are real South African diamonds, by the way!'

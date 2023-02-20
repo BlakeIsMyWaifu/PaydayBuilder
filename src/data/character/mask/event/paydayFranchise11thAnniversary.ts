@@ -10,7 +10,7 @@ export type PaydayFranchise11thAnniversaryList =
 const paydayFranchise11thAnniversary: Record<PaydayFranchise11thAnniversaryList, MaskData<PaydayFranchise11thAnniversaryList, EventCollectionList>> = {
 	'Family Man Dark': {
 		name: 'Family Man Dark',
-		image: 'homburg', // ! wrong size
+		image: 'homburg',
 		description: [
 			'Never take sides against the family.'
 		],
@@ -22,7 +22,7 @@ const paydayFranchise11thAnniversary: Record<PaydayFranchise11thAnniversaryList,
 	},
 	'Family Man Gray': {
 		name: 'Family Man Gray',
-		image: 'homburg_grey', // ! wrong size
+		image: 'homburg_grey',
 		description: [
 			'Remember: always make time for the ones you love, buy don\'t let them ask you about your business.'
 		],

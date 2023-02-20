@@ -12,7 +12,7 @@ export type ACriminalCarolList =
 const aCriminalCarol: Record<ACriminalCarolList, MaskData<ACriminalCarolList, EventCollectionList>> = {
 	'Green Elf': {
 		name: 'Green Elf',
-		image: 'elfhat', // ! wrong size
+		image: 'elfhat',
 		description: [
 			'A sociopath with a degree in Chemistry, Green Elf is the North Pole\'s resident expert on poisons and neurotoxins'
 		],
@@ -24,7 +24,7 @@ const aCriminalCarol: Record<ACriminalCarolList, MaskData<ACriminalCarolList, Ev
 	},
 	'Purple Elf': {
 		name: 'Purple Elf',
-		image: 'elfhat_violet', // ! wrong size
+		image: 'elfhat_violet',
 		description: [
 			'Purple Elf is actually a really chill guy. Sure, he\'s a necromancer who may or may engage in human sacrifice, but beyond that he\'s super nice.'
 		],
@@ -36,7 +36,7 @@ const aCriminalCarol: Record<ACriminalCarolList, MaskData<ACriminalCarolList, Ev
 	},
 	'Red Elf': {
 		name: 'Red Elf',
-		image: 'elfhat_red', // ! wrong size
+		image: 'elfhat_red',
 		description: [
 			'As a soldier in Santa\'s Yuletide Militia, Red Elf likes to bathe in the blood of his enemies. Wouldn\'t you?'
 		],
@@ -48,7 +48,7 @@ const aCriminalCarol: Record<ACriminalCarolList, MaskData<ACriminalCarolList, Ev
 	},
 	'Yellow Elf': {
 		name: 'Yellow Elf',
-		image: 'elfhat_yellow', // ! wrong size
+		image: 'elfhat_yellow',
 		description: [
 			'Behind his sunny disposition, Yellow Elf is a raging pyromaniac who will not rest until he\'s burned the Naughty from this world.'
 		],

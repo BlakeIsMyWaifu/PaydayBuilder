@@ -14,7 +14,7 @@ export type StreetSmartTailorPackList =
 const streetSmartTailorPack: Record<StreetSmartTailorPackList, MaskData<StreetSmartTailorPackList, DlcCollectionList>> = {
 	'Agent Black': {
 		name: 'Agent Black',
-		image: 'gentgla_dark', // ! wrong size
+		image: 'gentgla_dark',
 		description: [
 			'Oh great, here comes Agent Black. This guy\'s a real freak. Electrode torture, piano wire strangulation, that\'s all him. The Agency only sets him loose when the body count is no longer a concern. That said, he\'s actually super sweet to the elderly. People are complicated, I guess.'
 		],
@@ -26,7 +26,7 @@ const streetSmartTailorPack: Record<StreetSmartTailorPackList, MaskData<StreetSm
 	},
 	'Agent Brown': {
 		name: 'Agent Brown',
-		image: 'gentgla_brown', // ! wrong size
+		image: 'gentgla_brown',
 		description: [
 			'When the Agency needs a lighter touch, they send in Agent Brown. He\'s the king of guy that offers you a cigarette before the interrogation. Real people, person, great sense of humor. He\'ll get you laughing so hard, you won\'t even notice his pistol until it\'s digging into your belly.'
 		],
@@ -38,7 +38,7 @@ const streetSmartTailorPack: Record<StreetSmartTailorPackList, MaskData<StreetSm
 	},
 	'Bad Cabbie': {
 		name: 'Bad Cabbie',
-		image: 'flapcapban', // ! wrong size
+		image: 'flapcapban',
 		description: [
 			'Suddenly, you decide that you\'re tired of driving idiots around for a living. You\'re in a quiet part of town, with some fat cat asshole sitting in your backseat. Probably has a thousand dollars cash in his pocket, easy. No one\'s around to stop you, and you remember there\'s a 9mm stashed in your glove compartment. Pull into an alley and collect your cab fare.'
 		],
@@ -50,7 +50,7 @@ const streetSmartTailorPack: Record<StreetSmartTailorPackList, MaskData<StreetSm
 	},
 	'Cool Beans Black': {
 		name: 'Cool Beans Black',
-		image: 'hatgla_dark', // ! wrong size
+		image: 'hatgla_dark',
 		description: [
 			'This is my beanie. There are many like it, but this one is mine. My beanie is my best friend. It is my life. I must master my beanie as I must master my life.'
 		],
@@ -62,7 +62,7 @@ const streetSmartTailorPack: Record<StreetSmartTailorPackList, MaskData<StreetSm
 	},
 	'Cool Beans Green': {
 		name: 'Cool Beans Green',
-		image: 'hatgla_green', // ! wrong size
+		image: 'hatgla_green',
 		description: [
 			'You ever noticed that people who wear beanies are never NOT wearing beanies? I\'ve known a guy for ten years who wears a beanie like this, and I\'ve never seen the top of his head. Not once.'
 		],
@@ -74,7 +74,7 @@ const streetSmartTailorPack: Record<StreetSmartTailorPackList, MaskData<StreetSm
 	},
 	'State Crime': {
 		name: 'State Crime',
-		image: 'bandcap_dark', // ! wrong size
+		image: 'bandcap_dark',
 		description: [
 			'When you\'re robbing a gas station in Amarillo, this hat lets the cashier know their money\'s staying local.'
 		],

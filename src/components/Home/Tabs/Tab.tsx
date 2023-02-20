@@ -86,7 +86,7 @@ const Tabs: FC = () => {
 							description: mask.description
 						}}
 					>
-						<Image src={`/images/masks/${mask.image}.png`} />
+						<Image src={`/images/masks/${mask.image}.webp`} />
 					</Selector>
 
 					<Selector
@@ -97,7 +97,7 @@ const Tabs: FC = () => {
 							description: [`Nationality: ${character.nationality}`, `Age: ${character.age.toString()}`, ...character.description]
 						}}
 					>
-						<Image src={`/images/masks/${character.image}.png`} />
+						<Image src={`/images/masks/${character.image}.webp`} />
 					</Selector>
 
 					<Selector

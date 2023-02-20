@@ -59,15 +59,15 @@
   * AK Gen 21 Tactical
   * Miyaka 10 Special
 
-## Throwable
-
-* McShay Mod Pack
-  * Adhesive Grenade
-
 ## Masks
 
-* Payday Halloween Stream 2022
-  * Unknown Mask 1
-  * Unknown Mask 2
-  * Unknown Mask 3
-  * Unknown Mask 4
+Payday Halloween Stream 2022
+
+* bansee
+* bloodysnarl
+* deadman
+* devilhorn
+* dodhat
+* hockeynermark
+* oilbaron
+* railhat
