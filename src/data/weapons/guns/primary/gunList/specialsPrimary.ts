@@ -4,6 +4,7 @@ import decaTechnologiesCompoundBow from '../special/decaTechnologiesCompoundBow'
 import englishLongbow from '../special/englishLongbow'
 import flamethrowerMk1 from '../special/flamethrowerMk1'
 import gl40 from '../special/gl40'
+import hailstormMk5 from '../special/hailstormMk5'
 import heavyCrossbow from '../special/heavyCrossbow'
 import lightCrossbow from '../special/lightCrossbow'
 import ove9000 from '../special/ove9000'
@@ -13,18 +14,19 @@ import vulcanMinigun from '../special/vulcanMinigun'
 import xl556Microgun from '../special/xl556Microgun'
 
 export type PrimarySpecialList =
-	'OVE9000' |
-	'Plainsrider Bow' |
-	'Light Crossbow' |
-	'Airbow' |
-	'English Longbow' |
-	'XL 5.56 Microgun' |
-	'DECA Technologies Compound Bow' |
-	'Vulcan Minigun' |
-	'Heavy Crossbow' |
-	'Piglet' |
-	'Flamethrower Mk.1' |
-	'GL40'
+	| 'OVE9000'
+	| 'Plainsrider Bow'
+	| 'Light Crossbow'
+	| 'Airbow'
+	| 'English Longbow'
+	| 'XL 5.56 Microgun'
+	| 'DECA Technologies Compound Bow'
+	| 'Vulcan Minigun'
+	| 'Heavy Crossbow'
+	| 'Piglet'
+	| 'Flamethrower Mk.1'
+	| 'GL40'
+	| 'Hailstorm Mk 5'
 
 const specials: Record<PrimarySpecialList, WeaponData> = {
 	'OVE9000': ove9000,
@@ -38,7 +40,8 @@ const specials: Record<PrimarySpecialList, WeaponData> = {
 	'Heavy Crossbow': heavyCrossbow,
 	'Piglet': piglet,
 	'Flamethrower Mk.1': flamethrowerMk1,
-	'GL40': gl40
+	'GL40': gl40,
+	'Hailstorm Mk 5': hailstormMk5
 }
 
 export default specials

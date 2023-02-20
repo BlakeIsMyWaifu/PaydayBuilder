@@ -33,38 +33,38 @@ import stryk18c from '../pistol/stryk18c'
 import whiteStreak from '../pistol/whiteStreak'
 
 export type PistolList =
-	'Interceptor .45' |
-	'Chimano 88' |
-	'Gruber Kurz' |
-	'Signature .40' |
-	'Crosskill' |
-	'Bernetti 9' |
-	'Bronco .44' |
-	'Crosskill Chunky Compact' |
-	'White Streak' |
-	'Baby Deagle' |
-	'M13 9mm' |
-	'Chimano Custom' |
-	'Broomstick' |
-	'Parabellum' |
-	'5/7 AP' |
-	'Castigo .44' |
-	'Contractor' |
-	'Frenchman Model 87' |
-	'Chimano Compact' |
-	'Crosskill Guard' |
-	'LEO' |
-	'STRYK 18c' |
-	'Bernetti Auto' |
-	'Czech 92' |
-	'Igor Automatik' |
-	'HOLT 9mm' |
-	'Peacemaker .45' |
-	'Matever .357' |
-	'Deagle' |
-	'Gecko M2' |
-	'Káng Arms Model 54' |
-	'RUS-12 Angry Tiger'
+	| 'Interceptor .45'
+	| 'Chimano 88'
+	| 'Gruber Kurz'
+	| 'Signature .40'
+	| 'Crosskill'
+	| 'Bernetti 9'
+	| 'Bronco .44'
+	| 'Crosskill Chunky Compact'
+	| 'White Streak'
+	| 'Baby Deagle'
+	| 'M13 9mm'
+	| 'Chimano Custom'
+	| 'Broomstick'
+	| 'Parabellum'
+	| '5/7 AP'
+	| 'Castigo .44'
+	| 'Contractor'
+	| 'Frenchman Model 87'
+	| 'Chimano Compact'
+	| 'Crosskill Guard'
+	| 'LEO'
+	| 'STRYK 18c'
+	| 'Bernetti Auto'
+	| 'Czech 92'
+	| 'Igor Automatik'
+	| 'HOLT 9mm'
+	| 'Peacemaker .45'
+	| 'Matever .357'
+	| 'Deagle'
+	| 'Gecko M2'
+	| 'Káng Arms Model 54'
+	| 'RUS-12 Angry Tiger'
 
 const pistols: Record<PistolList, WeaponData> = {
 	'Interceptor .45': interceptor45,

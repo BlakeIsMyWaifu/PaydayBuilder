@@ -85,7 +85,7 @@ useCharacterStore.subscribe(state => state.mask, state => {
 })
 
 useCharacterStore.subscribe(state => state.character, state => {
-	updateData('c', encodeCharacter(state))
+	updateData('h', encodeCharacter(state))
 })
 
 useCharacterStore.subscribe(state => state.armour, state => {

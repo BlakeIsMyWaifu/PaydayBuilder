@@ -3,28 +3,29 @@ import source, { SourceData } from 'data/source/miscSources'
 import { ThrowableList } from 'data/weapons/throwables'
 
 export type PerkDeckList =
-	'Crew Chief' |
-	'Muscle' |
-	'Armorer' |
-	'Rogue' |
-	'Crook' |
-	'Hitman' |
-	'Burglar' |
-	'Infiltrator' |
-	'Sociopath' |
-	'Gambler' |
-	'Grinder' |
-	'Yakuza' |
-	'Ex-President' |
-	'Maniac' |
-	'Anarchist' |
-	'Biker' |
-	'Kingpin' |
-	'Sicario' |
-	'Stoic' |
-	'Tag Team' |
-	'Hacker' |
-	'Leech'
+	| 'Crew Chief'
+	| 'Muscle'
+	| 'Armorer'
+	| 'Rogue'
+	| 'Crook'
+	| 'Hitman'
+	| 'Burglar'
+	| 'Infiltrator'
+	| 'Sociopath'
+	| 'Gambler'
+	| 'Grinder'
+	| 'Yakuza'
+	| 'Ex-President'
+	| 'Maniac'
+	| 'Anarchist'
+	| 'Biker'
+	| 'Kingpin'
+	| 'Sicario'
+	| 'Stoic'
+	| 'Tag Team'
+	| 'Hacker'
+	| 'Leech'
+	| 'Copycat'
 
 export interface PerkData {
 	name: PerkDeckList;
@@ -1603,8 +1604,274 @@ const perkDecks: Record<PerkDeckList, PerkData> = {
 		],
 		source: source['Base Game'],
 		throwable: 'Leech Ampule'
+	},
+	'Copycat': {
+		name: 'Copycat',
+		description: [
+			'With an eidetic memory and photographic reflexes, the Copycat is a physical phenomenon. Anticipating movement has made you quick on your feet, to the point that you can dodge and even deflect bullets with ease. You\'ve studied the other perk decks closely, and you can now mimic their base abilities to enhance your own.Mix and match techniques to create a style both echoic and unique. If others accuse you of stealing, remind them that imitation is the sincerest form of flattery.'
+		],
+		cards: [
+			{
+				name: 'Tactical Reload',
+				description: [
+					'Auto-reload secondary after performing 10 kills with primary, and vice versa.',
+					'Increases weapon swapping speed by 320%.'
+				],
+				stats: [
+					{
+						'type': 'swapSpeed',
+						'value': 3.20,
+						'multiply': true
+					}
+				]
+			},
+			{
+				name: 'Head Games',
+				description: [
+					'Each headshot you land heals 10 health points.'
+				]
+			},
+			{
+				name: 'Is This Your Bullet?',
+				description: [
+					'Dodged bullets will ricochet back on the enemy that fired them.'
+				]
+			},
+			{
+				name: 'Grace Period',
+				description: [
+					'When your health gets below 50% you will be immune to health damage for 2 seconds.',
+					'This cannot occur more than once every 15 seconds.'
+				]
+			},
+			{
+				name: 'Mimicry',
+				description: [
+					'Choose 1 of the following perks:'
+				]
+			}
+		],
+		source: source['Base Game']
 	}
 }
+
+export const CopycatCards: PerkCard[] = [
+	// Copycat basic bonus perks
+	{
+		name: 'Thriving',
+		description: [
+			'Your maximum health is increased by 20%.'
+		],
+		stats: [
+			{
+				'type': 'hp',
+				'value': 1.2,
+				'multiply': true
+			}
+		]
+	},
+	{
+		name: 'Toughen Up',
+		description: [
+			'You gain 5% more armor.'
+		],
+		stats: [
+			{
+				'type': 'armor',
+				'value': 1.05,
+				'multiply': true
+			}
+		]
+	},
+	{
+		name: 'Cat-Like Reflex',
+		description: [
+			'Your chance to dodge is increased by 5%.'
+		],
+		stats: [
+			{
+				'type': 'dodge',
+				'value': 1.05,
+				'multiply': true
+			}
+		]
+	},
+	{
+		name: 'Fleet-Footed',
+		description: [
+			'Your crouched and carry movement speed is increased by 10%.'
+		]
+	},
+
+	// Copycat final bonus perks
+	{
+		name: 'Brute Strength',
+		description: [
+			'You grant 8% damage reduction for players in your group. This bonus is doubled for you when you are under 50% health.'
+		]
+	},
+	{
+		name: 'Disturbing the Peace',
+		description: [
+			'All firearms have a chance to spread panic among your enemies.',
+			'Panic will make enemies go into short bursts of uncontrollable fear.'
+		]
+	},
+	{
+		name: 'Type I Armor',
+		description: [
+			'You gain 10% more armor'
+		]
+	},
+	{
+		name: 'Elusive',
+		description: [
+			'You are 15% less likely to be targeted when you are close to your crew members.'
+		]
+	},
+	{
+		name: 'Ambidexterity',
+		description: [
+			'Dual wielded weapons have a -16 stability penalty.',
+			'Your armor recovery rate is increased by an additional 15%.',
+			'Ammo capacity for your akimbo weapons are increased by 50%.'
+		]
+	},
+	{
+		name: 'Basic Composure',
+		description: [
+			'Your chance to dodge is increased by 5 % for ballistic vests.',
+			'Your armor is increased by 20% for ballistic vests.'
+		]
+	},
+	{
+		name: 'Dutch Courage',
+		description: [
+			'Your chance to dodge is increased by 20%.',
+			'Standing still and crouching decreases your chance of being targeted by 20%.'
+		]
+	},
+	{
+		name: 'Expert Close Combat',
+		description: [
+			'When you are within medium range of an enemy, you receive 24% less damage from enemies.'
+		]
+	},
+	{
+		name: 'Tension',
+		description: [
+			'Killing an enemy regenerates 30 armor.',
+			'This cannot occur more than once every 1 second.',
+			'You gain an additional 10% more armor.'
+		]
+	},
+	{
+		name: 'Medical Supplies',
+		description: [
+			'Ammo packs you pick up also yield medical supplies and heals you for 16 to 24 health.',
+			'Cannot occur more than once every 3 seconds.',
+			'If the Gambler\'s current health is lower than another player\'s, the heal effect on the Gambler is increased by 20%. Stacks up to three times.'
+		]
+	},
+	{
+		name: 'Adrenaline',
+		description: [
+			'Damaging an enemy heals 2 life points every 0.3 seconds for 3 seconds.',
+			'This effect stacks but cannot occur more than once every 1.5 seconds, and only while wearing the Two-piece Suit or Lightweight Ballistic Vest.'
+		]
+	},
+	{
+		name: 'Hebi Irezumi',
+		description: [
+			'The lower your health, the more movement speed you gain. When your health is below 25%, you will gain up to 20% movement speed.'
+		]
+	},
+	{
+		name: 'The Emerging Force',
+		description: [
+			'While your armor is up, you will store 8 health for every 1 enemy you or your crew kills.',
+			'When your armor has been completely depleted and then starts to regenerate, you will gain health equal to the stored health amount.',
+			'Maximum amount of stored health depends on your equipped armor.',
+			'You gain 10% more health.'
+		]
+	},
+	{
+		name: 'Outburst',
+		description: [
+			'100% of damage you deal is converted into Hysteria Stacks, up to 240 every 4 seconds. Max amount of stacks is 600.',
+			'Hysteria Stacks:\tYou gain 1 damage absorption for every 30 stacks of Hysteria. Hysteria Stacks decays 60% + 80 every 8 seconds.',
+			'Members of your crew also gains the effect of your Hysteria Stacks.',
+			'Hysteria Stacks from multiple crew members do not stack and only the stacks that gives the highest damage absorption will have an effect.'
+		]
+	},
+	{
+		name: 'Blitzkrieg Bop',
+		description: [
+			'Instead of fully regenerating armor when out of combat, The Anarchist will continuously regenerate armor throughout the entire combat. Heavier armor regenerates more armor, but during longer intervals.',
+			'When your armor gets depleted you will be immune to health damage for 2 seconds. This cannot occur more often than once every 15 seconds.',
+			'Note: Skills and perks that increases the armor recovery rate are disabled when using this perk deck.'
+		]
+	},
+	{
+		name: 'Prospect',
+		description: [
+			'Every time you or your crew performs a kill you will gain 5 health and 5 armor. This cannot occur more than 4 times every 4 seconds.'
+		]
+	},
+	{
+		name: 'Bad Guy Coming Through',
+		description: [
+			'Unlocks and equips the Kingpin Injector.',
+			'Activating the Injector will heal you with 75% of all damage taken for 6 seconds.',
+			'You can still take damage during the effect. The Injector can only be used once every 30 seconds.',
+			'Unlisted effect: Every kill reduces the cooldown by 1 second.'
+		]
+	},
+	{
+		name: 'Smoker',
+		description: [
+			'Unlocks and equips the throwable Smoke Bomb.',
+			'When deployed, the smoke bomb creates a smoke screen that lasts for 10 seconds. While standing inside the smoke screen, you and any of your allies automatically avoid 50% of all bullets. Any enemies that stand in the smoke will see their accuracy reduced by 50%.',
+			'After the smoke screen dissipates, the Smoke Bomb is on a cooldown for 60 seconds, but killing enemies will reduce this cooldown by 1 second.'
+		]
+	},
+	{
+		name: 'Virtue',
+		description: [
+			'Unlocks and equips the Stoic Hip Flask.',
+			'Damage taken is now reduced by 75%. The remaining damage will be applied directly.',
+			'The 75% reduced damage will be applied over-time (12 seconds) instead.',
+			'You can use the throwable key to activate the Stoic Hip Flask and immediately negate any pending damage. The flask has a 10 second cooldown but time remaining will be lessened by 1 second per enemy killed.'
+		]
+	},
+	{
+		name: 'Soul Mates',
+		description: [
+			'Unlocks and equips the Gas Dispenser.',
+			'To activate the Gas Dispenser you need to look at another allied unit within a 18 meter radius with clear line of sight and press the throwable key to tag them.',
+			'Each enemy you or the tagged unit kills will now heal you for 15 health and the tagged unit for 7.5 health.',
+			'Each enemy you kill will now extend the duration of the effect by 1.3 seconds and reduce the cooldown timer by 2 seconds.',
+			'The effect will last for a duration of 2 seconds and has a cooldown of 12 seconds.'
+		]
+	},
+	{
+		name: 'Code Glitch',
+		description: [
+			'Unlocks and equips the Pocket ECM Device.',
+			'Changing to another perk deck will make the Pocket ECM Device unavailable again. The Pocket ECM Device replaces your current throwable, it can be switched out if desired.\tWhile in game you can use the throwable key to activate the Pocket ECM Device.',
+			'Activating the Pocket ECM Device before the alarm is raised will trigger the jamming effect, disabling all electronics and pagers for a 6 second duration.',
+			'Activating the Pocket ECM Device after the alarm is raised will trigger the feedback effect, granting a chance to stun enemies on the map every second for a 6 second duration.',
+			'The Pocket ECM Device has 2 charges with a 100 second cooldown timer, but each kill you perform will shorten the cooldown time by 6 seconds.'
+		]
+	},
+	{
+		name: 'Momentum',
+		description: [
+			'Unlocks and equips the Leech Ampule.\tChanging to another perk deck will make the Leech Ampule unavailable again. The Leech Ampule replaces your current throwable, is equipped in your throwable slot and can be switched out if desired.\tWhile in game you can use throwable key to activate the Leech Ampule.\tActivating the Leech Ampule will restore 40% health and disables your armor for the duration of the Leech Ampule.\tWhile the Leech Ampule is active your health is divided into segments of 20% and damage taken from enemies removes one segment. Killing 2 enemies will restore one segment of your health and block damage for 1 second. Anytime you take damage your teammates are healed for 5% of their health.',
+			'The Leech Ampule lasts 6 seconds with a 30 seconds cooldown.'
+		]
+	}
+]
 
 for (const [key, value] of Object.entries(perkDecks)) {
 	const cards: PerkCard[] = []

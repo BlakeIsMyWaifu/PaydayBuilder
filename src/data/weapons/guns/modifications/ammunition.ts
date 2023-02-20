@@ -29,48 +29,70 @@ const mainGuns: CompatibleWeapons = {
 
 export type AmmunitionModificationsList =
 	// Shotguns
-	'000 Buckshot (Community)' |
-	'000 Buckshot (DLC)' |
-	'HE Round' |
-	'Flechette' |
-	'AP Slug' |
-	'Dragon\'s Breath Round' |
+	| 'Tombstone Slug'
+	| '000 Buckshot (Community)'
+	| '000 Buckshot (DLC)'
+	| 'HE Round'
+	| 'Flechette'
+	| 'AP Slug'
+	| 'Dragon\'s Breath Round'
 
 	// Plainsrider Bow
-	'Explosive Arrows (Plainsrider)' |
-	'Poisoned Arrows (Plainsrider)' |
+	| 'Explosive Arrows (Plainsrider)'
+	| 'Poisoned Arrows (Plainsrider)'
 
 	// Light Crossbox
-	'Explosive Bolt (Light Crossbow)' |
-	'Poison Bolt (Light Crossbow)' |
+	| 'Explosive Bolt (Light Crossbow)'
+	| 'Poison Bolt (Light Crossbow)'
 
 	// Airbow
-	'Explosive Arrow (Airbow)' |
-	'Poison Arrow (Airbow)' |
+	| 'Explosive Arrow (Airbow)'
+	| 'Poison Arrow (Airbow)'
 
 	// English Longbow
-	'Explosive Arrow (English Longbow)' |
-	'Poison Arrow (English Longbow)' |
+	| 'Explosive Arrow (English Longbow)'
+	| 'Poison Arrow (English Longbow)'
 
 	// DECA Technologies Compound Bow
-	'Explosive Arrow (DECA)' |
-	'Poison Arrow (DECA)' |
+	| 'Explosive Arrow (DECA)'
+	| 'Poison Arrow (DECA)'
 
 	// Heavy Crossbow
-	'Explosive Bolt (Heavy Crossbow)' |
-	'Poison Bolt (Heavy Crossbow)' |
+	| 'Explosive Bolt (Heavy Crossbow)'
+	| 'Poison Bolt (Heavy Crossbow)'
 
 	// KETCHNOV Byk-1, Little Friend 7.62
 	// Compact 40mm, China Puff 40mm, Piglet, GL40, Arbiter, Basilisk 3V
-	'Incendiary Round' |
-	'X1-a Tactical ZAPper' |
-	'Viper Grenade' |
+	| 'Incendiary Round'
+	| 'X1-a Tactical ZAPper'
+	| 'Viper Grenade'
 
 	// Pistol Crossbow
-	'Explosive Bolts (Pistol Crossbow)' |
-	'Poisoned Bolts (Pistol Crossbow)'
+	| 'Explosive Bolts (Pistol Crossbow)'
+	| 'Poisoned Bolts (Pistol Crossbow)'
 
 const ammunition: ModificationList<AmmunitionModificationsList> = {
+	'Tombstone Slug': {
+		name: 'Tombstone Slug',
+		image: 'wpn_fps_upg_a_rip',
+		icon: 'inv_mod_ammo_poison',
+		slot: 'ammunition',
+		source: source['Base Game'],
+		cost: 36e3,
+		acquisition: {
+			infinite: true
+		},
+		specialEffect: [
+			'Poisons enemies',
+			'Penetrates body armor'
+		],
+		stats: {
+			totalAmmo: -20,
+			damage: -4,
+			accuracy: 4
+		},
+		compatibleWeapons: mainGuns
+	},
 	'000 Buckshot (Community)': {
 		name: '000 Buckshot (Community)',
 		image: 'wpn_fps_upg_a_custom_free',
@@ -111,6 +133,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 		acquisition: {
 			infinite: true
 		},
+		specialEffect: ['Creates an explosion on impact'],
 		stats: {
 			totalAmmo: -5,
 			damage: 3,
@@ -128,6 +151,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 		acquisition: {
 			infinite: true
 		},
+		specialEffect: ['Penetrates body armor'],
 		stats: {
 			damage: -3,
 			accuracy: 8
@@ -144,6 +168,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 		acquisition: {
 			infinite: true
 		},
+		specialEffect: ['Penetrates body armor, shields, enemies and thin walls'],
 		stats: {
 			totalAmmo: -8, // different ammo per gun
 			damage: 15,
@@ -253,7 +278,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	},
 	'Explosive Arrow (Airbow)': {
 		name: 'Explosive Arrow (Airbow)',
-		image: 'wpn_fps_bow_ecp_m_explosive',
+		image: 'wpn_fps_bow_ecp_m_arrows_explosive', // ? wpn_fps_bow_ecp_m_explosive
 		icon: 'inv_mod_ammo_explosive',
 		slot: 'ammunition',
 		source: content['h3h3 Character Pack'],
@@ -273,7 +298,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	},
 	'Poison Arrow (Airbow)': {
 		name: 'Poison Arrow (Airbow)',
-		image: 'wpn_fps_bow_ecp_m_poison',
+		image: 'wpn_fps_bow_ecp_m_arrows_poison', // ? wpn_fps_bow_ecp_m_poison
 		icon: 'inv_mod_ammo_poison',
 		slot: 'ammunition',
 		source: content['h3h3 Character Pack'],

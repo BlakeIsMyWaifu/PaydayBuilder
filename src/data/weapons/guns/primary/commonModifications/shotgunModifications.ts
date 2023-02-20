@@ -7,6 +7,7 @@ import sight, { SightModificationsList } from '../../modifications/sight'
 import { Modification } from '../../weaponTypes'
 
 export const shotgunAmmunition: Modification<AmmunitionModificationsList>[] = [
+	ammunition['Tombstone Slug'],
 	ammunition['000 Buckshot (Community)'],
 	ammunition['000 Buckshot (DLC)'],
 	ammunition['HE Round'],
@@ -41,7 +42,8 @@ export const shotgunGadget: Modification<GadgetModificationsList>[] = [
 	gadget['Tactical Laser Module'],
 	gadget['Compact Laser Module'],
 	gadget['Military Laser Module'],
-	gadget['LED Combo']
+	gadget['LED Combo'],
+	gadget['Stealth Laser Module']
 ]
 
 export const shotgunGadgetMagnifier: Modification<GadgetModificationsList>[] = [

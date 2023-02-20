@@ -11,16 +11,16 @@ import ove9000 from '../special/ove9000'
 import pistolCrossbow from '../special/pistolCrossbow'
 
 export type SecondarySpecialList =
-	'Pistol Crossbow' |
-	'Compact 40mm' |
-	'HRL-7' |
-	'China Puff 40mm' |
-	'Commando 101' |
-	'MA-17 Flamethrower' |
-	'Arbiter' |
-	'OVE9000' |
-	'Cash Blaster' |
-	'Basilisk 3V'
+	| 'Pistol Crossbow'
+	| 'Compact 40mm'
+	| 'HRL-7'
+	| 'China Puff 40mm'
+	| 'Commando 101'
+	| 'MA-17 Flamethrower'
+	| 'Arbiter'
+	| 'OVE9000'
+	| 'Cash Blaster'
+	| 'Basilisk 3V'
 
 const specials: Record<SecondarySpecialList, WeaponData> = {
 	'Pistol Crossbow': pistolCrossbow,

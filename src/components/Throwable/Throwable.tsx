@@ -47,7 +47,7 @@ const Throwable: FC = () => {
 							{locked && <LockedIcon />}
 							{throwable.name === equippedThrowable.name && <ItemEquipped />}
 							<ItemImage
-								src={`/images/throwables/${throwable.image}.png`}
+								src={`/images/throwables/${throwable.image}.webp`}
 								locked={locked}
 								onMouseDown={event => event.preventDefault()}
 							/>

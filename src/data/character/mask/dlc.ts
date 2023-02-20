@@ -20,6 +20,7 @@ import gageWeaponPack2, { GageWeaponPack2List } from './dlc/gageWeaponPack2'
 import goldenDaggerTailorPack, { GoldenDaggerTailorPackList } from './dlc/goldenDaggerTailorPack'
 import guardiansTailorPack, { GuardiansTailorPackList } from './dlc/guardiansTailorPack'
 import h3H3CharacterPack, { H3H3CharacterPackList } from './dlc/h3H3CharacterPack'
+import highOctaneTailorPack, { HighOctaneTailorPackList } from './dlc/highOctaneTailorPack'
 import hotlineMiami, { HotLineMiamiList } from './dlc/hotlineMiami'
 import johnWickHeistsPack, { JohnWickHeistsPackList } from './dlc/johnWickHeistsPack'
 import johnWickWeaponPack, { JohnWickWeaponPackList } from './dlc/johnWickWeaponPack'
@@ -34,6 +35,7 @@ import scarfaceCharacterPack, { ScarfaceCharacterPackList } from './dlc/scarface
 import scarfaceHeist, { ScarfaceHeistList } from './dlc/scarfaceHeist'
 import sokolCharacterPack, { SokolCharacterPackList } from './dlc/sokolCharacterPack'
 import southboundTailorPack, { SouthboundTailorPackList } from './dlc/southboundTailorPack'
+import streetSmartTailorPack, { StreetSmartTailorPackList } from './dlc/streetSmartTailorPack'
 import sydneyCharacterPack, { SydneyCharacterPackList } from './dlc/sydneyCharacterPack'
 import theAlessoHeist, { TheAlessoHeistList } from './dlc/theAlessoHeist'
 import theBigBankHeist, { TheBigBankHeistList } from './dlc/theBigBankHeist'
@@ -102,6 +104,8 @@ export type DlcCollectionList =
 	| 'Dragon Pack'
 	| 'Gage Ninja Pack'
 	| 'Southbound Tailor Pack'
+	| 'High Octane Tailor Pack'
+	| 'Street Smart Tailor Pack'
 	| 'The Butcher\'s Western Pack'
 	| 'Biker Character Pack'
 	| 'A Merry Payday Christmas Soundtrack'
@@ -160,6 +164,8 @@ export type DlcMaskList =
 	| DragonPackList
 	| GageNinjaPackList
 	| SouthboundTailorPackList
+	| HighOctaneTailorPackList
+	| StreetSmartTailorPackList
 	| TheButchersWesternPackList
 	| BikerCharacterPackList
 	| AMerryPaydayChristmasSoundtrackList
@@ -352,6 +358,14 @@ const dlc: Category<DlcCollectionList> = {
 	'Southbound Tailor Pack': {
 		id: 44,
 		masks: southboundTailorPack
+	},
+	'High Octane Tailor Pack': {
+		id: 56,
+		masks: highOctaneTailorPack
+	},
+	'Street Smart Tailor Pack': {
+		id: 57,
+		masks: streetSmartTailorPack
 	},
 	'The Butcher\'s Western Pack': {
 		id: 45,

@@ -17,6 +17,7 @@ export const sniperGadgetMagnifier: Modification<GadgetModificationsList>[] = [
 	gadget['Compact Laser Module'],
 	gadget['Military Laser Module'],
 	gadget['LED Combo'],
+	gadget['Stealth Laser Module'],
 	gadget['Angled Sight'],
 	gadget['Riktpunkt 45 degree Sight'],
 	gadget['45 degree red-dot sight'],

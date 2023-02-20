@@ -5,41 +5,44 @@ import { ModificationList } from '../weaponTypes'
 
 export type LowerReceiverModificationsList =
 	// Union 5.56
-	'Dunes Tactical Receiver' |
+	| 'Dunes Tactical Receiver'
 
 	// CAR-4, AMR-16, Para
-	'THRUST Lower Receiver' |
+	| 'THRUST Lower Receiver'
 
 	// UAR
-	'Raptor Polymer Body' |
+	| 'Raptor Polymer Body'
+
+	// Rodion 3B
+	| 'Arkady Ammo Pouch'
 
 	// Breaker 12G
-	'Treated Body' |
+	| 'Treated Body'
 
 	// Mosconi 12G Tactical
-	'CE Rail Stabilizer' |
+	| 'CE Rail Stabilizer'
 
 	// The Judge, Akimbo Judge
-	'Custom Reinforced Frame' |
+	| 'Custom Reinforced Frame'
 
 	// OVE9000
-	'Silent Motor' |
-	'Fast Motor' |
+	| 'Silent Motor'
+	| 'Fast Motor'
 
 	// Bernetti 9
-	'Custom Titanium Frame' |
+	| 'Custom Titanium Frame'
 
 	// Baby Deagle
-	'Spike Kit' |
+	| 'Spike Kit'
 
 	// Chimano Compact
-	'Striking Body Kit' |
+	| 'Striking Body Kit'
 
 	// Mark 10
-	'Custom Built Frame' |
+	| 'Custom Built Frame'
 
 	// Kobus 90
-	'Custom Assault Frame'
+	| 'Custom Assault Frame'
 
 const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 	'Dunes Tactical Receiver': {
@@ -101,6 +104,25 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 		compatibleWeapons: {
 			assaultRifle: [
 				'UAR'
+			]
+		}
+	},
+	'Arkady Ammo Pouch': {
+		name: 'Arkady Ammo Pouch',
+		image: 'wpn_fps_ass_tkb_body_pouch',
+		icon: 'inv_mod_lower_receiver',
+		slot: 'lowerReceiver',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			totalAmmo: 45,
+			accuracy: -4,
+			stability: 4,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'Rodion 3B'
 			]
 		}
 	},

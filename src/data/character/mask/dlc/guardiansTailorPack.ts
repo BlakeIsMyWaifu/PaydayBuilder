@@ -12,7 +12,7 @@ export type GuardiansTailorPackList =
 const guardiansTailorPack: Record<GuardiansTailorPackList, MaskData<GuardiansTailorPackList, DlcCollectionList>> = {
 	'Azure Dragon': {
 		name: 'Azure Dragon',
-		image: '', // ???
+		image: 'azuredragon',
 		description: [
 			'Don this symbol of the four auspicious beats and wield the great power of the east to bring on the coming of spring!'
 		],
@@ -24,7 +24,7 @@ const guardiansTailorPack: Record<GuardiansTailorPackList, MaskData<GuardiansTai
 	},
 	'Black Tortoise': {
 		name: 'Black Tortoise',
-		image: '', // ???
+		image: 'blacktortoise',
 		description: [
 			'The darkest of the four auspicious beasts calls forth winter from the northlands!'
 		],
@@ -36,7 +36,7 @@ const guardiansTailorPack: Record<GuardiansTailorPackList, MaskData<GuardiansTai
 	},
 	'Vermilion Bird': {
 		name: 'Vermilion Bird',
-		image: '', // ???
+		image: 'vermilionbird',
 		description: [
 			'From the south comes this symbol of the four auspicious beasts, carrying with it the bright blistering heat of summer flame.'
 		],
@@ -48,7 +48,7 @@ const guardiansTailorPack: Record<GuardiansTailorPackList, MaskData<GuardiansTai
 	},
 	'White Tiger': {
 		name: 'White Tiger',
-		image: '', // ???
+		image: 'whitetiger',
 		description: [
 			'The leaves falling onto the streets bear witness to this auspicious beast of the west, and coming of autumn.'
 		],

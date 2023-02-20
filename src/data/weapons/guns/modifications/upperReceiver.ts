@@ -5,38 +5,38 @@ import { ModificationList } from '../weaponTypes'
 
 export type UpperReceiverModificationsList =
 	// Commando 553
-	'Heat Treated Body' |
+	| 'Heat Treated Body'
 
 	// CAR-4, AMR-16, Para
-	'Exotique Receiver' |
-	'LW Upper Receiver' |
-	'THRUST Upper Receiver' |
+	| 'Exotique Receiver'
+	| 'LW Upper Receiver'
+	| 'THRUST Upper Receiver'
 
 	// Reinfeld 880, Locomotive 12G
-	'Shell Rack' |
+	| 'Shell Rack'
 
 	// XL 5.56 Microgun
-	'Heat Sink Barrel' |
-	'XS Heat Sink Barrel' |
-	'XS Barrel' |
+	| 'Heat Sink Barrel'
+	| 'XS Heat Sink Barrel'
+	| 'XS Barrel'
 
 	// DECA Technologies Compound Bow
-	'Tactical Frame' |
+	| 'Tactical Frame'
 
 	// Bernetti 9
-	'The Elite Slide' |
+	| 'The Elite Slide'
 
 	// Bronco .44,
-	'Slimline Body' |
+	| 'Slimline Body'
 
 	// Swedish K
-	'Swedish Body' |
+	| 'Swedish Body'
 
 	// Jacket's Piece
-	'80\'s Calling' |
+	| '80\'s Calling'
 
 	// KS12 Urban Rifle
-	'KS12 DMR kit'
+	| 'KS12 DMR kit'
 
 const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'Heat Treated Body': {

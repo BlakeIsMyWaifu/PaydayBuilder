@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 import { ModificationList } from '../weaponTypes'
 
 export type BipodModificationsList =
-	'Lion\'s Bipod'
+	| 'Lion\'s Bipod'
 
 const bipod: ModificationList<BipodModificationsList> = {
 	'Lion\'s Bipod': {

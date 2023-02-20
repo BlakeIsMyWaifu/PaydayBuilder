@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import { ModificationList } from '../weaponTypes'
 
 export type BayonetModificationsList =
-	'Nagant Bayonet'
+	| 'Nagant Bayonet'
 
 const bayonet: ModificationList<BayonetModificationsList> = {
 	'Nagant Bayonet': {

@@ -1,6 +1,5 @@
 import Container from 'components/Container'
 import HorizontalBar from 'components/HorizontalBar'
-import { InfoContainer, InfoDescription, InfoTitle } from 'components/Info/Info-Elements'
 import { ItemContainer } from 'components/Item-Elements'
 import perkDecks, { PerkCard } from 'data/abilities/perks'
 import useMountEffect from 'hooks/useMountEffect'
@@ -8,6 +7,9 @@ import { FC, createRef, useRef, useState } from 'react'
 import { useAbilityStore } from 'state/useAbilitiesStore'
 
 import Perk from './Perks'
+import PerkTab from './PerkTab/PerkTab'
+
+export type PerkCardIndex = PerkCard & { index: number }
 
 const PerkDeck: FC = () => {
 
@@ -25,7 +27,7 @@ const PerkDeck: FC = () => {
 		})
 	}
 
-	const [hoveredCard, setHoveredCard] = useState<PerkCard | null>(null)
+	const [hoveredCard, setHoveredCard] = useState<PerkCardIndex | null>(null)
 
 	const equippedPerk = perkDecks[useAbilityStore(state => state.perkDeck)]
 
@@ -60,10 +62,7 @@ const PerkDeck: FC = () => {
 				}
 			</ItemContainer>
 
-			<InfoContainer>
-				<InfoTitle>{hoveredCard?.name}</InfoTitle>
-				<InfoDescription>{hoveredCard?.description.join('\n\n')}</InfoDescription>
-			</InfoContainer>
+			<PerkTab hoveredCard={hoveredCard} />
 
 		</Container>
 	)

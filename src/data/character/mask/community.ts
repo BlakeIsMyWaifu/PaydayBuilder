@@ -1,6 +1,7 @@
 import { Category } from '../masks'
 import deadByDaylightCommunity, { DeadByDaylightCommunityList } from './community/deadByDaylightCommunity'
 import payday2Community, { Payday2CommunityList } from './community/payday2Community'
+import primeMatter, { PrimeMatterList } from './community/primeMatter'
 import starbreezeAccount, { StarbreezeAccountList } from './community/starbreezeAccount'
 import theSolusProjectCommunity, { TheSolusProjectCommunityList } from './community/theSolusProjectCommunity'
 
@@ -8,11 +9,13 @@ export type CommunityCollectionList =
 	| 'Dead by Daylight Community'
 	| 'Payday 2 Community'
 	| 'Starbreeze Account'
+	| 'Prime Matter'
 	| 'The Solus Project Community'
 
 export type CommunityMaskList =
 	| DeadByDaylightCommunityList
 	| Payday2CommunityList
+	| PrimeMatterList
 	| StarbreezeAccountList
 	| TheSolusProjectCommunityList
 
@@ -24,6 +27,10 @@ const community: Category<CommunityCollectionList> = {
 	'Payday 2 Community': {
 		id: 1,
 		masks: payday2Community
+	},
+	'Prime Matter': {
+		id: 4,
+		masks: primeMatter
 	},
 	'Starbreeze Account': {
 		id: 2,

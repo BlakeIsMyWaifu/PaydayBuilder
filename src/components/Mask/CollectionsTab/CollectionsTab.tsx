@@ -2,7 +2,6 @@ import { InfoContainer, InfoTitle } from 'components/Info/Info-Elements'
 import { Category } from 'data/character/masks'
 import { FC, MutableRefObject, RefObject } from 'react'
 import { itemColours } from 'utils/colours'
-import { capitalizeEachWord } from 'utils/stringCases'
 
 import { CollectionTitle, CollectionsContainer } from './CollectionsTab-Elements'
 
@@ -24,7 +23,7 @@ const CollectionsTab: FC<CollectionsTabProps> = ({ collectionRefs, collections }
 
 						return <CollectionTitle
 							key={collectionTitle}
-							colour={itemColours[capitalizeEachWord(rarity)]}
+							colour={itemColours[rarity]}
 							onClick={() => (collectionRefs.current[i] as HTMLDivElement)?.scrollIntoView({ behavior: 'smooth' })}
 						>
 							{title}

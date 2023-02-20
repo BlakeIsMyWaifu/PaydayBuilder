@@ -23,40 +23,42 @@ import lionsRoar from '../assaultRifle/lionsRoar'
 import littleFriend762 from '../assaultRifle/littleFriend762'
 import m308 from '../assaultRifle/m308'
 import queensWrath from '../assaultRifle/queensWrath'
+import rodion3B from '../assaultRifle/rodion3B'
 import tempest21 from '../assaultRifle/tempest21'
 import uar from '../assaultRifle/uar'
 import union556 from '../assaultRifle/union556'
 import valkyria from '../assaultRifle/valkyria'
 
 export type AssaultRifleList =
-	'AMCAR' |
-	'Commando 553' |
-	'Eagle Heavy' |
-	'Union 5.56' |
-	'AK' |
-	'CAR-4' |
-	'UAR' |
-	'KETCHNOV Byk-1' |
-	'Cavity 9mm' |
-	'AK.762' |
-	'JP36' |
-	'AK17' |
-	'Golden AK.762' |
-	'Bootleg' |
-	'Queen\'s Wrath' |
-	'Galant' |
-	'M308' |
-	'Clarion' |
-	'Lion\'s Roar' |
-	'Valkyria' |
-	'AK5' |
-	'Gecko 7.62' |
-	'Tempest-21' |
-	'AMR-16' |
-	'Little Friend 7.62' |
-	'Falcon' |
-	'Gewehr 3' |
-	'KS12 Urban'
+	| 'AMCAR'
+	| 'Commando 553'
+	| 'Eagle Heavy'
+	| 'Union 5.56'
+	| 'AK'
+	| 'CAR-4'
+	| 'UAR'
+	| 'KETCHNOV Byk-1'
+	| 'Cavity 9mm'
+	| 'AK.762'
+	| 'JP36'
+	| 'AK17'
+	| 'Golden AK.762'
+	| 'Bootleg'
+	| 'Queen\'s Wrath'
+	| 'Galant'
+	| 'M308'
+	| 'Clarion'
+	| 'Lion\'s Roar'
+	| 'Valkyria'
+	| 'AK5'
+	| 'Gecko 7.62'
+	| 'Tempest-21'
+	| 'AMR-16'
+	| 'KS12 Urban'
+	| 'Little Friend 7.62'
+	| 'Falcon'
+	| 'Rodion 3B'
+	| 'Gewehr 3'
 
 const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 	'AMCAR': amcar,
@@ -83,10 +85,11 @@ const assaultRifles: Record<AssaultRifleList, WeaponData> = {
 	'Gecko 7.62': gecko762,
 	'Tempest-21': tempest21,
 	'AMR-16': amr16,
+	'KS12 Urban': ks12Urban,
 	'Little Friend 7.62': littleFriend762,
 	'Falcon': falcon,
-	'Gewehr 3': gewehr3,
-	'KS12 Urban': ks12Urban
+	'Rodion 3B': rodion3B,
+	'Gewehr 3': gewehr3
 }
 
 export default assaultRifles

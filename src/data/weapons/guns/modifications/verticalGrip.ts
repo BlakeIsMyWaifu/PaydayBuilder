@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import { ModificationList } from '../weaponTypes'
 
 export type VerticalGripModificationsList =
-	'Twinkle Grip'
+	| 'Twinkle Grip'
 
 const verticalGrip: ModificationList<VerticalGripModificationsList> = {
 	'Twinkle Grip': {

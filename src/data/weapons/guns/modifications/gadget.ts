@@ -30,6 +30,7 @@ const mainGuns: CompatibleWeapons = {
 		'M1014',
 		'Raven',
 		'Steakout 12G',
+		'VD-12',
 		'Breaker 12G',
 		'Reinfeld 88',
 		'Mosconi 12G Tactical',
@@ -149,30 +150,31 @@ const mainPistols: CompatibleWeapons = {
 
 export type GadgetModificationsList =
 	// Main guns
-	'Assault Light' |
-	'Tactical Laser Module' |
-	'Compact Laser Module' |
-	'Military Laser Module' |
-	'LED Combo' |
+	| 'Assault Light'
+	| 'Tactical Laser Module'
+	| 'Compact Laser Module'
+	| 'Military Laser Module'
+	| 'LED Combo'
+	| 'Stealth Laser Module'
 
 	// Guns with sights
-	'Riktpunkt 45 degree Sight' |
-	'45 degree red-dot sight' |
-	'45 Degree Ironsights' |
+	| 'Riktpunkt 45 degree Sight'
+	| '45 degree red-dot sight'
+	| '45 Degree Ironsights'
 
 	// Guns with magnifier
-	'Riktpunkt Magnifier Gadget' |
-	'Signature Magnifier Gadget' |
+	| 'Riktpunkt Magnifier Gadget'
+	| 'Signature Magnifier Gadget'
 
 	// Snipers
-	'Angled Sight' |
+	| 'Angled Sight'
 
 	// Pistols
-	'Tactical Pistol Light' |
-	'Pocket Laser' |
-	'Micro Laser' |
-	'Combined Module' |
-	'Polymer Flashlight'
+	| 'Tactical Pistol Light'
+	| 'Pocket Laser'
+	| 'Micro Laser'
+	| 'Combined Module'
+	| 'Polymer Flashlight'
 
 const gadget: ModificationList<GadgetModificationsList> = {
 	'Assault Light': {
@@ -246,6 +248,20 @@ const gadget: ModificationList<GadgetModificationsList> = {
 		stats: {
 			stability: 8,
 			concealment: -2
+		},
+		compatibleWeapons: mainGuns
+	},
+	'Stealth Laser Module': {
+		name: 'Stealth Laser Module',
+		image: 'wpn_fps_upg_fl_dbal_laser',
+		icon: 'inv_mod_laser',
+		slot: 'gadget',
+		source: content['McShay Mod Pack'],
+		cost: 36e3,
+		specialEffect: ['Flashlight', 'Laser'],
+		stats: {
+			accuracy: 4,
+			stability: -4
 		},
 		compatibleWeapons: mainGuns
 	},

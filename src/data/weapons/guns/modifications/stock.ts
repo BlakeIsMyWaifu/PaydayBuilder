@@ -40,236 +40,245 @@ const mainGuns: CompatibleWeapons = {
 
 export type StockModificationsList =
 	// Main Guns
-	'Standard Stock (Main)' |
-	'Tactical Stock (Main)' |
-	'Skeletal Stock (Main)' |
-	'Wooden Sniper Stock' |
-	'Wide Stock' |
-	'War-Torn Stock' |
-	'Classic Stock' |
-	'2 Piece Stock' |
-	'Contractor Stock' |
+	| 'Standard Stock (Main)'
+	| 'Tactical Stock (Main)'
+	| 'Skeletal Stock (Main)'
+	| 'Wooden Sniper Stock'
+	| 'Wide Stock'
+	| 'War-Torn Stock'
+	| 'Classic Stock'
+	| '2 Piece Stock'
+	| 'Contractor Stock'
 
 	// Commando 553
-	'Enhanced Stock' |
+	| 'Enhanced Stock'
 
 	// Eagle Heavy
-	'Sniper Stock (Eagle Heavy)' |
+	| 'Sniper Stock (Eagle Heavy)'
 
 	// AK, RPK
-	'Folding Stock' |
+	| 'Folding Stock'
 
 	// JP36
-	'Solid Stock (JP36)' |
-	'Sniper Stock (JP36)' |
+	| 'Solid Stock (JP36)'
+	| 'Sniper Stock (JP36)'
 
 	// Galant
-	'Magpouch Stock' |
+	| 'Magpouch Stock'
 
 	// M308
-	'Abraham Body' |
-	'Jaeger Body' |
-	'B-Team Stock' |
+	| 'Abraham Body'
+	| 'Jaeger Body'
+	| 'B-Team Stock'
 
 	// Valkyria
-	'Solid Stock (Valkyria)' |
+	| 'Solid Stock (Valkyria)'
 
 	// AK5
-	'Bertil Stock' |
-	'Caesar Stock' |
+	| 'Bertil Stock'
+	| 'Caesar Stock'
 
 	// Gecko 7.62
-	'Fabulous Stock' |
-	'Light Stock (Gecko)' |
-	'Plastic Stock (Gecko)' |
-	'Skeletal Stock (Gecko)' |
-	'Sniper Stock (Gecko)' |
-	'Wooden Stock (Gecko)' |
+	| 'Fabulous Stock'
+	| 'Light Stock (Gecko)'
+	| 'Plastic Stock (Gecko)'
+	| 'Skeletal Stock (Gecko)'
+	| 'Sniper Stock (Gecko)'
+	| 'Wooden Stock (Gecko)'
 
 	// Falcon
-	'CQB Stock' |
-	'Marksman Stock (Falcon)' |
-	'Wooden Stock (Falcon)' |
+	| 'CQB Stock'
+	| 'Marksman Stock (Falcon)'
+	| 'Wooden Stock (Falcon)'
+
+	// Rodion 3B
+	| 'Shoulder Pad'
 
 	// Gewehr 3
-	'Precision Stock' |
-	'Wooden Stock (Gewehr)' |
+	| 'Precision Stock'
+	| 'Wooden Stock (Gewehr)'
 
 	// Predator 12G
-	'Folded Stock (Predator)' |
-	'Solid Stock (Predator)' |
-	'No Stock (Predator)' |
+	| 'Folded Stock (Predator)'
+	| 'Solid Stock (Predator)'
+	| 'No Stock (Predator)'
 
 	// Breaker 12G
-	'Long Stock' |
+	| 'Long Stock'
 
 	// Reinfeld 880
-	'Short Enough Stock' |
-	'Short Enough Tactical Stock' |
-	'Government Issue Tactical Stock' |
+	| 'Short Enough Stock'
+	| 'Short Enough Tactical Stock'
+	| 'Government Issue Tactical Stock'
 
 	// Reinfeld 880, Locomotive 12G
-	'Muldon Stock' |
+	| 'Muldon Stock'
 
 	// Mosconi 12G
-	'Gangsta Special Stock' |
+	| 'Gangsta Special Stock'
 
 	// M1014
-	'Collapsed Stock' |
-	'Tactical Stock (M1014)' |
+	| 'Collapsed Stock'
+	| 'Tactical Stock (M1014)'
 
 	// Reinfeld 88
-	'Artisan Stock' |
+	| 'Artisan Stock'
+
+	// VD-12
+	| 'VD-12 Stock'
 
 	// Joceline O/U 12G
-	'Luxurious Ammo Pouch' |
-	'Wrist Wrecker Stock' |
+	| 'Luxurious Ammo Pouch'
+	| 'Wrist Wrecker Stock'
 
 	// Rattlesnake
-	'Tactical Aluminium Body' |
+	| 'Tactical Aluminium Body'
 
 	// R700
-	'Military Stock' |
-	'Tactical Stock (R700)' |
+	| 'Military Stock'
+	| 'Tactical Stock (R700)'
 
 	// Bernetti Rangehitter
-	'Club Stock' |
+	| 'Club Stock'
 
 	// R93
-	'Wooden Body' |
+	| 'Wooden Body'
 
 	// Grom
-	'Lightweight Stock' |
+	| 'Lightweight Stock'
 
 	// Nagant
-	'Discrete Stock (Nagant)' |
+	| 'Discrete Stock (Nagant)'
 
 	// RPK
-	'Plastic Stock (RPK)' |
+	| 'Plastic Stock (RPK)'
 
 	// KSP 58
-	'Plastic Stock (KSP 58)' |
+	| 'Plastic Stock (KSP 58)'
 
 	// KSP
-	'Solid Stock (KSP)' |
+	| 'Solid Stock (KSP)'
 
 	// Airbow
-	'Light Stock (Airbow)' |
+	| 'Light Stock (Airbow)'
 
 	// Piglet
-	'No Stock (Piglet)' |
+	| 'No Stock (Piglet)'
 
 	// GL40
-	'Sawed-off Stock' |
+	| 'Sawed-off Stock'
 
 	// Broomstick
-	'Holster Stock' |
+	| 'Holster Stock'
 
 	// STRYK 18c
-	'Stock' |
+	| 'Stock'
 
 	// Bernetti Auto
-	'Federales Stock (Bernetti Auto)' |
+	| 'Federales Stock (Bernetti Auto)'
 
 	// Igor Automatik
-	'Federales Stock (Igor)' |
+	| 'Federales Stock (Igor)'
 
 	// Peacemaker .45
-	'Ol´ Ben\'s Stock' |
+	| 'Ol´ Ben\'s Stock'
 
 	// Swedish K
-	'Folded Stock (Swedish)' |
+	| 'Folded Stock (Swedish)'
 
 	// SpecOps
-	'Unfolded Stock (SpecOps)' |
+	| 'Unfolded Stock (SpecOps)'
 
 	// Mark 10
-	'Skeletal Stock (Mark 10)' |
+	| 'Skeletal Stock (Mark 10)'
 
 	// AK Gen 21 Tactical
-	'Bull Stock' |
+	| 'Bull Stock'
 
 	// Compact-5
-	'Adjustable Stock' |
-	'Bare Essentials Stock' |
-	'Spartan Stock' |
+	| 'Adjustable Stock'
+	| 'Bare Essentials Stock'
+	| 'Spartan Stock'
 
 	// Chicago Typewriter
-	'QD Sling Stock' |
-	'Discrete Stock (Chicago Typewriter)' |
+	| 'QD Sling Stock'
+	| 'Discrete Stock (Chicago Typewriter)'
 
 	// Cobra
-	'No Stock (Cobra)' |
-	'Unfolded Stock (Cobra)' |
+	| 'No Stock (Cobra)'
+	| 'Unfolded Stock (Cobra)'
 
 	// CMP
-	'Skeletal Stock (CMP)' |
+	| 'Skeletal Stock (CMP)'
 
 	// Para
-	'Shorter Than Short Stock' |
+	| 'Shorter Than Short Stock'
 
 	// Micro Uzi
-	'No Stock (Micro Uzi)' |
-	'Unfolded Stock (Micro Uzi)' |
+	| 'No Stock (Micro Uzi)'
+	| 'Unfolded Stock (Micro Uzi)'
 
 	// Signature
-	'No Stock (Signature)' |
+	| 'No Stock (Signature)'
 
 	// Jackal
-	'Civilian Stock' |
-	'Folded Stock (Jackal)' |
+	| 'Civilian Stock'
+	| 'Folded Stock (Jackal)'
 
 	// MP40
-	'Folded Stock (MP40)' |
+	| 'Folded Stock (MP40)'
 
 	// Heather
-	'Unfolded Stock (Heather)' |
+	| 'Unfolded Stock (Heather)'
 
 	// Blaster 9mm
-	'Just Bend It' |
+	| 'Just Bend It'
 
 	// Patchett L2A1
-	'Folded Stock (Patchett)' |
-	'No Stock (Patchett)' |
-	'Solid Stock (Patchett)' |
+	| 'Folded Stock (Patchett)'
+	| 'No Stock (Patchett)'
+	| 'Solid Stock (Patchett)'
 
 	// Uzi
-	'Ergonomic Stock' |
-	'Solid Stock (Uzi)' |
-	'Folded Stock (Uzi)' |
+	| 'Ergonomic Stock'
+	| 'Solid Stock (Uzi)'
+	| 'Folded Stock (Uzi)'
 
 	// Locomotive 12G
-	'Standard Stock (Locomotive)' |
-	'Police Shorty Stock' |
-	'Tactical Shorty Stock' |
+	| 'Standard Stock (Locomotive)'
+	| 'Police Shorty Stock'
+	| 'Tactical Shorty Stock'
 
 	// GSPS 12G
-	'Stakeout Stock (GSPS)' |
+	| 'Stakeout Stock (GSPS)'
 
 	// Claire 12G
-	'Deadman\'s Stock' |
+	| 'Deadman\'s Stock'
 
 	// China Puff 40mm
-	'Riot Stock' |
+	| 'Riot Stock'
 
 	// Basilisk 3V
-	'Copperhead Recoil Pad' |
+	| 'Copperhead Recoil Pad'
 
 	// Pronghorn
-	'Stakeout Stock (Pronghorn)' |
-	'Marksman Stock (Pronghorn)' |
+	| 'Stakeout Stock (Pronghorn)'
+	| 'Marksman Stock (Pronghorn)'
+
+	// Aran G2
+	| 'Bounty Stock'
 
 	// SG Versteckt 51D
-	'Zittern Stock' |
+	| 'Zittern Stock'
 
 	// Argos III
-	'Flak Frame Null Stock' |
+	| 'Flak Frame Null Stock'
 
 	// Wasp-DS
-	'Bounce Slate RX Stock' |
+	| 'Bounce Slate RX Stock'
 
 	// Miyaka 10 Special
-	'MS10 Tactical Stock'
+	| 'MS10 Tactical Stock'
 
 const stock: ModificationList<StockModificationsList> = {
 	'Standard Stock (Main)': {
@@ -857,6 +866,22 @@ const stock: ModificationList<StockModificationsList> = {
 			]
 		}
 	},
+	'Shoulder Pad': {
+		name: 'Shoulder Pad',
+		image: 'wpn_fps_ass_tkb_s_tigr',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			stability: 4
+		},
+		compatibleWeapons: {
+			assaultRifle: [
+				'Rodion 3B'
+			]
+		}
+	},
 	'Precision Stock': {
 		name: 'Precision Stock',
 		image: 'wpn_fps_ass_g3_s_sniper',
@@ -1112,6 +1137,22 @@ const stock: ModificationList<StockModificationsList> = {
 		compatibleWeapons: {
 			shotgun: [
 				'Reinfeld 88'
+			]
+		}
+	},
+	'VD-12 Stock': {
+		name: 'VD-12 Stock',
+		image: 'wpn_fps_sho_sko12_stock',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack 2'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'VD-12'
 			]
 		}
 	},
@@ -2141,6 +2182,24 @@ const stock: ModificationList<StockModificationsList> = {
 		compatibleWeapons: {
 			sniper: [
 				'Pronghorn'
+			]
+		}
+	},
+	'Bounty Stock': {
+		name: 'Bounty Stock',
+		image: 'wpn_fps_upg_m4_s_contender',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			accuracy: 8,
+			stability: 8,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Aran G2'
 			]
 		}
 	},

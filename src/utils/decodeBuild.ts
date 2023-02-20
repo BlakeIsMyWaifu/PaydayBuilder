@@ -1,11 +1,12 @@
 import perkDecks, { PerkDeckList } from 'data/abilities/perks'
 import armours, { ArmourList } from 'data/character/armours'
 import characters, { CharacterList } from 'data/character/characters'
-import equipments, { EquipmentList } from 'data/character/equipment'
+import equipments, { EquipmentData, EquipmentList } from 'data/character/equipment'
 import { CategoryList, MaskList, allMasks } from 'data/character/masks'
 import { AllWeaponList, Modification, ModificationSlot, WeaponData, WeaponFind, WeaponType } from 'data/weapons/guns/weaponTypes'
 import melees, { MeleeList } from 'data/weapons/melees'
 import throwables, { ThrowableData, ThrowableList } from 'data/weapons/throwables'
+import { CopycatValues } from 'state/useAbilitiesStore'
 
 import findWeapon from './findWeapon'
 
@@ -37,6 +38,14 @@ export const decodePerkDeck = (value: string): PerkDeckList => {
 	return Object.values(perkDecks)[perkIndex].name
 }
 
+export const decodeCopycat = (value: string): CopycatValues => {
+	const decompressedData = decompressData(value)
+	const dataArray = decompressedData.split('')
+	const decodedValues = dataArray.map(value => decodeValues(value) - 1)
+	if (decodedValues.length !== 5) return [0, 0, 0, 0, 0]
+	return decodedValues as CopycatValues
+}
+
 export const decodeArmour = (value: string): ArmourList => {
 	const armourIndex = decodeValues(value)
 	const armoursList = Object.values(armours);
@@ -46,19 +55,32 @@ export const decodeArmour = (value: string): ArmourList => {
 
 export const decodeThrowable = (value: string): ThrowableList => {
 	const throwableIndex = decodeValues(value)
-	let sortedThrowables: Record<string, ThrowableData> = { ...throwables }
-	delete sortedThrowables['X1-ZAPer']
+	let sortedThrowables: Record<string, ThrowableData> = structuredClone(throwables)
+	const removedThrowables: ThrowableList[] = ['X1-ZAPer', 'Leech Ampule', 'Viper Grenade', 'Adhesive Grenade', 'Snowball']
+	removedThrowables.forEach(removedThrowable => {
+		delete sortedThrowables[removedThrowable]
+	})
 	sortedThrowables = {
 		...sortedThrowables,
-		'X1-ZAPer': throwables['X1-ZAPer']
+		'X1-ZAPer': throwables['X1-ZAPer'],
+		'Leech Ampule': throwables['Leech Ampule'],
+		'Viper Grenade': throwables['Viper Grenade'],
+		'Adhesive Grenade': throwables['Adhesive Grenade'],
+		'Snowball': throwables.Snowball
 	}
 	return Object.keys(sortedThrowables)[throwableIndex] as ThrowableList
 }
 
 export const decodeEquipment = (value: string): [EquipmentList, EquipmentList | null] => {
+	let sortedEquipment: Record<string, EquipmentData> = structuredClone(equipments)
+	delete sortedEquipment['Ordnance Bag']
+	sortedEquipment = {
+		...sortedEquipment,
+		'Ordnance Bag': equipments['Ordnance Bag']
+	}
 	const primaryIndex = decodeValues(value.substring(0, 1))
 	const secondaryIndex = value.length > 1 ? decodeValues(value.substring(1, 2)) : null
-	const equipmentList = Object.keys(equipments)
+	const equipmentList = Object.keys(sortedEquipment)
 	return [equipmentList[primaryIndex], secondaryIndex ? equipmentList[secondaryIndex] : null]
 }
 

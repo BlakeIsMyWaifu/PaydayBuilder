@@ -7,17 +7,18 @@ export interface SourceData {
 }
 
 type SourceList =
-	'Base Game' |
-	'Infamous' |
-	'Community' |
-	'Reservoir Dogs' |
-	'Spring Break 2018' |
-	'Meles Weapon Pack' |
-	'The Search For Kento' |
-	'RAID: World War II Community' |
-	'Ownership of Hotline Miami 2 Digital Special' |
-	'Winter Wonderland 2021' |
-	'8th Anniversary Event'
+	| 'Base Game'
+	| 'Infamous'
+	| 'Community'
+	| 'Reservoir Dogs'
+	| 'Spring Break 2018'
+	| 'Meles Weapon Pack'
+	| 'The Search For Kento'
+	| 'RAID: World War II Community'
+	| 'Ownership of Hotline Miami 2 Digital Special'
+	| 'Winter Wonderland 2021'
+	| '8th Anniversary Event'
+	| 'Prime Matter'
 
 const source: Record<SourceList, SourceData> = {
 	'Base Game': {
@@ -74,6 +75,11 @@ const source: Record<SourceList, SourceData> = {
 		name: '8th Anniversary Event',
 		rarity: 'Event',
 		type: 'Weapon'
+	},
+	'Prime Matter': {
+		name: 'Prime Matter',
+		rarity: 'Community',
+		type: 'Mask'
 	}
 }
 

@@ -1,10 +1,11 @@
 export interface ContentData {
-	name: string;
+	name: ContentList;
 	rarity: ContentRarity;
 	type: ContentType;
 	released: string;
 	price: string;
 	platform: Platform;
+	bundleContent?: ContentList[]; // TODO add bundle contents
 }
 
 interface Platform {
@@ -20,189 +21,203 @@ export type ContentRarity = 'Pre-order' | 'Paid' | 'Secret' | 'Free' | 'Event' |
 export type ContentType = 'Pre-order' | 'Soundtrack' | 'Heist' | 'Feature' | 'Weapon' | 'Mask' | 'Character' | 'Weapon mod' | 'Bundle' | 'Weapon Pack' | 'Weapon Mod' | 'Outfit' | 'Weapon Skin'
 
 type ContentList =
-	'Career Criminal Content' |
-	'Lootbag' |
-	'The Official Soundtrack' |
-	'The Diamond Store Heist' |
-	'Party Time' |
-	'The First Annual Payday Halloween Special!' |
-	'Armored Transport' |
-	'Gage Weapon Pack #01' |
-	'The Charlie Santa Heist' |
-	'A Merry Payday Christmas Soundtrack' |
-	'Sweet Tooth Mask!' |
-	'The Infamy Update' |
-	'Gage Weapon Pack #02' |
-	'The Death Wish Update' |
-	'The Election Day Heist' |
-	'Gage Mod Courier' |
-	'Gage Sniper Pack' |
-	'The Shadow Raid Heist' |
-	'Humble Mask Pack' |
-	'The Big Bank Heist' |
-	'Swag Bag Bundle' |
-	'The Ultimate Steal Edition' |
-	'Gage Shotgun Pack' |
-	'Gage Assault Pack' |
-	'The Big Fat Music Update' |
-	'The Heist Soundtrack' |
-	'Hotline Miami' |
-	'Hotline Miami Exclusive Content' |
-	'John Wick Character Pack' |
-	'The Art Gallery Heist' |
-	'Hoxton Breakout Heist' |
-	'Old Hoxton Character Pack' |
-	'Thespian Mask Pack DLC' |
-	'Humble Mask Pack 2' |
-	'The Second Annual Payday Halloween Special!' |
-	'Gage Historical Pack' |
-	'Alienware Alpha Mask Pack' |
-	'Alienware Alpha Mauler' |
-	'The White Xmas Heist' |
-	'Clover Character Pack' |
-	'The Diamond Heist' |
-	'Gage Weapon Pack Bundle' |
-	'GOTY Edition' |
-	'Heist Bundle' |
-	'New Year Update' |
-	'Dragan Character Pack' |
-	'The Bomb Heists' |
-	'The Butcher\'s AK/CAR Mod Pack' |
-	'Infamy 2.0' |
-	'Hotline Miami Mask Pack' |
-	'Jacket Character Pack' |
-	'The COMPLETELY OVERKILL Pack' |
-	'The OVERKILL Pack' |
-	'Spring Break Heist Updates' |
-	'Bonnie Character Pack' |
-	'The Car Shop Heist' |
-	'The Butcher Mod Pack 2' |
-	'SpeedRunners' |
-	'Hoxton Revenge Heist' |
-	'The Butcher\'s BBQ Pack' |
-	'The Butcher\'s Western Pack' |
-	'The Meltdown Heist' |
-	'The Alesso Heist' |
-	'The OVERKILL B-Sides Soundtrack' |
-	'Hardtime Lootbag' |
-	'StarVR Mask Pack' |
-	'Humble Mask Pack 3' |
-	'Humble Mask Pack 4' |
-	'The Jack Mask Pack' |
-	'The Joker Mask Pack' |
-	'The King Mask Pack' |
-	'The Queen Mask Pack' |
-	'Sokol Character Pack' |
-	'The Golden Grin Casino Heist' |
-	'Gage Ninja Pack' |
-	'Bobblehead DLC' |
-	'Yakuza Character Pack' |
-	'The PAYDAYCON 2015 Mask Pack' |
-	'Gage Chivalry Pack' |
-	'The FBI Files' |
-	'The Black Market Update' |
-	'The Aftershock Heist' |
-	'The Dallas Heist Pack I' |
-	'The Dallas Heist Pack II' |
-	'The Third Annual Payday Halloween Special!' |
-	'Bodhi Character Pack' |
-	'The Point Break Heists' |
-	'Santa\'s Workshop Heist' |
-	'The Goat Simulator Heist' |
-	'Dead by Daylight Mask Pack' |
-	'Wolf Pack' |
-	'The COMPLETELY OVERKILL Pack II' |
-	'Jimmy Character Pack' |
-	'Hardcore Henry Heists' |
-	'Dead by Daylight Mask Pack 2' |
-	'Sydney Character Pack' |
-	'Dead by Daylight Mask Pack 3' |
-	'Back to the Basics' |
-	'Dead by Daylight Mask Pack 4' |
-	'Dead by Daylight Mask Pack 5' |
-	'Humble Mask Pack 5' |
-	'The Solus Project Mask Pack' |
-	'Biker Character Pack' |
-	'The Biker Heist' |
-	'The COMPLETELY OVERKILL Pack III' |
-	'4 Million?!' |
-	'Fable Mask Pack' |
-	'THE BIG SCORE DLC Bundle!' |
-	'August Event' |
-	'New Difficulties' |
-	'The New Safe House' |
-	'Mafia Mask Pack' |
-	'Concussion Grenade' |
-	'Hoxton Safe' |
-	'The Medic' |
-	'Chains Mask Pack' |
-	'Mutators' |
-	'New Shotgun' |
-	'Panic Room' |
-	'John Wick Weapon Pack' |
-	'The Fourth Annual Payday Halloween Special!' |
-	'PAYDAYCON 2016' |
-	'Gage Spec Ops Pack' |
-	'The 45th Mask' |
-	'Stealing Xmas' |
-	'Scarface Character Pack' |
-	'Scarface Heist' |
-	'Year of the Fire Rooster!' |
-	'Shadow Warrior Collaboration' |
-	'Sydney Mega Mask' |
-	'John Wick Heists' |
-	'Gage Russian Weapon Pack' |
-	'April Fool' |
-	'Heat Street' |
-	'Crime Spree, Armor Skins & Screen Filters' |
-	'Search for Kento day 6' |
-	'Pen Melee Weapon' |
-	'Loading Screen Hints' |
-	'Green Bridge' |
-	'Sangres Character Pack' |
-	'Antisphere Mask Pack' |
-	'THE Most Wanted DLC Bundle!' |
-	'Ultimate Edition' |
-	'Ultimate Edition Upgrade' |
-	'WW2 Weapon Pack' |
-	'h3h3 Character Pack' |
-	'VR' |
-	'Offshore Payday' |
-	'The Crimewave Collection' |
-	'Gage vs Bikers' |
-	'Legacy Collection' |
-	'Border Crossing Heist' |
-	'Cartel Optics Mod Pack' |
-	'Tailor Pack 1' |
-	'Border Crossing Bundle' |
-	'Weapon Color Pack 1' |
-	'Federales Weapon Pack' |
-	'Tailor Pack 2' |
-	'San Martín Bank Heist' |
-	'San Martín Bundle' |
-	'Breakfast in Tijuana' |
-	'Fugitive Weapon Pack' |
-	'Weapon Color Pack 2' |
-	'Breakfast in Tijuana Bundle' |
-	'Infamy 3.0' |
-	'Tailor Pack 3' |
-	'Gunslinger Weapon Pack' |
-	'Weapon Color Pack 3' |
-	'Buluc\'s Mansion Heist' |
-	'Buluc\'s Mansion Bundle' |
-	'Jiu Feng Smuggler Pack' |
-	'Dragon Pack' |
-	'Jiu Feng Smuggler Pack 2' |
-	'Guardians Tailor Pack' |
-	'Jiu Feng Smuggler Pack 3' |
-	'Mega City Tailor Pack' |
-	'Winter Ghosts Tailor Pack' |
-	'Jiu Feng Smuggler Pack 4' |
-	'Golden Dagger Tailor Pack' |
-	'Mountain Master Heist' |
-	'Midland Bundle' |
-	'Southbound Tailor Pack' |
-	'McShay Weapon Pack'
+	| 'Career Criminal Content'
+	| 'Lootbag'
+	| 'The Official Soundtrack'
+	| 'The Diamond Store Heist'
+	| 'Party Time'
+	| 'The First Annual Payday Halloween Special!'
+	| 'Armored Transport'
+	| 'Gage Weapon Pack #01'
+	| 'The Charlie Santa Heist'
+	| 'A Merry Payday Christmas Soundtrack'
+	| 'Sweet Tooth Mask!'
+	| 'The Infamy Update'
+	| 'Gage Weapon Pack #02'
+	| 'The Death Wish Update'
+	| 'The Election Day Heist'
+	| 'Gage Mod Courier'
+	| 'Gage Sniper Pack'
+	| 'The Shadow Raid Heist'
+	| 'Humble Mask Pack'
+	| 'The Big Bank Heist'
+	| 'Swag Bag Bundle'
+	| 'The Ultimate Steal Edition'
+	| 'Gage Shotgun Pack'
+	| 'Gage Assault Pack'
+	| 'The Big Fat Music Update'
+	| 'The Heist Soundtrack'
+	| 'Hotline Miami'
+	| 'Hotline Miami Exclusive Content'
+	| 'John Wick Character Pack'
+	| 'The Art Gallery Heist'
+	| 'Hoxton Breakout Heist'
+	| 'Old Hoxton Character Pack'
+	| 'Thespian Mask Pack DLC'
+	| 'Humble Mask Pack 2'
+	| 'The Second Annual Payday Halloween Special!'
+	| 'Gage Historical Pack'
+	| 'Alienware Alpha Mask Pack'
+	| 'Alienware Alpha Mauler'
+	| 'The White Xmas Heist'
+	| 'Clover Character Pack'
+	| 'The Diamond Heist'
+	| 'Gage Weapon Pack Bundle'
+	| 'GOTY Edition'
+	| 'Heist Bundle'
+	| 'New Year Update'
+	| 'Dragan Character Pack'
+	| 'The Bomb Heists'
+	| 'The Butcher\'s AK/CAR Mod Pack'
+	| 'Infamy 2.0'
+	| 'Hotline Miami Mask Pack'
+	| 'Jacket Character Pack'
+	| 'The COMPLETELY OVERKILL Pack'
+	| 'The OVERKILL Pack'
+	| 'Spring Break Heist Updates'
+	| 'Bonnie Character Pack'
+	| 'The Car Shop Heist'
+	| 'The Butcher Mod Pack 2'
+	| 'SpeedRunners'
+	| 'Hoxton Revenge Heist'
+	| 'The Butcher\'s BBQ Pack'
+	| 'The Butcher\'s Western Pack'
+	| 'The Meltdown Heist'
+	| 'The Alesso Heist'
+	| 'The OVERKILL B-Sides Soundtrack'
+	| 'Hardtime Lootbag'
+	| 'StarVR Mask Pack'
+	| 'Humble Mask Pack 3'
+	| 'Humble Mask Pack 4'
+	| 'The Jack Mask Pack'
+	| 'The Joker Mask Pack'
+	| 'The King Mask Pack'
+	| 'The Queen Mask Pack'
+	| 'Sokol Character Pack'
+	| 'The Golden Grin Casino Heist'
+	| 'Gage Ninja Pack'
+	| 'Bobblehead DLC'
+	| 'Yakuza Character Pack'
+	| 'The PAYDAYCON 2015 Mask Pack'
+	| 'Gage Chivalry Pack'
+	| 'The FBI Files'
+	| 'The Black Market Update'
+	| 'The Aftershock Heist'
+	| 'The Dallas Heist Pack I'
+	| 'The Dallas Heist Pack II'
+	| 'The Third Annual Payday Halloween Special!'
+	| 'Bodhi Character Pack'
+	| 'The Point Break Heists'
+	| 'Santa\'s Workshop Heist'
+	| 'The Goat Simulator Heist'
+	| 'Dead by Daylight Mask Pack'
+	| 'Wolf Pack'
+	| 'The COMPLETELY OVERKILL Pack II'
+	| 'Jimmy Character Pack'
+	| 'Hardcore Henry Heists'
+	| 'Dead by Daylight Mask Pack 2'
+	| 'Sydney Character Pack'
+	| 'Dead by Daylight Mask Pack 3'
+	| 'Back to the Basics'
+	| 'Dead by Daylight Mask Pack 4'
+	| 'Dead by Daylight Mask Pack 5'
+	| 'Humble Mask Pack 5'
+	| 'The Solus Project Mask Pack'
+	| 'Biker Character Pack'
+	| 'The Biker Heist'
+	| 'The COMPLETELY OVERKILL Pack III'
+	| '4 Million?!'
+	| 'Fable Mask Pack'
+	| 'THE BIG SCORE DLC Bundle!'
+	| 'August Event'
+	| 'New Difficulties'
+	| 'The New Safe House'
+	| 'Mafia Mask Pack'
+	| 'Concussion Grenade'
+	| 'Hoxton Safe'
+	| 'The Medic'
+	| 'Chains Mask Pack'
+	| 'Mutators'
+	| 'New Shotgun'
+	| 'Panic Room'
+	| 'John Wick Weapon Pack'
+	| 'The Fourth Annual Payday Halloween Special!'
+	| 'PAYDAYCON 2016'
+	| 'Gage Spec Ops Pack'
+	| 'The 45th Mask'
+	| 'Stealing Xmas'
+	| 'Scarface Character Pack'
+	| 'Scarface Heist'
+	| 'Year of the Fire Rooster!'
+	| 'Shadow Warrior Collaboration'
+	| 'Sydney Mega Mask'
+	| 'John Wick Heists'
+	| 'Gage Russian Weapon Pack'
+	| 'April Fool'
+	| 'Heat Street'
+	| 'Crime Spree, Armor Skins & Screen Filters'
+	| 'Search for Kento day 6'
+	| 'Pen Melee Weapon'
+	| 'Loading Screen Hints'
+	| 'Green Bridge'
+	| 'Sangres Character Pack'
+	| 'Antisphere Mask Pack'
+	| 'THE Most Wanted DLC Bundle!'
+	| 'Ultimate Edition'
+	| 'Ultimate Edition Upgrade'
+	| 'WW2 Weapon Pack'
+	| 'h3h3 Character Pack'
+	| 'VR'
+	| 'Offshore Payday'
+	| 'The Crimewave Collection'
+	| 'Gage vs Bikers'
+	| 'Legacy Collection'
+	| 'Border Crossing Heist'
+	| 'Cartel Optics Mod Pack'
+	| 'Tailor Pack 1'
+	| 'Border Crossing Bundle'
+	| 'Weapon Color Pack 1'
+	| 'Federales Weapon Pack'
+	| 'Tailor Pack 2'
+	| 'San Martín Bank Heist'
+	| 'San Martín Bundle'
+	| 'Breakfast in Tijuana'
+	| 'Fugitive Weapon Pack'
+	| 'Weapon Color Pack 2'
+	| 'Breakfast in Tijuana Bundle'
+	| 'Infamy 3.0'
+	| 'Tailor Pack 3'
+	| 'Gunslinger Weapon Pack'
+	| 'Weapon Color Pack 3'
+	| 'Buluc\'s Mansion Heist'
+	| 'Buluc\'s Mansion Bundle'
+	| 'Jiu Feng Smuggler Pack'
+	| 'Dragon Pack'
+	| 'Jiu Feng Smuggler Pack 2'
+	| 'Guardians Tailor Pack'
+	| 'Jiu Feng Smuggler Pack 3'
+	| 'Mega City Tailor Pack'
+	| 'Winter Ghosts Tailor Pack'
+	| 'Jiu Feng Smuggler Pack 4'
+	| 'Golden Dagger Tailor Pack'
+	| 'Mountain Master Heist'
+	| 'Midland Bundle'
+	| 'Southbound Tailor Pack'
+	| 'McShay Weapon Pack'
+	| 'Midland Ranch Heist'
+	| 'Lost in Transit Bundle'
+	| 'High Octane Tailor Pack'
+	| '9th Anniversary Event'
+	| 'Tijuana Music Pack'
+	| 'McShay Weapon Pack 2'
+	| 'Payday 11th Anniversary'
+	| 'Lost in Transit Heist'
+	| 'Payday Halloween Stream 2022' // ! missing masks
+	| 'Street Smart Tailor Pack'
+	| 'Hostile Takeover Bundle'
+	| 'McShay Mod Pack'
+	| 'A Criminal Carol'
+	| 'McShay Weapon Pack 3'
 
 const pcExclusive: Platform = {
 	360: false,
@@ -2286,6 +2301,118 @@ const content: Record<ContentList, ContentData> = {
 		rarity: 'Paid',
 		type: 'Weapon Pack',
 		released: '2022, May 11',
+		price: '$3.99',
+		platform: pcExclusive
+	},
+	'Midland Ranch Heist': {
+		name: 'Midland Ranch Heist',
+		rarity: 'Paid',
+		type: 'Heist',
+		released: '2022, March 9',
+		price: '$6.99',
+		platform: pcExclusive
+	},
+	'Lost in Transit Bundle': {
+		name: 'Lost in Transit Bundle',
+		rarity: 'Paid',
+		type: 'Bundle',
+		released: '2022, July 13',
+		price: '$9.99',
+		platform: pcExclusive
+	},
+	'High Octane Tailor Pack': {
+		name: 'High Octane Tailor Pack',
+		rarity: 'Paid',
+		type: 'Outfit',
+		released: '2022, July 13',
+		price: '$2.99',
+		platform: pcExclusive
+	},
+	'9th Anniversary Event': {
+		name: '9th Anniversary Event',
+		rarity: 'Event',
+		type: 'Feature',
+		released: '2022, August 11',
+		price: 'Free',
+		platform: pcExclusive
+	},
+	'Tijuana Music Pack': {
+		name: 'Tijuana Music Pack',
+		rarity: 'Paid',
+		type: 'Soundtrack',
+		released: '2022, August 31',
+		price: '$3.99',
+		platform: pcExclusive
+	},
+	'McShay Weapon Pack 2': {
+		name: 'McShay Weapon Pack 2',
+		rarity: 'Paid',
+		type: 'Weapon Pack',
+		released: '2022, September 21',
+		price: '$3.99',
+		platform: pcExclusive
+	},
+	'Payday 11th Anniversary': {
+		name: 'Payday 11th Anniversary',
+		rarity: 'Event',
+		type: 'Feature',
+		released: '2022, October 18',
+		price: 'Free',
+		platform: pcExclusive
+	},
+	'Lost in Transit Heist': {
+		name: 'Lost in Transit Heist',
+		rarity: 'Paid',
+		type: 'Heist',
+		released: '2022, September 21',
+		price: '$6.99',
+		platform: pcExclusive
+	},
+	'Payday Halloween Stream 2022': {
+		name: 'Payday Halloween Stream 2022',
+		rarity: 'Free',
+		type: 'Outfit',
+		released: '2022, October 31',
+		price: 'Free',
+		platform: pcExclusive
+	},
+	'Street Smart Tailor Pack': {
+		name: 'Street Smart Tailor Pack',
+		rarity: 'Paid',
+		type: 'Outfit',
+		released: '2022, November 16',
+		price: '$2.99',
+		platform: pcExclusive
+	},
+	'Hostile Takeover Bundle': {
+		name: 'Hostile Takeover Bundle',
+		rarity: 'Paid',
+		type: 'Bundle',
+		released: '2022, November 16',
+		price: '$9.99',
+		platform: pcExclusive
+	},
+	'McShay Mod Pack': {
+		name: 'McShay Mod Pack',
+		rarity: 'Paid',
+		type: 'Weapon Pack',
+		released: '2022, December 15',
+		price: '$2.99',
+		platform: pcExclusive
+	},
+	'A Criminal Carol': {
+		name: 'A Criminal Carol',
+		rarity: 'Free',
+		type: 'Feature',
+		released: '2022, December 15',
+		price: 'Free',
+		platform: pcExclusive
+	},
+	'McShay Weapon Pack 3': {
+		name: 'McShay Weapon Pack 3',
+		rarity: 'Paid',
+		type: 'Weapon Pack',
+		released: '2023, February 1',
 		price: '$3.99',
 		platform: pcExclusive
 	}

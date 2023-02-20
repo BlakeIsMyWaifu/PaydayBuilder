@@ -6,34 +6,34 @@ import { ModificationList } from '../weaponTypes'
 export type ExtraModificationsList =
 	// AK Rifle, AK.762, Golden AK.762
 	// IZHMA 12G, Krinkov
-	'Scope Mount (AK)' |
+	| 'Scope Mount (AK)'
 
 	// UAR
-	'A3 Tactical Foregrip' |
+	| 'A3 Tactical Foregrip'
 
 	// M308
-	'Scope Mount (M308)' |
+	| 'Scope Mount (M308)'
 
 	// Vulcan Minigun
-	'I\'ll Take Half That Kit' |
+	| 'I\'ll Take Half That Kit'
 
 	// Bronco .44
-	'Bronco Scope Mount' |
+	| 'Bronco Scope Mount'
 
 	// Deagle
-	'Deagle Scope Mount' |
+	| 'Deagle Scope Mount'
 
 	// Mark 10
-	'Railed Handguard' |
+	| 'Railed Handguard'
 
 	// Argos III
-	'ShellSwitch M8 Ammo Cache' |
+	| 'ShellSwitch M8 Ammo Cache'
 
 	// Wasp-DS
-	'Rake Ultra Grip' |
+	| 'Rake Ultra Grip'
 
 	// KS12 Urban Rifle
-	'KS12-S Carry Handle'
+	| 'KS12-S Carry Handle'
 
 const extra: ModificationList<ExtraModificationsList> = {
 	'Scope Mount (AK)': {

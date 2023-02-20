@@ -86,7 +86,7 @@ const Tabs: FC = () => {
 							description: mask.description
 						}}
 					>
-						<Image src={`/images/masks/${mask.image}.png`} />
+						<Image src={`/images/masks/${mask.image}.webp`} />
 					</Selector>
 
 					<Selector
@@ -97,7 +97,7 @@ const Tabs: FC = () => {
 							description: [`Nationality: ${character.nationality}`, `Age: ${character.age.toString()}`, ...character.description]
 						}}
 					>
-						<Image src={`/images/masks/${character.image}.png`} />
+						<Image src={`/images/masks/${character.image}.webp`} />
 					</Selector>
 
 					<Selector
@@ -108,7 +108,7 @@ const Tabs: FC = () => {
 							table: <ArmourStatsTable selectedArmour={armour.name} />
 						}}
 					>
-						<Image src={`/images/armours/${armour.name}.png`} />
+						<Image src={`/images/armours/${armour.name}.webp`} />
 					</Selector>
 
 					<Selector
@@ -121,9 +121,9 @@ const Tabs: FC = () => {
 					>
 						{
 							equipmentSecondary ? <EquipmentContainer>
-								<Image src={`/images/equipment/${equipmentPrimary.name}.png`} />
-								<Image src={`/images/equipment/${equipmentSecondary.name}.png`} />
-							</EquipmentContainer> : <Image src={`/images/equipment/${equipmentPrimary.name}.png`} />
+								<Image src={`/images/equipment/${equipmentPrimary.name}.webp`} />
+								<Image src={`/images/equipment/${equipmentSecondary.name}.webp`} />
+							</EquipmentContainer> : <Image src={`/images/equipment/${equipmentPrimary.name}.webp`} />
 						}
 					</Selector>
 
@@ -141,7 +141,7 @@ const Tabs: FC = () => {
 					>
 						<Link href='primary'>
 							<Image
-								src={`/images/weapons/${primaryData.image}.png`}
+								src={`/images/weapons/${primaryData.image}.webp`}
 								leftFacing={leftFacing}
 								onMouseEnter={() => setHoverInfo({
 									title: primaryData.name,
@@ -163,7 +163,7 @@ const Tabs: FC = () => {
 					>
 						<Link href='secondary'>
 							<Image
-								src={`/images/weapons/${secondaryData.image}.png`}
+								src={`/images/weapons/${secondaryData.image}.webp`}
 								leftFacing={leftFacing}
 								onMouseEnter={() => setHoverInfo({
 									title: secondaryData.name,
@@ -186,7 +186,7 @@ const Tabs: FC = () => {
 							description: throwable.description
 						}}
 					>
-						<Image src={`/images/throwables/${throwable.image}.png`} />
+						<Image src={`/images/throwables/${throwable.image}.webp`} />
 					</Selector>
 
 					<Selector
@@ -197,7 +197,7 @@ const Tabs: FC = () => {
 							table: <MeleeStatsTable selectedMelee={melee.name} />
 						}}
 					>
-						<Image src={`/images/melees/${melee.image}.png`} leftFacing={leftFacing} />
+						<Image src={`/images/melees/${melee.image}.webp`} leftFacing={leftFacing} />
 					</Selector>
 
 				</SelectorWrapper>

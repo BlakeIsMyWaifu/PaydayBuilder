@@ -9,8 +9,8 @@ const fireModeWeapons: CompatibleWeapons = {
 }
 
 export type CustomModificationsList =
-	'Single Fire' |
-	'Auto Fire'
+	| 'Single Fire'
+	| 'Auto Fire'
 
 const custom: ModificationList<CustomModificationsList> = {
 	'Single Fire': {

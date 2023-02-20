@@ -3,27 +3,28 @@ import content, { ContentData } from 'data/source/downloadableContent'
 import source, { SourceData } from 'data/source/miscSources'
 
 export type ThrowableList =
-	'Matryoshka Grenade' |
-	'Incendiary Grenade' |
-	'HEF Grenade' |
-	'Ace of Spades' |
-	'Concussion Grenade' |
-	'Viper Grenade' |
-	'Frag Grenade' |
-	'Molotove Cocktail' |
-	'Dynamite' |
-	'Shuriken' |
-	'Javelin' |
-	'Throwing Knife' |
-	'Throwing Axe' |
-	'X1-ZAPer' |
-	'Stoic\'s Hip Flask' |
-	'Pocket ECM' |
-	'Smoke Bomb' |
-	'Gas Dispenser' |
-	'Injector' |
-	'Leech Ampule' |
-	'Snowball'
+	| 'Matryoshka Grenade'
+	| 'Incendiary Grenade'
+	| 'HEF Grenade'
+	| 'Ace of Spades'
+	| 'Concussion Grenade'
+	| 'Viper Grenade'
+	| 'Frag Grenade'
+	| 'Molotove Cocktail'
+	| 'Dynamite'
+	| 'Shuriken'
+	| 'Javelin'
+	| 'Throwing Knife'
+	| 'Throwing Axe'
+	| 'Adhesive Grenade'
+	| 'X1-ZAPer'
+	| 'Stoic\'s Hip Flask'
+	| 'Pocket ECM'
+	| 'Smoke Bomb'
+	| 'Gas Dispenser'
+	| 'Injector'
+	| 'Leech Ampule'
+	| 'Snowball'
 
 export interface ThrowableData {
 	name: ThrowableList;
@@ -336,6 +337,24 @@ const throwables: Record<ThrowableList, ThrowableData> = {
 			throwingRate: 0.5,
 			throwDelay: 0.15,
 			unequipDelay: 1.1
+		}
+	},
+	'Adhesive Grenade': {
+		name: 'Adhesive Grenade',
+		description: [
+			'A throwable explosive that will stick to enemies and surfaces'
+		],
+		image: 'sticky_grenade',
+		reputation: 0,
+		source: content['McShay Mod Pack'],
+		type: ['Grenade', 'Fragmentation'],
+		stats: {
+			damage: 1200,
+			capacity: 3,
+			throwingRate: 1.5,
+			throwDelay: 0.1,
+			unequipDelay: 1.1,
+			explosionRadius: 5
 		}
 	},
 	'X1-ZAPer': {
