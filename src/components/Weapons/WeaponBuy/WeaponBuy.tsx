@@ -73,7 +73,7 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWe
 						>
 							<ItemName colour={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
 							<ItemImage
-								src={`/images/weapons/${weapon.image}.png`}
+								src={`/images/weapons/${weapon.image}.webp`}
 								leftFacing={leftFacing}
 								onMouseDown={event => event.preventDefault()}
 							/>

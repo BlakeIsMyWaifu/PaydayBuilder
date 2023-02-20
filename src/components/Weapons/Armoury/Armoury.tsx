@@ -143,7 +143,7 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 							{equippedWeaponId === id && isActiveBuild && <ItemEquipped />}
 							<ItemName colour={itemColours[weaponData.source.rarity]}>{weaponData.name}</ItemName>
 							<ItemImage
-								src={`/images/weapons/${weaponData.image}.png`}
+								src={`/images/weapons/${weaponData.image}.webp`}
 								leftFacing={leftFacing}
 								onMouseDown={event => event.preventDefault()}
 							/>

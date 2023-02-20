@@ -141,7 +141,7 @@ const Tabs: FC = () => {
 					>
 						<Link href='primary'>
 							<Image
-								src={`/images/weapons/${primaryData.image}.png`}
+								src={`/images/weapons/${primaryData.image}.webp`}
 								leftFacing={leftFacing}
 								onMouseEnter={() => setHoverInfo({
 									title: primaryData.name,
@@ -163,7 +163,7 @@ const Tabs: FC = () => {
 					>
 						<Link href='secondary'>
 							<Image
-								src={`/images/weapons/${secondaryData.image}.png`}
+								src={`/images/weapons/${secondaryData.image}.webp`}
 								leftFacing={leftFacing}
 								onMouseEnter={() => setHoverInfo({
 									title: secondaryData.name,
