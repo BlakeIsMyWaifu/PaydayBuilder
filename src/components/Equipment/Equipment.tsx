@@ -71,7 +71,7 @@ const Equipment: FC = () => {
 							{equipment.name === equippedSecondary && <ItemEquipped> Secondary</ItemEquipped>}
 							{locked && <LockedIcon />}
 							<EquipmentImage
-								src={`/images/equipment/${equipment.name}.png`}
+								src={`/images/equipment/${equipment.name}.webp`}
 								locked={locked}
 								onContextMenu={event => event.preventDefault()}
 								onMouseDown={event => event.preventDefault()}

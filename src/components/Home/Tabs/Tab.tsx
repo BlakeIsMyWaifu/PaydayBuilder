@@ -121,9 +121,9 @@ const Tabs: FC = () => {
 					>
 						{
 							equipmentSecondary ? <EquipmentContainer>
-								<Image src={`/images/equipment/${equipmentPrimary.name}.png`} />
-								<Image src={`/images/equipment/${equipmentSecondary.name}.png`} />
-							</EquipmentContainer> : <Image src={`/images/equipment/${equipmentPrimary.name}.png`} />
+								<Image src={`/images/equipment/${equipmentPrimary.name}.webp`} />
+								<Image src={`/images/equipment/${equipmentSecondary.name}.webp`} />
+							</EquipmentContainer> : <Image src={`/images/equipment/${equipmentPrimary.name}.webp`} />
 						}
 					</Selector>
 
