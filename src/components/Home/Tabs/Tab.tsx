@@ -197,7 +197,7 @@ const Tabs: FC = () => {
 							table: <MeleeStatsTable selectedMelee={melee.name} />
 						}}
 					>
-						<Image src={`/images/melees/${melee.image}.png`} leftFacing={leftFacing} />
+						<Image src={`/images/melees/${melee.image}.webp`} leftFacing={leftFacing} />
 					</Selector>
 
 				</SelectorWrapper>
