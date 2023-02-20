@@ -109,7 +109,7 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 	},
 	'Arkady Ammo Pouch': {
 		name: 'Arkady Ammo Pouch',
-		image: 'wpn_fps_ass_tkb_body_pouch', // TODO image
+		image: 'wpn_fps_ass_tkb_body_pouch',
 		icon: 'inv_mod_lower_receiver',
 		slot: 'lowerReceiver',
 		source: content['McShay Weapon Pack 3'],

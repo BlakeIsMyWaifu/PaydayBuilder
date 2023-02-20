@@ -9,7 +9,7 @@ import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunCustom, shotg
 
 const vd12: WeaponData = {
 	name: 'VD-12',
-	image: 'sko12', // TODO image
+	image: 'sko12',
 	source: content['McShay Weapon Pack 2'],
 	inventorySlot: 'primary',
 	reputation: 24,

@@ -96,7 +96,7 @@ export type GripModificationsList =
 	| 'Wooden Grip (DECA)'
 	| 'Ergonomic Grip (DECA)'
 
-	// Hailstorm Mk5
+	// Hailstorm Mk 5
 	| 'Whiteout Grip'
 	| 'Crystalline Grip'
 	| 'FZRA Grip'
@@ -438,7 +438,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Verge AK Grip': {
 		name: 'Verge AK Grip',
-		image: 'wpn_fps_upg_ak_g_edg', // TODO image
+		image: 'wpn_fps_upg_ak_g_edg',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['McShay Weapon Pack 3'],
@@ -456,7 +456,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Ergonomic AK Grip': {
 		name: 'Ergonomic AK Grip',
-		image: 'wpn_fps_upg_ak_g_gradus', // TODO image
+		image: 'wpn_fps_upg_ak_g_gradus',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['McShay Weapon Pack 3'],
@@ -473,7 +473,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Ultimatum AK Grip': {
 		name: 'Ultimatum AK Grip',
-		image: 'wpn_fps_upg_ak_g_rk9', // TODO image
+		image: 'wpn_fps_upg_ak_g_rk9',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['McShay Weapon Pack 3'],
@@ -530,7 +530,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'VD-12 Grip': {
 		name: 'VD-12 Grip',
-		image: '', // TODO image
+		image: 'wpn_fps_sho_sko12_body_grip',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['McShay Weapon Pack 2'],
@@ -649,7 +649,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Whiteout Grip': {
 		name: 'Whiteout Grip',
-		image: 'wpn_fps_hailstorm_g_bubble', // TODO image
+		image: 'wpn_fps_hailstorm_g_bubble',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['McShay Weapon Pack 2'],
@@ -666,7 +666,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Crystalline Grip': {
 		name: 'Crystalline Grip',
-		image: 'wpn_fps_hailstorm_g_crystal', // TODO image
+		image: 'wpn_fps_hailstorm_g_crystal',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['McShay Weapon Pack 2'],
@@ -683,7 +683,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'FZRA Grip': {
 		name: 'FZRA Grip',
-		image: 'wpn_fps_hailstorm_g_noise', // TODO image
+		image: 'wpn_fps_hailstorm_g_noise',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['McShay Weapon Pack 2'],
@@ -1394,7 +1394,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Bounty Grip': {
 		name: 'Bounty Grip',
-		image: 'wpn_fps_upg_m4_g_contender', // TODO image
+		image: 'wpn_fps_upg_m4_g_contender',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['McShay Weapon Pack 3'],

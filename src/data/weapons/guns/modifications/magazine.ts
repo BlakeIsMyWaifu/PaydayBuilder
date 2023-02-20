@@ -444,7 +444,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	},
 	'Large Magazine': {
 		name: 'Large Magazine',
-		image: 'wpn_fps_lmg_hcar_m_drum', // TODO image
+		image: 'wpn_fps_lmg_hcar_m_drum',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['McShay Weapon Pack 3'],
@@ -461,7 +461,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	},
 	'Standard Magazine': {
 		name: 'Standard Magazine',
-		image: 'wpn_fps_lmg_hcar_m_stick', // TODO image
+		image: 'wpn_fps_lmg_hcar_m_stick',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['McShay Weapon Pack 3'],

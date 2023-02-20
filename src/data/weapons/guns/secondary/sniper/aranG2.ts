@@ -11,7 +11,7 @@ import { WeaponData } from '../../weaponTypes'
 
 const aranG2: WeaponData = {
 	name: 'Aran G2',
-	image: 'contender', // TODO image
+	image: 'contender',
 	source: content['McShay Weapon Pack 3'],
 	inventorySlot: 'secondary',
 	reputation: 28,

@@ -10,7 +10,7 @@ import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleSight } from '../
 
 const rodion3B: WeaponData = {
 	name: 'Rodion 3B',
-	image: 'tkb', // TODO image
+	image: 'tkb',
 	source: content['McShay Weapon Pack 3'],
 	inventorySlot: 'primary',
 	reputation: 50,

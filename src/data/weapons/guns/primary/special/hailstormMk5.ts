@@ -7,7 +7,7 @@ import { specialBoostTotalAmmo } from '../commonModifications/specialModificatio
 
 const hailstormMk5: WeaponData = {
 	name: 'Hailstorm Mk 5',
-	image: 'hailstorm', // TODO image
+	image: 'hailstorm',
 	source: content['McShay Weapon Pack 2'],
 	inventorySlot: 'primary',
 	reputation: 48,

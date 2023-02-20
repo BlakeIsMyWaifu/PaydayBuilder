@@ -25,7 +25,7 @@ const bolt: ModificationList<BoltModificationList> = {
 	},
 	'Taktika Deluxe Charging Handle': {
 		name: 'Taktika Deluxe Charging Handle',
-		image: 'wpn_fps_ass_tkb_bolt_rp4', // TODO image
+		image: 'wpn_fps_ass_tkb_bolt_rp4',
 		icon: 'inv_mod_bolt',
 		slot: 'bolt',
 		source: content['McShay Weapon Pack 3'],

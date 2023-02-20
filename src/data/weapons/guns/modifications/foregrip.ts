@@ -752,7 +752,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	},
 	'Front Mounting Rail': {
 		name: 'Front Mounting Rail',
-		image: '', // TODO image
+		image: 'wpn_fps_sho_sko12_fg_railed',
 		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['McShay Weapon Pack 2'],
@@ -1134,7 +1134,7 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 	},
 	'Kanden Foregrip': {
 		name: 'Kanden Foregrip',
-		image: 'wpn_fps_snp_contender_frontgrip_long', // TODO image
+		image: 'wpn_fps_snp_contender_frontgrip_long',
 		icon: 'inv_mod_foregrip',
 		slot: 'foregrip',
 		source: content['McShay Weapon Pack 3'],

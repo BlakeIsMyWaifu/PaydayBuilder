@@ -10,7 +10,7 @@ import { WeaponData } from '../../weaponTypes'
 
 const northStar: WeaponData = {
 	name: 'North Star',
-	image: 'victor', // TODO image
+	image: 'victor',
 	source: content['A Criminal Carol'],
 	inventorySlot: 'secondary',
 	reputation: 0,

@@ -10,7 +10,7 @@ import { akimboShotgunAmmunition, akimboShotgunBarrelExt, akimboShotgunGadget } 
 
 const akimboVd12: WeaponData = {
 	name: 'Akimbo VD-12',
-	image: 'x_sko12', // TODO image
+	image: 'x_sko12',
 	source: content['McShay Weapon Pack 2'],
 	inventorySlot: 'primary',
 	reputation: 24,

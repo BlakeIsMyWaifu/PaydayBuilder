@@ -9,7 +9,7 @@ import { lightMachineGunBarrelExt, lightMachineGunBoost, lightMachineGunGadget }
 
 const akronHC: WeaponData = {
 	name: 'Akron HC',
-	image: 'hcar', // TODO image
+	image: 'hcar',
 	source: content['McShay Weapon Pack 3'],
 	inventorySlot: 'primary',
 	reputation: 48,

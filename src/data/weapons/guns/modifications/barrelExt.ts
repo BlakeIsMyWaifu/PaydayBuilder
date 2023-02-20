@@ -1353,7 +1353,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	},
 	'Phantom Suppressor': {
 		name: 'Phantom Suppressor',
-		image: 'wpn_fps_snp_contender_suppressor', // TODO image
+		image: 'wpn_fps_snp_contender_suppressor',
 		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['McShay Weapon Pack 3'],

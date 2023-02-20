@@ -253,7 +253,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 	},
 	'Stealth Laser Module': {
 		name: 'Stealth Laser Module',
-		image: '', // TODO image
+		image: 'wpn_fps_upg_fl_dbal_laser',
 		icon: 'inv_mod_laser',
 		slot: 'gadget',
 		source: content['McShay Mod Pack'],

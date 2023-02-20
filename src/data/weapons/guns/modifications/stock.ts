@@ -868,7 +868,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Shoulder Pad': {
 		name: 'Shoulder Pad',
-		image: 'wpn_fps_ass_tkb_s_tigr', // TODO image
+		image: 'wpn_fps_ass_tkb_s_tigr',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['McShay Weapon Pack 3'],
@@ -1142,7 +1142,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'VD-12 Stock': {
 		name: 'VD-12 Stock',
-		image: '', // TODO image
+		image: 'wpn_fps_sho_sko12_stock',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['McShay Weapon Pack 2'],

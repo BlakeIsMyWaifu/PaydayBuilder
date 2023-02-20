@@ -74,7 +74,7 @@ export type AmmunitionModificationsList =
 const ammunition: ModificationList<AmmunitionModificationsList> = {
 	'Tombstone Slug': {
 		name: 'Tombstone Slug',
-		image: 'wpn_fps_upg_a_rip', // TODO image
+		image: 'wpn_fps_upg_a_rip',
 		icon: 'inv_mod_ammo_poison',
 		slot: 'ammunition',
 		source: source['Base Game'],
@@ -278,7 +278,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	},
 	'Explosive Arrow (Airbow)': {
 		name: 'Explosive Arrow (Airbow)',
-		image: 'wpn_fps_bow_ecp_m_explosive',
+		image: 'wpn_fps_bow_ecp_m_arrows_explosive', // ? wpn_fps_bow_ecp_m_explosive
 		icon: 'inv_mod_ammo_explosive',
 		slot: 'ammunition',
 		source: content['h3h3 Character Pack'],
@@ -298,7 +298,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	},
 	'Poison Arrow (Airbow)': {
 		name: 'Poison Arrow (Airbow)',
-		image: 'wpn_fps_bow_ecp_m_poison',
+		image: 'wpn_fps_bow_ecp_m_arrows_poison', // ? wpn_fps_bow_ecp_m_poison
 		icon: 'inv_mod_ammo_poison',
 		slot: 'ammunition',
 		source: content['h3h3 Character Pack'],

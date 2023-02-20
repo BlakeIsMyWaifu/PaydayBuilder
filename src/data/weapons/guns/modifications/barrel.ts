@@ -1317,7 +1317,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Huntsman Barrel': {
 		name: 'Huntsman Barrel',
-		image: 'wpn_fps_sho_m1897_b_long',
+		image: 'wpn_fps_shot_m1897_b_long', // ? wpn_fps_sho_m1897_b_long
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['Gunslinger Weapon Pack'],
@@ -1335,7 +1335,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Ventilated Barrel': {
 		name: 'Ventilated Barrel',
-		image: 'wpn_fps_sho_m1897_b_short',
+		image: 'wpn_fps_shot_m1897_b_short', // ? wpn_fps_sho_m1897_b_short
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['Gunslinger Weapon Pack'],
@@ -1435,7 +1435,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Long Barrel (VD-12)': {
 		name: 'Long Barrel (VD-12)',
-		image: 'wpn_fps_sho_sko12_b_long', // TODO image
+		image: 'wpn_fps_sho_sko12_b_long',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack 2'],
@@ -1454,7 +1454,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Short Barrel (VD-12)': {
 		name: 'Short Barrel (VD-12)',
-		image: 'wpn_fps_sho_sko12_b_short', // TODO image
+		image: 'wpn_fps_sho_sko12_b_short',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack 2'],
@@ -1948,7 +1948,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Short Barrel (Akron HC)': {
 		name: 'Short Barrel (Akron HC)',
-		image: 'wpn_fps_lmg_hcar_barrel_short', // TODO image
+		image: 'wpn_fps_lmg_hcar_barrel_short',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack 3'],
@@ -1966,7 +1966,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'DMR Barrel': {
 		name: 'DMR Barrel',
-		image: 'wpn_fps_lmg_hcar_barrel_dmr', // TODO image
+		image: 'wpn_fps_lmg_hcar_barrel_dmr',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack 3'],
@@ -2130,7 +2130,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'v1.4 Barrel': {
 		name: 'v1.4 Barrel',
-		image: 'wpn_fps_hailstorm_b_extended', // TODO image
+		image: 'wpn_fps_hailstorm_b_extended',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack 2'],
@@ -2149,7 +2149,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'v3.8 Barrel': {
 		name: 'v3.8 Barrel',
-		image: 'wpn_fps_hailstorm_b_ext_suppressed', // TODO image
+		image: 'wpn_fps_hailstorm_b_ext_suppressed',
 		icon: 'inv_mod_silencer',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack 2'],
@@ -2170,7 +2170,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'v2.2 Barrel': {
 		name: 'v2.2 Barrel',
-		image: 'wpn_fps_hailstorm_b_suppressed', // TODO image
+		image: 'wpn_fps_hailstorm_b_suppressed',
 		icon: 'inv_mod_silencer',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack 2'],
@@ -2849,7 +2849,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'BY90 Wide Suppressor': {
 		name: 'BY90 Wide Suppressor',
-		image: 'wpn_fps_smg_vityaz_b_xxx',
+		image: 'wpn_fps_smg_vityaz_b_supressed', // ? wpn_fps_smg_vityaz_b_xxx
 		icon: 'inv_mod_silencer',
 		slot: 'barrel',
 		source: content['Jiu Feng Smuggler Pack'],
@@ -3084,7 +3084,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Long Barrel (Aran G2)': {
 		name: 'Long Barrel (Aran G2)',
-		image: 'wpn_fps_snp_contender_barrel_long', // TODO image
+		image: 'wpn_fps_snp_contender_barrel_long',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack 3'],
@@ -3102,7 +3102,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Short Barrel (Aran G2)': {
 		name: 'Short Barrel (Aran G2)',
-		image: 'wpn_fps_snp_contender_barrel_short', // TODO image
+		image: 'wpn_fps_snp_contender_barrel_short',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack 3'],
