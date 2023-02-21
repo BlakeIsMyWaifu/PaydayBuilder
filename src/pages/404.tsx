@@ -1,8 +1,8 @@
 import useMountEffect from 'hooks/useMountEffect'
+import { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { FC } from 'react'
 
-const _error: FC = () => {
+const _error: NextPage = () => {
 
 	const router = useRouter()
 

@@ -1,8 +1,9 @@
-import ArmourStatsTable from 'components/Armour/ArmourStatsTable'
 import DetectionRisk from 'components/DetectionRisk'
-import { InfoDescription, InfoTitle } from 'components/Info/Info-Elements'
-import MeleeStatsTable from 'components/Melee/MeleeStatsTable'
+import { InfoDescription, InfoTitle } from 'components/elements/infoElements'
 import ModIcons from 'components/ModIcons'
+import { CardIconBase } from 'components/PerkDeck/Perk'
+import ArmourStatsTable from 'components/Table/ArmourStatsTable'
+import MeleeStatsTable from 'components/Table/MeleeStatsTable'
 import WeaponsStatsTable from 'components/Weapons/WeaponStatsTable'
 import perkDecks from 'data/abilities/perks'
 import armours from 'data/character/armours'
@@ -11,20 +12,91 @@ import equipments, { EquipmentData } from 'data/character/equipment'
 import melees from 'data/weapons/melees'
 import throwables from 'data/weapons/throwables'
 import Link from 'next/link'
+import { HoverInfo } from 'pages/index'
 import { FC, useState } from 'react'
 import { useSettingsContext } from 'state/settingsContext'
 import { useAbilityStore } from 'state/useAbilitiesStore'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
+import styled from 'styled-components'
+import { dim } from 'utils/colours'
+import corner from 'utils/corner'
 import findMask from 'utils/findMask'
 import findWeapon from 'utils/findWeapon'
 
-import { HoverInfo } from '../Home'
 import Selector from './Selector'
-import SelectorSkills from './Selector/SelectorSkills'
+import SelectorSkills from './SelectorSkills'
 import SkillTable from './SkillTable'
-import { EquipmentContainer, Image, PerkDeckImage, Preview, PreviewWrapper, SelectorWrapper, Tab, TabTitle } from './Tabs-Elements'
+
+const EquipmentContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+`
+
+interface ImageProps {
+	leftFacing?: boolean;
+}
+
+const Image = styled.img<ImageProps>`
+	height: calc(100% - 32px);
+	width: auto;
+	max-width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	${props => props.leftFacing && 'transform: scaleX(-1)'};
+`
+
+const PerkDeckImage = styled(CardIconBase)`
+	height: calc(100% - 32px);
+	aspect-ratio: 1;
+	max-width: 100%;
+	margin: auto;
+	filter: invert(1);
+`
+
+interface TabProps {
+	area: string;
+}
+
+const Tab = styled.div<TabProps>`
+	grid-area: ${props => props.area};
+`
+
+interface TabTitleProps {
+	direction: 'ltr' | 'rtl';
+}
+
+const TabTitle = styled.h1<TabTitleProps>`
+	direction: ${props => props.direction};
+	font-size: 20px;
+`
+
+const PreviewWrapper = styled.div`
+	width: 100%;
+	height: calc(100% - 20px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+`
+
+const Preview = styled.div`
+	width: calc(100% - 32px);
+	height: calc(50% - 20px);
+	background-color: ${dim} !important;
+	display: flex;
+	flex-direction: column;
+	padding: 8px 16px;
+	overflow-y: auto;
+	${corner};
+`
+
+const SelectorWrapper = styled.div`
+	width: 100%;
+	height: calc(100% - 20px);
+	${corner};
+`
 
 const Tabs: FC = () => {
 

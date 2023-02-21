@@ -2,7 +2,7 @@ import { Dispatch, FC, SetStateAction } from 'react'
 import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import { isDev } from 'utils/isDev'
 
-import { Section, SectionTitle, Setting, SettingTitle } from '../ControlPanel-Elements'
+import { Section, SectionTitle, Setting, SettingTitle } from '../controlPanelElements'
 import TextInput from '../TextIO/TextInput'
 import TextOutput from '../TextIO/TextOutput'
 

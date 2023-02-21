@@ -1,7 +1,7 @@
 import { FC, KeyboardEvent, MouseEvent, useRef } from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 
-import { Button, Container, Input } from './TextIO-Elements'
+import { Button, Container, Input } from './textIOElements'
 
 interface TextInputProps {
 	placeholder: string;

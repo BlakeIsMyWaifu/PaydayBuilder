@@ -2,8 +2,8 @@ import { FC } from 'react'
 import { useSettingsContext } from 'state/settingsContext'
 import { useSettingsStore } from 'state/useSettingsStore'
 
-import CheckboxInput from '../CheckboxInput/CheckboxInput'
-import { Section, SectionTitle, SettingTitle, SettingsSingleLine } from '../ControlPanel-Elements'
+import CheckboxInput from '../CheckboxInput'
+import { Section, SectionTitle, SettingTitle, SettingsSingleLine } from '../controlPanelElements'
 
 const Appearance: FC = () => {
 

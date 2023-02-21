@@ -1,8 +1,8 @@
-import { Title } from 'components/Home/Panel/Panel-Elements'
+import { Title } from 'components/Home/Panel/panelElements'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaGithub } from 'react-icons/fa'
 
-import { ContactIconWrapper, ContactLink, ContactText, ControlPanelContainer, ControlPanelContent } from './ControlPanel-Elements'
+import { ContactIconWrapper, ContactLink, ContactText, ControlPanelContainer, ControlPanelContent } from './controlPanelElements'
 import Account from './Sections/Account'
 import Appearance from './Sections/Appearance'
 import IO from './Sections/IO'

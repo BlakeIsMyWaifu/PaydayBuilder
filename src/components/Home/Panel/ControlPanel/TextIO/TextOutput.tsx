@@ -1,7 +1,7 @@
 import { FC, MouseEvent, useRef } from 'react'
 import { FaClipboardList } from 'react-icons/fa'
 
-import { Button, Container, Input } from './TextIO-Elements'
+import { Button, Container, Input } from './textIOElements'
 
 interface TextOutputProps {
 	value: string;

@@ -1,6 +1,6 @@
 import 'fonts/fonts.css'
 
-import Cookies from 'components/Cookies/Cookies'
+import Cookies from 'components/Cookies'
 import { GlobalStyle } from 'GlobalStyle'
 import useMountEffect from 'hooks/useMountEffect'
 import { SessionProvider } from 'next-auth/react'
