@@ -75,6 +75,7 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWe
 							<ItemImage
 								src={`/images/weapons/${weapon.image}.webp`}
 								leftFacing={leftFacing}
+								aspectRatio='auto'
 								onMouseDown={event => event.preventDefault()}
 							/>
 						</Item>

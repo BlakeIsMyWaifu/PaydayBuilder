@@ -14,7 +14,7 @@ import { itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
 import { modificationsFromNames } from 'utils/modificationsFromNames'
 
-import BlackmarketStatsTable from './BlackmarketStatsTable'
+import BlackmarketStatsTable from './Table/BlackmarketStatsTable'
 
 interface WeaponCheckerProps {
 	slot: string;
@@ -115,7 +115,11 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, mo
 						>
 							{mod.name === equippedModifications[mod.slot]?.name && <ItemEquipped />}
 							<ItemName colour={itemColours[mod.source.rarity]}>{fixItemName(mod.name)}</ItemName>
-							<ItemImage src={`/images/modifications/${mod.image}.webp`} onMouseDown={event => event.preventDefault()} />
+							<ItemImage
+								src={`/images/modifications/${mod.image}.webp`}
+								aspectRatio='auto'
+								onMouseDown={event => event.preventDefault()}
+							/>
 						</Item>
 					})
 				}

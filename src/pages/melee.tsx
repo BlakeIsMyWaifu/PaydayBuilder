@@ -43,7 +43,12 @@ export const Melee: NextPage = () => {
 						>
 							<ItemName colour={itemColours[melee.source.rarity]}>{melee.name}</ItemName>
 							{melee.name === equippedMelee.name && <ItemEquipped />}
-							<ItemImage src={`/images/melees/${melee.image}.webp`} leftFacing={leftFacing} onMouseDown={event => event.preventDefault()} />
+							<ItemImage
+								src={`/images/melees/${melee.image}.webp`}
+								leftFacing={leftFacing}
+								aspectRatio='auto'
+								onMouseDown={event => event.preventDefault()}
+							/>
 						</Item>
 					})
 				}

@@ -13,7 +13,7 @@ import { Dispatch, FC, Fragment, SetStateAction, useState } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
 import { useSettingsContext } from 'state/settingsContext'
 import { useArmouryStore } from 'state/useArmouryStore'
-import { useBuildsStore } from 'state/useBuildsStore'
+import { BuildSave, useBuildsStore } from 'state/useBuildsStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import styled from 'styled-components'
 import { blue, itemColours } from 'utils/colours'
@@ -61,7 +61,7 @@ const BlackmarketLink = styled(Link)`
 	text-decoration: none;
 `
 
-const ArmouryBar = styled.div`
+const ArmouryBarContainer = styled.div`
 	grid-area: armourybar;
 	display: flex;
 	flex-direction: row;
@@ -96,10 +96,7 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 	const armoury = useArmouryStore(state => state[slot])
 	const equippedWeaponId = useWeaponsStore(state => state[slot])
 
-	const { leftFacing } = useSettingsContext().state
-
 	const { current: activeBuildId, builds } = useBuildsStore()
-	const activeBuildName = builds[activeBuildId].name || 'New Build'
 
 	const slotParameter = slot === 'primary' ? 'ap' : 'as'
 
@@ -121,8 +118,6 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 	const removeWeapon = useArmouryStore(state => state.removeWeapon)
 	const addWeapon = useArmouryStore(state => state.addWeapon)
 	const changeWeapon = useWeaponsStore(state => state.changeWeapon)
-
-	const router = useRouter()
 
 	const deleteWeaponHandler = (): void => {
 		removeWeapon(slot, selectedWeaponId)
@@ -160,71 +155,27 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 			title={slot}
 		>
 
-			<ArmouryBar>
-				<ActiveBuildTab colour={isActiveBuild ? '#fff' : blue} onClick={() => {
-					changeActiveTab(activeBuildId)
-				}}>{activeBuildName}</ActiveBuildTab>
-				<HorizontalBar active={activeTabId} items={buildTabs.filter(build => build.active).map(build => ({
-					label: build.name,
-					callback: () => {
-						changeActiveTab(build.id)
-					},
-					id: build.id
-				}))} />
-			</ArmouryBar>
+			<ArmouryBar
+				builds={builds}
+				activeBuildId={activeBuildId}
+				isActiveBuild={isActiveBuild}
+				changeActiveTab={changeActiveTab}
+				activeTabId={activeTabId}
+				buildTabs={buildTabs}
+			/>
 
-			<ItemContainer>
-				{
-					weaponsData.map((weapon, i) => {
-						if (!i && isActiveBuild) return <Fragment key={'fragment'} />
-
-						const { id, weaponFind } = weapon
-						const weaponData = findWeapon(weaponFind)
-
-						return <Item
-							key={id}
-							width={192}
-							rowAmount={5}
-							selected={selectedWeaponId === id}
-							onClick={() => {
-								if (selectedWeaponId === id && isActiveBuild) {
-									if (equippedWeaponId === id) {
-										router.push(`/blackmarket/${slot}/${selectedWeaponId}`)
-									} else {
-										changeWeapon(slot, id)
-									}
-								} else if (selectedWeaponId === id && !isActiveBuild) {
-									duplicateWeaponHandler()
-								} else {
-									setSelectedWeaponId(id)
-								}
-							}}
-						>
-							{equippedWeaponId === id && isActiveBuild && <ItemEquipped />}
-							<ItemName colour={itemColours[weaponData.source.rarity]}>{weaponData.name}</ItemName>
-							<ItemImage
-								src={`/images/weapons/${weaponData.image}.webp`}
-								leftFacing={leftFacing}
-								onMouseDown={event => event.preventDefault()}
-							/>
-							<ModIcons weapon={weapon} link={isActiveBuild} />
-						</Item>
-					})
-				}
-
-				{
-					activeBuildId === activeTabId && <BuyContainer
-						width={192}
-						rowAmount={5}
-						selected={false}
-						onClick={() => setEnableBuy(true)}
-					>
-						<FaPlusCircle size={48} />
-						<BuyText>Buy Weapon</BuyText>
-					</BuyContainer>
-				}
-
-			</ItemContainer>
+			<ArmouryItems
+				weaponsData={weaponsData}
+				isActiveBuild={isActiveBuild}
+				selectedWeaponId={selectedWeaponId}
+				setSelectedWeaponId={setSelectedWeaponId}
+				equippedWeaponId={equippedWeaponId}
+				slot={slot}
+				duplicateWeaponHandler={duplicateWeaponHandler}
+				activeBuildId={activeBuildId}
+				activeTabId={activeTabId}
+				setEnableBuy={setEnableBuy}
+			/>
 
 			<ResetContainer>
 				<ResetText onClick={() => {
@@ -276,6 +227,112 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 			</DetectionAndActionsContainer>
 
 		</Container>
+	)
+}
+
+interface ArmouryBarProps {
+	builds: Record<number, BuildSave>;
+	activeBuildId: number;
+	isActiveBuild: boolean;
+	changeActiveTab: (tabId: number) => void;
+	activeTabId: number;
+	buildTabs: BuildTab[];
+}
+
+const ArmouryBar: FC<ArmouryBarProps> = ({ builds, activeBuildId, isActiveBuild, changeActiveTab, activeTabId, buildTabs }) => {
+
+	const activeBuildName = builds[activeBuildId].name || 'New Build'
+
+	return (
+		<ArmouryBarContainer>
+			<ActiveBuildTab colour={isActiveBuild ? '#fff' : blue} onClick={() => {
+				changeActiveTab(activeBuildId)
+			}}>{activeBuildName}</ActiveBuildTab>
+			<HorizontalBar active={activeTabId} items={buildTabs.filter(build => build.active).map(build => ({
+				label: build.name,
+				callback: () => {
+					changeActiveTab(build.id)
+				},
+				id: build.id
+			}))} />
+		</ArmouryBarContainer>
+	)
+}
+
+interface ArmouryItemsProps {
+	weaponsData: Weapon[];
+	isActiveBuild: boolean;
+	selectedWeaponId: number;
+	setSelectedWeaponId: Dispatch<SetStateAction<ArmouryItemsProps['selectedWeaponId']>>;
+	equippedWeaponId: number;
+	slot: Slot;
+	duplicateWeaponHandler: () => void;
+	activeBuildId: number;
+	activeTabId: number;
+	setEnableBuy: Dispatch<SetStateAction<boolean>>;
+}
+
+const ArmouryItems: FC<ArmouryItemsProps> = ({ weaponsData, isActiveBuild, selectedWeaponId, setSelectedWeaponId, equippedWeaponId, slot, duplicateWeaponHandler, activeBuildId, activeTabId, setEnableBuy }) => {
+
+	const router = useRouter()
+
+	const { leftFacing } = useSettingsContext().state
+
+	const changeWeapon = useWeaponsStore(state => state.changeWeapon)
+
+	return (
+		<ItemContainer>
+			{
+				weaponsData.map((weapon, i) => {
+					if (!i && isActiveBuild) return <Fragment key={'fragment'} />
+
+					const { id, weaponFind } = weapon
+					const weaponData = findWeapon(weaponFind)
+
+					return <Item
+						key={id}
+						width={192}
+						rowAmount={5}
+						selected={selectedWeaponId === id}
+						onClick={() => {
+							if (selectedWeaponId === id && isActiveBuild) {
+								if (equippedWeaponId === id) {
+									router.push(`/blackmarket/${slot}/${selectedWeaponId}`)
+								} else {
+									changeWeapon(slot, id)
+								}
+							} else if (selectedWeaponId === id && !isActiveBuild) {
+								duplicateWeaponHandler()
+							} else {
+								setSelectedWeaponId(id)
+							}
+						}}
+					>
+						{equippedWeaponId === id && isActiveBuild && <ItemEquipped />}
+						<ItemName colour={itemColours[weaponData.source.rarity]}>{weaponData.name}</ItemName>
+						<ItemImage
+							src={`/images/weapons/${weaponData.image}.webp`}
+							leftFacing={leftFacing}
+							aspectRatio='auto'
+							onMouseDown={event => event.preventDefault()}
+						/>
+						<ModIcons weapon={weapon} link={isActiveBuild} />
+					</Item>
+				})
+			}
+
+			{
+				activeBuildId === activeTabId && <BuyContainer
+					width={192}
+					rowAmount={5}
+					selected={false}
+					onClick={() => setEnableBuy(true)}
+				>
+					<FaPlusCircle size={48} />
+					<BuyText>Buy Weapon</BuyText>
+				</BuyContainer>
+			}
+		</ItemContainer>
 	)
 }
 

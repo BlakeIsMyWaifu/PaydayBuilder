@@ -57,11 +57,13 @@ export const ItemName = styled.h2<ItemNameProps>`
 interface ItemImageProps {
 	locked?: boolean;
 	leftFacing?: boolean;
+	aspectRatio?: 'auto';
 }
 
 export const ItemImage = styled.img<ItemImageProps>`
-	width: 100%;
 	height: 100%;
+	width: 100%;
+	aspect-ratio: ${props => props.aspectRatio ?? '1 / 1'};
 	filter: brightness(${props => props.locked ? 0.2 : 1});
 	transform: scaleX(${props => props.leftFacing ? -1 : 1});
 `

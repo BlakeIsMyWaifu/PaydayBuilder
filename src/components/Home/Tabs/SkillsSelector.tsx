@@ -7,6 +7,7 @@ import { grey } from 'utils/colours'
 import skillTreePoints from 'utils/skillTreePoints'
 
 import Selector from './Selector'
+import SkillTable from './SkillTable'
 
 const SkillsContainer = styled.div`
 	width: calc(100% - 24px);
@@ -43,16 +44,18 @@ const SkillsAmount = styled.h1<SkillsAmountProps>`
 `
 
 interface SelectorSkillProps {
-	infoData: HoverInfo | null;
 	setHoverInfo: Dispatch<SetStateAction<HoverInfo | null>>;
 }
 
-const SelectorSkills: FC<SelectorSkillProps> = ({ infoData, setHoverInfo }) => {
+const SelectorSkills: FC<SelectorSkillProps> = ({ setHoverInfo }) => {
 
 	const currentTrees = useSkillsStore(state => state.trees)
 
 	return (
-		<Selector title='skills' setHoverInfo={setHoverInfo} infoData={infoData} >
+		<Selector title='skills' setHoverInfo={setHoverInfo} infoData={{
+			title: 'Skills',
+			table: <SkillTable />
+		}} >
 			{
 				<SkillsContainer>
 					{
