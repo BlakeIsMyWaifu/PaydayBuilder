@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { raisinBlack } from 'utils/colours'
 
-interface ContainerProps {
+export interface ContainerProps {
 	toggle: boolean;
 }
 
