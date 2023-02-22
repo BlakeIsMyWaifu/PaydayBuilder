@@ -7,6 +7,7 @@ import { NextPage } from 'next'
 import { ReactElement, useState } from 'react'
 import { FaCog } from 'react-icons/fa'
 import styled from 'styled-components'
+import { builderVersion, paydayVersion } from 'utils/version'
 
 const ConfigContainer = styled.div`
 	grid-area: config;
@@ -68,8 +69,8 @@ const Home: NextPage = () => {
 				<Tabs />
 
 				<VersionContainer>
-					<VersionText>Payday Version: 222</VersionText>
-					<VersionText>Builder Version: 0.4.1</VersionText>
+					<VersionText>Payday Version: {paydayVersion}</VersionText>
+					<VersionText>Builder Version: {builderVersion.join('.')}</VersionText>
 				</VersionContainer>
 
 				<ConfigContainer>
