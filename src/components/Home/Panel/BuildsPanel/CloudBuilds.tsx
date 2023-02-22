@@ -3,9 +3,9 @@ import { FaDownload, FaTrash } from 'react-icons/fa'
 import { useBuildsStore } from 'state/useBuildsStore'
 import { trpc } from 'utils/trpc'
 
-import { BuildButton, BuildName, BuildSectionTitle, BuildWrapper } from './BuildsPanel-Elements'
+import { BuildButton, BuildName, BuildSectionTitle, BuildWrapper } from './buildsPanelElements'
 
-const ServerBuilds: FC = () => {
+const CloudBuilds: FC = () => {
 
 	const importBuild = useBuildsStore(state => state.importBuild)
 
@@ -58,4 +58,4 @@ const ServerBuilds: FC = () => {
 	)
 }
 
-export default ServerBuilds
+export default CloudBuilds

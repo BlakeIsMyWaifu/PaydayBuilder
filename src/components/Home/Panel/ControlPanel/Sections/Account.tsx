@@ -3,7 +3,7 @@ import { FC } from 'react'
 import { trpc } from 'utils/trpc'
 
 import Button from '../Button'
-import { Section, SectionTitle } from '../ControlPanel-Elements'
+import { Section, SectionTitle } from '../controlPanelElements'
 
 const Account: FC = () => {
 

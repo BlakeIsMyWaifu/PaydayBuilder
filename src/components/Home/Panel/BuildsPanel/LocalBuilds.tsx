@@ -4,7 +4,7 @@ import { BuildSave, defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import { blue, red } from 'utils/colours'
 import { trpc } from 'utils/trpc'
 
-import { BuildButton, BuildName, BuildSectionTitle, BuildWrapper } from './BuildsPanel-Elements'
+import { BuildButton, BuildName, BuildSectionTitle, BuildWrapper } from './buildsPanelElements'
 
 interface LocalBuildsProps {
 	setToggleBuilds: Dispatch<SetStateAction<boolean>>;

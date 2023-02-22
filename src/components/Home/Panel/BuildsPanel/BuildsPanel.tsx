@@ -1,10 +1,10 @@
-import { Container, PanelContent, Title } from 'components/Home/Panel/Panel-Elements'
+import { Container, PanelContent, Title } from 'components/Home/Panel/panelElements'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaPlusSquare } from 'react-icons/fa'
 import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import { trpc } from 'utils/trpc'
 
-import { Builds, NewBuild } from './BuildsPanel-Elements'
+import { Builds, NewBuild } from './buildsPanelElements'
 import CloudBuilds from './CloudBuilds'
 import LocalBuilds from './LocalBuilds'
 
