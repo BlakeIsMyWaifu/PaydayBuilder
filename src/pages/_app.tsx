@@ -1,5 +1,6 @@
 import 'fonts/fonts.css'
 
+import { Analytics } from '@vercel/analytics/react'
 import Cookies from 'components/Cookies'
 import { GlobalStyle } from 'GlobalStyle'
 import useBuildImporter from 'hooks/useBuildImporter'
@@ -41,6 +42,8 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 				<UpdateSettingsContext />
 
 				<GlobalStyle />
+
+				<Analytics />
 
 				<div onContextMenu={event => isDev() ? null : event.preventDefault()}>
 
