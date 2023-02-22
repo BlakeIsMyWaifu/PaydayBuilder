@@ -11,10 +11,9 @@ import styled from 'styled-components'
 import { itemColours } from 'utils/colours'
 import corner from 'utils/corner'
 
-const EquipmentWrapper = styled.div`
+const EquipmentWrapper = styled(corner)`
 	grid-area: wrapper;
 	padding: 12px;
-	${corner};
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(3, 1fr);

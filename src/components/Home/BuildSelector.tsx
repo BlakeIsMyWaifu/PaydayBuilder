@@ -11,14 +11,13 @@ const Container = styled.span`
 	justify-content: center;
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled(corner)`
 	display: flex;
 	background-color: ${dim};
 	width: 30vw;
 	padding: 4px;
 	height: 2.2rem;
 	color: ${blue};
-	${corner};
 	background-size: 8px 8px;
 `
 

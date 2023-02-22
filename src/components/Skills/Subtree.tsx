@@ -6,11 +6,10 @@ import corner from 'utils/corner'
 
 import Skill, { SkillProps } from './Skill'
 
-const Container = styled.div`
+const Container = styled(corner)`
 	position: relative;
 	height: 100%;
 	width: calc((100% / 3) - 6px);
-	${corner};
 `
 
 const TierWrapper = styled.div`

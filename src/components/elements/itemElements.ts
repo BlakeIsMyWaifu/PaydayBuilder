@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 import corner from 'utils/corner'
 
-export const ItemContainer = styled.div`
+export const ItemContainer = styled(corner)`
 	grid-area: items;
 	padding: 12px;
 	overflow-y: auto;
 	display: flex;
 	flex-wrap: wrap;
 	align-content: flex-start;
-	${corner};
 `
 
 export interface ItemProps {

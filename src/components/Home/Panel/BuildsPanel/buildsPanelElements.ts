@@ -15,14 +15,13 @@ export const BuildSectionTitle = styled.h2`
 	font-size: 1.2rem;
 `
 
-export const BuildWrapper = styled.div`
+export const BuildWrapper = styled(corner)`
 	height: 2rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	padding: 4px;
 	color: ${blue};
-	${corner};
 	background-color: ${dim};
 	background-size: 8px 8px;
 `

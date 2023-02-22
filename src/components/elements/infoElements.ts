@@ -2,13 +2,12 @@ import styled from 'styled-components'
 import { red } from 'utils/colours'
 import corner from 'utils/corner'
 
-export const InfoContainer = styled.div`
+export const InfoContainer = styled(corner)`
 	grid-area: info;
 	display: flex;
 	flex-direction: column;
 	padding: 8px 16px;
 	overflow-y: auto;
-	${corner};
 `
 
 export const InfoTitleWrapper = styled.span`

@@ -5,7 +5,7 @@ import { Dispatch, FC, RefObject, SetStateAction } from 'react'
 import { useAbilityStore } from 'state/useAbilitiesStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import styled from 'styled-components'
-import corner from 'utils/corner'
+import { cornerCSS } from 'utils/corner'
 
 const Container = styled.div`
 	width: calc(100% - 16px);
@@ -40,7 +40,7 @@ const Card = styled.div<CardProps>`
 	${props => props.selected ? 'transform: scale(120%);' : ''}
 	transition: transform 0.25s ease-in-out;
 	&:hover {
-		${corner}
+		${cornerCSS}
 	}
 	`
 

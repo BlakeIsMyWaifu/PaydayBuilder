@@ -80,7 +80,7 @@ const PreviewWrapper = styled.div`
 	justify-content: space-between;
 `
 
-const Preview = styled.div`
+const Preview = styled(corner)`
 	width: calc(100% - 32px);
 	height: calc(50% - 20px);
 	background-color: ${dim} !important;
@@ -88,13 +88,11 @@ const Preview = styled.div`
 	flex-direction: column;
 	padding: 8px 16px;
 	overflow-y: auto;
-	${corner};
 `
 
-const SelectorWrapper = styled.div`
+const SelectorWrapper = styled(corner)`
 	width: 100%;
 	height: calc(100% - 20px);
-	${corner};
 `
 
 const Tabs: FC = () => {
