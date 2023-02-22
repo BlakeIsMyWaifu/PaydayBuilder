@@ -50,6 +50,7 @@ const Throwable: NextPage = () => {
 							<ItemImage
 								src={`/images/throwables/${throwable.image}.webp`}
 								locked={locked}
+								aspectRatio='auto'
 								onMouseDown={event => event.preventDefault()}
 							/>
 						</Item>

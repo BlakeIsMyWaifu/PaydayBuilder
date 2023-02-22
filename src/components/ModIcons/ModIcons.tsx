@@ -1,4 +1,4 @@
-import WeaponsStatsTable from 'components/Weapons/WeaponStatsTable'
+import WeaponsStatsTable from 'components/Table/WeaponStatsTable'
 import modificationList, { modificationIcons } from 'data/weapons/guns/modificationList'
 import { ModificationSlot, Weapon } from 'data/weapons/guns/weaponTypes'
 import Link from 'next/link'
