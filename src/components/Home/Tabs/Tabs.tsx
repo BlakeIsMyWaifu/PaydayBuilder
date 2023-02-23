@@ -11,10 +11,7 @@ import characters from 'data/character/characters'
 import equipments, { EquipmentData } from 'data/character/equipment'
 import melees from 'data/weapons/melees'
 import throwables from 'data/weapons/throwables'
-import Link from 'next/link'
-import { HoverInfo } from 'pages/index'
-import { Dispatch, FC, SetStateAction, useState } from 'react'
-import { useSettingsContext } from 'state/settingsContext'
+import { Dispatch, FC, ReactElement, SetStateAction, useState } from 'react'
 import { useAbilityStore } from 'state/useAbilitiesStore'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useCharacterStore } from 'state/useCharacterStore'
@@ -28,23 +25,21 @@ import findWeapon from 'utils/findWeapon'
 import Selector from './Selector'
 import SelectorSkills from './SkillsSelector'
 
+interface HoverInfoData {
+	title: string;
+	description?: string[];
+	table?: ReactElement;
+}
+
+export type HoverInfo = HoverInfoData | null
+
 const EquipmentContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 `
 
-interface ImageProps {
-	leftFacing?: boolean;
-}
-
-const Image = styled.img<ImageProps>`
-	height: calc(100% - 32px);
-	width: auto;
-	max-width: 100%;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	${props => props.leftFacing && 'transform: scaleX(-1)'};
+const EquipmentImage = styled.img`
+	width: 50%;
 `
 
 const PerkDeckImage = styled(CardIconBase)`
@@ -73,7 +68,6 @@ const TabTitle = styled.h1<TabTitleProps>`
 `
 
 const PreviewWrapper = styled.div`
-	width: 100%;
 	height: calc(100% - 20px);
 	display: flex;
 	flex-direction: column;
@@ -81,13 +75,13 @@ const PreviewWrapper = styled.div`
 `
 
 const Preview = styled(corner)`
-	width: calc(100% - 32px);
-	height: calc(50% - 20px);
-	background-color: ${dim} !important;
+	height: calc(50% - 4px);
+	background-color: ${dim};
 	display: flex;
 	flex-direction: column;
 	padding: 8px 16px;
-	overflow-y: auto;
+	box-sizing: border-box;
+	overflow: auto;
 `
 
 const SelectorWrapper = styled(corner)`
@@ -104,64 +98,74 @@ const Tabs: FC = () => {
 			<Tab area='stats'>
 				<TabTitle direction='ltr'>Inventory</TabTitle>
 				<PreviewWrapper>
-					<Preview>
-						<DetectionRisk flexDirection='column' corner={false} />
-					</Preview>
-					<Preview>
-						{
-							hoverInfo && (
-								<>
-									<InfoTitle>{hoverInfo.title}</InfoTitle>
-									<InfoDescription>{hoverInfo.description?.join('\n\n')}</InfoDescription>
-									{hoverInfo.table}
-								</>
-							)
-						}
-					</Preview>
+					<CharacterInfo />
+					<HoverInfoSection hoverInfo={hoverInfo} />
 				</PreviewWrapper>
 			</Tab>
 
 			<Tab area='character'>
 				<TabTitle direction='rtl'>Character</TabTitle>
 				<SelectorWrapper>
-
 					<MaskSelector setHoverInfo={setHoverInfo} />
 					<CharacterSelector setHoverInfo={setHoverInfo} />
 					<ArmourSelector setHoverInfo={setHoverInfo} />
 					<EquipmentSelector setHoverInfo={setHoverInfo} />
-
 				</SelectorWrapper>
 			</Tab>
 
 			<Tab area='weapons'>
 				<TabTitle direction='rtl'>Weapons</TabTitle>
 				<SelectorWrapper>
-
 					<PrimarySelector setHoverInfo={setHoverInfo} />
 					<SecondarySelector setHoverInfo={setHoverInfo} />
 					<ThrowableSelector setHoverInfo={setHoverInfo} />
 					<MeleeSelector setHoverInfo={setHoverInfo} />
-
 				</SelectorWrapper>
 			</Tab>
 
 			<Tab area='abilities'>
 				<TabTitle direction='rtl'>Abilities</TabTitle>
 				<SelectorWrapper>
-
 					<SelectorSkills setHoverInfo={setHoverInfo} />
 					<PerkDeckSelector setHoverInfo={setHoverInfo} />
 					<CrewManagementSelector setHoverInfo={setHoverInfo} />
 					<InfamySelector setHoverInfo={setHoverInfo} />
-
 				</SelectorWrapper>
 			</Tab>
 		</>
 	)
 }
 
+const CharacterInfo: FC = () => {
+	return (
+		<Preview>
+			<DetectionRisk flexDirection='column' corner={false} />
+		</Preview>
+	)
+}
+
+interface HoverInfoSectionProps {
+	hoverInfo: HoverInfo;
+}
+
+const HoverInfoSection: FC<HoverInfoSectionProps> = ({ hoverInfo }) => {
+	return (
+		<Preview>
+			{
+				hoverInfo && (
+					<>
+						<InfoTitle>{hoverInfo.title}</InfoTitle>
+						<InfoDescription>{hoverInfo.description?.join('\n\n')}</InfoDescription>
+						{hoverInfo.table}
+					</>
+				)
+			}
+		</Preview>
+	)
+}
+
 interface OuterSelectorProps {
-	setHoverInfo: Dispatch<SetStateAction<HoverInfo | null>>;
+	setHoverInfo: Dispatch<SetStateAction<HoverInfo>>;
 }
 
 const MaskSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
@@ -177,9 +181,8 @@ const MaskSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 				title: maskData.name,
 				description: maskData.description
 			}}
-		>
-			<Image src={`/images/masks/${maskData.image}.webp`} />
-		</Selector>
+			image={`masks/${maskData.image}`}
+		/>
 	)
 }
 
@@ -196,9 +199,8 @@ const CharacterSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 				title: characterData.name,
 				description: [`Nationality: ${characterData.nationality}`, `Age: ${characterData.age.toString()}`, ...characterData.description]
 			}}
-		>
-			<Image src={`/images/masks/${characterData.image}.webp`} />
-		</Selector>
+			image={`masks/${characterData.image}`}
+		/>
 	)
 }
 
@@ -215,9 +217,8 @@ const ArmourSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 				title: armourData.name,
 				table: <ArmourStatsTable selectedArmour={armourData.name} />
 			}}
-		>
-			<Image src={`/images/armours/${armourData.name}.webp`} />
-		</Selector>
+			image={`armours/${armourData.name}`}
+		/>
 	)
 }
 
@@ -235,12 +236,13 @@ const EquipmentSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 				title: equipmentPrimary.name,
 				description: equipmentPrimary.description
 			}}
+			image={!equipmentSecondary ? `equipment/${equipmentPrimary.name}` : undefined}
 		>
 			{
-				equipmentSecondary ? <EquipmentContainer>
-					<Image src={`/images/equipment/${equipmentPrimary.name}.webp`} />
-					<Image src={`/images/equipment/${equipmentSecondary.name}.webp`} />
-				</EquipmentContainer> : <Image src={`/images/equipment/${equipmentPrimary.name}.webp`} />
+				equipmentSecondary && <EquipmentContainer>
+					<EquipmentImage src={`/images/equipment/${equipmentPrimary.name}.webp`} />
+					<EquipmentImage src={`/images/equipment/${equipmentSecondary.name}.webp`} />
+				</EquipmentContainer>
 			}
 		</Selector>
 	)
@@ -254,24 +256,17 @@ const PrimarySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 	const primaryWeapon = primaryArmoury[primaryWeaponState]
 	const primaryData = findWeapon(primaryWeapon.weaponFind)
 
-	const { leftFacing } = useSettingsContext().state
-
 	return (
 		<Selector
 			title='primary'
 			setHoverInfo={setHoverInfo}
-			enableLink={false}
+			infoData={{
+				title: primaryData.name,
+				table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={primaryWeapon} />
+			}}
+			image={`weapons/${primaryData.image}`}
+			imageLeftFacing
 		>
-			<Link href='primary'>
-				<Image
-					src={`/images/weapons/${primaryData.image}.webp`}
-					leftFacing={leftFacing}
-					onMouseEnter={() => setHoverInfo({
-						title: primaryData.name,
-						table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={primaryWeapon} />
-					})}
-				/>
-			</Link>
 			<ModIcons
 				weapon={primaryWeapon}
 				link={true}
@@ -289,24 +284,17 @@ const SecondarySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 	const secondaryWeapon = secondaryArmoury[secondaryWeaponState]
 	const secondaryData = findWeapon(secondaryWeapon.weaponFind)
 
-	const { leftFacing } = useSettingsContext().state
-
 	return (
 		<Selector
 			title='secondary'
 			setHoverInfo={setHoverInfo}
-			enableLink={false}
+			infoData={{
+				title: secondaryData.name,
+				table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={secondaryWeapon} />
+			}}
+			image={`weapons/${secondaryData.image}`}
+			imageLeftFacing
 		>
-			<Link href='secondary'>
-				<Image
-					src={`/images/weapons/${secondaryData.image}.webp`}
-					leftFacing={leftFacing}
-					onMouseEnter={() => setHoverInfo({
-						title: secondaryData.name,
-						table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={secondaryWeapon} />
-					})}
-				/>
-			</Link>
 			<ModIcons
 				weapon={secondaryWeapon}
 				link={true}
@@ -329,9 +317,8 @@ const ThrowableSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 				title: throwableData.name,
 				description: throwableData.description
 			}}
-		>
-			<Image src={`/images/throwables/${throwableData.image}.webp`} />
-		</Selector>
+			image={`throwables/${throwableData.image}`}
+		/>
 	)
 }
 
@@ -339,8 +326,6 @@ const MeleeSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 
 	const meleeState = useWeaponsStore(state => state.melee)
 	const meleeData = melees[meleeState]
-
-	const { leftFacing } = useSettingsContext().state
 
 	return (
 		<Selector
@@ -350,9 +335,9 @@ const MeleeSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 				title: meleeData.name,
 				table: <MeleeStatsTable selectedMelee={meleeData.name} />
 			}}
-		>
-			<Image src={`/images/melees/${meleeData.image}.webp`} leftFacing={leftFacing} />
-		</Selector>
+			image={`melees/${meleeData.image}`}
+			imageLeftFacing
+		/>
 	)
 }
 

@@ -16,6 +16,8 @@ export const Container = styled.div<ContainerProps>`
 	z-index: 10;
 	padding: 16px;
 	box-sizing: border-box;
+	overflow-y: auto;
+	overflow-x: hidden;
 `
 
 export const PanelContent = styled.div`

@@ -2,9 +2,9 @@ import Container from 'components/Container'
 import BuildSelector from 'components/Home/BuildSelector'
 import BuildsPanel from 'components/Home/Panel/BuildsPanel'
 import ControlPanel from 'components/Home/Panel/ControlPanel'
-import Tabs from 'components/Home/Tabs/Tab'
+import Tabs from 'components/Home/Tabs'
 import { NextPage } from 'next'
-import { ReactElement, useState } from 'react'
+import { useState } from 'react'
 import { FaCog } from 'react-icons/fa'
 import styled from 'styled-components'
 import { builderVersion, paydayVersion } from 'utils/version'
@@ -35,12 +35,6 @@ const VersionText = styled.p`
 	font-size: 1.2rem;
 `
 
-export interface HoverInfo {
-	title: string;
-	description?: string[];
-	table?: ReactElement;
-}
-
 const Home: NextPage = () => {
 
 	const [toggleBuilds, setToggleBuilds] = useState(false)
@@ -60,7 +54,7 @@ const Home: NextPage = () => {
 			/>
 
 			<Container
-				columns='2fr 1fr 1fr 1fr'
+				columns='minmax(0, 2fr) 1fr 1fr 1fr'
 				rows='calc(100% - 3rem) 3rem'
 				areas='"stats character weapons abilities" "version config config config"'
 				backButton={false}

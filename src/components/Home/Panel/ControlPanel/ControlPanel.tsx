@@ -1,11 +1,30 @@
-import { Title } from 'components/Home/Panel/panelElements'
+import { Container, PanelContent, Title } from 'components/Home/Panel/panelElements'
 import { Dispatch, FC, SetStateAction } from 'react'
-import { FaGithub } from 'react-icons/fa'
+import styled from 'styled-components'
 
-import { ContactIconWrapper, ContactLink, ContactText, ControlPanelContainer, ControlPanelContent } from './controlPanelElements'
 import Account from './Sections/Account'
 import Appearance from './Sections/Appearance'
+import Contact from './Sections/Contact'
 import IO from './Sections/IO'
+
+const ControlPanelContainer = styled(Container)`
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+`
+
+const ControlPanelContent = styled(PanelContent)`
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+`
+
+const Wrapper = styled.div`
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+`
 
 interface SettingsPanelProps {
 	toggleControl: boolean;
@@ -18,23 +37,15 @@ const ControlPanel: FC<SettingsPanelProps> = ({ toggleControl, setToggleControl 
 
 			<Title>Control Panel</Title>
 
-			<ControlPanelContent>
-				<Account />
-				<IO setToggleControl={setToggleControl} />
-				<Appearance />
-			</ControlPanelContent>
+			<Wrapper>
+				<ControlPanelContent>
+					<Account />
+					<IO setToggleControl={setToggleControl} />
+					<Appearance />
+				</ControlPanelContent>
 
-			<ContactLink
-				href='https://github.com/BlakeIsMyWaifu/PaydayBuilder'
-				target='_blank'
-				rel='noopener noreferrer'
-			>
-				<ContactIconWrapper>
-					<FaGithub size='100%' />
-				</ContactIconWrapper>
-				<ContactText>This project is open source</ContactText>
-				<ContactText>Click here to contribute</ContactText>
-			</ContactLink>
+				<Contact/>
+			</Wrapper>
 
 		</ControlPanelContainer >
 	)
