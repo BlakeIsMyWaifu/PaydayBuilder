@@ -9,6 +9,7 @@ import { ModIcon, ModWrapper } from 'components/ModIcons/ModIcons'
 import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
 import useWeaponStats from 'hooks/useWeaponStats'
 import { FC, useState } from 'react'
+import { useIsMobile } from 'state/settingsContext'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
@@ -90,6 +91,8 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, mo
 
 	const totalStats = useWeaponStats(weapon, modifications).total
 
+	const isMobile = useIsMobile()
+
 	return (
 		<Container
 			title={`Blackmarket - ${weapon.name}`}
@@ -97,6 +100,10 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, mo
 			desktopLayout={{
 				rows: '4rem 2rem 1fr 120px 1.5rem 4rem',
 				areas: '"title reset" "horizontalbar ." "items info" "items drisk" "items actions" "items back"'
+			}}
+			mobileLayout={{
+				rows: '3rem 1.5rem auto 80px 68px 64px',
+				areas: '"title reset" "horizontalbar horizontalbar" "items items" "info drisk" "info actions" "info back"'
 			}}
 		>
 
@@ -146,17 +153,22 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, mo
 				<ResetText onClick={() => resetWeaponMods(slot, id)}>Reset all modifications</ResetText>
 			</ResetContainer>
 
-			<DetectionRisk flexDirection='row' corner={true} />
+			<DetectionRisk
+				flexDirection='row'
+				corner={true}
+				text={!isMobile}
+				size={isMobile ? 64 : 96}
+			/>
 
 			<ActionsContainer>
 				{
 					selectedItem === equippedModifications[selectedItem.slot] ?
 						<ActionText onClick={() => {
 							removeMod(slot, id, selectedItem.slot)
-						}}>Remove Modification</ActionText> :
+						}}>Remove {!isMobile && 'Modification'}</ActionText> :
 						<ActionText onClick={() => {
 							changeMod(slot, id, selectedItem)
-						}}>Craft Modification</ActionText>
+						}}>Craft {!isMobile && 'Modification'}</ActionText>
 				}
 			</ActionsContainer>
 

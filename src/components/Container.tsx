@@ -78,13 +78,13 @@ const Container: FC<ContainerProps> = ({
 
 	const defaultDesktopLayout = {
 		columns: '3fr 1fr',
-		rows: '4rem 8fr 4rem',
+		rows: '4rem auto 4rem',
 		areas: '"title title" "items info" "items back"'
 	}
 
 	const defaultMobileLayout = {
 		columns: '1fr 75px',
-		rows: '3rem 1fr 150px',
+		rows: '3rem auto 150px',
 		areas: '"title title" "items items" "info back"'
 	}
 

@@ -129,7 +129,7 @@ const Mask: NextPage = () => {
 				areas: '"title title" "horizontalbar infotabs" "items info" "items back"'
 			}}
 			mobileLayout={{
-				rows: '3rem 1.5rem 1fr 1rem 150px',
+				rows: '3rem 1.5rem auto 1rem 150px',
 				areas: '"title title" "horizontalbar horizontalbar" "items items" "infotabs ." "info back"'
 			}}
 		>

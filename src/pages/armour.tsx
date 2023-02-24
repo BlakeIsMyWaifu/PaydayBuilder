@@ -34,7 +34,7 @@ export const Armour: NextPage = () => {
 				areas: '"title title" "items info" "items drisk" "items back"'
 			}}
 			mobileLayout={{
-				rows: '4rem 8fr 106px 64px',
+				rows: '4rem auto 106px 64px',
 				areas: '"title title" "items items" "info drisk" "info back"'
 			}}
 		>

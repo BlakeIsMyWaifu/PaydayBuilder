@@ -11,7 +11,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Dispatch, FC, Fragment, SetStateAction, useState } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
-import { useIsLeftFacing } from 'state/settingsContext'
+import { useIsLeftFacing, useIsMobile } from 'state/settingsContext'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { BuildSave, useBuildsStore } from 'state/useBuildsStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
@@ -39,14 +39,8 @@ const BuyText = styled.p`
 
 const DetectionAndActionsContainer = styled(ActionsContainer)`
 	display: flex;
-	flex-direction: row;
+	flex-direction: ${props => props.theme.isMobile ? 'column' : 'row'};
 	justify-content: space-between;
-`
-
-const WeaponActionsContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
 `
 
 interface WeaponActionTextProps {
@@ -147,12 +141,21 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 		changeActiveTab(activeBuildId)
 	}
 
+	const isMobile = useIsMobile()
+
 	return (
-		<Container title={slot} desktopLayout={{
-			columns: '3fr 1.5fr',
-			rows: '4rem 2rem auto 6rem 4rem',
-			areas: '"title reset" "armourybar infotabs" "items info" "items actions" "items back"'
-		}}>
+		<Container
+			title={slot}
+			desktopLayout={{
+				columns: '3fr 1.5fr',
+				rows: '4rem 2rem auto 6rem 4rem',
+				areas: '"title reset" "armourybar infotabs" "items info" "items actions" "items back"'
+			}}
+			mobileLayout={{
+				rows: '3rem 1.5rem auto 1rem 156px 64px',
+				areas: '"title reset" "armourybar armourybar" "items items" "infotabs ." "info actions" "info back"'
+			}}
+		>
 
 			<ArmouryBar
 				builds={builds}
@@ -203,25 +206,27 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 				<DetectionRisk
 					flexDirection='row'
 					corner={true}
-					size={64}
+					text={!isMobile}
+					size={isMobile ? 64 : 96}
 				/>
 
 				{
-					isActiveBuild ? <WeaponActionsContainer>
+					isActiveBuild
+						? <ActionsContainer>
+							<WeaponActionText hide={selectedWeaponId === equippedWeaponId} onClick={() => {
+								changeWeapon(slot, selectedWeaponId)
+							}}>Equip {!isMobile && 'Weapon'}</WeaponActionText>
 
-						<WeaponActionText hide={selectedWeaponId === equippedWeaponId} onClick={() => {
-							changeWeapon(slot, selectedWeaponId)
-						}}>Equip Weapon</WeaponActionText>
+							<BlackmarketLink href={`/blackmarket/${slot}/${selectedWeaponId}`}>
+								<WeaponActionText>Modify {!isMobile && 'Weapon'}</WeaponActionText>
+							</BlackmarketLink>
 
-						<BlackmarketLink href={`/blackmarket/${slot}/${selectedWeaponId}`}>
-							<WeaponActionText>Modify Weapon</WeaponActionText>
-						</BlackmarketLink>
+							<WeaponActionText onClick={deleteWeaponHandler}>Delete {!isMobile && 'Weapon'}</WeaponActionText>
+						</ActionsContainer>
 
-						<WeaponActionText onClick={deleteWeaponHandler}>Delete Weapon</WeaponActionText>
-
-					</WeaponActionsContainer> : <WeaponActionsContainer>
-						<WeaponActionText onClick={duplicateWeaponHandler}>Duplicate Weapon</WeaponActionText>
-					</WeaponActionsContainer>
+						: <ActionsContainer>
+							<WeaponActionText onClick={duplicateWeaponHandler}>Duplicate {!isMobile && 'Weapon'}</WeaponActionText>
+						</ActionsContainer>
 				}
 			</DetectionAndActionsContainer>
 

@@ -56,7 +56,7 @@ const Equipment: NextPage = () => {
 				areas: `"title title" "items info" "items ${jackOfAllTradesUnlocked ? 'actions' : 'info'}" "items back"`
 			}}
 			mobileLayout={{
-				rows: '3rem 1fr 86px 64px',
+				rows: '3rem auto 86px 64px',
 				areas: `"title title" "items items" "info ${jackOfAllTradesUnlocked ? 'actions' : '.'}" "info back"`
 			}}
 		>

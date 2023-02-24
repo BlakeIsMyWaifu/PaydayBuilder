@@ -3,6 +3,9 @@ import { blue } from 'utils/colours'
 
 export const ActionsContainer = styled.div`
 	grid-area: actions;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
 `
 
 export const ActionText = styled.p`

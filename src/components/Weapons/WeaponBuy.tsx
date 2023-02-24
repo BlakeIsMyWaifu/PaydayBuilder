@@ -41,11 +41,19 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWe
 	}
 
 	return (
-		<Container title={slot} desktopLayout={{
-			columns: '3fr 1.5fr',
-			rows: '4rem 2rem auto 2rem 4rem',
-			areas: '"title reset" "horizontalbar ." "items info" "items actions" "items back"'
-		}}>
+		<Container
+			title={slot}
+			desktopLayout={{
+				columns: '3fr 1.5fr',
+				rows: '4rem 2rem auto 2rem 4rem',
+				areas: '"title reset" "horizontalbar ." "items info" "items actions" "items back"'
+			}}
+			mobileLayout={{
+				columns: '3fr 1.5fr',
+				rows: '3rem 1.5rem auto 1rem 150px',
+				areas: '"title reset" "horizontalbar horizontalbar" "items items" "info actions" "info back"'
+			}}
+		>
 
 			<HorizontalBar active={selectedTab} items={Object.keys(data).map(weaponType => ({
 				label: weaponType,
