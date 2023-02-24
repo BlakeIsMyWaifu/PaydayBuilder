@@ -12,7 +12,7 @@ interface InfoTabTitleProps {
 }
 
 const InfoTabTitle = styled.h1<InfoTabTitleProps>`
-	font-size: 2rem;
+	font-size: ${props => props.theme.isMobile ? '1rem' : '2rem'};
 	cursor: pointer;
 	padding: 0 6px;
 	margin-bottom: -10px;

@@ -25,7 +25,7 @@ const Area = styled.div<Layout>`
 
 const Title = styled.h1`
 	grid-area: title;
-	font-size: 4rem;
+	font-size: ${props => props.theme.isMobile ? '3rem' : '4rem'};
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -84,7 +84,7 @@ const Container: FC<ContainerProps> = ({
 
 	const defaultMobileLayout = {
 		columns: '1fr 75px',
-		rows: '4rem 4fr 1fr',
+		rows: '3rem 1fr 150px',
 		areas: '"title title" "items items" "info back"'
 	}
 

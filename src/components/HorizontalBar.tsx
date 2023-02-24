@@ -50,7 +50,7 @@ interface HorizontalItemProps {
 }
 
 const Item = styled.p<HorizontalItemProps>`
-	font-size: 1.6rem;
+	font-size: ${props => props.theme.isMobile ? '1.2rem' : '1.6rem'};
 	cursor: pointer;
 	white-space: nowrap;
 	color: ${props => props.colour || (props.active ? '#fff' : blue)};
