@@ -6,7 +6,7 @@ import MeleeStatsTable from 'components/Table/MeleeStatsTable'
 import melees from 'data/weapons/melees'
 import { NextPage } from 'next'
 import { useState } from 'react'
-import { useIsLeftFacing } from 'state/settingsContext'
+import { useIsLeftFacing, useIsMobile } from 'state/settingsContext'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import { itemColours } from 'utils/colours'
 
@@ -24,11 +24,20 @@ export const Melee: NextPage = () => {
 		changeMelee(selectedMelee.name)
 	}
 
+	const isMobile = useIsMobile()
+
 	return (
-		<Container title='Melee' desktopLayout={{
-			rows: '4rem 8fr 120px 4rem',
-			areas: '"title title" "items info" "items drisk" "items back"'
-		}}>
+		<Container
+			title='Melee'
+			desktopLayout={{
+				rows: '4rem 8fr 120px 4rem',
+				areas: '"title title" "items info" "items drisk" "items back"'
+			}}
+			mobileLayout={{
+				rows: '4rem auto 106px 64px',
+				areas: '"title title" "items items" "info drisk" "info back"'
+			}}
+		>
 
 			<ItemContainer>
 				{
@@ -59,7 +68,12 @@ export const Melee: NextPage = () => {
 				<InfoDescription>{selectedMelee.description}</InfoDescription>
 			</InfoContainer>
 
-			<DetectionRisk flexDirection='row' corner={true} />
+			<DetectionRisk
+				flexDirection='row'
+				corner={true}
+				text={!isMobile}
+				size={isMobile ? 64 : 96}
+			/>
 
 		</Container>
 	)
