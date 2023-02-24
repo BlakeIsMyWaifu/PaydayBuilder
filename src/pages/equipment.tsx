@@ -1,48 +1,13 @@
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/elements/infoElements'
 import { ActionText, ActionsContainer } from 'components/elements/itemActionElements'
-import { ItemEquipped, ItemName, LockedIcon } from 'components/elements/itemElements'
+import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } from 'components/elements/itemElements'
 import equipments, { EquipmentData } from 'data/character/equipment'
 import { NextPage } from 'next'
 import { useState } from 'react'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useSkillsStore } from 'state/useSkillsStore'
-import styled from 'styled-components'
 import { itemColours } from 'utils/colours'
-import corner from 'utils/corner'
-
-const EquipmentWrapper = styled(corner)`
-	grid-area: wrapper;
-	padding: 12px;
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: repeat(3, 1fr);
-	grid-gap: 12px;
-`
-
-interface ItemProps {
-	selected: boolean;
-}
-
-const Item = styled.div<ItemProps>`
-	position: relative;
-	width: 100%;
-	height: 100%;
-	${props => props.selected && corner};
-`
-
-interface EquipmentImageProps {
-	locked: boolean;
-}
-
-const EquipmentImage = styled.img<EquipmentImageProps>`
-	width: auto;
-	height: 100%;
-	position: relative;
-	left: 50%;
-	transform: translateX(-50%);
-	filter: brightness(${props => props.locked ? 0.2 : 1});
-`
 
 const Equipment: NextPage = () => {
 
@@ -84,17 +49,25 @@ const Equipment: NextPage = () => {
 	}
 
 	return (
-		<Container title='Equipment' desktopLayout={{
-			rows: '4rem 8fr 3rem 4rem',
-			areas: `"title title" "wrapper info" "wrapper ${jackOfAllTradesUnlocked ? 'actions' : 'info'}" "wrapper back"`
-		}}>
+		<Container
+			title='Equipment'
+			desktopLayout={{
+				rows: '4rem 8fr 3rem 4rem',
+				areas: `"title title" "items info" "items ${jackOfAllTradesUnlocked ? 'actions' : 'info'}" "items back"`
+			}}
+			mobileLayout={{
+				rows: '3rem 1fr 86px 64px',
+				areas: `"title title" "items items" "info ${jackOfAllTradesUnlocked ? 'actions' : '.'}" "info back"`
+			}}
+		>
 
-			<EquipmentWrapper>
+			<ItemContainer>
 				{
 					Object.values(equipments).map(equipment => {
 						const locked = equipment.name === 'Silenced Sentry Gun' && !engineeringUnlocked
 						const amount = getEquipmentAmount(equipment)
 						return <Item
+							rowAmount={5}
 							key={equipment.name}
 							selected={equipment.name === selectedEquipment.name}
 							onMouseDown={event => equipment.name !== selectedEquipment.name ? setSelectedEquipment(equipment) : equipEquipment(event.button)}
@@ -103,7 +76,7 @@ const Equipment: NextPage = () => {
 							{equipment.name === equippedPrimary && <ItemEquipped> {jackOfAllTradesUnlocked ? 'Primary' : ''}</ItemEquipped>}
 							{equipment.name === equippedSecondary && <ItemEquipped> Secondary</ItemEquipped>}
 							{locked && <LockedIcon />}
-							<EquipmentImage
+							<ItemImage
 								src={`/images/equipment/${equipment.name}.webp`}
 								locked={locked}
 								onContextMenu={event => event.preventDefault()}
@@ -112,7 +85,7 @@ const Equipment: NextPage = () => {
 						</Item>
 					})
 				}
-			</EquipmentWrapper>
+			</ItemContainer>
 
 			<InfoContainer>
 				<InfoTitle>{selectedEquipment.name} (x{getEquipmentAmount(selectedEquipment).join('/x')})</InfoTitle>

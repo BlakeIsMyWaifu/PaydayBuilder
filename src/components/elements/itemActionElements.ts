@@ -6,7 +6,7 @@ export const ActionsContainer = styled.div`
 `
 
 export const ActionText = styled.p`
-	font-size: 1.6rem;
+	font-size: ${props => props.theme.isMobile ? '1.2rem' : '1.6rem'};
 	text-align: end;
 	color: ${blue};
 	cursor: pointer;
