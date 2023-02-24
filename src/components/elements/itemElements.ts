@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import corner from 'utils/corner'
+import corner, { cornerCSS } from 'utils/corner'
 
 export const ItemContainer = styled(corner)`
 	grid-area: items;
@@ -11,7 +11,7 @@ export const ItemContainer = styled(corner)`
 `
 
 export interface ItemProps {
-	width: number;
+	width?: number;
 	rowAmount: number;
 	selected: boolean;
 }
@@ -19,9 +19,9 @@ export interface ItemProps {
 export const Item = styled.div<ItemProps>`
 	position: relative;
 	line-height: 0;
-	width: max(${props => 100 / (props.rowAmount || 10)}%, ${props => props.width}px);
+	width: max(${props => 100 / (props.rowAmount || 10)}%, ${props => props.width ?? (props.theme.isMobile ? 128 : 192)}px);
 	cursor: pointer;
-	${props => props.selected && corner};
+	${props => props.selected && cornerCSS};
 `
 
 export const ItemEquipped = styled.p`

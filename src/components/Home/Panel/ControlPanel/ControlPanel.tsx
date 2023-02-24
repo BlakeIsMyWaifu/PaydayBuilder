@@ -37,7 +37,7 @@ const ControlPanel: FC<SettingsPanelProps> = ({ toggleControl, setToggleControl 
 	const isMobile = useIsMobile()
 
 	return (
-		<ControlPanelContainer toggle={toggleControl} isMobile={isMobile}>
+		<ControlPanelContainer toggle={toggleControl}>
 
 			<TopWrapper>
 				<Title>Control Panel</Title>

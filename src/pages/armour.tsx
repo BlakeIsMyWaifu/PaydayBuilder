@@ -35,7 +35,6 @@ export const Armour: NextPage = () => {
 						const locked = armour.name === 'Improved Combined Tactical Vest' && !ironManUnlocked
 						return <Item
 							key={armour.name}
-							width={196}
 							rowAmount={5}
 							selected={armour.name === selectedArmour.name}
 							onClick={() => armour.name === selectedArmour.name && !locked ? equipArmourHandler() : setSelectedArmour(armour)}

@@ -35,7 +35,6 @@ export const Melee: NextPage = () => {
 					Object.values(melees).map(melee => {
 						return <Item
 							key={melee.name}
-							width={192}
 							rowAmount={8}
 							selected={melee.name === selectedMelee.name}
 							onClick={() => melee.name === selectedMelee.name ? equipMeleeHander() : setSelectedMelee(melee)}

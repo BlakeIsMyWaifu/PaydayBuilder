@@ -24,7 +24,7 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds }) =>
 	const isMobile = useIsMobile()
 
 	return (
-		<Container toggle={toggleBuilds} isMobile={isMobile}>
+		<Container toggle={toggleBuilds}>
 			<PanelContent>
 
 				<TopWrapper>

@@ -87,8 +87,4 @@ export const UpdateSettingsContext: FC = () => {
 
 export const useIsLeftFacing = (): boolean => useSettingsContext().state.isLeftFacing
 
-export interface IsMobile {
-	isMobile: boolean;
-}
-
 export const useIsMobile = (): boolean => useSettingsContext().state.isMobile

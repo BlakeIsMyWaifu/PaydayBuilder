@@ -1,17 +1,16 @@
-import { IsMobile } from 'state/settingsContext'
 import styled from 'styled-components'
 import { raisinBlack } from 'utils/colours'
 
-export interface ContainerProps extends IsMobile {
+export interface ContainerProps {
 	toggle: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
 	grid-area: settings;
 	position: absolute;
-	width: ${props => props.isMobile ? '100vw' : 'calc(40% - 8px)'};
+	width: ${props => props.theme.isMobile ? '100vw' : 'calc(40% - 8px)'};
 	height: 100vh;
-	left: ${props => props.toggle ? 0 : (props.isMobile ? '-100vw' : 'calc(-40% - 8px)')};
+	left: ${props => props.toggle ? 0 : (props.theme.isMobile ? '-100vw' : 'calc(-40% - 8px)')};
 	transition: left 0.5s ease-in-out;
 	background-color: ${raisinBlack};
 	z-index: 10;

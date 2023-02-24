@@ -32,7 +32,6 @@ const Throwable: NextPage = () => {
 						const locked = !!(throwable.perkDeck && perkDeckName !== throwable.perkDeck)
 						return <Item
 							key={throwable.name}
-							width={192}
 							rowAmount={5}
 							selected={throwable.name === selectedThrowable.name}
 							onClick={() => {

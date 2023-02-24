@@ -110,7 +110,6 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, mo
 					Object.values(weapon.modifications[(selectedTab as ModificationSlot)] || {}).map((mod: Modification) => {
 						return <Item
 							key={mod.name}
-							width={192}
 							rowAmount={4}
 							selected={selectedItem.name === mod.name}
 							onClick={() => selectedItem.name === mod.name ? equipModHelper() : setSelectedItem(mod)}

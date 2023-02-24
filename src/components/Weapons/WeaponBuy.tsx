@@ -59,7 +59,6 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWe
 					Object.values(Object.values(data[selectedTab])).map(weapon => {
 						return <Item
 							key={weapon.name}
-							width={192}
 							rowAmount={5}
 							selected={selectedWeapon.name === weapon.name}
 							onClick={() => {

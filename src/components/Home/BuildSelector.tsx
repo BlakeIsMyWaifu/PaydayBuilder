@@ -1,6 +1,5 @@
 import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { FaChevronLeft, FaChevronRight, FaThList } from 'react-icons/fa'
-import { IsMobile, useIsMobile } from 'state/settingsContext'
 import { BuildSave, useBuildsStore } from 'state/useBuildsStore'
 import styled from 'styled-components'
 import { blue, dim } from 'utils/colours'
@@ -12,10 +11,10 @@ const Container = styled.span`
 	justify-content: center;
 `
 
-const Wrapper = styled(corner) <IsMobile>`
+const Wrapper = styled(corner)`
 	display: flex;
 	background-color: ${dim};
-	width: ${props => props.isMobile ? '100%' : '30vw'};
+	width: ${props => props.theme.isMobile ? '100%' : '30vw'};
 	padding: 4px;
 	height: 2.2rem;
 	color: ${blue};
@@ -93,11 +92,9 @@ const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, 
 		}
 	})
 
-	const isMobile = useIsMobile()
-
 	return (
 		<Container>
-			<Wrapper isMobile={isMobile}>
+			<Wrapper>
 				<Arrow {...arrowProps(-1)}> <FaChevronLeft /> </Arrow>
 				<BuildName
 					type='text'

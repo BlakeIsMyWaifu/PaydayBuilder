@@ -12,7 +12,7 @@ import equipments, { EquipmentData } from 'data/character/equipment'
 import melees from 'data/weapons/melees'
 import throwables from 'data/weapons/throwables'
 import { Dispatch, FC, ReactElement, SetStateAction, useState } from 'react'
-import { IsMobile, useIsMobile } from 'state/settingsContext'
+import { useIsMobile } from 'state/settingsContext'
 import { useAbilityStore } from 'state/useAbilitiesStore'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useCharacterStore } from 'state/useCharacterStore'
@@ -85,11 +85,11 @@ const Preview = styled(corner)`
 	overflow: auto;
 `
 
-const SelectorWrapper = styled(corner) <IsMobile>`
+const SelectorWrapper = styled(corner)`
 	height: calc(100% - 20px);
 	display: grid;
-	grid-template-columns: ${props => props.isMobile ? '1fr 1fr' : '1fr'};
-	grid-template-rows: ${props => props.isMobile ? 'minmax(0, 1fr) minmax(0, 1fr)' : '1fr 1fr 1fr 1fr'};
+	grid-template-columns: ${props => props.theme.isMobile ? '1fr 1fr' : '1fr'};
+	grid-template-rows: ${props => props.theme.isMobile ? 'minmax(0, 1fr) minmax(0, 1fr)' : '1fr 1fr 1fr 1fr'};
 `
 
 const Tabs: FC = () => {
@@ -112,7 +112,7 @@ const Tabs: FC = () => {
 
 			<Tab area='character'>
 				<TabTitle direction='rtl'>Character</TabTitle>
-				<SelectorWrapper isMobile={isMobile}>
+				<SelectorWrapper>
 					<MaskSelector setHoverInfo={setHoverInfo} />
 					<CharacterSelector setHoverInfo={setHoverInfo} />
 					<ArmourSelector setHoverInfo={setHoverInfo} />
@@ -122,7 +122,7 @@ const Tabs: FC = () => {
 
 			<Tab area='weapons'>
 				<TabTitle direction='rtl'>Weapons</TabTitle>
-				<SelectorWrapper isMobile={isMobile}>
+				<SelectorWrapper>
 					<PrimarySelector setHoverInfo={setHoverInfo} />
 					<SecondarySelector setHoverInfo={setHoverInfo} />
 					<ThrowableSelector setHoverInfo={setHoverInfo} />
@@ -132,7 +132,7 @@ const Tabs: FC = () => {
 
 			<Tab area='abilities'>
 				<TabTitle direction='rtl'>Abilities</TabTitle>
-				<SelectorWrapper isMobile={isMobile}>
+				<SelectorWrapper>
 					<SelectorSkills setHoverInfo={setHoverInfo} />
 					<PerkDeckSelector setHoverInfo={setHoverInfo} />
 					<CrewManagementSelector setHoverInfo={setHoverInfo} />

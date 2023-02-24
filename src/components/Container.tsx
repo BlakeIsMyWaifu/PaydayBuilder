@@ -45,7 +45,7 @@ const BackText = styled.p`
 	position: absolute;
 	bottom: 0;
 	right: 0;
-	font-size: 4rem;
+	font-size: ${props => props.theme.isMobile ? '3rem' : '4rem'};
 	line-height: 4rem;
 	&:hover {
 		color: #fff;
@@ -83,9 +83,9 @@ const Container: FC<ContainerProps> = ({
 	}
 
 	const defaultMobileLayout = {
-		columns: '3fr 1fr',
-		rows: '4rem 8fr 4rem',
-		areas: '"title title" "items info" "items back"'
+		columns: '1fr 75px',
+		rows: '4rem 4fr 1fr',
+		areas: '"title title" "items items" "info back"'
 	}
 
 	const isMobile = useIsMobile()

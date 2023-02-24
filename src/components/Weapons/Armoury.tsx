@@ -290,7 +290,6 @@ const ArmouryItems: FC<ArmouryItemsProps> = ({ weaponsData, isActiveBuild, selec
 
 					return <Item
 						key={id}
-						width={192}
 						rowAmount={5}
 						selected={selectedWeaponId === id}
 						onClick={() => {
@@ -322,7 +321,6 @@ const ArmouryItems: FC<ArmouryItemsProps> = ({ weaponsData, isActiveBuild, selec
 
 			{
 				activeBuildId === activeTabId && <BuyContainer
-					width={192}
 					rowAmount={5}
 					selected={false}
 					onClick={() => setEnableBuy(true)}

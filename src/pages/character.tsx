@@ -4,6 +4,7 @@ import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'componen
 import characters, { CharacterData } from 'data/character/characters'
 import { NextPage } from 'next'
 import { useState } from 'react'
+import { useIsMobile } from 'state/settingsContext'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { itemColours } from 'utils/colours'
 
@@ -19,6 +20,8 @@ const Character: NextPage = () => {
 		changeCharacter(selectedCharacter.name)
 	}
 
+	const isMobile = useIsMobile()
+
 	return (
 		<Container title='Character'>
 
@@ -27,7 +30,7 @@ const Character: NextPage = () => {
 					Object.values(characters).map(character => {
 						return <Item
 							key={character.name}
-							width={128}
+							width={isMobile ? 96 : 192}
 							rowAmount={10}
 							selected={character.name === selectedCharacter.name}
 							onClick={() => character.name === selectedCharacter.name ? equipCharacterHandler() : setSelectedCharacter(character)}
