@@ -6,7 +6,7 @@ import { useArmouryStore } from 'state/useArmouryStore'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import styled from 'styled-components'
-import corner from 'utils/corner'
+import { cornerCSS } from 'utils/corner'
 import findWeapon from 'utils/findWeapon'
 
 interface ContainerProps {
@@ -22,7 +22,7 @@ const Container = styled.div<ContainerProps>`
 	justify-content: start;
 	align-items: center;
 	padding: ${props => props.size / 8}px;
-	${props => props.corner && corner}
+	${props => props.corner && cornerCSS}
 `
 
 interface TitleProps {
@@ -125,10 +125,11 @@ const concealmentToDetectionRisk = (concealment: number): number => {
 interface DetectionRiskProps {
 	flexDirection: 'row' | 'column';
 	corner: boolean;
+	text?: boolean;
 	size?: number;
 }
 
-const DetectionRisk: FC<DetectionRiskProps> = ({ flexDirection, corner, size = 96 }) => {
+const DetectionRisk: FC<DetectionRiskProps> = ({ flexDirection, corner, text = true, size = 96 }) => {
 
 	const weapons = useWeaponsStore(),
 		primaryWeapon = useArmouryStore(state => state.primary)[weapons.primary],
@@ -152,7 +153,7 @@ const DetectionRisk: FC<DetectionRiskProps> = ({ flexDirection, corner, size = 9
 			size={size}
 		>
 
-			<Title flexDirection={flexDirection} size={size}>Detection Risk</Title>
+			{text && <Title flexDirection={flexDirection} size={size}>Detection Risk</Title>}
 
 			<ImageContainer size={size}>
 				<ImageWrapper>

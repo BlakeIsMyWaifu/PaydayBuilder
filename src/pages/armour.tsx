@@ -6,6 +6,7 @@ import ArmourStatsTable from 'components/Table/ArmourStatsTable'
 import armours, { ArmourData } from 'data/character/armours'
 import { NextPage } from 'next'
 import { useState } from 'react'
+import { useIsMobile } from 'state/settingsContext'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useSkillsStore } from 'state/useSkillsStore'
 
@@ -23,11 +24,20 @@ export const Armour: NextPage = () => {
 		changeArmour(selectedArmour.name)
 	}
 
+	const isMobile = useIsMobile()
+
 	return (
-		<Container title='Armour' desktopLayout={{
-			rows: '4rem 8fr 120px 4rem',
-			areas: '"title title" "items info" "items drisk" "items back"'
-		}}>
+		<Container
+			title='Armour'
+			desktopLayout={{
+				rows: '4rem 8fr 120px 4rem',
+				areas: '"title title" "items info" "items drisk" "items back"'
+			}}
+			mobileLayout={{
+				rows: '4rem 8fr 106px 64px',
+				areas: '"title title" "items items" "info drisk" "info back"'
+			}}
+		>
 
 			<ItemContainer>
 				{
@@ -58,7 +68,12 @@ export const Armour: NextPage = () => {
 				<InfoDescription>{selectedArmour.description.join('\n\n')}</InfoDescription>
 			</InfoContainer>
 
-			<DetectionRisk flexDirection='row' corner={true} />
+			<DetectionRisk
+				flexDirection='row'
+				corner={true}
+				text={!isMobile}
+				size={isMobile ? 64 : 96}
+			/>
 
 		</Container>
 	)
