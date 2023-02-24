@@ -1,5 +1,6 @@
 import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { FaChevronLeft, FaChevronRight, FaThList } from 'react-icons/fa'
+import { IsMobile, useIsMobile } from 'state/settingsContext'
 import { BuildSave, useBuildsStore } from 'state/useBuildsStore'
 import styled from 'styled-components'
 import { blue, dim } from 'utils/colours'
@@ -11,10 +12,10 @@ const Container = styled.span`
 	justify-content: center;
 `
 
-const Wrapper = styled(corner)`
+const Wrapper = styled(corner) <IsMobile>`
 	display: flex;
 	background-color: ${dim};
-	width: 30vw;
+	width: ${props => props.isMobile ? '100%' : '30vw'};
 	padding: 4px;
 	height: 2.2rem;
 	color: ${blue};
@@ -48,6 +49,11 @@ const BuildList = styled.button`
 	font-size: 2.2rem;
 `
 
+interface ArrowProps {
+	title: string;
+	onClick: () => void;
+}
+
 interface BuildSelectorProps {
 	toggleBuilds: boolean;
 	setToggleBuilds: Dispatch<SetStateAction<boolean>>;
@@ -80,11 +86,6 @@ const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, 
 		importBuild(build.data, false)
 	}
 
-	interface ArrowProps {
-		title: string;
-		onClick: () => void;
-	}
-
 	const arrowProps = (direction: 1 | -1): ArrowProps => ({
 		title: `Switch to: ${Object.values(serverBuilds)[getNextBuildId(direction)]?.name ?? 'New Build . . .'}`,
 		onClick: () => {
@@ -92,9 +93,11 @@ const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, 
 		}
 	})
 
+	const isMobile = useIsMobile()
+
 	return (
 		<Container>
-			<Wrapper>
+			<Wrapper isMobile={isMobile}>
 				<Arrow {...arrowProps(-1)}> <FaChevronLeft /> </Arrow>
 				<BuildName
 					type='text'

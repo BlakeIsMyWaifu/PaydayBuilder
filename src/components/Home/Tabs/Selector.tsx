@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Dispatch, FC, ReactNode, SetStateAction } from 'react'
-import { useSettingsContext } from 'state/settingsContext'
+import { useIsLeftFacing } from 'state/settingsContext'
 import styled from 'styled-components'
 import { blue, dim } from 'utils/colours'
 
@@ -12,7 +12,7 @@ const SelectorLink = styled(Link)`
 
 const Container = styled.div`
 	width: 100%;
-	height: 25%;
+	height: 100%;
 	position: relative;
 	background-color: ${dim};
 	display: flex;
@@ -28,6 +28,7 @@ const Title = styled.h2`
 	position: absolute;
 	top: 0;
 	left: 0;
+	z-index: 1;
 `
 
 interface ImageProps {
@@ -57,7 +58,7 @@ interface SelectorProps {
 
 const Selector: FC<SelectorProps> = ({ title, children, infoData, setHoverInfo, image, imageLeftFacing }) => {
 
-	const { leftFacing } = useSettingsContext().state
+	const leftFacing = useIsLeftFacing()
 
 	return (
 		<SelectorLink href={`/${title.replaceAll(' ', '')}`}>

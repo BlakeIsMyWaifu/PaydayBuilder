@@ -6,7 +6,7 @@ import MeleeStatsTable from 'components/Table/MeleeStatsTable'
 import melees from 'data/weapons/melees'
 import { NextPage } from 'next'
 import { useState } from 'react'
-import { useSettingsContext } from 'state/settingsContext'
+import { useIsLeftFacing } from 'state/settingsContext'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import { itemColours } from 'utils/colours'
 
@@ -17,7 +17,7 @@ export const Melee: NextPage = () => {
 
 	const changeMelee = useWeaponsStore(state => state.changeMelee)
 
-	const { leftFacing } = useSettingsContext().state
+	const leftFacing = useIsLeftFacing()
 
 	const equipMeleeHander = (): void => {
 		if (selectedMelee.name === equippedMelee.name) return
@@ -25,11 +25,10 @@ export const Melee: NextPage = () => {
 	}
 
 	return (
-		<Container
-			rows='4rem 8fr 120px 4rem'
-			areas='"title title" "items info" "items drisk" "items back"'
-			title='Melee'
-		>
+		<Container title='Melee' desktopLayout={{
+			rows: '4rem 8fr 120px 4rem',
+			areas: '"title title" "items info" "items drisk" "items back"'
+		}}>
 
 			<ItemContainer>
 				{

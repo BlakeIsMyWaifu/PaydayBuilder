@@ -92,10 +92,12 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, mo
 
 	return (
 		<Container
-			rows='4rem 2rem 1fr 120px 1.5rem 4rem'
-			areas='"title reset" "horizontalbar ." "items info" "items drisk" "items actions" "items back"'
 			title={`Blackmarket - ${weapon.name}`}
 			backLocation={`/${slot}`}
+			desktopLayout={{
+				rows: '4rem 2rem 1fr 120px 1.5rem 4rem',
+				areas: '"title reset" "horizontalbar ." "items info" "items drisk" "items actions" "items back"'
+			}}
 		>
 
 			<HorizontalBar active={selectedTab} items={Object.keys(weapon.modifications).map(type => ({

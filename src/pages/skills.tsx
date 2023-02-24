@@ -103,7 +103,10 @@ const Skills: FC = () => {
 	}, [ironMan, equippedArmour, changeArmour])
 
 	return (
-		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "horizontalbar points" "skills info" "subtreelabels back"' title='Skills'>
+		<Container title='Skills' desktopLayout={{
+			rows: '4rem 2rem 7fr 4rem',
+			areas: '"title reset" "horizontalbar points" "skills info" "subtreelabels back"'
+		}}>
 
 			<HorizontalBar
 				active={currentTree.name}

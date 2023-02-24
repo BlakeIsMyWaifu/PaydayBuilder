@@ -1,5 +1,6 @@
-import { Container, PanelContent, Title } from 'components/Home/Panel/panelElements'
+import { ClosePanel, Container, PanelContent, Title, TopWrapper } from 'components/Home/Panel/panelElements'
 import { Dispatch, FC, SetStateAction } from 'react'
+import { useIsMobile } from 'state/settingsContext'
 import styled from 'styled-components'
 
 import Account from './Sections/Account'
@@ -32,10 +33,17 @@ interface SettingsPanelProps {
 }
 
 const ControlPanel: FC<SettingsPanelProps> = ({ toggleControl, setToggleControl }) => {
-	return (
-		<ControlPanelContainer toggle={toggleControl}>
 
-			<Title>Control Panel</Title>
+	const isMobile = useIsMobile()
+
+	return (
+		<ControlPanelContainer toggle={toggleControl} isMobile={isMobile}>
+
+			<TopWrapper>
+				<Title>Control Panel</Title>
+
+				{isMobile && <ClosePanel onClick={() => setToggleControl(false)} />}
+			</TopWrapper>
 
 			<Wrapper>
 				<ControlPanelContent>

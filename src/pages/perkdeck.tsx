@@ -39,7 +39,10 @@ const PerkDeck: NextPage = () => {
 	})
 
 	return (
-		<Container rows='4rem 2rem 7fr 4rem' areas='"title title" "horizontalbar ." "items info" "items back"' title='Perk Deck'>
+		<Container title='Perk Deck' desktopLayout={{
+			rows: '4rem 2rem 7fr 4rem',
+			areas: '"title title" "horizontalbar ." "items info" "items back"'
+		}}>
 
 			<HorizontalBar active={equippedPerk.name} items={Object.values(perkDecks).map((perkDeck, i) => ({
 				label: perkDeck.name,

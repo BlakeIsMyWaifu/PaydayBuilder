@@ -122,7 +122,10 @@ const Mask: NextPage = () => {
 	}, [selectedTab, addToCategory])
 
 	return (
-		<Container rows='4rem 2rem 8fr 4rem' areas='"title title" "horizontalbar infotabs" "items info" "items back"' title='Mask'>
+		<Container title='Mask' desktopLayout={{
+			rows: '4rem 2rem 8fr 4rem',
+			areas: '"title title" "horizontalbar infotabs" "items info" "items back"'
+		}}>
 
 			<MaskHorizontalBar
 				selectedTab={selectedTab}

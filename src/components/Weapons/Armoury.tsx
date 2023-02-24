@@ -11,7 +11,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Dispatch, FC, Fragment, SetStateAction, useState } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
-import { useSettingsContext } from 'state/settingsContext'
+import { useIsLeftFacing } from 'state/settingsContext'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { BuildSave, useBuildsStore } from 'state/useBuildsStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
@@ -148,12 +148,11 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 	}
 
 	return (
-		<Container
-			columns='3fr 1.5fr'
-			rows='4rem 2rem auto 6rem 4rem'
-			areas='"title reset" "armourybar infotabs" "items info" "items actions" "items back"'
-			title={slot}
-		>
+		<Container title={slot} desktopLayout={{
+			columns: '3fr 1.5fr',
+			rows: '4rem 2rem auto 6rem 4rem',
+			areas: '"title reset" "armourybar infotabs" "items info" "items actions" "items back"'
+		}}>
 
 			<ArmouryBar
 				builds={builds}
@@ -276,7 +275,7 @@ const ArmouryItems: FC<ArmouryItemsProps> = ({ weaponsData, isActiveBuild, selec
 
 	const router = useRouter()
 
-	const { leftFacing } = useSettingsContext().state
+	const leftFacing = useIsLeftFacing()
 
 	const changeWeapon = useWeaponsStore(state => state.changeWeapon)
 

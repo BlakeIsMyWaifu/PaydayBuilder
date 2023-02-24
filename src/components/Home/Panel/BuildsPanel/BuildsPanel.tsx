@@ -1,6 +1,7 @@
-import { Container, PanelContent, Title } from 'components/Home/Panel/panelElements'
+import { ClosePanel, Container, PanelContent, Title, TopWrapper } from 'components/Home/Panel/panelElements'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { FaPlusSquare } from 'react-icons/fa'
+import { useIsMobile } from 'state/settingsContext'
 import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import { trpc } from 'utils/trpc'
 
@@ -10,7 +11,7 @@ import LocalBuilds from './LocalBuilds'
 
 interface BuildsPanelProps {
 	toggleBuilds: boolean;
-	setToggleBuilds: Dispatch<SetStateAction<boolean>>;
+	setToggleBuilds: Dispatch<SetStateAction<BuildsPanelProps['toggleBuilds']>>;
 }
 
 const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds }) => {
@@ -20,11 +21,17 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds }) =>
 	const addBuild = useBuildsStore(state => state.addBuild)
 	const importBuild = useBuildsStore(state => state.importBuild)
 
+	const isMobile = useIsMobile()
+
 	return (
-		<Container toggle={toggleBuilds}>
+		<Container toggle={toggleBuilds} isMobile={isMobile}>
 			<PanelContent>
 
-				<Title>Builds</Title>
+				<TopWrapper>
+					<Title>Builds</Title>
+
+					{isMobile && <ClosePanel onClick={() => setToggleBuilds(false)} />}
+				</TopWrapper>
 
 				<Builds>
 

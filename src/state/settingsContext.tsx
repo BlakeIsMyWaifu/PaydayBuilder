@@ -1,27 +1,35 @@
+import useWindowSize, { WindowSize } from 'hooks/useWindow.size'
 import { FC, ReactNode, Reducer, createContext, useContext, useEffect, useReducer } from 'react'
 
 import { useSettingsStore } from './useSettingsStore'
 
 const SettingsContext = createContext<UseSettingsContext | null>(null)
 
-type Action = { type: 'ChangeLeftFacing'; leftFacing: boolean }
+type Action =
+	| { type: 'ChangeLeftFacing'; isLeftFacing: boolean }
+	| { type: 'UpdateSize'; size: WindowSize }
 type State = typeof initialState
 
 const initialState = {
-	leftFacing: false
+	isLeftFacing: false,
+	isMobile: false
 }
 
 const settingsReducer: Reducer<State, Action> = (state, action) => {
 	switch (action.type) {
 		case 'ChangeLeftFacing': {
-			const { leftFacing } = action
+			const { isLeftFacing } = action
 			return {
 				...state,
-				leftFacing
+				isLeftFacing: isLeftFacing
 			}
 		}
-		default: {
-			throw new Error(`Unhandled action type ${action.type}`)
+		case 'UpdateSize': {
+			const { size } = action
+			return {
+				...state,
+				isMobile: size.width < 768
+			}
 		}
 	}
 }
@@ -58,13 +66,29 @@ export const UpdateSettingsContext: FC = () => {
 	const { dispatch } = useSettingsContext()
 
 	const leftFacing = useSettingsStore(state => state.leftFacing)
-
 	useEffect(() => {
 		dispatch({
 			type: 'ChangeLeftFacing',
-			leftFacing
+			isLeftFacing: leftFacing
 		})
 	}, [dispatch, leftFacing])
 
+	const size = useWindowSize()
+	useEffect(() => {
+		dispatch({
+			type: 'UpdateSize',
+			size: size
+		})
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [dispatch, size.width])
+
 	return null
 }
+
+export const useIsLeftFacing = (): boolean => useSettingsContext().state.isLeftFacing
+
+export interface IsMobile {
+	isMobile: boolean;
+}
+
+export const useIsMobile = (): boolean => useSettingsContext().state.isMobile

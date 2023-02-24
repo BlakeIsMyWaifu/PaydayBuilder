@@ -24,11 +24,10 @@ export const Armour: NextPage = () => {
 	}
 
 	return (
-		<Container
-			rows='4rem 8fr 120px 4rem'
-			areas='"title title" "items info" "items drisk" "items back"'
-			title='Armour'
-		>
+		<Container title='Armour' desktopLayout={{
+			rows: '4rem 8fr 120px 4rem',
+			areas: '"title title" "items info" "items drisk" "items back"'
+		}}>
 
 			<ItemContainer>
 				{

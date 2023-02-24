@@ -84,11 +84,10 @@ const Equipment: NextPage = () => {
 	}
 
 	return (
-		<Container
-			rows='4rem 8fr 3rem 4rem'
-			areas={`"title title" "wrapper info" "wrapper ${jackOfAllTradesUnlocked ? 'actions' : 'info'}" "wrapper back"`}
-			title='Equipment'
-		>
+		<Container title='Equipment' desktopLayout={{
+			rows: '4rem 8fr 3rem 4rem',
+			areas: `"title title" "wrapper info" "wrapper ${jackOfAllTradesUnlocked ? 'actions' : 'info'}" "wrapper back"`
+		}}>
 
 			<EquipmentWrapper>
 				{

@@ -12,6 +12,7 @@ import equipments, { EquipmentData } from 'data/character/equipment'
 import melees from 'data/weapons/melees'
 import throwables from 'data/weapons/throwables'
 import { Dispatch, FC, ReactElement, SetStateAction, useState } from 'react'
+import { IsMobile, useIsMobile } from 'state/settingsContext'
 import { useAbilityStore } from 'state/useAbilitiesStore'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useCharacterStore } from 'state/useCharacterStore'
@@ -84,28 +85,34 @@ const Preview = styled(corner)`
 	overflow: auto;
 `
 
-const SelectorWrapper = styled(corner)`
-	width: 100%;
+const SelectorWrapper = styled(corner) <IsMobile>`
 	height: calc(100% - 20px);
+	display: grid;
+	grid-template-columns: ${props => props.isMobile ? '1fr 1fr' : '1fr'};
+	grid-template-rows: ${props => props.isMobile ? 'minmax(0, 1fr) minmax(0, 1fr)' : '1fr 1fr 1fr 1fr'};
 `
 
 const Tabs: FC = () => {
 
 	const [hoverInfo, setHoverInfo] = useState<HoverInfo | null>(null)
 
+	const isMobile = useIsMobile()
+
 	return (
 		<>
-			<Tab area='stats'>
-				<TabTitle direction='ltr'>Inventory</TabTitle>
-				<PreviewWrapper>
-					<CharacterInfo />
-					<HoverInfoSection hoverInfo={hoverInfo} />
-				</PreviewWrapper>
-			</Tab>
+			{
+				!isMobile && <Tab area='stats'>
+					<TabTitle direction='ltr'>Inventory</TabTitle>
+					<PreviewWrapper>
+						<CharacterInfo />
+						<HoverInfoSection hoverInfo={hoverInfo} />
+					</PreviewWrapper>
+				</Tab>
+			}
 
 			<Tab area='character'>
 				<TabTitle direction='rtl'>Character</TabTitle>
-				<SelectorWrapper>
+				<SelectorWrapper isMobile={isMobile}>
 					<MaskSelector setHoverInfo={setHoverInfo} />
 					<CharacterSelector setHoverInfo={setHoverInfo} />
 					<ArmourSelector setHoverInfo={setHoverInfo} />
@@ -115,7 +122,7 @@ const Tabs: FC = () => {
 
 			<Tab area='weapons'>
 				<TabTitle direction='rtl'>Weapons</TabTitle>
-				<SelectorWrapper>
+				<SelectorWrapper isMobile={isMobile}>
 					<PrimarySelector setHoverInfo={setHoverInfo} />
 					<SecondarySelector setHoverInfo={setHoverInfo} />
 					<ThrowableSelector setHoverInfo={setHoverInfo} />
@@ -125,7 +132,7 @@ const Tabs: FC = () => {
 
 			<Tab area='abilities'>
 				<TabTitle direction='rtl'>Abilities</TabTitle>
-				<SelectorWrapper>
+				<SelectorWrapper isMobile={isMobile}>
 					<SelectorSkills setHoverInfo={setHoverInfo} />
 					<PerkDeckSelector setHoverInfo={setHoverInfo} />
 					<CrewManagementSelector setHoverInfo={setHoverInfo} />

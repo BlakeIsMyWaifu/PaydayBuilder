@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { useSettingsContext } from 'state/settingsContext'
+import { useIsLeftFacing } from 'state/settingsContext'
 import { useSettingsStore } from 'state/useSettingsStore'
 
 import CheckboxInput from '../CheckboxInput'
@@ -9,7 +9,7 @@ const Appearance: FC = () => {
 
 	const toggleLeftFacing = useSettingsStore(state => state.toggleLeftFacing)
 
-	const { leftFacing } = useSettingsContext().state
+	const leftFacing = useIsLeftFacing()
 
 	return (
 		<Section>

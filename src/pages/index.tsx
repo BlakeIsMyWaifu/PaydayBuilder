@@ -54,9 +54,16 @@ const Home: NextPage = () => {
 			/>
 
 			<Container
-				columns='minmax(0, 2fr) 1fr 1fr 1fr'
-				rows='calc(100% - 3rem) 3rem'
-				areas='"stats character weapons abilities" "version config config config"'
+				desktopLayout={{
+					columns: 'minmax(0, 2fr) 1fr 1fr 1fr',
+					rows: 'calc(100% - 3rem) 3rem',
+					areas: '"stats character weapons abilities" "version config config config"'
+				}}
+				mobileLayout={{
+					columns: '1fr',
+					rows: 'minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) 3rem 3rem',
+					areas: '"character" "weapons" "abilities" "version" "config"'
+				}}
 				backButton={false}
 			>
 
@@ -68,20 +75,17 @@ const Home: NextPage = () => {
 				</VersionContainer>
 
 				<ConfigContainer>
-
 					<BuildSelector
 						toggleBuilds={toggleBuilds}
 						setToggleBuilds={setToggleBuilds}
 						setToggleControl={setToggleControl}
 					/>
-
 					<ControlPanelButton onClick={() => {
 						setToggleBuilds(false)
 						setToggleControl(!toggleControl)
 					}}>
 						<FaCog title='Control Panel' />
 					</ControlPanelButton>
-
 				</ConfigContainer>
 
 			</Container>
