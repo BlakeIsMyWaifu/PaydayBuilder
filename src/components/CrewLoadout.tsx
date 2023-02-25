@@ -18,14 +18,13 @@ const LoadoutNumber = styled.h2`
 	font-size: 1.5rem;
 `
 
-const ItemContainer = styled.div`
+const ItemContainer = styled(corner)`
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 	height: 128px;
 	align-items: center;
 	justify-content: center;
-	${corner};
 `
 
 const Item = styled.div`

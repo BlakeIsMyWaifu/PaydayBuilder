@@ -2,13 +2,13 @@ import styled from 'styled-components'
 import { red } from 'utils/colours'
 import corner from 'utils/corner'
 
-export const InfoContainer = styled.div`
+export const InfoContainer = styled(corner)`
 	grid-area: info;
 	display: flex;
 	flex-direction: column;
 	padding: 8px 16px;
 	overflow-y: auto;
-	${corner};
+	font-size: ${props => props.theme.isMobile ? '0.75rem' : '1rem'};
 `
 
 export const InfoTitleWrapper = styled.span`
@@ -20,22 +20,21 @@ export const InfoTitleWrapper = styled.span`
 
 interface InfoTextProps {
 	uppercase?: boolean;
-	fontSize?: string;
 }
 
 export const InfoTitle = styled.h1<InfoTextProps>`
 	text-transform: ${props => props.uppercase ? 'uppercase ' : 'none'};
-	font-size: ${props => props.fontSize || '2rem'};
+	font-size: 200%;
 `
 
 export const InfoSubtitle = styled.h2<InfoTextProps>`
 	text-transform: ${props => props.uppercase ? 'uppercase ' : 'none'};
-	font-size: 1rem;
+	font-size: 100%;
 `
 
 export const InfoDescription = styled.p<InfoTextProps>`
 	text-transform: ${props => props.uppercase ? 'uppercase ' : 'none'};
-	font-size: 1.2rem;
+	font-size: 120%;
 	padding-top: 16px;
 	padding-bottom: 8px;
 	white-space: pre-line;
@@ -43,6 +42,7 @@ export const InfoDescription = styled.p<InfoTextProps>`
 
 export const InfoRequirement = styled.p`
 	color: ${red};
+	font-size: 100%;
 `
 
 interface InfoUnlockProps {
@@ -52,8 +52,10 @@ interface InfoUnlockProps {
 export const InfoUnlock = styled.p<InfoUnlockProps>`
 	text-transform: none;
 	color: ${props => props.colour};
+	font-size: 100%;
 `
 
 export const InfoCost = styled.p`
 	text-transform: none;
+	font-size: 100%;
 `

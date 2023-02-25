@@ -11,14 +11,13 @@ const Container = styled.span`
 	justify-content: center;
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled(corner)`
 	display: flex;
 	background-color: ${dim};
-	width: 30vw;
+	width: ${props => props.theme.isMobile ? '100%' : '30vw'};
 	padding: 4px;
 	height: 2.2rem;
 	color: ${blue};
-	${corner};
 	background-size: 8px 8px;
 `
 
@@ -48,6 +47,11 @@ const BuildList = styled.button`
 	aspect-ratio: 1;
 	font-size: 2.2rem;
 `
+
+interface ArrowProps {
+	title: string;
+	onClick: () => void;
+}
 
 interface BuildSelectorProps {
 	toggleBuilds: boolean;
@@ -79,11 +83,6 @@ const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, 
 		const build = Object.values(builds)[index]
 		changeBuild(build.id)
 		importBuild(build.data, false)
-	}
-
-	interface ArrowProps {
-		title: string;
-		onClick: () => void;
 	}
 
 	const arrowProps = (direction: 1 | -1): ArrowProps => ({

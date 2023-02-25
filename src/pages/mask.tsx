@@ -122,7 +122,17 @@ const Mask: NextPage = () => {
 	}, [selectedTab, addToCategory])
 
 	return (
-		<Container rows='4rem 2rem 8fr 4rem' areas='"title title" "horizontalbar infotabs" "items info" "items back"' title='Mask'>
+		<Container
+			title='Mask'
+			desktopLayout={{
+				rows: '4rem 2rem 8fr 4rem',
+				areas: '"title title" "horizontalbar infotabs" "items info" "items back"'
+			}}
+			mobileLayout={{
+				rows: '3rem 1.5rem auto 1rem 150px',
+				areas: '"title title" "horizontalbar horizontalbar" "items items" "infotabs ." "info back"'
+			}}
+		>
 
 			<MaskHorizontalBar
 				selectedTab={selectedTab}
@@ -149,7 +159,7 @@ const Mask: NextPage = () => {
 			</MaskItemContainer>
 
 			<Info tabs={{
-				mask: <MaskTab selectedMask={selectedMask} />,
+				mask: <MaskInfoTab selectedMask={selectedMask} />,
 				collections: <CollectionsTab
 					collectionRefs={collectionRefs}
 					collections={getCurrentData()}
@@ -245,7 +255,7 @@ interface MaskTabProps {
 	selectedMask: MaskData;
 }
 
-const MaskTab: FC<MaskTabProps> = ({ selectedMask }) => {
+const MaskInfoTab: FC<MaskTabProps> = ({ selectedMask }) => {
 	return (
 		<InfoContainer>
 			<InfoTitle>{selectedMask.name}</InfoTitle>

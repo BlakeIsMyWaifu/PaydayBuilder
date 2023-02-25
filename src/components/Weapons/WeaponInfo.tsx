@@ -4,7 +4,7 @@ import { FC } from 'react'
 import { itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
 
-import WeaponsStatsTable from './WeaponStatsTable'
+import WeaponsStatsTable from '../Table/WeaponStatsTable'
 
 interface WeaponInfoProps {
 	selectedWeapon: Weapon;

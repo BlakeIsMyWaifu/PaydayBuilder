@@ -1,21 +1,23 @@
 import { SkillData, SubtreeData, TreeNames } from 'data/abilities/skills'
-import { Dispatch, FC, MouseEvent, SetStateAction, useState } from 'react'
+import useHoldButton from 'hooks/useHoldButton'
+import { Dispatch, FC, MouseEvent, SetStateAction, useCallback, useState } from 'react'
 import { useSkillsStore } from 'state/useSkillsStore'
 import styled, { css, keyframes } from 'styled-components'
 import { grey } from 'utils/colours'
 import { red } from 'utils/colours'
 
 const Container = styled.div`
-	height: 100%;
-	width: 50%;
-	padding-top: 5%;
+	width: ${props => props.theme.isMobile ? '100%' : '50%'};
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 `
 
 const Icon = styled.div`
 	padding-bottom: 50%;
 	height: 0;
 	width: 50%;
-	margin-left: 25%;
 	position: relative;
 `
 
@@ -37,6 +39,8 @@ const Aced = styled.div`
 	top: 0;
 	left: 0;
 	position: absolute;
+	padding: 20px;
+	margin: -20px;
 `
 
 interface SkillIconProps {
@@ -107,29 +111,30 @@ const Skill: FC<SkillProps> = ({ treeName, subtree, skill, setSkillHovered }) =>
 
 	const [redFlash, setRedFlash] = useState(false)
 
-	const acedCost = {
-		1: 3,
-		2: 4,
-		3: 6,
-		4: 8
-	}
-
-	const tierCost = [0, 1, 3, 16]
-
 	const points = useSkillsStore(state => state.points)
 	const changeSkillState = useSkillsStore(state => state.changeSkillState)
 
-	const clickSkills = (event: MouseEvent): void => {
-		event.preventDefault()
-		if (event.button !== 0 && event.button !== 2) return
-		const leftClickDecline = !event.button && (skillState !== 'available' && skillState !== 'basic')
-		const rightClickDecline = event.button && (skillState !== 'aced' && skillState !== 'basic')
+	const clickSkills = useCallback((button: MouseEvent['button']): void => {
+		if (button !== 0 && button !== 2) return
+
+		const isLeftClick = !button
+
+		const leftClickDecline = isLeftClick && (skillState !== 'available' && skillState !== 'basic')
+		const rightClickDecline = !isLeftClick && (skillState !== 'aced' && skillState !== 'basic')
 		if (leftClickDecline || rightClickDecline) {
 			setRedFlash(true)
 			return
 		}
 
-		if (event.button) {
+		const tierCost = [0, 1, 3, 16]
+		const acedCost = {
+			1: 3,
+			2: 4,
+			3: 6,
+			4: 8
+		}
+
+		if (!isLeftClick) {
 			const highestTier = Math.max.apply(null, Object.entries(subtreeState.upgrades)
 				.filter(([_skillName, skillState]) => skillState === 'basic' || skillState === 'aced')
 				.map(([skillName, _skillState]) => subtree.upgrades[skillName].tier || 1))
@@ -170,17 +175,20 @@ const Skill: FC<SkillProps> = ({ treeName, subtree, skill, setSkillHovered }) =>
 			subtree: subtree.name,
 			skill,
 			oldLevel: skillState,
-			direction: event.button ? 'downgrade' : 'upgrade'
+			direction: isLeftClick ? 'upgrade' : 'downgrade'
 		})
-	}
+	}, [changeSkillState, points, skill, skillState, subtree.name, subtree.upgrades, subtreeState.points, subtreeState.upgrades, treeName])
 
 	return (
 		<Container
 			onMouseOver={() => setSkillHovered(skill)}
 			onMouseLeave={() => setSkillHovered(null)}
 			onContextMenu={event => event.preventDefault()}
-			onMouseDown={clickSkills}>
-			<Icon>
+		>
+			<Icon {...useHoldButton({
+				holdCallback: () => clickSkills(2),
+				clickCallback: event => clickSkills(event.button)
+			})}>
 				{skillState === 'locked' && <Locked />}
 				{skillState === 'aced' && <Aced />}
 				<SkillIcon x={skill.pos[0]} y={skill.pos[1]} state={skillState} redFlash={redFlash} onAnimationEnd={() => setRedFlash(false)} />

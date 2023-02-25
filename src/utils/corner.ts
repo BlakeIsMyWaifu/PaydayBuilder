@@ -1,6 +1,6 @@
-import { css } from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export default css`
+export const cornerCSS = css`
 	background:
 		linear-gradient(to right, #fff 2px, transparent 2px) 0 0,
 		linear-gradient(to right, #fff 2px, transparent 2px) 0 100%,
@@ -13,4 +13,8 @@ export default css`
 
 	background-repeat: no-repeat;
 	background-size: 20px 20px;
+`
+
+export default styled.div`
+	${cornerCSS}
 `

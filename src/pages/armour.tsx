@@ -6,6 +6,7 @@ import ArmourStatsTable from 'components/Table/ArmourStatsTable'
 import armours, { ArmourData } from 'data/character/armours'
 import { NextPage } from 'next'
 import { useState } from 'react'
+import { useIsMobile } from 'state/settingsContext'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useSkillsStore } from 'state/useSkillsStore'
 
@@ -23,11 +24,19 @@ export const Armour: NextPage = () => {
 		changeArmour(selectedArmour.name)
 	}
 
+	const isMobile = useIsMobile()
+
 	return (
 		<Container
-			rows='4rem 8fr 120px 4rem'
-			areas='"title title" "items info" "items drisk" "items back"'
 			title='Armour'
+			desktopLayout={{
+				rows: '4rem 8fr 120px 4rem',
+				areas: '"title title" "items info" "items drisk" "items back"'
+			}}
+			mobileLayout={{
+				rows: '4rem auto 106px 64px',
+				areas: '"title title" "items items" "info drisk" "info back"'
+			}}
 		>
 
 			<ItemContainer>
@@ -36,7 +45,6 @@ export const Armour: NextPage = () => {
 						const locked = armour.name === 'Improved Combined Tactical Vest' && !ironManUnlocked
 						return <Item
 							key={armour.name}
-							width={196}
 							rowAmount={5}
 							selected={armour.name === selectedArmour.name}
 							onClick={() => armour.name === selectedArmour.name && !locked ? equipArmourHandler() : setSelectedArmour(armour)}
@@ -60,7 +68,12 @@ export const Armour: NextPage = () => {
 				<InfoDescription>{selectedArmour.description.join('\n\n')}</InfoDescription>
 			</InfoContainer>
 
-			<DetectionRisk flexDirection='row' corner={true} />
+			<DetectionRisk
+				flexDirection='row'
+				corner={true}
+				text={!isMobile}
+				size={isMobile ? 64 : 96}
+			/>
 
 		</Container>
 	)

@@ -4,7 +4,7 @@ import { Item, ItemContainer, ItemImage, ItemName } from 'components/elements/it
 import HorizontalBar from 'components/HorizontalBar'
 import { Slot, WeaponData } from 'data/weapons/guns/weaponTypes'
 import { Dispatch, FC, SetStateAction, useState } from 'react'
-import { useSettingsContext } from 'state/settingsContext'
+import { useIsLeftFacing } from 'state/settingsContext'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import { itemColours } from 'utils/colours'
@@ -24,7 +24,7 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWe
 	const equippedWeaponId = useWeaponsStore(state => state[slot])
 	const equippedWeapon = armoury[equippedWeaponId]
 
-	const { leftFacing } = useSettingsContext().state
+	const leftFacing = useIsLeftFacing()
 
 	const [selectedTab, setSelectedTab] = useState<string>(Object.keys(data)[0])
 	const [selectedWeapon, setSelectedWeapon] = useState<WeaponData>(Object.values(data[selectedTab])[0])
@@ -42,10 +42,17 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWe
 
 	return (
 		<Container
-			columns='3fr 1.5fr'
-			rows='4rem 2rem auto 2rem 4rem'
-			areas='"title reset" "horizontalbar ." "items info" "items actions" "items back"'
 			title={slot}
+			desktopLayout={{
+				columns: '3fr 1.5fr',
+				rows: '4rem 2rem auto 2rem 4rem',
+				areas: '"title reset" "horizontalbar ." "items info" "items actions" "items back"'
+			}}
+			mobileLayout={{
+				columns: '3fr 1.5fr',
+				rows: '3rem 1.5rem auto 1rem 150px',
+				areas: '"title reset" "horizontalbar horizontalbar" "items items" "info actions" "info back"'
+			}}
 		>
 
 			<HorizontalBar active={selectedTab} items={Object.keys(data).map(weaponType => ({
@@ -60,7 +67,6 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWe
 					Object.values(Object.values(data[selectedTab])).map(weapon => {
 						return <Item
 							key={weapon.name}
-							width={192}
 							rowAmount={5}
 							selected={selectedWeapon.name === weapon.name}
 							onClick={() => {

@@ -7,6 +7,7 @@ import Subtree from 'components/Skills/Subtree'
 import skills, { SkillData, TreeData, TreeNames } from 'data/abilities/skills'
 import equipments from 'data/character/equipment'
 import { FC, WheelEvent, useEffect, useState } from 'react'
+import { useIsMobile } from 'state/settingsContext'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useSkillsStore } from 'state/useSkillsStore'
 import styled, { css } from 'styled-components'
@@ -26,7 +27,9 @@ const highlightActive = css<HighlightActiveProps>`
 const Tree = styled.div`
 	grid-area: skills;
 	display: flex;
+	flex-direction: ${props => props.theme.isMobile ? 'column' : 'row'};
 	justify-content: space-between;
+	gap: 9px;
 `
 
 const SubtreeLabelWrapper = styled.div`
@@ -77,9 +80,7 @@ const Skills: FC = () => {
 				resetSkills()
 			}
 		}
-
 		window.addEventListener('keydown', handleKeys)
-
 		return () => {
 			window.removeEventListener('keydown', handleKeys)
 		}
@@ -102,8 +103,21 @@ const Skills: FC = () => {
 		if (ironMan !== 'aced' && equippedArmour === 'Improved Combined Tactical Vest') changeArmour('Two-Piece Suit')
 	}, [ironMan, equippedArmour, changeArmour])
 
+	const isMobile = useIsMobile()
+
 	return (
-		<Container rows='4rem 2rem 7fr 4rem' areas='"title reset" "horizontalbar points" "skills info" "subtreelabels back"' title='Skills'>
+		<Container
+			title='Skills'
+			desktopLayout={{
+				rows: '4rem 2rem auto 4rem',
+				areas: '"title reset" "horizontalbar points" "skills info" "subtreelabels back"'
+			}}
+			mobileLayout={{
+				columns: 'auto auto',
+				rows: '3rem 1.5rem auto 64px',
+				areas: '"title reset" "horizontalbar horizontalbar" "skills skills" "points back"'
+			}}
+		>
 
 			<HorizontalBar
 				active={currentTree.name}
@@ -128,22 +142,24 @@ const Skills: FC = () => {
 				}
 			</Tree>
 
-			<SubtreeLabelWrapper>
-				{
-					Object.values(currentTree.subtrees).map(subtree => {
-						return <SubtreeLabel key={subtree.name}>{subtree.name.replaceAll('_', ' ')}</SubtreeLabel>
-					})
-				}
-			</SubtreeLabelWrapper>
+			{
+				!isMobile && <SubtreeLabelWrapper>
+					{
+						Object.values(currentTree.subtrees).map(subtree => {
+							return <SubtreeLabel key={subtree.name}>{subtree.name.replaceAll('_', ' ')}</SubtreeLabel>
+						})
+					}
+				</SubtreeLabelWrapper>
+			}
 
 			<ResetContainer>
-				<ResetText onClick={() => resetTree(currentTree.name)}>[F] Reset this tree</ResetText>
-				<ResetText onClick={() => resetSkills()}>[R] Reset all trees</ResetText>
+				<ResetText onClick={() => resetTree(currentTree.name)}>{!isMobile && '[F] '}Reset this tree</ResetText>
+				<ResetText onClick={() => resetSkills()}>{!isMobile && '[R] '}Reset all trees</ResetText>
 			</ResetContainer>
 
 			<Points />
 
-			<Info skill={skillHovered} />
+			{!isMobile && <Info skill={skillHovered} />}
 
 		</Container>
 	)

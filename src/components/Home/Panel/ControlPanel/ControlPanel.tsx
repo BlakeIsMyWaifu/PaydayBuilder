@@ -1,11 +1,31 @@
-import { Title } from 'components/Home/Panel/panelElements'
+import { ClosePanel, Container, PanelContent, Title, TopWrapper } from 'components/Home/Panel/panelElements'
 import { Dispatch, FC, SetStateAction } from 'react'
-import { FaGithub } from 'react-icons/fa'
+import { useIsMobile } from 'state/settingsContext'
+import styled from 'styled-components'
 
-import { ContactIconWrapper, ContactLink, ContactText, ControlPanelContainer, ControlPanelContent } from './controlPanelElements'
 import Account from './Sections/Account'
 import Appearance from './Sections/Appearance'
+import Contact from './Sections/Contact'
 import IO from './Sections/IO'
+
+const ControlPanelContainer = styled(Container)`
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+`
+
+const ControlPanelContent = styled(PanelContent)`
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+`
+
+const Wrapper = styled.div`
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+`
 
 interface SettingsPanelProps {
 	toggleControl: boolean;
@@ -13,28 +33,27 @@ interface SettingsPanelProps {
 }
 
 const ControlPanel: FC<SettingsPanelProps> = ({ toggleControl, setToggleControl }) => {
+
+	const isMobile = useIsMobile()
+
 	return (
 		<ControlPanelContainer toggle={toggleControl}>
 
-			<Title>Control Panel</Title>
+			<TopWrapper>
+				<Title>Control Panel</Title>
 
-			<ControlPanelContent>
-				<Account />
-				<IO setToggleControl={setToggleControl} />
-				<Appearance />
-			</ControlPanelContent>
+				{isMobile && <ClosePanel onClick={() => setToggleControl(false)} />}
+			</TopWrapper>
 
-			<ContactLink
-				href='https://github.com/BlakeIsMyWaifu/PaydayBuilder'
-				target='_blank'
-				rel='noopener noreferrer'
-			>
-				<ContactIconWrapper>
-					<FaGithub size='100%' />
-				</ContactIconWrapper>
-				<ContactText>This project is open source</ContactText>
-				<ContactText>Click here to contribute</ContactText>
-			</ContactLink>
+			<Wrapper>
+				<ControlPanelContent>
+					<Account />
+					<IO setToggleControl={setToggleControl} />
+					<Appearance />
+				</ControlPanelContent>
+
+				<Contact/>
+			</Wrapper>
 
 		</ControlPanelContainer >
 	)

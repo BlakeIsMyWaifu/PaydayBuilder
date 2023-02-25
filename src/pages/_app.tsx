@@ -2,14 +2,15 @@ import 'fonts/fonts.css'
 
 import { Analytics } from '@vercel/analytics/react'
 import Cookies from 'components/Cookies'
-import { GlobalStyle } from 'GlobalStyle'
+import { GlobalStyle, Theme } from 'GlobalStyle'
 import useBuildImporter from 'hooks/useBuildImporter'
 import useErrorHandler from 'hooks/useErrorHandler'
 import { SessionProvider } from 'next-auth/react'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { useState } from 'react'
 import { SettingsProvider, UpdateSettingsContext } from 'state/settingsContext'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { isDev } from 'utils/isDev'
 import { trpc } from 'utils/trpc'
 
@@ -28,32 +29,38 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 
 	useErrorHandler()
 
+	const [theme, setTheme] = useState<Theme>({ isMobile: false })
+
 	return (
 		<SessionProvider session={session}>
 			<SettingsProvider>
+				<ThemeProvider theme={theme}>
 
-				<Head>
-					<meta charSet='UTF-8' />
-					<meta name='viewport' content='width=device-width, initial-scale=1.0' />
-					<title>Payday Builder</title>
-					<link rel='shortcut icon' href='/favicon.ico' />
-				</Head>
+					<Head>
+						<meta charSet='UTF-8' />
+						<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+						<title>Payday Builder</title>
+						<link rel='shortcut icon' href='/favicon.ico' />
+					</Head>
 
-				<UpdateSettingsContext />
+					<UpdateSettingsContext />
 
-				<GlobalStyle />
+					<GlobalStyle />
 
-				<Analytics />
+					<Theme setTheme={setTheme} />
 
-				<div onContextMenu={event => isDev() ? null : event.preventDefault()}>
+					<Analytics />
 
-					<BackgroundImage src='/images/loading_bg.png' />
+					<div onContextMenu={event => isDev() ? null : event.preventDefault()}>
 
-					<Cookies />
+						<BackgroundImage src='/images/loading_bg.png' />
 
-					{hasImportedURL && <Component {...pageProps} />}
+						<Cookies />
 
-				</div>
+						{hasImportedURL && <Component {...pageProps} />}
+
+					</div>
+				</ThemeProvider>
 			</SettingsProvider>
 		</SessionProvider>
 	)

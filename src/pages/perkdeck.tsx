@@ -2,7 +2,7 @@ import Container from 'components/Container'
 import { ItemContainer } from 'components/elements/itemElements'
 import HorizontalBar from 'components/HorizontalBar'
 import Perk from 'components/PerkDeck/Perk'
-import PerkTab from 'components/PerkDeck/PerkTab'
+import PerkInfoTab from 'components/PerkDeck/PerkInfoTab'
 import perkDecks, { PerkCard } from 'data/abilities/perks'
 import useMountEffect from 'hooks/useMountEffect'
 import { NextPage } from 'next'
@@ -39,7 +39,17 @@ const PerkDeck: NextPage = () => {
 	})
 
 	return (
-		<Container rows='4rem 2rem 7fr 4rem' areas='"title title" "horizontalbar ." "items info" "items back"' title='Perk Deck'>
+		<Container
+			title='Perk Deck'
+			desktopLayout={{
+				rows: '4rem 2rem auto 4rem',
+				areas: '"title title" "horizontalbar ." "items info" "items back"'
+			}}
+			mobileLayout={{
+				rows: '3rem 1.5rem auto 150px',
+				areas: '"title title" "horizontalbar horizontalbar" "items items" "info back"'
+			}}
+		>
 
 			<HorizontalBar active={equippedPerk.name} items={Object.values(perkDecks).map((perkDeck, i) => ({
 				label: perkDeck.name,
@@ -62,7 +72,7 @@ const PerkDeck: NextPage = () => {
 				}
 			</ItemContainer>
 
-			<PerkTab hoveredCard={hoveredCard} />
+			<PerkInfoTab hoveredCard={hoveredCard} />
 
 		</Container>
 	)

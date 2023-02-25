@@ -1,5 +1,5 @@
+import { HoverInfo } from 'components/Home/Tabs'
 import skills from 'data/abilities/skills'
-import { HoverInfo } from 'pages/index'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { useSkillsStore } from 'state/useSkillsStore'
 import styled from 'styled-components'

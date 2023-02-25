@@ -1,3 +1,5 @@
+import { Dispatch, FC, SetStateAction, useEffect } from 'react'
+import { useIsMobile } from 'state/settingsContext'
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
@@ -33,3 +35,25 @@ export const GlobalStyle = createGlobalStyle`
 		text-decoration: none;
 	}
 `
+
+export interface Theme {
+	isMobile: boolean;
+}
+
+interface ThemeProps {
+	setTheme: Dispatch<SetStateAction<Theme>>;
+}
+
+export const Theme: FC<ThemeProps> = ({ setTheme }) => {
+
+	const isMobile = useIsMobile()
+
+	useEffect(() => {
+		const theme: Theme = {
+			isMobile
+		}
+		setTheme(theme)
+	}, [setTheme, isMobile])
+
+	return null
+}

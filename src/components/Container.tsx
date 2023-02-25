@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import { FC, ReactNode } from 'react'
+import { useIsMobile } from 'state/settingsContext'
 import styled from 'styled-components'
 import { blue } from 'utils/colours'
 
-const Area = styled.div<ContainerProps>`
+const Area = styled.div<Layout>`
 	position: absolute;
 	width: 100vw;
 	height: 100vh;
@@ -24,7 +25,7 @@ const Area = styled.div<ContainerProps>`
 
 const Title = styled.h1`
 	grid-area: title;
-	font-size: 4rem;
+	font-size: ${props => props.theme.isMobile ? '3rem' : '4rem'};
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -44,17 +45,22 @@ const BackText = styled.p`
 	position: absolute;
 	bottom: 0;
 	right: 0;
-	font-size: 4rem;
+	font-size: ${props => props.theme.isMobile ? '3rem' : '4rem'};
 	line-height: 4rem;
 	&:hover {
 		color: #fff;
 	}
 `
 
+interface Layout {
+	columns: string;
+	rows: string;
+	areas: string;
+}
+
 interface ContainerProps {
-	columns?: string;
-	rows?: string;
-	areas?: string;
+	desktopLayout?: Partial<Layout>;
+	mobileLayout?: Partial<Layout>;
 	title?: string;
 	backButton?: boolean;
 	children?: ReactNode;
@@ -62,14 +68,37 @@ interface ContainerProps {
 }
 
 const Container: FC<ContainerProps> = ({
-	columns = '3fr 1fr',
-	rows = '4rem 8fr 4rem',
-	areas = '"title title" "items info" "items back"',
+	desktopLayout,
+	mobileLayout,
 	title,
 	backButton = true,
 	children,
 	backLocation = '/'
 }) => {
+
+	const defaultDesktopLayout = {
+		columns: '3fr 1fr',
+		rows: '4rem auto 4rem',
+		areas: '"title title" "items info" "items back"'
+	}
+
+	const defaultMobileLayout = {
+		columns: 'auto 75px',
+		rows: '3rem auto 150px',
+		areas: '"title title" "items items" "info back"'
+	}
+
+	const isMobile = useIsMobile()
+
+	const layout = isMobile ? mobileLayout : desktopLayout
+	const defaultLayout = isMobile ? defaultMobileLayout : defaultDesktopLayout
+
+	const { columns, rows, areas }: Layout = {
+		columns: layout?.columns ?? defaultLayout.columns,
+		rows: layout?.rows ?? defaultLayout.rows,
+		areas: layout?.areas ?? defaultLayout.areas
+	}
+
 	return (
 		<Area columns={columns} rows={rows} areas={areas}>
 

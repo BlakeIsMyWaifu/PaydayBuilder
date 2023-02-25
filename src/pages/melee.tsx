@@ -6,7 +6,7 @@ import MeleeStatsTable from 'components/Table/MeleeStatsTable'
 import melees from 'data/weapons/melees'
 import { NextPage } from 'next'
 import { useState } from 'react'
-import { useSettingsContext } from 'state/settingsContext'
+import { useIsLeftFacing, useIsMobile } from 'state/settingsContext'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import { itemColours } from 'utils/colours'
 
@@ -17,18 +17,26 @@ export const Melee: NextPage = () => {
 
 	const changeMelee = useWeaponsStore(state => state.changeMelee)
 
-	const { leftFacing } = useSettingsContext().state
+	const leftFacing = useIsLeftFacing()
 
 	const equipMeleeHander = (): void => {
 		if (selectedMelee.name === equippedMelee.name) return
 		changeMelee(selectedMelee.name)
 	}
 
+	const isMobile = useIsMobile()
+
 	return (
 		<Container
-			rows='4rem 8fr 120px 4rem'
-			areas='"title title" "items info" "items drisk" "items back"'
 			title='Melee'
+			desktopLayout={{
+				rows: '4rem 8fr 120px 4rem',
+				areas: '"title title" "items info" "items drisk" "items back"'
+			}}
+			mobileLayout={{
+				rows: '4rem auto 106px 64px',
+				areas: '"title title" "items items" "info drisk" "info back"'
+			}}
 		>
 
 			<ItemContainer>
@@ -36,7 +44,6 @@ export const Melee: NextPage = () => {
 					Object.values(melees).map(melee => {
 						return <Item
 							key={melee.name}
-							width={192}
 							rowAmount={8}
 							selected={melee.name === selectedMelee.name}
 							onClick={() => melee.name === selectedMelee.name ? equipMeleeHander() : setSelectedMelee(melee)}
@@ -61,7 +68,12 @@ export const Melee: NextPage = () => {
 				<InfoDescription>{selectedMelee.description}</InfoDescription>
 			</InfoContainer>
 
-			<DetectionRisk flexDirection='row' corner={true} />
+			<DetectionRisk
+				flexDirection='row'
+				corner={true}
+				text={!isMobile}
+				size={isMobile ? 64 : 96}
+			/>
 
 		</Container>
 	)

@@ -53,6 +53,7 @@ export const Input = styled.input`
 	line-height: 2.4rem;
 	vertical-align: middle;
 	text-transform: none;
+	text-shadow: none;
 	&::placeholder {
 		color: ${inactive}
 	}
