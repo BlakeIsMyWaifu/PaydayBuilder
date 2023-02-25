@@ -2,13 +2,14 @@ import perkDecks, { PerkData } from 'data/abilities/perks'
 import throwables from 'data/weapons/throwables'
 import { PerkCardIndex } from 'pages/perkdeck'
 import { Dispatch, FC, RefObject, SetStateAction } from 'react'
+import { useIsMobile } from 'state/settingsContext'
 import { useAbilityStore } from 'state/useAbilitiesStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import styled from 'styled-components'
 import { cornerCSS } from 'utils/corner'
 
 const Container = styled.div`
-	width: calc(100% - 16px);
+	width: 100%;
 	height: 120px;
 	position: relative;
 `
@@ -25,8 +26,9 @@ const Equipped = styled(Title)`
 
 const CardWrapper = styled.div`
 	display: flex;
+	flex-direction: row;
 	justify-content: space-evenly;
-	margin-left: 32px;
+	margin-left: ${props => props.theme.isMobile ? '0' : '32px'};
 `
 
 interface CardProps {
@@ -35,9 +37,9 @@ interface CardProps {
 
 const Card = styled.div<CardProps>`
 	height: 92px;
-	width: 64px;
+	min-width: 64px;
 	position: relative;
-	${props => props.selected ? 'transform: scale(120%);' : ''}
+	transform: ${props => props.selected ? `scale(${props.theme.isMobile ? '108' : '120'}%)` : 'none'};
 	transition: transform 0.25s ease-in-out;
 	&:hover {
 		${cornerCSS}
@@ -116,8 +118,14 @@ const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPer
 		equipPerkDeckHandler()
 	}
 
+	const isMobile = useIsMobile()
+
 	const cardClickHandler = (button: number, cardIndex: number): void => {
-		if (perk.name !== 'Copycat' || selectedPerk.name !== 'Copycat' || cardIndex % 2) return
+		if (isMobile) {
+			setHoveredCard({ ...perk.cards[cardIndex], index: cardIndex })
+		}
+
+		if (perk.name !== 'Copycat' || selectedPerk.name !== 'Copycat' || equippedPerk.name !== 'Copycat' || cardIndex % 2) return
 		changeCopycatValues(cardIndex / 2, button ? 'decrement' : 'increment')
 	}
 
@@ -130,6 +138,7 @@ const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPer
 			<CardWrapper onClick={perkDeckClickHandler}>
 				{
 					perk.cards.map((card, i) => {
+						if (isMobile && i % 2) return null
 						const x = ~~((i + 1) / 2) * 48
 						const y = i % 2 ? 0 : (index + 1) * 48
 						return <Card

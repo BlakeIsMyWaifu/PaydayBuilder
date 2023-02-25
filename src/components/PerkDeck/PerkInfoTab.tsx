@@ -8,7 +8,7 @@ interface PerkTabProps {
 	hoveredCard: PerkCardIndex | null;
 }
 
-const PerkTab: FC<PerkTabProps> = ({ hoveredCard }) => {
+const PerkInfoTab: FC<PerkTabProps> = ({ hoveredCard }) => {
 
 	const perkDeck = useAbilityStore(state => state.perkDeck)
 
@@ -41,4 +41,4 @@ const Copycat: FC<CopycatProps> = ({ cardIndex }) => {
 	) : null
 }
 
-export default PerkTab
+export default PerkInfoTab
