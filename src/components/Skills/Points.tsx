@@ -10,7 +10,7 @@ interface ContainerProps {
 const Container = styled.div<ContainerProps>`
 	grid-area: points;
 	color: ${props => props.colour};
-	font-size: 1.8rem;
+	font-size: ${props => props.theme.isMobile ? '1.4rem' : '1.8rem'};
 	display: flex;
 	justify-content: space-between;
 `

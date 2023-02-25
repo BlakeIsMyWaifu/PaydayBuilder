@@ -1,5 +1,6 @@
 import { SkillData, SubtreeData, TreeNames } from 'data/abilities/skills'
 import { Dispatch, FC, SetStateAction } from 'react'
+import { useIsMobile } from 'state/settingsContext'
 import { useSkillsStore } from 'state/useSkillsStore'
 import styled from 'styled-components'
 import corner from 'utils/corner'
@@ -8,31 +9,44 @@ import Skill, { SkillProps } from './Skill'
 
 const Container = styled(corner)`
 	position: relative;
-	height: 100%;
-	width: calc((100% / 3) - 6px);
+	height: ${props => props.theme.isMobile ? '33%' : '100%'};
+	width: ${props => props.theme.isMobile ? '100%' : '33%'};
 `
 
 const TierWrapper = styled.div`
 	height: 100%;
 	display: flex;
-	flex-direction: column;
+	flex-direction: ${props => props.theme.isMobile ? 'row-reverse' : 'column'};
 `
 
 const Tier = styled.div`
 	color: #fff;
-	height: 25%;
+	height: 100%;
 	width: 100%;
 	display: flex;
-	flex-direction: row-reverse;
+	flex-direction: ${props => props.theme.isMobile ? 'column-reverse' : 'row-reverse'};
 	justify-content: center;
+	align-items: ${props => props.theme.isMobile ? 'center' : 'normal'};;
 `
 
-const Background = styled.img`
+interface BackgroundProps {
+	size: number;
+}
+
+const Background = styled.img<BackgroundProps>`
 	position: absolute;
 	width: 100%;
-	height: ${props => props.height}%;
+	height: ${props => props.size}%;
 	transition: height 0.5s;
 	bottom: 0;
+`
+
+const MobileBackground = styled.img<BackgroundProps>`
+	position: absolute;
+	width: ${props => props.size}%;
+	height: 100%;
+	transition: width 0.5s;
+	left: 0;
 `
 
 interface SubtreeProps {
@@ -58,10 +72,24 @@ const Subtree: FC<SubtreeProps> = ({ treeName, subtree, setSkillHovered }) => {
 		setSkillHovered
 	})
 
+	const isMobile = useIsMobile()
+
 	return (
 		<Container>
 
-			<Background src='/images/skills/background.png' onMouseDown={event => event.preventDefault()} height={backgroundBarHeight()} />
+			{
+				isMobile
+					? <MobileBackground
+						src='/images/skills/background.png'
+						onMouseDown={event => event.preventDefault()}
+						size={backgroundBarHeight()}
+					/>
+					: <Background
+						src='/images/skills/background.png'
+						onMouseDown={event => event.preventDefault()}
+						size={backgroundBarHeight()}
+					/>
+			}
 
 			<TierWrapper>
 				<Tier>

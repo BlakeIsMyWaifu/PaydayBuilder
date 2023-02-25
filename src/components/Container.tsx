@@ -83,7 +83,7 @@ const Container: FC<ContainerProps> = ({
 	}
 
 	const defaultMobileLayout = {
-		columns: '1fr 75px',
+		columns: 'auto 75px',
 		rows: '3rem auto 150px',
 		areas: '"title title" "items items" "info back"'
 	}
