@@ -1,10 +1,10 @@
 import Link from 'next/link'
-import { Dispatch, FC, ReactNode, SetStateAction } from 'react'
+import { type Dispatch, type FC, type ReactNode, type SetStateAction } from 'react'
 import { useIsLeftFacing } from 'state/settingsContext'
 import styled from 'styled-components'
 import { blue, dim } from 'utils/colours'
 
-import { HoverInfo } from './Tabs'
+import { type HoverInfo } from './Tabs'
 
 const SelectorLink = styled(Link)`
 	text-decoration: none;

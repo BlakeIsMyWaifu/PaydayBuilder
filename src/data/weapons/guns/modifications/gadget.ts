@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
 import { akimboShotgunList, assaultRifleList, lightMachineGunList } from '../gunList'
-import { CompatibleWeapons, ModificationList } from '../weaponTypes'
+import { type CompatibleWeapons, type ModificationList } from '../weaponTypes'
 
 const mainSnipers: CompatibleWeapons = {
 	sniper: [

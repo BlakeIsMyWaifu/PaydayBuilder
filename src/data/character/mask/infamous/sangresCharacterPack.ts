@@ -1,7 +1,7 @@
-import { MaskData } from 'data/character/masks'
+import { type MaskData } from 'data/character/masks'
 import content from 'data/source/downloadableContent'
 
-import { InfamousCollectionList } from '../infamous'
+import { type InfamousCollectionList } from '../infamous'
 
 export type SangresCharacterPackList =
 	| 'Sangres'

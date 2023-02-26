@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
 import magazine from '../../modifications/magazine'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
 const cr805B: WeaponData = {

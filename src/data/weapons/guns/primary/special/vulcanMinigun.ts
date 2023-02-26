@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
 import extra from '../../modifications/extra'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { specialBoostTotalAmmo, specialGadget } from '../commonModifications/specialModifications'
 
 const vulcanMinigun: WeaponData = {

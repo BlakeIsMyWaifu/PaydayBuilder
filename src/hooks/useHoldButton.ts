@@ -1,4 +1,4 @@
-import { MouseEvent, MouseEventHandler, useEffect, useMemo, useRef, useState } from 'react'
+import { type MouseEvent, type MouseEventHandler, useEffect, useMemo, useRef, useState } from 'react'
 
 import useMountEffect from './useMountEffect'
 

@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import grip from '../../modifications/grip'
 import slide from '../../modifications/slide'
 import stock from '../../modifications/stock'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost } from '../commonModifications/pistolModifications'
 
 const peacemaker45: WeaponData = {

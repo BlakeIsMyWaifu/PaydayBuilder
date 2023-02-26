@@ -5,7 +5,7 @@ import { findNextNum } from 'utils/maths'
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 
-import { DevTools, Persist, Slice, createActionName } from './storeTypes'
+import { type DevTools, type Persist, type Slice, createActionName } from './storeTypes'
 import { useAbilityStore } from './useAbilitiesStore'
 import { useArmouryStore } from './useArmouryStore'
 import { useCharacterStore } from './useCharacterStore'

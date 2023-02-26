@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import barrel from '../../modifications/barrel'
 import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { sniperBoost, sniperGadgetMagnifier, sniperSight } from '../commonModifications/sniperModifications'
 
 const kangArmsX1: WeaponData = {

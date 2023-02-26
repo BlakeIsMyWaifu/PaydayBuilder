@@ -1,6 +1,6 @@
 import { Data, Head, Label, Row, Table } from 'components/Table/Table-Elements'
 import skills from 'data/abilities/skills'
-import { FC } from 'react'
+import { type FC } from 'react'
 import { useSkillsStore } from 'state/useSkillsStore'
 import { blue, dimBlue, grey } from 'utils/colours'
 

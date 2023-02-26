@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 import { useIsLeftFacing } from 'state/settingsContext'
 import { useSettingsStore } from 'state/useSettingsStore'
 

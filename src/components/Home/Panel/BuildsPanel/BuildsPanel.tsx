@@ -1,5 +1,5 @@
 import { ClosePanel, Container, PanelContent, Title, TopWrapper } from 'components/Home/Panel/panelElements'
-import { Dispatch, FC, SetStateAction } from 'react'
+import { type Dispatch, type FC, type SetStateAction } from 'react'
 import { FaPlusSquare } from 'react-icons/fa'
 import { useIsMobile } from 'state/settingsContext'
 import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'

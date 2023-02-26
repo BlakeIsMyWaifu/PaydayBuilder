@@ -5,7 +5,7 @@ import extra from '../../modifications/extra'
 import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
 import slide from '../../modifications/slide'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
 const deagle: WeaponData = {

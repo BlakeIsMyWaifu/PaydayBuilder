@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 
 import ammunition from '../../modifications/ammunition'
 import boost from '../../modifications/boost'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { specialBoostTotalAmmo } from '../commonModifications/specialModifications'
 
 const plainsriderBow: WeaponData = {

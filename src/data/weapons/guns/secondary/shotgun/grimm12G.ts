@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 import custom from '../../modifications/custom'
 import foregrip from '../../modifications/foregrip'
 import magazine from '../../modifications/magazine'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadgetMagnifier, shotgunSight } from '../commonModifications/shotgunModifications'
 
 const grimm12G: WeaponData = {

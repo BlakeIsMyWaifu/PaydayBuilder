@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 import { FaGithub } from 'react-icons/fa'
 import styled from 'styled-components'
 

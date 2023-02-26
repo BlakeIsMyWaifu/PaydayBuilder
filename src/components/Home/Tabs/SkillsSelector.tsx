@@ -1,6 +1,6 @@
-import { HoverInfo } from 'components/Home/Tabs'
+import { type HoverInfo } from 'components/Home/Tabs'
 import skills from 'data/abilities/skills'
-import { Dispatch, FC, SetStateAction } from 'react'
+import { type Dispatch, type FC, type SetStateAction } from 'react'
 import { useSkillsStore } from 'state/useSkillsStore'
 import styled from 'styled-components'
 import { grey } from 'utils/colours'
@@ -52,10 +52,11 @@ const SelectorSkills: FC<SelectorSkillProps> = ({ setHoverInfo }) => {
 	const currentTrees = useSkillsStore(state => state.trees)
 
 	return (
-		<Selector title='skills' setHoverInfo={setHoverInfo} infoData={{
-			title: 'Skills',
-			table: <SkillTable />
-		}} >
+		<Selector title='skills' setHoverInfo={setHoverInfo}
+			infoData={{
+				title: 'Skills',
+				table: <SkillTable />
+			}} >
 			{
 				<SkillsContainer>
 					{

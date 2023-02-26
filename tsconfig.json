@@ -12,7 +12,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "CommonJS",
+    "module": "ESNext",
     "moduleResolution": "node",
     "isolatedModules": true,
     "resolveJsonModule": true,
@@ -29,7 +29,8 @@
   },
   "include": [
     "src",
-    "src/**/*"
+    "src/**/*",
+    "next.config.mjs"
   ],
   "exclude": [
     "node_modules",

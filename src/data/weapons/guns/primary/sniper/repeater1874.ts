@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
 import sight from '../../modifications/sight'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { sniperBoost } from '../commonModifications/sniperModifications'
 
 const repeater1874: WeaponData = {

@@ -1,6 +1,6 @@
 import { InfoContainer, InfoTitle } from 'components/elements/infoElements'
-import { Category } from 'data/character/masks'
-import { FC, MutableRefObject, RefObject } from 'react'
+import { type Category } from 'data/character/masks'
+import { type FC, type MutableRefObject, type RefObject } from 'react'
 import styled from 'styled-components'
 import { itemColours } from 'utils/colours'
 

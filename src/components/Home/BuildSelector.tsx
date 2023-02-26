@@ -1,6 +1,6 @@
-import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import { type Dispatch, type FC, type SetStateAction, useEffect, useState } from 'react'
 import { FaChevronLeft, FaChevronRight, FaThList } from 'react-icons/fa'
-import { BuildSave, useBuildsStore } from 'state/useBuildsStore'
+import { type BuildSave, useBuildsStore } from 'state/useBuildsStore'
 import styled from 'styled-components'
 import { blue, dim } from 'utils/colours'
 import corner from 'utils/corner'

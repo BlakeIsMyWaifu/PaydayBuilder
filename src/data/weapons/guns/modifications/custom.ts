@@ -1,6 +1,6 @@
 import content from 'data/source/downloadableContent'
 
-import { CompatibleWeapons, ModificationList } from '../weaponTypes'
+import { type CompatibleWeapons, type ModificationList } from '../weaponTypes'
 
 const fireModeWeapons: CompatibleWeapons = {
 	assaultRifle: [

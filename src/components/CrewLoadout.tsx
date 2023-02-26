@@ -1,5 +1,5 @@
-import { CrewData } from 'pages/crewmanagement'
-import { FC } from 'react'
+import { type CrewData } from 'pages/crewmanagement'
+import { type FC } from 'react'
 import { useArmouryStore } from 'state/useArmouryStore'
 import styled from 'styled-components'
 import { blue } from 'utils/colours'
@@ -78,11 +78,11 @@ const Loadout: FC<LoadoutProps> = ({ data, index }) => {
 				</Item>
 				<Item>
 					<ItemTitle>Ability</ItemTitle>
-					<ItemIcon src={`/images/crew/abilities/${data.ability}.png`} onMouseDown={event => event.preventDefault()} />
+					<ItemIcon src={`/images/crew/abilities/${data?.ability ?? ''}.png`} onMouseDown={event => event.preventDefault()} />
 				</Item>
 				<Item>
 					<ItemTitle>Boost</ItemTitle>
-					<ItemIcon src={`/images/crew/boosts/${data.boost}.png`} onMouseDown={event => event.preventDefault()} />
+					<ItemIcon src={`/images/crew/boosts/${data?.boost ?? ''}.png`} onMouseDown={event => event.preventDefault()} />
 				</Item>
 			</ItemContainer>
 

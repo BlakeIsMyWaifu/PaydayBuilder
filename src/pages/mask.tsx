@@ -4,12 +4,12 @@ import { InfoContainer, InfoCost, InfoDescription, InfoTitle, InfoUnlock } from 
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/elements/itemElements'
 import HorizontalBar from 'components/HorizontalBar'
 import Info from 'components/Info'
-import { AllMasks, Category, CategoryList, Collection, MaskData } from 'data/character/masks'
-import { ContentRarity } from 'data/source/downloadableContent'
+import { type AllMasks, type Category, type CategoryList, type Collection, type MaskData } from 'data/character/masks'
+import { type ContentRarity } from 'data/source/downloadableContent'
 import useMountEffect from 'hooks/useMountEffect'
 import useObjectState from 'hooks/useObjectState'
-import { NextPage } from 'next'
-import { Dispatch, FC, MutableRefObject, RefObject, SetStateAction, createRef, useCallback, useEffect, useRef, useState } from 'react'
+import { type NextPage } from 'next'
+import { type Dispatch, type FC, type MutableRefObject, type RefObject, type SetStateAction, createRef, useCallback, useEffect, useRef, useState } from 'react'
 import { useCharacterStore } from 'state/useCharacterStore'
 import styled, { css, keyframes } from 'styled-components'
 import { itemColours } from 'utils/colours'
@@ -92,6 +92,7 @@ const Mask: NextPage = () => {
 	const addToCategory = useCallback(async (category: CategoryList): Promise<void> => {
 		const loadMaskData = (category: CategoryList): Promise<Category> => new Promise((res, rej) => {
 			import(`../data/character/mask/${category}`).then(data => {
+				// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 				res(data.default as unknown as Category)
 			}).catch(err => rej(err))
 		})
@@ -101,23 +102,24 @@ const Mask: NextPage = () => {
 
 	const getCurrentData = useCallback((): Category => {
 		const allDataArray = Object.entries(categories ?? {}).map(([key, value]) => {
-			const collections = Object.entries(value).map(([title, data]) => [`${key}?${title}`, data])
+			const collections = Object.entries(value).map<[string, Collection]>(([title, data]) => [`${key}?${title}`, data])
 			return Object.fromEntries(collections)
 		})
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		const allData: Category = Object.assign({}, ...allDataArray)
 		return (selectedTab === 'all' ? allData : categories[selectedTab]) ?? {}
 	}, [categories, selectedTab])
 
 	useMountEffect(() => {
-		addToCategory('community')
+		addToCategory('community').catch(console.error)
 	})
 
 	useEffect(() => {
 		if (selectedTab === 'all') {
 			const allCategories: CategoryList[] = ['community', 'normal', 'dlc', 'event', 'collaboration', 'infamous']
-			allCategories.forEach(addToCategory)
+			allCategories.forEach(categories => void addToCategory(categories))
 		} else {
-			addToCategory(selectedTab)
+			addToCategory(selectedTab).catch(console.error)
 		}
 	}, [selectedTab, addToCategory])
 
@@ -125,7 +127,7 @@ const Mask: NextPage = () => {
 		<Container
 			title='Mask'
 			desktopLayout={{
-				rows: '4rem 2rem 8fr 4rem',
+				rows: '4rem 2rem auto 4rem',
 				areas: '"title title" "horizontalbar infotabs" "items info" "items back"'
 			}}
 			mobileLayout={{
@@ -189,7 +191,7 @@ const MaskHorizontalBar: FC<MaskHorizontalBarProps> = ({ selectedTab, setSelecte
 		<HorizontalBar active={selectedTab} items={allCategories.map(rarity => ({
 			label: rarity,
 			callback: () => {
-				setSelectedTab(rarity as (CategoryList | 'all'))
+				setSelectedTab(rarity)
 				itemContainerRef.current?.scrollTo(0, 0)
 			},
 			colour: rarity !== 'all' ? itemColours[stringToRarity(rarity)] : 'rainbow',

@@ -1,8 +1,8 @@
-import { MaskData } from 'data/character/masks'
+import { type MaskData } from 'data/character/masks'
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { NormalCollectionList } from '../normal'
+import { type NormalCollectionList } from '../normal'
 
 export type DefaultMaskList =
 	| 'Preferred Character'

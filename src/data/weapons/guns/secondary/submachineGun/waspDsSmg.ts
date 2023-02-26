@@ -4,7 +4,7 @@ import extra from '../../modifications/extra'
 import gadget from '../../modifications/gadget'
 import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBarrelExt, submachineGunBoost } from '../commonModifications/submachineGunModifications'
 
 const waspDsSmg: WeaponData = {

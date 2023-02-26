@@ -1,14 +1,15 @@
-import perkDecks, { PerkDeckList } from 'data/abilities/perks'
-import armours, { ArmourList } from 'data/character/armours'
-import characters, { CharacterList } from 'data/character/characters'
-import equipments, { EquipmentData, EquipmentList } from 'data/character/equipment'
-import { CategoryList, MaskList, allMasks } from 'data/character/masks'
-import { AllWeaponList, Modification, ModificationSlot, WeaponData, WeaponFind, WeaponType } from 'data/weapons/guns/weaponTypes'
-import melees, { MeleeList } from 'data/weapons/melees'
-import throwables, { ThrowableData, ThrowableList } from 'data/weapons/throwables'
-import { CopycatValues } from 'state/useAbilitiesStore'
+import perkDecks, { type PerkDeckList } from 'data/abilities/perks'
+import armours, { type ArmourList } from 'data/character/armours'
+import characters, { type CharacterList } from 'data/character/characters'
+import equipments, { type EquipmentData, type EquipmentList } from 'data/character/equipment'
+import { type CategoryList, type MaskList, allMasks } from 'data/character/masks'
+import { type AllWeaponList, type Modification, type ModificationSlot, type WeaponData, type WeaponFind, type WeaponType } from 'data/weapons/guns/weaponTypes'
+import melees, { type MeleeList } from 'data/weapons/melees'
+import throwables, { type ThrowableData, type ThrowableList } from 'data/weapons/throwables'
+import { type CopycatValues } from 'state/useAbilitiesStore'
 
 import findWeapon from './findWeapon'
+import { typedObject } from './typedObject'
 
 export const charString = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,@'
 
@@ -98,7 +99,7 @@ export const decodeArmoury = (value: string, data: Record<string, Record<string,
 	const weapons: DecodeArmoury[] = weaponBytes.map(weaponValues => {
 		const [typeValue, gunValue, ...modsValue] = weaponValues.split('')
 		const type = Object.keys(data)[decodeValues(typeValue)]
-		const weaponName = Object.keys(data[type as keyof typeof data])[decodeValues(gunValue)]
+		const weaponName = Object.keys(data[type])[decodeValues(gunValue)]
 		const weaponFind: WeaponFind = {
 			slot,
 			type: type as WeaponType,
@@ -108,7 +109,7 @@ export const decodeArmoury = (value: string, data: Record<string, Record<string,
 
 		const mods: Partial<Record<ModificationSlot, string>> = Object.fromEntries(modsValue.map((modValue, i): [string, string] => {
 			if (modValue === '0') return ['', '']
-			const weaponMods = Object.entries(weaponData.modifications)
+			const weaponMods = typedObject.entries(weaponData.modifications)
 			const modType = weaponMods[i][0]
 			const modData = weaponMods[i][1][decodeValues(modValue) - 1]
 			return [modType, (modData as Modification).name]

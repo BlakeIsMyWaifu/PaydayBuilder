@@ -1,5 +1,5 @@
 import Container from 'components/Container'
-import { NextPage } from 'next'
+import { type NextPage } from 'next'
 import styled from 'styled-components'
 
 const Text = styled.h1`

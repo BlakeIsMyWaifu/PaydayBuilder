@@ -1,4 +1,4 @@
-import { FC, ReactNode, useState } from 'react'
+import { type FC, type ReactNode, useState } from 'react'
 import styled from 'styled-components'
 
 const InfoTabTitles = styled.div`

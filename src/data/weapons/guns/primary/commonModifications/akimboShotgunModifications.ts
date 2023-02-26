@@ -1,8 +1,8 @@
-import ammunition, { AmmunitionModificationsList } from '../../modifications/ammunition'
-import barrelExt, { BarrelExtModificationsList } from '../../modifications/barrelExt'
-import boost, { BoostModificationsList } from '../../modifications/boost'
-import gadget, { GadgetModificationsList } from '../../modifications/gadget'
-import { Modification } from '../../weaponTypes'
+import ammunition, { type AmmunitionModificationsList } from '../../modifications/ammunition'
+import barrelExt, { type BarrelExtModificationsList } from '../../modifications/barrelExt'
+import boost, { type BoostModificationsList } from '../../modifications/boost'
+import gadget, { type GadgetModificationsList } from '../../modifications/gadget'
+import { type Modification } from '../../weaponTypes'
 
 export const akimboShotgunAmmunition: Modification<AmmunitionModificationsList>[] = [
 	ammunition['Tombstone Slug'],

@@ -1,7 +1,7 @@
 import source from 'data/source/miscSources'
 
 import stock from '../../modifications/stock'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBarrelExt, submachineGunBoost, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
 const mp40: WeaponData = {

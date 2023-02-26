@@ -1,5 +1,5 @@
 import useMountEffect from 'hooks/useMountEffect'
-import { NextPage } from 'next'
+import { type NextPage } from 'next'
 import { useRouter } from 'next/router'
 
 const _error: NextPage = () => {
@@ -7,7 +7,7 @@ const _error: NextPage = () => {
 	const router = useRouter()
 
 	useMountEffect(() => {
-		router.push('/')
+		router.push('/').catch(console.error)
 	})
 
 	return null

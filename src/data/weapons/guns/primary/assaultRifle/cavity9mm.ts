@@ -1,7 +1,7 @@
 import content from 'data/source/downloadableContent'
 
 import foregrip from '../../modifications/foregrip'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const cavity9mm: WeaponData = {

@@ -7,7 +7,7 @@ import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
 import upperReceiver from '../../modifications/upperReceiver'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
 const bernetti9: WeaponData = {

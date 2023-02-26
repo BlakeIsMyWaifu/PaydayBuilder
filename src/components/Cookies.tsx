@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { type FC, useEffect, useState } from 'react'
 import { useSettingsStore } from 'state/useSettingsStore'
 import styled from 'styled-components'
 import colours from 'utils/colours'

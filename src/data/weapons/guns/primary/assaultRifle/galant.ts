@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 import barrel from '../../modifications/barrel'
 import foregrip from '../../modifications/foregrip'
 import stock from '../../modifications/stock'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const galant: WeaponData = {

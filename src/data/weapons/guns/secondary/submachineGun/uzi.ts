@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import barrelExt from '../../modifications/barrelExt'
 import foregrip from '../../modifications/foregrip'
 import stock from '../../modifications/stock'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
 const uzi: WeaponData = {

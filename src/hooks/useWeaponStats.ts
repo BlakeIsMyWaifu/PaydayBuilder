@@ -1,5 +1,5 @@
 import modificationList from 'data/weapons/guns/modificationList'
-import { ModificationSlot, ModificationStats, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
+import { type ModificationSlot, type ModificationStats, type WeaponData, type WeaponStats } from 'data/weapons/guns/weaponTypes'
 
 interface UseWeaponStats {
 	base: WeaponStats;
@@ -21,7 +21,7 @@ const useWeaponStats = (weapon: WeaponData, modifications: Partial<Record<Modifi
 			ammoPickup: extra.ammoPickup ? `${extra.ammoPickup.join(' | ')}` : '',
 			recoilHorizontal: `${extra.recoilHorizontal[0]}' | ${extra.recoilHorizontal[1]}'`,
 			recoilVertical: `${extra.recoilVertical[0]}' | ${extra.recoilVertical[1]}'`,
-			spread: `${extra.spread}'`,
+			spread: `${extra.spread ?? ''}'`,
 			damageModifier: extra.damageModifier ? `${extra.damageModifier.join(' | ')}` : ''
 		}
 

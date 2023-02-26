@@ -7,7 +7,7 @@ import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 
 const aranG2: WeaponData = {
 	name: 'Aran G2',

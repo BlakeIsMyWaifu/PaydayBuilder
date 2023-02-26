@@ -6,7 +6,7 @@ import custom from '../../modifications/custom'
 import foregrip from '../../modifications/foregrip'
 import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { lightMachineGunBarrelExt, lightMachineGunBoost, lightMachineGunGadget } from '../commonModifications/lightMachineGunModifications'
 
 const sgVersteckt51D: WeaponData = {

@@ -2,7 +2,7 @@ import source from 'data/source/miscSources'
 
 import barrel from '../../modifications/barrel'
 import stock from '../../modifications/stock'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBoost } from '../commonModifications/shotgunModifications'
 
 const jocelineOU12G: WeaponData = {

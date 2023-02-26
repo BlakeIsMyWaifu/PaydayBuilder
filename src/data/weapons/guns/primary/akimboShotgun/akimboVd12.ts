@@ -5,7 +5,7 @@ import boost from '../../modifications/boost'
 import custom from '../../modifications/custom'
 import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { akimboShotgunAmmunition, akimboShotgunBarrelExt, akimboShotgunGadget } from '../commonModifications/akimboShotgunModifications'
 
 const akimboVd12: WeaponData = {

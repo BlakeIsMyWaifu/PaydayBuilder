@@ -1,4 +1,4 @@
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import akronHC from '../lightMachineGun/akronHC'
 import brenner21 from '../lightMachineGun/brenner21'
 import buzzsaw42 from '../lightMachineGun/buzzsaw42'

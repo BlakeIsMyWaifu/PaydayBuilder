@@ -1,4 +1,4 @@
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import aranG2 from '../sniper/aranG2'
 import northStar from '../sniper/northStar'
 import pronghorn from '../sniper/pronghorn'

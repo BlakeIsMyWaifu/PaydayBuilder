@@ -1,7 +1,7 @@
 import source from 'data/source/miscSources'
 
 import { akimboShotgunList, assaultRifleList, lightMachineGunList, pistolList, shotgunList, sniperList, specialList, submachineGunList } from '../gunList'
-import { CompatibleWeapons, ModificationList } from '../weaponTypes'
+import { type CompatibleWeapons, type ModificationList } from '../weaponTypes'
 
 const allWeapons: CompatibleWeapons = {
 	assaultRifle: assaultRifleList,

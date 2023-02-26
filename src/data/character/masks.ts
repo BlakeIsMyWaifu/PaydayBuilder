@@ -1,12 +1,12 @@
-import { ContentData, ContentRarity } from 'data/source/downloadableContent'
-import { SourceData } from 'data/source/miscSources'
+import { type ContentData, type ContentRarity } from 'data/source/downloadableContent'
+import { type SourceData } from 'data/source/miscSources'
 
-import collaboration, { CollaborationCollectionList, CollaborationMaskList } from './mask/collaboration'
-import community, { CommunityCollectionList, CommunityMaskList } from './mask/community'
-import dlc, { DlcCollectionList, DlcMaskList } from './mask/dlc'
-import event, { EventCollectionList, EventMaskList } from './mask/event'
-import infamous, { InfamousCollectionList, InfamousMaskList } from './mask/infamous'
-import normal, { NormalCollectionList, NormalMaskList } from './mask/normal'
+import collaboration, { type CollaborationCollectionList, type CollaborationMaskList } from './mask/collaboration'
+import community, { type CommunityCollectionList, type CommunityMaskList } from './mask/community'
+import dlc, { type DlcCollectionList, type DlcMaskList } from './mask/dlc'
+import event, { type EventCollectionList, type EventMaskList } from './mask/event'
+import infamous, { type InfamousCollectionList, type InfamousMaskList } from './mask/infamous'
+import normal, { type NormalCollectionList, type NormalMaskList } from './mask/normal'
 
 export type CategoryList = keyof typeof allMasks
 

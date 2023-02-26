@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 import { FaDownload, FaTrash } from 'react-icons/fa'
 import { useBuildsStore } from 'state/useBuildsStore'
 import { trpc } from 'utils/trpc'
@@ -14,8 +14,8 @@ const CloudBuilds: FC = () => {
 	const builds = trpc.builds.getAllBuilds.useQuery()
 
 	const deleteBuild = trpc.builds.deleteBuild.useMutation({
-		onSuccess() {
-			utils.builds.getAllBuilds.invalidate()
+		async onSuccess() {
+			await utils.builds.getAllBuilds.invalidate()
 		}
 	})
 

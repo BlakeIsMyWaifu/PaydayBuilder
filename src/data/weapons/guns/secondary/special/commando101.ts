@@ -1,6 +1,6 @@
 import content from 'data/source/downloadableContent'
 
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { specialBoost } from '../commonModifications/specialModifications'
 
 const commando101: WeaponData = {

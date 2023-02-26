@@ -1,5 +1,5 @@
-import armours, { ArmourList, ArmourStats } from 'data/character/armours'
-import { CustomStatsHook } from 'hooks/customStatsHook'
+import armours, { type ArmourList, type ArmourStats } from 'data/character/armours'
+import { type CustomStatsHook } from 'hooks/customStatsHook'
 import { useSkillsStore } from 'state/useSkillsStore'
 
 interface CompleteArmourStats extends ArmourStats {

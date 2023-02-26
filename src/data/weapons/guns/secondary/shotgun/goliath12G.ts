@@ -1,7 +1,7 @@
 import source from 'data/source/miscSources'
 
 import barrel from '../../modifications/barrel'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadgetMagnifier, shotgunSight } from '../commonModifications/shotgunModifications'
 
 const goliath12G: WeaponData = {

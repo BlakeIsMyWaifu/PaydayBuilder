@@ -1,5 +1,5 @@
 import { signIn, signOut } from 'next-auth/react'
-import { FC } from 'react'
+import { type FC } from 'react'
 import { trpc } from 'utils/trpc'
 
 import Button from '../Button'
@@ -24,8 +24,8 @@ const Account: FC = () => {
 						healthCheck.data
 							? (
 								getSession.data?.user?.name
-									? <Button text='Logout' callback={signOut} />
-									: <Button text='Register / Login' callback={signIn} />
+									? <Button text='Logout' callback={() => void signOut} />
+									: <Button text='Register / Login' callback={() => void signIn} />
 							)
 							: <Button text='Database Unavailable' callback={() => null} />
 					)

@@ -1,7 +1,7 @@
-import { MaskData } from 'data/character/masks'
+import { type MaskData } from 'data/character/masks'
 import source from 'data/source/miscSources'
 
-import { InfamousCollectionList } from '../infamous'
+import { type InfamousCollectionList } from '../infamous'
 
 export type AchievementMilestonesList =
 	| 'Mega Famine'

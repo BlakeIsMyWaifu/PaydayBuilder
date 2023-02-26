@@ -1,6 +1,6 @@
 import { InfoContainer, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/elements/infoElements'
-import { Weapon } from 'data/weapons/guns/weaponTypes'
-import { FC } from 'react'
+import { type Weapon } from 'data/weapons/guns/weaponTypes'
+import { type FC } from 'react'
 import { itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
 

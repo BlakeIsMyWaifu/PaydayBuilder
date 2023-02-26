@@ -1,7 +1,7 @@
-import { MaskData } from 'data/character/masks'
+import { type MaskData } from 'data/character/masks'
 import content from 'data/source/downloadableContent'
 
-import { DlcCollectionList } from '../dlc'
+import { type DlcCollectionList } from '../dlc'
 
 export type SokolCharacterPackList =
 	| 'Sokol'

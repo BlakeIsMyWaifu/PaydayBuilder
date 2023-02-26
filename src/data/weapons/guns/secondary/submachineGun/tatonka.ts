@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 
 import barrelExt from '../../modifications/barrelExt'
 import grip from '../../modifications/grip'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
 const tatonka: WeaponData = {

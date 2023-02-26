@@ -4,7 +4,7 @@ import ammunition from '../../modifications/ammunition'
 import grip from '../../modifications/grip'
 import sight from '../../modifications/sight'
 import upperReceiver from '../../modifications/upperReceiver'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { specialBoostTotalAmmo, specialSight } from '../commonModifications/specialModifications'
 
 const decaTechnologiesCompoundBow: WeaponData = {

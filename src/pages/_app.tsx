@@ -2,17 +2,18 @@ import 'fonts/fonts.css'
 
 import { Analytics } from '@vercel/analytics/react'
 import Cookies from 'components/Cookies'
-import { GlobalStyle, Theme } from 'GlobalStyle'
+import { GlobalStyle, Theme } from 'styles/GlobalStyle'
 import useBuildImporter from 'hooks/useBuildImporter'
 import useErrorHandler from 'hooks/useErrorHandler'
 import { SessionProvider } from 'next-auth/react'
-import { AppProps } from 'next/app'
+import { type AppProps as NextAppProps } from 'next/app'
 import Head from 'next/head'
 import { useState } from 'react'
 import { SettingsProvider, UpdateSettingsContext } from 'state/settingsContext'
-import styled, { ThemeProvider } from 'styled-components'
+import styled, { type DefaultTheme, ThemeProvider } from 'styled-components'
 import { isDev } from 'utils/isDev'
 import { trpc } from 'utils/trpc'
+import { type Session } from 'next-auth'
 
 const BackgroundImage = styled.img`
 	position: absolute;
@@ -23,13 +24,19 @@ const BackgroundImage = styled.img`
 	z-index: -1;
 `
 
+interface AppProps extends NextAppProps {
+	pageProps: {
+		session: Session;
+	};
+}
+
 const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX.Element => {
 
 	const hasImportedURL = useBuildImporter()
 
 	useErrorHandler()
 
-	const [theme, setTheme] = useState<Theme>({ isMobile: false })
+	const [theme, setTheme] = useState<DefaultTheme>({ isMobile: false })
 
 	return (
 		<SessionProvider session={session}>

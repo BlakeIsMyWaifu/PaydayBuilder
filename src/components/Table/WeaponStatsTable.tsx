@@ -1,8 +1,8 @@
 import TableCompare from 'components/Table/TableCompare'
 import TableEquipped from 'components/Table/TableEquipped'
-import { Weapon } from 'data/weapons/guns/weaponTypes'
+import { type Weapon } from 'data/weapons/guns/weaponTypes'
 import useWeaponStats from 'hooks/useWeaponStats'
-import { FC } from 'react'
+import { type FC } from 'react'
 import findWeapon from 'utils/findWeapon'
 
 interface WeaponsStatsTableProps {

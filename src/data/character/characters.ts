@@ -1,5 +1,5 @@
-import content, { ContentData } from 'data/source/downloadableContent'
-import source, { SourceData } from 'data/source/miscSources'
+import content, { type ContentData } from 'data/source/downloadableContent'
+import source, { type SourceData } from 'data/source/miscSources'
 
 export type CharacterList = keyof typeof characters
 

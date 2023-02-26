@@ -1,7 +1,7 @@
-import { MaskData } from 'data/character/masks'
+import { type MaskData } from 'data/character/masks'
 import source from 'data/source/miscSources'
 
-import { EventCollectionList } from '../event'
+import { type EventCollectionList } from '../event'
 
 export type Payday28thAnniversaryList =
 	| 'The Burning 8th'

@@ -3,7 +3,7 @@ import { InfoContainer, InfoDescription, InfoRequirement, InfoTitle, InfoUnlock 
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } from 'components/elements/itemElements'
 import perkDecks from 'data/abilities/perks'
 import throwables from 'data/weapons/throwables'
-import { NextPage } from 'next'
+import { type NextPage } from 'next'
 import { useState } from 'react'
 import { useAbilityStore } from 'state/useAbilitiesStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'

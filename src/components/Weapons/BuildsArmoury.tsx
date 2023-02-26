@@ -1,6 +1,6 @@
 import { InfoContainer } from 'components/elements/infoElements'
-import { Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
-import { Dispatch, FC, SetStateAction, useMemo } from 'react'
+import { type Weapon, type WeaponData } from 'data/weapons/guns/weaponTypes'
+import { type Dispatch, type FC, type SetStateAction, useMemo } from 'react'
 import { useBuildsStore } from 'state/useBuildsStore'
 import styled from 'styled-components'
 import { blue } from 'utils/colours'

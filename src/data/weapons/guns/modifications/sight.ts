@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
 import { assaultRifleList, submachineGunList } from '../gunList'
-import { CompatibleWeapons, ModificationList } from '../weaponTypes'
+import { type CompatibleWeapons, type ModificationList } from '../weaponTypes'
 
 const mainGuns: CompatibleWeapons = {
 	assaultRifle: assaultRifleList,

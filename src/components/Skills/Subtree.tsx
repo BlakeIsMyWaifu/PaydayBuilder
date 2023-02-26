@@ -1,11 +1,11 @@
-import { SkillData, SubtreeData, TreeNames } from 'data/abilities/skills'
-import { Dispatch, FC, SetStateAction } from 'react'
+import { type SkillData, type SubtreeData, type TreeNames } from 'data/abilities/skills'
+import { type Dispatch, type FC, type SetStateAction } from 'react'
 import { useIsMobile } from 'state/settingsContext'
 import { useSkillsStore } from 'state/useSkillsStore'
 import styled from 'styled-components'
 import corner from 'utils/corner'
 
-import Skill, { SkillProps } from './Skill'
+import Skill, { type SkillProps } from './Skill'
 
 const Container = styled(corner)`
 	position: relative;

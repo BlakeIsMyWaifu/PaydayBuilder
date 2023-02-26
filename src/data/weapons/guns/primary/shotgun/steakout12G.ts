@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
 import magazine from '../../modifications/magazine'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunCustom, shotgunGadgetMagnifier, shotgunSight } from '../commonModifications/shotgunModifications'
 
 const steakout12G: WeaponData = {

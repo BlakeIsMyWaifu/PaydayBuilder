@@ -4,7 +4,7 @@ import barrel from '../../modifications/barrel'
 import bipod from '../../modifications/bipod'
 import foregrip from '../../modifications/foregrip'
 import stock from '../../modifications/stock'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { lightMachineGunBarrelExt, lightMachineGunBoost, lightMachineGunGadget } from '../commonModifications/lightMachineGunModifications'
 
 const ksp: WeaponData = {

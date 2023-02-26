@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
 import magazine from '../../modifications/magazine'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
 const geckoM2: WeaponData = {

@@ -1,6 +1,6 @@
-import content, { ContentData } from 'data/source/downloadableContent'
-import source, { SourceData } from 'data/source/miscSources'
-import { ThrowableList } from 'data/weapons/throwables'
+import content, { type ContentData } from 'data/source/downloadableContent'
+import source, { type SourceData } from 'data/source/miscSources'
+import { type ThrowableList } from 'data/weapons/throwables'
 
 export type PerkDeckList =
 	| 'Crew Chief'

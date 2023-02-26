@@ -1,7 +1,7 @@
 import source from 'data/source/miscSources'
 
 import upperReceiver from '../../modifications/upperReceiver'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { specialBoostTotalAmmo, specialGadget } from '../commonModifications/specialModifications'
 
 const xl556Microgun: WeaponData = {

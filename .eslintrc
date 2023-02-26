@@ -4,7 +4,8 @@
 	"parserOptions": {
 		"ecmaFeatures": {
 			"jsx": true
-		}
+		},
+		"project": "./tsconfig.json"
 	},
 	"plugins": [
 		"@typescript-eslint",
@@ -15,6 +16,7 @@
 		"eslint:recommended",
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended",
+		"plugin:@typescript-eslint/recommended-requiring-type-checking",
 		"plugin:react/recommended",
 		"plugin:react/jsx-runtime",
 		"plugin:react-hooks/recommended",
@@ -102,7 +104,19 @@
 				"html": true
 			}
 		],
+		"react/jsx-max-props-per-line": [
+			"warn",
+			{
+				"maximum": 2
+			}
+		],
 		"react-hooks/rules-of-hooks": "error",
-		"react-hooks/exhaustive-deps": "warn"
+		"react-hooks/exhaustive-deps": "warn",
+		"@typescript-eslint/consistent-type-imports": [
+			"warn",
+			{
+				"fixStyle": "inline-type-imports"
+			}
+		]
 	}
 }

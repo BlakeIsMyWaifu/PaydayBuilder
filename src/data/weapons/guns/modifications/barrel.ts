@@ -1,7 +1,7 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { ModificationList } from '../weaponTypes'
+import { type ModificationList } from '../weaponTypes'
 
 export type BarrelModificationsList =
 	// AK, AK.762, Golden AK.762

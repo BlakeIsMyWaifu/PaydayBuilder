@@ -1,7 +1,7 @@
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/elements/infoElements'
 import { CopycatCards } from 'data/abilities/perks'
-import { PerkCardIndex } from 'pages/perkdeck'
-import { FC } from 'react'
+import { type PerkCardIndex } from 'pages/perkdeck'
+import { type FC } from 'react'
 import { useAbilityStore } from 'state/useAbilitiesStore'
 
 interface PerkTabProps {

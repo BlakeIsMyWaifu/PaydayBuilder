@@ -1,7 +1,7 @@
 import { Data, Head, Label, Row, Table } from 'components/Table/Table-Elements'
 import statLimit from 'data/weapons/guns/statLimit'
-import { Modification, ModificationStats, WeaponData, WeaponStats } from 'data/weapons/guns/weaponTypes'
-import { FC } from 'react'
+import { type Modification, type ModificationStats, type WeaponData, type WeaponStats } from 'data/weapons/guns/weaponTypes'
+import { type FC } from 'react'
 import { colourCompare, green, purple, red } from 'utils/colours'
 import { twoDP } from 'utils/maths'
 

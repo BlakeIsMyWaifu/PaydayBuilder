@@ -1,14 +1,14 @@
 import abilities from 'data/abilities/crewAbilities'
 import boosts from 'data/abilities/crewBoosts'
-import { PerkDeckList } from 'data/abilities/perks'
+import { type PerkDeckList } from 'data/abilities/perks'
 import characters from 'data/character/characters'
-import { MaskList, allMasks } from 'data/character/masks'
-import { CrewData } from 'pages/crewmanagement'
+import { type MaskList, allMasks } from 'data/character/masks'
+import { type CrewData } from 'pages/crewmanagement'
 import { encodeCopycat, encodePerkDeck } from 'utils/encodeBuild'
 import { create } from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
-import { Slice, createActionName } from './storeTypes'
+import { type Slice, createActionName } from './storeTypes'
 import { updateData } from './useBuildsStore'
 
 // State

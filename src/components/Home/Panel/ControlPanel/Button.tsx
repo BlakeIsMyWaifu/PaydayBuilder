@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 import styled from 'styled-components'
 
 const background = 'rgba(57, 63, 84, 0.8)'
@@ -32,7 +32,8 @@ interface ButtonProps {
 const Button: FC<ButtonProps> = ({ text, callback }) => {
 	return (
 		<Container>
-			<Input type='button' onClick={callback} value={text} />
+			<Input type='button' onClick={callback}
+				value={text} />
 		</Container>
 	)
 }

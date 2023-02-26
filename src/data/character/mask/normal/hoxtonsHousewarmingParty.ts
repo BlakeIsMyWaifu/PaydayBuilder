@@ -1,7 +1,7 @@
-import { MaskData } from 'data/character/masks'
+import { type MaskData } from 'data/character/masks'
 import content from 'data/source/downloadableContent'
 
-import { NormalCollectionList } from '../normal'
+import { type NormalCollectionList } from '../normal'
 
 export type HoxtonsHouseWarmingPartyList =
 	| 'Al Capone'

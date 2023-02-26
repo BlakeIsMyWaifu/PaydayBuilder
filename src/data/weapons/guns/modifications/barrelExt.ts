@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
 import { assaultRifleList, lightMachineGunList, shotgunList, submachineGunList } from '../gunList'
-import { CompatibleWeapons, ModificationList } from '../weaponTypes'
+import { type CompatibleWeapons, type ModificationList } from '../weaponTypes'
 
 const autoGuns: CompatibleWeapons = {
 	assaultRifle: assaultRifleList,
@@ -36,8 +36,8 @@ const mainPistols: CompatibleWeapons = {
 
 const mainPistolsWithBroomstick: CompatibleWeapons = {
 	pistol: [
-		...Object.values(mainPistols),
-		'Broomstick Pistol'
+		...(mainPistols.pistol ?? []),
+		'Broomstick'
 	]
 }
 
@@ -568,8 +568,8 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 		},
 		compatibleWeapons: {
 			pistol: [
-				...Object.values(mainPistolsWithBroomstick),
-				'Bronco .44 Pistol'
+				...(mainPistolsWithBroomstick.pistol ?? []),
+				'Bronco .44'
 			]
 		}
 	},

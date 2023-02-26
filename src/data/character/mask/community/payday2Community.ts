@@ -1,8 +1,8 @@
-import { MaskData } from 'data/character/masks'
+import { type MaskData } from 'data/character/masks'
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { CommunityCollectionList } from '../community'
+import { type CommunityCollectionList } from '../community'
 
 export type Payday2CommunityList =
 	| 'Mark'

@@ -1,7 +1,7 @@
-import boost, { BoostModificationsList } from '../../modifications/boost'
-import gadget, { GadgetModificationsList } from '../../modifications/gadget'
-import sight, { SightModificationsList } from '../../modifications/sight'
-import { Modification } from '../../weaponTypes'
+import boost, { type BoostModificationsList } from '../../modifications/boost'
+import gadget, { type GadgetModificationsList } from '../../modifications/gadget'
+import sight, { type SightModificationsList } from '../../modifications/sight'
+import { type Modification } from '../../weaponTypes'
 
 export const sniperBoost: Modification<BoostModificationsList>[] = [
 	boost.Concealment,

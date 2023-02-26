@@ -1,6 +1,6 @@
-import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import { type Dispatch, type FC, type SetStateAction, useEffect, useState } from 'react'
 import { FaFolderOpen, FaTrash, FaUndoAlt, FaUpload } from 'react-icons/fa'
-import { BuildSave, defaultBuild, useBuildsStore } from 'state/useBuildsStore'
+import { type BuildSave, defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import { blue, red } from 'utils/colours'
 import { trpc } from 'utils/trpc'
 
@@ -23,8 +23,8 @@ const LocalBuilds: FC<LocalBuildsProps> = ({ setToggleBuilds }) => {
 	const utils = trpc.useContext()
 
 	const pushNewBuild = trpc.builds.pushNewBuild.useMutation({
-		onSuccess() {
-			utils.builds.getAllBuilds.invalidate()
+		async onSuccess() {
+			await utils.builds.getAllBuilds.invalidate()
 		}
 	})
 

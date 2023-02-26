@@ -1,7 +1,7 @@
-import perkDecks, { PerkData } from 'data/abilities/perks'
+import perkDecks, { type PerkData } from 'data/abilities/perks'
 import throwables from 'data/weapons/throwables'
-import { PerkCardIndex } from 'pages/perkdeck'
-import { Dispatch, FC, RefObject, SetStateAction } from 'react'
+import { type PerkCardIndex } from 'pages/perkdeck'
+import { type Dispatch, type FC, type RefObject, type SetStateAction } from 'react'
 import { useIsMobile } from 'state/settingsContext'
 import { useAbilityStore } from 'state/useAbilitiesStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
@@ -148,7 +148,8 @@ const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPer
 							onMouseDown={event => cardClickHandler(event.button, i)}
 							onContextMenu={event => event.preventDefault()}
 							selected={selectedPerk.name === perk.name}>
-							<CardBackground src='/images/perks/card.png' onMouseDown={event => event.preventDefault()} selected={selectedPerk.name === perk.name} />
+							<CardBackground src='/images/perks/card.png' onMouseDown={event => event.preventDefault()}
+								selected={selectedPerk.name === perk.name} />
 							<CardIcon x={x} y={y} />
 							{perk.name === 'Copycat' && !(i % 2) && <CardNumber>{copycatCards[i / 2] + 1}/{i === 8 ? 22 : 4}</CardNumber>}
 						</Card>

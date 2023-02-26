@@ -1,7 +1,7 @@
-import { MaskData } from 'data/character/masks'
+import { type MaskData } from 'data/character/masks'
 import source from 'data/source/miscSources'
 
-import { CollaborationCollectionList } from '../collaboration'
+import { type CollaborationCollectionList } from '../collaboration'
 
 export type SaintsRowTheThirdRemasteredList =
 	'Shady Business'

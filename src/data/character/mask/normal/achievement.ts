@@ -1,7 +1,7 @@
-import { MaskData } from 'data/character/masks'
+import { type MaskData } from 'data/character/masks'
 import source from 'data/source/miscSources'
 
-import { NormalCollectionList } from '../normal'
+import { type NormalCollectionList } from '../normal'
 
 export type AchievementList =
 	| 'Almir\'s Beard'

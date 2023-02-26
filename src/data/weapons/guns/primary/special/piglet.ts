@@ -5,7 +5,7 @@ import barrel from '../../modifications/barrel'
 import gadget from '../../modifications/gadget'
 import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { specialBoost, specialGadget, specialSight } from '../commonModifications/specialModifications'
 
 const piglet: WeaponData = {

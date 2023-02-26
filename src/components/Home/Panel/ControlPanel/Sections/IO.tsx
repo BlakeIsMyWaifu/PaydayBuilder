@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction } from 'react'
+import { type Dispatch, type FC, type SetStateAction } from 'react'
 import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import { isDev } from 'utils/isDev'
 

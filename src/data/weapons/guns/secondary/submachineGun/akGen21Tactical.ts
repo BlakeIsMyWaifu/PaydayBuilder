@@ -4,7 +4,7 @@ import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
 import grip from '../../modifications/grip'
 import stock from '../../modifications/stock'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
 const akGen21Tactical: WeaponData = {

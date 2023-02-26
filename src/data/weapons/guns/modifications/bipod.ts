@@ -1,6 +1,6 @@
 import source from 'data/source/miscSources'
 
-import { ModificationList } from '../weaponTypes'
+import { type ModificationList } from '../weaponTypes'
 
 export type BipodModificationsList =
 	| 'Lion\'s Bipod'

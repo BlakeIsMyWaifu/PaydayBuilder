@@ -1,7 +1,7 @@
-import { MaskData } from 'data/character/masks'
+import { type MaskData } from 'data/character/masks'
 import content from 'data/source/downloadableContent'
 
-import { CollaborationCollectionList } from '../collaboration'
+import { type CollaborationCollectionList } from '../collaboration'
 
 export type DeadByDaylightDeluxeList =
 	| 'Feeder'

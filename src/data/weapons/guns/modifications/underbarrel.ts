@@ -1,6 +1,6 @@
 import content from 'data/source/downloadableContent'
 
-import { ModificationList } from '../weaponTypes'
+import { type ModificationList } from '../weaponTypes'
 
 export type UnderbarrelModificationsList =
 	// Káng Arms Model 54

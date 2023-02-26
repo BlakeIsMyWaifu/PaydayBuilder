@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FC, ReactNode } from 'react'
+import { type FC, type ReactNode } from 'react'
 import { useIsMobile } from 'state/settingsContext'
 import styled from 'styled-components'
 import { blue } from 'utils/colours'
@@ -100,7 +100,8 @@ const Container: FC<ContainerProps> = ({
 	}
 
 	return (
-		<Area columns={columns} rows={rows} areas={areas}>
+		<Area columns={columns} rows={rows}
+			areas={areas}>
 
 			{title && <Title>{title}</Title>}
 

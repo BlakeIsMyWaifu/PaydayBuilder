@@ -1,7 +1,7 @@
 import source from 'data/source/miscSources'
 
 import barrelExt from '../../modifications/barrelExt'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { sniperBoost, sniperGadgetMagnifier, sniperSight } from '../commonModifications/sniperModifications'
 
 const platypus70: WeaponData = {

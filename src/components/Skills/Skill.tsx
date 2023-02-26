@@ -1,6 +1,6 @@
-import { SkillData, SubtreeData, TreeNames } from 'data/abilities/skills'
+import { type SkillData, type SubtreeData, type TreeNames } from 'data/abilities/skills'
 import useHoldButton from 'hooks/useHoldButton'
-import { Dispatch, FC, MouseEvent, SetStateAction, useCallback, useState } from 'react'
+import { type Dispatch, type FC, type MouseEvent, type SetStateAction, useCallback, useState } from 'react'
 import { useSkillsStore } from 'state/useSkillsStore'
 import styled, { css, keyframes } from 'styled-components'
 import { grey } from 'utils/colours'
@@ -191,7 +191,9 @@ const Skill: FC<SkillProps> = ({ treeName, subtree, skill, setSkillHovered }) =>
 			})}>
 				{skillState === 'locked' && <Locked />}
 				{skillState === 'aced' && <Aced />}
-				<SkillIcon x={skill.pos[0]} y={skill.pos[1]} state={skillState} redFlash={redFlash} onAnimationEnd={() => setRedFlash(false)} />
+				<SkillIcon x={skill.pos[0]} y={skill.pos[1]}
+					state={skillState} redFlash={redFlash}
+					onAnimationEnd={() => setRedFlash(false)} />
 			</Icon>
 			<Label redFlash={redFlash} colour={skillState === 'locked' ? grey : '#fff'}>{skill.name}</Label>
 		</Container>

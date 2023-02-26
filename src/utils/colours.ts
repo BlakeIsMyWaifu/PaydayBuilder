@@ -1,4 +1,4 @@
-import { ContentRarity } from 'data/source/downloadableContent'
+import { type ContentRarity } from 'data/source/downloadableContent'
 
 export const raisinBlack = '#26252E'
 export const grey = '#2C2F33'

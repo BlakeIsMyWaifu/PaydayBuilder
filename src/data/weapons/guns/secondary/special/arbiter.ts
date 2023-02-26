@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import ammunition from '../../modifications/ammunition'
 import barrel from '../../modifications/barrel'
 import gadget from '../../modifications/gadget'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { specialBoost, specialGadget, specialSight } from '../commonModifications/specialModifications'
 
 const arbiter: WeaponData = {

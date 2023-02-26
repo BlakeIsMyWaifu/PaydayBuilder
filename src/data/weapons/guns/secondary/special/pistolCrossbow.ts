@@ -4,7 +4,7 @@ import ammunition from '../../modifications/ammunition'
 import barrel from '../../modifications/barrel'
 import grip from '../../modifications/grip'
 import sight from '../../modifications/sight'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { specialBoostTotalAmmo } from '../commonModifications/specialModifications'
 
 const pistolCrossbow: WeaponData = {

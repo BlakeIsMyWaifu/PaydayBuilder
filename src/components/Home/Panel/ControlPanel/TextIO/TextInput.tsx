@@ -1,4 +1,4 @@
-import { FC, KeyboardEvent, MouseEvent, useRef } from 'react'
+import { type FC, type KeyboardEvent, type MouseEvent, useRef } from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 
 import { Button, Container, Input } from './textIOElements'

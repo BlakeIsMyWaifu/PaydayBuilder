@@ -6,7 +6,7 @@ import gadget from '../../modifications/gadget'
 import grip from '../../modifications/grip'
 import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 
 const northStar: WeaponData = {
 	name: 'North Star',

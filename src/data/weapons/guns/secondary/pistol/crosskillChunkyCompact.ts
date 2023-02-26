@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 
 import magazine from '../../modifications/magazine'
 import slide from '../../modifications/slide'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
 const crosskillChunkyCompact: WeaponData = {

@@ -20,7 +20,7 @@ const useBuildImporter = (): boolean => {
 				.replaceAll('@', '%40')
 			nonEncodedQuery.n = router.query.n?.toString()
 				.replaceAll(' ', '+')
-			const urlData = Object.entries(nonEncodedQuery).map(([k, v]) => `${k}=${v}`).join('&')
+			const urlData = Object.entries(nonEncodedQuery).map(([k, v]) => `${k}=${typeof v === 'string' ? v : ''}`).join('&')
 			importBuild(urlData, urlData !== builds[current].data && builds[current].data !== defaultBuild)
 		} else {
 			importBuild(builds[current].data)
@@ -33,7 +33,7 @@ const useBuildImporter = (): boolean => {
 
 	useEffect(() => {
 		if (!hasImportedURL) return
-		router.push(`${router.asPath.split('?').at(0)}/?${builds[current].data}`.replace('//', '/'))
+		router.push(`${router.asPath.split('?').at(0) ?? ''}/?${builds[current].data}`.replace('//', '/')).catch(console.error)
 		// If router is added, it will endlessly loop
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [current, builds, hasImportedURL, router.route])

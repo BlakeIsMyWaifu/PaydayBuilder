@@ -1,7 +1,7 @@
 import source from 'data/source/miscSources'
 
 import barrel from '../../modifications/barrel'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { akimboShotgunAmmunition, akimboShotgunBarrelExt, akimboShotgunBoost, akimboShotgunGadget } from '../commonModifications/akimboShotgunModifications'
 
 const akimboGoliath12G: WeaponData = {

@@ -1,7 +1,7 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { CompatibleWeapons, ModificationList } from '../weaponTypes'
+import { type CompatibleWeapons, type ModificationList } from '../weaponTypes'
 
 const AKRifles: CompatibleWeapons = {
 	assaultRifle: [

@@ -1,7 +1,7 @@
 import content from 'data/source/downloadableContent'
 
 import ammunition from '../../modifications/ammunition'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { specialBoostTotalAmmo } from '../commonModifications/specialModifications'
 
 const englishLongbow: WeaponData = {

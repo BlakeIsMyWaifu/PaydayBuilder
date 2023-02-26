@@ -1,20 +1,20 @@
-import { FC, MouseEvent, useRef } from 'react'
+import { type FC, type MouseEvent, useRef } from 'react'
 import { FaClipboardList } from 'react-icons/fa'
 
 import { Button, Container, Input } from './textIOElements'
 
 interface TextOutputProps {
 	value: string;
-	callback: (value: string) => void;
+	callback: (value: string) => Promise<void>;
 }
 
 const TextOutput: FC<TextOutputProps> = ({ value, callback }) => {
 
 	const outputRef = useRef<HTMLInputElement>(null)
 
-	const outputOnClick = (event: MouseEvent<HTMLButtonElement>): void => {
+	const outputOnClick = async (event: MouseEvent<HTMLButtonElement>): Promise<void> => {
 		event.preventDefault()
-		callback(value)
+		await callback(value)
 	}
 
 	return (
@@ -27,7 +27,7 @@ const TextOutput: FC<TextOutputProps> = ({ value, callback }) => {
 				onMouseLeave={() => outputRef.current?.blur()}
 				readOnly
 			/>
-			<Button type='submit' onClick={outputOnClick}> <FaClipboardList /> </Button>
+			<Button type='submit' onClick={() => void outputOnClick}> <FaClipboardList /> </Button>
 		</Container>
 	)
 }

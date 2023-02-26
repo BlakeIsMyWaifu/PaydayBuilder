@@ -1,4 +1,4 @@
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import $57Ap from '../pistol/57Ap'
 import babyDeagle from '../pistol/babyDeagle'
 import bernetti9 from '../pistol/bernetti9'

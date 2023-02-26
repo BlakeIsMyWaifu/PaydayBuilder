@@ -19,7 +19,7 @@ import stock from './modifications/stock'
 import underbarrel from './modifications/underbarrel'
 import upperReceiver from './modifications/upperReceiver'
 import verticalGrip from './modifications/verticalGrip'
-import { ModIcon, ModificationList, ModificationSlot } from './weaponTypes'
+import { type ModIcon, type ModificationList, type ModificationSlot } from './weaponTypes'
 
 export const modificationList: Record<ModificationSlot, ModificationList<string>> = {
 	ammunition,

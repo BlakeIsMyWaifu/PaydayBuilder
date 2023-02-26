@@ -1,4 +1,4 @@
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import akGen21Tactical from '../submachineGun/akGen21Tactical'
 import blaster9mm from '../submachineGun/blaster9mm'
 import chicagoTypewriter from '../submachineGun/chicagoTypewriter'

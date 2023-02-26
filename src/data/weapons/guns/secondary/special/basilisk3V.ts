@@ -4,7 +4,7 @@ import ammunition from '../../modifications/ammunition'
 import barrel from '../../modifications/barrel'
 import receiver from '../../modifications/receiver'
 import stock from '../../modifications/stock'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { specialBoost, specialGadget, specialSight } from '../commonModifications/specialModifications'
 
 const basilisk3V: WeaponData = {

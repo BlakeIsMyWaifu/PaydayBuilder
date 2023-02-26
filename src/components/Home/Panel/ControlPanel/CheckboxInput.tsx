@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.label`
@@ -69,7 +69,8 @@ interface CheckboxInputProps {
 const CheckboxInput: FC<CheckboxInputProps> = ({ state, callback }) => {
 	return (
 		<Container>
-			<Input type='checkbox' checked={state} readOnly />
+			<Input type='checkbox' checked={state}
+				readOnly />
 			<Label onClick={() => {
 				callback(state)
 			}} />

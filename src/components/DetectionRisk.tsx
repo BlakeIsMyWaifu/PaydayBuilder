@@ -1,7 +1,7 @@
 import useArmourStats from 'hooks/useArmourStats'
 import useMeleeStats from 'hooks/useMeleeStats'
 import useWeaponStats from 'hooks/useWeaponStats'
-import { FC, MouseEvent, memo } from 'react'
+import { type FC, type MouseEvent, memo } from 'react'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'

@@ -1,6 +1,6 @@
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
-import { WeaponData, WeaponFind } from 'data/weapons/guns/weaponTypes'
+import { type WeaponData, type WeaponFind } from 'data/weapons/guns/weaponTypes'
 
 export const findWeapon = ({ name, type, slot }: WeaponFind): WeaponData => {
 	name ??= 'AMCAR'

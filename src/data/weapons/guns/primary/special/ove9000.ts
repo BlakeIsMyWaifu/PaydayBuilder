@@ -2,7 +2,7 @@ import source from 'data/source/miscSources'
 
 import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { specialBoostTotalAmmo } from '../commonModifications/specialModifications'
 
 const ove9000: WeaponData = {

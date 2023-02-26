@@ -1,4 +1,4 @@
-import { ModificationStats } from './weaponTypes'
+import { type ModificationStats } from './weaponTypes'
 
 const statLimit: ModificationStats = {
 	accuracy: 100,

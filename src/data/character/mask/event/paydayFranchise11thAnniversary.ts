@@ -1,7 +1,7 @@
-import { MaskData } from 'data/character/masks'
+import { type MaskData } from 'data/character/masks'
 import content from 'data/source/downloadableContent'
 
-import { EventCollectionList } from '../event'
+import { type EventCollectionList } from '../event'
 
 export type PaydayFranchise11thAnniversaryList =
 	| 'Family Man Dark'

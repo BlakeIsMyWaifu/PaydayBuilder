@@ -1,6 +1,6 @@
 import content from 'data/source/downloadableContent'
 
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const littleFriend762: WeaponData = {

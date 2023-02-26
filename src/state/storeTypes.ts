@@ -1,4 +1,4 @@
-import { StateCreator, StoreMutators } from 'zustand'
+import { type StateCreator, type StoreMutators } from 'zustand'
 
 export type DevTools = ['zustand/devtools', never]
 

@@ -1,4 +1,4 @@
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import airbow from '../special/airbow'
 import decaTechnologiesCompoundBow from '../special/decaTechnologiesCompoundBow'
 import englishLongbow from '../special/englishLongbow'

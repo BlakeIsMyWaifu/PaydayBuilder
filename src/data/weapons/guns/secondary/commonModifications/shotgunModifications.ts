@@ -1,9 +1,9 @@
-import ammunition, { AmmunitionModificationsList } from '../../modifications/ammunition'
-import barrelExt, { BarrelExtModificationsList } from '../../modifications/barrelExt'
-import boost, { BoostModificationsList } from '../../modifications/boost'
-import gadget, { GadgetModificationsList } from '../../modifications/gadget'
-import sight, { SightModificationsList } from '../../modifications/sight'
-import { Modification } from '../../weaponTypes'
+import ammunition, { type AmmunitionModificationsList } from '../../modifications/ammunition'
+import barrelExt, { type BarrelExtModificationsList } from '../../modifications/barrelExt'
+import boost, { type BoostModificationsList } from '../../modifications/boost'
+import gadget, { type GadgetModificationsList } from '../../modifications/gadget'
+import sight, { type SightModificationsList } from '../../modifications/sight'
+import { type Modification } from '../../weaponTypes'
 
 export const shotgunAmmunition: Modification<AmmunitionModificationsList>[] = [
 	ammunition['000 Buckshot (Community)'],

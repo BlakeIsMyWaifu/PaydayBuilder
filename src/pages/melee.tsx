@@ -4,7 +4,7 @@ import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'component
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/elements/itemElements'
 import MeleeStatsTable from 'components/Table/MeleeStatsTable'
 import melees from 'data/weapons/melees'
-import { NextPage } from 'next'
+import { type NextPage } from 'next'
 import { useState } from 'react'
 import { useIsLeftFacing, useIsMobile } from 'state/settingsContext'
 import { useWeaponsStore } from 'state/useWeaponsStore'

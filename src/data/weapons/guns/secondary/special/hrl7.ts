@@ -1,7 +1,7 @@
 import content from 'data/source/downloadableContent'
 
 import gadget from '../../modifications/gadget'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { specialBoost, specialSight } from '../commonModifications/specialModifications'
 
 const hrl7: WeaponData = {

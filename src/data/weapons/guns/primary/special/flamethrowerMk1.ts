@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 
 import boost from '../../modifications/boost'
 import magazine from '../../modifications/magazine'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { specialBoostTotalAmmo } from '../commonModifications/specialModifications'
 
 const flamethrowerMk1: WeaponData = {

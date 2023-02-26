@@ -1,6 +1,6 @@
 import { InfoContainer, InfoTitle } from 'components/elements/infoElements'
-import { SkillData } from 'data/abilities/skills'
-import { FC } from 'react'
+import { type SkillData } from 'data/abilities/skills'
+import { type FC } from 'react'
 import styled from 'styled-components'
 import { blue } from 'utils/colours'
 

@@ -2,7 +2,7 @@ import source from 'data/source/miscSources'
 
 import barrel from '../../modifications/barrel'
 import magazine from '../../modifications/magazine'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
 const $57Ap: WeaponData = {

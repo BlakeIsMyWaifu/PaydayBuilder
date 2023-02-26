@@ -1,7 +1,13 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 import statLimit from 'data/weapons/guns/statLimit'
-import { ModificationStats } from 'data/weapons/guns/weaponTypes'
-import { FC, ReactNode } from 'react'
+import { type ModificationStats } from 'data/weapons/guns/weaponTypes'
+import { type FC, type ReactNode } from 'react'
 import { blue, colourCompare, purple, sycamore } from 'utils/colours'
 import { twoDP } from 'utils/maths'
 

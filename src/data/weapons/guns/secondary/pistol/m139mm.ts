@@ -2,7 +2,7 @@ import source from 'data/source/miscSources'
 
 import barrel from '../../modifications/barrel'
 import grip from '../../modifications/grip'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolSight } from '../commonModifications/pistolModifications'
 
 const m139mm: WeaponData = {

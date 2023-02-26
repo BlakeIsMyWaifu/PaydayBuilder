@@ -8,7 +8,7 @@ import grip from '../../modifications/grip'
 import sight from '../../modifications/sight'
 import slide from '../../modifications/slide'
 import upperReceiver from '../../modifications/upperReceiver'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost } from '../commonModifications/pistolModifications'
 
 const bronco44: WeaponData = {

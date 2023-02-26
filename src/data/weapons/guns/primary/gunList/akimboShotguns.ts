@@ -1,4 +1,4 @@
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import akimboGoliath12G from '../akimboShotgun/akimboGoliath12G'
 import akimboJudge from '../akimboShotgun/akimboJudge'
 import akimboVd12 from '../akimboShotgun/akimboVd12'

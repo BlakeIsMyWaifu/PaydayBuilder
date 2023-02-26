@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 import barrel from '../../modifications/barrel'
 import bipod from '../../modifications/bipod'
 import stock from '../../modifications/stock'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { lightMachineGunBarrelExt, lightMachineGunBoost, lightMachineGunGadget } from '../commonModifications/lightMachineGunModifications'
 
 const ksp58: WeaponData = {

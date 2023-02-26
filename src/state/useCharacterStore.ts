@@ -1,13 +1,13 @@
-import { ArmourList } from 'data/character/armours'
-import { CharacterList } from 'data/character/characters'
-import { EquipmentList } from 'data/character/equipment'
-import { MaskList } from 'data/character/masks'
-import { Slot } from 'data/weapons/guns/weaponTypes'
+import { type ArmourList } from 'data/character/armours'
+import { type CharacterList } from 'data/character/characters'
+import { type EquipmentList } from 'data/character/equipment'
+import { type MaskList } from 'data/character/masks'
+import { type Slot } from 'data/weapons/guns/weaponTypes'
 import { encodeArmour, encodeCharacter, encodeEquipment, encodeMask } from 'utils/encodeBuild'
 import { create } from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
-import { Slice, createActionName } from './storeTypes'
+import { type Slice, createActionName } from './storeTypes'
 import { updateData } from './useBuildsStore'
 
 // State

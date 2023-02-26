@@ -1,6 +1,6 @@
-import { PerkDeckList } from 'data/abilities/perks'
-import content, { ContentData } from 'data/source/downloadableContent'
-import source, { SourceData } from 'data/source/miscSources'
+import { type PerkDeckList } from 'data/abilities/perks'
+import content, { type ContentData } from 'data/source/downloadableContent'
+import source, { type SourceData } from 'data/source/miscSources'
 
 export type ThrowableList =
 	| 'Matryoshka Grenade'

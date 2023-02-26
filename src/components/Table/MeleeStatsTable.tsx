@@ -1,8 +1,8 @@
 import TableCompare from 'components/Table/TableCompare'
 import TableEquipped from 'components/Table/TableEquipped'
-import { MeleeList } from 'data/weapons/melees'
+import { type MeleeList } from 'data/weapons/melees'
 import useMeleeStats from 'hooks/useMeleeStats'
-import { FC } from 'react'
+import { type FC } from 'react'
 
 interface MeleeStatsTableProps {
 	selectedMelee: MeleeList;

@@ -12,6 +12,9 @@ const config = {
 	i18n: {
 		locales: ['en'],
 		defaultLocale: 'en'
+	},
+	eslint: {
+		dirs: ['styles']
 	}
 }
 

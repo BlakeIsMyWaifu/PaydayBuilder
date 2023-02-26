@@ -1,4 +1,4 @@
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import ak from '../assaultRifle/ak'
 import ak17 from '../assaultRifle/ak17'
 import ak5 from '../assaultRifle/ak5'

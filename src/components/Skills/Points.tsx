@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 import { useSkillsStore } from 'state/useSkillsStore'
 import styled from 'styled-components'
 import { red } from 'utils/colours'

@@ -1,7 +1,7 @@
-import { MaskData } from 'data/character/masks'
+import { type MaskData } from 'data/character/masks'
 import source from 'data/source/miscSources'
 
-import { DlcCollectionList } from '../dlc'
+import { type DlcCollectionList } from '../dlc'
 
 export type PoetryJamList =
 	| 'Criminal Ambitions'

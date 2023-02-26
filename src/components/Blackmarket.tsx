@@ -6,9 +6,9 @@ import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'componen
 import { ResetContainer, ResetText } from 'components/elements/resetElements'
 import HorizontalBar from 'components/HorizontalBar'
 import { ModIcon, ModWrapper } from 'components/ModIcons/ModIcons'
-import { Modification, ModificationSlot, Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
+import { type Modification, type ModificationSlot, type Slot, type Weapon, type WeaponData } from 'data/weapons/guns/weaponTypes'
 import useWeaponStats from 'hooks/useWeaponStats'
-import { FC, useState } from 'react'
+import { type FC, useState } from 'react'
 import { useIsMobile } from 'state/settingsContext'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { itemColours } from 'utils/colours'
@@ -82,8 +82,8 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, mo
 	const changeTab = (tab: ModificationSlot): void => {
 		if (selectedTab === tab) return
 		const equippedItem = equippedModifications[tab]
-		const firstItem = Object.values(weapon.modifications[tab] || {})[0]
-		setSelectedItem(equippedItem || firstItem as Modification)
+		const firstItem = Object.values<Modification>(weapon.modifications[tab] ?? {})[0]
+		setSelectedItem(equippedItem ?? firstItem)
 		setSelectedTab(tab)
 	}
 
@@ -98,7 +98,7 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, mo
 			title={`Blackmarket - ${weapon.name}`}
 			backLocation={`/${slot}`}
 			desktopLayout={{
-				rows: '4rem 2rem 1fr 120px 1.5rem 4rem',
+				rows: '4rem 2rem auto 120px 1.5rem 4rem',
 				areas: '"title reset" "horizontalbar ." "items info" "items drisk" "items actions" "items back"'
 			}}
 			mobileLayout={{
@@ -114,7 +114,7 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, mo
 
 			<ItemContainer>
 				{
-					Object.values(weapon.modifications[(selectedTab as ModificationSlot)] || {}).map((mod: Modification) => {
+					Object.values(weapon.modifications[selectedTab] || {}).map((mod: Modification) => {
 						return <Item
 							key={mod.name}
 							rowAmount={4}

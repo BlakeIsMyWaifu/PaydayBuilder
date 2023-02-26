@@ -6,21 +6,21 @@ import { ResetContainer, ResetText } from 'components/elements/resetElements'
 import HorizontalBar from 'components/HorizontalBar'
 import Info from 'components/Info'
 import ModIcons from 'components/ModIcons'
-import { Slot, Weapon, WeaponData } from 'data/weapons/guns/weaponTypes'
+import { type Slot, type Weapon, type WeaponData } from 'data/weapons/guns/weaponTypes'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { Dispatch, FC, Fragment, SetStateAction, useState } from 'react'
+import { type Dispatch, type FC, Fragment, type SetStateAction, useState } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
 import { useIsLeftFacing, useIsMobile } from 'state/settingsContext'
 import { useArmouryStore } from 'state/useArmouryStore'
-import { BuildSave, useBuildsStore } from 'state/useBuildsStore'
+import { type BuildSave, useBuildsStore } from 'state/useBuildsStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import styled from 'styled-components'
 import { blue, itemColours } from 'utils/colours'
 import findWeapon from 'utils/findWeapon'
 import { findNextNum } from 'utils/maths'
 
-import BuildsArmoury, { BuildTab } from './BuildsArmoury'
+import BuildsArmoury, { type BuildTab } from './BuildsArmoury'
 import WeaponInfo from './WeaponInfo'
 
 const BuyContainer = styled(Item)`
@@ -300,7 +300,7 @@ const ArmouryItems: FC<ArmouryItemsProps> = ({ weaponsData, isActiveBuild, selec
 						onClick={() => {
 							if (selectedWeaponId === id && isActiveBuild) {
 								if (equippedWeaponId === id) {
-									router.push(`/blackmarket/${slot}/${selectedWeaponId}`)
+									router.push(`/blackmarket/${slot}/${selectedWeaponId}`).catch(console.error)
 								} else {
 									changeWeapon(slot, id)
 								}

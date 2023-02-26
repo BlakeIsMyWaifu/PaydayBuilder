@@ -1,4 +1,4 @@
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import arbiter from '../special/arbiter'
 import basilisk3V from '../special/basilisk3V'
 import cashBlaster from '../special/cashBlaster'

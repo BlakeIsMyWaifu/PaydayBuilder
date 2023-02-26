@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 
 import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
 const holt9mm: WeaponData = {

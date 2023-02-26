@@ -1,8 +1,8 @@
 import TableCompare from 'components/Table/TableCompare'
 import TableEquipped from 'components/Table/TableEquipped'
-import { ArmourList } from 'data/character/armours'
+import { type ArmourList } from 'data/character/armours'
 import useArmourStats from 'hooks/useArmourStats'
-import { FC } from 'react'
+import { type FC } from 'react'
 
 interface ArmourStatsTableProps {
 	selectedArmour: ArmourList;

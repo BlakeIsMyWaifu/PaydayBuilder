@@ -5,7 +5,7 @@ import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
 import slide from '../../modifications/slide'
 import stock from '../../modifications/stock'
-import { WeaponData } from '../../weaponTypes'
+import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
 const broomstick: WeaponData = {

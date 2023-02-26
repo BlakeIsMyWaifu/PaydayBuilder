@@ -1,9 +1,9 @@
-import { Category } from '../masks'
-import deadByDaylightCommunity, { DeadByDaylightCommunityList } from './community/deadByDaylightCommunity'
-import payday2Community, { Payday2CommunityList } from './community/payday2Community'
-import primeMatter, { PrimeMatterList } from './community/primeMatter'
-import starbreezeAccount, { StarbreezeAccountList } from './community/starbreezeAccount'
-import theSolusProjectCommunity, { TheSolusProjectCommunityList } from './community/theSolusProjectCommunity'
+import { type Category } from '../masks'
+import deadByDaylightCommunity, { type DeadByDaylightCommunityList } from './community/deadByDaylightCommunity'
+import payday2Community, { type Payday2CommunityList } from './community/payday2Community'
+import primeMatter, { type PrimeMatterList } from './community/primeMatter'
+import starbreezeAccount, { type StarbreezeAccountList } from './community/starbreezeAccount'
+import theSolusProjectCommunity, { type TheSolusProjectCommunityList } from './community/theSolusProjectCommunity'
 
 export type CommunityCollectionList =
 	| 'Dead by Daylight Community'

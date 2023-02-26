@@ -1,7 +1,7 @@
 import Blackmarket from 'components/Blackmarket'
 import Container from 'components/Container'
 import { useRouter } from 'next/router'
-import { FC } from 'react'
+import { type FC } from 'react'
 
 const BlackmarketSlug: FC = () => {
 
@@ -14,7 +14,8 @@ const BlackmarketSlug: FC = () => {
 		<h1>Invalid URL parameters</h1>
 	</Container>
 
-	return <Blackmarket slot={slot} id={id} modtype={modType} />
+	return <Blackmarket slot={slot} id={id}
+		modtype={modType} />
 }
 
 export default BlackmarketSlug

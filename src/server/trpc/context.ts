@@ -1,6 +1,6 @@
-import { inferAsyncReturnType } from '@trpc/server'
-import { CreateNextContextOptions } from '@trpc/server/adapters/next'
-import { Session } from 'next-auth'
+import { type inferAsyncReturnType } from '@trpc/server'
+import { type CreateNextContextOptions } from '@trpc/server/adapters/next'
+import { type Session } from 'next-auth'
 import { getServerAuthSession } from 'server/auth'
 
 import { prisma } from '../db'
@@ -10,7 +10,7 @@ type CreateContextOptions = {
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const createInnerTRPCContext = async (opts: CreateContextOptions) => {
+export const createInnerTRPCContext = (opts: CreateContextOptions) => {
 	return {
 		session: opts.session,
 		prisma
@@ -23,7 +23,7 @@ export const createTRPCContext = async (opts: CreateNextContextOptions) => {
 
 	const session = await getServerAuthSession({ req, res })
 
-	return await createInnerTRPCContext({
+	return createInnerTRPCContext({
 		session
 	})
 }

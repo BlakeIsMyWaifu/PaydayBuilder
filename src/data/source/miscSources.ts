@@ -1,4 +1,4 @@
-import { ContentRarity, ContentType } from './downloadableContent'
+import { type ContentRarity, type ContentType } from './downloadableContent'
 
 export interface SourceData {
 	name: SourceList;
