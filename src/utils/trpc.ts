@@ -4,7 +4,7 @@ import { type inferRouterInputs, type inferRouterOutputs } from '@trpc/server'
 import { type AppRouter } from 'server/trpc/routers/_router'
 import superjson from 'superjson'
 
-const getBaseUrl = (): string => {
+export const getBaseUrl = (): string => {
 	if (typeof window !== 'undefined') return ''
 	if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`
 	return `http://localhost:${process.env.PORT ?? 3000}`

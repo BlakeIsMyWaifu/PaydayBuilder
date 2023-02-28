@@ -12,8 +12,9 @@ import { useState } from 'react'
 import { SettingsProvider, UpdateSettingsContext } from 'state/settingsContext'
 import styled, { type DefaultTheme, ThemeProvider } from 'styled-components'
 import { isDev } from 'utils/isDev'
-import { trpc } from 'utils/trpc'
+import { getBaseUrl, trpc } from 'utils/trpc'
 import { type Session } from 'next-auth'
+import { useRouter } from 'next/router'
 
 const BackgroundImage = styled.img`
 	position: absolute;
@@ -38,6 +39,8 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 
 	const [theme, setTheme] = useState<DefaultTheme>({ isMobile: false })
 
+	const router = useRouter()
+
 	return (
 		<SessionProvider session={session}>
 			<SettingsProvider>
@@ -48,6 +51,7 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 						<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 						<title>Payday Builder</title>
 						<link rel='shortcut icon' href='/favicon.ico' />
+						<meta property='og:image' content={`${getBaseUrl()}/api/og${router.asPath}`} />
 					</Head>
 
 					<UpdateSettingsContext />

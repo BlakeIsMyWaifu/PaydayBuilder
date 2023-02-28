@@ -62,7 +62,7 @@ interface CardIconBaseProps {
 }
 
 export const CardIconBase = styled.div<CardIconBaseProps>`
-	background-position-x: calc((${props => props.x}% / 192) * 100) !important;
+	background-position-x: calc((${props => props.x}% / 192) * 100);
 	background-position-y: calc((${props => props.y}% / 1104) * 100) !important;
 	background: url('/images/perks/perks.png') 0 0 no-repeat;
 	background-size: 500% 2400%;
