@@ -42,8 +42,6 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 
 	const router = useRouter()
 
-	if (!router.isReady) return null
-
 	return (
 		<SessionProvider session={session}>
 			<SettingsProvider>

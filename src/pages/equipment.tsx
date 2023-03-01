@@ -106,4 +106,6 @@ const Equipment: NextPage = () => {
 	)
 }
 
+Equipment.getInitialProps = () => ({})
+
 export default Equipment

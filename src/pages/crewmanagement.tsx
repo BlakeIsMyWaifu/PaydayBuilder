@@ -45,4 +45,6 @@ const CrewManagement: NextPage = () => {
 	)
 }
 
+CrewManagement.getInitialProps = () => ({})
+
 export default CrewManagement
