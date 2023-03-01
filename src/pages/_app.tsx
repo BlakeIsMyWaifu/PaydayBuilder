@@ -16,7 +16,7 @@ import { getBaseUrl, trpc } from 'utils/trpc'
 import { type Session } from 'next-auth'
 import { useRouter } from 'next/router'
 import { blue } from 'utils/colours'
-import { stringifyUrlQuery } from 'utils/StringifyUrlQuery'
+import { stringifyUrlQuery } from 'utils/stringifyUrlQuery'
 
 const BackgroundImage = styled.img`
 	position: absolute;
