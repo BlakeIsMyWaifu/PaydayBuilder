@@ -93,9 +93,4 @@ const Home: NextPage = () => {
 	)
 }
 
-// eslint-disable-next-line @typescript-eslint/require-await
-Home.getInitialProps = async _context => {
-	return {}
-}
-
 export default Home

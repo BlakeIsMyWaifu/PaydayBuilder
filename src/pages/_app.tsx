@@ -32,7 +32,7 @@ interface AppProps extends NextAppProps {
 	};
 }
 
-const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX.Element => {
+const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX.Element | null => {
 
 	const hasImportedURL = useBuildImporter()
 
@@ -41,6 +41,8 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 	const [theme, setTheme] = useState<DefaultTheme>({ isMobile: false })
 
 	const router = useRouter()
+
+	if (!router.isReady) return null
 
 	return (
 		<SessionProvider session={session}>
