@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
-import { stringifyUrlQuery } from 'utils/StringifyUrlQuery'
+import { stringifyUrlQuery } from 'utils/stringifyUrlQuery'
 
 const useBuildImporter = (): boolean => {
 
