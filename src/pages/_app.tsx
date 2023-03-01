@@ -55,7 +55,7 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 						<link rel='shortcut icon' href='/favicon.ico' />
 						<meta property='og:site_name' content='pd2.dev' />
 						<meta property='og:title' content='Payday 2 Build Emulator' />
-						<meta property='og:image' content={`${getBaseUrl()}/api/og/${stringifyUrlQuery(router.query)}`} />
+						<meta property='og:image' content={`${getBaseUrl()}/api/og?${stringifyUrlQuery(router.query)}`} />
 						<meta name='twitter:card' content='summary_large_image' />
 						<meta name='theme-color' content={blue} />
 					</Head>
