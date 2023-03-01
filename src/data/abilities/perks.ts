@@ -37,6 +37,7 @@ export interface PerkData {
 
 export interface PerkCard {
 	name: string;
+	image?: string;
 	description: string[];
 	vr_description?: string;
 	stats?: stat[];
@@ -280,6 +281,7 @@ const perkDecks: Record<PerkDeckList, PerkData> = {
 		cards: [
 			{
 				name: 'Type I Armor',
+				image: 'Testudo',
 				description: [
 					'You gain 10% more armor'
 				],
@@ -446,6 +448,7 @@ const perkDecks: Record<PerkDeckList, PerkData> = {
 		cards: [
 			{
 				name: 'Basic Recovery',
+				image: 'Reinforced Armor',
 				description: [
 					'Your armor recovery rate is increased by 5%.'
 				],
@@ -633,6 +636,7 @@ const perkDecks: Record<PerkDeckList, PerkData> = {
 			},
 			{
 				name: 'Master Recovery',
+				image: 'Reinforced Armor',
 				description: [
 					'Your armor recovery rate is increased by 10%'
 				],
@@ -657,6 +661,7 @@ const perkDecks: Record<PerkDeckList, PerkData> = {
 		cards: [
 			{
 				name: 'Sneaky',
+				image: 'Subtle',
 				description: [
 					'Your chance to dodge is increased by 20%.'
 				],
@@ -1357,6 +1362,7 @@ const perkDecks: Record<PerkDeckList, PerkData> = {
 			},
 			{
 				name: 'Subtle',
+				image: 'Subtle2',
 				description: [
 					'Your chance to dodge is increased by 15%.'
 				],
@@ -1534,7 +1540,6 @@ const perkDecks: Record<PerkDeckList, PerkData> = {
 				description: [
 					'You gain 20% more health.'
 				],
-
 				stats: [
 					{
 						type: 'hp',
@@ -1579,6 +1584,7 @@ const perkDecks: Record<PerkDeckList, PerkData> = {
 			},
 			{
 				name: 'Indomitable',
+				image: 'Scent',
 				description: [
 					'Your maximum health is increased by 20%.\tWhile the Leech Ampule is active you cannot go into bleedout, but being out of health will slow you down by 80%.'
 				]
@@ -1591,6 +1597,7 @@ const perkDecks: Record<PerkDeckList, PerkData> = {
 			},
 			{
 				name: 'Built Different',
+				image: 'Inhale',
 				description: [
 					'Your maximum health is increased by 20%.'
 				]
@@ -1633,6 +1640,7 @@ const perkDecks: Record<PerkDeckList, PerkData> = {
 			},
 			{
 				name: 'Is This Your Bullet?',
+				image: 'Is This Your Bullet',
 				description: [
 					'Dodged bullets will ricochet back on the enemy that fired them.'
 				]

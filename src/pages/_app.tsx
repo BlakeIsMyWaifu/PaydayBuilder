@@ -12,8 +12,11 @@ import { useState } from 'react'
 import { SettingsProvider, UpdateSettingsContext } from 'state/settingsContext'
 import styled, { type DefaultTheme, ThemeProvider } from 'styled-components'
 import { isDev } from 'utils/isDev'
-import { trpc } from 'utils/trpc'
+import { getBaseUrl, trpc } from 'utils/trpc'
 import { type Session } from 'next-auth'
+import { useRouter } from 'next/router'
+import { blue } from 'utils/colours'
+import { stringifyUrlQuery } from 'utils/stringifyUrlQuery'
 
 const BackgroundImage = styled.img`
 	position: absolute;
@@ -30,13 +33,15 @@ interface AppProps extends NextAppProps {
 	};
 }
 
-const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX.Element => {
+const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX.Element | null => {
 
 	const hasImportedURL = useBuildImporter()
 
 	useErrorHandler()
 
 	const [theme, setTheme] = useState<DefaultTheme>({ isMobile: false })
+
+	const router = useRouter()
 
 	return (
 		<SessionProvider session={session}>
@@ -48,6 +53,11 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 						<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 						<title>Payday Builder</title>
 						<link rel='shortcut icon' href='/favicon.ico' />
+						<meta property='og:site_name' content='pd2.dev' />
+						<meta property='og:title' content='Payday 2 Build Emulator' />
+						<meta property='og:image' content={`${getBaseUrl()}/api/og?${stringifyUrlQuery(router.query)}`} />
+						<meta name='twitter:card' content='summary_large_image' />
+						<meta name='theme-color' content={blue} />
 					</Head>
 
 					<UpdateSettingsContext />

@@ -53,7 +53,7 @@ const initialState: SkillsStateSlice = {
 	trees: getTrees()
 }
 
-const createStateSlice: Slice<SkillsStore, SkillsStateSlice> = () => initialState
+export const createStateSlice: Slice<SkillsStore, SkillsStateSlice> = () => initialState
 
 // Action
 
@@ -74,7 +74,7 @@ interface SkillsActionSlice {
 
 const actionName = createActionName('skills')
 
-const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, get) => ({
+export const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, get) => ({
 	changeSkillState: ({ tree, subtree, skill, oldLevel, direction }) => {
 		const acedCost = {
 			1: 3,
@@ -204,7 +204,7 @@ const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, get) => (
 
 // Store
 
-type SkillsStore = SkillsStateSlice & SkillsActionSlice
+export type SkillsStore = SkillsStateSlice & SkillsActionSlice
 
 export const useSkillsStore = create<SkillsStore>()(devtools(subscribeWithSelector((...a) => ({
 	...createStateSlice(...a),

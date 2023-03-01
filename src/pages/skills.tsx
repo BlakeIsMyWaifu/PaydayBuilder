@@ -6,7 +6,8 @@ import Points from 'components/Skills/Points'
 import Subtree from 'components/Skills/Subtree'
 import skills, { type SkillData, type TreeData, type TreeNames } from 'data/abilities/skills'
 import equipments from 'data/character/equipment'
-import { type FC, type WheelEvent, useEffect, useState } from 'react'
+import { type NextPage } from 'next'
+import { type WheelEvent, useEffect, useState } from 'react'
 import { useIsMobile } from 'state/settingsContext'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useSkillsStore } from 'state/useSkillsStore'
@@ -44,7 +45,7 @@ const SubtreeLabel = styled.p`
 	text-align: center;
 `
 
-const Skills: FC = () => {
+const Skills: NextPage = () => {
 
 	const [currentTree, setCurrentTree] = useState<TreeData>(skills.mastermind)
 
@@ -164,5 +165,7 @@ const Skills: FC = () => {
 		</Container>
 	)
 }
+
+Skills.getInitialProps = () => ({})
 
 export default Skills

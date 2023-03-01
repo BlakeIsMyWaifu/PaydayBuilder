@@ -79,4 +79,6 @@ export const Armour: NextPage = () => {
 	)
 }
 
+Armour.getInitialProps = () => ({})
+
 export default Armour

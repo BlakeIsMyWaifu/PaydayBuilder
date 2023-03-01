@@ -1,6 +1,10 @@
 import Weapons from 'components/Weapons'
-import { type ReactElement } from 'react'
+import { type NextPage } from 'next'
 
-export default function Primary(): ReactElement {
+const Primary: NextPage = () => {
 	return <Weapons slot='primary' />
 }
+
+Primary.getInitialProps = () => ({})
+
+export default Primary

@@ -1,9 +1,9 @@
 import Blackmarket from 'components/Blackmarket'
 import Container from 'components/Container'
+import { type NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { type FC } from 'react'
 
-const BlackmarketSlug: FC = () => {
+const BlackmarketSlug: NextPage = () => {
 
 	const router = useRouter()
 	const { slug } = router.query
@@ -17,5 +17,7 @@ const BlackmarketSlug: FC = () => {
 	return <Blackmarket slot={slot} id={id}
 		modtype={modType} />
 }
+
+BlackmarketSlug.getInitialProps = () => ({})
 
 export default BlackmarketSlug

@@ -93,4 +93,6 @@ const Home: NextPage = () => {
 	)
 }
 
+Home.getInitialProps = () => ({})
+
 export default Home

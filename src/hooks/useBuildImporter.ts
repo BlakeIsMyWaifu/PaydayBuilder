@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
+import { stringifyUrlQuery } from 'utils/stringifyUrlQuery'
 
 const useBuildImporter = (): boolean => {
 
@@ -14,13 +15,7 @@ const useBuildImporter = (): boolean => {
 		if (hasImportedURL || !router.isReady) return
 
 		if (Object.keys(router.query).length) {
-			const nonEncodedQuery = router.query
-			nonEncodedQuery.s = router.query.s?.toString()
-				.replaceAll(',', '%2C')
-				.replaceAll('@', '%40')
-			nonEncodedQuery.n = router.query.n?.toString()
-				.replaceAll(' ', '+')
-			const urlData = Object.entries(nonEncodedQuery).map(([k, v]) => `${k}=${typeof v === 'string' ? v : ''}`).join('&')
+			const urlData = stringifyUrlQuery(router.query)
 			importBuild(urlData, urlData !== builds[current].data && builds[current].data !== defaultBuild)
 		} else {
 			importBuild(builds[current].data)
