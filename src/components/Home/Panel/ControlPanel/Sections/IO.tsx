@@ -27,6 +27,8 @@ const IO: FC<IOProps> = ({ setToggleControl }) => {
 		return filteredDataString.toString().length ? `/?${filteredDataString}` : ''
 	}, [builds, current])
 
+	const copyToClipboard = async (value: string): Promise<void> => await navigator.clipboard.writeText(value)
+
 	return (
 		<Section>
 			<SectionTitle>Import / Export</SectionTitle>
@@ -45,18 +47,18 @@ const IO: FC<IOProps> = ({ setToggleControl }) => {
 			{
 				isDev() && <Setting>
 					<SettingTitle>Export to localhost</SettingTitle>
-					<TextOutput value={`localhost:3000${buildData}`} callback={value => navigator.clipboard.writeText(value)} />
+					<TextOutput value={`localhost:3000${buildData}`} callback={copyToClipboard} />
 				</Setting>
 			}
 
 			<Setting>
 				<SettingTitle>Export to pd2.dev</SettingTitle>
-				<TextOutput value={`https://pd2.dev${buildData}`} callback={value => navigator.clipboard.writeText(value)} />
+				<TextOutput value={`https://pd2.dev${buildData}`} callback={copyToClipboard} />
 			</Setting>
 
 			<Setting>
 				<SettingTitle>Export to pd2builder</SettingTitle>
-				<TextOutput value={`https://pd2builder.netlify.app${buildData.split('&m=')[0]}`} callback={value => navigator.clipboard.writeText(value)} />
+				<TextOutput value={`https://pd2builder.netlify.app${buildData.split('&m=')[0]}`} callback={copyToClipboard} />
 			</Setting>
 		</Section>
 	)

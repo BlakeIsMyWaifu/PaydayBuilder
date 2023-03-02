@@ -27,7 +27,7 @@ const TextOutput: FC<TextOutputProps> = ({ value, callback }) => {
 				onMouseLeave={() => outputRef.current?.blur()}
 				readOnly
 			/>
-			<Button type='submit' onClick={() => void outputOnClick}> <FaClipboardList /> </Button>
+			<Button type='submit' onClick={event => void outputOnClick(event)}> <FaClipboardList /> </Button>
 		</Container>
 	)
 }
