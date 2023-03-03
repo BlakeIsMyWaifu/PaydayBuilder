@@ -85,7 +85,7 @@ export const encodeSkills = (trees: SkillsStateSlice['trees']): string => {
 		})
 	})
 
-	return compressData(skillsString)
+	return compressData(skillsString).replaceAll(',', '%2C').replaceAll('@', '%40')
 }
 
 export const encodePerkDeck = (perkDeck: PerkDeckList): string => encodeString(perkDecks, perkDeck)
