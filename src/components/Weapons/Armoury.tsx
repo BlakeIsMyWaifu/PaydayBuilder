@@ -190,7 +190,7 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 
 			<Info tabs={{
 				'weapon stats': <WeaponInfo
-					selectedWeapon={weaponsData[selectedWeaponId - (isActiveBuild ? 0 : 1)]}
+					selectedWeapon={weaponsData[selectedWeaponId - (isActiveBuild ? 0 : 1)] ?? armoury[0]}
 					equippedWeapon={armoury[selectedWeaponId]?.id === equippedWeaponId && isActiveBuild ? undefined : armoury[equippedWeaponId]}
 				/>,
 				builds: <BuildsArmoury
