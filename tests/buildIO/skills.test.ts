@@ -1,4 +1,4 @@
-import { deepStrictEqual } from 'node:assert'
+import { deepStrictEqual, notDeepStrictEqual } from 'node:assert'
 import { describe, it } from 'node:test'
 import { defaultBuild } from 'state/useBuildsStore'
 import { createActionSlice, createStateSlice, type SkillsStore, type SkillsStateSlice } from 'state/useSkillsStore'
@@ -801,6 +801,10 @@ describe('encode skills', () => {
 
 	it('build three', () => {
 		deepStrictEqual(buildThreeData, encodeSkills(buildThreeTrees))
+	})
+
+	it('not equal return', () => {
+		notDeepStrictEqual(encodeSkills(buildOneTrees), encodeSkills(buildTwoTrees))
 	})
 })
 
