@@ -1,16 +1,16 @@
-import perkDecks, { type PerkDeckList } from 'data/abilities/perks'
+import perkDecks from 'data/abilities/perks'
 import { type TreeNames } from 'data/abilities/skills'
-import armours, { type ArmourList } from 'data/character/armours'
+import armours from 'data/character/armours'
 import characters, { type CharacterList } from 'data/character/characters'
 import equipments, { type EquipmentData } from 'data/character/equipment'
 import { type CategoryList, allMasks } from 'data/character/masks'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
-import { type ModificationSlot, type Slot, type Weapon } from 'data/weapons/guns/weaponTypes'
+import { type ModificationSlot, type Slot } from 'data/weapons/guns/weaponTypes'
 import melees from 'data/weapons/melees'
 import throwables, { type ThrowableData, type ThrowableList } from 'data/weapons/throwables'
-import { type CopycatValues } from 'state/useAbilitiesStore'
-import { useArmouryStore } from 'state/useArmouryStore'
+import { type AbilityStateSlice } from 'state/useAbilitiesStore'
+import { type ArmouryStateSlice, useArmouryStore } from 'state/useArmouryStore'
 import { type CharacterStateSlice } from 'state/useCharacterStore'
 import { type SkillsStateSlice } from 'state/useSkillsStore'
 import { type WeaponsStateSlice } from 'state/useWeaponsStore'
@@ -88,21 +88,21 @@ export const encodeSkills = (trees: SkillsStateSlice['trees']): string => {
 	return compressData(skillsString).replaceAll(',', '%2C').replaceAll('@', '%40')
 }
 
-export const encodePerkDeck = (perkDeck: PerkDeckList): string => encodeString(perkDecks, perkDeck)
+export const encodePerkDeck = (perkDeck: AbilityStateSlice['perkDeck']): string => encodeString(perkDecks, perkDeck)
 
-export const encodeCopycat = (copycatValues: CopycatValues): string => {
+export const encodeCopycat = (copycatValues: AbilityStateSlice['copycat']): string => {
 	const out = copycatValues.map(value => encodeNumber(value + 1))
 	return compressData(out.join(''))
 }
 
-export const encodeArmour = (armour: ArmourList): string => {
+export const encodeArmour = (armour: CharacterStateSlice['armour']): string => {
 	const sortedArmour = Object.fromEntries(Object.entries(armours).sort((a, b) => {
 		return a[1].stats.armour - b[1].stats.armour
 	}))
 	return encodeString(sortedArmour, armour)
 }
 
-export const encodeThrowable = (throwable: ThrowableList): string => {
+export const encodeThrowable = (throwable: WeaponsStateSlice['throwable']): string => {
 	let sortedThrowables: Partial<Record<ThrowableList, ThrowableData>> = structuredClone(throwables)
 	const removedThrowables: ThrowableList[] = ['X1-ZAPer', 'Leech Ampule', 'Viper Grenade', 'Adhesive Grenade', 'Snowball']
 	removedThrowables.forEach(removedThrowable => {
@@ -131,7 +131,7 @@ export const encodeEquipment = (equipment: CharacterStateSlice['equipment']): st
 	return equippedSecondary ? primaryValue + encodeString(sortedEquipment, equippedSecondary) : primaryValue
 }
 
-export const encodeArmoury = (armoury: Record<number, Weapon>): string => {
+export const encodeArmoury = (armoury: ArmouryStateSlice['primary']): string => {
 	const { slot } = armoury[0].weaponFind
 	const data = slot === 'primary' ? primary : secondary
 	const weapons = Object.values(armoury).slice(1).map(weapon => {
@@ -148,7 +148,7 @@ export const encodeArmoury = (armoury: Record<number, Weapon>): string => {
 	return weapons.length ? weapons : '_'
 }
 
-export const encodeWeapons = (primaryId: number, secondaryId: number): string => {
+export const encodeWeapons = (primaryId: WeaponsStateSlice['primary'], secondaryId: WeaponsStateSlice['secondary']): string => {
 	const encodeWeapon = (id: number, slot: Slot): string => {
 		// This *might* cause problems later
 		// This is the only encoder that loads from a store
@@ -171,10 +171,10 @@ export const encodeMask = (mask: CharacterStateSlice['mask']): string => {
 	const category = rarity === 'paid' ? 'dlc' : (rarity === 'free' ? 'normal' : rarity) as CategoryList
 	const categoryIndex = ['community', 'normal', 'dlc', 'event', 'collaboration', 'infamous'].findIndex(cat => cat === category)
 
-	const collectionIndex = Object.entries(allMasks[category]).find(([a]) => a === maskData.collection)?.[1].id ?? 0
-	const encodedCollection = encodeNumber(collectionIndex)
+	const collectionId = Object.entries(allMasks[category]).find(([a]) => a === maskData.collection)?.[1].id ?? 0
+	const encodedCollection = encodeNumber(collectionId)
 
-	const collection = Object.values(allMasks[category])[collectionIndex].masks
+	const collection = Object.values(allMasks[category]).find(collection => collection.id === collectionId)?.masks ?? {}
 	const maskId = Object.keys(collection).findIndex(name => name === maskData.name)
 	const encodedMaskId = encodeNumber(maskId)
 
