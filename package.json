@@ -1,7 +1,7 @@
 {
   "name": "payday-builder",
   "private": true,
-  "version": "0.4.2",
+  "version": "0.4.4",
   "description": "Payday 2 Build Helper Website",
   "author": "Joel Dohm-Karatjas",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "url": "https://github.com/BlakeIsMyWaifu/PaydayBuilder.git"
   },
   "engines": {
-    "node": ">=17.0.0"
+    "node": ">=18.0.0"
   },
   "scripts": {
     "dev": "run-p dev:*",
