@@ -46,7 +46,7 @@ const TableCompare: FC<TableCompareProps> = ({ equippedStats, selectedStats, equ
 							</Row>
 						}
 
-						switch (main.constructor.name) {
+						switch (main?.constructor?.name) {
 							case 'Number': {
 								const numMain = main + equippedAdditional?.[stat]
 								const numCompare = compare + selectedAdditional?.[stat]
