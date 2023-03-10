@@ -16,7 +16,8 @@ import { getBaseUrl, trpc } from 'utils/trpc'
 import { type Session } from 'next-auth'
 import { useRouter } from 'next/router'
 import { blue } from 'utils/colours'
-import { stringifyParsedUrlQuery } from 'utils/stringifyUrl'
+import { stringifyParams } from 'utils/stringifyUrl'
+import { encode } from 'querystring'
 
 const BackgroundImage = styled.img`
 	position: absolute;
@@ -41,7 +42,7 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 
 	const [theme, setTheme] = useState<DefaultTheme>({ isMobile: false })
 
-	const router = useRouter()
+	const { query } = useRouter()
 
 	return (
 		<SessionProvider session={session}>
@@ -55,7 +56,7 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 						<link rel='shortcut icon' href='/favicon.ico' />
 						<meta property='og:site_name' content='pd2.dev' />
 						<meta property='og:title' content='Payday 2 Build Emulator' />
-						<meta property='og:image' content={`${getBaseUrl()}/api/og?${stringifyParsedUrlQuery(router.query)}`} />
+						<meta property='og:image' content={`${getBaseUrl()}/api/og?${stringifyParams(new URLSearchParams(encode(query)))}`} />
 						<meta name='twitter:card' content='summary_large_image' />
 						<meta name='theme-color' content={blue} />
 					</Head>

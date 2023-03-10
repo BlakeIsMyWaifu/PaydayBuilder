@@ -1,7 +1,7 @@
 import { useMemo, type Dispatch, type FC, type SetStateAction } from 'react'
 import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import { isDev } from 'utils/isDev'
-import { stringifyUrlSearchParams } from 'utils/stringifyUrl'
+import { stringifyParams } from 'utils/stringifyUrl'
 
 import TextInput from '../TextIO/TextInput'
 import TextOutput from '../TextIO/TextOutput'
@@ -28,8 +28,8 @@ const IO: FC<IOProps> = ({ setToggleControl }) => {
 				filteredPd2builderDefaults.delete(k)
 			}
 		})
-		const filteredDataString = stringifyUrlSearchParams(filteredDefaults)
-		const filteredPd2builderDataString = stringifyUrlSearchParams(filteredPd2builderDefaults)
+		const filteredDataString = stringifyParams(filteredDefaults)
+		const filteredPd2builderDataString = stringifyParams(filteredPd2builderDefaults)
 		return [
 			filteredDataString.toString().length ? `/?${filteredDataString}` : '',
 			filteredPd2builderDataString.toString().length ? `/?${filteredPd2builderDataString}` : ''
