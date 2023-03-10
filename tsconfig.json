@@ -24,21 +24,24 @@
     "noUnusedParameters": false,
     "incremental": true,
     "noFallthroughCasesInSwitch": true,
-    "baseUrl": "src",
     "downlevelIteration": true,
+    "baseUrl": "src"
   },
   "include": [
-    "src",
-    "src/**/*",
-    "next.config.mjs"
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
   ],
   "exclude": [
-    "node_modules",
-    "build"
+    "node_modules"
   ],
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
-    }
+      "module": "CommonJS",
+      "moduleResolution": "nodenext"
+    },
+    "require": [
+      "tsconfig-paths/register"
+    ]
   }
 }

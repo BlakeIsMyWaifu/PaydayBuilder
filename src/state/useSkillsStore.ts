@@ -151,7 +151,7 @@ export const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, ge
 		set(initialState, ...actionName('resetSkills'))
 	},
 	importSkillsData: skillsDataCompressed => {
-		let skillsData = decompressData(skillsDataCompressed)
+		let skillsData = decompressData(skillsDataCompressed.replaceAll('%2C', ',').replaceAll('%40', '@'))
 
 		get().resetSkills()
 
