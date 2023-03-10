@@ -1,9 +1,4 @@
-import abilities from 'data/abilities/crewAbilities'
-import boosts from 'data/abilities/crewBoosts'
 import { type PerkDeckList } from 'data/abilities/perks'
-import characters from 'data/character/characters'
-import { type MaskList, allMasks } from 'data/character/masks'
-import { type CrewData } from 'pages/crewmanagement'
 import { encodeCopycat, encodePerkDeck } from 'utils/encodeBuild'
 import { create } from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
@@ -13,28 +8,19 @@ import { updateData } from './useBuildsStore'
 
 // State
 
-const defaultCrew = (i: number): CrewData => ({
-	mask: Object.keys(allMasks.normal.Default.masks)[i] as MaskList,
-	character: Object.keys(characters)[i],
-	outfit: null,
-	weapon: 0,
-	ability: Object.values(abilities)[i].name,
-	boost: Object.values(boosts)[i].name
-})
-
 export type CopycatValues = [number, number, number, number, number];
 
 export interface AbilityStateSlice {
 	perkDeck: PerkDeckList;
 	copycat: CopycatValues;
-	crewmanagement: [CrewData, CrewData, CrewData];
+	crewmanagement: null;
 	infamy: null;
 }
 
 const initialState: AbilityStateSlice = {
 	perkDeck: 'Crew Chief',
 	copycat: [0, 0, 0, 0, 0],
-	crewmanagement: [defaultCrew(0), defaultCrew(1), defaultCrew(2)],
+	crewmanagement: null,
 	infamy: null
 }
 
