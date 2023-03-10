@@ -25,7 +25,7 @@ const encodeString = (data: object, equipped: string): string => {
 }
 
 const encodeNumber = (index: number): string => {
-	if (index <= charString.length) return charString[index]
+	if (index < charString.length) return charString[index]
 	const overflow = ~~(index / charString.length)
 	const remainder = index - (charString.length * overflow)
 	return charString[overflow] + charString[remainder]

@@ -3,7 +3,7 @@ import { encode } from 'querystring'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
-import { stringifyUrlSearchParams } from 'utils/stringifyUrl'
+import { stringifyParams } from 'utils/stringifyUrl'
 
 const useBuildImporter = (): boolean => {
 
@@ -26,7 +26,7 @@ const useBuildImporter = (): boolean => {
 				buildDataParams.set(k, v)
 			})
 
-			const urlData = stringifyUrlSearchParams(buildDataParams)
+			const urlData = stringifyParams(buildDataParams)
 
 			importBuild(urlData, urlData !== builds[current].data && builds[current].data !== defaultBuild)
 		} else {
