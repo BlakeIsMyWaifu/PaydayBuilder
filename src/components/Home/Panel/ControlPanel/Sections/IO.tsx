@@ -15,16 +15,25 @@ const IO: FC<IOProps> = ({ setToggleControl }) => {
 
 	const { current, builds, importBuild } = useBuildsStore()
 
-	const buildData = useMemo(() => {
+	const [buildData, pd2builderBuildData] = useMemo(() => {
 		const filteredDefaults = new URLSearchParams(builds[current].data)
+		const filteredPd2builderDefaults = new URLSearchParams(builds[current].data)
 		const defaults = new URLSearchParams(defaultBuild)
 		Object.entries(Object.fromEntries(filteredDefaults)).forEach(([k, v]) => {
 			if (v === defaults.get(k)) {
 				filteredDefaults.delete(k)
+				filteredPd2builderDefaults.delete(k)
+			}
+			if (!['s', 'p', 'a', 't', 'd'].includes(k)) {
+				filteredPd2builderDefaults.delete(k)
 			}
 		})
 		const filteredDataString = stringifyUrlSearchParams(filteredDefaults)
-		return filteredDataString.toString().length ? `/?${filteredDataString}` : ''
+		const filteredPd2builderDataString = stringifyUrlSearchParams(filteredPd2builderDefaults)
+		return [
+			filteredDataString.toString().length ? `/?${filteredDataString}` : '',
+			filteredPd2builderDataString.toString().length ? `/?${filteredPd2builderDataString}` : ''
+		]
 	}, [builds, current])
 
 	const copyToClipboard = async (value: string): Promise<void> => await navigator.clipboard.writeText(value)
@@ -58,7 +67,7 @@ const IO: FC<IOProps> = ({ setToggleControl }) => {
 
 			<Setting>
 				<SettingTitle>Export to pd2builder</SettingTitle>
-				<TextOutput value={`https://pd2builder.netlify.app${buildData.split('&m=')[0]}`} callback={copyToClipboard} />
+				<TextOutput value={`https://pd2builder.netlify.app${pd2builderBuildData}`} callback={copyToClipboard} />
 			</Setting>
 		</Section>
 	)
