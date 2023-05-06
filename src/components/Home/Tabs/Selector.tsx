@@ -47,7 +47,7 @@ const Image = styled.div<ImageProps>`
 	transform: scaleX(${props => props.leftFacing ? -1 : 1});;
 `
 
-interface SelectorProps {
+export interface SelectorProps {
 	title: string;
 	children?: ReactNode;
 	infoData: HoverInfo;
