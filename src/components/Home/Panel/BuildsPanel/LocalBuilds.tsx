@@ -5,6 +5,7 @@ import { blue, red } from 'utils/colours'
 import { trpc } from 'utils/trpc'
 
 import { BuildButton, BuildName, BuildSectionTitle, BuildWrapper } from './buildsPanelElements'
+import useBuildImport from 'hooks/useBuildImport'
 
 interface LocalBuildsProps {
 	setToggleBuilds: Dispatch<SetStateAction<boolean>>;
@@ -12,7 +13,8 @@ interface LocalBuildsProps {
 
 const LocalBuilds: FC<LocalBuildsProps> = ({ setToggleBuilds }) => {
 
-	const { current, builds, removeBuild, updateName, changeBuild, importBuild } = useBuildsStore()
+	const { current, builds, removeBuild, updateName, changeBuild } = useBuildsStore()
+	const importBuild = useBuildImport()
 
 	const [clientBuilds, setClientBuilds] = useState<Record<number, BuildSave>>({})
 

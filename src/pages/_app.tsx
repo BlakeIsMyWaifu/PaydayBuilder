@@ -3,7 +3,7 @@ import 'fonts/fonts.css'
 import { Analytics } from '@vercel/analytics/react'
 import Cookies from 'components/Cookies'
 import { GlobalStyle, Theme } from 'styles/GlobalStyle'
-import useBuildImporter from 'hooks/useBuildImporter'
+import useFirstLoadBuildImport from 'hooks/useFirstLoadBuildImport'
 import useErrorHandler from 'hooks/useErrorHandler'
 import { SessionProvider } from 'next-auth/react'
 import { type AppProps as NextAppProps } from 'next/app'
@@ -18,6 +18,7 @@ import { useRouter } from 'next/router'
 import { blue } from 'utils/colours'
 import { stringifyParams } from 'utils/stringifyUrl'
 import { encode } from 'querystring'
+import useUpdateURL from 'hooks/useUpdateURL'
 
 const BackgroundImage = styled.img`
 	position: absolute;
@@ -36,7 +37,9 @@ interface AppProps extends NextAppProps {
 
 const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX.Element | null => {
 
-	const hasImportedURL = useBuildImporter()
+	const hasImportedURL = useFirstLoadBuildImport()
+
+	useUpdateURL(hasImportedURL)
 
 	useErrorHandler()
 

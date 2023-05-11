@@ -1,13 +1,13 @@
 import { type FC } from 'react'
 import { FaDownload, FaTrash } from 'react-icons/fa'
-import { useBuildsStore } from 'state/useBuildsStore'
 import { trpc } from 'utils/trpc'
 
 import { BuildButton, BuildName, BuildSectionTitle, BuildWrapper } from './buildsPanelElements'
+import useBuildImport from 'hooks/useBuildImport'
 
 const CloudBuilds: FC = () => {
 
-	const importBuild = useBuildsStore(state => state.importBuild)
+	const importBuild = useBuildImport()
 
 	const utils = trpc.useContext()
 

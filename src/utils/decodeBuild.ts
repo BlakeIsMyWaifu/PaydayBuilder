@@ -85,7 +85,7 @@ export const decodeEquipment = (value: string): [EquipmentList, EquipmentList | 
 	return [equipmentList[primaryIndex], secondaryIndex ? equipmentList[secondaryIndex] : null]
 }
 
-interface DecodeArmoury {
+export interface DecodeArmoury {
 	weapon: WeaponData;
 	mods?: Partial<Record<ModificationSlot, string>>;
 }
