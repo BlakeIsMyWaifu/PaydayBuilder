@@ -9,7 +9,7 @@ export type Persist<T = unknown> = ['zustand/persist', T]
 export type Slice<
 	Store extends object,
 	Slice extends object,
-	Middleware extends [keyof StoreMutators<unknown, unknown>, unknown][] = [DevTools, SubscribeWithSelector]
+	Middleware extends [keyof StoreMutators<unknown, unknown>, unknown][] = [DevTools]
 	> = StateCreator<Store, Middleware, [], Slice>
 
 export const createActionName = (storeName: string) => (actionName: string): [false, string] => [false, `${storeName}/${actionName}`]

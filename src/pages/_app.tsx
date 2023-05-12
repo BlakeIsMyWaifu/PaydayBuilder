@@ -19,6 +19,7 @@ import { blue } from 'utils/colours'
 import { stringifyParams } from 'utils/stringifyUrl'
 import { encode } from 'querystring'
 import useUpdateURL from 'hooks/useUpdateURL'
+import useUpdateBuildData from 'hooks/useUpdateBuildData'
 
 const BackgroundImage = styled.img`
 	position: absolute;
@@ -40,6 +41,8 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 	const hasImportedURL = useFirstLoadBuildImport()
 
 	useUpdateURL(hasImportedURL)
+
+	useUpdateBuildData()
 
 	useErrorHandler()
 

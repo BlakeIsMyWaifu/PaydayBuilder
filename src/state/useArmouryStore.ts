@@ -1,11 +1,9 @@
 import { type Modification, type ModificationSlot, type Slot, type Weapon, type WeaponData } from 'data/weapons/guns/weaponTypes'
-import { encodeArmoury } from 'utils/encodeBuild'
 import { findNextNum } from 'utils/maths'
 import { create } from 'zustand'
-import { devtools, subscribeWithSelector } from 'zustand/middleware'
+import { devtools } from 'zustand/middleware'
 
 import { type Slice, createActionName } from './storeTypes'
-import { updateData } from './useBuildsStore'
 
 // State
 
@@ -74,9 +72,7 @@ const createActionSlice: Slice<ArmouryStore, ArmouryActionSlice> = (set, get) =>
 	removeWeapon: (slot, id) => {
 		const weapons = get()[slot]
 		delete weapons[id]
-		set({ [slot]: weapons }, ...actionName('removeWeapon'))
-		// Not sure why but deleting doesn't trigger the subscriptions
-		updateData(slot === 'primary' ? 'ap' : 'as', encodeArmoury(weapons))
+		set({ [slot]: { ...weapons } }, ...actionName('removeWeapon'))
 	},
 	resetArmoury: slot => {
 		set({ [slot]: initialState[slot] }, ...actionName('resetArmoury'))
@@ -125,17 +121,7 @@ const createActionSlice: Slice<ArmouryStore, ArmouryActionSlice> = (set, get) =>
 
 type ArmouryStore = ArmouryStateSlice & ArmouryActionSlice
 
-export const useArmouryStore = create<ArmouryStore>()(devtools(subscribeWithSelector((...a) => ({
+export const useArmouryStore = create<ArmouryStore>()(devtools((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-})), { name: 'Armoury Store' }))
-
-// Subscriptions
-
-useArmouryStore.subscribe(state => state.primary, state => {
-	updateData('ap', encodeArmoury(state))
-})
-
-useArmouryStore.subscribe(state => state.secondary, state => {
-	updateData('as', encodeArmoury(state))
-})
+}), { name: 'Armoury Store' }))

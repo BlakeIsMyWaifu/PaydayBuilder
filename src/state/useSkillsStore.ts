@@ -1,12 +1,10 @@
 import skills, { type SkillData, type TreeNames } from 'data/abilities/skills'
 import { decodeValues, decompressData } from 'utils/decodeBuild'
-import { encodeSkills } from 'utils/encodeBuild'
 import SkillTreePoints from 'utils/skillTreePoints'
 import { create } from 'zustand'
-import { devtools, subscribeWithSelector } from 'zustand/middleware'
+import { devtools } from 'zustand/middleware'
 
 import { type Slice, createActionName } from './storeTypes'
-import { updateData } from './useBuildsStore'
 
 // State
 
@@ -206,13 +204,7 @@ export const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, ge
 
 export type SkillsStore = SkillsStateSlice & SkillsActionSlice
 
-export const useSkillsStore = create<SkillsStore>()(devtools(subscribeWithSelector((...a) => ({
+export const useSkillsStore = create<SkillsStore>()(devtools((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-})), { name: 'Skills Store' }))
-
-// Subscriptions
-
-useSkillsStore.subscribe(state => state.trees, state => {
-	updateData('s', encodeSkills(state))
-})
+}), { name: 'Skills Store' }))

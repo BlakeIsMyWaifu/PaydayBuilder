@@ -1,12 +1,10 @@
 import { type Slot } from 'data/weapons/guns/weaponTypes'
 import { type MeleeList } from 'data/weapons/melees'
 import { type ThrowableList } from 'data/weapons/throwables'
-import { encodeMelee, encodeThrowable, encodeWeapons } from 'utils/encodeBuild'
 import { create } from 'zustand'
-import { devtools, subscribeWithSelector } from 'zustand/middleware'
+import { devtools } from 'zustand/middleware'
 
 import { type Slice, createActionName } from './storeTypes'
-import { updateData } from './useBuildsStore'
 
 // State
 
@@ -55,22 +53,7 @@ const createActionSlice: Slice<WeaponsStore, WeaponsActionSlice> = (set, get) =>
 
 type WeaponsStore = WeaponsStateSlice & WeaponsActionSlice
 
-export const useWeaponsStore = create<WeaponsStore>()(devtools(subscribeWithSelector((...a) => ({
+export const useWeaponsStore = create<WeaponsStore>()(devtools((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-})), { name: 'Weapons Store' }))
-
-// Subscriptions
-
-useWeaponsStore.subscribe(state => [state.primary, state.secondary], ([primaryId, secondaryId], [prevPrimaryId, prevSecondaryId]) => {
-	if (primaryId === prevPrimaryId && secondaryId === prevSecondaryId) return
-	updateData('w', encodeWeapons(primaryId, secondaryId))
-})
-
-useWeaponsStore.subscribe(state => state.throwable, state => {
-	updateData('t', encodeThrowable(state))
-})
-
-useWeaponsStore.subscribe(state => state.melee, state => {
-	updateData('m', encodeMelee(state))
-})
+}), { name: 'Weapons Store' }))
