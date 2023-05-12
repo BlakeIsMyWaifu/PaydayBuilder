@@ -26,7 +26,8 @@
     "eslint": "eslint src --fix",
     "postinstall": "prisma generate",
     "migrate": "prisma migrate dev",
-    "test": "ts-node-test tests"
+    "test": "ts-node-test tests",
+    "analyze": "cross-env ANALYZE=true yarn build:2-next"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.5",
@@ -50,6 +51,7 @@
     "zustand": "^4.3.2"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.4.1",
     "@next/eslint-plugin-next": "^13.1.6",
     "@types/node": "^18.11.19",
     "@types/react": "^18.0.27",
@@ -57,6 +59,7 @@
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.33.0",
     "eslint-config-next": "^13.2.1",
     "eslint-plugin-react": "^7.32.2",
