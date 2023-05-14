@@ -1,7 +1,7 @@
 import Container from 'components/Container'
 import DetectionRisk from 'components/DetectionRisk'
 import { InfoContainer, InfoTitle, InfoTitleWrapper, InfoUnlock } from 'components/elements/infoElements'
-import { ActionText, ActionsContainer } from 'components/elements/itemActionElements'
+import { ActionsContainer, ActionText } from 'components/elements/itemActionElements'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/elements/itemElements'
 import { ResetContainer, ResetText } from 'components/elements/resetElements'
 import HorizontalBar from 'components/HorizontalBar'

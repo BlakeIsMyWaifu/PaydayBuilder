@@ -9,7 +9,6 @@ type CreateContextOptions = {
 	session: Session | null;
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const createInnerTRPCContext = (opts: CreateContextOptions) => {
 	return {
 		session: opts.session,
@@ -17,7 +16,6 @@ export const createInnerTRPCContext = (opts: CreateContextOptions) => {
 	}
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const createTRPCContext = async (opts: CreateNextContextOptions) => {
 	const { req, res } = opts
 

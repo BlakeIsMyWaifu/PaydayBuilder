@@ -34,6 +34,7 @@ const Title = styled.h2`
 interface ImageProps {
 	path: string;
 	leftFacing: boolean;
+	alt: string;
 }
 
 const Image = styled.div<ImageProps>`
@@ -71,7 +72,11 @@ const Selector: FC<SelectorProps> = ({ title, children, infoData, setHoverInfo, 
 				<Title>{title}</Title>
 
 				{
-					image && <Image path={image} leftFacing={!!(leftFacing && imageLeftFacing)} />
+					image && <Image
+						path={image}
+						leftFacing={!!(leftFacing && imageLeftFacing)}
+						alt={`selector ${title}`}
+					/>
 				}
 
 				{children}

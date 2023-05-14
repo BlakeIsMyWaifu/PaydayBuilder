@@ -1,5 +1,5 @@
 import defaultMask from 'data/character/mask/normal/defaultMask'
-import { type MaskData, allMasks } from 'data/character/masks'
+import { allMasks, type MaskData } from 'data/character/masks'
 
 export const findMask = (maskName: string): MaskData => {
 	let out: MaskData | null = null

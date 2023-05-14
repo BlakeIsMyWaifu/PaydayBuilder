@@ -1,15 +1,16 @@
+import perkDecks, { type PerkDeckList } from 'data/abilities/perks'
+import armours from 'data/character/armours'
+import characters from 'data/character/characters'
+import equipments from 'data/character/equipment'
+import { type WeaponFind } from 'data/weapons/guns/weaponTypes'
+import melees from 'data/weapons/melees'
+import throwables, { type ThrowableList } from 'data/weapons/throwables'
+import findMask from 'utils/findMask'
+import findWeapon from 'utils/findWeapon'
 import { z } from 'zod'
+
 import { publicProcedure } from '../procedure'
 import { createTRPCRouter } from '../trpc'
-import findMask from 'utils/findMask'
-import characters from 'data/character/characters'
-import armours from 'data/character/armours'
-import equipments from 'data/character/equipment'
-import findWeapon from 'utils/findWeapon'
-import { type WeaponFind } from 'data/weapons/guns/weaponTypes'
-import throwables, { type ThrowableList } from 'data/weapons/throwables'
-import melees from 'data/weapons/melees'
-import perkDecks, { type PerkDeckList } from 'data/abilities/perks'
 
 export const loadoutDataRouter = createTRPCRouter({
 	getMask: publicProcedure

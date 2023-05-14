@@ -1,9 +1,9 @@
-import { encode } from 'querystring'
-
 import { useRouter } from 'next/router'
+import { encode } from 'querystring'
 import { useEffect, useState } from 'react'
 import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import { stringifyParams } from 'utils/stringifyUrl'
+
 import useBuildImport from './useBuildImport'
 
 const useFirstLoadBuildImport = (): boolean => {

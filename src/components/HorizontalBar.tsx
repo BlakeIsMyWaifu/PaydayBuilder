@@ -1,4 +1,4 @@
-import { type FC, type RefObject, type WheelEvent, useEffect, useRef, useState } from 'react'
+import { type FC, type RefObject, useEffect, useRef, useState, type WheelEvent } from 'react'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 import styled, { type FlattenInterpolation } from 'styled-components'
 import { blue } from 'utils/colours'

@@ -1,4 +1,5 @@
 import { type FC } from 'react'
+
 import Selector, { type SelectorProps } from './Selector'
 
 interface PlaceholderSelectorProps {

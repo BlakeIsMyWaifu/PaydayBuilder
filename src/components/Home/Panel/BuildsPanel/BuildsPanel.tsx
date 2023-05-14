@@ -1,4 +1,5 @@
 import { ClosePanel, Container, PanelContent, Title, TopWrapper } from 'components/Home/Panel/panelElements'
+import useBuildImport from 'hooks/useBuildImport'
 import { type Dispatch, type FC, type SetStateAction } from 'react'
 import { FaPlusSquare } from 'react-icons/fa'
 import { useIsMobile } from 'state/settingsContext'
@@ -8,7 +9,6 @@ import { trpc } from 'utils/trpc'
 import { Builds, NewBuild } from './buildsPanelElements'
 import CloudBuilds from './CloudBuilds'
 import LocalBuilds from './LocalBuilds'
-import useBuildImport from 'hooks/useBuildImport'
 
 interface BuildsPanelProps {
 	toggleBuilds: boolean;

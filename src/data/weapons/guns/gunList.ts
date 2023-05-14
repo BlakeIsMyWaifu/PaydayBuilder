@@ -188,7 +188,7 @@ export const submachineGunList: SubmachineGunList[] = [
 	'Wasp-DS SMG'
 ]
 
-export default {
+const gunList = {
 	assaultRifleList,
 	shotgunList,
 	lightMachineGunList,
@@ -198,3 +198,5 @@ export default {
 	pistolList,
 	submachineGunList
 }
+
+export default gunList

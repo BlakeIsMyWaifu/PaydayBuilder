@@ -1,10 +1,11 @@
-import { z } from 'zod'
-import { publicProcedure } from '../procedure'
-import { createTRPCRouter } from '../trpc'
-import { type DecodeArmoury, decodeArmour, decodeArmoury, decodeCharacter, decodeCopycat, decodeEquipment, decodeMask, decodeMelee, decodePerkDeck, decodeThrowable, decodeWeapons } from 'utils/decodeBuild'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
 import { type Slot } from 'data/weapons/guns/weaponTypes'
+import { decodeArmour, type DecodeArmoury, decodeArmoury, decodeCharacter, decodeCopycat, decodeEquipment, decodeMask, decodeMelee, decodePerkDeck, decodeThrowable, decodeWeapons } from 'utils/decodeBuild'
+import { z } from 'zod'
+
+import { publicProcedure } from '../procedure'
+import { createTRPCRouter } from '../trpc'
 
 export const decodeRouter = createTRPCRouter({
 	mask: publicProcedure

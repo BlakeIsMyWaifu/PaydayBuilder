@@ -14,11 +14,11 @@ import { useWeaponsStore } from 'state/useWeaponsStore'
 import styled from 'styled-components'
 import { dim } from 'utils/colours'
 import corner from 'utils/corner'
+import { trpc } from 'utils/trpc'
 
+import PlaceholderSelector from './PlaceholderSelector'
 import Selector from './Selector'
 import SelectorSkills from './SkillsSelector'
-import { trpc } from 'utils/trpc'
-import PlaceholderSelector from './PlaceholderSelector'
 
 interface HoverInfoData {
 	title: string;

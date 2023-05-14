@@ -1,6 +1,6 @@
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/elements/infoElements'
-import { ActionText, ActionsContainer } from 'components/elements/itemActionElements'
+import { ActionsContainer, ActionText } from 'components/elements/itemActionElements'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } from 'components/elements/itemElements'
 import equipments, { type EquipmentData } from 'data/character/equipment'
 import { type NextPage } from 'next'

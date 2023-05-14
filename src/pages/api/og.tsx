@@ -7,8 +7,8 @@ import throwables from 'data/weapons/throwables'
 import { type NextRequest } from 'next/server'
 import { type FC } from 'react'
 import { defaultBuild } from 'state/useBuildsStore'
-import { type SkillsStore, createStateSlice, createActionSlice, type Subtrees } from 'state/useSkillsStore'
-import { decodeArmoury, decodeWeapons, decodePerkDeck, decodeEquipment, decodeThrowable, decodeArmour } from 'utils/decodeBuild'
+import { createActionSlice, createStateSlice, type SkillsStore, type Subtrees } from 'state/useSkillsStore'
+import { decodeArmour, decodeArmoury, decodeEquipment, decodePerkDeck, decodeThrowable, decodeWeapons } from 'utils/decodeBuild'
 import { getBaseUrl } from 'utils/trpc'
 import { create } from 'zustand'
 
@@ -105,6 +105,7 @@ const Display: FC<DisplayProps> = ({ name, image, size }) => {
 				width={size[0]}
 				height={size[1]}
 				src={`${getBaseUrl()}/images/${image}.png`}
+				alt={name}
 			/>
 		</div>
 	)
@@ -260,6 +261,7 @@ const Skill: FC<SkillProps> = ({ treeName, treePoints, mask }) => {
 					width={128}
 					height={128}
 					src={`${getBaseUrl()}/images/masks/png/${mask}.png`}
+					alt={`skill icon for ${treeName}`}
 				/>
 			</div>
 			<b>{treePoints}</b>

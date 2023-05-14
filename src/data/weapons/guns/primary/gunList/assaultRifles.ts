@@ -1,7 +1,7 @@
 import { type WeaponData } from '../../weaponTypes'
 import ak from '../assaultRifle/ak'
-import ak17 from '../assaultRifle/ak17'
 import ak5 from '../assaultRifle/ak5'
+import ak17 from '../assaultRifle/ak17'
 import ak762 from '../assaultRifle/ak762'
 import amcar from '../assaultRifle/amcar'
 import amr16 from '../assaultRifle/amr16'

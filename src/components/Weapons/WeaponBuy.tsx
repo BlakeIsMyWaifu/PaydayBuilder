@@ -1,5 +1,5 @@
 import Container from 'components/Container'
-import { ActionText, ActionsContainer } from 'components/elements/itemActionElements'
+import { ActionsContainer, ActionText } from 'components/elements/itemActionElements'
 import { Item, ItemContainer, ItemImage, ItemName } from 'components/elements/itemElements'
 import HorizontalBar from 'components/HorizontalBar'
 import { type Slot, type WeaponData } from 'data/weapons/guns/weaponTypes'

@@ -3,7 +3,7 @@ import { useIsLeftFacing } from 'state/settingsContext'
 import { useSettingsStore } from 'state/useSettingsStore'
 
 import CheckboxInput from '../CheckboxInput'
-import { Section, SectionTitle, SettingTitle, SettingsSingleLine } from './sectionsElements'
+import { Section, SectionTitle, SettingsSingleLine, SettingTitle } from './sectionsElements'
 
 const Appearance: FC = () => {
 

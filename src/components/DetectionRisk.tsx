@@ -1,7 +1,7 @@
 import useArmourStats from 'hooks/useArmourStats'
 import useMeleeStats from 'hooks/useMeleeStats'
 import useWeaponStats from 'hooks/useWeaponStats'
-import { type FC, type MouseEvent, memo } from 'react'
+import { type FC, memo, type MouseEvent } from 'react'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
@@ -159,11 +159,13 @@ const DetectionRisk: FC<DetectionRiskProps> = ({ flexDirection, corner, text = t
 				<ImageWrapper>
 					<Image
 						src='/images/detection_meter.png'
+						alt='detection meter left'
 						direction='left'
 						onMouseDown={preventDefault}
 					/>
 					<Image
 						src='/images/detection_meter.png'
+						alt='detection meter right'
 						direction='right'
 						onMouseDown={preventDefault}
 					/>

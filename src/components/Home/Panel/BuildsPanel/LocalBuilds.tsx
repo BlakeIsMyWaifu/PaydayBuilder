@@ -1,3 +1,4 @@
+import useBuildImport from 'hooks/useBuildImport'
 import { type Dispatch, type FC, type SetStateAction, useEffect, useState } from 'react'
 import { FaFolderOpen, FaTrash, FaUndoAlt, FaUpload } from 'react-icons/fa'
 import { type BuildSave, defaultBuild, useBuildsStore } from 'state/useBuildsStore'
@@ -5,7 +6,6 @@ import { blue, red } from 'utils/colours'
 import { trpc } from 'utils/trpc'
 
 import { BuildButton, BuildName, BuildSectionTitle, BuildWrapper } from './buildsPanelElements'
-import useBuildImport from 'hooks/useBuildImport'
 
 interface LocalBuildsProps {
 	setToggleBuilds: Dispatch<SetStateAction<boolean>>;

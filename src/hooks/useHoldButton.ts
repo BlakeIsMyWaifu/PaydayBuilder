@@ -59,11 +59,10 @@ const useHoldButton = ({ threshold = 500, holdCallback, clickCallback }: UseHold
 	})
 
 	useEffect(() => {
-		if (thresholdMs <= counter) {
-			holdCallback()
-			stopCounter()
-			setCounter(-1)
-		}
+		if (thresholdMs > counter) return
+		holdCallback()
+		stopCounter()
+		setCounter(-1)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [counter, thresholdMs])
 

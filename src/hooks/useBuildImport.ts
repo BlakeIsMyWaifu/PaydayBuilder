@@ -7,8 +7,6 @@ import { useSkillsStore } from 'state/useSkillsStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import { trpc } from 'utils/trpc'
 
-// TODO update eslint rules
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const useBuildImport = () => {
 
 	const addBuild = useBuildsStore(state => state.addBuild)

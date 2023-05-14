@@ -75,8 +75,6 @@ const useUpdateBuildData = (): void => {
 	}, [...copycat])
 }
 
-// TODO update eslint rules
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const onSuccess = (key: string) => ({ onSuccess: (data: string) => updateData(key, data) })
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

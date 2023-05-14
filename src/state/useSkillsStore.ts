@@ -4,7 +4,7 @@ import SkillTreePoints from 'utils/skillTreePoints'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 
-import { type Slice, createActionName } from './storeTypes'
+import { createActionName, type Slice } from './storeTypes'
 
 // State
 

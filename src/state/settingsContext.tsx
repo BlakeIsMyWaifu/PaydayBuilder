@@ -1,5 +1,5 @@
 import useWindowSize, { type WindowSize } from 'hooks/useWindow.size'
-import { type FC, type ReactNode, type Reducer, createContext, useContext, useEffect, useReducer } from 'react'
+import { createContext, type FC, type ReactNode, type Reducer, useContext, useEffect, useReducer } from 'react'
 
 import { useSettingsStore } from './useSettingsStore'
 

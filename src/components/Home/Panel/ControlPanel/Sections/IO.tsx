@@ -1,4 +1,5 @@
-import { useMemo, type Dispatch, type FC, type SetStateAction } from 'react'
+import useBuildImport from 'hooks/useBuildImport'
+import { type Dispatch, type FC, type SetStateAction, useMemo } from 'react'
 import { defaultBuild, useBuildsStore } from 'state/useBuildsStore'
 import { isDev } from 'utils/isDev'
 import { stringifyParams } from 'utils/stringifyUrl'
@@ -6,7 +7,6 @@ import { stringifyParams } from 'utils/stringifyUrl'
 import TextInput from '../TextIO/TextInput'
 import TextOutput from '../TextIO/TextOutput'
 import { Section, SectionTitle, Setting, SettingTitle } from './sectionsElements'
-import useBuildImport from 'hooks/useBuildImport'
 
 interface IOProps {
 	setToggleControl: Dispatch<SetStateAction<boolean>>;

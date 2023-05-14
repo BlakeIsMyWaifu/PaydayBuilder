@@ -1,11 +1,12 @@
-import { type EncodeWeapons, encodeArmour, encodeArmoury, encodeCharacter, encodeCopycat, encodeEquipment, encodeMask, encodeMelee, encodePerkDeck, encodeThrowable, encodeWeapons, encodeSkills } from 'utils/encodeBuild'
-import { publicProcedure } from '../procedure'
-import { createTRPCRouter } from '../trpc'
-import { z } from 'zod'
+import { type PerkDeckList } from 'data/abilities/perks'
 import { type MaskList } from 'data/character/masks'
 import { type Weapon } from 'data/weapons/guns/weaponTypes'
 import { type ThrowableList } from 'data/weapons/throwables'
-import { type PerkDeckList } from 'data/abilities/perks'
+import { encodeArmour, encodeArmoury, encodeCharacter, encodeCopycat, encodeEquipment, encodeMask, encodeMelee, encodePerkDeck, encodeSkills, encodeThrowable, type EncodeWeapons, encodeWeapons } from 'utils/encodeBuild'
+import { z } from 'zod'
+
+import { publicProcedure } from '../procedure'
+import { createTRPCRouter } from '../trpc'
 
 const armoury = z.record(z.object({
 	id: z.number(),

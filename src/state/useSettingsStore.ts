@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 
-import { type DevTools, type Persist, type Slice, createActionName } from './storeTypes'
+import { createActionName, type DevTools, type Persist, type Slice } from './storeTypes'
 
 // State
 
