@@ -78,6 +78,4 @@ const PerkDeck: NextPage = () => {
 	)
 }
 
-PerkDeck.getInitialProps = () => ({})
-
 export default PerkDeck

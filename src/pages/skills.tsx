@@ -166,6 +166,4 @@ const Skills: NextPage = () => {
 	)
 }
 
-Skills.getInitialProps = () => ({})
-
 export default Skills

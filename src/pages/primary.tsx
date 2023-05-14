@@ -5,6 +5,4 @@ const Primary: NextPage = () => {
 	return <Weapons slot='primary' />
 }
 
-Primary.getInitialProps = () => ({})
-
 export default Primary

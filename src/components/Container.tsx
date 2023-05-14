@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Link from 'next/link'
 import { type FC, type ReactNode } from 'react'
 import { useIsMobile } from 'state/settingsContext'
@@ -100,22 +101,30 @@ const Container: FC<ContainerProps> = ({
 	}
 
 	return (
-		<Area columns={columns} rows={rows}
-			areas={areas}>
-
-			{title && <Title>{title}</Title>}
-
-			{children}
-
+		<>
 			{
-				backButton && <BackWrapper>
-					<BackLink href={backLocation} onMouseDown={event => event.preventDefault()}>
-						<BackText>Back</BackText>
-					</BackLink>
-				</BackWrapper>
+				title && <Head>
+					<title>Payday Builder - {title}</title>
+				</Head>
 			}
 
-		</Area>
+			<Area columns={columns} rows={rows}
+				areas={areas}>
+
+				{title && <Title>{title}</Title>}
+
+				{children}
+
+				{
+					backButton && <BackWrapper>
+						<BackLink href={backLocation} onMouseDown={event => event.preventDefault()}>
+							<BackText>Back</BackText>
+						</BackLink>
+					</BackWrapper>
+				}
+
+			</Area>
+		</>
 	)
 }
 

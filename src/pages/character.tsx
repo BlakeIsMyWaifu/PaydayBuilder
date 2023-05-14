@@ -55,6 +55,4 @@ const Character: NextPage = () => {
 	)
 }
 
-Character.getInitialProps = () => ({})
-
 export default Character

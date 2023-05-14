@@ -16,6 +16,4 @@ const Infamy: NextPage = () => {
 	)
 }
 
-Infamy.getInitialProps = () => ({})
-
 export default Infamy
