@@ -1,3 +1,4 @@
+import useBuildImport from 'hooks/useBuildImport'
 import { type Dispatch, type FC, type SetStateAction, useEffect, useState } from 'react'
 import { FaChevronLeft, FaChevronRight, FaThList } from 'react-icons/fa'
 import { type BuildSave, useBuildsStore } from 'state/useBuildsStore'
@@ -61,7 +62,9 @@ interface BuildSelectorProps {
 
 const BuildSelector: FC<BuildSelectorProps> = ({ toggleBuilds, setToggleBuilds, setToggleControl }) => {
 
-	const { current, builds, importBuild } = useBuildsStore()
+	const { current, builds } = useBuildsStore()
+
+	const importBuild = useBuildImport()
 
 	const changeBuild = useBuildsStore(state => state.changeBuild)
 	const updateName = useBuildsStore(state => state.updateName)

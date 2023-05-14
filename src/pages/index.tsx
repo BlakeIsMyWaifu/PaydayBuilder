@@ -4,9 +4,14 @@ import BuildsPanel from 'components/Home/Panel/BuildsPanel'
 import ControlPanel from 'components/Home/Panel/ControlPanel'
 import Tabs from 'components/Home/Tabs'
 import { type NextPage } from 'next'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { encode } from 'querystring'
 import { useState } from 'react'
 import { FaCog } from 'react-icons/fa'
 import styled from 'styled-components'
+import { stringifyParams } from 'utils/stringifyUrl'
+import { getBaseUrl } from 'utils/trpc'
 import { builderVersion, paydayVersion } from 'utils/version'
 
 const ConfigContainer = styled.div`
@@ -41,8 +46,15 @@ const Home: NextPage = () => {
 
 	const [toggleControl, setToggleControl] = useState(false)
 
+	const { query } = useRouter()
+
 	return (
 		<>
+			<Head>
+				<title>Payday Builder</title>
+				<meta property='og:image' content={`${getBaseUrl()}/api/og?${stringifyParams(new URLSearchParams(encode(query)))}`} />
+			</Head>
+
 			<BuildsPanel
 				toggleBuilds={toggleBuilds}
 				setToggleBuilds={setToggleBuilds}

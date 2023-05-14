@@ -6,6 +6,7 @@ import { stringifyParams } from 'utils/stringifyUrl'
 import TextInput from '../TextIO/TextInput'
 import TextOutput from '../TextIO/TextOutput'
 import { Section, SectionTitle, Setting, SettingTitle } from './sectionsElements'
+import useBuildImport from 'hooks/useBuildImport'
 
 interface IOProps {
 	setToggleControl: Dispatch<SetStateAction<boolean>>;
@@ -13,7 +14,8 @@ interface IOProps {
 
 const IO: FC<IOProps> = ({ setToggleControl }) => {
 
-	const { current, builds, importBuild } = useBuildsStore()
+	const { current, builds } = useBuildsStore()
+	const importBuild = useBuildImport()
 
 	const [buildData, pd2builderBuildData] = useMemo(() => {
 		const filteredDefaults = new URLSearchParams(builds[current].data)

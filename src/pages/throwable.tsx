@@ -68,6 +68,4 @@ const Throwable: NextPage = () => {
 	)
 }
 
-Throwable.getInitialProps = () => ({})
-
 export default Throwable

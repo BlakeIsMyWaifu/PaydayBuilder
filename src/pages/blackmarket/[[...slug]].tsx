@@ -18,6 +18,4 @@ const BlackmarketSlug: NextPage = () => {
 		modtype={modType} />
 }
 
-BlackmarketSlug.getInitialProps = () => ({})
-
 export default BlackmarketSlug

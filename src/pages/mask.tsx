@@ -268,6 +268,4 @@ const MaskInfoTab: FC<MaskTabProps> = ({ selectedMask }) => {
 	)
 }
 
-Mask.getInitialProps = () => ({})
-
 export default Mask

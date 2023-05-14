@@ -6,11 +6,11 @@ import equipments, { type EquipmentData } from 'data/character/equipment'
 import { type CategoryList, allMasks } from 'data/character/masks'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
-import { type ModificationSlot, type Slot } from 'data/weapons/guns/weaponTypes'
+import { type Weapon, type ModificationSlot, type Slot } from 'data/weapons/guns/weaponTypes'
 import melees from 'data/weapons/melees'
 import throwables, { type ThrowableData, type ThrowableList } from 'data/weapons/throwables'
 import { type AbilityStateSlice } from 'state/useAbilitiesStore'
-import { type ArmouryStateSlice, useArmouryStore } from 'state/useArmouryStore'
+import { type ArmouryStateSlice } from 'state/useArmouryStore'
 import { type CharacterStateSlice } from 'state/useCharacterStore'
 import { type SkillsStateSlice } from 'state/useSkillsStore'
 import { type WeaponsStateSlice } from 'state/useWeaponsStore'
@@ -148,15 +148,24 @@ export const encodeArmoury = (armoury: ArmouryStateSlice['primary']): string => 
 	return weapons.length ? weapons : '_'
 }
 
-export const encodeWeapons = (primaryId: WeaponsStateSlice['primary'], secondaryId: WeaponsStateSlice['secondary']): string => {
+export interface EncodeWeapons {
+	primary: {
+		id: number;
+		armoury: Record<number, Weapon>;
+	};
+	secondary: {
+		id: number;
+		armoury: Record<number, Weapon>;
+	};
+}
+
+export const encodeWeapons = (props: EncodeWeapons): string => {
 	const encodeWeapon = (id: number, slot: Slot): string => {
-		// This *might* cause problems later
-		// This is the only encoder that loads from a store
-		const armoury = useArmouryStore.getState()[slot]
+		const { armoury } = props[slot]
 		const index = Object.keys(armoury).findIndex(value => +value === id)
-		return encodeNumber(index)
+		return encodeNumber(index) ?? 0
 	}
-	return `${encodeWeapon(primaryId, 'primary')}-${encodeWeapon(secondaryId, 'secondary')}`
+	return `${encodeWeapon(props.primary.id, 'primary')}-${encodeWeapon(props.secondary.id, 'secondary')}`
 }
 
 export const encodeMelee = (melee: WeaponsStateSlice['melee']): string => {

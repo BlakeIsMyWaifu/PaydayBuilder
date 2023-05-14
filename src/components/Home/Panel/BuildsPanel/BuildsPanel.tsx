@@ -8,6 +8,7 @@ import { trpc } from 'utils/trpc'
 import { Builds, NewBuild } from './buildsPanelElements'
 import CloudBuilds from './CloudBuilds'
 import LocalBuilds from './LocalBuilds'
+import useBuildImport from 'hooks/useBuildImport'
 
 interface BuildsPanelProps {
 	toggleBuilds: boolean;
@@ -19,7 +20,7 @@ const BuildsPanel: FC<BuildsPanelProps> = ({ toggleBuilds, setToggleBuilds }) =>
 	const session = trpc.session.getSession.useQuery()
 
 	const addBuild = useBuildsStore(state => state.addBuild)
-	const importBuild = useBuildsStore(state => state.importBuild)
+	const importBuild = useBuildImport()
 
 	const isMobile = useIsMobile()
 

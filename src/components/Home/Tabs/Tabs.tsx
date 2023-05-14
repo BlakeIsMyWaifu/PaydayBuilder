@@ -5,12 +5,6 @@ import { CardIconBase } from 'components/PerkDeck/Perk'
 import ArmourStatsTable from 'components/Table/ArmourStatsTable'
 import MeleeStatsTable from 'components/Table/MeleeStatsTable'
 import WeaponsStatsTable from 'components/Table/WeaponStatsTable'
-import perkDecks from 'data/abilities/perks'
-import armours from 'data/character/armours'
-import characters from 'data/character/characters'
-import equipments, { type EquipmentData } from 'data/character/equipment'
-import melees from 'data/weapons/melees'
-import throwables from 'data/weapons/throwables'
 import { type Dispatch, type FC, type ReactElement, type SetStateAction, useState } from 'react'
 import { useIsMobile } from 'state/settingsContext'
 import { useAbilityStore } from 'state/useAbilitiesStore'
@@ -20,11 +14,11 @@ import { useWeaponsStore } from 'state/useWeaponsStore'
 import styled from 'styled-components'
 import { dim } from 'utils/colours'
 import corner from 'utils/corner'
-import findMask from 'utils/findMask'
-import findWeapon from 'utils/findWeapon'
 
 import Selector from './Selector'
 import SelectorSkills from './SkillsSelector'
+import { trpc } from 'utils/trpc'
+import PlaceholderSelector from './PlaceholderSelector'
 
 interface HoverInfoData {
 	title: string;
@@ -178,100 +172,98 @@ interface OuterSelectorProps {
 const MaskSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 
 	const maskState = useCharacterStore(state => state.mask)
-	const maskData = findMask(maskState)
+	const { isSuccess, data } = trpc.loadoutData.getMask.useQuery(maskState)
 
-	return (
+	return isSuccess ? (
 		<Selector
 			title='mask'
 			setHoverInfo={setHoverInfo}
 			infoData={{
-				title: maskData.name,
-				description: maskData.description
+				title: data.name,
+				description: data.description
 			}}
-			image={`masks/${maskData.image}`}
+			image={`masks/${data.image}`}
 		/>
-	)
+	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
 }
 
 const CharacterSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 
 	const characterState = useCharacterStore(state => state.character)
-	const characterData = characters[characterState]
+	const { isSuccess, data } = trpc.loadoutData.getCharacter.useQuery(characterState)
 
-	return (
+	return isSuccess ? (
 		<Selector
 			title='character'
 			setHoverInfo={setHoverInfo}
 			infoData={{
-				title: characterData.name,
-				description: [`Nationality: ${characterData.nationality}`, `Age: ${characterData.age.toString()}`, ...characterData.description]
+				title: data.name,
+				description: [`Nationality: ${data.nationality}`, `Age: ${data.age.toString()}`, ...data.description]
 			}}
-			image={`masks/${characterData.image}`}
+			image={`masks/${data.image}`}
 		/>
-	)
+	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
 }
 
 const ArmourSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 
 	const armourState = useCharacterStore(state => state.armour)
-	const armourData = armours[armourState]
+	const { isSuccess, data } = trpc.loadoutData.getArmour.useQuery(armourState)
 
-	return (
+	return isSuccess ? (
 		<Selector
 			title='armour'
 			setHoverInfo={setHoverInfo}
 			infoData={{
-				title: armourData.name,
-				table: <ArmourStatsTable selectedArmour={armourData.name} />
+				title: data.name,
+				table: <ArmourStatsTable selectedArmour={data.name} />
 			}}
-			image={`armours/${armourData.name}`}
+			image={`armours/${data.name}`}
 		/>
-	)
+	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
 }
 
 const EquipmentSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 
 	const equipmentState = useCharacterStore(state => state.equipment)
-	const equipmentPrimary = equipments[equipmentState.primary]
-	const equipmentSecondary: EquipmentData | null = equipments[equipmentState.secondary ?? '']
+	const { isSuccess, data } = trpc.loadoutData.getEquipment.useQuery(equipmentState)
 
-	return (
+	return isSuccess ? (
 		<Selector
 			title='equipment'
 			setHoverInfo={setHoverInfo}
 			infoData={{
-				title: equipmentPrimary.name,
-				description: equipmentPrimary.description
+				title: data.primary.name,
+				description: data.primary.description
 			}}
-			image={!equipmentSecondary ? `equipment/${equipmentPrimary.name}` : undefined}
+			image={!data.secondary ? `equipment/${data.primary.name}` : undefined}
 		>
 			{
-				equipmentSecondary && <EquipmentContainer>
-					<EquipmentImage src={`/images/equipment/${equipmentPrimary.name}.webp`} />
-					<EquipmentImage src={`/images/equipment/${equipmentSecondary.name}.webp`} />
+				data.secondary && <EquipmentContainer>
+					<EquipmentImage src={`/images/equipment/${data.primary.name}.webp`} />
+					<EquipmentImage src={`/images/equipment/${data.secondary.name}.webp`} />
 				</EquipmentContainer>
 			}
 		</Selector>
-	)
+	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
 }
 
 const PrimarySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 
 	const primaryArmoury = useArmouryStore(state => state.primary)
 	const primaryWeaponState = useWeaponsStore(state => state.primary)
-
+	const { isSuccess, data } = trpc.loadoutData.getWeapon.useQuery(primaryArmoury[primaryWeaponState].weaponFind)
 	const primaryWeapon = primaryArmoury[primaryWeaponState]
-	const primaryData = findWeapon(primaryWeapon.weaponFind)
 
-	return (
+	return isSuccess ? (
 		<Selector
 			title='primary'
 			setHoverInfo={setHoverInfo}
 			infoData={{
-				title: primaryData.name,
+				title: data.name,
 				table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={primaryWeapon} />
 			}}
-			image={`weapons/${primaryData.image}`}
+			image={`weapons/${data.image}`}
 			imageLeftFacing
 		>
 			<ModIcons
@@ -280,26 +272,25 @@ const PrimarySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 				setHoverInfo={setHoverInfo}
 			/>
 		</Selector>
-	)
+	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
 }
 
 const SecondarySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 
 	const secondaryArmoury = useArmouryStore(state => state.secondary)
 	const secondaryWeaponState = useWeaponsStore(state => state.secondary)
-
+	const { isSuccess, data } = trpc.loadoutData.getWeapon.useQuery(secondaryArmoury[secondaryWeaponState].weaponFind)
 	const secondaryWeapon = secondaryArmoury[secondaryWeaponState]
-	const secondaryData = findWeapon(secondaryWeapon.weaponFind)
 
-	return (
+	return isSuccess ? (
 		<Selector
 			title='secondary'
 			setHoverInfo={setHoverInfo}
 			infoData={{
-				title: secondaryData.name,
+				title: data.name,
 				table: <WeaponsStatsTable showExtraStats={false} selectedWeapon={secondaryWeapon} />
 			}}
-			image={`weapons/${secondaryData.image}`}
+			image={`weapons/${data.image}`}
 			imageLeftFacing
 		>
 			<ModIcons
@@ -308,64 +299,63 @@ const SecondarySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 				setHoverInfo={setHoverInfo}
 			/>
 		</Selector>
-	)
+	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
 }
 
 const ThrowableSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 
 	const throwableState = useWeaponsStore(state => state.throwable)
-	const throwableData = throwables[throwableState]
+	const { isSuccess, data } = trpc.loadoutData.getThrowable.useQuery(throwableState)
 
-	return (
+	return isSuccess ? (
 		<Selector
 			title='throwable'
 			setHoverInfo={setHoverInfo}
 			infoData={{
-				title: throwableData.name,
-				description: throwableData.description
+				title: data.name,
+				description: data.description
 			}}
-			image={`throwables/${throwableData.image}`}
+			image={`throwables/${data.image}`}
 		/>
-	)
+	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
 }
 
 const MeleeSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 
 	const meleeState = useWeaponsStore(state => state.melee)
-	const meleeData = melees[meleeState]
+	const { isSuccess, data } = trpc.loadoutData.getMelee.useQuery(meleeState)
 
-	return (
+	return isSuccess ? (
 		<Selector
 			title='melee'
 			setHoverInfo={setHoverInfo}
 			infoData={{
-				title: meleeData.name,
-				table: <MeleeStatsTable selectedMelee={meleeData.name} />
+				title: data.name,
+				table: <MeleeStatsTable selectedMelee={data.name} />
 			}}
-			image={`melees/${meleeData.image}`}
+			image={`melees/${data.image}`}
 			imageLeftFacing
 		/>
-	)
+	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
 }
 
 const PerkDeckSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 
 	const perkDeckState = useAbilityStore(state => state.perkDeck)
-	const perkDeckData = perkDecks[perkDeckState]
-	const perkDeckIndex = Object.keys(perkDecks).indexOf(perkDeckData.name)
+	const { isSuccess, data } = trpc.loadoutData.getPerkDeck.useQuery(perkDeckState)
 
-	return (
+	return isSuccess ? (
 		<Selector
 			title='perk deck'
 			setHoverInfo={setHoverInfo}
 			infoData={{
-				title: perkDeckData.name,
-				description: perkDeckData.description
+				title: data.name,
+				description: data.description
 			}}
 		>
-			<PerkDeckImage x={192} y={(perkDeckIndex + 1) * 48} />
+			<PerkDeckImage x={192} y={(data.index + 1) * 48} />
 		</Selector>
-	)
+	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
 }
 
 const CrewManagementSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {

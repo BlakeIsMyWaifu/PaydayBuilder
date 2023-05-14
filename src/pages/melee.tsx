@@ -79,6 +79,4 @@ export const Melee: NextPage = () => {
 	)
 }
 
-Melee.getInitialProps = () => ({})
-
 export default Melee

@@ -1,10 +1,8 @@
 import { type PerkDeckList } from 'data/abilities/perks'
-import { encodeCopycat, encodePerkDeck } from 'utils/encodeBuild'
 import { create } from 'zustand'
-import { devtools, subscribeWithSelector } from 'zustand/middleware'
+import { devtools } from 'zustand/middleware'
 
 import { type Slice, createActionName } from './storeTypes'
-import { updateData } from './useBuildsStore'
 
 // State
 
@@ -60,17 +58,7 @@ const createActionSlice: Slice<AbilityStore, AbilityActionSlice> = (set, get) =>
 
 type AbilityStore = AbilityStateSlice & AbilityActionSlice
 
-export const useAbilityStore = create<AbilityStore>()(devtools(subscribeWithSelector((...a) => ({
+export const useAbilityStore = create<AbilityStore>()(devtools((...a) => ({
 	...createStateSlice(...a),
 	...createActionSlice(...a)
-})), { name: 'Abilities Store' }))
-
-// Subscriptions
-
-useAbilityStore.subscribe<[PerkDeckList, number[]]>(state => [state.perkDeck, state.copycat], ([state]) => {
-	updateData('p', encodePerkDeck(state))
-})
-
-useAbilityStore.subscribe(state => [state.copycat], ([state]) => {
-	updateData('c', encodeCopycat(state))
-})
+}), { name: 'Abilities Store' }))
