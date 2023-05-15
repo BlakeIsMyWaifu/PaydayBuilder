@@ -9,7 +9,7 @@ interface UseWeaponStats {
 	total: WeaponStats;
 }
 
-const useWeaponStats = (weapon: WeaponData, modifications: Partial<Record<ModificationSlot, string>>, showExtraStats = true): UseWeaponStats => {
+const useWeaponStats = (weapon: WeaponData, weaponModifications: Partial<Record<ModificationSlot, string>>, showExtraStats = true): UseWeaponStats => {
 
 	const baseStats = (showExtraStats: boolean): WeaponStats => {
 		if (!showExtraStats) return weapon.stats
@@ -57,7 +57,7 @@ const useWeaponStats = (weapon: WeaponData, modifications: Partial<Record<Modifi
 			rateOfFire: 0
 		}
 
-		Object.entries(modifications).forEach(([type, modName]) => {
+		Object.entries(weaponModifications).forEach(([type, modName]) => {
 			const modData = modifications[(type as ModificationSlot)][modName]
 			Object.entries(modData.stats).forEach(([label, stat]) => {
 				baseStats[(label as keyof ModificationStats)] += stat

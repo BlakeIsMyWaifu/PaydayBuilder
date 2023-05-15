@@ -14,8 +14,11 @@ const BlackmarketSlug: NextPage = () => {
 		<h1>Invalid URL parameters</h1>
 	</Container>
 
-	return <Blackmarket slot={slot} id={id}
-		modtype={modType} />
+	return <Blackmarket
+		slot={slot}
+		id={id}
+		modtype={modType}
+	/>
 }
 
 export default BlackmarketSlug
