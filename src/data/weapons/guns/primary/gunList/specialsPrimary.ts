@@ -1,3 +1,4 @@
+import { type specialPrimaryList } from '../../gunList'
 import { type WeaponData } from '../../weaponTypes'
 import airbow from '../special/airbow'
 import decaTechnologiesCompoundBow from '../special/decaTechnologiesCompoundBow'
@@ -13,35 +14,22 @@ import plainsriderBow from '../special/plainsriderBow'
 import vulcanMinigun from '../special/vulcanMinigun'
 import xl556Microgun from '../special/xl556Microgun'
 
-export type PrimarySpecialList =
-	| 'OVE9000'
-	| 'Plainsrider Bow'
-	| 'Light Crossbow'
-	| 'Airbow'
-	| 'English Longbow'
-	| 'XL 5.56 Microgun'
-	| 'DECA Technologies Compound Bow'
-	| 'Vulcan Minigun'
-	| 'Heavy Crossbow'
-	| 'Piglet'
-	| 'Flamethrower Mk.1'
-	| 'GL40'
-	| 'Hailstorm Mk 5'
+export type SpecialPrimaryList = typeof specialPrimaryList[number]
 
-const specials: Record<PrimarySpecialList, WeaponData> = {
+const specialsPrimary: Record<SpecialPrimaryList, WeaponData> = {
 	'OVE9000': ove9000,
-	'Plainsrider Bow': plainsriderBow,
-	'Light Crossbow': lightCrossbow,
-	'Airbow': airbow,
-	'English Longbow': englishLongbow,
 	'XL 5.56 Microgun': xl556Microgun,
 	'DECA Technologies Compound Bow': decaTechnologiesCompoundBow,
+	'GL40': gl40,
 	'Vulcan Minigun': vulcanMinigun,
-	'Heavy Crossbow': heavyCrossbow,
 	'Piglet': piglet,
 	'Flamethrower Mk.1': flamethrowerMk1,
-	'GL40': gl40,
+	'Plainsrider Bow': plainsriderBow,
+	'English Longbow': englishLongbow,
+	'Light Crossbow': lightCrossbow,
+	'Heavy Crossbow': heavyCrossbow,
+	'Airbow': airbow,
 	'Hailstorm Mk 5': hailstormMk5
 }
 
-export default specials
+export default specialsPrimary

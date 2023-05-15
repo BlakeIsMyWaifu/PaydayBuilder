@@ -1,3 +1,4 @@
+import { type shotgunPrimaryList } from '../../gunList'
 import { type WeaponData } from '../../weaponTypes'
 import breaker12G from '../shotgun/breaker12G'
 import izhma12G from '../shotgun/izhma12G'
@@ -12,33 +13,21 @@ import reinfeld880 from '../shotgun/reinfeld880'
 import steakout12G from '../shotgun/steakout12G'
 import vd12 from '../shotgun/vd12'
 
-export type PrimaryShotgunList =
-	| 'Predator 12G'
-	| 'Breaker 12G'
-	| 'Reinfeld 880'
-	| 'Mosconi 12G Tactical'
-	| 'VD-12'
-	| 'M1014'
-	| 'Raven'
-	| 'IZHMA 12G'
-	| 'Reinfeld 88'
-	| 'Mosconi 12G'
-	| 'Joceline O/U 12G'
-	| 'Steakout 12G'
+export type ShotgunPrimaryList = typeof shotgunPrimaryList[number]
 
-const shotguns: Record<PrimaryShotgunList, WeaponData> = {
+const shotgunsPrimary: Record<ShotgunPrimaryList, WeaponData> = {
 	'Predator 12G': predator12G,
-	'Breaker 12G': breaker12G,
+	'Joceline O/U 12G': jocelineOU12G,
 	'Reinfeld 880': reinfeld880,
-	'Mosconi 12G Tactical': mosconi12GTactical,
-	'VD-12': vd12,
+	'IZHMA 12G': izhma12G,
+	'Mosconi 12G': mosconi12G,
 	'M1014': m1014,
 	'Raven': raven,
-	'IZHMA 12G': izhma12G,
+	'Steakout 12G': steakout12G,
+	'Breaker 12G': breaker12G,
 	'Reinfeld 88': reinfeld88,
-	'Mosconi 12G': mosconi12G,
-	'Joceline O/U 12G': jocelineOU12G,
-	'Steakout 12G': steakout12G
+	'Mosconi 12G Tactical': mosconi12GTactical,
+	'VD-12': vd12
 }
 
-export default shotguns
+export default shotgunsPrimary

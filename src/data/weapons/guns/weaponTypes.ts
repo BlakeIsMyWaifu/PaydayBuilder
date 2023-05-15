@@ -25,13 +25,13 @@ import { type VerticalGripModificationsList } from './modifications/verticalGrip
 import { type AkimboShotgunsList } from './primary/gunList/akimboShotguns'
 import { type AssaultRifleList } from './primary/gunList/assaultRifles'
 import { type LightMachineGunList } from './primary/gunList/lightMachineGuns'
-import { type PrimaryShotgunList } from './primary/gunList/shotgunsPrimary'
-import { type PrimarySniperList } from './primary/gunList/snipersPrimary'
-import { type PrimarySpecialList } from './primary/gunList/specialsPrimary'
+import { type ShotgunPrimaryList } from './primary/gunList/shotgunsPrimary'
+import { type SniperPrimaryList } from './primary/gunList/snipersPrimary'
+import { type SpecialPrimaryList } from './primary/gunList/specialsPrimary'
 import { type PistolList } from './secondary/gunList/pistols'
-import { type SecondaryShotgunList } from './secondary/gunList/shotgunsSecondary'
+import { type ShotgunSecondaryList } from './secondary/gunList/shotgunsSecondary'
 import { type SecondarySniperList } from './secondary/gunList/snipersSecondary'
-import { type SecondarySpecialList } from './secondary/gunList/specialsSecondary'
+import { type SpecialSecondaryList } from './secondary/gunList/specialsSecondary'
 import { type SubmachineGunList } from './secondary/gunList/submachineGuns'
 
 export type Slot = 'primary' | 'secondary'
@@ -74,14 +74,14 @@ export interface WeaponModifications {
 
 export type AllWeaponList =
 	AssaultRifleList |
-	PrimaryShotgunList |
-	SecondaryShotgunList |
+	ShotgunPrimaryList |
+	ShotgunSecondaryList |
 	LightMachineGunList |
-	PrimarySniperList |
+	SniperPrimaryList |
 	SecondarySniperList |
 	AkimboShotgunsList |
-	PrimarySpecialList |
-	SecondarySpecialList |
+	SpecialPrimaryList |
+	SpecialSecondaryList |
 	PistolList |
 	SubmachineGunList
 
@@ -148,16 +148,16 @@ export interface ModificationStats {
 export type ModificationSlot = keyof WeaponModifications
 
 export interface CompatibleWeapons {
-	assaultRifle?: AssaultRifleList[];
-	shotgun?: (PrimaryShotgunList | SecondaryShotgunList)[];
-	lightMachineGun?: LightMachineGunList[];
-	sniper?: (PrimarySniperList | SecondarySniperList)[];
+	assaultRifle?: readonly AssaultRifleList[];
+	shotgun?: readonly (ShotgunPrimaryList | ShotgunSecondaryList)[];
+	lightMachineGun?: readonly LightMachineGunList[];
+	sniper?: readonly (SniperPrimaryList | SecondarySniperList)[];
 	// akimboPistol?: null[];
-	akimboShotgun?: AkimboShotgunsList[];
+	akimboShotgun?: readonly AkimboShotgunsList[];
 	// akimboSubmachineGun?: null[];
-	special?: (PrimarySpecialList | SecondarySpecialList)[];
-	pistol?: PistolList[];
-	submachineGun?: SubmachineGunList[];
+	special?: readonly (SpecialPrimaryList | SpecialSecondaryList)[];
+	pistol?: readonly PistolList[];
+	submachineGun?: readonly SubmachineGunList[];
 }
 
 export type ModIcon =

@@ -1,3 +1,4 @@
+import { type assaultRifleList } from '../../gunList'
 import { type WeaponData } from '../../weaponTypes'
 import ak from '../assaultRifle/ak'
 import ak5 from '../assaultRifle/ak5'
@@ -29,67 +30,38 @@ import uar from '../assaultRifle/uar'
 import union556 from '../assaultRifle/union556'
 import valkyria from '../assaultRifle/valkyria'
 
-export type AssaultRifleList =
-	| 'AMCAR'
-	| 'Commando 553'
-	| 'Eagle Heavy'
-	| 'Union 5.56'
-	| 'AK'
-	| 'CAR-4'
-	| 'UAR'
-	| 'KETCHNOV Byk-1'
-	| 'Cavity 9mm'
-	| 'AK.762'
-	| 'JP36'
-	| 'AK17'
-	| 'Golden AK.762'
-	| 'Bootleg'
-	| 'Queen\'s Wrath'
-	| 'Galant'
-	| 'M308'
-	| 'Clarion'
-	| 'Lion\'s Roar'
-	| 'Valkyria'
-	| 'AK5'
-	| 'Gecko 7.62'
-	| 'Tempest-21'
-	| 'AMR-16'
-	| 'KS12 Urban'
-	| 'Little Friend 7.62'
-	| 'Falcon'
-	| 'Rodion 3B'
-	| 'Gewehr 3'
+export type AssaultRifleList = typeof assaultRifleList[number]
 
 const assaultRifles: Record<AssaultRifleList, WeaponData> = {
+	'Golden AK.762': goldenAk762,
 	'AMCAR': amcar,
-	'Commando 553': commando553,
-	'Eagle Heavy': eagleHeavy,
-	'Union 5.56': union556,
 	'AK': ak,
 	'CAR-4': car4,
 	'UAR': uar,
-	'KETCHNOV Byk-1': ketchnovByk1,
-	'Cavity 9mm': cavity9mm,
 	'AK.762': ak762,
 	'JP36': jp36,
-	'AK17': ak17,
-	'Golden AK.762': goldenAk762,
-	'Bootleg': bootleg,
-	'Queen\'s Wrath': queensWrath,
-	'Galant': galant,
 	'M308': m308,
-	'Clarion': clarion,
-	'Lion\'s Roar': lionsRoar,
-	'Valkyria': valkyria,
 	'AK5': ak5,
-	'Gecko 7.62': gecko762,
-	'Tempest-21': tempest21,
 	'AMR-16': amr16,
-	'KS12 Urban': ks12Urban,
-	'Little Friend 7.62': littleFriend762,
+	'Commando 553': commando553,
+	'Eagle Heavy': eagleHeavy,
 	'Falcon': falcon,
-	'Rodion 3B': rodion3B,
-	'Gewehr 3': gewehr3
+	'Clarion': clarion,
+	'Gecko 7.62': gecko762,
+	'Gewehr 3': gewehr3,
+	'Queen\'s Wrath': queensWrath,
+	'Lion\'s Roar': lionsRoar,
+	'Cavity 9mm': cavity9mm,
+	'Valkyria': valkyria,
+	'Bootleg': bootleg,
+	'Little Friend 7.62': littleFriend762,
+	'Union 5.56': union556,
+	'AK17': ak17,
+	'Galant': galant,
+	'Tempest-21': tempest21,
+	'KETCHNOV Byk-1': ketchnovByk1,
+	'KS12 Urban': ks12Urban,
+	'Rodion 3B': rodion3B
 }
 
 export default assaultRifles

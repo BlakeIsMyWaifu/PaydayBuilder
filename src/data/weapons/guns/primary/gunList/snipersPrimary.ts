@@ -1,3 +1,4 @@
+import { type sniperPrimaryList } from '../../gunList'
 import { type WeaponData } from '../../weaponTypes'
 import bernettiRangehitter from '../sniper/bernettiRangehitter'
 import contractor308 from '../sniper/contractor308'
@@ -13,35 +14,22 @@ import rattlesnake from '../sniper/rattlesnake'
 import repeater1874 from '../sniper/repeater1874'
 import thanatos50Cal from '../sniper/thanatos50Cal'
 
-export type PrimarySniperList =
-	| 'Rattlesnake'
-	| 'R700'
-	| 'Bernetti Rangehitter'
-	| 'Káng Arms X1'
-	| 'Platypus 70'
-	| 'Lebensauger .308'
-	| 'Desertfox'
-	| 'Contractor .308'
-	| 'R93'
-	| 'Repeater 1874'
-	| 'Grom'
-	| 'Nagant'
-	| 'Thanatos .50 cal'
+export type SniperPrimaryList = typeof sniperPrimaryList[number]
 
-const snipers: Record<PrimarySniperList, WeaponData> = {
-	'Rattlesnake': rattlesnake,
-	'R700': r700,
-	'Bernetti Rangehitter': bernettiRangehitter,
-	'Káng Arms X1': kangArmsX1,
+const snipersPrimary: Record<SniperPrimaryList, WeaponData> = {
 	'Platypus 70': platypus70,
+	'Rattlesnake': rattlesnake,
+	'R93': r93,
+	'Thanatos .50 cal': thanatos50Cal,
+	'Nagant': nagant,
+	'Repeater 1874': repeater1874,
 	'Lebensauger .308': lebensauger308,
 	'Desertfox': desertfox,
 	'Contractor .308': contractor308,
-	'R93': r93,
-	'Repeater 1874': repeater1874,
 	'Grom': grom,
-	'Nagant': nagant,
-	'Thanatos .50 cal': thanatos50Cal
+	'R700': r700,
+	'Bernetti Rangehitter': bernettiRangehitter,
+	'Káng Arms X1': kangArmsX1
 }
 
-export default snipers
+export default snipersPrimary

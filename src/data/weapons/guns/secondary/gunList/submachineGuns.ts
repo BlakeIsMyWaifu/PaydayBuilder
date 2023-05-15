@@ -1,3 +1,4 @@
+import { type submachineGunList } from '../../gunList'
 import { type WeaponData } from '../../weaponTypes'
 import akGen21Tactical from '../submachineGun/akGen21Tactical'
 import blaster9mm from '../submachineGun/blaster9mm'
@@ -25,58 +26,33 @@ import tatonka from '../submachineGun/tatonka'
 import uzi from '../submachineGun/uzi'
 import waspDsSmg from '../submachineGun/waspDsSmg'
 
-export type SubmachineGunList =
-	| 'Swedish K'
-	| 'SpecOps'
-	| 'Mark 10'
-	| 'CR 805B'
-	| 'AK Gen 21 Tactical'
-	| 'Jacket\'s Piece'
-	| 'Compact-5'
-	| 'Chicago Typewriter'
-	| 'Miyaka 10 Special'
-	| 'Cobra'
-	| 'CMP'
-	| 'Para'
-	| 'Micro Uzi'
-	| 'Signature'
-	| 'Jackal'
-	| 'MP40'
-	| 'Heather'
-	| 'Krinkov'
-	| 'Blaster 9mm'
-	| 'Kobus 90'
-	| 'Kross Vertex'
-	| 'Tatonka'
-	| 'Patchett L2A1'
-	| 'Uzi'
-	| 'Wasp-DS SMG'
+export type SubmachineGunList = typeof submachineGunList[number]
 
 const submachineGuns: Record<SubmachineGunList, WeaponData> = {
-	'Swedish K': swedishK,
-	'SpecOps': specOps,
-	'Mark 10': mark10,
-	'CR 805B': cr805B,
-	'AK Gen 21 Tactical': akGen21Tactical,
-	'Jacket\'s Piece': jacketsPiece,
-	'Compact-5': compact5,
 	'Chicago Typewriter': chicagoTypewriter,
-	'Miyaka 10 Special': miyaka10Special,
-	'Cobra': cobra,
+	'Mark 10': mark10,
+	'Compact-5': compact5,
 	'CMP': cmp,
 	'Para': para,
-	'Micro Uzi': microUzi,
-	'Signature': signature,
-	'Jackal': jackal,
-	'MP40': mp40,
 	'Heather': heather,
 	'Krinkov': krinkov,
-	'Blaster 9mm': blaster9mm,
+	'MP40': mp40,
 	'Kobus 90': kobus90,
+	'Signature': signature,
+	'Swedish K': swedishK,
+	'SpecOps': specOps,
+	'Cobra': cobra,
+	'Blaster 9mm': blaster9mm,
+	'Uzi': uzi,
+	'Patchett L2A1': patchettL2A1,
+	'Jacket\'s Piece': jacketsPiece,
 	'Kross Vertex': krossVertex,
 	'Tatonka': tatonka,
-	'Patchett L2A1': patchettL2A1,
-	'Uzi': uzi,
+	'Micro Uzi': microUzi,
+	'Jackal': jackal,
+	'CR 805B': cr805B,
+	'AK Gen 21 Tactical': akGen21Tactical,
+	'Miyaka 10 Special': miyaka10Special,
 	'Wasp-DS SMG': waspDsSmg
 }
 

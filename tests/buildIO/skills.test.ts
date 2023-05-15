@@ -1,7 +1,8 @@
 import { deepStrictEqual, notDeepStrictEqual } from 'node:assert'
 import { describe, it } from 'node:test'
+
 import { defaultBuild } from 'state/useBuildsStore'
-import { createActionSlice, createStateSlice, type SkillsStore, type SkillsStateSlice } from 'state/useSkillsStore'
+import { createActionSlice, createStateSlice, type SkillsStateSlice, type SkillsStore } from 'state/useSkillsStore'
 import { encodeSkills } from 'utils/encodeBuild'
 import { create } from 'zustand'
 
