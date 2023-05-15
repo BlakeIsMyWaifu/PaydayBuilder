@@ -47,7 +47,7 @@ export type LowerReceiverModificationsList =
 const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 	'Dunes Tactical Receiver': {
 		name: 'Dunes Tactical Receiver',
-		image: 'wpn_fps_corgi_body_lower_strap',
+		image: 'wpn_fps_corgi_body_lower_strap', // ! missing image
 		icon: 'inv_mod_lower_receiver',
 		slot: 'lowerReceiver',
 		source: source['Base Game'],
@@ -146,7 +146,7 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 	},
 	'CE Rail Stabilizer': {
 		name: 'CE Rail Stabilizer',
-		image: 'wpn_fps_sho_m590_lower_receiver_xxx',
+		image: 'wpn_fps_sho_m590_lower_receiver_xxx', // ! missing image
 		icon: 'inv_mod_lower_receiver',
 		slot: 'lowerReceiver',
 		source: content['Jiu Feng Smuggler Pack'],

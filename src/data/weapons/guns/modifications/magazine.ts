@@ -1291,7 +1291,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	},
 	'KA54 Extended Magazine': {
 		name: 'KA54 Extended Magazine',
-		image: 'KA54_Extended_Magazine',
+		image: 'KA54_Extended_Magazine', // ! missing image
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Jiu Feng Smuggler Pack 3'],
@@ -1308,7 +1308,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	},
 	'K-B1 Speedmag': {
 		name: 'K-B1 Speedmag',
-		image: 'K-B1_Speedmag',
+		image: 'K-B1_Speedmag', // ! missing image
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Jiu Feng Smuggler Pack 2'],
@@ -1327,7 +1327,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	},
 	'KA-ZDM2 Extended Magazine': {
 		name: 'KA-ZDM2 Extended Magazine',
-		image: 'KA-ZDM2_Extended_Magazine',
+		image: 'KA-ZDM2_Extended_Magazine', // ! missing image
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Jiu Feng Smuggler Pack 2'],
@@ -1344,7 +1344,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	},
 	'MS10 Speedmag': {
 		name: 'MS10 Speedmag',
-		image: 'MS10_Speedmag',
+		image: 'MS10_Speedmag', // ! missing image
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Jiu Feng Smuggler Pack 2'],

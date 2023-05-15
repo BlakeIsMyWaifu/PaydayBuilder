@@ -560,7 +560,7 @@ const sight: ModificationList<SightModificationsList> = {
 	},
 	'KA-ZD032 Iron Sight': {
 		name: 'KA-ZD032 Iron Sight',
-		image: 'KA-ZD032_Iron_Sight',
+		image: 'KA-ZD032_Iron_Sight', // ! missing image
 		icon: 'inv_mod_scope',
 		slot: 'sight',
 		source: content['Jiu Feng Smuggler Pack 2'],

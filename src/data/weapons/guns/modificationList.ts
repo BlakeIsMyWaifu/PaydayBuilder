@@ -21,7 +21,7 @@ import upperReceiver from './modifications/upperReceiver'
 import verticalGrip from './modifications/verticalGrip'
 import { type ModIcon, type ModificationList, type ModificationSlot } from './weaponTypes'
 
-export const modificationList: Record<ModificationSlot, ModificationList<string>> = {
+export const modifications: Record<ModificationSlot, ModificationList> = {
 	ammunition,
 	barrel,
 	barrelExt,
@@ -69,4 +69,4 @@ export const modificationIcons: Record<ModificationSlot, ModIcon> = {
 	verticalGrip: 'inv_mod_vertical_grip'
 }
 
-export default modificationList
+export default modifications

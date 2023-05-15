@@ -998,7 +998,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	},
 	'Suppressed Barrel': {
 		name: 'Suppressed Barrel',
-		image: 'Suppressed_Barrel',
+		image: 'Suppressed_Barrel', // ! missing image
 		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['Gage Weapon Pack #01'],
@@ -1371,7 +1371,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	},
 	'Tiwaz Silencer': {
 		name: 'Tiwaz Silencer',
-		image: '', // ! missing
+		image: '',  // ! missing image
 		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['A Criminal Carol'],

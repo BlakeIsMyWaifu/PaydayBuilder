@@ -1,6 +1,6 @@
 import { type HoverInfo } from 'components/Home/Tabs'
 import WeaponsStatsTable from 'components/Table/WeaponStatsTable'
-import modificationList, { modificationIcons } from 'data/weapons/guns/modificationList'
+import modifications, { modificationIcons } from 'data/weapons/guns/modificationList'
 import { type ModificationSlot, type Weapon } from 'data/weapons/guns/weaponTypes'
 import Link from 'next/link'
 import { type Dispatch, type FC, type SetStateAction } from 'react'
@@ -78,7 +78,7 @@ const ModIcons: FC<ModIconsProps> = ({ weapon, link, setHoverInfo }) => {
 				Object.keys(weaponData.modifications).map(modSlot => {
 					const equipped = Object.keys(weapon.modifications).includes(modSlot)
 					const modName = weapon.modifications[(modSlot as ModificationSlot)] || ''
-					const equippedMod = modificationList[(modSlot as ModificationSlot)][modName]
+					const equippedMod = modifications[(modSlot as ModificationSlot)][modName]
 					const modIcon = <ModIcon
 						src={`/images/modifications/icons/${equippedMod?.icon || modificationIcons[(modSlot as ModificationSlot)]}.png`}
 						equipped={equipped}

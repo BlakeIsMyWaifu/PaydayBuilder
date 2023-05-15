@@ -613,7 +613,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'B-Team Stock': {
 		name: 'B-Team Stock',
-		image: 'B-Team_Stock_(M308)',
+		image: 'B-Team_Stock_(M308)', // ! missing image
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
@@ -726,7 +726,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Plastic Stock (Gecko)': {
 		name: 'Plastic Stock (Gecko)',
-		image: 'Plastic_Stock_(Gecko_7.62)',
+		image: 'Plastic_Stock_(Gecko_7.62)', // ! missing image
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Assault Pack'],
@@ -1125,7 +1125,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Artisan Stock': {
 		name: 'Artisan Stock',
-		image: 'wpn_fps_sho_m1897_s_xxx',
+		image: 'wpn_fps_sho_m1897_s_xxx', // ! missing image
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gunslinger Weapon Pack'],
@@ -1250,7 +1250,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Club Stock': {
 		name: 'Club Stock',
-		image: 'wpn_fps_snp_sbl_s_xxx',
+		image: 'wpn_fps_snp_sbl_s_xxx', // ! missing image
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gunslinger Weapon Pack'],
@@ -1580,7 +1580,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Bull Stock': {
 		name: 'Bull Stock',
-		image: 'wpn_fps_smg_vityaz_b_xxx',
+		image: 'wpn_fps_smg_vityaz_b_xxx', // ! missing image
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Jiu Feng Smuggler Pack'],
@@ -2100,7 +2100,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Deadman\'s Stock': {
 		name: 'Deadman\'s Stock',
-		image: 'wpn_fps_shot_coach_s_short',
+		image: 'wpn_fps_shot_coach_s_short', // ! missing image
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source.Community,
@@ -2135,7 +2135,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Copperhead Recoil Pad': {
 		name: 'Copperhead Recoil Pad',
-		image: '???',
+		image: '???', // ! missing image
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['McShay Weapon Pack'],
@@ -2257,7 +2257,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'MS10 Tactical Stock': {
 		name: 'MS10 Tactical Stock',
-		image: 'MS10_Tactical_Stock',
+		image: 'MS10_Tactical_Stock', // ! missing image
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Jiu Feng Smuggler Pack 2'],

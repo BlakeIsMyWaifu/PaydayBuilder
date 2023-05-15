@@ -289,7 +289,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	},
 	'KS12 DMR kit': {
 		name: 'KS12 DMR kit',
-		image: 'KS12_DMR_kit',
+		image: 'KS12_DMR_kit', // ! missing image
 		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: content['Jiu Feng Smuggler Pack 3'],

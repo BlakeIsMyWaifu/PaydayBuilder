@@ -615,7 +615,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Wooden Grip (DECA)': {
 		name: 'Wooden Grip (DECA)',
-		image: 'wpn_fps_bow_elastic_g_wood',
+		image: 'wpn_fps_bow_elastic_g_wood', // ! missing image
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
@@ -632,7 +632,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Ergonomic Grip (DECA)': {
 		name: 'Ergonomic Grip (DECA)',
-		image: 'wpn_fps_bow_elastic_g_ergo',
+		image: 'wpn_fps_bow_elastic_g_ergo', // ! missing image
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
@@ -972,7 +972,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Mule Bone Grip': {
 		name: 'Mule Bone Grip',
-		image: 'wpn_fps_pis_model3_g_xxx',
+		image: 'wpn_fps_pis_model3_g_xxx', // ! missing image
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gunslinger Weapon Pack'],
@@ -1020,7 +1020,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Cartel Grip (Bernetti Auto)': {
 		name: 'Cartel Grip (Bernetti Auto)',
-		image: 'wpn_fps_pis_beer_g_luxury',
+		image: 'wpn_fps_pis_beer_g_luxury', // ! missing image
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Federales Weapon Pack'],
@@ -1362,7 +1362,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'RUS Custom Wood Grip': {
 		name: 'RUS Custom Wood Grip',
-		image: 'RUS_Custom_Wood_Grip',
+		image: 'RUS_Custom_Wood_Grip', // ! missing image
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Jiu Feng Smuggler Pack 3'],
@@ -1378,7 +1378,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'MS10 Comfort Wood Grip': {
 		name: 'MS10 Comfort Wood Grip',
-		image: 'MS10_Comfort_Wood_Grip',
+		image: 'MS10_Comfort_Wood_Grip', // ! missing image
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Jiu Feng Smuggler Pack 2'],

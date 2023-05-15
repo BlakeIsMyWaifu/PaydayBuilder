@@ -216,7 +216,7 @@ export interface Modification<ModificationName extends string = string> {
 	incompatibleSlot?: ModificationSlot[];
 }
 
-export type ModificationList<T extends string> = Record<T, Modification<T>>;
+export type ModificationList<T extends string = string> = Record<T, Modification<T>>;
 
 type StatBoost = 'accuracy' | 'concealment' | 'damage' | 'income' | 'stability' | 'total ammo'
 

@@ -1,7 +1,6 @@
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
 import { type Slot, type WeaponData } from 'data/weapons/guns/weaponTypes'
-import useMountEffect from 'hooks/useMountEffect'
 import { type FC, useMemo, useState } from 'react'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useBuildsStore } from 'state/useBuildsStore'
@@ -24,11 +23,7 @@ const Weapons: FC<WeaponsProps> = ({ slot }) => {
 
 	const slotParameter = slot === 'primary' ? 'ap' : 'as'
 
-	const [enableBuy, setEnableBuy] = useState(true)
-
-	useMountEffect(() => {
-		setEnableBuy(builds[current].data.includes(`&${slotParameter}=_&`))
-	})
+	const [enableBuy, setEnableBuy] = useState(builds[current].data.includes(`&${slotParameter}=_&`))
 
 	const [activeTabId, setActiveTabId] = useState<number>(builds[current].id)
 	const [selectedWeaponId, setSelectedWeaponId] = useState<number>(armoury[equippedWeaponId].id)

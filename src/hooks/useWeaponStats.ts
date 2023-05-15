@@ -1,4 +1,4 @@
-import modificationList from 'data/weapons/guns/modificationList'
+import modifications from 'data/weapons/guns/modificationList'
 import { type ModificationSlot, type ModificationStats, type WeaponData, type WeaponStats } from 'data/weapons/guns/weaponTypes'
 
 interface UseWeaponStats {
@@ -58,7 +58,7 @@ const useWeaponStats = (weapon: WeaponData, modifications: Partial<Record<Modifi
 		}
 
 		Object.entries(modifications).forEach(([type, modName]) => {
-			const modData = modificationList[(type as ModificationSlot)][modName]
+			const modData = modifications[(type as ModificationSlot)][modName]
 			Object.entries(modData.stats).forEach(([label, stat]) => {
 				baseStats[(label as keyof ModificationStats)] += stat
 			})

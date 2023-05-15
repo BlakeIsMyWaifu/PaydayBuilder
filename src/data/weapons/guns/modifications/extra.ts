@@ -210,7 +210,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 	},
 	'KS12-S Carry Handle': {
 		name: 'KS12-S Carry Handle',
-		image: 'KS12-S_Carry_Handle',
+		image: 'KS12-S_Carry_Handle', // ! missing image
 		icon: 'inv_mod_extra',
 		slot: 'extra',
 		source: content['Jiu Feng Smuggler Pack 3'],
