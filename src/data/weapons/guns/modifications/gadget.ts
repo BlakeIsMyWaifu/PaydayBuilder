@@ -43,7 +43,7 @@ const mainGuns: CompatibleWeapons = {
 		'GSPS 12G'
 	],
 	akimboShotgun: akimboShotgunList,
-	sniper: Object.values(mainSnipers),
+	sniper: mainSnipers.sniper,
 	lightMachineGun: lightMachineGunList,
 	special: [
 		'Vulcan Minigun',
@@ -54,7 +54,7 @@ const mainGuns: CompatibleWeapons = {
 
 const gunsWithSights: CompatibleWeapons = {
 	assaultRifle: assaultRifleList,
-	sniper: Object.values(mainSnipers),
+	sniper: mainSnipers.sniper,
 	special: [
 		'Arbiter',
 		'HRL-7'
@@ -84,7 +84,7 @@ const gunsWithMagnifier: CompatibleWeapons = {
 		'Falcon',
 		'Gewehr 3'
 	],
-	sniper: Object.values(mainSnipers),
+	sniper: mainGuns.sniper,
 	special: [
 		'Arbiter',
 		'HRL-7',
