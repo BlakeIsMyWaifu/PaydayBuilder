@@ -12,6 +12,9 @@ export type UnderbarrelModificationsList =
 	| 'Frag Round'
 	| 'Viper Grenade'
 
+	// Campbell 74
+	| 'Infernal Flamethrower'
+
 const underbarrel: ModificationList<UnderbarrelModificationsList> = {
 	'KA54 Bull Stopper Addon': {
 		name: 'KA54 Bull Stopper Addon',
@@ -89,6 +92,25 @@ const underbarrel: ModificationList<UnderbarrelModificationsList> = {
 		compatibleWeapons: {
 			assaultRifle: [
 				'KETCHNOV Byk-1'
+			]
+		}
+	},
+	'Infernal Flamethrower': {
+		name: 'Infernal Flamethrower',
+		image: '', // ! missing image
+		icon: 'inv_mod_ammo_dragons_breath',
+		slot: 'underbarrel',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			totalAmmo: -60,
+			accuracy: -12,
+			stability: -8,
+			concealment: -8
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'Campbell 74'
 			]
 		}
 	}

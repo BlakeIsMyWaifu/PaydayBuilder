@@ -1,6 +1,7 @@
 import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
+import barrelExt from '../../modifications/barrelExt'
 import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
@@ -41,7 +42,10 @@ const akronHC: WeaponData = {
 			barrel['Short Barrel (Akron HC)'],
 			barrel['DMR Barrel']
 		],
-		barrelExt: lightMachineGunBarrelExt,
+		barrelExt: [
+			...lightMachineGunBarrelExt,
+			barrelExt['Buckeye Suppressor']
+		],
 		boost: lightMachineGunBoost,
 		// TODO exclusive set
 		gadget: lightMachineGunGadget,

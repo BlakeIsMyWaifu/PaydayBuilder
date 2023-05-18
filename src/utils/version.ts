@@ -1,2 +1,2 @@
-export const paydayVersion = 233
+export const paydayVersion = 236
 export const builderVersion = [0, 5, 0]

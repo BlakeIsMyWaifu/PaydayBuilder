@@ -333,6 +333,18 @@ export type BarrelModificationsList =
 	// Miyaka 10 Special
 	| 'MS10 Short Barrel'
 
+	// Deimos
+	| 'Metus Barrel'
+	| 'Formido Barrel'
+
+	// Campbell 74
+	| 'Lugosi Barrel'
+	| 'Karloff Barrel'
+
+	// Amaroq 900
+	| 'Qanuk Barrel'
+	| 'Pirta Barrel'
+
 const barrel: ModificationList<BarrelModificationsList> = {
 	'AK Slavic Dragon Barrel': {
 		name: 'AK Slavic Dragon Barrel',
@@ -3314,6 +3326,114 @@ const barrel: ModificationList<BarrelModificationsList> = {
 		compatibleWeapons: {
 			submachineGun: [
 				'Miyaka 10 Special'
+			]
+		}
+	},
+	'Metus Barrel': {
+		name: 'Metus Barrel',
+		image: 'wpn_fps_sho_supernova_b_long', // ! missing image
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			stability: 8,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Deimos'
+			]
+		}
+	},
+	'Formido Barrel': {
+		name: 'Formido Barrel',
+		image: 'wpn_fps_sho_supernova_b_short', // ! missing image
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			stability: -4,
+			concealment: 1
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Deimos'
+			]
+		}
+	},
+	'Lugosi Barrel': {
+		name: 'Lugosi Barrel',
+		image: '', // ! missing image
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 4'],
+		cost: 14e3,
+		stats: {
+			accuracy: -4,
+			stability: -4,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'Campbell 74'
+			]
+		}
+	},
+	'Karloff Barrel': {
+		name: 'Karloff Barrel',
+		image: '', // ! missing image
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 4'],
+		cost: 21e3,
+		stats: {
+			damage: 2,
+			accuracy: 4,
+			stability: 8,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'Campbell 74'
+			]
+		}
+	},
+	'Qanuk Barrel': {
+		name: 'Qanuk Barrel',
+		image: 'wpn_fps_snp_awp_b_long', // ! missing image
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			stability: 8,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Amaroq 900'
+			]
+		}
+	},
+	'Pirta Barrel': {
+		name: 'Pirta Barrel',
+		image: 'wpn_fps_snp_awp_b_short', // ! missing image
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			accuracy: -4,
+			stability: -4,
+			concealment: 1
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Amaroq 900'
 			]
 		}
 	}

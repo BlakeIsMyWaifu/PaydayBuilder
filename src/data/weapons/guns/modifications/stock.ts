@@ -280,6 +280,16 @@ export type StockModificationsList =
 	// Miyaka 10 Special
 	| 'MS10 Tactical Stock'
 
+	// ?
+	| 'Ursa Minor Stock'
+
+	// Deimos
+	| 'Collapsed Ares Stock'
+	| 'Ares Stock'
+
+	// Amaroq 900
+	| 'Moonlight Stock'
+
 const stock: ModificationList<StockModificationsList> = {
 	'Standard Stock (Main)': {
 		name: 'Standard Stock (Main)',
@@ -2269,6 +2279,76 @@ const stock: ModificationList<StockModificationsList> = {
 		compatibleWeapons: {
 			submachineGun: [
 				'Miyaka 10 Special'
+			]
+		}
+	},
+	'Ursa Minor Stock': {
+		name: 'Ursa Minor Stock',
+		image: 'wpn_fps_snp_victor_s_mod0', // ! missing image
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['A Criminal Carol'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			stability: -4,
+			concealment: 1
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Deimos'
+			]
+		}
+	},
+	'Collapsed Ares Stock': {
+		name: 'Collapsed Ares Stock',
+		image: 'wpn_fps_sho_supernova_s_collapsed', // ! missing image
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			stability: -4,
+			concealment: 1
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Deimos'
+			]
+		}
+	},
+	'Ares Stock': {
+		name: 'Ares Stock',
+		image: 'wpn_fps_sho_supernova_s_raven', // ! missing image
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			stability: -4,
+			concealment: 1
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Deimos'
+			]
+		}
+	},
+	'Moonlight Stock': {
+		name: 'Moonlight Stock',
+		image: 'wpn_fps_snp_awp_stock_lightweight', // ! missing image
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Weapon Pack 4'],
+		cost: 62e3,
+		stats: {
+			accuracy: -4,
+			stability: -8,
+			concealment: 1
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Amaroq 900'
 			]
 		}
 	}

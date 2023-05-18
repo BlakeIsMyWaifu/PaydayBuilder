@@ -5,6 +5,7 @@ import { type ModificationList } from '../weaponTypes'
 export type BoltModificationList =
 	| 'Quickdraw Speedbolt'
 	| 'Taktika Deluxe Charging Handle'
+	| 'Dire Speedbolt'
 
 const bolt: ModificationList<BoltModificationList> = {
 	'Quickdraw Speedbolt': {
@@ -38,6 +39,23 @@ const bolt: ModificationList<BoltModificationList> = {
 		compatibleWeapons: {
 			assaultRifle: [
 				'Rodion 3B'
+			]
+		}
+	},
+	'Dire Speedbolt': {
+		name: 'Dire Speedbolt',
+		image: 'wpn_fps_snp_awp_dh_speed',
+		icon: 'inv_mod_bolt',
+		slot: 'bolt',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			// TODO rate of fire
+			concealment: -1
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Amaroq 900'
 			]
 		}
 	}

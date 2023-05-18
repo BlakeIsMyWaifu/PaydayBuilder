@@ -3,6 +3,7 @@ import { type WeaponData } from '../../weaponTypes'
 import akronHC from '../lightMachineGun/akronHC'
 import brenner21 from '../lightMachineGun/brenner21'
 import buzzsaw42 from '../lightMachineGun/buzzsaw42'
+import campbell74 from '../lightMachineGun/campbell74'
 import ksp from '../lightMachineGun/ksp'
 import ksp58 from '../lightMachineGun/ksp58'
 import m60 from '../lightMachineGun/m60'
@@ -19,7 +20,8 @@ const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
 	'Buzzsaw 42': buzzsaw42,
 	'M60': m60,
 	'SG Versteckt 51D': sgVersteckt51D,
-	'Akron HC': akronHC
+	'Akron HC': akronHC,
+	'Campbell 74': campbell74
 }
 
 export default lightMachineGuns

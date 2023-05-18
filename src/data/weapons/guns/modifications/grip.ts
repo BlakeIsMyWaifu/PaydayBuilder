@@ -196,6 +196,16 @@ export type GripModificationsList =
 	// Aran G2
 	| 'Bounty Grip'
 
+	// Deimos
+	| 'Advanced Phobos Grip'
+	| 'Phobos Grip'
+	| 'Compact Phobos Grip'
+
+	// Amaroq 900
+	| 'Lupa Grip'
+	| 'Fenrir Grip'
+	| 'Raiju Grip'
+
 const grip: ModificationList<GripModificationsList> = {
 	'AK Rubber Grip': {
 		name: 'AK Rubber Grip',
@@ -1407,6 +1417,109 @@ const grip: ModificationList<GripModificationsList> = {
 		compatibleWeapons: {
 			sniper: [
 				'Aran G2'
+			]
+		}
+	},
+	'Advanced Phobos Grip': {
+		name: 'Advanced Phobos Grip',
+		image: 'Wpn_fps_sho_supernova_g_adapter', // ! missing image
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			stability: 4
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Deimos'
+			]
+		}
+	},
+	'Phobos Grip': {
+		name: 'Phobos Grip',
+		image: 'wpn_fps_sho_supernova_g_raven', // ! missing image
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			stability: -4,
+			concealment: 1
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Deimos'
+			]
+		}
+	},
+	'Compact Phobos Grip': {
+		name: 'Compact Phobos Grip',
+		image: 'wpn_fps_sho_supernova_g_stakeout', // ! missing image
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			accuracy: -4,
+			stability: -8,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Deimos'
+			]
+		}
+	},
+	'Lupa Grip': {
+		name: 'Lupa Grip',
+		image: 'wpn_fps_snp_awp_g_grainy', // ! missing image
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			stability: 4,
+			concealment: 1
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Amaroq 900'
+			]
+		}
+	},
+	'Fenrir Grip': {
+		name: 'Fenrir Grip',
+		image: 'wpn_fps_snp_awp_g_granulated', // ! missing image
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			stability: 4
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Amaroq 900'
+			]
+		}
+	},
+	'Raiju Grip': {
+		name: 'Raiju Grip',
+		image: 'wpn_fps_snp_awp_g_perforated', // ! missing image
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			accuracy: 8,
+			stability: 8,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Amaroq 900'
 			]
 		}
 	}

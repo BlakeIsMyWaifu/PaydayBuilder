@@ -171,6 +171,15 @@ export type MagazineModificationsList =
 	// Miyaka 10 Special
 	| 'MS10 Speedmag'
 
+	// Deimos
+	| 'Eris Magazine Extender'
+
+	// Campbell 74
+	| 'Perkins Soft Case'
+
+	// Amaroq 900
+	| 'Akhlut Magazine'
+
 const magazine: ModificationList<MagazineModificationsList> = {
 	'AK Quadstacked Mag': {
 		name: 'AK Quadstacked Mag',
@@ -1356,6 +1365,61 @@ const magazine: ModificationList<MagazineModificationsList> = {
 		compatibleWeapons: {
 			submachineGun: [
 				'Miyaka 10 Special'
+			]
+		}
+	},
+	'Eris Magazine Extender': {
+		name: 'Eris Magazine Extender',
+		image: 'wpn_fps_sho_supernova_m_extender', // ! missing image
+		icon: 'inv_mod_magazine',
+		slot: 'magazine',
+		source: content['McShay Weapon Pack 4'],
+		cost: 44e3,
+		stats: {
+			magazine: 2,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Deimos'
+			]
+		}
+	},
+	'Perkins Soft Case': {
+		name: 'Perkins Soft Case',
+		image: '', // ! missing image
+		icon: 'inv_mod_magazine',
+		slot: 'magazine',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			magazine: 50,
+			stability: -8,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'Campbell 74'
+			]
+		}
+	},
+	'Akhlut Magazine': {
+		name: 'Akhlut Magazine',
+		image: 'wpn_fps_snp_awp_m_speed', // ! missing image
+		icon: 'inv_mod_magazine',
+		slot: 'magazine',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			magazine: -2,
+			accuracy: -4,
+			stability: -4,
+			concealment: -1,
+			reload: -0.7
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Amaroq 900'
 			]
 		}
 	}

@@ -46,7 +46,8 @@ export const shotgunPrimaryList = [
 	'Breaker 12G',
 	'Reinfeld 88',
 	'Mosconi 12G Tactical',
-	'VD-12'
+	'VD-12',
+	'Deimos'
 ] as const
 
 export const lightMachineGunList = [
@@ -57,7 +58,8 @@ export const lightMachineGunList = [
 	'Buzzsaw 42',
 	'M60',
 	'SG Versteckt 51D',
-	'Akron HC'
+	'Akron HC',
+	'Campbell 74'
 ] as const
 
 export const sniperPrimaryList = [
@@ -73,7 +75,8 @@ export const sniperPrimaryList = [
 	'Grom',
 	'R700',
 	'Bernetti Rangehitter',
-	'Káng Arms X1'
+	'Káng Arms X1',
+	'Amaroq 900'
 ] as const
 
 export const akimboShotgunList = [

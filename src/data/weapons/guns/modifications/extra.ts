@@ -35,6 +35,12 @@ export type ExtraModificationsList =
 	// KS12 Urban Rifle
 	| 'KS12-S Carry Handle'
 
+	// Campbell 74
+	| 'Moseley Sling'
+
+	// Amaroq 900
+	| 'Snowbound Shell Rack'
+
 const extra: ModificationList<ExtraModificationsList> = {
 	'Scope Mount (AK)': {
 		name: 'Scope Mount (AK)',
@@ -219,6 +225,42 @@ const extra: ModificationList<ExtraModificationsList> = {
 		compatibleWeapons: {
 			assaultRifle: [
 				'KS12 Urban'
+			]
+		}
+	},
+	'Moseley Sling': {
+		name: 'Moseley Sling',
+		image: '', // ! missing image
+		icon: 'inv_mod_extra',
+		slot: 'extra',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			accuracy: 24,
+			stability: 20,
+			concealment: -1
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'Campbell 74'
+			]
+		}
+	},
+	'Snowbound Shell Rack': {
+		name: 'Snowbound Shell Rack',
+		image: 'wpn_fps_snp_awp_ext_shellrack', // ! missing image
+		icon: 'inv_mod_extra',
+		slot: 'extra',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			totalAmmo: 6,
+			accuracy: -4,
+			stability: -4
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Amaroq 900'
 			]
 		}
 	}

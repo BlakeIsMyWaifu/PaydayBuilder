@@ -157,11 +157,22 @@ export type BarrelExtModificationsList =
 	| 'KS12-A Burst Muzzle'
 	| 'KS12-S Long Silencer'
 
+	// Akron HC
+	| 'Buckeye Suppressor'
+
 	// Aran G2
 	| 'Phantom Suppressor'
 
 	// North Star
 	| 'Tiwaz Silencer'
+
+	// Campbell 74
+	| 'Rami Suppressor'
+	| 'Dourif Muzzle'
+
+	// Amaroq 900
+	| 'Ijiraq Muzzle Brake'
+	| 'Ice Cap Suppressor'
 
 const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	'Low Profile Suppressor': {
@@ -1338,6 +1349,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 		slot: 'barrelExt',
 		source: content['Jiu Feng Smuggler Pack 3'],
 		cost: 9e3,
+		specialEffect: ['Silences Weapon'],
 		stats: {
 			damage: -2,
 			accuracy: 12,
@@ -1348,6 +1360,27 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 		compatibleWeapons: {
 			assaultRifle: [
 				'KS12 Urban'
+			]
+		}
+	},
+	'Buckeye Suppressor': {
+		name: 'Buckeye Suppressor',
+		image: 'wpn_fps_lmg_hcar_suppressor', // ! missing image
+		icon: 'inv_mod_silencer',
+		slot: 'barrelExt',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		specialEffect: ['Silences Weapon'],
+		stats: {
+			accuracy: 8,
+			stability: 4,
+			concealment: -2,
+			threat: -25
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'Akron HC',
+				'Campbell 74'
 			]
 		}
 	},
@@ -1386,6 +1419,85 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 		compatibleWeapons: {
 			sniper: [
 				'North Star'
+			]
+		}
+	},
+	'Rami Suppressor': {
+		name: 'Rami Suppressor',
+		image: '', // ! missing image
+		icon: 'inv_mod_silencer',
+		slot: 'barrelExt',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		specialEffect: ['Silences Weapon'],
+		stats: {
+			accuracy: 4,
+			stability: 4,
+			concealment: -1,
+			threat: -25
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'Campbell 74'
+			]
+		}
+	},
+	'Dourif Muzzle': {
+		name: 'Dourif Muzzle',
+		image: '', // ! missing image
+		icon: 'inv_mod_barrel_ext',
+		slot: 'barrelExt',
+		source: content['McShay Weapon Pack 4'],
+		cost: 36e3,
+		stats: {
+			damage: 2,
+			accuracy: 4,
+			stability: 8,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			lightMachineGun: [
+				'Campbell 74'
+			]
+		}
+	},
+	'Ijiraq Muzzle Brake': {
+		name: 'Ijiraq Muzzle Brake',
+		image: 'wpn_fps_snp_awp_ns_muzzle', // ! missing image
+		icon: 'inv_mod_barrel_ext',
+		slot: 'barrelExt',
+		source: content['McShay Weapon Pack 4'],
+		cost: 36e3,
+		stats: {
+			damage: 18,
+			accuracy: 4,
+			stability: 8,
+			concealment: -2
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Amaroq 900'
+			]
+		}
+	},
+	'Ice Cap Suppressor': {
+		name: 'Ice Cap Suppressor',
+		image: 'wpn_fps_snp_awp_ns_suppressor', // ! missing image
+		icon: 'inv_mod_silencer',
+		slot: 'barrelExt',
+		source: content['McShay Weapon Pack 4'],
+		cost: 36e3,
+		specialEffect: ['Silences Weapon'],
+		stats: {
+			damage: -24,
+			accuracy: -4,
+			stability: 12,
+			concealment: -2,
+			threat: -22
+		},
+		compatibleWeapons: {
+			sniper: [
+				'Amaroq 900'
 			]
 		}
 	}

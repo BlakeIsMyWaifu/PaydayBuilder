@@ -1,5 +1,6 @@
 import { type sniperPrimaryList } from '../../gunList'
 import { type WeaponData } from '../../weaponTypes'
+import amaroq900 from '../sniper/amaroq900'
 import bernettiRangehitter from '../sniper/bernettiRangehitter'
 import contractor308 from '../sniper/contractor308'
 import desertfox from '../sniper/desertfox'
@@ -29,7 +30,8 @@ const snipersPrimary: Record<SniperPrimaryList, WeaponData> = {
 	'Grom': grom,
 	'R700': r700,
 	'Bernetti Rangehitter': bernettiRangehitter,
-	'Káng Arms X1': kangArmsX1
+	'Káng Arms X1': kangArmsX1,
+	'Amaroq 900': amaroq900
 }
 
 export default snipersPrimary

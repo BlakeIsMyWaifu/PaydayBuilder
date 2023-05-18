@@ -38,6 +38,9 @@ export type UpperReceiverModificationsList =
 	// KS12 Urban Rifle
 	| 'KS12 DMR kit'
 
+	// Deimos
+	| 'Leonidas Shell Rack'
+
 const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	'Heat Treated Body': {
 		name: 'Heat Treated Body',
@@ -305,6 +308,23 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		compatibleWeapons: {
 			assaultRifle: [
 				'KS12 Urban'
+			]
+		}
+	},
+	'Leonidas Shell Rack': {
+		name: 'Leonidas Shell Rack',
+		image: 'wpn_fps_sho_supernova_shell_rack', // ! missing image
+		icon: 'inv_mod_upper_receiver',
+		slot: 'upperReceiver',
+		source: content['McShay Weapon Pack 4'],
+		cost: 9e3,
+		stats: {
+			totalAmmo: 5,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			shotgun: [
+				'Deimos'
 			]
 		}
 	}
