@@ -196,6 +196,9 @@ export type GripModificationsList =
 	// Aran G2
 	| 'Bounty Grip'
 
+	// North Star
+	| 'Ursa Minor Grip'
+
 	// Deimos
 	| 'Advanced Phobos Grip'
 	| 'Phobos Grip'
@@ -625,7 +628,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Wooden Grip (DECA)': {
 		name: 'Wooden Grip (DECA)',
-		image: 'wpn_fps_bow_elastic_g_wood', // ! missing image
+		image: 'wpn_fps_bow_elastic_g_2', // - wpn_fps_bow_elastic_g_wood
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
@@ -642,7 +645,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Ergonomic Grip (DECA)': {
 		name: 'Ergonomic Grip (DECA)',
-		image: 'wpn_fps_bow_elastic_g_ergo', // ! missing image
+		image: 'wpn_fps_bow_elastic_g_3', // - wpn_fps_bow_elastic_g_ergo
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: source['Base Game'],
@@ -982,7 +985,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Mule Bone Grip': {
 		name: 'Mule Bone Grip',
-		image: 'wpn_fps_pis_model3_g_xxx', // ! missing image
+		image: 'wpn_fps_pis_model3_g_bling', // - wpn_fps_pis_model3_g_xxx
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Gunslinger Weapon Pack'],
@@ -1030,7 +1033,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Cartel Grip (Bernetti Auto)': {
 		name: 'Cartel Grip (Bernetti Auto)',
-		image: 'wpn_fps_pis_beer_g_luxury', // ! missing image
+		image: 'wpn_fps_pis_beer_g_lux', // - wpn_fps_pis_beer_g_luxury
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Federales Weapon Pack'],
@@ -1372,7 +1375,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'RUS Custom Wood Grip': {
 		name: 'RUS Custom Wood Grip',
-		image: 'RUS_Custom_Wood_Grip', // ! missing image
+		image: 'wpn_fps_pis_rsh12_g_wood',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Jiu Feng Smuggler Pack 3'],
@@ -1388,7 +1391,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'MS10 Comfort Wood Grip': {
 		name: 'MS10 Comfort Wood Grip',
-		image: 'MS10_Comfort_Wood_Grip', // ! missing image
+		image: 'wpn_fps_smg_pm9_g_wood',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['Jiu Feng Smuggler Pack 2'],
@@ -1420,9 +1423,26 @@ const grip: ModificationList<GripModificationsList> = {
 			]
 		}
 	},
+	'Ursa Minor Grip': {
+		name: 'Ursa Minor Grip',
+		image: 'wpn_fps_snp_victor_g_mod3',
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['A Criminal Carol'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			concealment: 1
+		},
+		compatibleWeapons: {
+			sniper: [
+				'North Star'
+			]
+		}
+	},
 	'Advanced Phobos Grip': {
 		name: 'Advanced Phobos Grip',
-		image: 'Wpn_fps_sho_supernova_g_adapter', // ! missing image
+		image: 'wpn_fps_sho_supernova_g_adapter',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['McShay Weapon Pack 4'],
@@ -1438,7 +1458,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Phobos Grip': {
 		name: 'Phobos Grip',
-		image: 'wpn_fps_sho_supernova_g_raven', // ! missing image
+		image: 'wpn_fps_sho_supernova_g_raven',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['McShay Weapon Pack 4'],
@@ -1455,7 +1475,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Compact Phobos Grip': {
 		name: 'Compact Phobos Grip',
-		image: 'wpn_fps_sho_supernova_g_stakeout', // ! missing image
+		image: 'wpn_fps_sho_supernova_g_stakeout',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['McShay Weapon Pack 4'],
@@ -1473,7 +1493,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Lupa Grip': {
 		name: 'Lupa Grip',
-		image: 'wpn_fps_snp_awp_g_grainy', // ! missing image
+		image: 'wpn_fps_snp_awp_g_grainy',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['McShay Weapon Pack 4'],
@@ -1490,7 +1510,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Fenrir Grip': {
 		name: 'Fenrir Grip',
-		image: 'wpn_fps_snp_awp_g_granulated', // ! missing image
+		image: 'wpn_fps_snp_awp_g_granulated',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['McShay Weapon Pack 4'],
@@ -1507,7 +1527,7 @@ const grip: ModificationList<GripModificationsList> = {
 	},
 	'Raiju Grip': {
 		name: 'Raiju Grip',
-		image: 'wpn_fps_snp_awp_g_perforated', // ! missing image
+		image: 'wpn_fps_snp_awp_g_perforated',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
 		source: content['McShay Weapon Pack 4'],

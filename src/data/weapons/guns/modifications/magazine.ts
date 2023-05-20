@@ -1300,7 +1300,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	},
 	'KA54 Extended Magazine': {
 		name: 'KA54 Extended Magazine',
-		image: 'KA54_Extended_Magazine', // ! missing image
+		image: 'wpn_fps_pis_type54_m_ext',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Jiu Feng Smuggler Pack 3'],
@@ -1317,7 +1317,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	},
 	'K-B1 Speedmag': {
 		name: 'K-B1 Speedmag',
-		image: 'K-B1_Speedmag', // ! missing image
+		image: 'wpn_fps_ass_groza_m_speed',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Jiu Feng Smuggler Pack 2'],
@@ -1336,7 +1336,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	},
 	'KA-ZDM2 Extended Magazine': {
 		name: 'KA-ZDM2 Extended Magazine',
-		image: 'KA-ZDM2_Extended_Magazine', // ! missing image
+		image: 'wpn_fps_snp_qbu88_m_extended',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Jiu Feng Smuggler Pack 2'],
@@ -1353,7 +1353,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	},
 	'MS10 Speedmag': {
 		name: 'MS10 Speedmag',
-		image: 'MS10_Speedmag', // ! missing image
+		image: 'wpn_fps_smg_pm9_m_quick',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['Jiu Feng Smuggler Pack 2'],
@@ -1370,7 +1370,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	},
 	'Eris Magazine Extender': {
 		name: 'Eris Magazine Extender',
-		image: 'wpn_fps_sho_supernova_m_extender', // ! missing image
+		image: 'wpn_fps_sho_supernova_m_extender',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['McShay Weapon Pack 4'],
@@ -1387,7 +1387,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	},
 	'Perkins Soft Case': {
 		name: 'Perkins Soft Case',
-		image: '', // ! missing image
+		image: 'wpn_fps_lmg_kacchainsaw_mag_b',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['McShay Weapon Pack 4'],
@@ -1405,7 +1405,7 @@ const magazine: ModificationList<MagazineModificationsList> = {
 	},
 	'Akhlut Magazine': {
 		name: 'Akhlut Magazine',
-		image: 'wpn_fps_snp_awp_m_speed', // ! missing image
+		image: 'wpn_fps_snp_awp_m_speed',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
 		source: content['McShay Weapon Pack 4'],

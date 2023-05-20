@@ -71,3 +71,7 @@ Payday Halloween Stream 2022
 * hockeynermark
 * oilbaron
 * railhat
+
+## Image
+
+* KS12-S Carry Handle (wpn_fps_ass_groza_fl_adapter)

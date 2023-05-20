@@ -18,7 +18,7 @@ export type UnderbarrelModificationsList =
 const underbarrel: ModificationList<UnderbarrelModificationsList> = {
 	'KA54 Bull Stopper Addon': {
 		name: 'KA54 Bull Stopper Addon',
-		image: 'KA54_Bull_Stopper_Addon', // ! missing image
+		image: 'wpn_fps_pis_type54_underbarrel_custom',
 		icon: 'inv_mod_ammo_custom',
 		slot: 'underbarrel',
 		source: content['Jiu Feng Smuggler Pack 3'],
@@ -69,7 +69,7 @@ const underbarrel: ModificationList<UnderbarrelModificationsList> = {
 	},
 	'Frag Round': {
 		name: 'Frag Round',
-		image: 'inv_mod_ammo_explosive', // ! missing image
+		image: 'wpn_fps_upg_a_underbarrel_frag_groza',
 		icon: 'inv_mod_ammo_explosive',
 		slot: 'underbarrel',
 		source: content['Jiu Feng Smuggler Pack 2'],
@@ -97,7 +97,7 @@ const underbarrel: ModificationList<UnderbarrelModificationsList> = {
 	},
 	'Infernal Flamethrower': {
 		name: 'Infernal Flamethrower',
-		image: '', // ! missing image
+		image: 'wpn_fps_lmg_kacchainsaw_flamethrower',
 		icon: 'inv_mod_ammo_dragons_breath',
 		slot: 'underbarrel',
 		source: content['McShay Weapon Pack 4'],

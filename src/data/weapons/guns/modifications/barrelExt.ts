@@ -53,6 +53,8 @@ export type BarrelExtModificationsList =
 	| 'Competitor\'s Compensator'
 	| 'Funnel of Fun Nozzle'
 	| 'Ported Compensator'
+	| 'Marmon Compensator'
+	| 'Verdunkeln Muzzle Brake'
 	// Misc
 	| 'PBS Suppressor'
 
@@ -147,13 +149,10 @@ export type BarrelExtModificationsList =
 	// Uzi
 	| 'Silent Death'
 
-	// SG Versteckt 51D + other?
-	| 'Marmon Compensator'
-
 	// Argos III
 	| 'Try-Core Compensator'
 
-	// KS12 Urban Rifle
+	// KS12 Urban Rifle + Rifles
 	| 'KS12-A Burst Muzzle'
 	| 'KS12-S Long Silencer'
 
@@ -1009,7 +1008,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	},
 	'Suppressed Barrel': {
 		name: 'Suppressed Barrel',
-		image: 'Suppressed_Barrel', // ! missing image
+		image: 'wpn_fps_smg_mp7_b_suppressed',
 		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['Gage Weapon Pack #01'],
@@ -1337,9 +1336,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 			concealment: -1
 		},
 		compatibleWeapons: {
-			assaultRifle: [
-				'KS12 Urban'
-			]
+			assaultRifle: assaultRifleList
 		}
 	},
 	'KS12-S Long Silencer': {
@@ -1358,14 +1355,27 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 			threat: -20
 		},
 		compatibleWeapons: {
-			assaultRifle: [
-				'KS12 Urban'
-			]
+			assaultRifle: assaultRifleList
 		}
+	},
+	'Verdunkeln Muzzle Brake': {
+		name: 'Verdunkeln Muzzle Brake',
+		image: 'wpn_fps_lmg_hk51b_ns_jcomp',
+		icon: 'inv_mod_barrel_ext',
+		slot: 'barrelExt',
+		source: content['McShay Weapon Pack'],
+		cost: 9e3,
+		stats: {
+			damage: 1,
+			accuracy: 4,
+			stability: 4,
+			concealment: -1
+		},
+		compatibleWeapons: autoGuns
 	},
 	'Buckeye Suppressor': {
 		name: 'Buckeye Suppressor',
-		image: 'wpn_fps_lmg_hcar_suppressor', // ! missing image
+		image: 'wpn_fps_lmg_hcar_suppressor',
 		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['McShay Weapon Pack 3'],
@@ -1404,7 +1414,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	},
 	'Tiwaz Silencer': {
 		name: 'Tiwaz Silencer',
-		image: '',  // ! missing image
+		image: 'wpn_fps_snp_victor_ns_omega',
 		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['A Criminal Carol'],
@@ -1424,7 +1434,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	},
 	'Rami Suppressor': {
 		name: 'Rami Suppressor',
-		image: '', // ! missing image
+		image: 'wpn_fps_lmg_kacchainsaw_ns_suppressor',
 		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['McShay Weapon Pack 4'],
@@ -1444,7 +1454,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	},
 	'Dourif Muzzle': {
 		name: 'Dourif Muzzle',
-		image: '', // ! missing image
+		image: 'wpn_fps_lmg_kacchainsaw_ns_muzzle',
 		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['McShay Weapon Pack 4'],
@@ -1463,7 +1473,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	},
 	'Ijiraq Muzzle Brake': {
 		name: 'Ijiraq Muzzle Brake',
-		image: 'wpn_fps_snp_awp_ns_muzzle', // ! missing image
+		image: 'wpn_fps_snp_awp_ns_muzzle',
 		icon: 'inv_mod_barrel_ext',
 		slot: 'barrelExt',
 		source: content['McShay Weapon Pack 4'],
@@ -1482,7 +1492,7 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 	},
 	'Ice Cap Suppressor': {
 		name: 'Ice Cap Suppressor',
-		image: 'wpn_fps_snp_awp_ns_suppressor', // ! missing image
+		image: 'wpn_fps_snp_awp_ns_suppressor',
 		icon: 'inv_mod_silencer',
 		slot: 'barrelExt',
 		source: content['McShay Weapon Pack 4'],

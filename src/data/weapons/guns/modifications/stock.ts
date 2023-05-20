@@ -280,8 +280,9 @@ export type StockModificationsList =
 	// Miyaka 10 Special
 	| 'MS10 Tactical Stock'
 
-	// ?
+	// North Star
 	| 'Ursa Minor Stock'
+	| 'Starlight Stock'
 
 	// Deimos
 	| 'Collapsed Ares Stock'
@@ -623,7 +624,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'B-Team Stock': {
 		name: 'B-Team Stock',
-		image: 'B-Team_Stock_(M308)', // ! missing image
+		image: 'wpn_fps_ass_m14_body_ruger',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source['Base Game'],
@@ -736,7 +737,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Plastic Stock (Gecko)': {
 		name: 'Plastic Stock (Gecko)',
-		image: 'Plastic_Stock_(Gecko_7.62)', // ! missing image
+		image: 'wpn_fps_ass_galil_s_plastic',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gage Assault Pack'],
@@ -1135,7 +1136,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Artisan Stock': {
 		name: 'Artisan Stock',
-		image: 'wpn_fps_sho_m1897_s_xxx', // ! missing image
+		image: 'wpn_fps_shot_m1897_s_short', // - wpn_fps_sho_m1897_s_xxx
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gunslinger Weapon Pack'],
@@ -1260,7 +1261,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Club Stock': {
 		name: 'Club Stock',
-		image: 'wpn_fps_snp_sbl_s_xxx', // ! missing image
+		image: 'wpn_fps_snp_sbl_s_saddle', // - wpn_fps_snp_sbl_s_xxx
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Gunslinger Weapon Pack'],
@@ -1590,7 +1591,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Bull Stock': {
 		name: 'Bull Stock',
-		image: 'wpn_fps_smg_vityaz_b_xxx', // ! missing image
+		image: 'wpn_fps_smg_vityaz_s_short', // - wpn_fps_smg_vityaz_b_xxx
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Jiu Feng Smuggler Pack'],
@@ -2110,7 +2111,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Deadman\'s Stock': {
 		name: 'Deadman\'s Stock',
-		image: 'wpn_fps_shot_coach_s_short', // ! missing image
+		image: 'wpn_fps_sho_coach_s_short', // - wpn_fps_shot_coach_s_short
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: source.Community,
@@ -2145,7 +2146,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Copperhead Recoil Pad': {
 		name: 'Copperhead Recoil Pad',
-		image: '???', // ! missing image
+		image: 'wpn_fps_gre_ms3gl_s_modern',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['McShay Weapon Pack'],
@@ -2267,7 +2268,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'MS10 Tactical Stock': {
 		name: 'MS10 Tactical Stock',
-		image: 'MS10_Tactical_Stock', // ! missing image
+		image: 'wpn_fps_smg_pm9_s_tactical',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['Jiu Feng Smuggler Pack 2'],
@@ -2284,7 +2285,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Ursa Minor Stock': {
 		name: 'Ursa Minor Stock',
-		image: 'wpn_fps_snp_victor_s_mod0', // ! missing image
+		image: 'wpn_fps_snp_victor_s_mod0',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['A Criminal Carol'],
@@ -2295,14 +2296,34 @@ const stock: ModificationList<StockModificationsList> = {
 			concealment: 1
 		},
 		compatibleWeapons: {
+			sniper: [
+				'North Star'
+			],
 			shotgun: [
 				'Deimos'
 			]
 		}
 	},
+	'Starlight Stock': {
+		name: 'Starlight Stock',
+		image: 'wpn_fps_m4_uupg_s_zulu',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['A Criminal Carol'],
+		cost: 36e3,
+		stats: {
+			accuracy: -4,
+			concealment: 2
+		},
+		compatibleWeapons: {
+			sniper: [
+				'North Star'
+			]
+		}
+	},
 	'Collapsed Ares Stock': {
 		name: 'Collapsed Ares Stock',
-		image: 'wpn_fps_sho_supernova_s_collapsed', // ! missing image
+		image: 'wpn_fps_sho_supernova_s_collapsed',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['McShay Weapon Pack 4'],
@@ -2319,7 +2340,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Ares Stock': {
 		name: 'Ares Stock',
-		image: 'wpn_fps_sho_supernova_s_raven', // ! missing image
+		image: 'wpn_fps_sho_supernova_s_raven',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['McShay Weapon Pack 4'],
@@ -2336,7 +2357,7 @@ const stock: ModificationList<StockModificationsList> = {
 	},
 	'Moonlight Stock': {
 		name: 'Moonlight Stock',
-		image: 'wpn_fps_snp_awp_stock_lightweight', // ! missing image
+		image: 'wpn_fps_snp_awp_stock_lightweight',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
 		source: content['McShay Weapon Pack 4'],

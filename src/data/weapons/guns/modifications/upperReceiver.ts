@@ -292,7 +292,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	},
 	'KS12 DMR kit': {
 		name: 'KS12 DMR kit',
-		image: 'KS12_DMR_kit', // ! missing image
+		image: 'wpn_fps_ass_shak12_body_vks',
 		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: content['Jiu Feng Smuggler Pack 3'],
@@ -313,7 +313,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 	},
 	'Leonidas Shell Rack': {
 		name: 'Leonidas Shell Rack',
-		image: 'wpn_fps_sho_supernova_shell_rack', // ! missing image
+		image: 'wpn_fps_sho_supernova_shell_rack',
 		icon: 'inv_mod_upper_receiver',
 		slot: 'upperReceiver',
 		source: content['McShay Weapon Pack 4'],

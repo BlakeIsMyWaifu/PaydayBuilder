@@ -1048,7 +1048,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Short Barrel (Union)': {
 		name: 'Short Barrel (Union)',
-		image: 'wpn_fps_corgi_b_short', // ! missing image
+		image: 'wpn_fps_ass_corgi_body_lower_strap', // - wpn_fps_corgi_b_short
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: source['Base Game'],
@@ -1364,7 +1364,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'CE Extender': {
 		name: 'CE Extender',
-		image: 'wpn_fps_sho_m590_b_xxx', // ! missing image
+		image: 'wpn_fps_sho_m590_b_long',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['Jiu Feng Smuggler Pack'],
@@ -1383,7 +1383,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'CE Muffler': {
 		name: 'CE Muffler',
-		image: 'wpn_fps_sho_m590_b_xxx___', // ! missing image
+		image: 'wpn_fps_sho_m590_b_suppressor',
 		icon: 'inv_mod_silencer',
 		slot: 'barrel',
 		source: content['Jiu Feng Smuggler Pack'],
@@ -2387,7 +2387,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Opera Long Barrel': {
 		name: 'Opera Long Barrel',
-		image: 'wpn_fps_pis_model3_bar_xxx', // ! missing image
+		image: 'wpn_fps_pis_model3_b_long', // - wpn_fps_pis_model3_bar_xxx
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['Gunslinger Weapon Pack'],
@@ -2405,7 +2405,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Napoleon Barrel': {
 		name: 'Napoleon Barrel',
-		image: 'wpn_fps_pis_model3_bar_xxx__', // ! missing image
+		image: 'wpn_fps_pis_model3_b_short', // - wpn_fps_pis_model3_bar_xxx__
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['Gunslinger Weapon Pack'],
@@ -2861,7 +2861,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'BY90 Wide Suppressor': {
 		name: 'BY90 Wide Suppressor',
-		image: 'wpn_fps_smg_vityaz_b_supressed', // ? wpn_fps_smg_vityaz_b_xxx
+		image: 'wpn_fps_smg_vityaz_b_supressed', // - wpn_fps_smg_vityaz_b_xxx
 		icon: 'inv_mod_silencer',
 		slot: 'barrel',
 		source: content['Jiu Feng Smuggler Pack'],
@@ -2880,7 +2880,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Sawed Off Barrel (Claire)': {
 		name: 'Sawed Off Barrel (Claire)',
-		image: 'wpn_fps_shot_coach_b_short', // ! missing image
+		image: 'wpn_fps_sho_coach_b_short', // - wpn_fps_shot_coach_b_short
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: source.Community,
@@ -3058,7 +3058,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Fang Barrel': {
 		name: 'Fang Barrel',
-		image: '???', // ! missing image
+		image: 'wpn_fps_gre_ms3gl_b_long',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack'],
@@ -3204,7 +3204,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'KA54 Barrel Extender': {
 		name: 'KA54 Barrel Extender',
-		image: 'KA54_Barrel_Extender', // ! missing image
+		image: 'wpn_fps_pis_type54_b_long',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['Jiu Feng Smuggler Pack 3'],
@@ -3222,7 +3222,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'RUS-J Long Valley Barrel and Stabilizer': {
 		name: 'RUS-J Long Valley Barrel and Stabilizer',
-		image: 'RUS-J_Long_Valley_Barrel_and_Stabilizer', // ! missing image
+		image: 'wpn_fps_pis_rsh12_b_comp',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['Jiu Feng Smuggler Pack 3'],
@@ -3241,7 +3241,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'RUS-K Tactical Short Barrel': {
 		name: 'RUS-K Tactical Short Barrel',
-		image: 'RUS-K_Tactical_Short_Barrel', // ! missing image
+		image: 'wpn_fps_pis_rsh12_b_short',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['Jiu Feng Smuggler Pack 3'],
@@ -3259,7 +3259,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'K-B100 Suppressor': {
 		name: 'K-B100 Suppressor',
-		image: 'K-B100_Suppressor', // ! missing image
+		image: 'wpn_fps_ass_groza_b_supressor',
 		icon: 'inv_mod_silencer',
 		slot: 'barrel',
 		source: content['Jiu Feng Smuggler Pack 2'],
@@ -3278,7 +3278,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'KA-ZD1A Long Barrel': {
 		name: 'KA-ZD1A Long Barrel',
-		image: 'KA-ZD1A_Long_Barrel', // ! missing image
+		image: 'wpn_fps_snp_qbu88_b_long',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['Jiu Feng Smuggler Pack 2'],
@@ -3296,7 +3296,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'KA-ZD1B Short Barrel': {
 		name: 'KA-ZD1B Short Barrel',
-		image: 'KA-ZD1B_Short_Barrel', // ! missing image
+		image: 'wpn_fps_snp_qbu88_b_short',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['Jiu Feng Smuggler Pack 2'],
@@ -3313,7 +3313,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'MS10 Short Barrel': {
 		name: 'MS10 Short Barrel',
-		image: 'MS10_Short_Barrel', // ! missing image
+		image: 'wpn_fps_smg_pm9_b_short',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['Jiu Feng Smuggler Pack 2'],
@@ -3331,7 +3331,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Metus Barrel': {
 		name: 'Metus Barrel',
-		image: 'wpn_fps_sho_supernova_b_long', // ! missing image
+		image: 'wpn_fps_sho_supernova_b_long',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack 4'],
@@ -3349,7 +3349,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Formido Barrel': {
 		name: 'Formido Barrel',
-		image: 'wpn_fps_sho_supernova_b_short', // ! missing image
+		image: 'wpn_fps_sho_supernova_b_short',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack 4'],
@@ -3366,7 +3366,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Lugosi Barrel': {
 		name: 'Lugosi Barrel',
-		image: '', // ! missing image
+		image: 'wpn_fps_lmg_kacchainsaw_b_short',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack 4'],
@@ -3384,7 +3384,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Karloff Barrel': {
 		name: 'Karloff Barrel',
-		image: '', // ! missing image
+		image: 'wpn_fps_lmg_kacchainsaw_b_long',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack 4'],
@@ -3403,7 +3403,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Qanuk Barrel': {
 		name: 'Qanuk Barrel',
-		image: 'wpn_fps_snp_awp_b_long', // ! missing image
+		image: 'wpn_fps_snp_awp_b_long',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack 4'],
@@ -3421,7 +3421,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Pirta Barrel': {
 		name: 'Pirta Barrel',
-		image: 'wpn_fps_snp_awp_b_short', // ! missing image
+		image: 'wpn_fps_snp_awp_b_short',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: content['McShay Weapon Pack 4'],

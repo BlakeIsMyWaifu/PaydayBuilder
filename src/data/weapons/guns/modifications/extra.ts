@@ -216,7 +216,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 	},
 	'KS12-S Carry Handle': {
 		name: 'KS12-S Carry Handle',
-		image: 'KS12-S_Carry_Handle', // ! missing image
+		image: 'wpn_fps_ass_groza_fl_adapter', // ! missing image
 		icon: 'inv_mod_extra',
 		slot: 'extra',
 		source: content['Jiu Feng Smuggler Pack 3'],
@@ -230,7 +230,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 	},
 	'Moseley Sling': {
 		name: 'Moseley Sling',
-		image: '', // ! missing image
+		image: 'wpn_fps_lmg_kacchainsaw_sling',
 		icon: 'inv_mod_extra',
 		slot: 'extra',
 		source: content['McShay Weapon Pack 4'],
@@ -248,7 +248,7 @@ const extra: ModificationList<ExtraModificationsList> = {
 	},
 	'Snowbound Shell Rack': {
 		name: 'Snowbound Shell Rack',
-		image: 'wpn_fps_snp_awp_ext_shellrack', // ! missing image
+		image: 'wpn_fps_snp_awp_ext_shellrack',
 		icon: 'inv_mod_extra',
 		slot: 'extra',
 		source: content['McShay Weapon Pack 4'],

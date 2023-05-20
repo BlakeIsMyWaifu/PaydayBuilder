@@ -8,7 +8,7 @@ export type ReceiverModificationsList =
 const receiver: ModificationList<ReceiverModificationsList> = {
 	'Serpent': {
 		name: 'Serpent',
-		image: '???', // ! missing image
+		image: 'wpn_fps_gre_ms3gl_body_modern',
 		icon: 'inv_mod_receiver',
 		slot: 'receiver',
 		source: content['McShay Weapon Pack'],

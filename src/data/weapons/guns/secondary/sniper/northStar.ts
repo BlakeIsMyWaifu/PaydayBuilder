@@ -62,7 +62,8 @@ const northStar: WeaponData = {
 			grip['Pro Grip'],
 			grip['Rubber Grip'],
 			grip['Straight Grip'],
-			grip['Titanium Skeleton Grip']
+			grip['Titanium Skeleton Grip'],
+			grip['Ursa Minor Grip']
 		],
 		// TODO secondary sight
 		sight: [
@@ -92,7 +93,9 @@ const northStar: WeaponData = {
 			stock['Folding Stock'],
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
-			stock['2 Piece Stock']
+			stock['2 Piece Stock'],
+			stock['Ursa Minor Stock'],
+			stock['Starlight Stock']
 		]
 	}
 }

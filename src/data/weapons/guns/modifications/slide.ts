@@ -259,7 +259,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	},
 	'Chunky Hunter Barrel': {
 		name: 'Chunky Hunter Barrel',
-		image: 'wpn_fps_pis_m1911_b_xxx', // ! missing image
+		image: 'wpn_fps_pis_m1911_sl_hardballer', // - wpn_fps_pis_m1911_b_xxx
 		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: content['Jiu Feng Smuggler Pack'],
@@ -276,7 +276,7 @@ const slide: ModificationList<SlideModificationsList> = {
 	},
 	'Crosskill Platinum Bull Slide': {
 		name: 'Crosskill Platinum Bull Slide',
-		image: 'wpn_fps_pis_m1911_b_xxx__', // ! missing image
+		image: 'wpn_fps_pis_m1911_sl_match', // - wpn_fps_pis_m1911_b_xxx__
 		icon: 'inv_mod_slide',
 		slot: 'slide',
 		source: content['Jiu Feng Smuggler Pack'],
