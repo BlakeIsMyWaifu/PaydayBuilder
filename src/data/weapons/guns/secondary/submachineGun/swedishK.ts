@@ -50,7 +50,7 @@ const swedishK: WeaponData = {
 			grip['Bling Grip (Swedish)']
 		],
 		magazine: [
-			magazine['Extended Mag. (Swedish)']
+			magazine['Extended Magazine (Swedish)']
 		],
 		sight: submachineGunSight,
 		stock: [

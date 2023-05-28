@@ -4,7 +4,7 @@ import barrel from '../../modifications/barrel'
 import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
+import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
 const blaster9mm: WeaponData = {
 	name: 'Blaster 9mm',
@@ -45,8 +45,9 @@ const blaster9mm: WeaponData = {
 		custom: submachineGunCustom,
 		gadget: submachineGunGadget,
 		magazine: [
-			magazine['Extended Mag (Blaster)']
+			magazine['Extended Magazine (Blaster)']
 		],
+		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight,
 		stock: [
 			stock['Just Bend It']

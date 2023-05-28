@@ -58,6 +58,9 @@ export type BarrelExtModificationsList =
 	// Misc
 	| 'PBS Suppressor'
 
+	// Bootleg
+	| 'Bootstrap Compensator'
+
 	// Shotguns
 	| 'Shark Teeth Nozzle'
 	| 'The Silent Killer Suppressor'
@@ -87,6 +90,7 @@ export type BarrelExtModificationsList =
 	| 'Budget Suppressor'
 	| 'Jungle Ninja Suppressor'
 	| 'Hurricane Compensator'
+	| 'Medved R4 Suppressor'
 
 	// Interceptor .45
 	| 'Ventilated .45'
@@ -162,8 +166,15 @@ export type BarrelExtModificationsList =
 	// Aran G2
 	| 'Phantom Suppressor'
 
+	// AK
+	| 'Taktika Muzzle Brake'
+
 	// North Star
 	| 'Tiwaz Silencer'
+
+	// AK
+	| 'Fyodor Muzzle Brake'
+	| 'Federation Suppressor'
 
 	// Campbell 74
 	| 'Rami Suppressor'
@@ -369,6 +380,25 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 				'Tatonka'
 			]
 		}
+	},
+	'Bootstrap Compensator': {
+		name: 'Bootstrap Compensator',
+		image: 'wpn_fps_ass_tecci_ns_special',
+		icon: 'inv_mod_barrel_ext',
+		slot: 'barrelExt',
+		source: content['Sydney Character Pack'],
+		cost: 9e3,
+		acquisition: {
+			bonus: 1
+		},
+		stats: {
+			damage: 2,
+			accuracy: 4,
+			stability: 12,
+			concealment: -2,
+			threat: 6
+		},
+		compatibleWeapons: {}
 	},
 	'Shark Teeth Nozzle': {
 		name: 'Shark Teeth Nozzle',
@@ -740,6 +770,23 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 			threat: -24
 		},
 		compatibleWeapons: mainPistolsWithBroomstick
+	},
+	'Medved R4 Suppressor': {
+		name: 'Medved R4 Suppressor',
+		image: 'wpn_fps_upg_ns_pis_putnik',
+		icon: 'inv_mod_silencer',
+		slot: 'barrelExt',
+		source: source['Base Game'],
+		cost: 21e3,
+		specialEffect: ['Silences Weapon'],
+		stats: {
+			damage: -2,
+			accuracy: 4,
+			stability: 4,
+			concealment: -2,
+			threat: -24
+		},
+		compatibleWeapons: {}
 	},
 	'Ventilated .45': {
 		name: 'Ventilated .45',
@@ -1412,6 +1459,21 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 			]
 		}
 	},
+	'Taktika Muzzle Brake': {
+		name: 'Taktika Muzzle Brake',
+		image: 'wpn_fps_upg_ak_ns_zenitco',
+		icon: 'inv_mod_barrel_ext',
+		slot: 'barrelExt',
+		source: content['McShay Mod Pack'],
+		cost: 9e3,
+		stats: {
+			damage: 3,
+			accuracy: 8,
+			stability: 4,
+			concealment: -2
+		},
+		compatibleWeapons: {}
+	},
 	'Tiwaz Silencer': {
 		name: 'Tiwaz Silencer',
 		image: 'wpn_fps_snp_victor_ns_omega',
@@ -1431,6 +1493,35 @@ const barrelExt: ModificationList<BarrelExtModificationsList> = {
 				'North Star'
 			]
 		}
+	},
+	'Fyodor Muzzle Brake': {
+		name: 'Fyodor Muzzle Brake',
+		image: 'wpn_fps_upg_ak_ns_jmac',
+		icon: 'inv_mod_barrel_ext',
+		slot: 'barrelExt',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			damage: 3,
+			accuracy: 8,
+			stability: -4,
+			concealment: -2
+		},
+		compatibleWeapons: {}
+	},
+	'Federation Suppressor': {
+		name: 'Federation Suppressor',
+		image: 'wpn_fps_upg_ak_ns_tgp',
+		icon: 'inv_mod_silencer',
+		slot: 'barrelExt',
+		source: content['McShay Weapon Pack 3'],
+		cost: 9e3,
+		stats: {
+			damage: -2,
+			concealment: -1,
+			threat: -16.8
+		},
+		compatibleWeapons: {}
 	},
 	'Rami Suppressor': {
 		name: 'Rami Suppressor',

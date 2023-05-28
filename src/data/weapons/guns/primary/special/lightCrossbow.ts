@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 
 import ammunition from '../../modifications/ammunition'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoostTotalAmmo } from '../commonModifications/specialModifications'
+import { specialBoost } from '../commonModifications/specialModifications'
 
 const lightCrossbow: WeaponData = {
 	name: 'Light Crossbow',
@@ -38,7 +38,7 @@ const lightCrossbow: WeaponData = {
 			ammunition['Explosive Bolt (Light Crossbow)'],
 			ammunition['Poison Bolt (Light Crossbow)']
 		],
-		boost: specialBoostTotalAmmo
+		boost: specialBoost
 	}
 }
 

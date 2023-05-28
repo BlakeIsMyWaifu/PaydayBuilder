@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import barrel from '../../modifications/barrel'
 import grip from '../../modifications/grip'
 import { type WeaponData } from '../../weaponTypes'
-import { sniperBoost, sniperGadgetMagnifier, sniperSight } from '../commonModifications/sniperModifications'
+import { sniperBoost, sniperGadget, sniperSecondarySight, sniperSight } from '../commonModifications/sniperModifications'
 
 const lebensauger308: WeaponData = {
 	name: 'Lebensauger .308',
@@ -40,12 +40,13 @@ const lebensauger308: WeaponData = {
 			barrel['Gedämpfter Barrel']
 		],
 		boost: sniperBoost,
-		gadget: sniperGadgetMagnifier,
+		gadget: sniperGadget,
 		grip: [
 			grip['Leichter Grip'],
 			grip['Subtiler Grip'],
 			grip['Walnuss Grip']
 		],
+		secondarySight: sniperSecondarySight,
 		sight: sniperSight
 	}
 }

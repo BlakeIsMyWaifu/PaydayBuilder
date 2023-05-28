@@ -1,6 +1,7 @@
 import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
+import secondarySight from '../../modifications/secondarySight'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
@@ -41,6 +42,11 @@ const valkyria: WeaponData = {
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
 		gadget: assaultRifleGadget,
+		secondarySight: [
+			secondarySight['Riktpunkt 45 degree Sight'],
+			secondarySight['45 degree red-dot sight'],
+			secondarySight['45 Degree Ironsights']
+		],
 		sight: assaultRifleSight,
 		stock: [
 			stock['Solid Stock (Valkyria)']

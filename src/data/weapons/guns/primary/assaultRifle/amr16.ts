@@ -8,7 +8,7 @@ import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
 import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const amr16: WeaponData = {
 	name: 'AMR-16',
@@ -50,18 +50,24 @@ const amr16: WeaponData = {
 		foregrip: [
 			foregrip['Tactical Handguard'],
 			foregrip['Blast From The Past Handguard'],
-			foregrip['Long Ergo Foregrip']
+			foregrip['Long Ergo Foregrip'],
+			foregrip['Orthogon Foregrip']
 		],
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		grip: [
 			grip['Ergo Grip (Main)'],
 			grip['Pro Grip'],
 			grip['Rubber Grip'],
 			grip['Straight Grip'],
-			grip['Contractor Grip']
+			grip['Contractor Grip'],
+			grip['Titanium Skeleton Grip'],
+			grip['Skeletonized AR Grip'],
+			grip['VD-12 Grip'],
+			grip['Ursa Minor Grip']
 		],
 		lowerReceiver: [
-			lowerReceiver['THRUST Lower Receiver']
+			lowerReceiver['THRUST Lower Receiver'],
+			lowerReceiver['Orthogon Lower Receiver']
 		],
 		magazine: [
 			magazine['Milspec Mag.'],
@@ -69,19 +75,25 @@ const amr16: WeaponData = {
 			magazine['CAR Quadstacked Mag'],
 			magazine['Expert Mag'],
 			magazine['L5 Magazine'],
-			magazine['Speed Pull Magazine']
+			magazine['Speed Pull Magazine'],
+			magazine['Plated AR Magazine']
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight,
 		stock: [
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
-			stock['Contractor Stock']
+			stock['Contractor Stock'],
+			stock['VD-12 Stock'],
+			stock['Ursa Minor Stock'],
+			stock['Starlight Stock']
 		],
 		upperReceiver: [
 			upperReceiver['Exotique Receiver'],
 			upperReceiver['LW Upper Receiver'],
-			upperReceiver['THRUST Upper Receiver']
+			upperReceiver['THRUST Upper Receiver'],
+			upperReceiver['Orthogon Upper Receiver']
 		]
 	}
 }

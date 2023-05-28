@@ -5,7 +5,7 @@ import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const queensWrath: WeaponData = {
 	name: 'Queen\'s Wrath',
@@ -47,7 +47,7 @@ const queensWrath: WeaponData = {
 		foregrip: [
 			foregrip['Versatile Foregrip']
 		],
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		grip: [
 			grip['Delightful Grip']
 		],
@@ -59,6 +59,7 @@ const queensWrath: WeaponData = {
 			magazine['L5 Magazine'],
 			magazine['Speed Pull Magazine']
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight
 	}
 }

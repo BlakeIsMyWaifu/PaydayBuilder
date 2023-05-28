@@ -6,7 +6,7 @@ import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
 import verticalGrip from '../../modifications/verticalGrip'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
+import { submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
 const jackal: WeaponData = {
 	name: 'Jackal',
@@ -42,8 +42,22 @@ const jackal: WeaponData = {
 			barrel['Civilian Barrel']
 		],
 		barrelExt: [
-			...submachineGunBarrelExt,
-			barrelExt['Silentgear Silencer']
+			barrelExt['Medium Suppressor'],
+			barrelExt['Low Profile Suppressor'],
+			barrelExt['Stubby Compensator'],
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['The Tank Compensator'],
+			barrelExt['Fire Breather Nozzle'],
+			barrelExt['The Bigger The Better Suppressor'],
+			barrelExt['Competitor\'s Compensator'],
+			barrelExt['Funnel of Fun Nozzle'],
+			barrelExt['Tactical Compensator'],
+			barrelExt['Ported Compensator'],
+			barrelExt['Silentgear Silencer'],
+			barrelExt['Marmon Compensator'],
+			barrelExt['Verdunkeln Muzzle Brake'],
+			barrelExt['Rami Suppressor'],
+			barrelExt['Dourif Muzzle']
 		],
 		boost: submachineGunBoost,
 		custom: submachineGunCustom,
@@ -52,6 +66,7 @@ const jackal: WeaponData = {
 			magazine['Extended Magazine (Jackal)'],
 			magazine['Short Magazine (Jackal)']
 		],
+		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight,
 		stock: [
 			stock['Civilian Stock'],

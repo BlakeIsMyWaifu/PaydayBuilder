@@ -2,11 +2,12 @@ import content from 'data/source/downloadableContent'
 
 import barrelExt from '../../modifications/barrelExt'
 import bipod from '../../modifications/bipod'
+import chargingHandle from '../../modifications/chargingHandle'
 import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { lightMachineGunBarrelExt, lightMachineGunBoost, lightMachineGunGadget } from '../commonModifications/lightMachineGunModifications'
+import { lightMachineGunBoost, lightMachineGunGadget } from '../commonModifications/lightMachineGunModifications'
 
 const rpk: WeaponData = {
 	name: 'RPK',
@@ -39,13 +40,32 @@ const rpk: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			...lightMachineGunBarrelExt,
-			barrelExt['PBS Suppressor']
+			barrelExt['Medium Suppressor'],
+			barrelExt['Low Profile Suppressor'],
+			barrelExt['Stubby Compensator'],
+			barrelExt['The Tank Compensator'],
+			barrelExt['Fire Breather Nozzle'],
+			barrelExt['The Bigger The Better Suppressor'],
+			barrelExt['Competitor\'s Compensator'],
+			barrelExt['Funnel of Fun Nozzle'],
+			barrelExt['Tactical Compensator'],
+			barrelExt['PBS Suppressor'],
+			barrelExt['Ported Compensator'],
+			barrelExt['Taktika Muzzle Brake'],
+			barrelExt['Marmon Compensator'],
+			barrelExt['Verdunkeln Muzzle Brake'],
+			barrelExt['Fyodor Muzzle Brake'],
+			barrelExt['Federation Suppressor'],
+			barrelExt['Rami Suppressor'],
+			barrelExt['Dourif Muzzle']
 		],
 		bipod: [
 			bipod['Lion\'s Bipod']
 		],
 		boost: lightMachineGunBoost,
+		chargingHandle: [
+			chargingHandle['Taktika Charging Handle']
+		],
 		foregrip: [
 			foregrip['Tactical Foregrip (RPK)']
 		],
@@ -54,7 +74,10 @@ const rpk: WeaponData = {
 			grip['AK Rubber Grip'],
 			grip['AK Plastic Grip'],
 			grip['AK Wood Grip'],
-			grip['Aluminum Grip']
+			grip['Aluminum Grip'],
+			grip['Verge AK Grip'],
+			grip['Ergonomic AK Grip'],
+			grip['Ultimatum AK Grip']
 		],
 		stock: [
 			stock['Standard Stock (Main)'],
@@ -65,7 +88,9 @@ const rpk: WeaponData = {
 			stock['War-Torn Stock'],
 			stock['Classic Stock'],
 			stock['2 Piece Stock'],
-			stock['Contractor Stock']
+			stock['Contractor Stock'],
+			stock['Taktika Telescopic Stock'],
+			stock['VD-12 Stock']
 		]
 	}
 }

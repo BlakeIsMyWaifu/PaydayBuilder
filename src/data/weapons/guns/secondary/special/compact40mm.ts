@@ -1,8 +1,7 @@
 import source from 'data/source/miscSources'
 
-import ammunition from '../../modifications/ammunition'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoost, specialGadget, specialSight } from '../commonModifications/specialModifications'
+import { specialAmmunition, specialBoost, specialGadget, specialSight } from '../commonModifications/specialModifications'
 
 const compact40mm: WeaponData = {
 	name: 'Compact 40mm',
@@ -34,9 +33,7 @@ const compact40mm: WeaponData = {
 		damageModifier: null
 	},
 	modifications: {
-		ammunition: [
-			ammunition['Incendiary Round']
-		],
+		ammunition: specialAmmunition,
 		boost: specialBoost,
 		gadget: specialGadget,
 		sight: specialSight

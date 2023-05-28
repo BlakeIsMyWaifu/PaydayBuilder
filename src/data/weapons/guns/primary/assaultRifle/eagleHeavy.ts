@@ -5,7 +5,7 @@ import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const eagleHeavy: WeaponData = {
 	name: 'Eagle Heavy',
@@ -47,13 +47,17 @@ const eagleHeavy: WeaponData = {
 		foregrip: [
 			foregrip['Rail Extension']
 		],
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		grip: [
 			grip['Ergo Grip (Main)'],
 			grip['Pro Grip'],
 			grip['Straight Grip'],
-			grip['Contractor Grip']
+			grip['Contractor Grip'],
+			grip['Titanium Skeleton Grip'],
+			grip['VD-12 Grip'],
+			grip['Ursa Minor Grip']
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight,
 		stock: [
 			stock['Sniper Stock (Eagle Heavy)']

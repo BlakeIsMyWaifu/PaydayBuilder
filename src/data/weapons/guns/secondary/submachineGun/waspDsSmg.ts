@@ -1,5 +1,6 @@
 import content from 'data/source/downloadableContent'
 
+import exclusiveSet from '../../modifications/exclusiveSet'
 import extra from '../../modifications/extra'
 import gadget from '../../modifications/gadget'
 import magazine from '../../modifications/magazine'
@@ -39,12 +40,16 @@ const waspDsSmg: WeaponData = {
 	modifications: {
 		barrelExt: submachineGunBarrelExt,
 		boost: submachineGunBoost,
+		exclusiveSet: [
+			exclusiveSet['Whisper 9 Silencer']
+		],
 		extra: [
 			extra['Rake Ultra Grip']
 		],
 		gadget: [
 			gadget['Tactical Pistol Light'],
-			gadget['Pocket Laser']
+			gadget['Pocket Laser'],
+			gadget['Medved R4 Laser Sight']
 		],
 		magazine: [
 			magazine['Celerity X9 Magazine']

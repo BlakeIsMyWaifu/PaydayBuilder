@@ -1,13 +1,15 @@
 import source from 'data/source/miscSources'
 
 import barrelExt from '../../modifications/barrelExt'
+import chargingHandle from '../../modifications/chargingHandle'
 import extra from '../../modifications/extra'
 import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
+import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
+import { submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
 const krinkov: WeaponData = {
 	name: 'Krinkov',
@@ -40,11 +42,31 @@ const krinkov: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			...submachineGunBarrelExt,
-			barrelExt['PBS Suppressor']
+			barrelExt['Medium Suppressor'],
+			barrelExt['Low Profile Suppressor'],
+			barrelExt['Stubby Compensator'],
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['The Tank Compensator'],
+			barrelExt['Fire Breather Nozzle'],
+			barrelExt['The Bigger The Better Suppressor'],
+			barrelExt['Competitor\'s Compensator'],
+			barrelExt['Funnel of Fun Nozzle'],
+			barrelExt['Tactical Compensator'],
+			barrelExt['PBS Suppressor'],
+			barrelExt['Ported Compensator'],
+			barrelExt['Taktika Muzzle Brake'],
+			barrelExt['Marmon Compensator'],
+			barrelExt['Verdunkeln Muzzle Brake'],
+			barrelExt['Fyodor Muzzle Brake'],
+			barrelExt['Federation Suppressor'],
+			barrelExt['Rami Suppressor'],
+			barrelExt['Dourif Muzzle']
 		],
 		boost: submachineGunBoost,
 		custom: submachineGunCustom,
+		chargingHandle: [
+			chargingHandle['Taktika Charging Handle']
+		],
 		extra: [
 			extra['Scope Mount (AK)']
 		],
@@ -57,7 +79,10 @@ const krinkov: WeaponData = {
 			grip['AK Rubber Grip'],
 			grip['AK Plastic Grip'],
 			grip['AK Wood Grip'],
-			grip['Aluminum Grip']
+			grip['Aluminum Grip'],
+			grip['Verge AK Grip'],
+			grip['Ergonomic AK Grip'],
+			grip['Ultimatum AK Grip']
 		],
 		magazine: [
 			magazine['AK Quadstacked Mag'],
@@ -74,7 +99,12 @@ const krinkov: WeaponData = {
 			stock['War-Torn Stock'],
 			stock['Classic Stock'],
 			stock['2 Piece Stock'],
-			stock['Contractor Stock']
+			stock['Contractor Stock'],
+			stock['Taktika Telescopic Stock'],
+			stock['VD-12 Stock']
+		],
+		upperReceiver: [
+			upperReceiver['Taktika Railed Cover']
 		]
 	}
 }

@@ -7,7 +7,7 @@ import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBoost, submachineGunCustom, submachineGunGadget } from '../commonModifications/submachineGunModifications'
+import { submachineGunBoost, submachineGunCustom, submachineGunGadgetSmall } from '../commonModifications/submachineGunModifications'
 
 const miyaka10Special: WeaponData = {
 	name: 'Miyaka 10 Special',
@@ -45,11 +45,12 @@ const miyaka10Special: WeaponData = {
 		barrelExt: [
 			barrelExt['Medium Suppressor'],
 			barrelExt['Low Profile Suppressor'],
+			barrelExt['Medved R4 Suppressor'],
 			barrelExt['The Bigger The Better Suppressor']
 		],
 		boost: submachineGunBoost,
 		custom: submachineGunCustom,
-		gadget: submachineGunGadget,
+		gadget: submachineGunGadgetSmall,
 		grip: [
 			grip['MS10 Comfort Wood Grip']
 		],
@@ -57,11 +58,12 @@ const miyaka10Special: WeaponData = {
 			magazine['MS10 Speedmag']
 		],
 		sight: [
-			sight['The Professional\'s Choice Sight'],
-			sight['Surgeon Sight'],
-			sight['Compact Holosight'],
-			sight['Speculator Sight'],
-			sight['Compact Profile Sight']
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Biometric Analyzer x1.25']
 		],
 		stock: [
 			stock['MS10 Tactical Stock']

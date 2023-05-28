@@ -4,7 +4,7 @@ import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { sniperBoost, sniperGadgetMagnifier, sniperSight } from '../commonModifications/sniperModifications'
+import { sniperBoost, sniperGadget, sniperSecondarySight, sniperSight } from '../commonModifications/sniperModifications'
 
 const rattlesnake: WeaponData = {
 	name: 'Rattlesnake',
@@ -43,7 +43,8 @@ const rattlesnake: WeaponData = {
 			barrelExt['Sniper Suppressor']
 		],
 		boost: sniperBoost,
-		gadget: sniperGadgetMagnifier,
+		gadget: sniperGadget,
+		secondarySight: sniperSecondarySight,
 		sight: sniperSight,
 		stock: [
 			stock['Tactical Aluminium Body']

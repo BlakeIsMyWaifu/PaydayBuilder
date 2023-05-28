@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 
 import ammunition from '../../modifications/ammunition'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoostTotalAmmo } from '../commonModifications/specialModifications'
+import { specialBoost } from '../commonModifications/specialModifications'
 
 const englishLongbow: WeaponData = {
 	name: 'English Longbow',
@@ -38,7 +38,7 @@ const englishLongbow: WeaponData = {
 			ammunition['Explosive Arrow (English Longbow)'],
 			ammunition['Poison Arrow (English Longbow)']
 		],
-		boost: specialBoostTotalAmmo
+		boost: specialBoost
 	}
 }
 

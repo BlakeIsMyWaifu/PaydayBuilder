@@ -1,12 +1,12 @@
 import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
-import boost from '../../modifications/boost'
 import custom from '../../modifications/custom'
+import exclusiveSet from '../../modifications/exclusiveSet'
 import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import { type WeaponData } from '../../weaponTypes'
-import { akimboShotgunAmmunition, akimboShotgunBarrelExt, akimboShotgunGadget } from '../commonModifications/akimboShotgunModifications'
+import { akimboShotgunAmmunition, akimboShotgunBarrelExt, akimboShotgunBoost, akimboShotgunGadget } from '../commonModifications/akimboShotgunModifications'
 
 const akimboVd12: WeaponData = {
 	name: 'Akimbo VD-12',
@@ -44,17 +44,14 @@ const akimboVd12: WeaponData = {
 			barrel['Short Barrel (VD-12)']
 		],
 		barrelExt: akimboShotgunBarrelExt,
-		boost: [
-			boost.Concealment,
-			boost.Stability,
-			boost.Accuracy,
-			boost['Team Boost']
-		],
+		boost: akimboShotgunBoost,
 		custom: [
 			custom['Single Fire'],
 			custom['Auto Fire']
 		],
-		// TODO exclusive set
+		exclusiveSet: [
+			exclusiveSet.Stateside
+		],
 		foregrip: [
 			foregrip['Front Mounting Rail']
 		],
@@ -66,7 +63,8 @@ const akimboVd12: WeaponData = {
 			grip['Straight Grip'],
 			grip['Contractor Grip'],
 			grip['Titanium Skeleton Grip'],
-			grip['VD-12 Grip']
+			grip['VD-12 Grip'],
+			grip['Ursa Minor Grip']
 		]
 	}
 }

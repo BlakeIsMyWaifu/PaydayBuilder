@@ -5,7 +5,7 @@ import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
+import { submachineGunBoost, submachineGunCustom, submachineGunGadgetSmall, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
 const cobra: WeaponData = {
 	name: 'Cobra',
@@ -38,19 +38,34 @@ const cobra: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			...submachineGunBarrelExt,
-			barrelExt.Suppressor
+			barrelExt['Medium Suppressor'],
+			barrelExt['Low Profile Suppressor'],
+			barrelExt['Stubby Compensator'],
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['The Tank Compensator'],
+			barrelExt['Fire Breather Nozzle'],
+			barrelExt['The Bigger The Better Suppressor'],
+			barrelExt['Competitor\'s Compensator'],
+			barrelExt['Funnel of Fun Nozzle'],
+			barrelExt['Tactical Compensator'],
+			barrelExt.Suppressor,
+			barrelExt['Ported Compensator'],
+			barrelExt['Marmon Compensator'],
+			barrelExt['Verdunkeln Muzzle Brake'],
+			barrelExt['Rami Suppressor'],
+			barrelExt['Dourif Muzzle']
 		],
 		boost: submachineGunBoost,
 		custom: submachineGunCustom,
-		gadget: submachineGunGadget,
+		gadget: submachineGunGadgetSmall,
 		grip: [
 			grip['Ergo Grip (Cobra)'],
 			grip['Wooden Grip (Cobra)']
 		],
 		magazine: [
-			magazine['Extended Mag (Cobra)']
+			magazine['Extended Magazine (Cobra)']
 		],
+		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight,
 		stock: [
 			stock['No Stock (Cobra)'],

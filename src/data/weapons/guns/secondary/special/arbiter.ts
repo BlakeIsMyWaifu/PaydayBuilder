@@ -1,10 +1,8 @@
 import content from 'data/source/downloadableContent'
 
-import ammunition from '../../modifications/ammunition'
 import barrel from '../../modifications/barrel'
-import gadget from '../../modifications/gadget'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoost, specialGadget, specialSight } from '../commonModifications/specialModifications'
+import { specialAmmunition, specialBoost, specialGadget, specialSecondarySight, specialSight } from '../commonModifications/specialModifications'
 
 const arbiter: WeaponData = {
 	name: 'Arbiter',
@@ -36,19 +34,14 @@ const arbiter: WeaponData = {
 		damageModifier: null
 	},
 	modifications: {
-		ammunition: [
-			ammunition['Incendiary Round']
-		],
+		ammunition: specialAmmunition,
 		barrel: [
 			barrel['Bombardier Barrel'],
 			barrel['Long Barrel (Arbiter)']
 		],
 		boost: specialBoost,
-		gadget: [
-			...specialGadget,
-			gadget['Riktpunkt Magnifier Gadget'],
-			gadget['Signature Magnifier Gadget']
-		],
+		gadget: specialGadget,
+		secondarySight: specialSecondarySight,
 		sight: specialSight
 	}
 }

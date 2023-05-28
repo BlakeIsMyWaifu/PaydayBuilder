@@ -5,7 +5,7 @@ import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
 import slide from '../../modifications/slide'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
+import { pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
 const signature40: WeaponData = {
 	name: 'Signature .40',
@@ -38,9 +38,21 @@ const signature40: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			...pistolBarrelExt,
+			barrelExt['IPSC Compensator'],
+			barrelExt['Roctec Suppressor'],
+			barrelExt['Champion\'s Suppressor'],
+			barrelExt['Facepunch Compensator'],
+			barrelExt['Standard Issue Suppressor'],
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['Size Doesn\'t Matter Suppressor'],
+			barrelExt['Monolith Suppressor'],
+			barrelExt['Asepsis Suppressor'],
 			barrelExt['Ventilated .40'],
-			barrelExt['Velocity .40']
+			barrelExt['Velocity .40'],
+			barrelExt['Flash Hider'],
+			barrelExt['Budget Suppressor'],
+			barrelExt['Jungle Ninja Suppressor'],
+			barrelExt['Hurricane Compensator']
 		],
 		boost: pistolBoost,
 		gadget: pistolGadget,
@@ -48,7 +60,7 @@ const signature40: WeaponData = {
 			grip['Ergo Grip (Signature .40)']
 		],
 		magazine: [
-			magazine['Extended Mag. (Signature .40)']
+			magazine['Extended Magazine (Signature .40)']
 		],
 		sight: pistolSight,
 		slide: [

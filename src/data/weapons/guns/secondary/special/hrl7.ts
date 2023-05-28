@@ -1,8 +1,7 @@
 import content from 'data/source/downloadableContent'
 
-import gadget from '../../modifications/gadget'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoost, specialSight } from '../commonModifications/specialModifications'
+import { specialBoost, specialSecondarySight, specialSight } from '../commonModifications/specialModifications'
 
 const hrl7: WeaponData = {
 	name: 'HRL-7',
@@ -35,9 +34,7 @@ const hrl7: WeaponData = {
 	},
 	modifications: {
 		boost: specialBoost,
-		gadget: [
-			gadget['Riktpunkt Magnifier Gadget']
-		],
+		secondarySight: specialSecondarySight,
 		sight: specialSight
 	}
 }

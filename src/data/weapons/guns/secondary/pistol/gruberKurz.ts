@@ -1,10 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import boost from '../../modifications/boost'
 import grip from '../../modifications/grip'
 import slide from '../../modifications/slide'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
+import { pistolBarrelExt, pistolBoostConcealment, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
 const gruberKurz: WeaponData = {
 	name: 'Gruber Kurz',
@@ -37,10 +36,7 @@ const gruberKurz: WeaponData = {
 	},
 	modifications: {
 		barrelExt: pistolBarrelExt,
-		boost: [
-			...pistolBoost,
-			boost['Concealment (Extra)']
-		],
+		boost: pistolBoostConcealment,
 		gadget: pistolGadget,
 		grip: [
 			grip['Laser Grip (Gruber Kurz)']

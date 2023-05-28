@@ -1,10 +1,11 @@
 import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
+import barrelExt from '../../modifications/barrelExt'
 import grip from '../../modifications/grip'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const bootleg: WeaponData = {
 	name: 'Bootleg',
@@ -39,17 +40,37 @@ const bootleg: WeaponData = {
 		barrel: [
 			barrel['AML Barrel']
 		],
-		barrelExt: assaultRifleBarrelExt,
+		barrelExt: [
+			barrelExt['Medium Suppressor'],
+			barrelExt['Low Profile Suppressor'],
+			barrelExt['Stubby Compensator'],
+			barrelExt['The Tank Compensator'],
+			barrelExt['Fire Breather Nozzle'],
+			barrelExt['The Bigger The Better Suppressor'],
+			barrelExt['Competitor\'s Compensator'],
+			barrelExt['Funnel of Fun Nozzle'],
+			barrelExt['Tactical Compensator'],
+			barrelExt['Ported Compensator'],
+			barrelExt['Bootstrap Compensator'],
+			barrelExt['Marmon Compensator'],
+			barrelExt['Verdunkeln Muzzle Brake'],
+			barrelExt['KS12-A Burst Muzzle'],
+			barrelExt['KS12-S Long Silencer'],
+			barrelExt['Rami Suppressor'],
+			barrelExt['Dourif Muzzle']
+		],
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		grip: [
 			grip['Ergo Grip (Main)'],
 			grip['Pro Grip'],
 			grip['Rubber Grip'],
 			grip['Straight Grip'],
-			grip['Contractor Grip']
+			grip['Contractor Grip'],
+			grip['Titanium Skeleton Grip']
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight,
 		stock: [
 			stock['Tactical Stock (Main)'],
@@ -57,7 +78,10 @@ const bootleg: WeaponData = {
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
-			stock['Contractor Stock']
+			stock['Contractor Stock'],
+			stock['VD-12 Stock'],
+			stock['Ursa Minor Stock'],
+			stock['Starlight Stock']
 		]
 	}
 }

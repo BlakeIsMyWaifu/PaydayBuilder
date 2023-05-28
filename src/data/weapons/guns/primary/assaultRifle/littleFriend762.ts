@@ -1,7 +1,8 @@
 import content from 'data/source/downloadableContent'
 
+import underbarrel from '../../modifications/underbarrel'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const littleFriend762: WeaponData = {
 	name: 'Little Friend 7.62',
@@ -36,8 +37,14 @@ const littleFriend762: WeaponData = {
 		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
-		gadget: assaultRifleGadgetMagnifier,
-		sight: assaultRifleSight
+		gadget: assaultRifleGadget,
+		secondarySight: assaultRifleSecondarySight,
+		sight: assaultRifleSight,
+		underbarrel: [
+			underbarrel['Sting Grenade'],
+			underbarrel['X1-a Tactical ZAPper'],
+			underbarrel['Viper Grenade']
+		]
 	}
 }
 

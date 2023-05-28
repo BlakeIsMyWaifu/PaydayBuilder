@@ -1,10 +1,11 @@
 import source from 'data/source/miscSources'
 
 import barrel from '../../modifications/barrel'
+import boost from '../../modifications/boost'
 import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
+import { submachineGunBarrelExt, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
 const kobus90: WeaponData = {
 	name: 'Kobus 90',
@@ -42,7 +43,13 @@ const kobus90: WeaponData = {
 			barrel['Mall Ninja Barrel']
 		],
 		barrelExt: submachineGunBarrelExt,
-		boost: submachineGunBoost,
+		boost: [
+			boost.Concealment,
+			boost['Concealment (Extra)'],
+			boost.Stability,
+			boost.Accuracy,
+			boost['Team Boost']
+		],
 		custom: submachineGunCustom,
 		gadget: submachineGunGadget,
 		lowerReceiver: [

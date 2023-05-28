@@ -38,6 +38,12 @@ export type UpperReceiverModificationsList =
 	// KS12 Urban Rifle
 	| 'KS12 DMR kit'
 
+	// AMCAR
+	| 'Orthogon Upper Receiver'
+
+	// AK
+	| 'Taktika Railed Cover'
+
 	// Deimos
 	| 'Leonidas Shell Rack'
 
@@ -137,7 +143,7 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 		source: source['Base Game'],
 		cost: 21e3,
 		stats: {
-			magazine: 2,
+			magazine: 2, // TODO different with different guns
 			concealment: -2
 		},
 		compatibleWeapons: {
@@ -310,6 +316,34 @@ const upperReceiver: ModificationList<UpperReceiverModificationsList> = {
 				'KS12 Urban'
 			]
 		}
+	},
+	'Orthogon Upper Receiver': {
+		name: 'Orthogon Upper Receiver',
+		image: 'wpn_fps_m4_uupg_upper_radian',
+		icon: 'inv_mod_upper_receiver',
+		slot: 'upperReceiver',
+		source: content['McShay Mod Pack'],
+		cost: 21e3,
+		stats: {
+			damage: 4,
+			stability: 4,
+			concealment: 1
+		},
+		compatibleWeapons: {}
+	},
+	'Taktika Railed Cover': {
+		name: 'Taktika Railed Cover',
+		image: 'wpn_fps_upg_ak_body_upperreceiver_zenitco',
+		icon: 'inv_mod_upper_receiver',
+		slot: 'upperReceiver',
+		source: content['McShay Mod Pack'],
+		cost: 21e3,
+		stats: {
+			damage: 2,
+			accuracy: -4,
+			stability: 4
+		},
+		compatibleWeapons: {}
 	},
 	'Leonidas Shell Rack': {
 		name: 'Leonidas Shell Rack',

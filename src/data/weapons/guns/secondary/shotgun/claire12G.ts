@@ -37,7 +37,7 @@ const claire12G: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrel: [
-			barrel['Sawed Off Barrel (Claire)']
+			barrel['Sawed-Off Barrel (Claire)']
 		],
 		boost: shotgunBoost,
 		stock: [

@@ -1,10 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrelExt from '../../modifications/barrelExt'
 import extra from '../../modifications/extra'
 import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleGadget, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const ks12Urban: WeaponData = {
 	name: 'KS12 Urban',
@@ -36,16 +35,13 @@ const ks12Urban: WeaponData = {
 		damageModifier: [1.0, 1.0]
 	},
 	modifications: {
-		barrelExt: [
-			...assaultRifleBarrelExt,
-			barrelExt['KS12-A Burst Muzzle'],
-			barrelExt['KS12-S Long Silencer']
-		],
+		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
 		extra: [
 			extra['KS12-S Carry Handle']
 		],
 		gadget: assaultRifleGadget,
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight,
 		upperReceiver: [
 			upperReceiver['KS12 DMR kit']

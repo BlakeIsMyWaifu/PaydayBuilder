@@ -4,16 +4,20 @@ import gadget, { type GadgetModificationsList } from '../../modifications/gadget
 import { type Modification } from '../../weaponTypes'
 
 export const lightMachineGunBarrelExt: Modification<BarrelExtModificationsList>[] = [
-	barrelExt['Low Profile Suppressor'],
 	barrelExt['Medium Suppressor'],
-	barrelExt['The Bigger The Better Suppressor'],
+	barrelExt['Low Profile Suppressor'],
 	barrelExt['Stubby Compensator'],
 	barrelExt['The Tank Compensator'],
 	barrelExt['Fire Breather Nozzle'],
-	barrelExt['Tactical Compensator'],
+	barrelExt['The Bigger The Better Suppressor'],
 	barrelExt['Competitor\'s Compensator'],
 	barrelExt['Funnel of Fun Nozzle'],
-	barrelExt['Ported Compensator']
+	barrelExt['Tactical Compensator'],
+	barrelExt['Ported Compensator'],
+	barrelExt['Marmon Compensator'],
+	barrelExt['Verdunkeln Muzzle Brake'],
+	barrelExt['Rami Suppressor'],
+	barrelExt['Dourif Muzzle']
 ]
 
 export const lightMachineGunBoost: Modification<BoostModificationsList>[] = [

@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import barrel from '../../modifications/barrel'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
+import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
 const cr805B: WeaponData = {
 	name: 'CR 805B',
@@ -49,8 +49,10 @@ const cr805B: WeaponData = {
 			magazine['CAR Quadstacked Mag'],
 			magazine['Expert Mag'],
 			magazine['L5 Magazine'],
-			magazine['Speed Pull Magazine']
+			magazine['Speed Pull Magazine'],
+			magazine['Plated AR Magazine']
 		],
+		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight
 	}
 }

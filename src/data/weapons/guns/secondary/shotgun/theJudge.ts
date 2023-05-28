@@ -2,7 +2,7 @@ import source from 'data/source/miscSources'
 
 import lowerReceiver from '../../modifications/lowerReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadgetMagnifier, shotgunSight } from '../commonModifications/shotgunModifications'
+import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
 const theJudge: WeaponData = {
 	name: 'The Judge',
@@ -37,11 +37,12 @@ const theJudge: WeaponData = {
 		ammunition: shotgunAmmunition,
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
-		gadget: shotgunGadgetMagnifier,
-		sight: shotgunSight,
+		gadget: shotgunGadget,
 		lowerReceiver: [
 			lowerReceiver['Custom Reinforced Frame']
-		]
+		],
+		secondarySight: shotgunSecondarySight,
+		sight: shotgunSight
 	}
 }
 

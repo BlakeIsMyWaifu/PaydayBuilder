@@ -6,7 +6,7 @@ import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
 import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadgetMagnifier, shotgunSight } from '../commonModifications/shotgunModifications'
+import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
 const reinfeld880: WeaponData = {
 	name: 'Reinfeld 880',
@@ -44,17 +44,22 @@ const reinfeld880: WeaponData = {
 		foregrip: [
 			foregrip['Zombie Hunter Pump']
 		],
-		gadget: shotgunGadgetMagnifier,
+		gadget: shotgunGadget,
 		grip: [
 			grip['Ergo Grip (Main)'],
 			grip['Pro Grip'],
 			grip['Rubber Grip'],
 			grip['Straight Grip'],
-			grip['Contractor Grip']
+			grip['Contractor Grip'],
+			grip['Titanium Skeleton Grip'],
+			grip['Skeletonized AR Grip'],
+			grip['VD-12 Grip'],
+			grip['Ursa Minor Grip']
 		],
 		magazine: [
-			magazine['Extended Mag. (Reinfeld 880)']
+			magazine['Extended Magazine (Reinfeld 880)']
 		],
+		secondarySight: shotgunSecondarySight,
 		sight: shotgunSight,
 		stock: [
 			stock['Standard Stock (Main)'],
@@ -66,7 +71,9 @@ const reinfeld880: WeaponData = {
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
-			stock['Contractor Stock']
+			stock['Contractor Stock'],
+			stock['VD-12 Stock'],
+			stock['Ursa Minor Stock']
 		],
 		upperReceiver: [
 			upperReceiver['Shell Rack']

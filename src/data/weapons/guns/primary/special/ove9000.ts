@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoostTotalAmmo } from '../commonModifications/specialModifications'
+import { specialBoost } from '../commonModifications/specialModifications'
 
 const ove9000: WeaponData = {
 	name: 'OVE9000',
@@ -35,7 +35,7 @@ const ove9000: WeaponData = {
 		damageModifier: null
 	},
 	modifications: {
-		boost: specialBoostTotalAmmo,
+		boost: specialBoost,
 		lowerReceiver: [
 			lowerReceiver['Silent Motor'],
 			lowerReceiver['Fast Motor']

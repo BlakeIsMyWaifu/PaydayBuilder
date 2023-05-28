@@ -1,9 +1,10 @@
 import source from 'data/source/miscSources'
 
 import barrel from '../../modifications/barrel'
+import barrelExt from '../../modifications/barrelExt'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
+import { pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
 const $57Ap: WeaponData = {
 	name: '5/7 AP',
@@ -38,7 +39,20 @@ const $57Ap: WeaponData = {
 		barrel: [
 			barrel['TiN Treated Barrel']
 		],
-		barrelExt: pistolBarrelExt,
+		barrelExt: [
+			barrelExt['IPSC Compensator'],
+			barrelExt['Roctec Suppressor'],
+			barrelExt['Champion\'s Suppressor'],
+			barrelExt['Facepunch Compensator'],
+			barrelExt['Standard Issue Suppressor'],
+			barrelExt['Size Doesn\'t Matter Suppressor'],
+			barrelExt['Monolith Suppressor'],
+			barrelExt['Asepsis Suppressor'],
+			barrelExt['Flash Hider'],
+			barrelExt['Budget Suppressor'],
+			barrelExt['Jungle Ninja Suppressor'],
+			barrelExt['Hurricane Compensator']
+		],
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		magazine: [

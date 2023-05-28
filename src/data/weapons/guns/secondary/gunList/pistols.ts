@@ -22,6 +22,7 @@ import gruberKurz from '../pistol/gruberKurz'
 import holt9mm from '../pistol/holt9mm'
 import igorAutomatik from '../pistol/igorAutomatik'
 import interceptor45 from '../pistol/interceptor45'
+import kahn357 from '../pistol/kahn357'
 import kangArmsModel54 from '../pistol/kangArmsModel54'
 import leo from '../pistol/leo'
 import m139mm from '../pistol/m139mm'
@@ -67,7 +68,8 @@ const pistols: Record<PistolList, WeaponData> = {
 	'Crosskill Chunky Compact': crosskillChunkyCompact,
 	'RUS-12 Angry Tiger': rus12AngryTiger,
 	'Gecko M2': geckoM2,
-	'Káng Arms Model 54': kangArmsModel54
+	'Káng Arms Model 54': kangArmsModel54,
+	'Kahn .357': kahn357
 }
 
 export default pistols

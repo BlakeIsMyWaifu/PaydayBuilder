@@ -1,11 +1,12 @@
 import source from 'data/source/miscSources'
 
 import barrel from '../../modifications/barrel'
+import barrelExt from '../../modifications/barrelExt'
 import foregrip from '../../modifications/foregrip'
 import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const ak5: WeaponData = {
 	name: 'AK5',
@@ -40,14 +41,32 @@ const ak5: WeaponData = {
 		barrel: [
 			barrel['CQB Barrel (AK5)']
 		],
-		barrelExt: assaultRifleBarrelExt,
+		barrelExt: [
+			barrelExt['Medium Suppressor'],
+			barrelExt['Low Profile Suppressor'],
+			barrelExt['Stubby Compensator'],
+			barrelExt['The Tank Compensator'],
+			barrelExt['Fire Breather Nozzle'],
+			barrelExt['The Bigger The Better Suppressor'],
+			barrelExt['Competitor\'s Compensator'],
+			barrelExt['Funnel of Fun Nozzle'],
+			barrelExt['Tactical Compensator'],
+			barrelExt['Ported Compensator'],
+			barrelExt['Taktika Muzzle Brake'],
+			barrelExt['Marmon Compensator'],
+			barrelExt['Verdunkeln Muzzle Brake'],
+			barrelExt['KS12-A Burst Muzzle'],
+			barrelExt['KS12-S Long Silencer'],
+			barrelExt['Rami Suppressor'],
+			barrelExt['Dourif Muzzle']
+		],
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
 		foregrip: [
 			foregrip['Karbin Ceres Handguard'],
 			foregrip['Belgian Heat Handguard']
 		],
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		magazine: [
 			magazine['Vintage Mag.'],
 			magazine['Tactical Mag.'],
@@ -56,6 +75,7 @@ const ak5: WeaponData = {
 			magazine['L5 Magazine'],
 			magazine['Speed Pull Magazine']
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight,
 		stock: [
 			stock['Bertil Stock'],

@@ -2406,7 +2406,7 @@ const content: Record<ContentList, ContentData> = {
 	},
 	'A Criminal Carol': {
 		name: 'A Criminal Carol',
-		rarity: 'Free',
+		rarity: 'Event', // - Free
 		type: 'Feature',
 		released: '2022, December 15',
 		price: 'Free',

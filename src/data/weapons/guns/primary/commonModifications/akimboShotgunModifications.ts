@@ -6,8 +6,7 @@ import { type Modification } from '../../weaponTypes'
 
 export const akimboShotgunAmmunition: Modification<AmmunitionModificationsList>[] = [
 	ammunition['Tombstone Slug'],
-	ammunition['000 Buckshot (Community)'],
-	ammunition['000 Buckshot (DLC)'],
+	ammunition['000 Buckshot'],
 	ammunition['HE Round'],
 	ammunition.Flechette,
 	ammunition['AP Slug'],
@@ -26,7 +25,6 @@ export const akimboShotgunBoost: Modification<BoostModificationsList>[] = [
 	boost.Concealment,
 	boost.Stability,
 	boost.Accuracy,
-	boost['Accuracy (- Shotguns)'],
 	boost['Team Boost']
 ]
 

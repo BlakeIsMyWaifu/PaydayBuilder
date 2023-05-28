@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
 import { type WeaponData } from '../../weaponTypes'
-import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadgetMagnifier, shotgunSight } from '../commonModifications/shotgunModifications'
+import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
 const streetSweeper: WeaponData = {
 	name: 'Street Sweeper',
@@ -35,13 +35,14 @@ const streetSweeper: WeaponData = {
 	},
 	modifications: {
 		ammunition: shotgunAmmunition,
-		barrelExt: shotgunBarrelExt,
 		barrel: [
 			barrel['Long Barrel (Street Sweeper)'],
 			barrel['Suppressed Barrel (Street Sweeper)']
 		],
+		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
-		gadget: shotgunGadgetMagnifier,
+		gadget: shotgunGadget,
+		secondarySight: shotgunSecondarySight,
 		sight: shotgunSight
 	}
 }

@@ -2,8 +2,10 @@ import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
 import grip from '../../modifications/grip'
+import magazine from '../../modifications/magazine'
+import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget } from '../commonModifications/pistolModifications'
+import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
 const czech92: WeaponData = {
 	name: 'Czech 92',
@@ -44,6 +46,13 @@ const czech92: WeaponData = {
 		grip: [
 			grip['Cartel Grip (Czech)'],
 			grip['Sicario Grip']
+		],
+		magazine: [
+			magazine['Extended Magazine (Czech)']
+		],
+		sight: pistolSight,
+		stock: [
+			stock['Tirador Stock']
 		]
 	}
 }

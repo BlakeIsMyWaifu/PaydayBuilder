@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import barrel from '../../modifications/barrel'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { sniperBoost, sniperGadgetMagnifier, sniperSight } from '../commonModifications/sniperModifications'
+import { sniperBoost, sniperGadget, sniperSecondarySight, sniperSight } from '../commonModifications/sniperModifications'
 
 const r700: WeaponData = {
 	name: 'R700',
@@ -40,7 +40,8 @@ const r700: WeaponData = {
 			barrel['Medium Barrel (R700)']
 		],
 		boost: sniperBoost,
-		gadget: sniperGadgetMagnifier,
+		gadget: sniperGadget,
+		secondarySight: sniperSecondarySight,
 		sight: sniperSight,
 		stock: [
 			stock['Military Stock'],

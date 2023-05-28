@@ -6,7 +6,7 @@ import sight from '../../modifications/sight'
 import slide from '../../modifications/slide'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
+import { pistolBoost, pistolGadget } from '../commonModifications/pistolModifications'
 
 const broomstick: WeaponData = {
 	name: 'Broomstick',
@@ -39,8 +39,18 @@ const broomstick: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			...pistolBarrelExt,
-			barrelExt['Damper.L 44 Nozzle']
+			barrelExt['Roctec Suppressor'],
+			barrelExt['Champion\'s Suppressor'],
+			barrelExt['Standard Issue Suppressor'],
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['Size Doesn\'t Matter Suppressor'],
+			barrelExt['Monolith Suppressor'],
+			barrelExt['Asepsis Suppressor'],
+			barrelExt['Flash Hider'],
+			barrelExt['Damper.L 44 Nozzle'],
+			barrelExt['Budget Suppressor'],
+			barrelExt['Jungle Ninja Suppressor'],
+			barrelExt['Hurricane Compensator']
 		],
 		boost: pistolBoost,
 		gadget: pistolGadget,
@@ -48,8 +58,10 @@ const broomstick: WeaponData = {
 			magazine['High Capacity Mag']
 		],
 		sight: [
+			sight['Pistol Red Dot Sight x1.5'],
 			sight['Barrel Sight 44'],
-			...pistolSight
+			sight['Riktpunkt Holosight x1.5'],
+			sight['SKOLD Micro Reflex Sight x1.5']
 		],
 		slide: [
 			slide['Precision Barrel (Broomstick)']

@@ -43,7 +43,7 @@ const chimano88: WeaponData = {
 			grip['Platypus Grip']
 		],
 		magazine: [
-			magazine['Extended Mag. (Chimano)']
+			magazine['Extended Magazine (Chimano)']
 		],
 		sight: pistolSight
 	}

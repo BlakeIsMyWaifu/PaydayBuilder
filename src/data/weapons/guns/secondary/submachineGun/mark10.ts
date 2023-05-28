@@ -6,7 +6,7 @@ import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
+import { submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
 const mark10: WeaponData = {
 	name: 'Mark 10',
@@ -39,9 +39,23 @@ const mark10: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			...submachineGunBarrelExt,
+			barrelExt['Medium Suppressor'],
+			barrelExt['Low Profile Suppressor'],
+			barrelExt['Stubby Compensator'],
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['The Tank Compensator'],
+			barrelExt['Fire Breather Nozzle'],
+			barrelExt['The Bigger The Better Suppressor'],
+			barrelExt['Competitor\'s Compensator'],
+			barrelExt['Funnel of Fun Nozzle'],
+			barrelExt['Tactical Compensator'],
+			barrelExt['Slotted Barrel Extension'],
 			barrelExt['Werbell\'s Suppressor'],
-			barrelExt['Slotted Barrel Extension']
+			barrelExt['Ported Compensator'],
+			barrelExt['Marmon Compensator'],
+			barrelExt['Verdunkeln Muzzle Brake'],
+			barrelExt['Rami Suppressor'],
+			barrelExt['Dourif Muzzle']
 		],
 		boost: submachineGunBoost,
 		custom: submachineGunCustom,
@@ -53,9 +67,10 @@ const mark10: WeaponData = {
 			lowerReceiver['Custom Built Frame']
 		],
 		magazine: [
-			magazine['Extended Mag. (Mark 10)'],
+			magazine['Extended Magazine (Mark 10)'],
 			magazine['Speed Pull Magazine']
 		],
+		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight,
 		stock: [
 			stock['Skeletal Stock (Mark 10)']

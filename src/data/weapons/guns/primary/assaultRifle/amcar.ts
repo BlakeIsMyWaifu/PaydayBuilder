@@ -1,9 +1,12 @@
 import source from 'data/source/miscSources'
 
+import grip from '../../modifications/grip'
+import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
+import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const amcar: WeaponData = {
 	name: 'AMCAR',
@@ -38,19 +41,43 @@ const amcar: WeaponData = {
 		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
+		grip: [
+			grip['Ergo Grip (Main)'],
+			grip['Pro Grip'],
+			grip['Rubber Grip'],
+			grip['Straight Grip'],
+			grip['Contractor Grip'],
+			grip['Titanium Skeleton Grip'],
+			grip['Skeletonized AR Grip'],
+			grip['VD-12 Grip'],
+			grip['Ursa Minor Grip']
+		],
+		lowerReceiver: [
+			lowerReceiver['Orthogon Lower Receiver']
+		],
 		magazine: [
 			magazine['Milspec Mag.'],
+			magazine['Tactical Mag.'],
 			magazine['CAR Quadstacked Mag'],
+			magazine['Expert Mag'],
 			magazine['L5 Magazine'],
-			magazine['Speed Pull Magazine']
+			magazine['Speed Pull Magazine'],
+			magazine['Plated AR Magazine']
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight,
 		stock: [
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
-			stock['Contractor Stock']
+			stock['Contractor Stock'],
+			stock['VD-12 Stock'],
+			stock['Ursa Minor Stock'],
+			stock['Starlight Stock']
+		],
+		upperReceiver: [
+			upperReceiver['Orthogon Upper Receiver']
 		]
 	}
 }

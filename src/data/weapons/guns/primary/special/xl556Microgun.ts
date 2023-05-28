@@ -2,7 +2,7 @@ import source from 'data/source/miscSources'
 
 import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoostTotalAmmo, specialGadget } from '../commonModifications/specialModifications'
+import { specialBoost, specialGadget } from '../commonModifications/specialModifications'
 
 const xl556Microgun: WeaponData = {
 	name: 'XL 5.56 Microgun',
@@ -34,7 +34,7 @@ const xl556Microgun: WeaponData = {
 		damageModifier: null
 	},
 	modifications: {
-		boost: specialBoostTotalAmmo,
+		boost: specialBoost,
 		gadget: specialGadget,
 		upperReceiver: [
 			upperReceiver['Heat Sink Barrel'],

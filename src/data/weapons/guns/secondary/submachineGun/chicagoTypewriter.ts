@@ -5,7 +5,7 @@ import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
+import { submachineGunBarrelExt, submachineGunBoost, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
 const chicagoTypewriter: WeaponData = {
 	name: 'Chicago Typewriter',
@@ -50,6 +50,7 @@ const chicagoTypewriter: WeaponData = {
 		grip: [
 			grip['Discrete Grip']
 		],
+		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight,
 		stock: [
 			stock['QD Sling Stock'],

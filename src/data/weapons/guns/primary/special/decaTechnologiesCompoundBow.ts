@@ -5,7 +5,7 @@ import grip from '../../modifications/grip'
 import sight from '../../modifications/sight'
 import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoostTotalAmmo, specialSight } from '../commonModifications/specialModifications'
+import { specialBoost } from '../commonModifications/specialModifications'
 
 const decaTechnologiesCompoundBow: WeaponData = {
 	name: 'DECA Technologies Compound Bow',
@@ -41,17 +41,33 @@ const decaTechnologiesCompoundBow: WeaponData = {
 			ammunition['Explosive Arrow (DECA)'],
 			ammunition['Poison Arrow (DECA)']
 		],
-		boost: specialBoostTotalAmmo,
+		boost: specialBoost,
 		grip: [
 			grip['Wooden Grip (DECA)'],
 			grip['Ergonomic Grip (DECA)']
 		],
 		sight: [
-			...specialSight,
-			sight['Compact Profile Sight'],
-			sight['Maelstrom Sight'],
-			sight['Advanced Combat Sight'],
-			sight['Reconnaissance Sight']
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Acough Optic Scope x3.25'],
+			sight['Military Red Dot Sight x2'],
+			sight['Military Red Dot Sight Special x2'],
+			sight['Milspec Scope x2'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			sight['Reconnaissance Sight x2'],
+			sight['Compact Tactical Box Sight x2.5'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Maelstrom Sight x1.5'],
+			sight['CASSIAN Elite Score x4.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['Advanced Combat Sight x3.25'],
+			sight['Z5 Owl Glass Universal Scope x2.5']
 		],
 		upperReceiver: [
 			upperReceiver['Tactical Frame']

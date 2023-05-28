@@ -6,7 +6,7 @@ import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
 import slide from '../../modifications/slide'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
+import { pistolBoost, pistolGadget } from '../commonModifications/pistolModifications'
 
 const crosskill: WeaponData = {
 	name: 'Crosskill',
@@ -39,9 +39,21 @@ const crosskill: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			...pistolBarrelExt,
+			barrelExt['IPSC Compensator'],
+			barrelExt['Roctec Suppressor'],
+			barrelExt['Champion\'s Suppressor'],
+			barrelExt['Facepunch Compensator'],
+			barrelExt['Standard Issue Suppressor'],
 			barrelExt['Aggressor Compensator'],
-			barrelExt['Punisher Compensator']
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['Size Doesn\'t Matter Suppressor'],
+			barrelExt['Punisher Compensator'],
+			barrelExt['Monolith Suppressor'],
+			barrelExt['Asepsis Suppressor'],
+			barrelExt['Flash Hider'],
+			barrelExt['Budget Suppressor'],
+			barrelExt['Jungle Ninja Suppressor'],
+			barrelExt['Hurricane Compensator']
 		],
 		boost: pistolBoost,
 		gadget: pistolGadget,
@@ -55,8 +67,10 @@ const crosskill: WeaponData = {
 			magazine['Magazine with Ameritude!']
 		],
 		sight: [
-			sight['Marksman Sight'],
-			...pistolSight
+			sight['Marksman Sight x1.25'],
+			sight['Pistol Red Dot Sight x1.5'],
+			sight['Riktpunkt Holosight x1.5'],
+			sight['SKOLD Micro Reflex Sight x1.5']
 		],
 		slide: [
 			slide['Vented Slide'],

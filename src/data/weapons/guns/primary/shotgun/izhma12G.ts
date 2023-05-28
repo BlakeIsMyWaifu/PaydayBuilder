@@ -1,13 +1,16 @@
 import source from 'data/source/miscSources'
 
 import barrel from '../../modifications/barrel'
+import barrelExt from '../../modifications/barrelExt'
+import chargingHandle from '../../modifications/chargingHandle'
 import extra from '../../modifications/extra'
 import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
+import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunCustom, shotgunGadget, shotgunSight } from '../commonModifications/shotgunModifications'
+import { shotgunAmmunition, shotgunBoost, shotgunCustom, shotgunGadget, shotgunSight } from '../commonModifications/shotgunModifications'
 
 const izhma12G: WeaponData = {
 	name: 'IZHMA 12G',
@@ -43,9 +46,19 @@ const izhma12G: WeaponData = {
 		barrel: [
 			barrel['Short Barrel (IZHMA)']
 		],
-		barrelExt: shotgunBarrelExt,
+		barrelExt: [
+			barrelExt['Shark Teeth Nozzle'],
+			barrelExt['The Silent Killer Suppressor'],
+			barrelExt['King\'s Crown Compensator'],
+			barrelExt['Shh!'],
+			barrelExt['Donald\'s Horizontal Leveller'],
+			barrelExt['Taktika Muzzle Brake']
+		],
 		boost: shotgunBoost,
 		custom: shotgunCustom,
+		chargingHandle: [
+			chargingHandle['Taktika Charging Handle']
+		],
 		extra: [
 			extra['Scope Mount (AK)']
 		],
@@ -58,7 +71,10 @@ const izhma12G: WeaponData = {
 			grip['AK Rubber Grip'],
 			grip['AK Plastic Grip'],
 			grip['AK Wood Grip'],
-			grip['Aluminum Grip']
+			grip['Aluminum Grip'],
+			grip['Verge AK Grip'],
+			grip['Ergonomic AK Grip'],
+			grip['Ultimatum AK Grip']
 		],
 		magazine: [
 			magazine['Big Brother Magazine']
@@ -73,7 +89,12 @@ const izhma12G: WeaponData = {
 			stock['War-Torn Stock'],
 			stock['Classic Stock'],
 			stock['2 Piece Stock'],
-			stock['Contractor Stock']
+			stock['Contractor Stock'],
+			stock['Taktika Telescopic Stock'],
+			stock['VD-12 Stock']
+		],
+		upperReceiver: [
+			upperReceiver['Taktika Railed Cover']
 		]
 	}
 }

@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const lionsRoar: WeaponData = {
 	name: 'Lion\'s Roar',
@@ -42,7 +42,8 @@ const lionsRoar: WeaponData = {
 		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight
 	}
 }

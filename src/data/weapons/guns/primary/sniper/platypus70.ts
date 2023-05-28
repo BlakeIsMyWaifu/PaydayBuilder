@@ -1,8 +1,9 @@
 import source from 'data/source/miscSources'
 
 import barrelExt from '../../modifications/barrelExt'
+import sight from '../../modifications/sight'
 import { type WeaponData } from '../../weaponTypes'
-import { sniperBoost, sniperGadgetMagnifier, sniperSight } from '../commonModifications/sniperModifications'
+import { sniperBoost, sniperGadget, sniperSecondarySight } from '../commonModifications/sniperModifications'
 
 const platypus70: WeaponData = {
 	name: 'Platypus 70',
@@ -38,8 +39,38 @@ const platypus70: WeaponData = {
 			barrelExt['Beak Suppressor']
 		],
 		boost: sniperBoost,
-		gadget: sniperGadgetMagnifier,
-		sight: sniperSight
+		gadget: sniperGadget,
+		secondarySight: sniperSecondarySight,
+		sight: [
+			sight['Iron Sight x1.25 (Platypus)'],
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Acough Optic Scope x3.25'],
+			sight['Military Red Dot Sight x2'],
+			sight['Military Red Dot Sight Special x2'],
+			sight['Milspec Scope x2'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			sight['Theia Magnified Scope x10'],
+			sight['Box Buddy Sight x10'],
+			sight['Reconnaissance Sight x2'],
+			sight['Compact Tactical Box Sight x2.5'],
+			sight['CASSIAN Iron Sights x1'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Maelstrom Sight x1.5'],
+			sight['CASSIAN Elite Score x4.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['Advanced Combat Sight x3.25'],
+			sight['CASSIAN Sharp Sight x3.25'],
+			sight['Trace Optic x6.25'],
+			sight['Z5 Owl Glass Universal Scope x2.5'],
+			sight['Tuunbaq Scope x4.5 / x10']
+		]
 	}
 }
 

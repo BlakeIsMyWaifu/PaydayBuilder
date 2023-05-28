@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import barrel from '../../modifications/barrel'
 import extra from '../../modifications/extra'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoostTotalAmmo, specialGadget } from '../commonModifications/specialModifications'
+import { specialBoost, specialGadget } from '../commonModifications/specialModifications'
 
 const vulcanMinigun: WeaponData = {
 	name: 'Vulcan Minigun',
@@ -39,7 +39,7 @@ const vulcanMinigun: WeaponData = {
 			barrel['Aerial Assault Barrel'],
 			barrel['The Stump Barrel']
 		],
-		boost: specialBoostTotalAmmo,
+		boost: specialBoost,
 		extra: [
 			extra['I\'ll Take Half That Kit']
 		],

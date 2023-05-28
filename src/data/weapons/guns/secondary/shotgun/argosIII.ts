@@ -1,10 +1,12 @@
 import content from 'data/source/downloadableContent'
 
 import barrelExt from '../../modifications/barrelExt'
+import exclusiveSet from '../../modifications/exclusiveSet'
 import extra from '../../modifications/extra'
+import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSight } from '../commonModifications/shotgunModifications'
+import { shotgunAmmunition, shotgunBoost, shotgunGadget } from '../commonModifications/shotgunModifications'
 
 const argosIII: WeaponData = {
 	name: 'Argos III',
@@ -38,15 +40,38 @@ const argosIII: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrelExt: [
-			...shotgunBarrelExt,
+			barrelExt['Shark Teeth Nozzle'],
+			barrelExt['The Silent Killer Suppressor'],
+			barrelExt['King\'s Crown Compensator'],
+			barrelExt['Shh!'],
+			barrelExt['Donald\'s Horizontal Leveller'],
 			barrelExt['Try-Core Compensator']
 		],
 		boost: shotgunBoost,
+		exclusiveSet: [
+			exclusiveSet['Triple Tech Threat']
+		],
 		extra: [
 			extra['ShellSwitch M8 Ammo Cache']
 		],
 		gadget: shotgunGadget,
-		sight: shotgunSight,
+		sight: [
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Military Red Dot Sight x2'],
+			sight['Military Red Dot Sight Special x2'],
+			sight['Milspec Scope x2'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			sight['CASSIAN Elite Score x4.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['CASSIAN Sharp Sight x3.25']
+		],
 		stock: [
 			stock['Flak Frame Null Stock']
 		]

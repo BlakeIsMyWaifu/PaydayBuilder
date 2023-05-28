@@ -3,7 +3,6 @@ import content from 'data/source/downloadableContent'
 import boost from '../../modifications/boost'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoostTotalAmmo } from '../commonModifications/specialModifications'
 
 const flamethrowerMk1: WeaponData = {
 	name: 'Flamethrower Mk.1',
@@ -36,8 +35,12 @@ const flamethrowerMk1: WeaponData = {
 	},
 	modifications: {
 		boost: [
-			...specialBoostTotalAmmo,
-			boost['Damage (Flamethrower)']
+			boost.Concealment,
+			boost['Damage (Flamethrower)'],
+			boost.Stability,
+			boost.Accuracy,
+			boost['Team Boost'],
+			boost['Total Ammo (Main)']
 		],
 		magazine: [
 			magazine.Rare,

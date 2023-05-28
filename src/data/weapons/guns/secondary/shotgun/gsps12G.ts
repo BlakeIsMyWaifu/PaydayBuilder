@@ -36,10 +36,10 @@ const gsps12G: WeaponData = {
 	},
 	modifications: {
 		ammunition: shotgunAmmunition,
-		barrelExt: shotgunBarrelExt,
 		barrel: [
 			barrel['Riot Barrel']
 		],
+		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
 		gadget: shotgunGadget,
 		stock: [

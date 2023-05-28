@@ -5,7 +5,7 @@ import extra from '../../modifications/extra'
 import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const uar: WeaponData = {
 	name: 'UAR',
@@ -47,13 +47,14 @@ const uar: WeaponData = {
 		extra: [
 			extra['A3 Tactical Foregrip']
 		],
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		lowerReceiver: [
 			lowerReceiver['Raptor Polymer Body']
 		],
 		magazine: [
 			magazine['Speed Pull Magazine']
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight
 	}
 }

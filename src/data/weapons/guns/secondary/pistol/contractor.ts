@@ -4,7 +4,7 @@ import barrelExt from '../../modifications/barrelExt'
 import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
+import { pistolBoost, pistolGadget } from '../commonModifications/pistolModifications'
 
 const contractor: WeaponData = {
 	name: 'Contractor',
@@ -37,8 +37,20 @@ const contractor: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			...pistolBarrelExt,
-			barrelExt['Contractor Compensator']
+			barrelExt['IPSC Compensator'],
+			barrelExt['Roctec Suppressor'],
+			barrelExt['Champion\'s Suppressor'],
+			barrelExt['Facepunch Compensator'],
+			barrelExt['Standard Issue Suppressor'],
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['Size Doesn\'t Matter Suppressor'],
+			barrelExt['Monolith Suppressor'],
+			barrelExt['Asepsis Suppressor'],
+			barrelExt['Flash Hider'],
+			barrelExt['Budget Suppressor'],
+			barrelExt['Jungle Ninja Suppressor'],
+			barrelExt['Contractor Compensator'],
+			barrelExt['Hurricane Compensator']
 		],
 		boost: pistolBoost,
 		gadget: pistolGadget,
@@ -46,8 +58,10 @@ const contractor: WeaponData = {
 			magazine['Extended Magazine (Contractor)']
 		],
 		sight: [
+			sight['Pistol Red Dot Sight x1.5'],
 			sight['Tritium Sights'],
-			...pistolSight
+			sight['Riktpunkt Holosight x1.5'],
+			sight['SKOLD Micro Reflex Sight x1.5']
 		]
 	}
 }

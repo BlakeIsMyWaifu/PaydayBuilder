@@ -1,11 +1,11 @@
 import content from 'data/source/downloadableContent'
 
-import ammunition from '../../modifications/ammunition'
 import barrel from '../../modifications/barrel'
+import exclusiveSet from '../../modifications/exclusiveSet'
 import receiver from '../../modifications/receiver'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoost, specialGadget, specialSight } from '../commonModifications/specialModifications'
+import { specialAmmunition, specialBoost, specialGadget, specialSight } from '../commonModifications/specialModifications'
 
 const basilisk3V: WeaponData = {
 	name: 'Basilisk 3V',
@@ -37,15 +37,14 @@ const basilisk3V: WeaponData = {
 		damageModifier: null
 	},
 	modifications: {
-		ammunition: [
-			ammunition['Incendiary Round'],
-			ammunition['X1-a Tactical ZAPper'],
-			ammunition['Viper Grenade']
-		],
+		ammunition: specialAmmunition,
 		barrel: [
 			barrel['Fang Barrel']
 		],
 		boost: specialBoost,
+		exclusiveSet: [
+			exclusiveSet.Venomous
+		],
 		gadget: specialGadget,
 		receiver: [
 			receiver.Serpent

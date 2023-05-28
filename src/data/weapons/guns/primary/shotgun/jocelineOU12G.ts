@@ -36,10 +36,10 @@ const jocelineOU12G: WeaponData = {
 	},
 	modifications: {
 		ammunition: shotgunAmmunition,
-		boost: shotgunBoost,
 		barrel: [
 			barrel['Sawed Off Barrel (Joceline)']
 		],
+		boost: shotgunBoost,
 		stock: [
 			stock['Luxurious Ammo Pouch'],
 			stock['Wrist Wrecker Stock']

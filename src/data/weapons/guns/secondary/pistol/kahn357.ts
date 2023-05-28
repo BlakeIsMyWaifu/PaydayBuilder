@@ -2,44 +2,45 @@ import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
+import exclusiveSet from '../../modifications/exclusiveSet'
 import grip from '../../modifications/grip'
+import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost, pistolGadget } from '../commonModifications/pistolModifications'
 
-const rus12AngryTiger: WeaponData = {
-	name: 'RUS-12 Angry Tiger',
-	image: 'rsh12',
-	source: content['Jiu Feng Smuggler Pack 3'],
+const kahn357: WeaponData = {
+	name: 'Kahn .357',
+	image: 'korth',
+	source: content['McShay Weapon Pack 2'],
 	inventorySlot: 'secondary',
-	reputation: 26,
+	reputation: 19,
 	weaponType: 'Pistol',
-	firingMode: 'Semi-Automatic',
-	cost: 581e3,
+	firingMode: 'Single action',
+	cost: 418e3,
 	stats: {
-		magazine: 5,
-		totalAmmo: 20,
-		rateOfFire: 400,
-		damage: 210,
-		accuracy: 52,
-		stability: 20,
-		concealment: 25,
-		threat: 28,
-		reload: 2.25
+		magazine: 8,
+		totalAmmo: 56,
+		rateOfFire: 480,
+		damage: 120,
+		accuracy: 80,
+		stability: 40,
+		concealment: 27,
+		threat: 24,
+		reload: 2.75
 	},
 	extraStats: {
-		tacticalReload: 2.25,
+		tacticalReload: 2.75,
 		equipDelays: [0.45, 0.5],
-		ammoPickup: [0.75, 0.25],
-		recoilHorizontal: [-1.25, 1.25],
-		recoilVertical: [7.25, 7.5],
-		spread: 2.88,
-		damageModifier: [1.0, 1.0]
+		ammoPickup: [3.0, 2.0],
+		recoilHorizontal: [-1.0, 1.0],
+		recoilVertical: [2.4, 3.6],
+		spread: 1.2,
+		damageModifier: [1.0, 0.8]
 	},
 	modifications: {
 		barrel: [
-			barrel['RUS-J Long Valley Barrel and Stabilizer'],
-			barrel['RUS-K Tactical Short Barrel']
+			barrel['Railed Barrel']
 		],
 		barrelExt: [
 			barrelExt['IPSC Compensator'],
@@ -48,34 +49,32 @@ const rus12AngryTiger: WeaponData = {
 			barrelExt['Hurricane Compensator']
 		],
 		boost: pistolBoost,
+		exclusiveSet: [
+			exclusiveSet['Electric Dream']
+		],
 		gadget: pistolGadget,
 		grip: [
-			grip['RUS Custom Wood Grip']
+			grip.Ergogrip,
+			grip['Overmold Grip']
+		],
+		magazine: [
+			magazine['Hex Cylinder']
 		],
 		sight: [
-			sight['Holographic Sight x1.5'],
 			sight['The Professional\'s Choice Sight x1.5'],
 			sight['Surgeon Sight x1.25'],
-			sight['Acough Optic Scope x3.25'],
 			sight['Military Red Dot Sight x2'],
 			sight['Military Red Dot Sight Special x2'],
-			sight['Milspec Scope x2'],
-			sight['See More Sight x1.5'],
 			sight['Combat Sight x2'],
 			sight['Compact Holosight x1.5'],
 			sight['Speculator Sight x1.5'],
-			sight['Trigonom Sight x1.5'],
-			sight['Solar Sight x1.5'],
-			sight['Compact Tactical Box Sight x2.5'],
 			sight['Compact Profile Sight x1.5'],
 			sight['Maelstrom Sight x1.5'],
 			sight['CASSIAN Elite Score x4.5'],
 			sight['Biometric Analyzer x1.25'],
-			sight['Advanced Combat Sight x3.25'],
-			sight['CASSIAN Sharp Sight x3.25'],
-			sight['Z5 Owl Glass Universal Scope x2.5']
+			sight['CASSIAN Sharp Sight x3.25']
 		]
 	}
 }
 
-export default rus12AngryTiger
+export default kahn357

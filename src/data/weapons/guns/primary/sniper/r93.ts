@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import barrel from '../../modifications/barrel'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { sniperBoost, sniperGadgetMagnifier, sniperSight } from '../commonModifications/sniperModifications'
+import { sniperBoost, sniperGadget, sniperSecondarySight, sniperSight } from '../commonModifications/sniperModifications'
 
 const r93: WeaponData = {
 	name: 'R93',
@@ -40,7 +40,8 @@ const r93: WeaponData = {
 			barrel['Compensated Suppressor']
 		],
 		boost: sniperBoost,
-		gadget: sniperGadgetMagnifier,
+		gadget: sniperGadget,
+		secondarySight: sniperSecondarySight,
 		sight: sniperSight,
 		stock: [
 			stock['Wooden Body']

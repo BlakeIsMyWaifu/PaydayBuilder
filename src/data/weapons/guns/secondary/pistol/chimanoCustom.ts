@@ -5,7 +5,7 @@ import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
 import slide from '../../modifications/slide'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
+import { pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
 const chimanoCustom: WeaponData = {
 	name: 'Chimano Custom',
@@ -38,9 +38,21 @@ const chimanoCustom: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			...pistolBarrelExt,
+			barrelExt['IPSC Compensator'],
+			barrelExt['Roctec Suppressor'],
+			barrelExt['Champion\'s Suppressor'],
+			barrelExt['Facepunch Compensator'],
+			barrelExt['Standard Issue Suppressor'],
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['Size Doesn\'t Matter Suppressor'],
 			barrelExt['Ventilated Compensator'],
-			barrelExt['Velocity Compensator']
+			barrelExt['Velocity Compensator'],
+			barrelExt['Monolith Suppressor'],
+			barrelExt['Asepsis Suppressor'],
+			barrelExt['Flash Hider'],
+			barrelExt['Budget Suppressor'],
+			barrelExt['Jungle Ninja Suppressor'],
+			barrelExt['Hurricane Compensator']
 		],
 		boost: pistolBoost,
 		gadget: pistolGadget,
@@ -50,7 +62,7 @@ const chimanoCustom: WeaponData = {
 			grip['Ergo Grip (STRYK / Chimano Custom)']
 		],
 		magazine: [
-			magazine['Extended Mag. (Chimano)']
+			magazine['Extended Magazine (Chimano)']
 		],
 		sight: pistolSight,
 		slide: [

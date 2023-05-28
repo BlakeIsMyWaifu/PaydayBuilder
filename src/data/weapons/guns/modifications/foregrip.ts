@@ -121,6 +121,12 @@ export type ForegripModificationsList =
 	| 'Tactical Foregrip (M60)'
 	| 'Tropical Foregrip'
 
+	// CAR-4
+	| 'Orthogon Foregrip'
+
+	// AK
+	| 'Taktika Handguard Kit'
+
 	// Aran G2
 	| 'Kanden Foregrip'
 
@@ -1131,6 +1137,35 @@ const foregrip: ModificationList<ForegripModificationsList> = {
 				'M60'
 			]
 		}
+	},
+	'Orthogon Foregrip': {
+		name: 'Orthogon Foregrip',
+		image: '', // ! missing image - wpn_fps_m4_uupg_lower_radian
+		icon: 'inv_mod_foregrip',
+		slot: 'foregrip',
+		source: content['McShay Mod Pack'],
+		cost: 9e3,
+		stats: {
+			damage: 3,
+			accuracy: 12,
+			stability: 8,
+			concealment: -2
+		},
+		compatibleWeapons: {}
+	},
+	'Taktika Handguard Kit': {
+		name: 'Taktika Handguard Kit',
+		image: 'wpn_fps_upg_ak_fg_zenitco',
+		icon: 'inv_mod_foregrip',
+		slot: 'foregrip',
+		source: content['McShay Mod Pack'],
+		cost: 9e3,
+		stats: {
+			accuracy: 8,
+			stability: 4,
+			concealment: -1
+		},
+		compatibleWeapons: {}
 	},
 	'Kanden Foregrip': {
 		name: 'Kanden Foregrip',

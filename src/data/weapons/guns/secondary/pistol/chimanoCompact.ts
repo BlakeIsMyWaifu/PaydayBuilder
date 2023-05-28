@@ -5,7 +5,7 @@ import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
 import slide from '../../modifications/slide'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
+import { pistolBarrelExt, pistolBoostConcealment, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
 const chimanoCompact: WeaponData = {
 	name: 'Chimano Compact',
@@ -38,7 +38,7 @@ const chimanoCompact: WeaponData = {
 	},
 	modifications: {
 		barrelExt: pistolBarrelExt,
-		boost: pistolBoost,
+		boost: pistolBoostConcealment,
 		gadget: pistolGadget,
 		grip: [
 			grip['Laser Grip (Chimano)'],
@@ -49,7 +49,7 @@ const chimanoCompact: WeaponData = {
 		],
 		magazine: [
 			magazine['Striking Mag'],
-			magazine['Extended Mag. (Chimano)']
+			magazine['Extended Magazine (Chimano)']
 		],
 		sight: pistolSight,
 		slide: [

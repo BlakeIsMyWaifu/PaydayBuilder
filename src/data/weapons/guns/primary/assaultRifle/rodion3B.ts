@@ -1,12 +1,15 @@
 import content from 'data/source/downloadableContent'
 
+import barrelExt from '../../modifications/barrelExt'
 import bolt from '../../modifications/bolt'
+import exclusiveSet from '../../modifications/exclusiveSet'
 import grip from '../../modifications/grip'
 import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
+import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBoost, assaultRifleGadget } from '../commonModifications/assaultRifleModifications'
 
 const rodion3B: WeaponData = {
 	name: 'Rodion 3B',
@@ -38,12 +41,33 @@ const rodion3B: WeaponData = {
 		damageModifier: [1.0, 1.0]
 	},
 	modifications: {
-		barrelExt: assaultRifleBarrelExt,
+		barrelExt: [
+			barrelExt['Medium Suppressor'],
+			barrelExt['Low Profile Suppressor'],
+			barrelExt['Stubby Compensator'],
+			barrelExt['The Tank Compensator'],
+			barrelExt['Fire Breather Nozzle'],
+			barrelExt['Competitor\'s Compensator'],
+			barrelExt['Funnel of Fun Nozzle'],
+			barrelExt['Tactical Compensator'],
+			barrelExt['Ported Compensator'],
+			barrelExt['Taktika Muzzle Brake'],
+			barrelExt['Marmon Compensator'],
+			barrelExt['Verdunkeln Muzzle Brake'],
+			barrelExt['KS12-A Burst Muzzle'],
+			barrelExt['Fyodor Muzzle Brake'],
+			barrelExt['Federation Suppressor'],
+			barrelExt['Rami Suppressor'],
+			barrelExt['Dourif Muzzle']
+		],
 		bolt: [
 			bolt['Taktika Deluxe Charging Handle']
 		],
 		boost: assaultRifleBoost,
-		// TODO exclusive set
+		exclusiveSet: [
+			exclusiveSet.Strelok
+		],
+		gadget: assaultRifleGadget,
 		grip: [
 			grip['AK Rubber Grip'],
 			grip['AK Plastic Grip'],
@@ -59,7 +83,22 @@ const rodion3B: WeaponData = {
 		magazine: [
 			magazine['Siberian Speed Pull Magazine']
 		],
-		sight: assaultRifleSight,
+		sight: [
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Maelstrom Sight x1.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['Svidetel Iron Sight'],
+			sight['Angular Rail']
+		],
 		stock: [
 			stock['Shoulder Pad']
 		]

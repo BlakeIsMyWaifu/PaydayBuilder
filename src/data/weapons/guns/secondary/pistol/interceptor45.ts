@@ -4,7 +4,7 @@ import barrelExt from '../../modifications/barrelExt'
 import magazine from '../../modifications/magazine'
 import slide from '../../modifications/slide'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
+import { pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
 const interceptor45: WeaponData = {
 	name: 'Interceptor .45',
@@ -37,14 +37,26 @@ const interceptor45: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			...pistolBarrelExt,
 			barrelExt['Ventilated .45'],
-			barrelExt['Velocity .45']
+			barrelExt['IPSC Compensator'],
+			barrelExt['Roctec Suppressor'],
+			barrelExt['Velocity .45'],
+			barrelExt['Champion\'s Suppressor'],
+			barrelExt['Facepunch Compensator'],
+			barrelExt['Standard Issue Suppressor'],
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['Size Doesn\'t Matter Suppressor'],
+			barrelExt['Monolith Suppressor'],
+			barrelExt['Asepsis Suppressor'],
+			barrelExt['Flash Hider'],
+			barrelExt['Budget Suppressor'],
+			barrelExt['Jungle Ninja Suppressor'],
+			barrelExt['Hurricane Compensator']
 		],
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		magazine: [
-			magazine['Extended Mag. (Interceptor)'],
+			magazine['Extended Magazine (Interceptor)'],
 			magazine['I want more Magazine!']
 		],
 		sight: pistolSight,

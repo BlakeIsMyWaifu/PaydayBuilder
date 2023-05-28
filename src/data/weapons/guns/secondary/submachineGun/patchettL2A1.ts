@@ -47,7 +47,7 @@ const patchettL2A1: WeaponData = {
 		custom: submachineGunCustom,
 		gadget: submachineGunGadget,
 		magazine: [
-			magazine['Extended Mag (Patchett)'],
+			magazine['Extended Magazine (Patchett)'],
 			magazine['Short Mag (Patchett)']
 		],
 		sight: submachineGunSight,

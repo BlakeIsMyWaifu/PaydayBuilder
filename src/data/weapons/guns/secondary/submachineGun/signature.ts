@@ -4,7 +4,7 @@ import foregrip from '../../modifications/foregrip'
 import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
+import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
 const signature: WeaponData = {
 	name: 'Signature',
@@ -46,13 +46,15 @@ const signature: WeaponData = {
 		magazine: [
 			magazine['Extended Magazine (Signature)']
 		],
+		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight,
 		stock: [
+			stock['No Stock (Signature)'],
 			stock['Tactical Stock (Main)'],
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
-			stock['No Stock (Signature)']
+			stock['VD-12 Stock']
 		]
 	}
 }

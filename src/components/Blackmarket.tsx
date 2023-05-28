@@ -129,7 +129,7 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weapon, modifications, mo
 								onMouseDown={event => event.preventDefault()}
 								onError={({ currentTarget }) => {
 									currentTarget.onerror = null
-									currentTarget.src = '/images/modifications/wpn_fps_lmg_svinet_s_plastic.webp'
+									currentTarget.src = '/images/modifications/placeholder.webp'
 								}}
 							/>
 						</Item>

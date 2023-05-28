@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import barrel from '../../modifications/barrel'
 import grip from '../../modifications/grip'
 import { type WeaponData } from '../../weaponTypes'
-import { sniperBoost, sniperGadgetMagnifier, sniperSight } from '../commonModifications/sniperModifications'
+import { sniperBoost, sniperGadget, sniperSecondarySight, sniperSight } from '../commonModifications/sniperModifications'
 
 const thanatos50Cal: WeaponData = {
 	name: 'Thanatos .50 cal',
@@ -41,14 +41,18 @@ const thanatos50Cal: WeaponData = {
 			barrel['Suppressed Barrel (Thanatos)']
 		],
 		boost: sniperBoost,
-		gadget: sniperGadgetMagnifier,
+		gadget: sniperGadget,
 		grip: [
 			grip['Ergo Grip (Main)'],
 			grip['Pro Grip'],
 			grip['Rubber Grip'],
 			grip['Straight Grip'],
-			grip['Contractor Grip']
+			grip['Contractor Grip'],
+			grip['Titanium Skeleton Grip'],
+			grip['VD-12 Grip'],
+			grip['Ursa Minor Grip']
 		],
+		secondarySight: sniperSecondarySight,
 		sight: sniperSight
 	}
 }

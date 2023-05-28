@@ -52,76 +52,6 @@ const mainGuns: CompatibleWeapons = {
 	]
 }
 
-const gunsWithSights: CompatibleWeapons = {
-	assaultRifle: assaultRifleList,
-	sniper: mainSnipers.sniper,
-	special: [
-		'Arbiter',
-		'HRL-7'
-	]
-}
-
-const gunsWithMagnifier: CompatibleWeapons = {
-	assaultRifle: [
-		'AMCAR',
-		'AK',
-		'CAR-4',
-		'UAR',
-		'JP36',
-		'M308',
-		'AK5',
-		'AMR-16',
-		'Commando 553',
-		'Eagle Heavy',
-		'Cavity 9mm',
-		'AK17',
-		'Bootleg',
-		'Queen\'s Wrath',
-		'Clarion',
-		'Lion\'s Roar',
-		'Gecko 7.62',
-		'Little Friend 7.62',
-		'Falcon',
-		'Gewehr 3'
-	],
-	sniper: mainGuns.sniper,
-	special: [
-		'Arbiter',
-		'HRL-7',
-		'Piglet'
-	],
-	submachineGun: [
-		'Mark 10',
-		'Compact-5',
-		'CMP',
-		'Para',
-		'SpecOps',
-		'CR 805B',
-		'Cobra',
-		'Jackal',
-		'Blaster 9mm',
-		'Kross Vertex',
-		'Tatonka',
-		'Uzi',
-		'Chicago Typewriter'
-	],
-	pistol: [
-		'Bronco .44',
-		'Deagle'
-	],
-	shotgun: [
-		'Reinfeld 880',
-		'Locomotive 12G',
-		'Goliath 12G',
-		'M1014',
-		'Raven',
-		'Steakout 12G',
-		'Street Sweeper',
-		'Predator 12G',
-		'The Judge'
-	]
-}
-
 const mainPistols: CompatibleWeapons = {
 	pistol: [
 		'Chimano 88',
@@ -157,24 +87,13 @@ export type GadgetModificationsList =
 	| 'LED Combo'
 	| 'Stealth Laser Module'
 
-	// Guns with sights
-	| 'Riktpunkt 45 degree Sight'
-	| '45 degree red-dot sight'
-	| '45 Degree Ironsights'
-
-	// Guns with magnifier
-	| 'Riktpunkt Magnifier Gadget'
-	| 'Signature Magnifier Gadget'
-
-	// Snipers
-	| 'Angled Sight'
-
 	// Pistols
 	| 'Tactical Pistol Light'
 	| 'Pocket Laser'
 	| 'Micro Laser'
 	| 'Combined Module'
 	| 'Polymer Flashlight'
+	| 'Medved R4 Laser Sight'
 
 const gadget: ModificationList<GadgetModificationsList> = {
 	'Assault Light': {
@@ -265,93 +184,6 @@ const gadget: ModificationList<GadgetModificationsList> = {
 		},
 		compatibleWeapons: mainGuns
 	},
-	'Riktpunkt 45 degree Sight': {
-		name: 'Riktpunkt 45 degree Sight',
-		image: 'wpn_fps_upg_o_45rds_v2',
-		icon: 'inv_mod_second_sight',
-		slot: 'gadget',
-		source: source['Base Game'],
-		cost: 9e3,
-		acquisition: {
-			bonus: 1
-		},
-		stats: {
-			stability: 4
-		},
-		compatibleWeapons: gunsWithSights,
-		incompatibleSlot: [] // Requires a pre-installed sight mod to mount
-	},
-	'45 degree red-dot sight': {
-		name: '45 degree red-dot sight',
-		image: 'wpn_fps_upg_o_45rds',
-		icon: 'inv_mod_second_sight',
-		slot: 'gadget',
-		source: content['Gage Spec Ops Pack'],
-		cost: 9e3,
-		acquisition: {
-			infinite: true
-		},
-		stats: {
-			stability: 4
-		},
-		compatibleWeapons: gunsWithSights,
-		incompatibleSlot: [] // Requires a pre-installed sight mod to mount
-	},
-	'45 Degree Ironsights': {
-		name: '45 Degree Ironsights',
-		image: 'wpn_fps_upg_o_45steel',
-		icon: 'inv_mod_second_sight',
-		slot: 'gadget',
-		source: content['Cartel Optics Mod Pack'],
-		cost: 14e3,
-		stats: {
-			concealment: 1
-		},
-		compatibleWeapons: gunsWithSights,
-		incompatibleSlot: [] // Requires a pre-installed sight mod to mount
-	},
-	'Riktpunkt Magnifier Gadget': {
-		name: 'Riktpunkt Magnifier Gadget',
-		image: 'wpn_fps_upg_o_xpsg33_magnifier',
-		icon: 'inv_mod_second_sight',
-		slot: 'gadget',
-		source: source['Base Game'],
-		cost: 9e3,
-		acquisition: {
-			bonus: 1
-		},
-		stats: {
-			stability: 4
-		},
-		compatibleWeapons: gunsWithMagnifier,
-		incompatibleSlot: [] // Incompatible with certain sights
-	},
-	'Signature Magnifier Gadget': {
-		name: 'Signature Magnifier Gadget',
-		image: 'wpn_fps_upg_o_sig',
-		icon: 'inv_mod_second_sight',
-		slot: 'gadget',
-		source: content['Cartel Optics Mod Pack'],
-		cost: 14e3,
-		stats: {
-			stability: 4
-		},
-		compatibleWeapons: gunsWithMagnifier,
-		incompatibleSlot: [] // Incompatible with certain sights
-	},
-	'Angled Sight': {
-		name: 'Angled Sight',
-		image: 'wpn_fps_upg_o_45iron',
-		icon: 'inv_mod_second_sight',
-		slot: 'gadget',
-		source: content['Gage Sniper Pack'],
-		cost: 7200,
-		acquisition: {
-			achievement: 'Triple Kill'
-		},
-		stats: {},
-		compatibleWeapons: mainSnipers
-	},
 	'Tactical Pistol Light': {
 		name: 'Tactical Pistol Light',
 		image: 'wpn_fps_upg_fl_pis_tlr1',
@@ -411,7 +243,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 		icon: 'inv_mod_flashlight',
 		slot: 'gadget',
 		source: content['The Butcher Mod Pack 2'],
-		cost: 0, // Unknown?
+		cost: 9e3,
 		acquisition: {
 			bonus: 1
 		},
@@ -421,6 +253,20 @@ const gadget: ModificationList<GadgetModificationsList> = {
 			concealment: -1
 		},
 		compatibleWeapons: mainPistols
+	},
+	'Medved R4 Laser Sight': {
+		name: 'Medved R4 Laser Sight',
+		image: 'wpn_fps_upg_fl_pis_perst',
+		icon: 'inv_mod_laser',
+		slot: 'gadget',
+		source: source['Base Game'],
+		cost: 36e3,
+		specialEffect: ['Laser'],
+		stats: {
+			stability: 4,
+			concealment: -1
+		},
+		compatibleWeapons: {}
 	}
 }
 

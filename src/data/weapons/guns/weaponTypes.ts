@@ -8,7 +8,9 @@ import { type BayonetModificationsList } from './modifications/bayonet'
 import { type BipodModificationsList } from './modifications/bipod'
 import { type BoltModificationList } from './modifications/bolt'
 import { type BoostModificationsList } from './modifications/boost'
+import { type ChargingHandleList } from './modifications/chargingHandle'
 import { type CustomModificationsList } from './modifications/custom'
+import { type ExclusiveSetList } from './modifications/exclusiveSet'
 import { type ExtraModificationsList } from './modifications/extra'
 import { type ForegripModificationsList } from './modifications/foregrip'
 import { type GadgetModificationsList } from './modifications/gadget'
@@ -16,6 +18,7 @@ import { type GripModificationsList } from './modifications/grip'
 import { type LowerReceiverModificationsList } from './modifications/lowerReceiver'
 import { type MagazineModificationsList } from './modifications/magazine'
 import { type ReceiverModificationsList } from './modifications/receiver'
+import { type SecondarySightList } from './modifications/secondarySight'
 import { type SightModificationsList } from './modifications/sight'
 import { type SlideModificationsList } from './modifications/slide'
 import { type StockModificationsList } from './modifications/stock'
@@ -56,7 +59,9 @@ export interface WeaponModifications {
 	bipod?: Modification<BipodModificationsList>[];
 	bolt?: Modification<BoltModificationList>[];
 	boost: Modification<BoostModificationsList>[];
+	chargingHandle?: Modification<ChargingHandleList>[];
 	custom?: Modification<CustomModificationsList>[];
+	exclusiveSet?: Modification<ExclusiveSetList>[];
 	extra?: Modification<ExtraModificationsList>[];
 	foregrip?: Modification<ForegripModificationsList>[];
 	gadget?: Modification<GadgetModificationsList>[];
@@ -64,6 +69,7 @@ export interface WeaponModifications {
 	lowerReceiver?: Modification<LowerReceiverModificationsList>[];
 	magazine?: Modification<MagazineModificationsList>[];
 	receiver?: Modification<ReceiverModificationsList>[];
+	secondarySight?: Modification<SecondarySightList>[];
 	sight?: Modification<SightModificationsList>[];
 	slide?: Modification<SlideModificationsList>[];
 	stock?: Modification<StockModificationsList>[];
@@ -109,7 +115,6 @@ export interface WeaponData {
 	stats: WeaponStats;
 	extraStats: WeaponExtraStats;
 	modifications: WeaponModifications;
-	skins?: WeaponSkin[];
 }
 
 export interface WeaponStats {
@@ -206,6 +211,7 @@ export interface Modification<ModificationName extends string = string> {
 	acquisition?: {
 		package?: 'Green Mantis' | 'Yellow Bull' | 'Red Spider' | 'Blue Eagle' | 'Purple Snake';
 		achievement?: string;
+		sideJob?: string;
 		bonus?: number;
 		infinite?: true;
 		coins?: number;
@@ -217,16 +223,6 @@ export interface Modification<ModificationName extends string = string> {
 }
 
 export type ModificationList<T extends string = string> = Record<T, Modification<T>>;
-
-type StatBoost = 'accuracy' | 'concealment' | 'damage' | 'income' | 'stability' | 'total ammo'
-
-interface WeaponSkin {
-	name: string;
-	image: string;
-	rarity: 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary';
-	statBoost: [number, StatBoost] | [[number, StatBoost], [number, StatBoost]];
-	safe: string;
-}
 
 export interface WeaponFind {
 	name: AllWeaponList;

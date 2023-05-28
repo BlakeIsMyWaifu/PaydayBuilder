@@ -2,6 +2,7 @@ import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
+import exclusiveSet from '../../modifications/exclusiveSet'
 import extra from '../../modifications/extra'
 import magazine from '../../modifications/magazine'
 import underbarrel from '../../modifications/underbarrel'
@@ -10,7 +11,7 @@ import { lightMachineGunBoost, lightMachineGunGadget } from '../commonModificati
 
 const campbell74: WeaponData = {
 	name: 'Campbell 74',
-	image: 'kacchainsaw', // TODO image
+	image: 'kacchainsaw',
 	source: content['McShay Weapon Pack 4'],
 	inventorySlot: 'primary',
 	reputation: 42,
@@ -58,6 +59,9 @@ const campbell74: WeaponData = {
 			barrelExt['Dourif Muzzle']
 		],
 		boost: lightMachineGunBoost,
+		exclusiveSet: [
+			exclusiveSet.Offworld
+		],
 		extra: [
 			extra['Moseley Sling']
 		],

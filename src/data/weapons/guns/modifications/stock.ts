@@ -177,6 +177,9 @@ export type StockModificationsList =
 	// Bernetti Auto
 	| 'Federales Stock (Bernetti Auto)'
 
+	// Czech 92
+	| 'Tirador Stock'
+
 	// Igor Automatik
 	| 'Federales Stock (Igor)'
 
@@ -279,6 +282,9 @@ export type StockModificationsList =
 
 	// Miyaka 10 Special
 	| 'MS10 Tactical Stock'
+
+	// AK
+	| 'Taktika Telescopic Stock'
 
 	// North Star
 	| 'Ursa Minor Stock'
@@ -1503,6 +1509,22 @@ const stock: ModificationList<StockModificationsList> = {
 			]
 		}
 	},
+	'Tirador Stock': {
+		name: 'Tirador Stock',
+		image: 'wpn_fps_pis_stech_s_standard',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['Federales Weapon Pack'],
+		cost: 28e3,
+		acquisition: {
+			bonus: 1
+		},
+		stats: {
+			stability: 8,
+			concealment: -2
+		},
+		compatibleWeapons: {}
+	},
 	'Federales Stock (Igor)': {
 		name: 'Federales Stock (Igor)',
 		image: 'wpn_fps_pis_stech_s_standard',
@@ -2282,6 +2304,19 @@ const stock: ModificationList<StockModificationsList> = {
 				'Miyaka 10 Special'
 			]
 		}
+	},
+	'Taktika Telescopic Stock': {
+		name: 'Taktika Telescopic Stock',
+		image: 'wpn_fps_upg_ak_s_zenitco',
+		icon: 'inv_mod_stock',
+		slot: 'stock',
+		source: content['McShay Mod Pack'],
+		cost: 9e3,
+		stats: {
+			accuracy: 4,
+			concealment: 1
+		},
+		compatibleWeapons: {}
 	},
 	'Ursa Minor Stock': {
 		name: 'Ursa Minor Stock',

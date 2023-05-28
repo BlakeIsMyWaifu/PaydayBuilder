@@ -1,8 +1,10 @@
 import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
+import exclusiveSet from '../../modifications/exclusiveSet'
 import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
+import secondarySight from '../../modifications/secondarySight'
 import stock from '../../modifications/stock'
 import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
@@ -48,7 +50,9 @@ const Deimos: WeaponData = {
 		],
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
-		// exclusive set
+		exclusiveSet: [
+			exclusiveSet.Flatline
+		],
 		gadget: shotgunGadget,
 		grip: [
 			grip['Advanced Phobos Grip'],
@@ -58,7 +62,13 @@ const Deimos: WeaponData = {
 		magazine: [
 			magazine['Eris Magazine Extender']
 		],
-		// secondary sight
+		secondarySight: [
+			secondarySight['Riktpunkt 45 degree Sight'],
+			secondarySight['Riktpunkt Magnifier Gadget x6.25'],
+			secondarySight['45 degree red-dot sight'],
+			secondarySight['45 Degree Ironsights'],
+			secondarySight['Signature Magnifier Gadget x6.25']
+		],
 		sight: shotgunSight,
 		stock: [
 			stock['Tactical Stock (Main)'],

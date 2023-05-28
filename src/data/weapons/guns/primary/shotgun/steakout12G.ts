@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import barrel from '../../modifications/barrel'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
-import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunCustom, shotgunGadgetMagnifier, shotgunSight } from '../commonModifications/shotgunModifications'
+import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunCustom, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
 const steakout12G: WeaponData = {
 	name: 'Steakout 12G',
@@ -43,10 +43,11 @@ const steakout12G: WeaponData = {
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
 		custom: shotgunCustom,
-		gadget: shotgunGadgetMagnifier,
+		gadget: shotgunGadget,
 		magazine: [
 			magazine['Drum Mag']
 		],
+		secondarySight: shotgunSecondarySight,
 		sight: shotgunSight
 	}
 }

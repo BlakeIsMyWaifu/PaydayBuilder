@@ -30,8 +30,8 @@ const mainGuns: CompatibleWeapons = {
 export type AmmunitionModificationsList =
 	// Shotguns
 	| 'Tombstone Slug'
-	| '000 Buckshot (Community)'
-	| '000 Buckshot (DLC)'
+	// | '000 Buckshot (Community)'
+	| '000 Buckshot'
 	| 'HE Round'
 	| 'Flechette'
 	| 'AP Slug'
@@ -63,6 +63,7 @@ export type AmmunitionModificationsList =
 
 	// KETCHNOV Byk-1, Little Friend 7.62
 	// Compact 40mm, China Puff 40mm, Piglet, GL40, Arbiter, Basilisk 3V
+	| 'Sting Grenade'
 	| 'Incendiary Round'
 	| 'X1-a Tactical ZAPper'
 	| 'Viper Grenade'
@@ -93,23 +94,24 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 		},
 		compatibleWeapons: mainGuns
 	},
-	'000 Buckshot (Community)': {
-		name: '000 Buckshot (Community)',
-		image: 'wpn_fps_upg_a_custom_free',
-		icon: 'inv_mod_ammo_custom',
-		slot: 'ammunition',
-		source: source.Community,
-		cost: 50400,
-		acquisition: {
-			bonus: 2
-		},
-		stats: {
-			damage: 15
-		},
-		compatibleWeapons: mainGuns
-	},
-	'000 Buckshot (DLC)': {
-		name: '000 Buckshot (DLC)',
+	/** This replaced with the DLC version */
+	// '000 Buckshot (Community)': {
+	// 	name: '000 Buckshot (Community)',
+	// 	image: 'wpn_fps_upg_a_custom_free',
+	// 	icon: 'inv_mod_ammo_custom',
+	// 	slot: 'ammunition',
+	// 	source: source.Community,
+	// 	cost: 50400,
+	// 	acquisition: {
+	// 		bonus: 2
+	// 	},
+	// 	stats: {
+	// 		damage: 15
+	// 	},
+	// 	compatibleWeapons: mainGuns
+	// },
+	'000 Buckshot': {
+		name: '000 Buckshot',
 		image: 'wpn_fps_upg_a_custom',
 		icon: 'inv_mod_ammo_custom',
 		slot: 'ammunition',
@@ -278,7 +280,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	},
 	'Explosive Arrow (Airbow)': {
 		name: 'Explosive Arrow (Airbow)',
-		image: 'wpn_fps_bow_ecp_m_arrows_explosive', // ? wpn_fps_bow_ecp_m_explosive
+		image: 'wpn_fps_bow_ecp_m_arrows_explosive', // - wpn_fps_bow_ecp_m_explosive
 		icon: 'inv_mod_ammo_explosive',
 		slot: 'ammunition',
 		source: content['h3h3 Character Pack'],
@@ -298,7 +300,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 	},
 	'Poison Arrow (Airbow)': {
 		name: 'Poison Arrow (Airbow)',
-		image: 'wpn_fps_bow_ecp_m_arrows_poison', // ? wpn_fps_bow_ecp_m_poison
+		image: 'wpn_fps_bow_ecp_m_arrows_poison', // - wpn_fps_bow_ecp_m_poison
 		icon: 'inv_mod_ammo_poison',
 		slot: 'ammunition',
 		source: content['h3h3 Character Pack'],
@@ -384,7 +386,7 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 		specialEffect: ['100% chance to poison target'],
 		stats: {
 			totalAmmo: -9,
-			damage: -1700
+			damage: -1700 // TODO adds damage now?
 		},
 		compatibleWeapons: {
 			special: [
@@ -432,6 +434,17 @@ const ammunition: ModificationList<AmmunitionModificationsList> = {
 				'Heavy Crossbow'
 			]
 		}
+	},
+	'Sting Grenade': {
+		name: 'Sting Grenade',
+		image: 'wpn_fps_upg_a_grenade_launcher_hornet',
+		icon: 'inv_mod_ammo_custom',
+		slot: 'ammunition',
+		source: source['Base Game'], // TODO Find update, around start of 2023
+		cost: 14e3,
+		specialEffect: ['Shoots an AP shotgun round.', 'Receives bonuses from skills', 'Suffers from damage falloff'],
+		stats: {},
+		compatibleWeapons: {}
 	},
 	'Incendiary Round': {
 		name: 'Incendiary Round',

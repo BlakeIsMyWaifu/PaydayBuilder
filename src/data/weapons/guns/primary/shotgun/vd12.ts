@@ -1,11 +1,13 @@
 import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
+import exclusiveSet from '../../modifications/exclusiveSet'
 import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
+import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunCustom, shotgunGadget, shotgunSight } from '../commonModifications/shotgunModifications'
+import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunCustom, shotgunGadget, shotgunSecondarySight } from '../commonModifications/shotgunModifications'
 
 const vd12: WeaponData = {
 	name: 'VD-12',
@@ -45,7 +47,9 @@ const vd12: WeaponData = {
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
 		custom: shotgunCustom,
-		// TODO exclusiveSlot
+		exclusiveSet: [
+			exclusiveSet.Stateside
+		],
 		foregrip: [
 			foregrip['Front Mounting Rail']
 		],
@@ -57,17 +61,42 @@ const vd12: WeaponData = {
 			grip['Straight Grip'],
 			grip['Contractor Grip'],
 			grip['Titanium Skeleton Grip'],
-			grip['VD-12 Grip']
+			grip['VD-12 Grip'],
+			grip['Ursa Minor Grip']
 		],
-		// TODO secondary sight
-		sight: shotgunSight,
+		secondarySight: shotgunSecondarySight,
+		sight: [
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Acough Optic Scope x3.25'],
+			sight['Military Red Dot Sight x2'],
+			sight['Military Red Dot Sight Special x2'],
+			sight['Milspec Scope x2'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			sight['Compact Tactical Box Sight x2.5'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Maelstrom Sight x1.5'],
+			sight['CASSIAN Elite Score x4.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['Advanced Combat Sight x3.25'],
+			sight['CASSIAN Sharp Sight x3.25'],
+			sight['Z5 Owl Glass Universal Scope x2.5']
+		],
 		stock: [
 			stock['Tactical Stock (Main)'],
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
 			stock['Contractor Stock'],
-			stock['VD-12 Stock']
+			stock['VD-12 Stock'],
+			stock['Ursa Minor Stock'],
+			stock['Starlight Stock']
 		]
 	}
 }

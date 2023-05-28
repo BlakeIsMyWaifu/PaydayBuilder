@@ -4,7 +4,7 @@ import barrel from '../../modifications/barrel'
 import foregrip from '../../modifications/foregrip'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const galant: WeaponData = {
 	name: 'Galant',
@@ -44,7 +44,8 @@ const galant: WeaponData = {
 		foregrip: [
 			foregrip['Custom Foregrip']
 		],
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight,
 		stock: [
 			stock['Magpouch Stock']

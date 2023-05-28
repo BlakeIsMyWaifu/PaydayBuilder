@@ -5,7 +5,7 @@ import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const gewehr3: WeaponData = {
 	name: 'Gewehr 3',
@@ -50,11 +50,12 @@ const gewehr3: WeaponData = {
 			foregrip['Wooden Foregrip'],
 			foregrip['Plastic Foregrip']
 		],
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		grip: [
 			grip['Retro Grip'],
 			grip['Precision Grip']
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight,
 		stock: [
 			stock['Precision Stock'],

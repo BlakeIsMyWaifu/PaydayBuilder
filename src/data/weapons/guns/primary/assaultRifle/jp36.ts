@@ -2,9 +2,10 @@ import source from 'data/source/miscSources'
 
 import foregrip from '../../modifications/foregrip'
 import magazine from '../../modifications/magazine'
+import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight } from '../commonModifications/assaultRifleModifications'
 
 const jp36: WeaponData = {
 	name: 'JP36',
@@ -44,11 +45,36 @@ const jp36: WeaponData = {
 			foregrip['Polizei Special Foregrip'],
 			foregrip['JP36 Long Foregrip']
 		],
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		magazine: [
 			magazine['Speed Pull Magazine']
 		],
-		sight: assaultRifleSight,
+		secondarySight: assaultRifleSecondarySight,
+		sight: [
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Acough Optic Scope x3.25'],
+			sight['Military Red Dot Sight x2'],
+			sight['Military Red Dot Sight Special x2'],
+			sight['Milspec Scope x2'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			sight['JP36 Original Sight x2'],
+			sight['Reconnaissance Sight x2'],
+			sight['Compact Tactical Box Sight x2.5'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Maelstrom Sight x1.5'],
+			sight['CASSIAN Elite Score x4.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['Advanced Combat Sight x3.25'],
+			sight['CASSIAN Sharp Sight x3.25'],
+			sight['Z5 Owl Glass Universal Scope x2.5']
+		],
 		stock: [
 			stock['Solid Stock (JP36)'],
 			stock['Sniper Stock (JP36)']

@@ -2,11 +2,12 @@ import content from 'data/source/downloadableContent'
 
 import ammunition from '../../modifications/ammunition'
 import barrel from '../../modifications/barrel'
-import gadget from '../../modifications/gadget'
+import boost from '../../modifications/boost'
+import secondarySight from '../../modifications/secondarySight'
 import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoost, specialGadget, specialSight } from '../commonModifications/specialModifications'
+import { specialGadget } from '../commonModifications/specialModifications'
 
 const piglet: WeaponData = {
 	name: 'Piglet',
@@ -39,23 +40,48 @@ const piglet: WeaponData = {
 	},
 	modifications: {
 		ammunition: [
-			ammunition['Incendiary Round']
+			ammunition['Sting Grenade'],
+			ammunition['Incendiary Round'],
+			ammunition['X1-a Tactical ZAPper'],
+			ammunition['Viper Grenade']
 		],
 		barrel: [
 			barrel['Short Barrel (Piglet)']
 		],
-		boost: specialBoost,
-		gadget: [
-			...specialGadget,
-			gadget['Riktpunkt Magnifier Gadget'],
-			gadget['Signature Magnifier Gadget']
+		boost: [
+			boost.Concealment,
+			boost.Stability,
+			boost.Accuracy,
+			boost['Team Boost']
+		],
+		gadget: specialGadget,
+		secondarySight: [
+			secondarySight['Riktpunkt Magnifier Gadget x6.25'],
+			secondarySight['Signature Magnifier Gadget x6.25']
 		],
 		sight: [
-			...specialSight,
-			sight['Compact Profile Sight'],
-			sight['Maelstrom Sight'],
-			sight['Advanced Combat Sight'],
-			sight['Reconnaissance Sight']
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Acough Optic Scope x3.25'],
+			sight['Military Red Dot Sight x2'],
+			sight['Military Red Dot Sight Special x2'],
+			sight['Milspec Scope x2'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			sight['Reconnaissance Sight x2'],
+			sight['Compact Tactical Box Sight x2.5'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Maelstrom Sight x1.5'],
+			sight['CASSIAN Elite Score x4.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['Advanced Combat Sight x3.25'],
+			sight['CASSIAN Sharp Sight x3.25'],
+			sight['Z5 Owl Glass Universal Scope x2.5']
 		],
 		stock: [
 			stock['Tactical Stock (Main)'],
@@ -63,7 +89,8 @@ const piglet: WeaponData = {
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
 			stock['No Stock (Piglet)'],
-			stock['Contractor Stock']
+			stock['Contractor Stock'],
+			stock['VD-12 Stock']
 		]
 	}
 }

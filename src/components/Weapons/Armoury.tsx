@@ -145,7 +145,7 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 
 	return (
 		<Container
-			title={slot}
+			title={slot === 'primary' ? 'Primary' : 'Secondary'}
 			desktopLayout={{
 				columns: '3fr 1.5fr',
 				rows: '4rem 2rem auto 6rem 4rem',
@@ -324,7 +324,7 @@ const ArmouryItems: FC<ArmouryItemsProps> = ({ weaponsData, isActiveBuild, selec
 				})
 			}
 
-			{
+			{ // TODO fix height when alone on a row
 				activeBuildId === activeTabId && <BuyContainer
 					rowAmount={5}
 					selected={false}

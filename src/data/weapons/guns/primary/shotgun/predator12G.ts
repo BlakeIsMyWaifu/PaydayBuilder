@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 import barrel from '../../modifications/barrel'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadgetMagnifier, shotgunSight } from '../commonModifications/shotgunModifications'
+import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
 const predator12G: WeaponData = {
 	name: 'Predator 12G',
@@ -41,7 +41,8 @@ const predator12G: WeaponData = {
 		],
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
-		gadget: shotgunGadgetMagnifier,
+		gadget: shotgunGadget,
+		secondarySight: shotgunSecondarySight,
 		sight: shotgunSight,
 		stock: [
 			stock['Folded Stock (Predator)'],

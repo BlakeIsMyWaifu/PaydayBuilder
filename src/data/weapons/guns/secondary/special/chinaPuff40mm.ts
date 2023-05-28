@@ -1,9 +1,8 @@
 import content from 'data/source/downloadableContent'
 
-import ammunition from '../../modifications/ammunition'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoost } from '../commonModifications/specialModifications'
+import { specialAmmunition, specialBoost } from '../commonModifications/specialModifications'
 
 const chinaPuff40mm: WeaponData = {
 	name: 'China Puff 40mm',
@@ -35,9 +34,7 @@ const chinaPuff40mm: WeaponData = {
 		damageModifier: null
 	},
 	modifications: {
-		ammunition: [
-			ammunition['Incendiary Round']
-		],
+		ammunition: specialAmmunition,
 		boost: specialBoost,
 		stock: [
 			stock['Riot Stock']

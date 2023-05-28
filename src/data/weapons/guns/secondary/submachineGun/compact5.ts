@@ -4,7 +4,7 @@ import foregrip from '../../modifications/foregrip'
 import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
+import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
 const compact5: WeaponData = {
 	name: 'Compact-5',
@@ -49,6 +49,7 @@ const compact5: WeaponData = {
 		magazine: [
 			magazine['Straight Magazine']
 		],
+		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight,
 		stock: [
 			stock['Adjustable Stock'],

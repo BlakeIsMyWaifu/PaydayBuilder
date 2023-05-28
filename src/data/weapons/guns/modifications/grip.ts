@@ -193,6 +193,13 @@ export type GripModificationsList =
 	// Miyaka 10 Special
 	| 'MS10 Comfort Wood Grip'
 
+	// Kahn .357
+	| 'Ergogrip'
+	| 'Overmold Grip'
+
+	// AMCAR
+	| 'Skeletonized AR Grip'
+
 	// Aran G2
 	| 'Bounty Grip'
 
@@ -1404,6 +1411,45 @@ const grip: ModificationList<GripModificationsList> = {
 				'Miyaka 10 Special'
 			]
 		}
+	},
+	'Ergogrip': {
+		name: 'Ergogrip',
+		image: 'wpn_fps_pis_korth_g_ergo',
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 2'],
+		cost: 14e3,
+		stats: {
+			accuracy: -4,
+			stability: 8
+		},
+		compatibleWeapons: {}
+	},
+	'Overmold Grip': {
+		name: 'Overmold Grip',
+		image: 'wpn_fps_pis_korth_g_hogue',
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Weapon Pack 2'],
+		cost: 21e3,
+		stats: {
+			stability: 4
+		},
+		compatibleWeapons: {}
+	},
+	'Skeletonized AR Grip': {
+		name: 'Skeletonized AR Grip',
+		image: 'wpn_fps_m4_uupg_g_billet',
+		icon: 'inv_mod_grip',
+		slot: 'grip',
+		source: content['McShay Mod Pack'],
+		cost: 44e3,
+		stats: {
+			accuracy: -4,
+			stability: 4,
+			concealment: 2
+		},
+		compatibleWeapons: {}
 	},
 	'Bounty Grip': {
 		name: 'Bounty Grip',

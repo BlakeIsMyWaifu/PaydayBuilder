@@ -4,7 +4,7 @@ import custom from '../../modifications/custom'
 import foregrip from '../../modifications/foregrip'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
-import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadgetMagnifier, shotgunSight } from '../commonModifications/shotgunModifications'
+import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
 const grimm12G: WeaponData = {
 	name: 'Grimm 12G',
@@ -46,10 +46,11 @@ const grimm12G: WeaponData = {
 		foregrip: [
 			foregrip['Little Brother Foregrip']
 		],
-		gadget: shotgunGadgetMagnifier,
+		gadget: shotgunGadget,
 		magazine: [
 			magazine['Big Brother Magazine']
 		],
+		secondarySight: shotgunSecondarySight,
 		sight: shotgunSight
 	}
 }

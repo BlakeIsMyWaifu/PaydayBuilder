@@ -2,12 +2,13 @@ import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
-import boost from '../../modifications/boost'
+import exclusiveSet from '../../modifications/exclusiveSet'
 import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
+import { sniperBoost } from '../commonModifications/sniperModifications'
 
 const aranG2: WeaponData = {
 	name: 'Aran G2',
@@ -46,14 +47,10 @@ const aranG2: WeaponData = {
 		barrelExt: [
 			barrelExt['Phantom Suppressor']
 		],
-		boost: [
-			boost.Concealment,
-			boost.Stability,
-			boost.Accuracy,
-			boost['Team Boost'],
-			boost['Total Ammo (Main)']
+		boost: sniperBoost,
+		exclusiveSet: [
+			exclusiveSet['Perfect Blue']
 		],
-		// TODO exclusive set
 		foregrip: [
 			foregrip['Kanden Foregrip']
 		],
@@ -61,26 +58,31 @@ const aranG2: WeaponData = {
 			grip['Bounty Grip']
 		],
 		sight: [
-			sight['The Professional\'s Choice Sight'],
-			sight['Surgeon Sight'],
-			sight['See More Sight'],
-			sight['Combat Sight'],
-			sight['Speculator Sight'],
-			sight['Trigonom Sight'],
-			sight['Holographic Sight'],
-			sight['Compact Holosight'],
-			sight['Solar Sight'],
-			sight['Military Red Dot Sight (1)'],
-			sight['Military Red Dot Sight (2)'],
-			sight['Milspec Scope'],
-			sight['Acough Optic Scope'],
-			sight['Compact Profile Sight'],
-			sight['Maelstrom Sight'],
-			sight['Advanced Combat Sight'],
-			sight['Reconnaissance Sight'],
-			sight['Theia Magnified Scope'],
-			sight['Box Buddy Sight'],
-			sight['Iron Sights']
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Acough Optic Scope x3.25'],
+			sight['Military Red Dot Sight x2'],
+			sight['Military Red Dot Sight Special x2'],
+			sight['Milspec Scope x2'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			sight['Theia Magnified Scope x10'],
+			sight['Box Buddy Sight x10'],
+			sight['Compact Tactical Box Sight x2.5'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Maelstrom Sight x1.5'],
+			sight['CASSIAN Elite Score x4.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['Advanced Combat Sight x3.25'],
+			sight['CASSIAN Sharp Sight x3.25'],
+			sight['Sylux Iron Sight'],
+			sight['Trace Optic x6.25'],
+			sight['Tuunbaq Scope x4.5 / x10']
 		],
 		stock: [
 			stock['Tactical Stock (Main)'],
@@ -89,7 +91,9 @@ const aranG2: WeaponData = {
 			stock['2 Piece Stock'],
 			stock['Contractor Stock'],
 			stock['VD-12 Stock'],
-			stock['Bounty Stock']
+			stock['Bounty Stock'],
+			stock['Ursa Minor Stock'],
+			stock['Starlight Stock']
 		]
 	}
 }

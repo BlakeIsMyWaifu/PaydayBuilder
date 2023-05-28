@@ -1,9 +1,10 @@
 import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
+import exclusiveSet from '../../modifications/exclusiveSet'
 import grip from '../../modifications/grip'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoostTotalAmmo } from '../commonModifications/specialModifications'
+import { specialBoost } from '../commonModifications/specialModifications'
 
 const hailstormMk5: WeaponData = {
 	name: 'Hailstorm Mk 5',
@@ -40,8 +41,10 @@ const hailstormMk5: WeaponData = {
 			barrel['v3.8 Barrel'],
 			barrel['v2.2 Barrel']
 		],
-		boost: specialBoostTotalAmmo,
-		// TODO exclusive set
+		boost: specialBoost,
+		exclusiveSet: [
+			exclusiveSet.Prototype
+		],
 		grip: [
 			grip['Whiteout Grip'],
 			grip['Crystalline Grip'],

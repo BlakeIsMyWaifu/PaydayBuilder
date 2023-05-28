@@ -37,11 +37,11 @@ const breaker12G: WeaponData = {
 	},
 	modifications: {
 		ammunition: shotgunAmmunition,
-		barrelExt: shotgunBarrelExt,
 		barrel: [
 			barrel['Long Barrel (Breaker)'],
 			barrel['Short Barrel (Breaker)']
 		],
+		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
 		gadget: shotgunGadget,
 		lowerReceiver: [

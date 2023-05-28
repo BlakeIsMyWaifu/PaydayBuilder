@@ -2,7 +2,7 @@ import content from 'data/source/downloadableContent'
 
 import barrel from '../../modifications/barrel'
 import { type WeaponData } from '../../weaponTypes'
-import { sniperBoost, sniperGadgetMagnifier, sniperSight } from '../commonModifications/sniperModifications'
+import { sniperBoost, sniperGadget, sniperSecondarySight, sniperSight } from '../commonModifications/sniperModifications'
 
 const desertfox: WeaponData = {
 	name: 'Desertfox',
@@ -39,7 +39,8 @@ const desertfox: WeaponData = {
 			barrel['Silenced Barrel (Desertfox)']
 		],
 		boost: sniperBoost,
-		gadget: sniperGadgetMagnifier,
+		gadget: sniperGadget,
+		secondarySight: sniperSecondarySight,
 		sight: sniperSight
 	}
 }

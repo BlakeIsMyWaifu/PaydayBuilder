@@ -42,7 +42,7 @@ export type MagazineModificationsList =
 	| 'Standard Magazine'
 
 	// Reinfeld 880
-	| 'Extended Mag. (Reinfeld 880)'
+	| 'Extended Magazine (Reinfeld 880)'
 
 	// Grimm 12G, Brothers Grimm 12G, IZHMA 12G
 	| 'Big Brother Magazine'
@@ -59,21 +59,21 @@ export type MagazineModificationsList =
 	| 'Well Done'
 
 	// Interceptor .45
-	| 'Extended Mag. (Interceptor)'
+	| 'Extended Magazine (Interceptor)'
 	| 'I want more Magazine!'
 
 	// STRYK 18c, Chimano 88, Chimano Custom, Chimano Compact
-	| 'Extended Mag. (Chimano)'
+	| 'Extended Magazine (Chimano)'
 
 	// Signature .40
-	| 'Extended Mag. (Signature .40)'
+	| 'Extended Magazine (Signature .40)'
 
 	// Crosskill
 	| '12rnd Mag.'
 	| 'Magazine with Ameritude!'
 
 	// Bernetti 9
-	| 'Extended Mag. (Bernetti 9)'
+	| 'Extended Magazine (Bernetti 9)'
 
 	// Crosskill Chunky Compact
 	| 'Crosskill Long Mag'
@@ -109,25 +109,25 @@ export type MagazineModificationsList =
 	| 'Extended Magazine (HOLT)'
 
 	// Deagle
-	| 'Extended Mag. (Deagle)'
+	| 'Extended Magazine (Deagle)'
 
 	// Swedish K
-	| 'Extended Mag. (Swedish)'
+	| 'Extended Magazine (Swedish)'
 
 	// SpecOps
-	| 'Extended Mag. (SpecOps)'
+	| 'Extended Magazine (SpecOps)'
 
 	// Mark 10
-	| 'Extended Mag. (Mark 10)'
+	| 'Extended Magazine (Mark 10)'
 
 	// Compact-5
 	| 'Straight Magazine'
 
 	// Cobra
-	| 'Extended Mag (Cobra)'
+	| 'Extended Magazine (Cobra)'
 
 	// CMP
-	| 'Extended Mag. (CMP)'
+	| 'Extended Magazine (CMP)'
 
 	// Signature
 	| 'Extended Magazine (Signature)'
@@ -137,14 +137,14 @@ export type MagazineModificationsList =
 	| 'Short Magazine (Jackal)'
 
 	// Blaster 9mm
-	| 'Extended Mag (Blaster)'
+	| 'Extended Magazine (Blaster)'
 
 	// Patchett L2A1
-	| 'Extended Mag (Patchett)'
+	| 'Extended Magazine (Patchett)'
 	| 'Short Mag (Patchett)'
 
 	// Locomotive 12G
-	| 'Extended Mag. (Locomotive)'
+	| 'Extended Magazine (Locomotive)'
 
 	// MA-17 Flamethrower
 	| 'High Temperature Mixture'
@@ -168,8 +168,17 @@ export type MagazineModificationsList =
 	// Káng Arms X1
 	| 'KA-ZDM2 Extended Magazine'
 
+	// Czech 92
+	| 'Extended Magazine (Czech)'
+
 	// Miyaka 10 Special
 	| 'MS10 Speedmag'
+
+	// Kahn .357
+	| 'Hex Cylinder'
+
+	// AMCAR
+	| 'Plated AR Magazine'
 
 	// Deimos
 	| 'Eris Magazine Extender'
@@ -485,8 +494,8 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
-	'Extended Mag. (Reinfeld 880)': {
-		name: 'Extended Mag. (Reinfeld 880)',
+	'Extended Magazine (Reinfeld 880)': {
+		name: 'Extended Magazine (Reinfeld 880)',
 		image: 'wpn_fps_shot_r870_m_extended',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
@@ -622,8 +631,8 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
-	'Extended Mag. (Interceptor)': {
-		name: 'Extended Mag. (Interceptor)',
+	'Extended Magazine (Interceptor)': {
+		name: 'Extended Magazine (Interceptor)',
 		image: 'wpn_fps_pis_usp_m_extended',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
@@ -660,8 +669,8 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
-	'Extended Mag. (Chimano)': {
-		name: 'Extended Mag. (Chimano)',
+	'Extended Magazine (Chimano)': {
+		name: 'Extended Magazine (Chimano)',
 		image: 'wpn_fps_pis_g18c_m_mag_33rnd',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
@@ -680,8 +689,8 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
-	'Extended Mag. (Signature .40)': {
-		name: 'Extended Mag. (Signature .40)',
+	'Extended Magazine (Signature .40)': {
+		name: 'Extended Magazine (Signature .40)',
 		image: 'wpn_fps_pis_p226_m_extended',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
@@ -734,8 +743,8 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
-	'Extended Mag. (Bernetti 9)': {
-		name: 'Extended Mag. (Bernetti 9)',
+	'Extended Magazine (Bernetti 9)': {
+		name: 'Extended Magazine (Bernetti 9)',
 		image: 'wpn_fps_pis_beretta_m_extended',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
@@ -951,8 +960,8 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
-	'Extended Mag. (Deagle)': {
-		name: 'Extended Mag. (Deagle)',
+	'Extended Magazine (Deagle)': {
+		name: 'Extended Magazine (Deagle)',
 		image: 'wpn_fps_pis_deagle_m_extended',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
@@ -968,8 +977,8 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
-	'Extended Mag. (Swedish)': {
-		name: 'Extended Mag. (Swedish)',
+	'Extended Magazine (Swedish)': {
+		name: 'Extended Magazine (Swedish)',
 		image: 'wpn_fps_smg_m45_m_extended',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
@@ -985,8 +994,8 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
-	'Extended Mag. (SpecOps)': {
-		name: 'Extended Mag. (SpecOps)',
+	'Extended Magazine (SpecOps)': {
+		name: 'Extended Magazine (SpecOps)',
 		image: 'wpn_fps_smg_mp7_m_extended',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
@@ -1002,8 +1011,8 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
-	'Extended Mag. (Mark 10)': {
-		name: 'Extended Mag. (Mark 10)',
+	'Extended Magazine (Mark 10)': {
+		name: 'Extended Magazine (Mark 10)',
 		image: 'wpn_fps_smg_mac10_m_extended',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
@@ -1040,8 +1049,8 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
-	'Extended Mag (Cobra)': {
-		name: 'Extended Mag (Cobra)',
+	'Extended Magazine (Cobra)': {
+		name: 'Extended Magazine (Cobra)',
 		image: 'wpn_fps_smg_scorpion_m_extended',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
@@ -1061,8 +1070,8 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
-	'Extended Mag. (CMP)': {
-		name: 'Extended Mag. (CMP)',
+	'Extended Magazine (CMP)': {
+		name: 'Extended Magazine (CMP)',
 		image: 'wpn_fps_smg_mp9_m_extended',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
@@ -1134,8 +1143,8 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
-	'Extended Mag (Blaster)': {
-		name: 'Extended Mag (Blaster)',
+	'Extended Magazine (Blaster)': {
+		name: 'Extended Magazine (Blaster)',
 		image: 'wpn_fps_smg_tec9_m_extended',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
@@ -1155,8 +1164,8 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
-	'Extended Mag (Patchett)': {
-		name: 'Extended Mag (Patchett)',
+	'Extended Magazine (Patchett)': {
+		name: 'Extended Magazine (Patchett)',
 		image: 'wpn_fps_smg_sterling_m_long',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
@@ -1195,8 +1204,8 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
-	'Extended Mag. (Locomotive)': {
-		name: 'Extended Mag. (Locomotive)',
+	'Extended Magazine (Locomotive)': {
+		name: 'Extended Magazine (Locomotive)',
 		image: 'wpn_fps_shot_shorty_m_extended_short',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',
@@ -1351,6 +1360,22 @@ const magazine: ModificationList<MagazineModificationsList> = {
 			]
 		}
 	},
+	'Extended Magazine (Czech)': {
+		name: 'Extended Magazine (Czech)',
+		image: 'wpn_fps_pis_czech_m_extended',
+		icon: 'inv_mod_magazine',
+		slot: 'magazine',
+		source: content['Federales Weapon Pack'],
+		cost: 9e3,
+		acquisition: {
+			bonus: 1
+		},
+		stats: {
+			magazine: 10,
+			concealment: -1
+		},
+		compatibleWeapons: {}
+	},
 	'MS10 Speedmag': {
 		name: 'MS10 Speedmag',
 		image: 'wpn_fps_smg_pm9_m_quick',
@@ -1367,6 +1392,36 @@ const magazine: ModificationList<MagazineModificationsList> = {
 				'Miyaka 10 Special'
 			]
 		}
+	},
+	'Hex Cylinder': {
+		name: 'Hex Cylinder',
+		image: 'wpn_fps_pis_korth_m_6',
+		icon: 'inv_mod_magazine',
+		slot: 'magazine',
+		source: content['McShay Weapon Pack 2'],
+		cost: 9e3,
+		stats: {
+			magazine: -2,
+			damage: 40,
+			accuracy: -16,
+			stability: -12,
+			concealment: -2
+		},
+		compatibleWeapons: {}
+	},
+	'Plated AR Magazine': {
+		name: 'Plated AR Magazine',
+		image: 'wpn_fps_m4_uupg_m_strike',
+		icon: 'inv_mod_magazine',
+		slot: 'magazine',
+		source: content['McShay Mod Pack'],
+		cost: 9e3,
+		stats: {
+			magazine: 8,
+			concealment: -1,
+			reload: -0.5
+		},
+		compatibleWeapons: {}
 	},
 	'Eris Magazine Extender': {
 		name: 'Eris Magazine Extender',

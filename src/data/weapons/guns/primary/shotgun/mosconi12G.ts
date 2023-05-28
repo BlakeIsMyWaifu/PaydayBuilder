@@ -36,10 +36,10 @@ const mosconi12G: WeaponData = {
 	},
 	modifications: {
 		ammunition: shotgunAmmunition,
-		boost: shotgunBoost,
 		barrel: [
 			barrel['Road Warrior Barrel']
 		],
+		boost: shotgunBoost,
 		stock: [
 			stock['Gangsta Special Stock']
 		]

@@ -276,7 +276,7 @@ export type BarrelModificationsList =
 	// Miyaka 10 Special?
 
 	// Claire 12G
-	| 'Sawed Off Barrel (Claire)'
+	| 'Sawed-Off Barrel (Claire)'
 
 	// Street Sweeper
 	| 'Long Barrel (Street Sweeper)'
@@ -332,6 +332,9 @@ export type BarrelModificationsList =
 
 	// Miyaka 10 Special
 	| 'MS10 Short Barrel'
+
+	// Kahn .357
+	| 'Railed Barrel'
 
 	// Deimos
 	| 'Metus Barrel'
@@ -1048,7 +1051,7 @@ const barrel: ModificationList<BarrelModificationsList> = {
 	},
 	'Short Barrel (Union)': {
 		name: 'Short Barrel (Union)',
-		image: 'wpn_fps_ass_corgi_body_lower_strap', // - wpn_fps_corgi_b_short
+		image: 'wpn_fps_ass_corgi_b_short',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
 		source: source['Base Game'],
@@ -2878,8 +2881,8 @@ const barrel: ModificationList<BarrelModificationsList> = {
 			]
 		}
 	},
-	'Sawed Off Barrel (Claire)': {
-		name: 'Sawed Off Barrel (Claire)',
+	'Sawed-Off Barrel (Claire)': {
+		name: 'Sawed-Off Barrel (Claire)',
 		image: 'wpn_fps_sho_coach_b_short', // - wpn_fps_shot_coach_b_short
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
@@ -3328,6 +3331,21 @@ const barrel: ModificationList<BarrelModificationsList> = {
 				'Miyaka 10 Special'
 			]
 		}
+	},
+	'Railed Barrel': {
+		name: 'Railed Barrel',
+		image: 'wpn_fps_pis_korth_b_railed',
+		icon: 'inv_mod_barrel',
+		slot: 'barrel',
+		source: content['McShay Weapon Pack 2'],
+		cost: 9e3,
+		stats: {
+			damage: 4,
+			accuracy: 4,
+			stability: 8,
+			concealment: -2
+		},
+		compatibleWeapons: {}
 	},
 	'Metus Barrel': {
 		name: 'Metus Barrel',

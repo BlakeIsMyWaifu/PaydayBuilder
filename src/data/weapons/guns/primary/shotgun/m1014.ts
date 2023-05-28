@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import barrel from '../../modifications/barrel'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadgetMagnifier, shotgunSight } from '../commonModifications/shotgunModifications'
+import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
 const m1014: WeaponData = {
 	name: 'M1014',
@@ -42,7 +42,8 @@ const m1014: WeaponData = {
 		],
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
-		gadget: shotgunGadgetMagnifier,
+		gadget: shotgunGadget,
+		secondarySight: shotgunSecondarySight,
 		sight: shotgunSight,
 		stock: [
 			stock['Collapsed Stock'],

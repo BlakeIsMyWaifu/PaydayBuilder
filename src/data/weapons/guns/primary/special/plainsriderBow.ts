@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import ammunition from '../../modifications/ammunition'
 import boost from '../../modifications/boost'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoostTotalAmmo } from '../commonModifications/specialModifications'
+import { specialBoost } from '../commonModifications/specialModifications'
 
 const plainsriderBow: WeaponData = {
 	name: 'Plainsrider Bow',
@@ -36,11 +36,11 @@ const plainsriderBow: WeaponData = {
 	},
 	modifications: {
 		ammunition: [
-			ammunition['Explosive Arrows (Plainsrider)'],
-			ammunition['Poisoned Arrows (Plainsrider)']
+			ammunition['Poisoned Arrows (Plainsrider)'],
+			ammunition['Explosive Arrows (Plainsrider)']
 		],
 		boost: [
-			...specialBoostTotalAmmo,
+			...specialBoost,
 			boost['Total Ammo (Plainsrider)']
 		]
 	}

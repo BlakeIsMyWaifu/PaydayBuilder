@@ -51,9 +51,9 @@ const pistolCrossbow: WeaponData = {
 			grip['Walnut Grip']
 		],
 		sight: [
-			sight['Pistol Red Dot Sight'],
-			sight['SKOLD Micro Reflex Sight'],
-			sight['Riktpunkt Holosight']
+			sight['Pistol Red Dot Sight x1.5'],
+			sight['SKOLD Micro Reflex Sight x1.5'],
+			sight['Riktpunkt Holosight x1.5']
 		]
 	}
 }

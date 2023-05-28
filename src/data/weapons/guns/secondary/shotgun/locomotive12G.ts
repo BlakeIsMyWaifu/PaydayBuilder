@@ -5,7 +5,7 @@ import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
 import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadgetMagnifier, shotgunSight } from '../commonModifications/shotgunModifications'
+import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
 const locomotive12G: WeaponData = {
 	name: 'Locomotive 12G',
@@ -40,17 +40,22 @@ const locomotive12G: WeaponData = {
 		ammunition: shotgunAmmunition,
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
-		gadget: shotgunGadgetMagnifier,
+		gadget: shotgunGadget,
 		grip: [
 			grip['Ergo Grip (Main)'],
 			grip['Pro Grip'],
 			grip['Rubber Grip'],
 			grip['Straight Grip'],
-			grip['Contractor Grip']
+			grip['Contractor Grip'],
+			grip['Titanium Skeleton Grip'],
+			grip['Skeletonized AR Grip'],
+			grip['VD-12 Grip'],
+			grip['Ursa Minor Grip']
 		],
 		magazine: [
-			magazine['Extended Mag. (Locomotive)']
+			magazine['Extended Magazine (Locomotive)']
 		],
+		secondarySight: shotgunSecondarySight,
 		sight: shotgunSight,
 		stock: [
 			stock['Standard Stock (Main)'],
@@ -62,7 +67,9 @@ const locomotive12G: WeaponData = {
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
-			stock['Contractor Stock']
+			stock['Contractor Stock'],
+			stock['VD-12 Stock'],
+			stock['Ursa Minor Stock']
 		],
 		upperReceiver: [
 			upperReceiver['Shell Rack']

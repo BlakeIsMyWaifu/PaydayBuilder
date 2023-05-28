@@ -4,7 +4,7 @@ import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget } from '../commonModifications/submachineGunModifications'
+import { submachineGunBoost, submachineGunCustom, submachineGunGadgetSmall } from '../commonModifications/submachineGunModifications'
 
 const microUzi: WeaponData = {
 	name: 'Micro Uzi',
@@ -40,14 +40,28 @@ const microUzi: WeaponData = {
 			barrel['Custom Barrel']
 		],
 		barrelExt: [
-			...submachineGunBarrelExt,
+			barrelExt['Medium Suppressor'],
+			barrelExt['Low Profile Suppressor'],
+			barrelExt['Stubby Compensator'],
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['The Tank Compensator'],
+			barrelExt['Fire Breather Nozzle'],
+			barrelExt['The Bigger The Better Suppressor'],
+			barrelExt['Competitor\'s Compensator'],
+			barrelExt['Funnel of Fun Nozzle'],
+			barrelExt['Tactical Compensator'],
+			barrelExt['Ported Compensator'],
 			barrelExt['Futomaki Suppressor'],
 			barrelExt['Maki Suppressor'],
-			barrelExt['Spring Suppressor']
+			barrelExt['Spring Suppressor'],
+			barrelExt['Marmon Compensator'],
+			barrelExt['Verdunkeln Muzzle Brake'],
+			barrelExt['Rami Suppressor'],
+			barrelExt['Dourif Muzzle']
 		],
 		boost: submachineGunBoost,
 		custom: submachineGunCustom,
-		gadget: submachineGunGadget,
+		gadget: submachineGunGadgetSmall,
 		stock: [
 			stock['No Stock (Micro Uzi)'],
 			stock['Unfolded Stock (Micro Uzi)']

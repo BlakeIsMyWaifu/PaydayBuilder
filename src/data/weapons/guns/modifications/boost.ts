@@ -106,7 +106,7 @@ const boost: ModificationList<BoostModificationsList> = {
 		source: source['Base Game'],
 		cost: 9e3,
 		stats: {
-			totalAmmo: 2 // different per weapon
+			totalAmmo: 2 // TODO different per weapon
 		},
 		compatibleWeapons: {
 			special: [

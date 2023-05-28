@@ -4,7 +4,7 @@ import barrel from '../../modifications/barrel'
 import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
 const union556: WeaponData = {
 	name: 'Union 5.56',
@@ -42,7 +42,10 @@ const union556: WeaponData = {
 		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
+		lowerReceiver: [
+			lowerReceiver['Dunes Tactical Receiver']
+		],
 		magazine: [
 			magazine['Vintage Mag.'],
 			magazine['Tactical Mag.'],
@@ -51,10 +54,8 @@ const union556: WeaponData = {
 			magazine['L5 Magazine'],
 			magazine['Speed Pull Magazine']
 		],
-		sight: assaultRifleSight,
-		lowerReceiver: [
-			lowerReceiver['Dunes Tactical Receiver']
-		]
+		secondarySight: assaultRifleSecondarySight,
+		sight: assaultRifleSight
 	}
 }
 

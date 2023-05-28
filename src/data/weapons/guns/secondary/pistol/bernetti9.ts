@@ -1,14 +1,13 @@
 import source from 'data/source/miscSources'
 
 import barrelExt from '../../modifications/barrelExt'
-import boost from '../../modifications/boost'
 import grip from '../../modifications/grip'
 import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
 import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
+import { pistolBoostConcealment, pistolGadget } from '../commonModifications/pistolModifications'
 
 const bernetti9: WeaponData = {
 	name: 'Bernetti 9',
@@ -41,28 +40,39 @@ const bernetti9: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			...pistolBarrelExt,
+			barrelExt['IPSC Compensator'],
+			barrelExt['Roctec Suppressor'],
+			barrelExt['Champion\'s Suppressor'],
+			barrelExt['Facepunch Compensator'],
+			barrelExt['Standard Issue Suppressor'],
 			barrelExt['The Competitor Compensator'],
-			barrelExt['The Professional Compensator']
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['Size Doesn\'t Matter Suppressor'],
+			barrelExt['The Professional Compensator'],
+			barrelExt['Monolith Suppressor'],
+			barrelExt['Asepsis Suppressor'],
+			barrelExt['Flash Hider'],
+			barrelExt['Budget Suppressor'],
+			barrelExt['Jungle Ninja Suppressor'],
+			barrelExt['Hurricane Compensator']
 		],
-		boost: [
-			...pistolBoost,
-			boost['Concealment (Extra)']
-		],
+		boost: pistolBoostConcealment,
 		gadget: pistolGadget,
 		grip: [
 			grip['Ergo Grip (Bernetti 9)'],
 			grip['Engraved Bernetti Grips']
 		],
-		magazine: [
-			magazine['Extended Mag. (Bernetti 9)']
-		],
-		sight: [
-			sight['Marksman Sight'],
-			...pistolSight
-		],
 		lowerReceiver: [
 			lowerReceiver['Custom Titanium Frame']
+		],
+		magazine: [
+			magazine['Extended Magazine (Bernetti 9)']
+		],
+		sight: [
+			sight['Marksman Sight x1.25'],
+			sight['Pistol Red Dot Sight x1.5'],
+			sight['Riktpunkt Holosight x1.5'],
+			sight['SKOLD Micro Reflex Sight x1.5']
 		],
 		upperReceiver: [
 			upperReceiver['The Elite Slide']

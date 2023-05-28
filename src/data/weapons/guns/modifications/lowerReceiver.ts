@@ -44,6 +44,9 @@ export type LowerReceiverModificationsList =
 	// Kobus 90
 	| 'Custom Assault Frame'
 
+	// AMCAR
+	| 'Orthogon Lower Receiver'
+
 const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 	'Dunes Tactical Receiver': {
 		name: 'Dunes Tactical Receiver',
@@ -306,6 +309,21 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 				'Kobus 90'
 			]
 		}
+	},
+	'Orthogon Lower Receiver': {
+		name: 'Orthogon Lower Receiver',
+		image: 'wpn_fps_m4_uupg_lower_radian',
+		icon: 'inv_mod_lower_receiver',
+		slot: 'lowerReceiver',
+		source: content['McShay Mod Pack'],
+		cost: 9e3,
+		stats: {
+			damage: 2,
+			accuracy: 4,
+			stability: 4,
+			concealment: -1
+		},
+		compatibleWeapons: {}
 	}
 }
 

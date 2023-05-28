@@ -1,3 +1,4 @@
+import { primaryGunList, secondaryGunList } from 'data/weapons/guns/gunList'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
 import { type Slot, type WeaponData } from 'data/weapons/guns/weaponTypes'
@@ -16,6 +17,7 @@ interface WeaponsProps {
 const Weapons: FC<WeaponsProps> = ({ slot }) => {
 
 	const data: Record<string, Record<string, WeaponData>> = useMemo(() => slot === 'primary' ? primary : secondary, [slot])
+	const gunList: Record<string, readonly string[]> = useMemo(() => slot === 'primary' ? primaryGunList : secondaryGunList, [slot])
 
 	const armoury = useArmouryStore(state => state[slot])
 	const equippedWeaponId = useWeaponsStore(state => state[slot])
@@ -39,6 +41,7 @@ const Weapons: FC<WeaponsProps> = ({ slot }) => {
 		<WeaponBuy
 			slot={slot}
 			data={data}
+			gunList={gunList}
 			setEnableBuy={setEnableBuy}
 			setSelectedWeaponId={setSelectedWeaponId}
 		/> :

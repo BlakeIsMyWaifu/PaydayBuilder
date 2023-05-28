@@ -2,9 +2,9 @@ import content from 'data/source/downloadableContent'
 
 import ammunition from '../../modifications/ammunition'
 import barrel from '../../modifications/barrel'
+import boost from '../../modifications/boost'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoost } from '../commonModifications/specialModifications'
 
 const gl40: WeaponData = {
 	name: 'GL40',
@@ -37,12 +37,20 @@ const gl40: WeaponData = {
 	},
 	modifications: {
 		ammunition: [
-			ammunition['Incendiary Round']
+			ammunition['Sting Grenade'],
+			ammunition['Incendiary Round'],
+			ammunition['X1-a Tactical ZAPper'],
+			ammunition['Viper Grenade']
 		],
 		barrel: [
 			barrel['Pirate Barrel']
 		],
-		boost: specialBoost,
+		boost: [
+			boost.Concealment,
+			boost.Stability,
+			boost.Accuracy,
+			boost['Team Boost']
+		],
 		stock: [
 			stock['Sawed-off Stock']
 		]
