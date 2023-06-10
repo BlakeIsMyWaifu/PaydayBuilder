@@ -5,7 +5,7 @@ import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const krossVertex: WeaponData = {
+const krossVertex = {
 	name: 'Kross Vertex',
 	image: 'polymer',
 	source: content['Gage Ninja Pack'],
@@ -47,8 +47,35 @@ const krossVertex: WeaponData = {
 			barrelExt['Funnel of Fun Nozzle'],
 			barrelExt['Tactical Compensator'],
 			barrelExt['Ported Compensator'],
-			barrelExt['Precision Barrel'],
-			barrelExt['HPS Suppressor'],
+			{
+				name: 'Precision Barrel',
+				image: 'wpn_fps_smg_polymer_barrel_precision',
+				icon: 'inv_mod_barrel_ext',
+				slot: 'barrelExt',
+				source: content['Gage Ninja Pack'],
+				cost: 9e3,
+				stats: {
+					damage: 2,
+					accuracy: 8,
+					stability: -12,
+					concealment: -4
+				}
+			},
+			{
+				name: 'HPS Suppressor',
+				image: 'wpn_fps_smg_polymer_ns_silencer',
+				icon: 'inv_mod_silencer',
+				slot: 'barrelExt',
+				source: content['Gage Ninja Pack'],
+				cost: 9e3,
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -3,
+					stability: 4,
+					concealment: -1,
+					threat: -20
+				}
+			},
 			barrelExt['Marmon Compensator'],
 			barrelExt['Verdunkeln Muzzle Brake'],
 			barrelExt['Rami Suppressor'],
@@ -69,6 +96,6 @@ const krossVertex: WeaponData = {
 			stock['VD-12 Stock']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default krossVertex

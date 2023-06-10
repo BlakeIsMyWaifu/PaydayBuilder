@@ -9,9 +9,9 @@ import locomotive12G from '../shotgun/locomotive12G'
 import streetSweeper from '../shotgun/streetSweeper'
 import theJudge from '../shotgun/theJudge'
 
-export type ShotgunSecondaryList = typeof shotgunSecondaryList[number]
+export type SecondaryShotgun = typeof shotgunSecondaryList[number]
 
-const shotgunsSecondary: Record<ShotgunSecondaryList, WeaponData> = {
+const shotgunsSecondary: Record<SecondaryShotgun, WeaponData> = {
 	'The Judge': theJudge,
 	'Locomotive 12G': locomotive12G,
 	'Goliath 12G': goliath12G,

@@ -1,11 +1,9 @@
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
-import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const whiteStreak: WeaponData = {
+const whiteStreak = {
 	name: 'White Streak',
 	image: 'pl14',
 	source: source['Base Game'],
@@ -36,16 +34,45 @@ const whiteStreak: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Prototype Barrel (White Streak)']
+			{
+				name: 'Prototype Barrel',
+				image: 'wpn_fps_pis_pl14_b_comp',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source['Base Game'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: 4,
+					concealment: -1
+				},
+				incompatibleSlot: [] // Suppressors
+			}
 		],
 		barrelExt: pistolBarrelExt,
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		magazine: [
-			magazine['Extended Magazine (White Streak)']
+			{
+				name: 'Extended Magazine (White Streak)',
+				image: 'wpn_fps_pis_pl14_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: source['Base Game'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					magazine: 2,
+					concealment: -1
+				}
+			}
 		],
 		sight: pistolSight
 	}
-}
+} as const satisfies WeaponData
 
 export default whiteStreak

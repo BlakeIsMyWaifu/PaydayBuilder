@@ -1,101 +1,11 @@
 import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import { akimboShotgunList, assaultRifleList, lightMachineGunList } from '../gunList'
-import { type CompatibleWeapons, type ModificationList } from '../weaponTypes'
+import { type ModificationCollection } from '../weaponTypes'
 
-const mainSnipers: CompatibleWeapons = {
-	sniper: [
-		'Platypus 70',
-		'Rattlesnake',
-		'R93',
-		'Thanatos .50 cal',
-		'Nagant',
-		'Lebensauger .308',
-		'Desertfox',
-		'Contractor .308',
-		'Grom',
-		'R700',
-		'Bernetti Rangehitter'
-	]
-}
+export type GadgetModification = keyof typeof gadget
 
-const mainGuns: CompatibleWeapons = {
-	assaultRifle: assaultRifleList,
-	shotgun: [
-		// primary
-		'Predator 12G',
-		'Reinfeld 880',
-		'IZHMA 12G',
-		'M1014',
-		'Raven',
-		'Steakout 12G',
-		'VD-12',
-		'Breaker 12G',
-		'Reinfeld 88',
-		'Mosconi 12G Tactical',
-		// secondary
-		'The Judge',
-		'Locomotive 12G',
-		'Goliath 12G',
-		'Grimm 12G',
-		'Street Sweeper',
-		'GSPS 12G'
-	],
-	akimboShotgun: akimboShotgunList,
-	sniper: mainSnipers.sniper,
-	lightMachineGun: lightMachineGunList,
-	special: [
-		'Vulcan Minigun',
-		'Piglet',
-		'Arbiter'
-	]
-}
-
-const mainPistols: CompatibleWeapons = {
-	pistol: [
-		'Chimano 88',
-		'Crosskill',
-		'Bernetti 9',
-		'White Streak',
-		'STRYK 18c',
-		'Deagle',
-		'Gruber Kurz',
-		'Signature .40',
-		'Baby Deagle',
-		'Contractor',
-		'LEO',
-		'Broomstick',
-		'Matever .357',
-		'Interceptor .45',
-		'Chimano Custom',
-		'5/7 AP',
-		'Chimano Custom'
-	],
-	submachineGun: [
-		'Cobra',
-		'Micro Uzi'
-	]
-}
-
-export type GadgetModificationsList =
-	// Main guns
-	| 'Assault Light'
-	| 'Tactical Laser Module'
-	| 'Compact Laser Module'
-	| 'Military Laser Module'
-	| 'LED Combo'
-	| 'Stealth Laser Module'
-
-	// Pistols
-	| 'Tactical Pistol Light'
-	| 'Pocket Laser'
-	| 'Micro Laser'
-	| 'Combined Module'
-	| 'Polymer Flashlight'
-	| 'Medved R4 Laser Sight'
-
-const gadget: ModificationList<GadgetModificationsList> = {
+const gadget = {
 	'Assault Light': {
 		name: 'Assault Light',
 		image: 'wpn_fps_upg_fl_ass_smg_sho_surefire',
@@ -106,8 +16,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 		specialEffect: ['Flashlight'],
 		stats: {
 			concealment: -1
-		},
-		compatibleWeapons: mainGuns
+		}
 	},
 	'Tactical Laser Module': {
 		name: 'Tactical Laser Module',
@@ -119,8 +28,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 		specialEffect: ['Laser'],
 		stats: {
 			concealment: -1
-		},
-		compatibleWeapons: mainGuns
+		}
 	},
 	'Compact Laser Module': {
 		name: 'Compact Laser Module',
@@ -133,8 +41,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 			package: 'Red Spider'
 		},
 		specialEffect: ['Laser'],
-		stats: {},
-		compatibleWeapons: mainGuns
+		stats: {}
 	},
 	'Military Laser Module': {
 		name: 'Military Laser Module',
@@ -150,8 +57,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 		stats: {
 			stability: 4,
 			concealment: -2
-		},
-		compatibleWeapons: mainGuns
+		}
 	},
 	'LED Combo': {
 		name: 'LED Combo',
@@ -167,8 +73,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 		stats: {
 			stability: 8,
 			concealment: -2
-		},
-		compatibleWeapons: mainGuns
+		}
 	},
 	'Stealth Laser Module': {
 		name: 'Stealth Laser Module',
@@ -181,8 +86,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 		stats: {
 			accuracy: 4,
 			stability: -4
-		},
-		compatibleWeapons: mainGuns
+		}
 	},
 	'Tactical Pistol Light': {
 		name: 'Tactical Pistol Light',
@@ -194,8 +98,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 		specialEffect: ['Flashlight'],
 		stats: {
 			concealment: -1
-		},
-		compatibleWeapons: mainPistols
+		}
 	},
 	'Pocket Laser': {
 		name: 'Pocket Laser',
@@ -207,8 +110,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 		specialEffect: ['Laser'],
 		stats: {
 			concealment: -1
-		},
-		compatibleWeapons: mainPistols
+		}
 	},
 	'Micro Laser': {
 		name: 'Micro Laser',
@@ -221,8 +123,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 			bonus: 1
 		},
 		specialEffect: ['Laser'],
-		stats: {},
-		compatibleWeapons: mainPistols
+		stats: {}
 	},
 	'Combined Module': {
 		name: 'Combined Module',
@@ -234,8 +135,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 		stats: {
 			stability: 4,
 			concealment: -2
-		},
-		compatibleWeapons: mainPistols
+		}
 	},
 	'Polymer Flashlight': {
 		name: 'Polymer Flashlight',
@@ -251,8 +151,7 @@ const gadget: ModificationList<GadgetModificationsList> = {
 		stats: {
 			stability: 4,
 			concealment: -1
-		},
-		compatibleWeapons: mainPistols
+		}
 	},
 	'Medved R4 Laser Sight': {
 		name: 'Medved R4 Laser Sight',
@@ -265,9 +164,8 @@ const gadget: ModificationList<GadgetModificationsList> = {
 		stats: {
 			stability: 4,
 			concealment: -1
-		},
-		compatibleWeapons: {}
+		}
 	}
-}
+} as const satisfies ModificationCollection
 
 export default gadget

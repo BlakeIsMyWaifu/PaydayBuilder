@@ -30,9 +30,9 @@ import uar from '../assaultRifle/uar'
 import union556 from '../assaultRifle/union556'
 import valkyria from '../assaultRifle/valkyria'
 
-export type AssaultRifleList = typeof assaultRifleList[number]
+export type AssaultRifle = typeof assaultRifleList[number]
 
-const assaultRifles: Record<AssaultRifleList, WeaponData> = {
+const assaultRifles: Record<AssaultRifle, WeaponData> = {
 	'Golden AK.762': goldenAk762,
 	'AMCAR': amcar,
 	'AK': ak,

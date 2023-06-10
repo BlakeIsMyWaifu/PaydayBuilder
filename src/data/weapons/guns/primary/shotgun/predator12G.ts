@@ -1,11 +1,9 @@
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
-const predator12G: WeaponData = {
+const predator12G = {
 	name: 'Predator 12G',
 	image: 'spas12',
 	source: source.Community,
@@ -37,7 +35,19 @@ const predator12G: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrel: [
-			barrel['Extended Mag']
+			{
+				name: 'Extended Mag',
+				image: 'wpn_fps_sho_b_spas12_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source.Community,
+				cost: 9e3,
+				stats: {
+					magazine: 4,
+					stability: 4,
+					concealment: -1
+				}
+			}
 		],
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
@@ -45,11 +55,47 @@ const predator12G: WeaponData = {
 		secondarySight: shotgunSecondarySight,
 		sight: shotgunSight,
 		stock: [
-			stock['Folded Stock (Predator)'],
-			stock['Solid Stock (Predator)'],
-			stock['No Stock (Predator)']
+			{
+				name: 'Folded Stock',
+				image: 'wpn_fps_sho_s_spas12_folded',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source.Community,
+				cost: 9e3,
+				stats: {
+					accuracy: -4,
+					stability: -4,
+					concealment: 2
+				},
+				incompatibleSlot: ['sight']
+			},
+			{
+				name: 'Solid Stock',
+				image: 'wpn_fps_sho_s_spas12_solid',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source.Community,
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					stability: 4,
+					concealment: -3
+				}
+			},
+			{
+				name: 'No Stock',
+				image: 'wpn_fps_sho_s_spas12_nostock',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source.Community,
+				cost: 28e3,
+				stats: {
+					stability: -12,
+					concealment: 4
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default predator12G

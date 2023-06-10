@@ -1,11 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import grip from '../../modifications/grip'
 import { type WeaponData } from '../../weaponTypes'
 import { sniperBoost, sniperGadget, sniperSecondarySight, sniperSight } from '../commonModifications/sniperModifications'
 
-const thanatos50Cal: WeaponData = {
+const thanatos50Cal = {
 	name: 'Thanatos .50 cal',
 	image: 'm95',
 	source: content['Gage Sniper Pack'],
@@ -36,9 +35,54 @@ const thanatos50Cal: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Tank Buster Barrel'],
-			barrel['CQB Barrel (Thanatos)'],
-			barrel['Suppressed Barrel (Thanatos)']
+			{
+				name: 'Tank Buster Barrel',
+				image: 'wpn_fps_snp_m95_barrel_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Sniper Pack'],
+				cost: 7200,
+				acquisition: {
+					achievement: 'Far, Far Away'
+				},
+				stats: {
+					accuracy: 8,
+					concealment: -4,
+					threat: 60
+				}
+			},
+			{
+				name: 'CQB Barrel',
+				image: 'wpn_fps_snp_m95_barrel_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Sniper Pack'],
+				cost: 7200,
+				acquisition: {
+					achievement: 'Surprise Motherfucker'
+				},
+				stats: {
+					accuracy: -12,
+					concealment: 3
+				}
+			},
+			{
+				name: 'Suppressed Barrel',
+				image: 'wpn_fps_snp_m95_barrel_suppressed',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['Gage Sniper Pack'],
+				cost: 35200,
+				acquisition: {
+					achievement: 'Dodge This'
+				},
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -80,
+					stability: 8,
+					threat: -27
+				}
+			}
 		],
 		boost: sniperBoost,
 		gadget: sniperGadget,
@@ -55,6 +99,6 @@ const thanatos50Cal: WeaponData = {
 		secondarySight: sniperSecondarySight,
 		sight: sniperSight
 	}
-}
+} as const satisfies WeaponData
 
 export default thanatos50Cal

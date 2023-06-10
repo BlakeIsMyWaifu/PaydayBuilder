@@ -1,12 +1,12 @@
-import barrelExt, { type BarrelExtModificationsList } from '../../modifications/barrelExt'
-import boost, { type BoostModificationsList } from '../../modifications/boost'
-import custom, { type CustomModificationsList } from '../../modifications/custom'
-import gadget, { type GadgetModificationsList } from '../../modifications/gadget'
-import secondarySight, { type SecondarySightList } from '../../modifications/secondarySight'
-import sight, { type SightModificationsList } from '../../modifications/sight'
+import barrelExt from '../../modifications/barrelExt'
+import boost from '../../modifications/boost'
+import custom from '../../modifications/custom'
+import gadget from '../../modifications/gadget'
+import secondarySight from '../../modifications/secondarySight'
+import sight from '../../modifications/sight'
 import { type Modification } from '../../weaponTypes'
 
-export const submachineGunBarrelExt: Modification<BarrelExtModificationsList>[] = [
+export const submachineGunBarrelExt: Modification[] = [
 	barrelExt['Medium Suppressor'],
 	barrelExt['Low Profile Suppressor'],
 	barrelExt['Stubby Compensator'],
@@ -24,19 +24,19 @@ export const submachineGunBarrelExt: Modification<BarrelExtModificationsList>[] 
 	barrelExt['Dourif Muzzle']
 ]
 
-export const submachineGunBoost: Modification<BoostModificationsList>[] = [
+export const submachineGunBoost: Modification[] = [
 	boost.Concealment,
 	boost.Stability,
 	boost.Accuracy,
 	boost['Team Boost']
 ]
 
-export const submachineGunCustom: Modification<CustomModificationsList>[] = [
+export const submachineGunCustom: Modification[] = [
 	custom['Single Fire'],
 	custom['Auto Fire']
 ]
 
-export const submachineGunGadget: Modification<GadgetModificationsList>[] = [
+export const submachineGunGadget: Modification[] = [
 	gadget['Assault Light'],
 	gadget['Tactical Laser Module'],
 	gadget['Compact Laser Module'],
@@ -45,7 +45,7 @@ export const submachineGunGadget: Modification<GadgetModificationsList>[] = [
 	gadget['Stealth Laser Module']
 ]
 
-export const submachineGunGadgetSmall: Modification<GadgetModificationsList>[] = [
+export const submachineGunGadgetSmall: Modification[] = [
 	gadget['Micro Laser'],
 	gadget['Combined Module'],
 	gadget['Tactical Pistol Light'],
@@ -54,12 +54,12 @@ export const submachineGunGadgetSmall: Modification<GadgetModificationsList>[] =
 	gadget['Polymer Flashlight']
 ]
 
-export const submachineGunSecondarySight: Modification<SecondarySightList>[] = [
+export const submachineGunSecondarySight: Modification[] = [
 	secondarySight['Riktpunkt Magnifier Gadget x6.25'],
 	secondarySight['Signature Magnifier Gadget x6.25']
 ]
 
-export const submachineGunSight: Modification<SightModificationsList>[] = [
+export const submachineGunSight: Modification[] = [
 	sight['Holographic Sight x1.5'],
 	sight['The Professional\'s Choice Sight x1.5'],
 	sight['Surgeon Sight x1.25'],

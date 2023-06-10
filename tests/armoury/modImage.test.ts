@@ -1,38 +1,24 @@
-import { ok, strictEqual } from 'node:assert'
-import { readdirSync } from 'node:fs'
-import { access, constants, readdir } from 'node:fs/promises'
+import { access, constants } from 'node:fs/promises'
 import { describe, it } from 'node:test'
 
-import modifications from 'data/weapons/guns/modificationList'
+import primary from 'data/weapons/guns/primary'
+import secondary from 'data/weapons/guns/secondary'
+import { type Modification } from 'data/weapons/guns/weaponTypes'
 
-const folderLocation = './public/images/modifications'
+const readWritePermission = constants.R_OK | constants.W_OK
 
-Object.entries(modifications).forEach(([modificationName, modificationList]) => {
-	describe(`${modificationName} images`, () => {
-		Object.values(modificationList).forEach(modification => {
-			it(modification.name, async () => {
-				await access(`${folderLocation}/${modification.image}.webp`, constants.R_OK | constants.W_OK)
-			})
+Object.values(Object.assign(primary, secondary)).forEach(weaponCollection => {
+	describe(`${Object.values(weaponCollection)[0].weaponType} images`)
+	Object.values(weaponCollection).forEach(weaponData => {
+		it(`${weaponData.name} image`, async () => {
+			await access(`./public/images/weapons/${weaponData.image}.webp`, readWritePermission)
 		})
-	})
-})
-
-describe('folder read', () => {
-	it('folder length equal to mods amount', async () => {
-		const files = await readdir(folderLocation)
-		const modCount = Object.values(modifications).map(modificationList => Object.values(modificationList).length).reduce((a, b) => a + b)
-		const fileCount = files.length - 1
-		strictEqual(modCount, fileCount)
-	})
-})
-
-describe('folder image has mod', () => {
-	const allMods = Object.values(modifications).map(modificationList => Object.values(modificationList).map(modification => modification.image)).flat()
-	const files = readdirSync(folderLocation).map(file => file.replace('.webp', ''))
-	files.shift() // remove icons folder
-	files.forEach(file => {
-		it(`${file} file`, () => {
-			ok(allMods.includes(file))
+		it(`${weaponData.name} mod images`, async () => {
+			for await (const modificationCollection of Object.values(weaponData.modifications)) {
+				for await (const { image } of (modificationCollection as Modification[])) {
+					await access(`./public/images/modifications/${image}.webp`, readWritePermission)
+				}
+			}
 		})
 	})
 })

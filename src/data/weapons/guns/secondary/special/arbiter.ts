@@ -1,10 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import { type WeaponData } from '../../weaponTypes'
 import { specialAmmunition, specialBoost, specialGadget, specialSecondarySight, specialSight } from '../commonModifications/specialModifications'
 
-const arbiter: WeaponData = {
+const arbiter = {
 	name: 'Arbiter',
 	image: 'arbiter',
 	source: content['Gage Spec Ops Pack'],
@@ -36,14 +35,44 @@ const arbiter: WeaponData = {
 	modifications: {
 		ammunition: specialAmmunition,
 		barrel: [
-			barrel['Bombardier Barrel'],
-			barrel['Long Barrel (Arbiter)']
+			{
+				name: 'Bombardier Barrel',
+				image: 'wpn_fps_gre_arbiter_b_comp',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Spec Ops Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					accuracy: -4,
+					stability: -4,
+					concealment: 2
+				}
+			},
+			{
+				name: 'Long Barrel (Arbiter)',
+				image: 'wpn_fps_gre_arbiter_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Spec Ops Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					accuracy: 4,
+					stability: 4,
+					concealment: -2
+				}
+			}
 		],
 		boost: specialBoost,
 		gadget: specialGadget,
 		secondarySight: specialSecondarySight,
 		sight: specialSight
 	}
-}
+} as const satisfies WeaponData
 
 export default arbiter

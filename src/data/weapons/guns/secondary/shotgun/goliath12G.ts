@@ -1,10 +1,9 @@
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
 import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
-const goliath12G: WeaponData = {
+const goliath12G = {
 	name: 'Goliath 12G',
 	image: 'rota',
 	source: source['Base Game'],
@@ -36,8 +35,35 @@ const goliath12G: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrel: [
-			barrel['Short Barrel (Goliath)'],
-			barrel['Silenced Barrel (Goliath)']
+			{
+				name: 'Short Barrel (Goliath)',
+				image: 'wpn_fps_sho_rota_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					accuracy: -8,
+					concealment: 3
+				}
+			},
+			{
+				name: 'Silenced Barrel (Goliath)',
+				image: 'wpn_fps_sho_rota_b_silencer',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: source['Base Game'],
+				cost: 44e3,
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -2,
+					accuracy: -4,
+					stability: 4,
+					concealment: -1,
+					threat: -22
+				},
+				incompatibleSlot: ['barrelExt']
+			}
 		],
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
@@ -45,6 +71,6 @@ const goliath12G: WeaponData = {
 		secondarySight: shotgunSecondarySight,
 		sight: shotgunSight
 	}
-}
+} as const satisfies WeaponData
 
 export default goliath12G

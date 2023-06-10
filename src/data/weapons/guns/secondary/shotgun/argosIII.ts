@@ -1,14 +1,11 @@
 import content from 'data/source/downloadableContent'
 
 import barrelExt from '../../modifications/barrelExt'
-import exclusiveSet from '../../modifications/exclusiveSet'
-import extra from '../../modifications/extra'
 import sight from '../../modifications/sight'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBoost, shotgunGadget } from '../commonModifications/shotgunModifications'
 
-const argosIII: WeaponData = {
+const argosIII = {
 	name: 'Argos III',
 	image: 'ultima',
 	source: content['Jiu Feng Smuggler Pack 4'],
@@ -45,14 +42,52 @@ const argosIII: WeaponData = {
 			barrelExt['King\'s Crown Compensator'],
 			barrelExt['Shh!'],
 			barrelExt['Donald\'s Horizontal Leveller'],
-			barrelExt['Try-Core Compensator']
+			{
+				name: 'Try-Core Compensator',
+				image: 'wpn_fps_sho_ultima_ns_comp',
+				icon: 'inv_mod_barrel_ext',
+				slot: 'barrelExt',
+				source: content['Jiu Feng Smuggler Pack 4'],
+				cost: 7200,
+				stats: {
+					damage: 4,
+					stability: 12,
+					concealment: -3
+				}
+			}
 		],
 		boost: shotgunBoost,
 		exclusiveSet: [
-			exclusiveSet['Triple Tech Threat']
+			{
+				name: 'Triple Tech Threat',
+				image: 'wpn_fps_sho_ultima_body_kit',
+				icon: 'inv_mod_ammo_explosive', // TODO update icon
+				slot: 'exclusiveSet',
+				source: content['Jiu Feng Smuggler Pack 4'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: -4,
+					stability: 8,
+					concealment: -1
+				}
+			}
 		],
 		extra: [
-			extra['ShellSwitch M8 Ammo Cache']
+			{
+				name: 'ShellSwitch M8 Ammo Cache',
+				image: 'wpn_fps_sho_ultima_body_rack',
+				icon: 'inv_mod_extra',
+				slot: 'extra',
+				source: content['Jiu Feng Smuggler Pack 4'],
+				cost: 7200,
+				stats: {
+					totalAmmo: 5,
+					concealment: -2
+				}
+			}
 		],
 		gadget: shotgunGadget,
 		sight: [
@@ -73,9 +108,20 @@ const argosIII: WeaponData = {
 			sight['CASSIAN Sharp Sight x3.25']
 		],
 		stock: [
-			stock['Flak Frame Null Stock']
+			{
+				name: 'Flak Frame Null Stock',
+				image: 'wpn_fps_sho_ultima_s_light',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Jiu Feng Smuggler Pack 4'],
+				cost: 7200,
+				stats: {
+					stability: 8,
+					concealment: -1
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default argosIII

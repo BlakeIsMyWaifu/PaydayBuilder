@@ -1,14 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import grip from '../../modifications/grip'
-import magazine from '../../modifications/magazine'
-import stock from '../../modifications/stock'
-import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBarrelExt, submachineGunBoost, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const swedishK: WeaponData = {
+const swedishK = {
 	name: 'Swedish K',
 	image: 'm45',
 	source: content['Armored Transport'],
@@ -39,27 +34,104 @@ const swedishK: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Grease Barrel'],
-			barrel['Swedish Barrel']
+			{
+				name: 'Grease Barrel',
+				image: 'wpn_fps_smg_m45_b_small',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Armored Transport'],
+				cost: 16800,
+				stats: {
+					accuracy: -8,
+					concealment: 3
+				}
+			},
+			{
+				name: 'Swedish Barrel',
+				image: 'wpn_fps_smg_m45_b_green',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Armored Transport'],
+				cost: 25200,
+				stats: {
+					accuracy: 4,
+					concealment: -1
+				}
+			}
 		],
 		barrelExt: submachineGunBarrelExt,
 		boost: submachineGunBoost,
 		gadget: submachineGunGadget,
 		grip: [
-			grip['Ergo Grip (Swedish)'],
-			grip['Bling Grip (Swedish)']
+			{
+				name: 'Ergo Grip',
+				image: 'wpn_fps_smg_m45_g_ergo',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Armored Transport'],
+				cost: 16800,
+				stats: {
+					accuracy: 4,
+					stability: 4
+				}
+			},
+			{
+				name: 'Bling Grip',
+				image: 'wpn_fps_smg_m45_g_bling',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Armored Transport'],
+				cost: 16800,
+				stats: {
+					stability: 8,
+					concealment: -1
+				}
+			}
 		],
 		magazine: [
-			magazine['Extended Magazine (Swedish)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_smg_m45_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['Armored Transport'],
+				cost: 33600,
+				stats: {
+					magazine: 12,
+					concealment: -2
+				}
+			}
 		],
 		sight: submachineGunSight,
 		stock: [
-			stock['Folded Stock (Swedish)']
+			{
+				name: 'Folded Stock',
+				image: 'wpn_fps_smg_m45_s_folded',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Armored Transport'],
+				cost: 16800,
+				stats: {
+					stability: -8,
+					concealment: 3
+				}
+			}
 		],
 		upperReceiver: [
-			upperReceiver['Swedish Body']
+			{
+				name: 'Swedish Body',
+				image: 'wpn_fps_smg_m45_body_green',
+				icon: 'inv_mod_upper_receiver',
+				slot: 'upperReceiver',
+				source: content['Armored Transport'],
+				cost: 25200,
+				stats: {
+					stability: 4,
+					concealment: -1
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default swedishK

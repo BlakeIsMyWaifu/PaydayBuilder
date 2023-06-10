@@ -1,11 +1,10 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import extra from '../../modifications/extra'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const m308: WeaponData = {
+const m308 = {
 	name: 'M308',
 	image: 'new_m14',
 	source: source['Base Game'],
@@ -39,17 +38,66 @@ const m308: WeaponData = {
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
 		extra: [
-			extra['Scope Mount (M308)']
+			{
+				name: 'Scope Mount',
+				image: 'wpn_fps_upg_o_m14_scopemount',
+				icon: 'inv_mod_extra',
+				slot: 'extra',
+				source: content['The Butcher Mod Pack 2'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: 4,
+					concealment: -1
+				}
+			}
 		],
 		gadget: assaultRifleGadget,
 		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight,
 		stock: [
-			stock['Abraham Body'],
-			stock['Jaeger Body'],
-			stock['B-Team Stock']
+			{
+				name: 'Abraham Body',
+				image: 'wpn_fps_ass_m14_body_ebr',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 44e3,
+				stats: {
+					stability: 8,
+					concealment: 2
+				}
+			},
+			{
+				name: 'Jaeger Body',
+				image: 'wpn_fps_ass_m14_body_jae',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 80e3,
+				stats: {
+					accuracy: 4,
+					stability: 12,
+					concealment: -2
+				}
+			},
+			{
+				name: 'B-Team Stock',
+				image: 'wpn_fps_ass_m14_body_ruger',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 0,
+				stats: {
+					accuracy: -4,
+					stability: -12,
+					concealment: 19
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default m308

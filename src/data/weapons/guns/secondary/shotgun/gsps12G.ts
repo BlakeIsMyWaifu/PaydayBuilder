@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget } from '../commonModifications/shotgunModifications'
 
-const gsps12G: WeaponData = {
+const gsps12G = {
 	name: 'GSPS 12G',
 	image: 'm37',
 	source: content['The Goat Simulator Heist'],
@@ -37,15 +35,37 @@ const gsps12G: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrel: [
-			barrel['Riot Barrel']
+			{
+				name: 'Riot Barrel',
+				image: 'wpn_fps_shot_m37_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Goat Simulator Heist'],
+				cost: 9e3,
+				stats: {
+					accuracy: -8,
+					concealment: 2
+				}
+			}
 		],
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
 		gadget: shotgunGadget,
 		stock: [
-			stock['Stakeout Stock (GSPS)']
+			{
+				name: 'Stakeout Stock (GSPS)',
+				image: 'wpn_fps_shot_m37_s_short',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['The Goat Simulator Heist'],
+				cost: 9e3,
+				stats: {
+					accuracy: -8,
+					concealment: 2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default gsps12G

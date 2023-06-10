@@ -8,7 +8,7 @@ import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
 import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const amcar: WeaponData = {
+const amcar = {
 	name: 'AMCAR',
 	image: 'amcar',
 	source: source['Base Game'],
@@ -80,6 +80,6 @@ const amcar: WeaponData = {
 			upperReceiver['Orthogon Upper Receiver']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default amcar

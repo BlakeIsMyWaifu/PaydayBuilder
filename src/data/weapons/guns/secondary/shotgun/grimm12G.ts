@@ -1,12 +1,11 @@
 import source from 'data/source/miscSources'
 
 import custom from '../../modifications/custom'
-import foregrip from '../../modifications/foregrip'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
-const grimm12G: WeaponData = {
+const grimm12G = {
 	name: 'Grimm 12G',
 	image: 'basset',
 	source: source['Base Game'],
@@ -44,7 +43,18 @@ const grimm12G: WeaponData = {
 			custom['Auto Fire']
 		],
 		foregrip: [
-			foregrip['Little Brother Foregrip']
+			{
+				name: 'Little Brother Foregrip',
+				image: 'wpn_fps_sho_basset_fg_short',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: source['Base Game'],
+				cost: 10800,
+				stats: {
+					stability: -12,
+					concealment: 3
+				}
+			}
 		],
 		gadget: shotgunGadget,
 		magazine: [
@@ -53,6 +63,6 @@ const grimm12G: WeaponData = {
 		secondarySight: shotgunSecondarySight,
 		sight: shotgunSight
 	}
-}
+} as const satisfies WeaponData
 
 export default grimm12G

@@ -1,11 +1,10 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import lowerReceiver from '../../modifications/lowerReceiver'
-import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
 import { specialBoost } from '../commonModifications/specialModifications'
 
-const ove9000: WeaponData = {
+const ove9000 = {
 	name: 'OVE9000',
 	image: 'saw',
 	source: source['Base Game'],
@@ -37,14 +36,68 @@ const ove9000: WeaponData = {
 	modifications: {
 		boost: specialBoost,
 		lowerReceiver: [
-			lowerReceiver['Silent Motor'],
-			lowerReceiver['Fast Motor']
+			{
+				name: 'Silent Motor',
+				image: 'wpn_fps_saw_body_silent',
+				icon: 'inv_mod_lower_receiver',
+				slot: 'lowerReceiver',
+				source: content['The Butcher Mod Pack 2'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					threat: -16
+				}
+			},
+			{
+				name: 'Fast Motor',
+				image: 'wpn_fps_saw_body_speed',
+				icon: 'inv_mod_lower_receiver',
+				slot: 'lowerReceiver',
+				source: content['The Butcher Mod Pack 2'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					damage: 3
+				}
+			}
 		],
 		magazine: [
-			magazine['Durable Blade'],
-			magazine['Sharp Blade']
+			{
+				name: 'Durable Blade',
+				image: 'wpn_fps_saw_m_blade_durable',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['The Butcher Mod Pack 2'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					totalAmmo: 150,
+					magazine: 50
+				}
+			},
+			{
+				name: 'Sharp Blade',
+				image: 'wpn_fps_saw_m_blade_sharp',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['The Butcher Mod Pack 2'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					damage: 3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default ove9000

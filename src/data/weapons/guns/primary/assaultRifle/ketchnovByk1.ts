@@ -1,14 +1,12 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import grip from '../../modifications/grip'
-import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
 import underbarrel from '../../modifications/underbarrel'
 import { type WeaponData } from '../../weaponTypes'
 import { assaultRifleBarrelExtPlus, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget } from '../commonModifications/assaultRifleModifications'
 
-const ketchnovByk1: WeaponData = {
+const ketchnovByk1 = {
 	name: 'KETCHNOV Byk-1',
 	image: 'groza',
 	source: content['Jiu Feng Smuggler Pack 2'],
@@ -39,7 +37,20 @@ const ketchnovByk1: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['K-B100 Suppressor']
+			{
+				name: 'K-B100 Suppressor',
+				image: 'wpn_fps_ass_groza_b_supressor',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['Jiu Feng Smuggler Pack 2'],
+				cost: 9e3,
+				stats: {
+					damage: -1,
+					accuracy: -4,
+					concealment: 1,
+					threat: -12
+				}
+			}
 		],
 		barrelExt: assaultRifleBarrelExtPlus,
 		boost: assaultRifleBoost,
@@ -55,7 +66,20 @@ const ketchnovByk1: WeaponData = {
 			grip['Ultimatum AK Grip']
 		],
 		magazine: [
-			magazine['K-B1 Speedmag']
+			{
+				name: 'K-B1 Speedmag',
+				image: 'wpn_fps_ass_groza_m_speed',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['Jiu Feng Smuggler Pack 2'],
+				cost: 14e3,
+				stats: {
+					magazine: 10,
+					accuracy: -4,
+					concealment: -3,
+					reload: -1.1
+				}
+			}
 		],
 		sight: [
 			sight['Holographic Sight x1.5'],
@@ -81,10 +105,18 @@ const ketchnovByk1: WeaponData = {
 		],
 		underbarrel: [
 			underbarrel['Sting Grenade'],
-			underbarrel['Frag Round'],
+			{
+				name: 'Frag Round',
+				image: 'wpn_fps_upg_a_underbarrel_frag_groza',
+				icon: 'inv_mod_ammo_explosive',
+				slot: 'underbarrel',
+				source: content['Jiu Feng Smuggler Pack 2'],
+				cost: 9e3,
+				stats: {}
+			},
 			underbarrel['Viper Grenade']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default ketchnovByk1

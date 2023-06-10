@@ -1,16 +1,13 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
 import barrelExt from '../../modifications/barrelExt'
-import extra from '../../modifications/extra'
-import grip from '../../modifications/grip'
-import magazine from '../../modifications/magazine'
 import secondarySight from '../../modifications/secondarySight'
 import sight from '../../modifications/sight'
-import slide from '../../modifications/slide'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost, pistolGadget } from '../commonModifications/pistolModifications'
 
-const deagle: WeaponData = {
+const deagle = {
 	name: 'Deagle',
 	image: 'deagle',
 	source: source['Base Game'],
@@ -49,8 +46,33 @@ const deagle: WeaponData = {
 			barrelExt['Medved R4 Suppressor'],
 			barrelExt['Size Doesn\'t Matter Suppressor'],
 			barrelExt['Monolith Suppressor'],
-			barrelExt['La Femme Compensator'],
-			barrelExt['OVERKILL Compensator'],
+			{
+				name: 'La Femme Compensator',
+				image: 'wpn_fps_pis_deagle_co_short',
+				icon: 'inv_mod_barrel_ext',
+				slot: 'barrelExt',
+				source: source.Community,
+				cost: 44e3,
+				stats: {
+					damage: 1,
+					stability: 4,
+					concealment: -1,
+					threat: 13
+				}
+			},
+			{
+				name: 'OVERKILL Compensator',
+				image: 'wpn_fps_pis_deagle_co_long',
+				icon: 'inv_mod_barrel_ext',
+				slot: 'barrelExt',
+				source: source.Community,
+				cost: 62e3,
+				stats: {
+					damage: 2,
+					stability: 8,
+					concealment: -2
+				}
+			},
 			barrelExt['Asepsis Suppressor'],
 			barrelExt['Flash Hider'],
 			barrelExt['Budget Suppressor'],
@@ -59,15 +81,60 @@ const deagle: WeaponData = {
 		],
 		boost: pistolBoost,
 		extra: [
-			extra['Deagle Scope Mount']
+			{
+				name: 'Deagle Scope Mount',
+				image: 'wpn_fps_pis_deagle_extra',
+				icon: 'inv_mod_extra',
+				slot: 'extra',
+				source: content['Gage Mod Courier'],
+				cost: 0,
+				acquisition: {
+					package: 'Blue Eagle'
+				},
+				stats: {}
+			}
 		],
 		gadget: pistolGadget,
 		grip: [
-			grip['Ergo Grip (Deagle)'],
-			grip['Bling Grip (Deagle)']
+			{
+				name: 'Ergo Grip',
+				image: 'wpn_fps_pis_deagle_g_ergo',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: source['Base Game'],
+				cost: 44e3,
+				stats: {
+					accuracy: 4,
+					stability: -4,
+					concealment: -1
+				}
+			},
+			{
+				name: 'Bling Grip',
+				image: 'wpn_fps_pis_deagle_g_bling',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: source['Base Game'],
+				cost: 80e3,
+				stats: {
+					stability: 8,
+					concealment: 1
+				}
+			}
 		],
 		magazine: [
-			magazine['Extended Magazine (Deagle)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_pis_deagle_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: source['Base Game'],
+				cost: 53e3,
+				stats: {
+					magazine: 6,
+					concealment: -2
+				}
+			}
 		],
 		secondarySight: [
 			secondarySight['Riktpunkt Magnifier Gadget x6.25'],
@@ -102,10 +169,35 @@ const deagle: WeaponData = {
 			sight['Z5 Owl Glass Universal Scope x2.5']
 		],
 		slide: [
-			slide['Long Barrel'],
-			slide['Custom Milled Barrel']
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_pis_deagle_b_long',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: source['Base Game'],
+				cost: 53e3,
+				stats: {
+					damage: 2,
+					accuracy: 8,
+					concealment: -3
+				},
+				incompatibleSlot: [] // some barrel extensions
+			},
+			{
+				name: 'Custom Milled Barrel',
+				image: 'wpn_fps_pis_deagle_b_modern',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: source['Base Game'],
+				cost: 53e3,
+				acquisition: {
+					coins: 6
+				},
+				stats: {},
+				incompatibleSlot: [] // suppressors
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default deagle

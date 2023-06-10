@@ -1,12 +1,10 @@
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
 import bipod from '../../modifications/bipod'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { lightMachineGunBarrelExt, lightMachineGunBoost, lightMachineGunGadget } from '../commonModifications/lightMachineGunModifications'
 
-const ksp58: WeaponData = {
+const ksp58 = {
 	name: 'KSP 58',
 	image: 'par',
 	source: source['Base Game'],
@@ -37,7 +35,20 @@ const ksp58: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Short Barrel (KSP 58)']
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_lmg_par_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source['Base Game'],
+				cost: 0,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					concealment: 2
+				}
+			}
 		],
 		barrelExt: lightMachineGunBarrelExt,
 		bipod: [
@@ -46,9 +57,23 @@ const ksp58: WeaponData = {
 		boost: lightMachineGunBoost,
 		gadget: lightMachineGunGadget,
 		stock: [
-			stock['Plastic Stock (KSP 58)']
+			{
+				name: 'Plastic Stock',
+				image: 'wpn_fps_lmg_par_s_plastic',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 0,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					stability: 4,
+					concealment: -2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default ksp58

@@ -1,10 +1,10 @@
-import ammunition, { type AmmunitionModificationsList } from '../../modifications/ammunition'
-import barrelExt, { type BarrelExtModificationsList } from '../../modifications/barrelExt'
-import boost, { type BoostModificationsList } from '../../modifications/boost'
-import gadget, { type GadgetModificationsList } from '../../modifications/gadget'
+import ammunition from '../../modifications/ammunition'
+import barrelExt from '../../modifications/barrelExt'
+import boost from '../../modifications/boost'
+import gadget from '../../modifications/gadget'
 import { type Modification } from '../../weaponTypes'
 
-export const akimboShotgunAmmunition: Modification<AmmunitionModificationsList>[] = [
+export const akimboShotgunAmmunition: Modification[] = [
 	ammunition['Tombstone Slug'],
 	ammunition['000 Buckshot'],
 	ammunition['HE Round'],
@@ -13,7 +13,7 @@ export const akimboShotgunAmmunition: Modification<AmmunitionModificationsList>[
 	ammunition['Dragon\'s Breath Round']
 ]
 
-export const akimboShotgunBarrelExt: Modification<BarrelExtModificationsList>[] = [
+export const akimboShotgunBarrelExt: Modification[] = [
 	barrelExt['Shark Teeth Nozzle'],
 	barrelExt['The Silent Killer Suppressor'],
 	barrelExt['King\'s Crown Compensator'],
@@ -21,14 +21,14 @@ export const akimboShotgunBarrelExt: Modification<BarrelExtModificationsList>[] 
 	barrelExt['Donald\'s Horizontal Leveller']
 ]
 
-export const akimboShotgunBoost: Modification<BoostModificationsList>[] = [
+export const akimboShotgunBoost: Modification[] = [
 	boost.Concealment,
 	boost.Stability,
 	boost.Accuracy,
 	boost['Team Boost']
 ]
 
-export const akimboShotgunGadget: Modification<GadgetModificationsList>[] = [
+export const akimboShotgunGadget: Modification[] = [
 	gadget['Assault Light'],
 	gadget['Tactical Laser Module'],
 	gadget['Compact Laser Module'],

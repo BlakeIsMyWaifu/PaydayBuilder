@@ -5,9 +5,9 @@ import akimboJudge from '../akimboShotgun/akimboJudge'
 import akimboVd12 from '../akimboShotgun/akimboVd12'
 import brothersGrimm12G from '../akimboShotgun/brothersGrimm12G'
 
-export type AkimboShotgunsList = typeof akimboShotgunList[number]
+export type AkimboShotguns = typeof akimboShotgunList[number]
 
-const akimboShotguns: Record<AkimboShotgunsList, WeaponData> = {
+const akimboShotguns: Record<AkimboShotguns, WeaponData> = {
 	'Akimbo Goliath 12G': akimboGoliath12G,
 	'Brothers Grimm 12G': brothersGrimm12G,
 	'Akimbo Judge': akimboJudge,

@@ -1,8 +1,14 @@
-import modifications from 'data/weapons/guns/modificationList'
-import { type Modification, type ModificationSlot } from 'data/weapons/guns/weaponTypes'
+import { type Modification, type ModificationSlot, type WeaponModifications } from 'data/weapons/guns/weaponTypes'
 
 import { typedObject } from './typedObject'
 
-export const modificationsFromNames = (searchedModifications: Partial<Record<ModificationSlot, string>>): Partial<Record<ModificationSlot, Modification>> => {
-	return typedObject.entries(searchedModifications).map(([modType, modName]) => modifications[(modType)][modName]).reduce((a, v) => ({ ...a, [v.slot]: v }), {})
+type ModificationsFromNames = (
+	equippedModNames: Partial<Record<ModificationSlot, string>>,
+	weaponModifications: DeepReadonly<WeaponModifications>
+) => Partial<Record<ModificationSlot, Modification>>
+
+export const modificationsFromNames: ModificationsFromNames = (equippedModNames, weaponModifications) => {
+	const slotValuePairs = typedObject.entries(equippedModNames)
+	const modificationsData = slotValuePairs.map(([modSlot, modName]) => weaponModifications[modSlot]?.find(mod => mod.name === modName)).filter(Boolean)
+	return modificationsData.reduce((a, v) => ({ ...a, [v.slot]: v }), {})
 }

@@ -1,13 +1,12 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
 import boost from '../../modifications/boost'
-import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBarrelExt, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const kobus90: WeaponData = {
+const kobus90 = {
 	name: 'Kobus 90',
 	image: 'p90',
 	source: source['Base Game'],
@@ -38,9 +37,54 @@ const kobus90: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Long Barrel (Kobus)'],
-			barrel['Civilian Market Barrel'],
-			barrel['Mall Ninja Barrel']
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_smg_p90_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source['Base Game'],
+				cost: 62e3,
+				stats: {
+					damage: 2,
+					accuracy: 4,
+					stability: 12,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Civilian Market Barrel',
+				image: 'wpn_fps_smg_p90_b_civilian',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Butcher Mod Pack 2'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					damage: 2,
+					accuracy: 8,
+					stability: -8,
+					concealment: -4
+				}
+			},
+			{
+				name: 'Mall Ninja Barrel',
+				image: 'wpn_fps_smg_p90_b_ninja',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Butcher Mod Pack 2'],
+				cost: 14e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					damage: -1,
+					stability: 12,
+					threat: -18
+				},
+				incompatibleSlot: ['barrelExt']
+			}
 		],
 		barrelExt: submachineGunBarrelExt,
 		boost: [
@@ -53,13 +97,24 @@ const kobus90: WeaponData = {
 		custom: submachineGunCustom,
 		gadget: submachineGunGadget,
 		lowerReceiver: [
-			lowerReceiver['Custom Assault Frame']
+			{
+				name: 'Custom Assault Frame',
+				image: 'wpn_fps_smg_p90_body_boxy',
+				icon: 'inv_mod_lower_receiver',
+				slot: 'lowerReceiver',
+				source: source['Base Game'],
+				cost: 9e3,
+				acquisition: {
+					coins: 6
+				},
+				stats: {}
+			}
 		],
 		magazine: [
 			magazine['Speed Pull Magazine']
 		],
 		sight: submachineGunSight
 	}
-}
+} as const satisfies WeaponData
 
 export default kobus90

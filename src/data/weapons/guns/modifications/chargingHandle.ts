@@ -1,11 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import { type ModificationList } from '../weaponTypes'
+import { type ModificationCollection } from '../weaponTypes'
 
-export type ChargingHandleList =
-	| 'Taktika Charging Handle'
+export type ChargingHandle = keyof typeof chargingHandle
 
-export const chargingHandle: ModificationList<ChargingHandleList> = {
+export const chargingHandle = {
 	'Taktika Charging Handle': {
 		name: 'Taktika Charging Handle',
 		image: 'wpn_fps_upg_ak_dh_zenitco',
@@ -16,9 +15,8 @@ export const chargingHandle: ModificationList<ChargingHandleList> = {
 		stats: {
 			accuracy: -4,
 			stability: 4
-		},
-		compatibleWeapons: {}
+		}
 	}
-}
+} as const satisfies ModificationCollection
 
 export default chargingHandle

@@ -1,15 +1,12 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import exclusiveSet from '../../modifications/exclusiveSet'
-import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunCustom, shotgunGadget, shotgunSecondarySight } from '../commonModifications/shotgunModifications'
 
-const vd12: WeaponData = {
+const vd12 = {
 	name: 'VD-12',
 	image: 'sko12',
 	source: content['McShay Weapon Pack 2'],
@@ -41,17 +38,67 @@ const vd12: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrel: [
-			barrel['Long Barrel (VD-12)'],
-			barrel['Short Barrel (VD-12)']
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_sho_sko12_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack 2'],
+				cost: 9e3,
+				stats: {
+					damage: 2,
+					accuracy: 8,
+					stability: 4,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_sho_sko12_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack 2'],
+				cost: 9e3,
+				stats: {
+					accuracy: -4,
+					stability: -4,
+					concealment: 2
+				}
+			}
 		],
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
 		custom: shotgunCustom,
 		exclusiveSet: [
-			exclusiveSet.Stateside
+			{
+				name: 'Stateside',
+				image: 'wpn_fps_sho_sko12_conversion',
+				icon: 'inv_mod_ammo_explosive', // TODO update icon
+				slot: 'exclusiveSet',
+				source: content['McShay Weapon Pack 2'],
+				cost: 9e3,
+				stats: {
+					totalAmmo: 6,
+					damage: 1,
+					accuracy: -8,
+					stability: 4,
+					concealment: -2
+				}
+			}
 		],
 		foregrip: [
-			foregrip['Front Mounting Rail']
+			{
+				name: 'Front Mounting Rail',
+				image: 'wpn_fps_sho_sko12_fg_railed',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['McShay Weapon Pack 2'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					concealment: -1
+				}
+			}
 		],
 		gadget: shotgunGadget,
 		grip: [
@@ -99,6 +146,6 @@ const vd12: WeaponData = {
 			stock['Starlight Stock']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default vd12

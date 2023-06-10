@@ -1,14 +1,11 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import custom from '../../modifications/custom'
-import foregrip from '../../modifications/foregrip'
 import sight from '../../modifications/sight'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { lightMachineGunBarrelExt, lightMachineGunBoost, lightMachineGunGadget } from '../commonModifications/lightMachineGunModifications'
 
-const sgVersteckt51D: WeaponData = {
+const sgVersteckt51D = {
 	name: 'SG Versteckt 51D',
 	image: 'hk51b',
 	source: content['McShay Weapon Pack'],
@@ -39,7 +36,20 @@ const sgVersteckt51D: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Kalt Barrel']
+			{
+				name: 'Kalt Barrel',
+				image: 'wpn_fps_lmg_hk51b_b_fluted',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack'],
+				cost: 28e3,
+				stats: {
+					damage: 2,
+					accuracy: 8,
+					stability: 4,
+					concealment: -1
+				}
+			}
 		],
 		barrelExt: lightMachineGunBarrelExt,
 		boost: lightMachineGunBoost,
@@ -48,7 +58,18 @@ const sgVersteckt51D: WeaponData = {
 			custom['Auto Fire']
 		],
 		foregrip: [
-			foregrip['Schatten Foregrip']
+			{
+				name: 'Schatten Foregrip',
+				image: 'wpn_fps_lmg_hk51b_fg_railed',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['McShay Weapon Pack'],
+				cost: 44e3,
+				stats: {
+					stability: 8,
+					concealment: -1
+				}
+			}
 		],
 		gadget: lightMachineGunGadget,
 		sight: [
@@ -74,9 +95,20 @@ const sgVersteckt51D: WeaponData = {
 			sight['CASSIAN Sharp Sight x3.25']
 		],
 		stock: [
-			stock['Zittern Stock']
+			{
+				name: 'Zittern Stock',
+				image: 'wpn_fps_lmg_hk51b_s_extended',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default sgVersteckt51D

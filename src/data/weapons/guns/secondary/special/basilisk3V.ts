@@ -1,13 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import exclusiveSet from '../../modifications/exclusiveSet'
-import receiver from '../../modifications/receiver'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { specialAmmunition, specialBoost, specialGadget, specialSight } from '../commonModifications/specialModifications'
 
-const basilisk3V: WeaponData = {
+const basilisk3V = {
 	name: 'Basilisk 3V',
 	image: 'ms3gl',
 	source: content['McShay Weapon Pack'],
@@ -39,21 +35,68 @@ const basilisk3V: WeaponData = {
 	modifications: {
 		ammunition: specialAmmunition,
 		barrel: [
-			barrel['Fang Barrel']
+			{
+				name: 'Fang Barrel',
+				image: 'wpn_fps_gre_ms3gl_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 28,
+					stability: 20,
+					concealment: -2
+				}
+			}
 		],
 		boost: specialBoost,
 		exclusiveSet: [
-			exclusiveSet.Venomous
+			{
+				name: 'Venomous',
+				image: 'wpn_fps_gre_ms3gl_conversion',
+				icon: 'inv_mod_ammo_explosive', // TODO update icon
+				slot: 'exclusiveSet',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					magazine: -1,
+					totalAmmo: -1,
+					damage: 160,
+					accuracy: 56,
+					concealment: -1
+				}
+			}
 		],
 		gadget: specialGadget,
 		receiver: [
-			receiver.Serpent
+			{
+				name: 'Serpent',
+				image: 'wpn_fps_gre_ms3gl_body_modern',
+				icon: 'inv_mod_receiver',
+				slot: 'receiver',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					stability: 4
+				}
+			}
 		],
 		sight: specialSight,
 		stock: [
-			stock['Copperhead Recoil Pad']
+			{
+				name: 'Copperhead Recoil Pad',
+				image: 'wpn_fps_gre_ms3gl_s_modern',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 8,
+					concealment: -1
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default basilisk3V

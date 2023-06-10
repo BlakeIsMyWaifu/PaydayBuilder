@@ -12,7 +12,7 @@ import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
 import { assaultRifleBarrelExtPlus, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const ak762: WeaponData = {
+const ak762 = {
 	name: 'AK.762',
 	image: 'akm',
 	source: source['Base Game'],
@@ -54,7 +54,7 @@ const ak762: WeaponData = {
 			chargingHandle['Taktika Charging Handle']
 		],
 		extra: [
-			extra['Scope Mount (AK)']
+			extra['Scope Mount']
 		],
 		foregrip: [
 			foregrip['Railed Wooden Grip'],
@@ -103,6 +103,6 @@ const ak762: WeaponData = {
 			upperReceiver['Taktika Railed Cover']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default ak762

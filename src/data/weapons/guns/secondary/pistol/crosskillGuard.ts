@@ -1,12 +1,9 @@
 import source from 'data/source/miscSources'
 
-import grip from '../../modifications/grip'
-import magazine from '../../modifications/magazine'
-import slide from '../../modifications/slide'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const crosskillGuard: WeaponData = {
+const crosskillGuard = {
 	name: 'Crosskill Guard',
 	image: 'shrew',
 	source: source['Base Game'],
@@ -40,17 +37,58 @@ const crosskillGuard: WeaponData = {
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		grip: [
-			grip['Blinged Grip'],
-			grip['Ergonomic Grip (Crosskill Guard)']
+			{
+				name: 'Blinged Grip',
+				image: 'wpn_fps_pis_shrew_g_bling',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					stability: 8
+				}
+			},
+			{
+				name: 'Ergonomic Grip',
+				image: 'wpn_fps_pis_shrew_g_ergo',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					stability: 8
+				}
+			}
 		],
 		magazine: [
-			magazine['Extended Mag (Crosskill Guard)']
+			{
+				name: 'Extended Mag',
+				image: 'wpn_fps_pis_shrew_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					magazine: 4,
+					concealment: -2
+				}
+			}
 		],
 		sight: pistolSight,
 		slide: [
-			slide['Milled Slide']
+			{
+				name: 'Milled Slide',
+				image: 'wpn_fps_pis_shrew_sl_milled',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					stability: 4
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default crosskillGuard

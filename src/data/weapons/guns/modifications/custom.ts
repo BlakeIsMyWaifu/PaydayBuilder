@@ -1,18 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import { type CompatibleWeapons, type ModificationList } from '../weaponTypes'
+import { type ModificationCollection } from '../weaponTypes'
 
-const fireModeWeapons: CompatibleWeapons = {
-	assaultRifle: [
-		'Golden AK.762'
-	]
-}
+export type CustomModification = keyof typeof custom
 
-export type CustomModificationsList =
-	| 'Single Fire'
-	| 'Auto Fire'
-
-const custom: ModificationList<CustomModificationsList> = {
+const custom = {
 	'Single Fire': {
 		name: 'Single Fire',
 		image: 'wpn_fps_upg_i_singlefire',
@@ -27,8 +19,7 @@ const custom: ModificationList<CustomModificationsList> = {
 		stats: {
 			accuracy: 1,
 			stability: -8
-		},
-		compatibleWeapons: fireModeWeapons
+		}
 	},
 	'Auto Fire': {
 		name: 'Auto Fire',
@@ -45,9 +36,8 @@ const custom: ModificationList<CustomModificationsList> = {
 			damage: 1,
 			accuracy: -4,
 			stability: 8
-		},
-		compatibleWeapons: fireModeWeapons
+		}
 	}
-}
+} as const satisfies ModificationCollection
 
 export default custom

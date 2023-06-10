@@ -1,10 +1,10 @@
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
+import goliath12G from '../../secondary/shotgun/goliath12G'
 import { type WeaponData } from '../../weaponTypes'
 import { akimboShotgunAmmunition, akimboShotgunBarrelExt, akimboShotgunBoost, akimboShotgunGadget } from '../commonModifications/akimboShotgunModifications'
 
-const akimboGoliath12G: WeaponData = {
+const akimboGoliath12G = {
 	name: 'Akimbo Goliath 12G',
 	image: 'x_rota',
 	source: source['Base Game'],
@@ -35,14 +35,11 @@ const akimboGoliath12G: WeaponData = {
 	},
 	modifications: {
 		ammunition: akimboShotgunAmmunition,
-		barrel: [
-			barrel['Short Barrel (Goliath)'],
-			barrel['Silenced Barrel (Goliath)']
-		],
+		barrel: goliath12G.modifications.barrel,
 		barrelExt: akimboShotgunBarrelExt,
 		boost: akimboShotgunBoost,
 		gadget: akimboShotgunGadget
 	}
-}
+} as const satisfies WeaponData
 
 export default akimboGoliath12G

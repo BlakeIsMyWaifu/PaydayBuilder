@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import { type WeaponData } from '../../weaponTypes'
 import { specialBoost } from '../commonModifications/specialModifications'
 
-const commando101: WeaponData = {
+const commando101 = {
 	name: 'Commando 101',
 	image: 'ray',
 	source: content['Scarface Heist'],
@@ -35,6 +35,6 @@ const commando101: WeaponData = {
 	modifications: {
 		boost: specialBoost
 	}
-}
+} as const satisfies WeaponData
 
 export default commando101

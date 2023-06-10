@@ -1,12 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import exclusiveSet from '../../modifications/exclusiveSet'
-import grip from '../../modifications/grip'
 import { type WeaponData } from '../../weaponTypes'
 import { specialBoost } from '../commonModifications/specialModifications'
 
-const hailstormMk5: WeaponData = {
+const hailstormMk5 = {
 	name: 'Hailstorm Mk 5',
 	image: 'hailstorm',
 	source: content['McShay Weapon Pack 2'],
@@ -37,20 +34,107 @@ const hailstormMk5: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['v1.4 Barrel'],
-			barrel['v3.8 Barrel'],
-			barrel['v2.2 Barrel']
+			{
+				name: 'v1.4 Barrel',
+				image: 'wpn_fps_hailstorm_b_extended',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack 2'],
+				cost: 9e3,
+				stats: {
+					damage: 1,
+					accuracy: 4,
+					stability: 4,
+					concealment: -2
+				}
+			},
+			{
+				name: 'v3.8 Barrel',
+				image: 'wpn_fps_hailstorm_b_ext_suppressed',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack 2'],
+				cost: 9e3,
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -2,
+					accuracy: 8,
+					stability: 4,
+					concealment: -3,
+					threat: -18
+				}
+			},
+			{
+				name: 'v2.2 Barrel',
+				image: 'wpn_fps_hailstorm_b_suppressed',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack 2'],
+				cost: 9e3,
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -1,
+					accuracy: 4,
+					stability: 4,
+					concealment: -2,
+					threat: -18
+				}
+			}
 		],
 		boost: specialBoost,
 		exclusiveSet: [
-			exclusiveSet.Prototype
+			{
+				name: 'Prototype',
+				image: 'wpn_fps_hailstorm_conversion',
+				icon: 'inv_mod_ammo_explosive', // TODO update icon
+				slot: 'exclusiveSet',
+				source: content['McShay Weapon Pack 2'],
+				cost: 9e3,
+				stats: {
+					totalAmmo: 54,
+					stability: 4,
+					concealment: -2
+				}
+			}
 		],
 		grip: [
-			grip['Whiteout Grip'],
-			grip['Crystalline Grip'],
-			grip['FZRA Grip']
+			{
+				name: 'Whiteout Grip',
+				image: 'wpn_fps_hailstorm_g_bubble',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['McShay Weapon Pack 2'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					stability: -4
+				}
+			},
+			{
+				name: 'Crystalline Grip',
+				image: 'wpn_fps_hailstorm_g_crystal',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['McShay Weapon Pack 2'],
+				cost: 9e3,
+				stats: {
+					accuracy: -4,
+					stability: 4
+				}
+			},
+			{
+				name: 'FZRA Grip',
+				image: 'wpn_fps_hailstorm_g_noise',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['McShay Weapon Pack 2'],
+				cost: 9e3,
+				stats: {
+					concealment: 1
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default hailstormMk5

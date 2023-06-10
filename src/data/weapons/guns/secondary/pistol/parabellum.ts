@@ -1,11 +1,10 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
-import grip from '../../modifications/grip'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost, pistolSight } from '../commonModifications/pistolModifications'
 
-const parabellum: WeaponData = {
+const parabellum = {
 	name: 'Parabellum',
 	image: 'breech',
 	source: source['Base Game'],
@@ -36,15 +35,44 @@ const parabellum: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Reinforced Barrel'],
-			barrel['Short Barrel (Parabellum)']
+			{
+				name: 'Reinforced Barrel',
+				image: 'wpn_fps_pis_breech_b_reinforced',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['WW2 Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 8
+				}
+			},
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_pis_breech_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['WW2 Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: -8,
+					concealment: 2
+				}
+			}
 		],
 		boost: pistolBoost,
 		grip: [
-			grip['Engraved Grip']
+			{
+				name: 'Engraved Grip',
+				image: 'wpn_fps_pis_breech_g_custom',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['WW2 Weapon Pack'],
+				cost: 9e3,
+				stats: {}
+			}
 		],
 		sight: pistolSight
 	}
-}
+} as const satisfies WeaponData
 
 export default parabellum

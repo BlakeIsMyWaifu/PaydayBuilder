@@ -1,13 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import grip from '../../modifications/grip'
-import magazine from '../../modifications/magazine'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const czech92: WeaponData = {
+const czech92 = {
 	name: 'Czech 92',
 	image: 'czech',
 	source: content['Federales Weapon Pack'],
@@ -38,23 +34,93 @@ const czech92: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Sicario Barrel']
+			{
+				name: 'Sicario Barrel',
+				image: 'wpn_fps_pis_czech_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Federales Weapon Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: 4,
+					concealment: -2,
+					threat: 2
+				}
+			}
 		],
 		barrelExt: pistolBarrelExt,
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		grip: [
-			grip['Cartel Grip (Czech)'],
-			grip['Sicario Grip']
+			{
+				name: 'Cartel Grip (Czech)',
+				image: 'wpn_fps_pis_czech_g_luxury',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Federales Weapon Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					concealment: 1
+				}
+			},
+			{
+				name: 'Sicario Grip',
+				image: 'wpn_fps_pis_czech_g_sport',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Federales Weapon Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: 4,
+					concealment: -1
+				}
+			}
 		],
 		magazine: [
-			magazine['Extended Magazine (Czech)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_pis_czech_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['Federales Weapon Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					magazine: 10,
+					concealment: -1
+				}
+			}
 		],
 		sight: pistolSight,
 		stock: [
-			stock['Tirador Stock']
+			{
+				name: 'Tirador Stock',
+				image: 'wpn_fps_pis_stech_s_standard',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Federales Weapon Pack'],
+				cost: 28e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default czech92

@@ -1,18 +1,18 @@
-import boost, { type BoostModificationsList } from '../../modifications/boost'
-import gadget, { type GadgetModificationsList } from '../../modifications/gadget'
-import secondarySight, { type SecondarySightList } from '../../modifications/secondarySight'
-import sight, { type SightModificationsList } from '../../modifications/sight'
+import boost from '../../modifications/boost'
+import gadget from '../../modifications/gadget'
+import secondarySight from '../../modifications/secondarySight'
+import sight from '../../modifications/sight'
 import { type Modification } from '../../weaponTypes'
 
-export const sniperBoost: Modification<BoostModificationsList>[] = [
+export const sniperBoost: Modification[] = [
 	boost.Concealment,
 	boost.Stability,
 	boost.Accuracy,
 	boost['Team Boost'],
-	boost['Total Ammo (Main)']
+	boost['Total Ammo']
 ]
 
-export const sniperGadget: Modification<GadgetModificationsList>[] = [
+export const sniperGadget: Modification[] = [
 	gadget['Assault Light'],
 	gadget['Tactical Laser Module'],
 	gadget['Compact Laser Module'],
@@ -21,7 +21,7 @@ export const sniperGadget: Modification<GadgetModificationsList>[] = [
 	gadget['Stealth Laser Module']
 ]
 
-export const sniperSecondarySight: Modification<SecondarySightList>[] = [
+export const sniperSecondarySight: Modification[] = [
 	secondarySight['Riktpunkt 45 degree Sight'],
 	secondarySight['Riktpunkt Magnifier Gadget x6.25'],
 	secondarySight['Angled Sight'],
@@ -30,7 +30,7 @@ export const sniperSecondarySight: Modification<SecondarySightList>[] = [
 	secondarySight['Signature Magnifier Gadget x6.25']
 ]
 
-export const sniperSight: Modification<SightModificationsList>[] = [
+export const sniperSight: Modification[] = [
 	sight['Holographic Sight x1.5'],
 	sight['The Professional\'s Choice Sight x1.5'],
 	sight['Surgeon Sight x1.25'],

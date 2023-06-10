@@ -1,12 +1,12 @@
-import ammunition, { type AmmunitionModificationsList } from '../../modifications/ammunition'
-import barrelExt, { type BarrelExtModificationsList } from '../../modifications/barrelExt'
-import boost, { type BoostModificationsList } from '../../modifications/boost'
-import gadget, { type GadgetModificationsList } from '../../modifications/gadget'
-import secondarySight, { type SecondarySightList } from '../../modifications/secondarySight'
-import sight, { type SightModificationsList } from '../../modifications/sight'
+import ammunition from '../../modifications/ammunition'
+import barrelExt from '../../modifications/barrelExt'
+import boost from '../../modifications/boost'
+import gadget from '../../modifications/gadget'
+import secondarySight from '../../modifications/secondarySight'
+import sight from '../../modifications/sight'
 import { type Modification } from '../../weaponTypes'
 
-export const shotgunAmmunition: Modification<AmmunitionModificationsList>[] = [
+export const shotgunAmmunition: Modification[] = [
 	ammunition['Tombstone Slug'],
 	ammunition['000 Buckshot'],
 	ammunition['HE Round'],
@@ -15,7 +15,7 @@ export const shotgunAmmunition: Modification<AmmunitionModificationsList>[] = [
 	ammunition['Dragon\'s Breath Round']
 ]
 
-export const shotgunBarrelExt: Modification<BarrelExtModificationsList>[] = [
+export const shotgunBarrelExt: Modification[] = [
 	barrelExt['Shark Teeth Nozzle'],
 	barrelExt['The Silent Killer Suppressor'],
 	barrelExt['King\'s Crown Compensator'],
@@ -23,7 +23,7 @@ export const shotgunBarrelExt: Modification<BarrelExtModificationsList>[] = [
 	barrelExt['Donald\'s Horizontal Leveller']
 ]
 
-export const shotgunBoost: Modification<BoostModificationsList>[] = [
+export const shotgunBoost: Modification[] = [
 	boost.Concealment,
 	boost.Stability,
 	boost.Accuracy,
@@ -31,7 +31,7 @@ export const shotgunBoost: Modification<BoostModificationsList>[] = [
 	boost['Team Boost']
 ]
 
-export const shotgunGadget: Modification<GadgetModificationsList>[] = [
+export const shotgunGadget: Modification[] = [
 	gadget['Assault Light'],
 	gadget['Tactical Laser Module'],
 	gadget['Compact Laser Module'],
@@ -40,12 +40,12 @@ export const shotgunGadget: Modification<GadgetModificationsList>[] = [
 	gadget['Stealth Laser Module']
 ]
 
-export const shotgunSecondarySight: Modification<SecondarySightList>[] = [
+export const shotgunSecondarySight: Modification[] = [
 	secondarySight['Riktpunkt Magnifier Gadget x6.25'],
 	secondarySight['Signature Magnifier Gadget x6.25']
 ]
 
-export const shotgunSight: Modification<SightModificationsList>[] = [
+export const shotgunSight: Modification[] = [
 	sight['Holographic Sight x1.5'],
 	sight['The Professional\'s Choice Sight x1.5'],
 	sight['Surgeon Sight x1.25'],

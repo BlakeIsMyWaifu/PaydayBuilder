@@ -15,9 +15,9 @@ import rattlesnake from '../sniper/rattlesnake'
 import repeater1874 from '../sniper/repeater1874'
 import thanatos50Cal from '../sniper/thanatos50Cal'
 
-export type SniperPrimaryList = typeof sniperPrimaryList[number]
+export type SniperPrimary = typeof sniperPrimaryList[number]
 
-const snipersPrimary: Record<SniperPrimaryList, WeaponData> = {
+const snipersPrimary: Record<SniperPrimary, WeaponData> = {
 	'Platypus 70': platypus70,
 	'Rattlesnake': rattlesnake,
 	'R93': r93,

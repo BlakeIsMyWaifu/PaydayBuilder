@@ -1,11 +1,9 @@
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBoost } from '../commonModifications/shotgunModifications'
 
-const mosconi12G: WeaponData = {
+const mosconi12G = {
 	name: 'Mosconi 12G',
 	image: 'huntsman',
 	source: source['Base Game'],
@@ -37,13 +35,37 @@ const mosconi12G: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrel: [
-			barrel['Road Warrior Barrel']
+			{
+				name: 'Road Warrior Barrel',
+				image: 'wpn_fps_shot_huntsman_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source['Base Game'],
+				cost: 80e3,
+				stats: {
+					accuracy: -16,
+					stability: -16,
+					concealment: 10
+				}
+			}
 		],
 		boost: shotgunBoost,
 		stock: [
-			stock['Gangsta Special Stock']
+			{
+				name: 'Gangsta Special Stock',
+				image: 'wpn_fps_shot_huntsman_s_short',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 80e3,
+				stats: {
+					accuracy: -16,
+					stability: -16,
+					concealment: 10
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default mosconi12G

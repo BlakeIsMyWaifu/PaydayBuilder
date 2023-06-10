@@ -1,12 +1,12 @@
-import barrelExt, { type BarrelExtModificationsList } from '../../modifications/barrelExt'
-import boost, { type BoostModificationsList } from '../../modifications/boost'
-import custom, { type CustomModificationsList } from '../../modifications/custom'
-import gadget, { type GadgetModificationsList } from '../../modifications/gadget'
-import secondarySight, { type SecondarySightList } from '../../modifications/secondarySight'
-import sight, { type SightModificationsList } from '../../modifications/sight'
+import barrelExt from '../../modifications/barrelExt'
+import boost from '../../modifications/boost'
+import custom from '../../modifications/custom'
+import gadget from '../../modifications/gadget'
+import secondarySight from '../../modifications/secondarySight'
+import sight from '../../modifications/sight'
 import { type Modification } from '../../weaponTypes'
 
-export const assaultRifleBarrelExt: Modification<BarrelExtModificationsList>[] = [
+export const assaultRifleBarrelExt: Modification[] = [
 	barrelExt['Medium Suppressor'],
 	barrelExt['Low Profile Suppressor'],
 	barrelExt['Stubby Compensator'],
@@ -25,7 +25,7 @@ export const assaultRifleBarrelExt: Modification<BarrelExtModificationsList>[] =
 	barrelExt['Dourif Muzzle']
 ]
 
-export const assaultRifleBarrelExtPlus: Modification<BarrelExtModificationsList>[] = [
+export const assaultRifleBarrelExtPlus: Modification[] = [
 	barrelExt['Medium Suppressor'],
 	barrelExt['Low Profile Suppressor'],
 	barrelExt['Stubby Compensator'],
@@ -48,19 +48,19 @@ export const assaultRifleBarrelExtPlus: Modification<BarrelExtModificationsList>
 	barrelExt['Dourif Muzzle']
 ]
 
-export const assaultRifleBoost: Modification<BoostModificationsList>[] = [
+export const assaultRifleBoost: Modification[] = [
 	boost.Concealment,
 	boost.Stability,
 	boost.Accuracy,
 	boost['Team Boost']
 ]
 
-export const assaultRifleCustom: Modification<CustomModificationsList>[] = [
+export const assaultRifleCustom: Modification[] = [
 	custom['Single Fire'],
 	custom['Auto Fire']
 ]
 
-export const assaultRifleGadget: Modification<GadgetModificationsList>[] = [
+export const assaultRifleGadget: Modification[] = [
 	gadget['Assault Light'],
 	gadget['Tactical Laser Module'],
 	gadget['Compact Laser Module'],
@@ -69,7 +69,7 @@ export const assaultRifleGadget: Modification<GadgetModificationsList>[] = [
 	gadget['Stealth Laser Module']
 ]
 
-export const assaultRifleSecondarySight: Modification<SecondarySightList>[] = [
+export const assaultRifleSecondarySight: Modification[] = [
 	secondarySight['Riktpunkt 45 degree Sight'],
 	secondarySight['Riktpunkt Magnifier Gadget x6.25'],
 	secondarySight['45 degree red-dot sight'],
@@ -77,7 +77,7 @@ export const assaultRifleSecondarySight: Modification<SecondarySightList>[] = [
 	secondarySight['Signature Magnifier Gadget x6.25']
 ]
 
-export const assaultRifleSight: Modification<SightModificationsList>[] = [
+export const assaultRifleSight: Modification[] = [
 	sight['Holographic Sight x1.5'],
 	sight['The Professional\'s Choice Sight x1.5'],
 	sight['Surgeon Sight x1.25'],

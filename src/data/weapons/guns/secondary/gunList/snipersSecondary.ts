@@ -4,9 +4,9 @@ import aranG2 from '../sniper/aranG2'
 import northStar from '../sniper/northStar'
 import pronghorn from '../sniper/pronghorn'
 
-export type SecondarySniperList = typeof sniperSecondaryList[number]
+export type SecondarySniper = typeof sniperSecondaryList[number]
 
-const snipersSecondary: Record<SecondarySniperList, WeaponData> = {
+const snipersSecondary: Record<SecondarySniper, WeaponData> = {
 	'Pronghorn': pronghorn,
 	'Aran G2': aranG2,
 	'North Star': northStar

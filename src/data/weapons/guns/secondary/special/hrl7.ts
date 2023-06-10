@@ -3,7 +3,7 @@ import content from 'data/source/downloadableContent'
 import { type WeaponData } from '../../weaponTypes'
 import { specialBoost, specialSecondarySight, specialSight } from '../commonModifications/specialModifications'
 
-const hrl7: WeaponData = {
+const hrl7 = {
 	name: 'HRL-7',
 	image: 'rpg7',
 	source: content['The OVERKILL Pack'],
@@ -37,6 +37,6 @@ const hrl7: WeaponData = {
 		secondarySight: specialSecondarySight,
 		sight: specialSight
 	}
-}
+} as const satisfies WeaponData
 
 export default hrl7

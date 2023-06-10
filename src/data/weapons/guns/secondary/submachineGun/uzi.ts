@@ -1,12 +1,10 @@
 import content from 'data/source/downloadableContent'
 
 import barrelExt from '../../modifications/barrelExt'
-import foregrip from '../../modifications/foregrip'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const uzi: WeaponData = {
+const uzi = {
 	name: 'Uzi',
 	image: 'uzi',
 	source: content['Hotline Miami'],
@@ -47,7 +45,24 @@ const uzi: WeaponData = {
 			barrelExt['Competitor\'s Compensator'],
 			barrelExt['Funnel of Fun Nozzle'],
 			barrelExt['Tactical Compensator'],
-			barrelExt['Silent Death'],
+			{
+				name: 'Silent Death',
+				image: 'wpn_fps_smg_uzi_b_suppressed',
+				icon: 'inv_mod_silencer',
+				slot: 'barrelExt',
+				source: content['Hotline Miami'],
+				cost: 36e3,
+				specialEffect: ['Silences Weapon'],
+				acquisition: {
+					achievement: 'Sounds of Animals Fighting'
+				},
+				stats: {
+					accuracy: -4,
+					stability: 4,
+					concealment: -2,
+					threat: -18
+				}
+			},
 			barrelExt['Ported Compensator'],
 			barrelExt['Marmon Compensator'],
 			barrelExt['Verdunkeln Muzzle Brake'],
@@ -57,17 +72,76 @@ const uzi: WeaponData = {
 		boost: submachineGunBoost,
 		custom: submachineGunCustom,
 		foregrip: [
-			foregrip['Tactical Foregrip (Uzi)']
+			{
+				name: 'Tactical Foregrip',
+				image: 'wpn_fps_smg_uzi_fg_rail',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['Hotline Miami'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Walk Faster'
+				},
+				stats: {
+					accuracy: 4,
+					stability: 4,
+					concealment: -2
+				}
+			}
 		],
 		gadget: submachineGunGadget,
 		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight,
 		stock: [
-			stock['Ergonomic Stock'],
-			stock['Solid Stock (Uzi)'],
-			stock['Folded Stock (Uzi)']
+			{
+				name: 'Ergonomic Stock',
+				image: 'wpn_fps_smg_uzi_s_leather',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Hotline Miami'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Walk Faster'
+				},
+				stats: {
+					accuracy: 8,
+					stability: 4,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Solid Stock',
+				image: 'wpn_fps_smg_uzi_s_solid',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Hotline Miami'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Do You Like Hurting Other People?'
+				},
+				stats: {
+					accuracy: 4,
+					stability: 12,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Folded Stock',
+				image: 'wpn_fps_smg_uzi_s_standard',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Hotline Miami'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Sounds of Animals Fighting'
+				},
+				stats: {
+					stability: -12,
+					concealment: 4
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default uzi

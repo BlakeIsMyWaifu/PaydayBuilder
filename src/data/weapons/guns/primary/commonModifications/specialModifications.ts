@@ -1,16 +1,16 @@
-import boost, { type BoostModificationsList } from '../../modifications/boost'
-import gadget, { type GadgetModificationsList } from '../../modifications/gadget'
+import boost from '../../modifications/boost'
+import gadget from '../../modifications/gadget'
 import { type Modification } from '../../weaponTypes'
 
-export const specialBoost: Modification<BoostModificationsList>[] = [
+export const specialBoost: Modification[] = [
 	boost.Concealment,
 	boost.Stability,
 	boost.Accuracy,
 	boost['Team Boost'],
-	boost['Total Ammo (Main)']
+	boost['Total Ammo']
 ]
 
-export const specialGadget: Modification<GadgetModificationsList>[] = [
+export const specialGadget: Modification[] = [
 	gadget['Assault Light'],
 	gadget['Tactical Laser Module'],
 	gadget['Compact Laser Module'],

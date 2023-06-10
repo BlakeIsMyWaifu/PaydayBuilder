@@ -26,9 +26,9 @@ import tatonka from '../submachineGun/tatonka'
 import uzi from '../submachineGun/uzi'
 import waspDsSmg from '../submachineGun/waspDsSmg'
 
-export type SubmachineGunList = typeof submachineGunList[number]
+export type SubmachineGun = typeof submachineGunList[number]
 
-const submachineGuns: Record<SubmachineGunList, WeaponData> = {
+const submachineGuns: Record<SubmachineGun, WeaponData> = {
 	'Chicago Typewriter': chicagoTypewriter,
 	'Mark 10': mark10,
 	'Compact-5': compact5,

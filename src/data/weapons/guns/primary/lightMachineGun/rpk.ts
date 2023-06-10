@@ -3,13 +3,12 @@ import content from 'data/source/downloadableContent'
 import barrelExt from '../../modifications/barrelExt'
 import bipod from '../../modifications/bipod'
 import chargingHandle from '../../modifications/chargingHandle'
-import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { lightMachineGunBoost, lightMachineGunGadget } from '../commonModifications/lightMachineGunModifications'
 
-const rpk: WeaponData = {
+const rpk = {
 	name: 'RPK',
 	image: 'rpk',
 	source: content['Gage Weapon Pack #02'],
@@ -67,7 +66,20 @@ const rpk: WeaponData = {
 			chargingHandle['Taktika Charging Handle']
 		],
 		foregrip: [
-			foregrip['Tactical Foregrip (RPK)']
+			{
+				name: 'Tactical Foregrip',
+				image: 'wpn_fps_lmg_rpk_fg_standard',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['Gage Weapon Pack #02'],
+				cost: 64800,
+				stats: {
+					damage: 1,
+					accuracy: -4,
+					stability: -4,
+					concealment: 1
+				}
+			}
 		],
 		gadget: lightMachineGunGadget,
 		grip: [
@@ -83,7 +95,18 @@ const rpk: WeaponData = {
 			stock['Standard Stock (Main)'],
 			stock['Tactical Stock (Main)'],
 			stock['Folding Stock'],
-			stock['Plastic Stock (RPK)'],
+			{
+				name: 'Plastic Stock',
+				image: 'wpn_fps_lmg_rpk_s_standard',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Gage Weapon Pack #02'],
+				cost: 37800,
+				stats: {
+					stability: 8,
+					concealment: 1
+				}
+			},
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
 			stock['Classic Stock'],
@@ -93,6 +116,6 @@ const rpk: WeaponData = {
 			stock['VD-12 Stock']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default rpk

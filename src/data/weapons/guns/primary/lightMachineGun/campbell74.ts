@@ -1,15 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
-import exclusiveSet from '../../modifications/exclusiveSet'
-import extra from '../../modifications/extra'
-import magazine from '../../modifications/magazine'
-import underbarrel from '../../modifications/underbarrel'
 import { type WeaponData } from '../../weaponTypes'
 import { lightMachineGunBoost, lightMachineGunGadget } from '../commonModifications/lightMachineGunModifications'
 
-const campbell74: WeaponData = {
+const campbell74 = {
 	name: 'Campbell 74',
 	image: 'kacchainsaw',
 	source: content['McShay Weapon Pack 4'],
@@ -40,8 +35,33 @@ const campbell74: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Lugosi Barrel'],
-			barrel['Karloff Barrel']
+			{
+				name: 'Lugosi Barrel',
+				image: 'wpn_fps_lmg_kacchainsaw_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack 4'],
+				cost: 14e3,
+				stats: {
+					accuracy: -4,
+					stability: -4,
+					concealment: 2
+				}
+			},
+			{
+				name: 'Karloff Barrel',
+				image: 'wpn_fps_lmg_kacchainsaw_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack 4'],
+				cost: 21e3,
+				stats: {
+					damage: 2,
+					accuracy: 4,
+					stability: 8,
+					concealment: -1
+				}
+			}
 		],
 		barrelExt: [
 			barrelExt['Medium Suppressor'],
@@ -60,19 +80,71 @@ const campbell74: WeaponData = {
 		],
 		boost: lightMachineGunBoost,
 		exclusiveSet: [
-			exclusiveSet.Offworld
+			{
+				name: 'Offworld',
+				image: 'wpn_fps_lmg_kacchainsaw_conversionkit',
+				icon: 'inv_mod_ammo_explosive', // TODO update icon
+				slot: 'exclusiveSet',
+				source: content['McShay Weapon Pack 4'],
+				cost: 9e3,
+				stats: {
+					magazine: 80,
+					totalAmmo: 300,
+					damage: -40,
+					accuracy: 4,
+					stability: 4,
+					concealment: 3
+				}
+			}
 		],
 		extra: [
-			extra['Moseley Sling']
+			{
+				name: 'Moseley Sling',
+				image: 'wpn_fps_lmg_kacchainsaw_sling',
+				icon: 'inv_mod_extra',
+				slot: 'extra',
+				source: content['McShay Weapon Pack 4'],
+				cost: 9e3,
+				stats: {
+					accuracy: 24,
+					stability: 20,
+					concealment: -1
+				}
+			}
 		],
 		gadget: lightMachineGunGadget,
 		magazine: [
-			magazine['Perkins Soft Case']
+			{
+				name: 'Perkins Soft Case',
+				image: 'wpn_fps_lmg_kacchainsaw_mag_b',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['McShay Weapon Pack 4'],
+				cost: 9e3,
+				stats: {
+					magazine: 50,
+					stability: -8,
+					concealment: -2
+				}
+			}
 		],
 		underbarrel: [
-			underbarrel['Infernal Flamethrower']
+			{
+				name: 'Infernal Flamethrower',
+				image: 'wpn_fps_lmg_kacchainsaw_flamethrower',
+				icon: 'inv_mod_ammo_dragons_breath',
+				slot: 'underbarrel',
+				source: content['McShay Weapon Pack 4'],
+				cost: 9e3,
+				stats: {
+					totalAmmo: -60,
+					accuracy: -12,
+					stability: -8,
+					concealment: -8
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default campbell74

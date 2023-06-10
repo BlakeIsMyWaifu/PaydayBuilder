@@ -1,11 +1,9 @@
 import source from 'data/source/miscSources'
 
-import lowerReceiver from '../../modifications/lowerReceiver'
-import magazine from '../../modifications/magazine'
+import primaryOve9000 from '../../primary/special/ove9000'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoostTotalAmmo } from '../commonModifications/specialModifications'
 
-const ove9000: WeaponData = {
+const ove9000 = {
 	name: 'OVE9000',
 	image: 'saw',
 	source: source['Base Game'],
@@ -14,37 +12,9 @@ const ove9000: WeaponData = {
 	weaponType: 'Special',
 	firingMode: 'Fully automatic',
 	cost: 42e3,
-	stats: {
-		magazine: 150,
-		totalAmmo: 300,
-		rateOfFire: 400,
-		damage: 23,
-		accuracy: 8,
-		stability: 24,
-		concealment: 16,
-		threat: 24,
-		reload: 3.75
-	},
-	extraStats: {
-		tacticalReload: 3.75,
-		equipDelays: [0.8, 0.8],
-		ammoPickup: null,
-		recoilHorizontal: [-2.4, 2.4],
-		recoilVertical: [2.4, -2.4],
-		spread: null,
-		damageModifier: null
-	},
-	modifications: {
-		boost: specialBoostTotalAmmo,
-		lowerReceiver: [
-			lowerReceiver['Silent Motor'],
-			lowerReceiver['Fast Motor']
-		],
-		magazine: [
-			magazine['Durable Blade'],
-			magazine['Sharp Blade']
-		]
-	}
-}
+	stats: primaryOve9000.stats,
+	extraStats: primaryOve9000.extraStats,
+	modifications: primaryOve9000.modifications
+} as const satisfies WeaponData
 
 export default ove9000

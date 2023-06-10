@@ -1,15 +1,12 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
 import barrelExt from '../../modifications/barrelExt'
-import grip from '../../modifications/grip'
-import lowerReceiver from '../../modifications/lowerReceiver'
-import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
-import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoostConcealment, pistolGadget } from '../commonModifications/pistolModifications'
 
-const bernetti9: WeaponData = {
+const bernetti9 = {
 	name: 'Bernetti 9',
 	image: 'b92fs',
 	source: source['Base Game'],
@@ -45,10 +42,35 @@ const bernetti9: WeaponData = {
 			barrelExt['Champion\'s Suppressor'],
 			barrelExt['Facepunch Compensator'],
 			barrelExt['Standard Issue Suppressor'],
-			barrelExt['The Competitor Compensator'],
+			{
+				name: 'The Competitor Compensator',
+				image: 'wpn_fps_pis_beretta_co_co2',
+				icon: 'inv_mod_barrel_ext',
+				slot: 'barrelExt',
+				source: source['Base Game'],
+				cost: 21e3,
+				stats: {
+					damage: 2,
+					concealment: -1,
+					threat: 6
+				}
+			},
 			barrelExt['Medved R4 Suppressor'],
 			barrelExt['Size Doesn\'t Matter Suppressor'],
-			barrelExt['The Professional Compensator'],
+			{
+				name: 'The Professional Compensator',
+				image: 'wpn_fps_pis_beretta_co_co1',
+				icon: 'inv_mod_barrel_ext',
+				slot: 'barrelExt',
+				source: source['Base Game'],
+				cost: 28e3,
+				stats: {
+					damage: 1,
+					accuracy: 4,
+					stability: 4,
+					concealment: -2
+				}
+			},
 			barrelExt['Monolith Suppressor'],
 			barrelExt['Asepsis Suppressor'],
 			barrelExt['Flash Hider'],
@@ -59,14 +81,59 @@ const bernetti9: WeaponData = {
 		boost: pistolBoostConcealment,
 		gadget: pistolGadget,
 		grip: [
-			grip['Ergo Grip (Bernetti 9)'],
-			grip['Engraved Bernetti Grips']
+			{
+				name: 'Ergo Grip (Bernetti 9)',
+				image: 'wpn_fps_pis_beretta_g_ergo',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: source['Base Game'],
+				cost: 14e3,
+				stats: {
+					stability: 4
+				}
+			},
+			{
+				name: 'Engraved Bernetti Grips',
+				image: 'wpn_fps_pis_beretta_g_engraved',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['The Butcher Mod Pack 2'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					stability: 4
+				}
+			}
 		],
 		lowerReceiver: [
-			lowerReceiver['Custom Titanium Frame']
+			{
+				name: 'Custom Titanium Frame',
+				image: 'wpn_fps_pis_beretta_body_modern',
+				icon: 'inv_mod_lower_receiver',
+				slot: 'lowerReceiver',
+				source: source['Base Game'],
+				cost: 9e3,
+				acquisition: {
+					coins: 6
+				},
+				stats: {}
+			}
 		],
 		magazine: [
-			magazine['Extended Magazine (Bernetti 9)']
+			{
+				name: 'Extended Magazine (Bernetti 9)',
+				image: 'wpn_fps_pis_beretta_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: source['Base Game'],
+				cost: 14e3,
+				stats: {
+					magazine: 12,
+					concealment: -2
+				}
+			}
 		],
 		sight: [
 			sight['Marksman Sight x1.25'],
@@ -75,9 +142,19 @@ const bernetti9: WeaponData = {
 			sight['SKOLD Micro Reflex Sight x1.5']
 		],
 		upperReceiver: [
-			upperReceiver['The Elite Slide']
+			{
+				name: 'The Elite Slide',
+				image: 'wpn_fps_pis_beretta_sl_brigadier',
+				icon: 'inv_mod_upper_receiver',
+				slot: 'upperReceiver',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					stability: 8
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default bernetti9

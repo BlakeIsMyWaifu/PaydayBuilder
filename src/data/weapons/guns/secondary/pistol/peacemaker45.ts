@@ -1,12 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import grip from '../../modifications/grip'
-import slide from '../../modifications/slide'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost } from '../commonModifications/pistolModifications'
 
-const peacemaker45: WeaponData = {
+const peacemaker45 = {
 	name: 'Peacemaker .45',
 	image: 'peacemaker',
 	source: content['The Butcher\'s Western Pack'],
@@ -38,16 +35,60 @@ const peacemaker45: WeaponData = {
 	modifications: {
 		boost: pistolBoost,
 		grip: [
-			grip['Grand Grip']
+			{
+				name: 'Grand Grip',
+				image: 'wpn_fps_pis_peacemaker_g_bling',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['The Butcher\'s Western Pack'],
+				cost: 9e3,
+				stats: {
+					stability: 4,
+					concealment: -1
+				}
+			}
 		],
 		slide: [
-			slide['Precision Barrel (Peacemaker)'],
-			slide['Shootout Barrel']
+			{
+				name: 'Precision Barrel',
+				image: 'wpn_fps_pis_peacemaker_b_long',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: content['The Butcher\'s Western Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Shootout Barrel',
+				image: 'wpn_fps_pis_peacemaker_b_short',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: content['The Butcher\'s Western Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: -4,
+					concealment: 2
+				}
+			}
 		],
 		stock: [
-			stock['Ol´ Ben\'s Stock']
+			{
+				name: 'Ol´ Ben\'s Stock',
+				image: 'wpn_fps_pis_peacemaker_s_skeletal',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['The Butcher\'s Western Pack'],
+				cost: 9e3,
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default peacemaker45

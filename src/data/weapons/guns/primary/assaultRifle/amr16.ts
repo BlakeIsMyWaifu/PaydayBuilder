@@ -1,3 +1,4 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
 import barrel from '../../modifications/barrel'
@@ -10,7 +11,7 @@ import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
 import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const amr16: WeaponData = {
+const amr16 = {
 	name: 'AMR-16',
 	image: 'm16',
 	source: source['Base Game'],
@@ -41,16 +42,52 @@ const amr16: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Long Barrel (CAR)'],
-			barrel['DMR Kit (CAR)']
+			barrel['Long Barrel (CAR / AMR)'],
+			barrel['DMR Kit (CAR / AMR)']
 		],
 		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
 		foregrip: [
-			foregrip['Tactical Handguard'],
-			foregrip['Blast From The Past Handguard'],
-			foregrip['Long Ergo Foregrip'],
+			{
+				name: 'Tactical Handguard',
+				image: 'wpn_fps_m16_fg_railed',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: source['Base Game'],
+				cost: 53e3,
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Blast From The Past Handguard',
+				image: 'wpn_fps_m16_fg_vietnam',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: source['Base Game'],
+				cost: 80e3,
+				stats: {
+					stability: 4,
+					concealment: 2
+				}
+			},
+			{
+				name: 'Long Ergo Foregrip',
+				image: 'wpn_fps_upg_ass_m16_fg_stag',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['The Butcher\'s AK/CAR Mod Pack'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'OVE SAW 72000'
+				},
+				stats: {
+					stability: 8,
+					concealment: -3
+				}
+			},
 			foregrip['Orthogon Foregrip']
 		],
 		gadget: assaultRifleGadget,
@@ -96,6 +133,6 @@ const amr16: WeaponData = {
 			upperReceiver['Orthogon Upper Receiver']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default amr16

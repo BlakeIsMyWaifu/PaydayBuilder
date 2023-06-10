@@ -1,13 +1,11 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
-import grip from '../../modifications/grip'
 import sight from '../../modifications/sight'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost, pistolGadget } from '../commonModifications/pistolModifications'
 
-const rus12AngryTiger: WeaponData = {
+const rus12AngryTiger = {
 	name: 'RUS-12 Angry Tiger',
 	image: 'rsh12',
 	source: content['Jiu Feng Smuggler Pack 3'],
@@ -38,8 +36,33 @@ const rus12AngryTiger: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['RUS-J Long Valley Barrel and Stabilizer'],
-			barrel['RUS-K Tactical Short Barrel']
+			{
+				name: 'RUS-J Long Valley Barrel and Stabilizer',
+				image: 'wpn_fps_pis_rsh12_b_comp',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Jiu Feng Smuggler Pack 3'],
+				cost: 32e3,
+				stats: {
+					damage: 4,
+					accuracy: 12,
+					stability: 4,
+					concealment: -3
+				}
+			},
+			{
+				name: 'RUS-K Tactical Short Barrel',
+				image: 'wpn_fps_pis_rsh12_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Jiu Feng Smuggler Pack 3'],
+				cost: 21e3,
+				stats: {
+					accuracy: -8,
+					stability: -8,
+					concealment: 2
+				}
+			}
 		],
 		barrelExt: [
 			barrelExt['IPSC Compensator'],
@@ -50,7 +73,17 @@ const rus12AngryTiger: WeaponData = {
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		grip: [
-			grip['RUS Custom Wood Grip']
+			{
+				name: 'RUS Custom Wood Grip',
+				image: 'wpn_fps_pis_rsh12_g_wood',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Jiu Feng Smuggler Pack 3'],
+				cost: 21e3,
+				stats: {
+					stability: 24
+				}
+			}
 		],
 		sight: [
 			sight['Holographic Sight x1.5'],
@@ -76,6 +109,6 @@ const rus12AngryTiger: WeaponData = {
 			sight['Z5 Owl Glass Universal Scope x2.5']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default rus12AngryTiger

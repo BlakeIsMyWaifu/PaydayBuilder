@@ -1,14 +1,12 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import custom from '../../modifications/custom'
-import exclusiveSet from '../../modifications/exclusiveSet'
-import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import { type WeaponData } from '../../weaponTypes'
 import { akimboShotgunAmmunition, akimboShotgunBarrelExt, akimboShotgunBoost, akimboShotgunGadget } from '../commonModifications/akimboShotgunModifications'
+import vd12 from '../shotgun/vd12'
 
-const akimboVd12: WeaponData = {
+const akimboVd12 = {
 	name: 'Akimbo VD-12',
 	image: 'x_sko12',
 	source: content['McShay Weapon Pack 2'],
@@ -39,22 +37,15 @@ const akimboVd12: WeaponData = {
 	},
 	modifications: {
 		ammunition: akimboShotgunAmmunition,
-		barrel: [
-			barrel['Long Barrel (VD-12)'],
-			barrel['Short Barrel (VD-12)']
-		],
+		barrel: vd12.modifications.barrel,
 		barrelExt: akimboShotgunBarrelExt,
 		boost: akimboShotgunBoost,
 		custom: [
 			custom['Single Fire'],
 			custom['Auto Fire']
 		],
-		exclusiveSet: [
-			exclusiveSet.Stateside
-		],
-		foregrip: [
-			foregrip['Front Mounting Rail']
-		],
+		exclusiveSet: vd12.modifications.exclusiveSet,
+		foregrip: vd12.modifications.foregrip,
 		gadget: akimboShotgunGadget,
 		grip: [
 			grip['Ergo Grip (Main)'],
@@ -67,6 +58,6 @@ const akimboVd12: WeaponData = {
 			grip['Ursa Minor Grip']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default akimboVd12

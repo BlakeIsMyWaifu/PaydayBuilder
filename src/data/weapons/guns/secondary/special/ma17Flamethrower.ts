@@ -1,11 +1,9 @@
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
-import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
 import { specialBoostTotalAmmo, specialGadget } from '../commonModifications/specialModifications'
 
-const ma17Flamethrower: WeaponData = {
+const ma17Flamethrower = {
 	name: 'MA-17 Flamethrower',
 	image: 'system',
 	source: source['Base Game'],
@@ -36,15 +34,48 @@ const ma17Flamethrower: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Merlin Nozzle']
+			{
+				name: 'Merlin Nozzle',
+				image: 'wpn_fps_fla_system_b_wtf',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					totalAmmo: -350,
+					concealment: 5
+				}
+			}
 		],
-		boost: specialBoostTotalAmmo,
+		boost: specialBoostTotalAmmo, // TODO check damage boost
 		gadget: specialGadget,
 		magazine: [
-			magazine['High Temperature Mixture'],
-			magazine['Low Temperature Mixture']
+			{
+				name: 'High Temperature Mixture',
+				image: 'wpn_fps_fla_system_m_high',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					totalAmmo: -350,
+					damage: 7
+				}
+			},
+			{
+				name: 'Low Temperature Mixture',
+				image: 'wpn_fps_fla_system_m_low',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					totalAmmo: 350,
+					damage: -4
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default ma17Flamethrower

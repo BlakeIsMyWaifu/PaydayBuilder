@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { sniperBoost, sniperGadget, sniperSecondarySight, sniperSight } from '../commonModifications/sniperModifications'
 
-const r93: WeaponData = {
+const r93 = {
 	name: 'R93',
 	image: 'r93',
 	source: content['Gage Sniper Pack'],
@@ -36,17 +34,64 @@ const r93: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Short Barrel (R93)'],
-			barrel['Compensated Suppressor']
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_snp_r93_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Sniper Pack'],
+				cost: 7200,
+				acquisition: {
+					achievement: 'Maximum Penetration'
+				},
+				stats: {
+					accuracy: -8,
+					stability: 8,
+					concealment: 3
+				}
+			},
+			{
+				name: 'Compensated Suppressor',
+				image: 'wpn_fps_snp_r93_b_suppressed',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['Gage Sniper Pack'],
+				cost: 22400,
+				acquisition: {
+					achievement: 'Last Action Villain'
+				},
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -16,
+					accuracy: -4,
+					stability: 4,
+					concealment: -1,
+					threat: -23
+				}
+			}
 		],
 		boost: sniperBoost,
 		gadget: sniperGadget,
 		secondarySight: sniperSecondarySight,
 		sight: sniperSight,
 		stock: [
-			stock['Wooden Body']
+			{
+				name: 'Wooden Body',
+				image: 'wpn_fps_snp_r93_body_wood',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Gage Sniper Pack'],
+				cost: 42400,
+				acquisition: {
+					achievement: 'You Can\'t Hide'
+				},
+				stats: {
+					stability: 8,
+					concealment: -3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default r93

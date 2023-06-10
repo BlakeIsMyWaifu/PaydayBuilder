@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import grip from '../../modifications/grip'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost, pistolGadget } from '../commonModifications/pistolModifications'
 
-const matever357: WeaponData = {
+const matever357 = {
 	name: 'Matever .357',
 	image: 'mateba',
 	source: content['The Alesso Heist'],
@@ -36,16 +34,59 @@ const matever357: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Pesante Barrel'],
-			barrel['Medio Barrel'],
-			barrel['Pisccolo Barrel']
+			{
+				name: 'Pesante Barrel',
+				image: 'wpn_fps_pis_2006m_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Alesso Heist'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Medio Barrel',
+				image: 'wpn_fps_pis_2006m_b_medium',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Alesso Heist'],
+				cost: 9e3,
+				stats: {
+					accuracy: -4,
+					concealment: 2
+				}
+			},
+			{
+				name: 'Pisccolo Barrel',
+				image: 'wpn_fps_pis_2006m_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Alesso Heist'],
+				cost: 9e3,
+				stats: {
+					accuracy: -8,
+					concealment: 4
+				}
+			}
 		],
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		grip: [
-			grip['Noir Grip']
+			{
+				name: 'Noir Grip',
+				image: 'wpn_fps_pis_2006m_g_bling',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['The Alesso Heist'],
+				cost: 9e3,
+				stats: {
+					concealment: 2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default matever357

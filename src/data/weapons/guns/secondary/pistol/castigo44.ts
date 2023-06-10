@@ -1,11 +1,9 @@
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
-import grip from '../../modifications/grip'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost } from '../commonModifications/pistolModifications'
 
-const castigo44: WeaponData = {
+const castigo44 = {
 	name: 'Castigo .44',
 	image: 'chinchilla',
 	source: source['Base Game'],
@@ -36,14 +34,44 @@ const castigo44: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Diablo Barrel']
+			{
+				name: 'Diablo Barrel',
+				image: 'wpn_fps_pis_chinchilla_b_satan',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					accuracy: 8
+				}
+			}
 		],
 		boost: pistolBoost,
 		grip: [
-			grip['Carnival Grip'],
-			grip['Cruz Grip']
+			{
+				name: 'Carnival Grip',
+				image: 'wpn_fps_pis_chinchilla_g_black',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					stability: 8
+				}
+			},
+			{
+				name: 'Cruz Grip',
+				image: 'wpn_fps_pis_chinchilla_g_death',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					stability: 8
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default castigo44

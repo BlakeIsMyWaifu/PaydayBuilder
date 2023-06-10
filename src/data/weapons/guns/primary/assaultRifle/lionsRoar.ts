@@ -1,10 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import { type WeaponData } from '../../weaponTypes'
 import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const lionsRoar: WeaponData = {
+const lionsRoar = {
 	name: 'Lion\'s Roar',
 	image: 'vhs',
 	source: content['Dragan Character Pack'],
@@ -35,9 +34,46 @@ const lionsRoar: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['CQB Barrel (Lion\'s Roar)'],
-			barrel['Precision Barrel'],
-			barrel['Silenced Barrel (Lion\'s Roar)']
+			{
+				name: 'CQB Barrel',
+				image: 'wpn_fps_ass_vhs_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Dragan Character Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: -4,
+					stability: 4,
+					concealment: 3
+				}
+			},
+			{
+				name: 'Precision Barrel',
+				image: 'wpn_fps_ass_vhs_b_sniper',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Dragan Character Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 8,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Silenced Barrel',
+				image: 'wpn_fps_ass_vhs_b_silenced',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['Dragan Character Pack'],
+				cost: 14e3,
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -1,
+					stability: 12,
+					threat: -18
+				},
+				incompatibleSlot: ['barrelExt']
+			}
 		],
 		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
@@ -46,6 +82,6 @@ const lionsRoar: WeaponData = {
 		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight
 	}
-}
+} as const satisfies WeaponData
 
 export default lionsRoar

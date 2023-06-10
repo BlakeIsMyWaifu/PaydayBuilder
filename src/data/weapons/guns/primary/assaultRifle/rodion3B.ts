@@ -1,17 +1,12 @@
 import content from 'data/source/downloadableContent'
 
 import barrelExt from '../../modifications/barrelExt'
-import bolt from '../../modifications/bolt'
-import exclusiveSet from '../../modifications/exclusiveSet'
 import grip from '../../modifications/grip'
-import lowerReceiver from '../../modifications/lowerReceiver'
-import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { assaultRifleBoost, assaultRifleGadget } from '../commonModifications/assaultRifleModifications'
 
-const rodion3B: WeaponData = {
+const rodion3B = {
 	name: 'Rodion 3B',
 	image: 'tkb',
 	source: content['McShay Weapon Pack 3'],
@@ -61,11 +56,36 @@ const rodion3B: WeaponData = {
 			barrelExt['Dourif Muzzle']
 		],
 		bolt: [
-			bolt['Taktika Deluxe Charging Handle']
+			{
+				name: 'Taktika Deluxe Charging Handle',
+				image: 'wpn_fps_ass_tkb_bolt_rp4',
+				icon: 'inv_mod_bolt',
+				slot: 'bolt',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				stats: {
+					stability: 4,
+					concealment: -1,
+					reload: -0.3
+				}
+			}
 		],
 		boost: assaultRifleBoost,
 		exclusiveSet: [
-			exclusiveSet.Strelok
+			{
+				name: 'Strelok',
+				image: 'wpn_fps_ass_tkb_conversion',
+				icon: 'inv_mod_ammo_explosive', // TODO update icon
+				slot: 'exclusiveSet',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				stats: {
+					damage: -5,
+					accuracy: 16,
+					stability: 12,
+					concealment: -1
+				}
+			}
 		],
 		gadget: assaultRifleGadget,
 		grip: [
@@ -78,10 +98,35 @@ const rodion3B: WeaponData = {
 			grip['Ultimatum AK Grip']
 		],
 		lowerReceiver: [
-			lowerReceiver['Arkady Ammo Pouch']
+			{
+				name: 'Arkady Ammo Pouch',
+				image: 'wpn_fps_ass_tkb_body_pouch',
+				icon: 'inv_mod_lower_receiver',
+				slot: 'lowerReceiver',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				stats: {
+					totalAmmo: 45,
+					accuracy: -4,
+					stability: 4,
+					concealment: -2
+				}
+			}
 		],
 		magazine: [
-			magazine['Siberian Speed Pull Magazine']
+			{
+				name: 'Siberian Speed Pull Magazine',
+				image: 'wpn_fps_ass_tkb_m_bakelite',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				stats: {
+					stability: 4,
+					concealment: -2,
+					reload: -0.6
+				}
+			}
 		],
 		sight: [
 			sight['Holographic Sight x1.5'],
@@ -96,13 +141,43 @@ const rodion3B: WeaponData = {
 			sight['Compact Profile Sight x1.5'],
 			sight['Maelstrom Sight x1.5'],
 			sight['Biometric Analyzer x1.25'],
-			sight['Svidetel Iron Sight'],
-			sight['Angular Rail']
+			{
+				name: 'Svidetel Iron Sight', // TODO scope level
+				image: 'wpn_fps_ass_tkb_o_tritium',
+				icon: 'inv_mod_scope',
+				slot: 'sight',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4
+				}
+			},
+			{
+				name: 'Angular Rail', // TODO scope level
+				image: 'wpn_fps_ass_tkb_o_tt01',
+				icon: 'inv_mod_scope',
+				slot: 'sight',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				stats: {
+					stability: 4
+				}
+			}
 		],
 		stock: [
-			stock['Shoulder Pad']
+			{
+				name: 'Shoulder Pad',
+				image: 'wpn_fps_ass_tkb_s_tigr',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				stats: {
+					stability: 4
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default rodion3B

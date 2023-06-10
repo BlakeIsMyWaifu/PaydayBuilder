@@ -1,12 +1,11 @@
 import content from 'data/source/downloadableContent'
 
 import barrelExt from '../../modifications/barrelExt'
-import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost, pistolGadget } from '../commonModifications/pistolModifications'
 
-const contractor: WeaponData = {
+const contractor = {
 	name: 'Contractor',
 	image: 'packrat',
 	source: content['John Wick Weapon Pack'],
@@ -49,21 +48,59 @@ const contractor: WeaponData = {
 			barrelExt['Flash Hider'],
 			barrelExt['Budget Suppressor'],
 			barrelExt['Jungle Ninja Suppressor'],
-			barrelExt['Contractor Compensator'],
+			{
+				name: 'Contractor Compensator',
+				image: 'wpn_fps_pis_packrat_ns_wick',
+				icon: 'inv_mod_barrel_ext',
+				slot: 'barrelExt',
+				source: content['John Wick Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					concealment: -1
+				}
+			},
 			barrelExt['Hurricane Compensator']
 		],
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		magazine: [
-			magazine['Extended Magazine (Contractor)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_pis_packrat_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['John Wick Weapon Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					magazine: 10,
+					concealment: -1
+				}
+			}
 		],
 		sight: [
 			sight['Pistol Red Dot Sight x1.5'],
-			sight['Tritium Sights'],
+			{
+				name: 'Tritium Sights',
+				image: 'wpn_fps_pis_packrat_o_expert',
+				icon: 'inv_mod_scope',
+				slot: 'sight',
+				source: content['John Wick Weapon Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					accuracy: 4
+				}
+			},
 			sight['Riktpunkt Holosight x1.5'],
 			sight['SKOLD Micro Reflex Sight x1.5']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default contractor

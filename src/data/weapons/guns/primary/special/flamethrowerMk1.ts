@@ -1,10 +1,9 @@
 import content from 'data/source/downloadableContent'
 
 import boost from '../../modifications/boost'
-import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
 
-const flamethrowerMk1: WeaponData = {
+const flamethrowerMk1 = {
 	name: 'Flamethrower Mk.1',
 	image: 'flamethrower_mk2',
 	source: content['The Butcher\'s BBQ Pack'],
@@ -40,13 +39,41 @@ const flamethrowerMk1: WeaponData = {
 			boost.Stability,
 			boost.Accuracy,
 			boost['Team Boost'],
-			boost['Total Ammo (Main)']
+			boost['Total Ammo']
 		],
 		magazine: [
-			magazine.Rare,
-			magazine['Well Done']
+			{
+				name: 'Rare',
+				image: 'wpn_fps_fla_mk2_mag_rare',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['The Butcher\'s BBQ Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					totalAmmo: 450,
+					damage: -4
+				}
+			},
+			{
+				name: 'Well Done',
+				image: 'wpn_fps_fla_mk2_mag_welldone',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['The Butcher\'s BBQ Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					totalAmmo: -450,
+					damage: 7
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default flamethrowerMk1

@@ -1,8 +1,7 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
-import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
@@ -11,7 +10,7 @@ import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const para: WeaponData = {
+const para = {
 	name: 'Para',
 	image: 'olympic',
 	source: source['Base Game'],
@@ -42,7 +41,18 @@ const para: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Medium Barrel (Para)']
+			{
+				name: 'Medium Barrel',
+				image: 'wpn_fps_m4_uupg_b_medium',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					concealment: -1
+				}
+			}
 		],
 		barrelExt: [
 			barrelExt['Medium Suppressor'],
@@ -63,8 +73,32 @@ const para: WeaponData = {
 		boost: submachineGunBoost,
 		custom: submachineGunCustom,
 		foregrip: [
-			foregrip['Railed Handguard'],
-			foregrip['Aftermarket Shorty']
+			{
+				name: 'Railed Handguard',
+				image: 'wpn_fps_smg_olympic_fg_railed',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: source['Base Game'],
+				cost: 28e3,
+				stats: {
+					stability: 4,
+					concealment: -1
+				}
+			},
+			{
+				name: 'Aftermarket Shorty',
+				image: 'wpn_fps_upg_smg_olympic_fg_lr300',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['The Butcher\'s AK/CAR Mod Pack'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'The Wolf Lures You to Your Grave'
+				},
+				stats: {
+					stability: 8
+				}
+			}
 		],
 		gadget: submachineGunGadget,
 		grip: [
@@ -96,7 +130,18 @@ const para: WeaponData = {
 		stock: [
 			stock['Standard Stock (Main)'],
 			stock['Tactical Stock (Main)'],
-			stock['Shorter Than Short Stock'],
+			{
+				name: 'Shorter Than Short Stock',
+				image: 'wpn_fps_smg_olympic_s_short',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 36e3,
+				stats: {
+					stability: -4,
+					concealment: 2
+				}
+			},
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
@@ -112,6 +157,6 @@ const para: WeaponData = {
 			upperReceiver['Orthogon Upper Receiver']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default para

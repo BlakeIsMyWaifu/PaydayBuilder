@@ -1,12 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import magazine from '../../modifications/magazine'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const blaster9mm: WeaponData = {
+const blaster9mm = {
 	name: 'Blaster 9mm',
 	image: 'tec9',
 	source: content['Hotline Miami'],
@@ -37,22 +34,81 @@ const blaster9mm: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Short Barrel (Blaster)'],
-			barrel['Ghetto Blaster']
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_smg_tec9_b_standard',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Hotline Miami'],
+				cost: 21e3,
+				acquisition: {
+					achievement: 'Sounds of Animals Fighting'
+				},
+				stats: {
+					accuracy: -4,
+					stability: 4,
+					concealment: 3
+				}
+			},
+			{
+				name: 'Ghetto Blaster',
+				image: 'wpn_fps_smg_tec9_ns_ext',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Hotline Miami'],
+				cost: 36e3,
+				acquisition: {
+					achievement: 'Overdose'
+				},
+				stats: {
+					accuracy: 4,
+					stability: -8,
+					concealment: -3
+				}
+			}
 		],
 		barrelExt: submachineGunBarrelExt,
 		boost: submachineGunBoost,
 		custom: submachineGunCustom,
 		gadget: submachineGunGadget,
 		magazine: [
-			magazine['Extended Magazine (Blaster)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_smg_tec9_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['Hotline Miami'],
+				cost: 28e3,
+				acquisition: {
+					achievement: 'Overdose'
+				},
+				stats: {
+					magazine: 12,
+					stability: 8,
+					concealment: -2
+				}
+			}
 		],
 		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight,
 		stock: [
-			stock['Just Bend It']
+			{
+				name: 'Just Bend It',
+				image: 'wpn_fps_smg_tec9_s_unfolded',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Hotline Miami'],
+				cost: 21e3,
+				acquisition: {
+					achievement: 'Overdose'
+				},
+				stats: {
+					stability: 12,
+					concealment: -2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default blaster9mm

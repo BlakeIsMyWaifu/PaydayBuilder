@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget } from '../commonModifications/shotgunModifications'
 
-const reinfeld88: WeaponData = {
+const reinfeld88 = {
 	name: 'Reinfeld 88',
 	image: 'm1897',
 	source: content['Gunslinger Weapon Pack'],
@@ -37,16 +35,50 @@ const reinfeld88: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrel: [
-			barrel['Huntsman Barrel'],
-			barrel['Ventilated Barrel']
+			{
+				name: 'Huntsman Barrel',
+				image: 'wpn_fps_shot_m1897_b_long', // - wpn_fps_sho_m1897_b_long
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gunslinger Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 8,
+					stability: 4,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Ventilated Barrel',
+				image: 'wpn_fps_shot_m1897_b_short', // - wpn_fps_sho_m1897_b_short
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gunslinger Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: -8,
+					concealment: 2
+				}
+			}
 		],
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
 		gadget: shotgunGadget,
 		stock: [
-			stock['Artisan Stock']
+			{
+				name: 'Artisan Stock',
+				image: 'wpn_fps_shot_m1897_s_short', // - wpn_fps_sho_m1897_s_xxx
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Gunslinger Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: -8,
+					concealment: 2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default reinfeld88

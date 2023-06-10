@@ -1,33 +1,33 @@
-import ammunition, { type AmmunitionModificationsList } from '../../modifications/ammunition'
-import boost, { type BoostModificationsList } from '../../modifications/boost'
-import gadget, { type GadgetModificationsList } from '../../modifications/gadget'
-import secondarySight, { type SecondarySightList } from '../../modifications/secondarySight'
-import sight, { type SightModificationsList } from '../../modifications/sight'
+import ammunition from '../../modifications/ammunition'
+import boost from '../../modifications/boost'
+import gadget from '../../modifications/gadget'
+import secondarySight from '../../modifications/secondarySight'
+import sight from '../../modifications/sight'
 import { type Modification } from '../../weaponTypes'
 
-export const specialAmmunition: Modification<AmmunitionModificationsList>[] = [
+export const specialAmmunition: Modification[] = [
 	ammunition['Sting Grenade'],
 	ammunition['Incendiary Round'],
 	ammunition['X1-a Tactical ZAPper'],
 	ammunition['Viper Grenade']
 ]
 
-export const specialBoost: Modification<BoostModificationsList>[] = [
+export const specialBoost: Modification[] = [
 	boost.Concealment,
 	boost.Stability,
 	boost.Accuracy,
 	boost['Team Boost']
 ]
 
-export const specialBoostTotalAmmo: Modification<BoostModificationsList>[] = [
+export const specialBoostTotalAmmo: Modification[] = [
 	boost.Concealment,
 	boost.Stability,
 	boost.Accuracy,
 	boost['Team Boost'],
-	boost['Total Ammo (Main)']
+	boost['Total Ammo']
 ]
 
-export const specialGadget: Modification<GadgetModificationsList>[] = [
+export const specialGadget: Modification[] = [
 	gadget['Assault Light'],
 	gadget['Tactical Laser Module'],
 	gadget['Compact Laser Module'],
@@ -36,12 +36,12 @@ export const specialGadget: Modification<GadgetModificationsList>[] = [
 	gadget['Stealth Laser Module']
 ]
 
-export const specialSecondarySight: Modification<SecondarySightList>[] = [
+export const specialSecondarySight: Modification[] = [
 	secondarySight['Riktpunkt Magnifier Gadget x6.25'],
 	secondarySight['Signature Magnifier Gadget x6.25']
 ]
 
-export const specialSight: Modification<SightModificationsList>[] = [
+export const specialSight: Modification[] = [
 	sight['Holographic Sight x1.5'],
 	sight['The Professional\'s Choice Sight x1.5'],
 	sight['Surgeon Sight x1.25'],

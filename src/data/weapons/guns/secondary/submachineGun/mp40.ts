@@ -1,10 +1,10 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBarrelExt, submachineGunBoost, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const mp40: WeaponData = {
+const mp40 = {
 	name: 'MP40',
 	image: 'erma',
 	source: source['Base Game'],
@@ -39,9 +39,20 @@ const mp40: WeaponData = {
 		gadget: submachineGunGadget,
 		sight: submachineGunSight,
 		stock: [
-			stock['Folded Stock (MP40)']
+			{
+				name: 'Folded Stock',
+				image: 'wpn_fps_smg_erma_s_folded',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['WW2 Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					stability: -8,
+					concealment: 3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default mp40

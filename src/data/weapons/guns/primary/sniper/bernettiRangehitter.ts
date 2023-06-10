@@ -1,12 +1,11 @@
 import content from 'data/source/downloadableContent'
+import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
 import sight from '../../modifications/sight'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { sniperBoost, sniperGadget, sniperSecondarySight } from '../commonModifications/sniperModifications'
 
-const bernettiRangehitter: WeaponData = {
+const bernettiRangehitter = {
 	name: 'Bernetti Rangehitter',
 	image: 'sbl',
 	source: content['Gunslinger Weapon Pack'],
@@ -37,8 +36,35 @@ const bernettiRangehitter: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Deep Range Barrel'],
-			barrel['Wind Whistler Barrel']
+			{
+				name: 'Deep Range Barrel',
+				image: 'wpn_fps_snp_sbl_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gunslinger Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 12,
+					stability: 4,
+					concealment: -3
+				}
+			},
+			{
+				name: 'Wind Whistler Barrel',
+				image: 'wpn_fps_snp_sbl_b_short',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['Gunslinger Weapon Pack'],
+				cost: 44e3,
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -6,
+					accuracy: -4,
+					stability: 12,
+					concealment: -1,
+					threat: -22
+				}
+			}
 		],
 		boost: sniperBoost,
 		gadget: sniperGadget,
@@ -60,7 +86,18 @@ const bernettiRangehitter: WeaponData = {
 			sight['Theia Magnified Scope x10'],
 			sight['Box Buddy Sight x10'],
 			sight['Reconnaissance Sight x2'],
-			sight['Iron Sight x1 (Bernetti Rangehitter)'],
+			{
+				name: 'Iron Sight x1',
+				image: 'wpn_fps_snp_sbl_o_standard',
+				icon: 'inv_mod_scope',
+				slot: 'sight',
+				source: source['Christmas 2020 Update'],
+				cost: 9e3,
+				stats: {
+					stability: -4,
+					concealment: 2
+				}
+			},
 			sight['Compact Tactical Box Sight x2.5'],
 			sight['CASSIAN Iron Sights x1'],
 			sight['Compact Profile Sight x1.5'],
@@ -74,9 +111,19 @@ const bernettiRangehitter: WeaponData = {
 			sight['Tuunbaq Scope x4.5 / x10']
 		],
 		stock: [
-			stock['Club Stock']
+			{
+				name: 'Club Stock',
+				image: 'wpn_fps_snp_sbl_s_saddle', // - wpn_fps_snp_sbl_s_xxx
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Gunslinger Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					totalAmmo: 3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default bernettiRangehitter

@@ -1,13 +1,12 @@
 import source from 'data/source/miscSources'
 
 import grip from '../../modifications/grip'
-import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
 import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
-const locomotive12G: WeaponData = {
+const locomotive12G = {
 	name: 'Locomotive 12G',
 	image: 'serbu',
 	source: source['Base Game'],
@@ -53,16 +52,59 @@ const locomotive12G: WeaponData = {
 			grip['Ursa Minor Grip']
 		],
 		magazine: [
-			magazine['Extended Magazine (Locomotive)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_shot_shorty_m_extended_short',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					magazine: 2
+				}
+			}
 		],
 		secondarySight: shotgunSecondarySight,
 		sight: shotgunSight,
 		stock: [
 			stock['Standard Stock (Main)'],
-			stock['Standard Stock (Locomotive)'],
-			stock['Police Shorty Stock'],
+			{
+				name: 'Standard Stock',
+				image: 'wpn_fps_shot_r870_s_solid',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 14e3,
+				stats: {
+					stability: 4,
+					concealment: -1
+				}
+			},
+			{
+				name: 'Police Shorty Stock',
+				image: 'wpn_fps_shot_shorty_s_solid_short',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 21e3,
+				stats: {
+					stability: 8,
+					concealment: -3
+				}
+			},
 			stock['Tactical Stock (Main)'],
-			stock['Tactical Shorty Stock'],
+			{
+				name: 'Tactical Shorty Stock',
+				image: 'wpn_fps_shot_shorty_s_nostock_short',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 28e3,
+				stats: {
+					stability: -16,
+					concealment: 3
+				}
+			},
 			stock['Muldon Stock'],
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
@@ -75,6 +117,6 @@ const locomotive12G: WeaponData = {
 			upperReceiver['Shell Rack']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default locomotive12G

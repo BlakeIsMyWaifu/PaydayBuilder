@@ -1,10 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
-const streetSweeper: WeaponData = {
+const streetSweeper = {
 	name: 'Street Sweeper',
 	image: 'striker',
 	source: content['Gage Shotgun Pack'],
@@ -36,8 +35,42 @@ const streetSweeper: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrel: [
-			barrel['Long Barrel (Street Sweeper)'],
-			barrel['Suppressed Barrel (Street Sweeper)']
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_sho_striker_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Shotgun Pack'],
+				cost: 21e3,
+				acquisition: {
+					achievement: 'Bang for the Buck'
+				},
+				stats: {
+					accuracy: 8,
+					stability: 4,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Suppressed Barrel',
+				image: 'wpn_fps_sho_striker_b_suppressed',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['Gage Shotgun Pack'],
+				cost: 36e3,
+				acquisition: {
+					achievement: 'No Heist for Old Man'
+				},
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -2,
+					accuracy: -4,
+					stability: 8,
+					concealment: -2,
+					threat: -22
+				},
+				incompatibleSlot: ['barrelExt']
+			}
 		],
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
@@ -45,6 +78,6 @@ const streetSweeper: WeaponData = {
 		secondarySight: shotgunSecondarySight,
 		sight: shotgunSight
 	}
-}
+} as const satisfies WeaponData
 
 export default streetSweeper

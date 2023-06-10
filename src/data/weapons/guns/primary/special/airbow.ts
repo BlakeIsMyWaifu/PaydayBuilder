@@ -1,12 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import ammunition from '../../modifications/ammunition'
 import sight from '../../modifications/sight'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { specialBoost } from '../commonModifications/specialModifications'
 
-const airbow: WeaponData = {
+const airbow = {
 	name: 'Airbow',
 	image: 'ecp',
 	source: content['h3h3 Character Pack'],
@@ -37,8 +35,36 @@ const airbow: WeaponData = {
 	},
 	modifications: {
 		ammunition: [
-			ammunition['Explosive Arrow (Airbow)'],
-			ammunition['Poison Arrow (Airbow)']
+			{
+				name: 'Explosive Arrow',
+				image: 'wpn_fps_bow_ecp_m_arrows_explosive', // - wpn_fps_bow_ecp_m_explosive
+				icon: 'inv_mod_ammo_explosive',
+				slot: 'ammunition',
+				source: content['h3h3 Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				specialEffect: ['Explosive', 'Removes Ammo Pickup'],
+				stats: {
+					damage: -150
+				}
+			},
+			{
+				name: 'Poison Arrow',
+				image: 'wpn_fps_bow_ecp_m_arrows_poison', // - wpn_fps_bow_ecp_m_poison
+				icon: 'inv_mod_ammo_poison',
+				slot: 'ammunition',
+				source: content['h3h3 Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				specialEffect: ['100% chance to poison target'],
+				stats: {
+					damage: -600
+				}
+			}
 		],
 		boost: specialBoost,
 		sight: [
@@ -65,9 +91,23 @@ const airbow: WeaponData = {
 			sight['Z5 Owl Glass Universal Scope x2.5']
 		],
 		stock: [
-			stock['Light Stock (Airbow)']
+			{
+				name: 'Light Stock (Airbow)',
+				image: 'wpn_fps_bow_ecp_s_bare',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['h3h3 Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					stability: -8,
+					concealment: 2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default airbow

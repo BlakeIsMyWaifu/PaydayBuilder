@@ -1,10 +1,9 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
 import chargingHandle from '../../modifications/chargingHandle'
 import extra from '../../modifications/extra'
-import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
@@ -12,7 +11,7 @@ import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBoost, shotgunCustom, shotgunGadget, shotgunSight } from '../commonModifications/shotgunModifications'
 
-const izhma12G: WeaponData = {
+const izhma12G = {
 	name: 'IZHMA 12G',
 	image: 'saiga',
 	source: source['Base Game'],
@@ -44,7 +43,22 @@ const izhma12G: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrel: [
-			barrel['Short Barrel (IZHMA)']
+			{
+				name: 'Short Barrel (IZHMA)',
+				image: 'wpn_fps_sho_saiga_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Spec Ops Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					accuracy: -4,
+					stability: -4,
+					concealment: 4
+				}
+			}
 		],
 		barrelExt: [
 			barrelExt['Shark Teeth Nozzle'],
@@ -60,11 +74,35 @@ const izhma12G: WeaponData = {
 			chargingHandle['Taktika Charging Handle']
 		],
 		extra: [
-			extra['Scope Mount (AK)']
+			extra['Scope Mount']
 		],
 		foregrip: [
-			foregrip['The Tactical Russian Rail'],
-			foregrip['Hollow Handle']
+			{
+				name: 'The Tactical Russian Rail',
+				image: 'wpn_upg_saiga_fg_lowerrail',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: source['Base Game'],
+				cost: 36e3,
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Hollow Handle',
+				image: 'wpn_fps_sho_saiga_fg_holy',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['Gage Spec Ops Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					concealment: 4
+				}
+			}
 		],
 		gadget: shotgunGadget,
 		grip: [
@@ -97,6 +135,6 @@ const izhma12G: WeaponData = {
 			upperReceiver['Taktika Railed Cover']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default izhma12G

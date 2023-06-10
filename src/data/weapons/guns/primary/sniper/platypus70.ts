@@ -1,11 +1,10 @@
 import source from 'data/source/miscSources'
 
-import barrelExt from '../../modifications/barrelExt'
 import sight from '../../modifications/sight'
 import { type WeaponData } from '../../weaponTypes'
 import { sniperBoost, sniperGadget, sniperSecondarySight } from '../commonModifications/sniperModifications'
 
-const platypus70: WeaponData = {
+const platypus70 = {
 	name: 'Platypus 70',
 	image: 'model70',
 	source: source['Base Game'],
@@ -36,13 +35,41 @@ const platypus70: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			barrelExt['Beak Suppressor']
+			{
+				name: 'Beak Suppressor',
+				image: 'wpn_fps_snp_model70_ns_suppressor',
+				icon: 'inv_mod_silencer',
+				slot: 'barrelExt',
+				source: source['Base Game'],
+				cost: 9e3,
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -12,
+					stability: 4,
+					concealment: -2,
+					threat: -22
+				}
+			}
 		],
 		boost: sniperBoost,
 		gadget: sniperGadget,
 		secondarySight: sniperSecondarySight,
 		sight: [
-			sight['Iron Sight x1.25 (Platypus)'],
+			{
+				name: 'Iron Sight x1.25',
+				image: 'wpn_fps_snp_model70_iron_sight',
+				icon: 'inv_mod_scope',
+				slot: 'sight',
+				source: source['Base Game'],
+				cost: 0,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					stability: -4,
+					concealment: 2
+				}
+			},
 			sight['Holographic Sight x1.5'],
 			sight['The Professional\'s Choice Sight x1.5'],
 			sight['Surgeon Sight x1.25'],
@@ -72,6 +99,6 @@ const platypus70: WeaponData = {
 			sight['Tuunbaq Scope x4.5 / x10']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default platypus70

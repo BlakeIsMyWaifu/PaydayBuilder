@@ -1,11 +1,9 @@
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBoost } from '../commonModifications/shotgunModifications'
 
-const jocelineOU12G: WeaponData = {
+const jocelineOU12G = {
 	name: 'Joceline O/U 12G',
 	image: 'b682',
 	source: source.Community,
@@ -37,14 +35,48 @@ const jocelineOU12G: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrel: [
-			barrel['Sawed Off Barrel (Joceline)']
+			{
+				name: 'Sawed Off Barrel',
+				image: 'wpn_fps_shot_b682_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source.Community,
+				cost: 9e3,
+				stats: {
+					accuracy: -16,
+					stability: -12,
+					concealment: 10
+				}
+			}
 		],
 		boost: shotgunBoost,
 		stock: [
-			stock['Luxurious Ammo Pouch'],
-			stock['Wrist Wrecker Stock']
+			{
+				name: 'Luxurious Ammo Pouch',
+				image: 'wpn_fps_shot_b682_s_ammopouch',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source.Community,
+				cost: 9e3,
+				stats: {
+					totalAmmo: 8
+				}
+			},
+			{
+				name: 'Wrist Wrecker Stock',
+				image: 'wpn_fps_shot_b682_s_short',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source.Community,
+				cost: 9e3,
+				stats: {
+					accuracy: -16,
+					stability: -12,
+					concealment: 6
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default jocelineOU12G

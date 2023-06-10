@@ -1,13 +1,10 @@
 import content from 'data/source/downloadableContent'
 
 import barrelExt from '../../modifications/barrelExt'
-import grip from '../../modifications/grip'
-import magazine from '../../modifications/magazine'
-import slide from '../../modifications/slide'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const signature40: WeaponData = {
+const signature40 = {
 	name: 'Signature .40',
 	image: 'p226',
 	source: content['Gage Weapon Pack #01'],
@@ -47,8 +44,33 @@ const signature40: WeaponData = {
 			barrelExt['Size Doesn\'t Matter Suppressor'],
 			barrelExt['Monolith Suppressor'],
 			barrelExt['Asepsis Suppressor'],
-			barrelExt['Ventilated .40'],
-			barrelExt['Velocity .40'],
+			{
+				name: 'Ventilated .40',
+				image: 'wpn_fps_pis_p226_co_comp_1',
+				icon: 'inv_mod_barrel_ext',
+				slot: 'barrelExt',
+				source: content['Gage Weapon Pack #01'],
+				cost: 39200,
+				stats: {
+					damage: 2,
+					accuracy: -4,
+					concealment: -1,
+					threat: 5
+				}
+			},
+			{
+				name: 'Velocity .40',
+				image: 'wpn_fps_pis_p226_co_comp_2',
+				icon: 'inv_mod_barrel_ext',
+				slot: 'barrelExt',
+				source: content['Gage Weapon Pack #01'],
+				cost: 50400,
+				stats: {
+					accuracy: 8,
+					stability: 8,
+					concealment: -1
+				}
+			},
 			barrelExt['Flash Hider'],
 			barrelExt['Budget Suppressor'],
 			barrelExt['Jungle Ninja Suppressor'],
@@ -57,17 +79,63 @@ const signature40: WeaponData = {
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		grip: [
-			grip['Ergo Grip (Signature .40)']
+			{
+				name: 'Ergo Grip',
+				image: 'wpn_fps_pis_p226_g_ergo',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Gage Weapon Pack #01'],
+				cost: 12600,
+				stats: {
+					stability: 4,
+					concealment: -1
+				}
+			}
 		],
 		magazine: [
-			magazine['Extended Magazine (Signature .40)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_pis_p226_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['Gage Weapon Pack #01'],
+				cost: 14e3,
+				stats: {
+					magazine: 8
+				}
+			}
 		],
 		sight: pistolSight,
 		slide: [
-			slide['Two Tone Slide'],
-			slide['Long Slide (Signature .40)']
+			{
+				name: 'Two Tone Slide',
+				image: 'wpn_fps_pis_p226_b_equinox',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: content['Gage Weapon Pack #01'],
+				cost: 39200,
+				stats: {
+					damage: 2,
+					stability: 4,
+					threat: 2
+				}
+			},
+			{
+				name: 'Long Slide',
+				image: 'wpn_fps_pis_p226_b_long',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: content['Gage Weapon Pack #01'],
+				cost: 61e3,
+				stats: {
+					damage: 1,
+					accuracy: 8,
+					stability: 4,
+					concealment: -3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default signature40

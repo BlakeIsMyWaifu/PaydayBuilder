@@ -1,15 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import bolt from '../../modifications/bolt'
-import exclusiveSet from '../../modifications/exclusiveSet'
-import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { sniperBoost, sniperGadget, sniperSecondarySight } from '../commonModifications/sniperModifications'
 
-const pronghorn: WeaponData = {
+const pronghorn = {
 	name: 'Pronghorn',
 	image: 'scout',
 	source: content['McShay Weapon Pack'],
@@ -40,18 +35,66 @@ const pronghorn: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Longshot Suppressor']
+			{
+				name: 'Longshot Suppressor',
+				image: 'wpn_fps_snp_scout_ns_suppressor',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					damage: -2,
+					accuracy: 12,
+					stability: 4,
+					concealment: -2,
+					threat: -22
+				}
+			}
 		],
 		bolt: [
-			bolt['Quickdraw Speedbolt']
+			{
+				name: 'Quickdraw Speedbolt',
+				image: 'wpn_fps_snp_scout_bolt_speed',
+				icon: 'inv_mod_bolt',
+				slot: 'bolt',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					concealment: -1 // TODO reload
+				}
+			}
 		],
 		boost: sniperBoost,
 		exclusiveSet: [
-			exclusiveSet['Open Range Sniper']
+			{
+				name: 'Open Range Sniper',
+				image: 'wpn_fps_snp_scout_conversion',
+				icon: 'inv_mod_ammo_explosive', // TODO update icon
+				slot: 'exclusiveSet',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 12,
+					stability: 16,
+					concealment: -2,
+					reload: -1.5
+				}
+			}
 		],
 		gadget: sniperGadget,
 		magazine: [
-			magazine['Standoff Extended Magazine']
+			{
+				name: 'Standoff Extended Magazine',
+				image: 'wpn_fps_snp_scout_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					totalAmmo: 2,
+					concealment: -1
+				}
+			}
 		],
 		secondarySight: sniperSecondarySight,
 		sight: [
@@ -78,16 +121,50 @@ const pronghorn: WeaponData = {
 			sight['Biometric Analyzer x1.25'],
 			sight['Advanced Combat Sight x3.25'],
 			sight['CASSIAN Sharp Sight x3.25'],
-			sight['Iron Sights'],
+			{
+				name: 'Iron Sights',
+				image: 'wpn_fps_snp_scout_o_iron_up',
+				icon: 'inv_mod_scope',
+				slot: 'sight',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					stability: -4,
+					concealment: 2
+				}
+			},
 			sight['Trace Optic x6.25'],
 			sight['Z5 Owl Glass Universal Scope x2.5'],
 			sight['Tuunbaq Scope x4.5 / x10']
 		],
 		stock: [
-			stock['Stakeout Stock (Pronghorn)'],
-			stock['Marksman Stock (Pronghorn)']
+			{
+				name: 'Stakeout Stock',
+				image: 'wpn_fps_snp_scout_s_pads_none',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: -8,
+					stability: -4,
+					concealment: 2
+				}
+			},
+			{
+				name: 'Marksman Stock',
+				image: 'wpn_fps_snp_scout_s_pads_one',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					stability: -4,
+					concealment: 1
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default pronghorn

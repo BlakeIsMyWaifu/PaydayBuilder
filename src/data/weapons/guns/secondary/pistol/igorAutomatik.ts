@@ -1,13 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import grip from '../../modifications/grip'
-import magazine from '../../modifications/magazine'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const igorAutomatik: WeaponData = {
+const igorAutomatik = {
 	name: 'Igor Automatik',
 	image: 'stech',
 	source: content['Federales Weapon Pack'],
@@ -38,23 +34,79 @@ const igorAutomatik: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Tirador Barrel']
+			{
+				name: 'Tirador Barrel',
+				image: 'wpn_fps_pis_stech_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Federales Weapon Pack'],
+				cost: 36e3,
+				stats: {
+					accuracy: 4,
+					concealment: -2,
+					threat: 2
+				}
+			}
 		],
 		barrelExt: pistolBarrelExt,
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		grip: [
-			grip['Federales Grip'],
-			grip['Cartel Grip (Igor)']
+			{
+				name: 'Federales Grip',
+				image: 'wpn_fps_pis_stech_g_tactical',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Federales Weapon Pack'],
+				cost: 21e3,
+				stats: {
+					stability: 4,
+					concealment: 1
+				}
+			},
+			{
+				name: 'Cartel Grip (Igor)',
+				image: 'wpn_fps_pis_stech_g_luxury',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Federales Weapon Pack'],
+				cost: 28e3,
+				stats: {
+					accuracy: 4,
+					concealment: -1
+				}
+			}
 		],
 		magazine: [
-			magazine['Extended Magazine (Igor)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_pis_stech_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['Federales Weapon Pack'],
+				cost: 36e3,
+				stats: {
+					magazine: 14,
+					concealment: -2
+				}
+			}
 		],
 		sight: pistolSight,
 		stock: [
-			stock['Federales Stock (Igor)']
+			{
+				name: 'Federales Stock',
+				image: 'wpn_fps_pis_stech_s_standard',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Federales Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					stability: 12,
+					concealment: -3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default igorAutomatik

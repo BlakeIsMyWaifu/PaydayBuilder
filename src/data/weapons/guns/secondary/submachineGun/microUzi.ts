@@ -1,12 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBoost, submachineGunCustom, submachineGunGadgetSmall } from '../commonModifications/submachineGunModifications'
 
-const microUzi: WeaponData = {
+const microUzi = {
 	name: 'Micro Uzi',
 	image: 'baka',
 	source: content['Yakuza Character Pack'],
@@ -37,7 +35,21 @@ const microUzi: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Custom Barrel']
+			{
+				name: 'Custom Barrel',
+				image: 'wpn_fps_smg_baka_b_comp',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Yakuza Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: 4,
+					concealment: -1
+				}
+			}
 		],
 		barrelExt: [
 			barrelExt['Medium Suppressor'],
@@ -51,9 +63,57 @@ const microUzi: WeaponData = {
 			barrelExt['Funnel of Fun Nozzle'],
 			barrelExt['Tactical Compensator'],
 			barrelExt['Ported Compensator'],
-			barrelExt['Futomaki Suppressor'],
-			barrelExt['Maki Suppressor'],
-			barrelExt['Spring Suppressor'],
+			{
+				name: 'Futomaki Suppressor',
+				image: 'wpn_fps_smg_baka_b_longsupp',
+				icon: 'inv_mod_silencer',
+				slot: 'barrelExt',
+				source: content['Yakuza Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					stability: 20,
+					concealment: -1,
+					threat: -20
+				}
+			},
+			{
+				name: 'Maki Suppressor',
+				image: 'wpn_fps_smg_baka_b_midsupp',
+				icon: 'inv_mod_silencer',
+				slot: 'barrelExt',
+				source: content['Yakuza Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -2,
+					stability: 8,
+					concealment: -2,
+					threat: -20
+				}
+			},
+			{
+				name: 'Spring Suppressor',
+				image: 'wpn_fps_smg_baka_b_smallsupp',
+				icon: 'inv_mod_silencer',
+				slot: 'barrelExt',
+				source: content['Yakuza Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -4,
+					threat: -20
+				}
+			},
 			barrelExt['Marmon Compensator'],
 			barrelExt['Verdunkeln Muzzle Brake'],
 			barrelExt['Rami Suppressor'],
@@ -63,10 +123,38 @@ const microUzi: WeaponData = {
 		custom: submachineGunCustom,
 		gadget: submachineGunGadgetSmall,
 		stock: [
-			stock['No Stock (Micro Uzi)'],
-			stock['Unfolded Stock (Micro Uzi)']
+			{
+				name: 'No Stock',
+				image: 'wpn_fps_smg_baka_s_standard',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Yakuza Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					stability: -8,
+					concealment: 1
+				}
+			},
+			{
+				name: 'Unfolded Stock',
+				image: 'wpn_fps_smg_baka_s_unfolded',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Yakuza Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					stability: 8,
+					concealment: -3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default microUzi

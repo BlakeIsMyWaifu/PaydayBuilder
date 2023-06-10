@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import magazine from '../../modifications/magazine'
-import slide from '../../modifications/slide'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const crosskillChunkyCompact: WeaponData = {
+const crosskillChunkyCompact = {
 	name: 'Crosskill Chunky Compact',
 	image: 'm1911',
 	source: content['Jiu Feng Smuggler Pack'],
@@ -39,14 +37,47 @@ const crosskillChunkyCompact: WeaponData = {
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		magazine: [
-			magazine['Crosskill Long Mag']
+			{
+				name: 'Crosskill Long Mag',
+				image: 'wpn_fps_pis_m1911_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['Jiu Feng Smuggler Pack'],
+				cost: 9e3,
+				stats: {
+					magazine: 2,
+					concealment: -1
+				}
+			}
 		],
 		sight: pistolSight,
 		slide: [
-			slide['Chunky Hunter Barrel'],
-			slide['Crosskill Platinum Bull Slide']
+			{
+				name: 'Chunky Hunter Barrel',
+				image: 'wpn_fps_pis_m1911_sl_hardballer', // - wpn_fps_pis_m1911_b_xxx
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: content['Jiu Feng Smuggler Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 8,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Crosskill Platinum Bull Slide',
+				image: 'wpn_fps_pis_m1911_sl_match', // - wpn_fps_pis_m1911_b_xxx__
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: content['Jiu Feng Smuggler Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					concealment: -1
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default crosskillChunkyCompact

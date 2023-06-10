@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import grip from '../../modifications/grip'
-import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const holt9mm: WeaponData = {
+const holt9mm = {
 	name: 'HOLT 9mm',
 	image: 'holt',
 	source: content['Fugitive Weapon Pack'],
@@ -39,14 +37,45 @@ const holt9mm: WeaponData = {
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		grip: [
-			grip['Ergonomic Grip (HOLT)'],
-			grip['Bling Grip (HOLT)']
+			{
+				name: 'Ergonomic Grip',
+				image: 'wpn_fps_pis_holt_g_ergo',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Fugitive Weapon Pack'],
+				cost: 14e3,
+				stats: {
+					accuracy: 8
+				}
+			},
+			{
+				name: 'Bling Grip',
+				image: 'wpn_fps_pis_holt_g_bling',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Fugitive Weapon Pack'],
+				cost: 21e3,
+				stats: {
+					stability: 8
+				}
+			}
 		],
 		magazine: [
-			magazine['Extended Magazine (HOLT)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_pis_holt_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['Fugitive Weapon Pack'],
+				cost: 14e3,
+				stats: {
+					magazine: 10,
+					concealment: -1
+				}
+			}
 		],
 		sight: pistolSight
 	}
-}
+} as const satisfies WeaponData
 
 export default holt9mm

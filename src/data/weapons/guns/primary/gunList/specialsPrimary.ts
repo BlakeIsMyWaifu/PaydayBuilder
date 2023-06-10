@@ -14,9 +14,9 @@ import plainsriderBow from '../special/plainsriderBow'
 import vulcanMinigun from '../special/vulcanMinigun'
 import xl556Microgun from '../special/xl556Microgun'
 
-export type SpecialPrimaryList = typeof specialPrimaryList[number]
+export type SpecialPrimary = typeof specialPrimaryList[number]
 
-const specialsPrimary: Record<SpecialPrimaryList, WeaponData> = {
+const specialsPrimary: Record<SpecialPrimary, WeaponData> = {
 	'OVE9000': ove9000,
 	'XL 5.56 Microgun': xl556Microgun,
 	'DECA Technologies Compound Bow': decaTechnologiesCompoundBow,

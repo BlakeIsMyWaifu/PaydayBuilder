@@ -3,7 +3,7 @@ import armours, { type ArmourList } from 'data/character/armours'
 import characters, { type CharacterList } from 'data/character/characters'
 import equipments, { type EquipmentData, type EquipmentList } from 'data/character/equipment'
 import { allMasks, type CategoryList, type MaskList } from 'data/character/masks'
-import { type AllWeaponList, type Modification, type ModificationSlot, type WeaponData, type WeaponFind, type WeaponType } from 'data/weapons/guns/weaponTypes'
+import { type WeaponName, type Modification, type ModificationSlot, type WeaponData, type WeaponFind, type WeaponType } from 'data/weapons/guns/weaponTypes'
 import melees, { type MeleeList } from 'data/weapons/melees'
 import throwables, { type ThrowableData, type ThrowableList } from 'data/weapons/throwables'
 import { type CopycatValues } from 'state/useAbilitiesStore'
@@ -103,7 +103,7 @@ export const decodeArmoury = (value: string, data: Record<string, Record<string,
 		const weaponFind: WeaponFind = {
 			slot,
 			type: type as WeaponType,
-			name: weaponName as AllWeaponList
+			name: weaponName as WeaponName
 		}
 		const weaponData = findWeapon(weaponFind)
 

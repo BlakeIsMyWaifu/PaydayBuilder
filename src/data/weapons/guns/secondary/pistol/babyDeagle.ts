@@ -1,12 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import grip from '../../modifications/grip'
-import lowerReceiver from '../../modifications/lowerReceiver'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const babyDeagle: WeaponData = {
+const babyDeagle = {
 	name: 'Baby Deagle',
 	image: 'sparrow',
 	source: content['The Point Break Heists'],
@@ -37,20 +34,64 @@ const babyDeagle: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Ported Barrel'],
-			barrel['Threaded Barrel (Baby Deagle)']
+			{
+				name: 'Ported Barrel',
+				image: 'wpn_fps_pis_sparrow_b_comp',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Point Break Heists'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4
+				},
+				incompatibleSlot: ['barrelExt']
+			},
+			{
+				name: 'Threaded Barrel',
+				image: 'wpn_fps_pis_sparrow_b_threaded',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Point Break Heists'],
+				cost: 9e3,
+				stats: {
+					stability: 4
+				}
+			}
 		],
 		barrelExt: pistolBarrelExt,
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		grip: [
-			grip['Spike Grip']
+			{
+				name: 'Spike Grip',
+				image: 'wpn_fps_pis_sparrow_g_cowboy',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['The Point Break Heists'],
+				cost: 9e3,
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			}
 		],
 		lowerReceiver: [
-			lowerReceiver['Spike Kit']
+			{
+				name: 'Spike Kit',
+				image: 'wpn_fps_pis_sparrow_body_941',
+				icon: 'inv_mod_lower_receiver',
+				slot: 'lowerReceiver',
+				source: content['The Point Break Heists'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					stability: -8,
+					concealment: 1
+				}
+			}
 		],
 		sight: pistolSight
 	}
-}
+} as const satisfies WeaponData
 
 export default babyDeagle

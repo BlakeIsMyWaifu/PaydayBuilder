@@ -1,5 +1,5 @@
-import modifications from 'data/weapons/guns/modificationList'
 import { type ModificationSlot, type ModificationStats, type WeaponData, type WeaponStats } from 'data/weapons/guns/weaponTypes'
+import { typedObject } from 'utils/typedObject'
 
 interface UseWeaponStats {
 	base: WeaponStats;
@@ -9,12 +9,12 @@ interface UseWeaponStats {
 	total: WeaponStats;
 }
 
-const useWeaponStats = (weapon: WeaponData, weaponModifications: Partial<Record<ModificationSlot, string>>, showExtraStats = true): UseWeaponStats => {
+const useWeaponStats = (weaponData: WeaponData, weaponModifications: Partial<Record<ModificationSlot, string>>, showExtraStats = true): UseWeaponStats => {
 
 	const baseStats = (showExtraStats: boolean): WeaponStats => {
-		if (!showExtraStats) return weapon.stats
+		if (!showExtraStats) return weaponData.stats
 
-		const extra = weapon.extraStats
+		const extra = weaponData.extraStats
 		const extraStats = {
 			tacticalReload: extra.tacticalReload ? (typeof extra.tacticalReload === 'number' ? `${extra.tacticalReload}s` : `${extra.tacticalReload[0]}s | ${extra.tacticalReload[1]}s`) : '',
 			equipDelays: `${extra.equipDelays[0]}s | ${extra.equipDelays[1]}s`,
@@ -25,7 +25,7 @@ const useWeaponStats = (weapon: WeaponData, weaponModifications: Partial<Record<
 			damageModifier: extra.damageModifier ? `${extra.damageModifier.join(' | ')}` : ''
 		}
 
-		return ({ ...weapon.stats, ...extraStats })
+		return ({ ...weaponData.stats, ...extraStats })
 	}
 
 	const skillStats = (): WeaponStats => {
@@ -57,9 +57,10 @@ const useWeaponStats = (weapon: WeaponData, weaponModifications: Partial<Record<
 			rateOfFire: 0
 		}
 
-		Object.entries(weaponModifications).forEach(([type, modName]) => {
-			const modData = modifications[(type as ModificationSlot)][modName]
-			Object.entries(modData.stats).forEach(([label, stat]) => {
+		typedObject.entries(weaponModifications).forEach(([modType, modName]) => {
+			const modData = weaponData.modifications[modType]?.find(mod => mod.name === modName)
+			if (!modData) return
+			typedObject.entries(modData.stats).forEach(([label, stat]) => {
 				baseStats[(label as keyof ModificationStats)] += stat
 			})
 		})
@@ -95,7 +96,7 @@ const useWeaponStats = (weapon: WeaponData, weaponModifications: Partial<Record<
 			threat: 0,
 			rateOfFire: 0
 		}),
-		total: additionalStats(weapon.stats)
+		total: additionalStats(weaponData.stats)
 	}
 }
 

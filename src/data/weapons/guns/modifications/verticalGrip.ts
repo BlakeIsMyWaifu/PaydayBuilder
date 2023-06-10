@@ -1,11 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import { type ModificationList } from '../weaponTypes'
+import { type ModificationCollection } from '../weaponTypes'
 
-export type VerticalGripModificationsList =
-	| 'Twinkle Grip'
+export type VerticalGripModification = keyof typeof verticalGrip
 
-const verticalGrip: ModificationList<VerticalGripModificationsList> = {
+const verticalGrip = {
 	'Twinkle Grip': {
 		name: 'Twinkle Grip',
 		image: 'wpn_fps_smg_schakal_vg_surefire',
@@ -19,13 +18,8 @@ const verticalGrip: ModificationList<VerticalGripModificationsList> = {
 		specialEffect: ['Flashlight', 'Laser'],
 		stats: {
 			stability: 4
-		},
-		compatibleWeapons: {
-			submachineGun: [
-				'Jackal'
-			]
 		}
 	}
-}
+} as const satisfies ModificationCollection
 
 export default verticalGrip

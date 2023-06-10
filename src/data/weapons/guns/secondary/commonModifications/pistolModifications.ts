@@ -1,10 +1,10 @@
-import barrelExt, { type BarrelExtModificationsList } from '../../modifications/barrelExt'
-import boost, { type BoostModificationsList } from '../../modifications/boost'
-import gadget, { type GadgetModificationsList } from '../../modifications/gadget'
-import sight, { type SightModificationsList } from '../../modifications/sight'
+import barrelExt from '../../modifications/barrelExt'
+import boost from '../../modifications/boost'
+import gadget from '../../modifications/gadget'
+import sight from '../../modifications/sight'
 import { type Modification } from '../../weaponTypes'
 
-export const pistolBarrelExt: Modification<BarrelExtModificationsList>[] = [
+export const pistolBarrelExt: Modification[] = [
 	barrelExt['IPSC Compensator'],
 	barrelExt['Roctec Suppressor'],
 	barrelExt['Champion\'s Suppressor'],
@@ -20,14 +20,14 @@ export const pistolBarrelExt: Modification<BarrelExtModificationsList>[] = [
 	barrelExt['Hurricane Compensator']
 ]
 
-export const pistolBoost: Modification<BoostModificationsList>[] = [
+export const pistolBoost: Modification[] = [
 	boost.Concealment,
 	boost.Stability,
 	boost.Accuracy,
 	boost['Team Boost']
 ]
 
-export const pistolBoostConcealment: Modification<BoostModificationsList>[] = [
+export const pistolBoostConcealment: Modification[] = [
 	boost.Concealment,
 	boost['Concealment (Extra)'],
 	boost.Stability,
@@ -35,7 +35,7 @@ export const pistolBoostConcealment: Modification<BoostModificationsList>[] = [
 	boost['Team Boost']
 ]
 
-export const pistolGadget: Modification<GadgetModificationsList>[] = [
+export const pistolGadget: Modification[] = [
 	gadget['Micro Laser'],
 	gadget['Combined Module'],
 	gadget['Tactical Pistol Light'],
@@ -44,7 +44,7 @@ export const pistolGadget: Modification<GadgetModificationsList>[] = [
 	gadget['Polymer Flashlight']
 ]
 
-export const pistolSight: Modification<SightModificationsList>[] = [
+export const pistolSight: Modification[] = [
 	sight['Pistol Red Dot Sight x1.5'],
 	sight['Riktpunkt Holosight x1.5'],
 	sight['SKOLD Micro Reflex Sight x1.5']

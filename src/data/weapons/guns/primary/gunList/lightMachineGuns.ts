@@ -10,9 +10,9 @@ import m60 from '../lightMachineGun/m60'
 import rpk from '../lightMachineGun/rpk'
 import sgVersteckt51D from '../lightMachineGun/sgVersteckt51D'
 
-export type LightMachineGunList = typeof lightMachineGunList[number]
+export type LightMachineGun = typeof lightMachineGunList[number]
 
-const lightMachineGuns: Record<LightMachineGunList, WeaponData> = {
+const lightMachineGuns: Record<LightMachineGun, WeaponData> = {
 	'KSP 58': ksp58,
 	'RPK': rpk,
 	'KSP': ksp,

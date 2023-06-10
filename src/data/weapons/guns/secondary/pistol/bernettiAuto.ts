@@ -1,13 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import grip from '../../modifications/grip'
-import magazine from '../../modifications/magazine'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const bernettiAuto: WeaponData = {
+const bernettiAuto = {
 	name: 'Bernetti Auto',
 	image: 'beer',
 	source: content['Federales Weapon Pack'],
@@ -38,23 +34,94 @@ const bernettiAuto: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Weller Barrel']
+			{
+				name: 'Weller Barrel',
+				image: 'wpn_fps_pis_beer_b_robo',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Federales Weapon Pack'],
+				cost: 62e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: 8,
+					stability: 4,
+					concealment: -5,
+					threat: 14
+				}
+			}
 		],
 		barrelExt: pistolBarrelExt,
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		grip: [
-			grip['Cartel Grip (Bernetti Auto)'],
-			grip['Weller Grip']
+			{
+				name: 'Cartel Grip',
+				image: 'wpn_fps_pis_beer_g_lux', // - wpn_fps_pis_beer_g_luxury
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Federales Weapon Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: 4,
+					concealment: -1
+				}
+			},
+			{
+				name: 'Weller Grip',
+				image: 'wpn_fps_pis_beer_g_robo',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Federales Weapon Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					concealment: 1
+				}
+			}
 		],
 		magazine: [
-			magazine['Extended Magazine (Bernetti Auto)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_pis_beer_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['Federales Weapon Pack'],
+				cost: 21e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					magazine: 6,
+					concealment: -1
+				}
+			}
 		],
 		sight: pistolSight,
 		stock: [
-			stock['Federales Stock (Bernetti Auto)']
+			{
+				name: 'Federales Stock',
+				image: 'wpn_fps_pis_beer_s_std',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Federales Weapon Pack'],
+				cost: 53e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default bernettiAuto

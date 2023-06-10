@@ -1,12 +1,11 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
 import barrelExt from '../../modifications/barrelExt'
-import magazine from '../../modifications/magazine'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const cmp: WeaponData = {
+const cmp = {
 	name: 'CMP',
 	image: 'mp9',
 	source: source['Base Game'],
@@ -48,7 +47,24 @@ const cmp: WeaponData = {
 			barrelExt['Funnel of Fun Nozzle'],
 			barrelExt['Tactical Compensator'],
 			barrelExt['Ported Compensator'],
-			barrelExt['Tactical Suppressor'],
+			{
+				name: 'Tactical Suppressor',
+				image: 'wpn_fps_smg_mp9_b_suppressed',
+				icon: 'inv_mod_silencer',
+				slot: 'barrelExt',
+				source: content['The Butcher Mod Pack 2'],
+				cost: 28e3,
+				specialEffect: ['Silences Weapon'],
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: 4,
+					stability: 12,
+					concealment: -4,
+					threat: -24
+				}
+			},
 			barrelExt['Marmon Compensator'],
 			barrelExt['Verdunkeln Muzzle Brake']
 		],
@@ -56,14 +72,37 @@ const cmp: WeaponData = {
 		custom: submachineGunCustom,
 		gadget: submachineGunGadget,
 		magazine: [
-			magazine['Extended Magazine (CMP)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_smg_mp9_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: source['Base Game'],
+				cost: 28e3,
+				stats: {
+					magazine: 12,
+					concealment: -2
+				}
+			}
 		],
 		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight,
 		stock: [
-			stock['Skeletal Stock (CMP)']
+			{
+				name: 'Skeletal Stock',
+				image: 'wpn_fps_smg_mp9_s_skel',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 36e3,
+				stats: {
+					accuracy: 4,
+					stability: 12,
+					concealment: -3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default cmp

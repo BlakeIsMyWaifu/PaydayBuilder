@@ -3,11 +3,10 @@ import source from 'data/source/miscSources'
 import barrelExt from '../../modifications/barrelExt'
 import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
-import slide from '../../modifications/slide'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const chimanoCustom: WeaponData = {
+const chimanoCustom = {
 	name: 'Chimano Custom',
 	image: 'g22c',
 	source: source.Community,
@@ -57,7 +56,7 @@ const chimanoCustom: WeaponData = {
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		grip: [
-			grip['Laser Grip (Chimano)'],
+			grip['Laser Grip'],
 			grip['Platypus Grip'],
 			grip['Ergo Grip (STRYK / Chimano Custom)']
 		],
@@ -66,9 +65,22 @@ const chimanoCustom: WeaponData = {
 		],
 		sight: pistolSight,
 		slide: [
-			slide['Long Slide (Chimano Custom)']
+			{
+				name: 'Long Slide',
+				image: 'wpn_fps_pis_g22c_b_long',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: source.Community,
+				cost: 36e3,
+				stats: {
+					damage: 1,
+					accuracy: -4,
+					stability: 4,
+					threat: 2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default chimanoCustom

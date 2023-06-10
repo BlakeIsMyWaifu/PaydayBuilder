@@ -1,16 +1,13 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
 import barrelExt from '../../modifications/barrelExt'
-import extra from '../../modifications/extra'
-import grip from '../../modifications/grip'
 import secondarySight from '../../modifications/secondarySight'
 import sight from '../../modifications/sight'
-import slide from '../../modifications/slide'
-import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoostConcealment } from '../commonModifications/pistolModifications'
 
-const bronco44: WeaponData = {
+const bronco44 = {
 	name: 'Bronco .44',
 	image: 'new_raging_bull',
 	source: source['Base Game'],
@@ -46,10 +43,31 @@ const bronco44: WeaponData = {
 		],
 		boost: pistolBoostConcealment,
 		extra: [
-			extra['Bronco Scope Mount']
+			{
+				name: 'Bronco Scope Mount',
+				image: 'wpn_fps_pis_rage_extra',
+				icon: 'inv_mod_extra',
+				slot: 'extra',
+				source: content['Gage Mod Courier'],
+				cost: 0,
+				acquisition: {
+					package: 'Purple Snake'
+				},
+				stats: {}
+			}
 		],
 		grip: [
-			grip['Ergo Wooden Grip']
+			{
+				name: 'Ergo Wooden Grip',
+				image: 'wpn_fps_pis_rage_g_ergo',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: source['Base Game'],
+				cost: 14e3,
+				stats: {
+					stability: 4
+				}
+			}
 		],
 		secondarySight: [
 			secondarySight['Riktpunkt Magnifier Gadget x6.25'],
@@ -80,15 +98,77 @@ const bronco44: WeaponData = {
 			sight['Z5 Owl Glass Universal Scope x2.5']
 		],
 		slide: [
-			slide['Aggressor Barrel'],
-			slide['Pocket Surprise Barrel'],
-			slide['Ventilated Barrel'],
-			slide['Overcompensating Barrel']
+			{
+				name: 'Aggressor Barrel',
+				image: 'wpn_fps_pis_rage_b_comp1',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: source['Base Game'],
+				cost: 21e3,
+				stats: {
+					damage: 2,
+					accuracy: 8,
+					stability: 8,
+					concealment: -3
+				}
+			},
+			{
+				name: 'Pocket Surprise Barrel',
+				image: 'wpn_fps_pis_rage_b_short',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: source['Base Game'],
+				cost: 21e3,
+				stats: {
+					accuracy: -8,
+					stability: -12,
+					concealment: 3
+				}
+			},
+			{
+				name: 'Ventilated Barrel',
+				image: 'wpn_fps_pis_rage_b_comp2',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: source['Base Game'],
+				cost: 28e3,
+				stats: {
+					damage: 1,
+					accuracy: -4,
+					stability: 4,
+					concealment: -3,
+					threat: 10
+				}
+			},
+			{
+				name: 'Overcompensating Barrel',
+				image: 'wpn_fps_pis_rage_b_long',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: source['Base Game'],
+				cost: 36e3,
+				stats: {
+					accuracy: 12,
+					stability: 12,
+					concealment: -3
+				}
+			}
 		],
 		upperReceiver: [
-			upperReceiver['Slimline Body']
+			{
+				name: 'Slimline Body',
+				image: 'wpn_fps_pis_rage_body_smooth',
+				icon: 'inv_mod_upper_receiver',
+				slot: 'upperReceiver',
+				source: source['Base Game'],
+				cost: 44e3,
+				stats: {
+					stability: 4,
+					concealment: 1
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default bronco44

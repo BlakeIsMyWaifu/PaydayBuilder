@@ -1,41 +1,17 @@
 import { type ContentData } from 'data/source/downloadableContent'
 import { type SourceData } from 'data/source/miscSources'
 
-import { type AmmunitionModificationsList } from './modifications/ammunition'
-import { type BarrelModificationsList } from './modifications/barrel'
-import { type BarrelExtModificationsList } from './modifications/barrelExt'
-import { type BayonetModificationsList } from './modifications/bayonet'
-import { type BipodModificationsList } from './modifications/bipod'
-import { type BoltModificationList } from './modifications/bolt'
-import { type BoostModificationsList } from './modifications/boost'
-import { type ChargingHandleList } from './modifications/chargingHandle'
-import { type CustomModificationsList } from './modifications/custom'
-import { type ExclusiveSetList } from './modifications/exclusiveSet'
-import { type ExtraModificationsList } from './modifications/extra'
-import { type ForegripModificationsList } from './modifications/foregrip'
-import { type GadgetModificationsList } from './modifications/gadget'
-import { type GripModificationsList } from './modifications/grip'
-import { type LowerReceiverModificationsList } from './modifications/lowerReceiver'
-import { type MagazineModificationsList } from './modifications/magazine'
-import { type ReceiverModificationsList } from './modifications/receiver'
-import { type SecondarySightList } from './modifications/secondarySight'
-import { type SightModificationsList } from './modifications/sight'
-import { type SlideModificationsList } from './modifications/slide'
-import { type StockModificationsList } from './modifications/stock'
-import { type UnderbarrelModificationsList } from './modifications/underbarrel'
-import { type UpperReceiverModificationsList } from './modifications/upperReceiver'
-import { type VerticalGripModificationsList } from './modifications/verticalGrip'
-import { type AkimboShotgunsList } from './primary/gunList/akimboShotguns'
-import { type AssaultRifleList } from './primary/gunList/assaultRifles'
-import { type LightMachineGunList } from './primary/gunList/lightMachineGuns'
-import { type ShotgunPrimaryList } from './primary/gunList/shotgunsPrimary'
-import { type SniperPrimaryList } from './primary/gunList/snipersPrimary'
-import { type SpecialPrimaryList } from './primary/gunList/specialsPrimary'
-import { type PistolList } from './secondary/gunList/pistols'
-import { type ShotgunSecondaryList } from './secondary/gunList/shotgunsSecondary'
-import { type SecondarySniperList } from './secondary/gunList/snipersSecondary'
-import { type SpecialSecondaryList } from './secondary/gunList/specialsSecondary'
-import { type SubmachineGunList } from './secondary/gunList/submachineGuns'
+import { type AkimboShotguns } from './primary/gunList/akimboShotguns'
+import { type AssaultRifle as AssaultRifle } from './primary/gunList/assaultRifles'
+import { type LightMachineGun } from './primary/gunList/lightMachineGuns'
+import { type ShotgunPrimary } from './primary/gunList/shotgunsPrimary'
+import { type SniperPrimary } from './primary/gunList/snipersPrimary'
+import { type SpecialPrimary } from './primary/gunList/specialsPrimary'
+import { type Pistol } from './secondary/gunList/pistols'
+import { type SecondaryShotgun } from './secondary/gunList/shotgunsSecondary'
+import { type SecondarySniper } from './secondary/gunList/snipersSecondary'
+import { type SpecialSecondary } from './secondary/gunList/specialsSecondary'
+import { type SubmachineGun } from './secondary/gunList/submachineGuns'
 
 export type Slot = 'primary' | 'secondary'
 
@@ -51,45 +27,20 @@ export type WeaponType =
 	| 'Pistol'
 	| 'Submachine Gun'
 
-export interface WeaponModifications {
-	ammunition?: Modification<AmmunitionModificationsList>[];
-	barrel?: Modification<BarrelModificationsList>[];
-	barrelExt?: Modification<BarrelExtModificationsList>[];
-	bayonet?: Modification<BayonetModificationsList>[];
-	bipod?: Modification<BipodModificationsList>[];
-	bolt?: Modification<BoltModificationList>[];
-	boost: Modification<BoostModificationsList>[];
-	chargingHandle?: Modification<ChargingHandleList>[];
-	custom?: Modification<CustomModificationsList>[];
-	exclusiveSet?: Modification<ExclusiveSetList>[];
-	extra?: Modification<ExtraModificationsList>[];
-	foregrip?: Modification<ForegripModificationsList>[];
-	gadget?: Modification<GadgetModificationsList>[];
-	grip?: Modification<GripModificationsList>[];
-	lowerReceiver?: Modification<LowerReceiverModificationsList>[];
-	magazine?: Modification<MagazineModificationsList>[];
-	receiver?: Modification<ReceiverModificationsList>[];
-	secondarySight?: Modification<SecondarySightList>[];
-	sight?: Modification<SightModificationsList>[];
-	slide?: Modification<SlideModificationsList>[];
-	stock?: Modification<StockModificationsList>[];
-	underbarrel?: Modification<UnderbarrelModificationsList>[];
-	upperReceiver?: Modification<UpperReceiverModificationsList>[];
-	verticalGrip?: Modification<VerticalGripModificationsList>[];
-}
+export type WeaponModifications = Partial<Record<ModificationSlot, Modification[]>> & { boost: Modification[] }
 
-export type AllWeaponList =
-	AssaultRifleList |
-	ShotgunPrimaryList |
-	ShotgunSecondaryList |
-	LightMachineGunList |
-	SniperPrimaryList |
-	SecondarySniperList |
-	AkimboShotgunsList |
-	SpecialPrimaryList |
-	SpecialSecondaryList |
-	PistolList |
-	SubmachineGunList
+export type WeaponName =
+	| AkimboShotguns
+	| AssaultRifle
+	| LightMachineGun
+	| Pistol
+	| SecondaryShotgun
+	| SecondarySniper
+	| ShotgunPrimary
+	| SniperPrimary
+	| SpecialPrimary
+	| SpecialSecondary
+	| SubmachineGun
 
 type FiringMode =
 	| 'Selective firing'
@@ -103,8 +54,8 @@ type FiringMode =
 	| 'Double action'
 	| 'Single action'
 
-export interface WeaponData {
-	name: AllWeaponList;
+export type WeaponData = DeepReadonly<{
+	name: WeaponName;
 	image: string;
 	source: SourceData | ContentData;
 	inventorySlot: 'primary' | 'secondary';
@@ -115,7 +66,7 @@ export interface WeaponData {
 	stats: WeaponStats;
 	extraStats: WeaponExtraStats;
 	modifications: WeaponModifications;
-}
+}>
 
 export interface WeaponStats {
 	magazine: number;
@@ -150,20 +101,31 @@ export interface ModificationStats {
 	threat?: number;
 }
 
-export type ModificationSlot = keyof WeaponModifications
-
-export interface CompatibleWeapons {
-	assaultRifle?: readonly AssaultRifleList[];
-	shotgun?: readonly (ShotgunPrimaryList | ShotgunSecondaryList)[];
-	lightMachineGun?: readonly LightMachineGunList[];
-	sniper?: readonly (SniperPrimaryList | SecondarySniperList)[];
-	// akimboPistol?: null[];
-	akimboShotgun?: readonly AkimboShotgunsList[];
-	// akimboSubmachineGun?: null[];
-	special?: readonly (SpecialPrimaryList | SpecialSecondaryList)[];
-	pistol?: readonly PistolList[];
-	submachineGun?: readonly SubmachineGunList[];
-}
+export type ModificationSlot =
+	| 'ammunition'
+	| 'barrel'
+	| 'barrelExt'
+	| 'bayonet'
+	| 'bipod'
+	| 'bolt'
+	| 'boost'
+	| 'chargingHandle'
+	| 'custom'
+	| 'exclusiveSet'
+	| 'extra'
+	| 'foregrip'
+	| 'gadget'
+	| 'grip'
+	| 'lowerReceiver'
+	| 'magazine'
+	| 'receiver'
+	| 'secondarySight'
+	| 'sight'
+	| 'slide'
+	| 'stock'
+	| 'underbarrel'
+	| 'upperReceiver'
+	| 'verticalGrip'
 
 export type ModIcon =
 	| 'inv_mod_ammo_custom'
@@ -201,8 +163,8 @@ export type ModIcon =
 	| 'inv_mod_vertical_grip'
 	| 'inv_mod_weapon_cosmetics'
 
-export interface Modification<ModificationName extends string = string> {
-	name: ModificationName;
+export type Modification = DeepReadonly<{
+	name: string;
 	image: string;
 	icon: ModIcon;
 	slot: ModificationSlot;
@@ -218,14 +180,13 @@ export interface Modification<ModificationName extends string = string> {
 	};
 	specialEffect?: string[];
 	stats: ModificationStats;
-	compatibleWeapons: CompatibleWeapons;
-	incompatibleSlot?: ModificationSlot[];
-}
+	incompatibleSlot?: ModificationSlot[]; // TODO
+}>
 
-export type ModificationList<T extends string = string> = Record<T, Modification<T>>;
+export type ModificationCollection = DeepReadonly<Record<string, Modification>>
 
 export interface WeaponFind {
-	name: AllWeaponList;
+	name: WeaponName;
 	type: WeaponType;
 	slot: Slot;
 }

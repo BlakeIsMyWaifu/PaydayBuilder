@@ -6,7 +6,7 @@ import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const tatonka: WeaponData = {
+const tatonka = {
 	name: 'Tatonka',
 	image: 'coal',
 	source: content['Gage Russian Weapon Pack'],
@@ -75,6 +75,6 @@ const tatonka: WeaponData = {
 			stock['Taktika Telescopic Stock']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default tatonka

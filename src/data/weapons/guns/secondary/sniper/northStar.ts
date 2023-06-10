@@ -1,14 +1,12 @@
 import content from 'data/source/downloadableContent'
 
-import barrelExt from '../../modifications/barrelExt'
-import exclusiveSet from '../../modifications/exclusiveSet'
 import grip from '../../modifications/grip'
 import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { sniperBoost, sniperGadget, sniperSecondarySight } from '../commonModifications/sniperModifications'
 
-const northStar: WeaponData = {
+const northStar = {
 	name: 'North Star',
 	image: 'victor',
 	source: content['A Criminal Carol'],
@@ -39,11 +37,41 @@ const northStar: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			barrelExt['Tiwaz Silencer']
+			{
+				name: 'Tiwaz Silencer',
+				image: 'wpn_fps_snp_victor_ns_omega',
+				icon: 'inv_mod_silencer',
+				slot: 'barrelExt',
+				source: content['A Criminal Carol'],
+				cost: 9e3,
+				stats: {
+					damage: -2,
+					accuracy: 8,
+					stability: -4,
+					concealment: -2,
+					threat: -22
+				}
+			}
 		],
 		boost: sniperBoost,
 		exclusiveSet: [
-			exclusiveSet['Celestial Assault']
+			{
+				name: 'Celestial Assault',
+				image: 'wpn_fps_snp_victor_sbr_kit',
+				icon: 'inv_mod_ammo_explosive', // TODO update icon
+				slot: 'exclusiveSet',
+				source: content['A Criminal Carol'],
+				cost: 9e3,
+				acquisition: {
+					sideJob: 'Diamonds In The Sky'
+				},
+				stats: {
+					damage: -2,
+					accuracy: 8,
+					stability: 8,
+					concealment: 3
+				}
+			}
 		],
 		gadget: sniperGadget,
 		grip: [
@@ -80,7 +108,20 @@ const northStar: WeaponData = {
 			sight['Advanced Combat Sight x3.25'],
 			sight['CASSIAN Sharp Sight x3.25'],
 			sight['Trace Optic x6.25'],
-			sight['Cynosura Iron Sights'],
+			{
+				name: 'Cynosura Iron Sights',
+				image: 'wpn_fps_snp_victor_o_standard',
+				icon: 'inv_mod_scope',
+				slot: 'sight',
+				source: content['A Criminal Carol'],
+				cost: 9e3,
+				acquisition: {
+					sideJob: 'Constellation Prize'
+				},
+				stats: {
+					concealment: 2
+				}
+			},
 			sight['Z5 Owl Glass Universal Scope x2.5'],
 			sight['Tuunbaq Scope x4.5 / x10']
 		],
@@ -94,6 +135,6 @@ const northStar: WeaponData = {
 			stock['Starlight Stock']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default northStar

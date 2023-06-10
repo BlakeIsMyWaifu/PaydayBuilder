@@ -1,12 +1,10 @@
 import content from 'data/source/downloadableContent'
 
 import barrelExt from '../../modifications/barrelExt'
-import magazine from '../../modifications/magazine'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const specOps: WeaponData = {
+const specOps = {
 	name: 'SpecOps',
 	image: 'mp7',
 	source: content['Gage Weapon Pack #01'],
@@ -44,7 +42,22 @@ const specOps: WeaponData = {
 			barrelExt['The Tank Compensator'],
 			barrelExt['Fire Breather Nozzle'],
 			barrelExt['The Bigger The Better Suppressor'],
-			barrelExt['Suppressed Barrel'],
+			{
+				name: 'Suppressed Barrel',
+				image: 'wpn_fps_smg_mp7_b_suppressed',
+				icon: 'inv_mod_silencer',
+				slot: 'barrelExt',
+				source: content['Gage Weapon Pack #01'],
+				cost: 39200,
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -1,
+					accuracy: 4,
+					stability: 12,
+					concealment: -2,
+					threat: -24
+				}
+			},
 			barrelExt['Competitor\'s Compensator'],
 			barrelExt['Funnel of Fun Nozzle'],
 			barrelExt['Tactical Compensator'],
@@ -58,14 +71,36 @@ const specOps: WeaponData = {
 		custom: submachineGunCustom,
 		gadget: submachineGunGadget,
 		magazine: [
-			magazine['Extended Magazine (SpecOps)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_smg_mp7_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['Gage Weapon Pack #01'],
+				cost: 12600,
+				stats: {
+					magazine: 12,
+					concealment: -3
+				}
+			}
 		],
 		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight,
 		stock: [
-			stock['Unfolded Stock (SpecOps)']
+			{
+				name: 'Unfolded Stock',
+				image: 'wpn_fps_smg_mp7_s_long',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Gage Weapon Pack #01'],
+				cost: 12600,
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default specOps

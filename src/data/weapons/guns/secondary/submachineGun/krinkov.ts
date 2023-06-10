@@ -1,9 +1,9 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
 import barrelExt from '../../modifications/barrelExt'
 import chargingHandle from '../../modifications/chargingHandle'
 import extra from '../../modifications/extra'
-import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
@@ -11,7 +11,7 @@ import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const krinkov: WeaponData = {
+const krinkov = {
 	name: 'Krinkov',
 	image: 'akmsu',
 	source: source['Base Game'],
@@ -68,11 +68,35 @@ const krinkov: WeaponData = {
 			chargingHandle['Taktika Charging Handle']
 		],
 		extra: [
-			extra['Scope Mount (AK)']
+			extra['Scope Mount']
 		],
 		foregrip: [
-			foregrip['Moscow Special Rail'],
-			foregrip['Aluminum Foregrip']
+			{
+				name: 'Moscow Special Rail',
+				image: 'wpn_fps_smg_akmsu_fg_rail',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: source['Base Game'],
+				cost: 36e3,
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Aluminum Foregrip',
+				image: 'wpn_fps_upg_ak_fg_zenit',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['The Butcher\'s AK/CAR Mod Pack'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Hey Mr. DJ'
+				},
+				stats: {
+					stability: 4
+				}
+			}
 		],
 		gadget: submachineGunGadget,
 		grip: [
@@ -107,6 +131,6 @@ const krinkov: WeaponData = {
 			upperReceiver['Taktika Railed Cover']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default krinkov

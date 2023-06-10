@@ -1,9 +1,9 @@
-import barrelExt, { type BarrelExtModificationsList } from '../../modifications/barrelExt'
-import boost, { type BoostModificationsList } from '../../modifications/boost'
-import gadget, { type GadgetModificationsList } from '../../modifications/gadget'
+import barrelExt from '../../modifications/barrelExt'
+import boost from '../../modifications/boost'
+import gadget from '../../modifications/gadget'
 import { type Modification } from '../../weaponTypes'
 
-export const lightMachineGunBarrelExt: Modification<BarrelExtModificationsList>[] = [
+export const lightMachineGunBarrelExt: Modification[] = [
 	barrelExt['Medium Suppressor'],
 	barrelExt['Low Profile Suppressor'],
 	barrelExt['Stubby Compensator'],
@@ -20,14 +20,14 @@ export const lightMachineGunBarrelExt: Modification<BarrelExtModificationsList>[
 	barrelExt['Dourif Muzzle']
 ]
 
-export const lightMachineGunBoost: Modification<BoostModificationsList>[] = [
+export const lightMachineGunBoost: Modification[] = [
 	boost.Concealment,
 	boost.Stability,
 	boost.Accuracy,
 	boost['Team Boost']
 ]
 
-export const lightMachineGunGadget: Modification<GadgetModificationsList>[] = [
+export const lightMachineGunGadget: Modification[] = [
 	gadget['Assault Light'],
 	gadget['Tactical Laser Module'],
 	gadget['Compact Laser Module'],

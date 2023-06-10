@@ -1,11 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import sight from '../../modifications/sight'
 import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSecondarySight } from '../commonModifications/shotgunModifications'
 
-const raven: WeaponData = {
+const raven = {
 	name: 'Raven',
 	image: 'ksg',
 	source: content['Gage Shotgun Pack'],
@@ -37,8 +36,41 @@ const raven: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrel: [
-			barrel['Short Barrel (Raven)'],
-			barrel['Long Barrel (Raven)']
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_sho_ksg_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Shotgun Pack'],
+				cost: 36e3,
+				acquisition: {
+					achievement: 'Everyday I\'m Shovelin\''
+				},
+				stats: {
+					magazine: -4,
+					damage: 1,
+					accuracy: -8,
+					stability: -8,
+					concealment: 4
+				}
+			},
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_sho_ksg_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Shotgun Pack'],
+				cost: 53e3,
+				acquisition: {
+					achievement: 'Clay Pigeon Shooting'
+				},
+				stats: {
+					magazine: 4,
+					accuracy: 8,
+					stability: 4,
+					concealment: -2
+				}
+			}
 		],
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
@@ -58,7 +90,20 @@ const raven: WeaponData = {
 			sight['Speculator Sight x1.5'],
 			sight['Trigonom Sight x1.5'],
 			sight['Solar Sight x1.5'],
-			sight['Flip-up x1'],
+			{
+				name: 'Flip-up x1',
+				image: 'wpn_fps_upg_o_mbus_rear',
+				icon: 'inv_mod_scope',
+				slot: 'sight',
+				source: content['Gage Shotgun Pack'],
+				cost: 21e3,
+				acquisition: {
+					achievement: 'Lock, Stock & Eight Smoking Barrels'
+				},
+				stats: {
+					concealment: 2
+				}
+			},
 			sight['Reconnaissance Sight x2'],
 			sight['Compact Tactical Box Sight x2.5'],
 			sight['Compact Profile Sight x1.5'],
@@ -70,6 +115,6 @@ const raven: WeaponData = {
 			sight['Z5 Owl Glass Universal Scope x2.5']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default raven

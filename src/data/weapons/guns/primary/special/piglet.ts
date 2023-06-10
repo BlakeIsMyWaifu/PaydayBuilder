@@ -1,7 +1,6 @@
 import content from 'data/source/downloadableContent'
 
 import ammunition from '../../modifications/ammunition'
-import barrel from '../../modifications/barrel'
 import boost from '../../modifications/boost'
 import secondarySight from '../../modifications/secondarySight'
 import sight from '../../modifications/sight'
@@ -9,7 +8,7 @@ import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { specialGadget } from '../commonModifications/specialModifications'
 
-const piglet: WeaponData = {
+const piglet = {
 	name: 'Piglet',
 	image: 'm32',
 	source: content['The Butcher\'s BBQ Pack'],
@@ -46,7 +45,22 @@ const piglet: WeaponData = {
 			ammunition['Viper Grenade']
 		],
 		barrel: [
-			barrel['Short Barrel (Piglet)']
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_gre_m32_barrel_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Butcher\'s BBQ Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: -4,
+					stability: 20,
+					concealment: 2
+				}
+			}
 		],
 		boost: [
 			boost.Concealment,
@@ -88,11 +102,25 @@ const piglet: WeaponData = {
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
-			stock['No Stock (Piglet)'],
+			{
+				name: 'No Stock (Piglet)',
+				image: 'wpn_fps_gre_m32_no_stock',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['The Butcher\'s BBQ Pack'],
+				cost: 0,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					stability: -16,
+					concealment: 4
+				}
+			},
 			stock['Contractor Stock'],
 			stock['VD-12 Stock']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default piglet

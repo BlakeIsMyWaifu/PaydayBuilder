@@ -6,7 +6,7 @@ import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { assaultRifleBarrelExtPlus, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const ak17: WeaponData = {
+const ak17 = {
 	name: 'AK17',
 	image: 'flint',
 	source: content['Gage Russian Weapon Pack'],
@@ -66,6 +66,6 @@ const ak17: WeaponData = {
 			stock['VD-12 Stock']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default ak17

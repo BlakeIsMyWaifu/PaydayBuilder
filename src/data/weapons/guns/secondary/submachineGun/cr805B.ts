@@ -1,11 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const cr805B: WeaponData = {
+const cr805B = {
 	name: 'CR 805B',
 	image: 'hajk',
 	source: content['The Biker Heist'],
@@ -36,8 +35,30 @@ const cr805B: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Medium Barrel (CR)'],
-			barrel['Short Barrel (CR)']
+			{
+				name: 'Medium Barrel',
+				image: 'wpn_fps_smg_hajk_b_medium',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Biker Heist'],
+				cost: 9e3,
+				stats: {
+					accuracy: -4,
+					concealment: 2
+				}
+			},
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_smg_hajk_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Biker Heist'],
+				cost: 9e3,
+				stats: {
+					accuracy: -12,
+					concealment: 5
+				}
+			}
 		],
 		barrelExt: submachineGunBarrelExt,
 		boost: submachineGunBoost,
@@ -55,6 +76,6 @@ const cr805B: WeaponData = {
 		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight
 	}
-}
+} as const satisfies WeaponData
 
 export default cr805B

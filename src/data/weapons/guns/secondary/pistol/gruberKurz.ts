@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import grip from '../../modifications/grip'
-import slide from '../../modifications/slide'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoostConcealment, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const gruberKurz: WeaponData = {
+const gruberKurz = {
 	name: 'Gruber Kurz',
 	image: 'ppk',
 	source: content['Armored Transport'],
@@ -39,13 +37,35 @@ const gruberKurz: WeaponData = {
 		boost: pistolBoostConcealment,
 		gadget: pistolGadget,
 		grip: [
-			grip['Laser Grip (Gruber Kurz)']
+			{
+				name: 'Laser Grip',
+				image: 'wpn_fps_pis_ppk_g_laser',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Armored Transport'],
+				cost: 10800,
+				stats: {
+					accuracy: 8
+				}
+			}
 		],
 		sight: pistolSight,
 		slide: [
-			slide['Long Slide (Gruber Kurz)']
+			{
+				name: 'Long Slide',
+				image: 'wpn_fps_pis_ppk_b_long',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: content['Armored Transport'],
+				cost: 25200,
+				stats: {
+					damage: 1,
+					accuracy: 8,
+					concealment: -2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default gruberKurz

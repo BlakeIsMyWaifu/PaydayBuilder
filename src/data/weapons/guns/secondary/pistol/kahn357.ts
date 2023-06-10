@@ -1,15 +1,11 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
-import exclusiveSet from '../../modifications/exclusiveSet'
-import grip from '../../modifications/grip'
-import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost, pistolGadget } from '../commonModifications/pistolModifications'
 
-const kahn357: WeaponData = {
+const kahn357 = {
 	name: 'Kahn .357',
 	image: 'korth',
 	source: content['McShay Weapon Pack 2'],
@@ -40,7 +36,20 @@ const kahn357: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Railed Barrel']
+			{
+				name: 'Railed Barrel',
+				image: 'wpn_fps_pis_korth_b_railed',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack 2'],
+				cost: 9e3,
+				stats: {
+					damage: 4,
+					accuracy: 4,
+					stability: 8,
+					concealment: -2
+				}
+			}
 		],
 		barrelExt: [
 			barrelExt['IPSC Compensator'],
@@ -50,15 +59,63 @@ const kahn357: WeaponData = {
 		],
 		boost: pistolBoost,
 		exclusiveSet: [
-			exclusiveSet['Electric Dream']
+			{
+				name: 'Electric Dream',
+				image: 'wpn_fps_pis_korth_conversionkit',
+				icon: 'inv_mod_ammo_explosive', // TODO update icon
+				slot: 'exclusiveSet',
+				source: content['McShay Weapon Pack 2'],
+				cost: 9e3,
+				stats: {
+					damage: 2,
+					accuracy: 8,
+					stability: 8,
+					concealment: -3
+				}
+			}
 		],
 		gadget: pistolGadget,
 		grip: [
-			grip.Ergogrip,
-			grip['Overmold Grip']
+			{
+				name: 'Ergogrip',
+				image: 'wpn_fps_pis_korth_g_ergo',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['McShay Weapon Pack 2'],
+				cost: 14e3,
+				stats: {
+					accuracy: -4,
+					stability: 8
+				}
+			},
+			{
+				name: 'Overmold Grip',
+				image: 'wpn_fps_pis_korth_g_hogue',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['McShay Weapon Pack 2'],
+				cost: 21e3,
+				stats: {
+					stability: 4
+				}
+			}
 		],
 		magazine: [
-			magazine['Hex Cylinder']
+			{
+				name: 'Hex Cylinder',
+				image: 'wpn_fps_pis_korth_m_6',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['McShay Weapon Pack 2'],
+				cost: 9e3,
+				stats: {
+					magazine: -2,
+					damage: 40,
+					accuracy: -16,
+					stability: -12,
+					concealment: -2
+				}
+			}
 		],
 		sight: [
 			sight['The Professional\'s Choice Sight x1.5'],
@@ -75,6 +132,6 @@ const kahn357: WeaponData = {
 			sight['CASSIAN Sharp Sight x3.25']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default kahn357

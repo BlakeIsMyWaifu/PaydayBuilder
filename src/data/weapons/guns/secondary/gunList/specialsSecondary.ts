@@ -11,9 +11,9 @@ import ma17Flamethrower from '../special/ma17Flamethrower'
 import ove9000 from '../special/ove9000'
 import pistolCrossbow from '../special/pistolCrossbow'
 
-export type SpecialSecondaryList = typeof specialSecondaryList[number]
+export type SpecialSecondary = typeof specialSecondaryList[number]
 
-const specialsSecondary: Record<SpecialSecondaryList, WeaponData> = {
+const specialsSecondary: Record<SpecialSecondary, WeaponData> = {
 	'OVE9000': ove9000,
 	'Compact 40mm': compact40mm,
 	'MA-17 Flamethrower': ma17Flamethrower,

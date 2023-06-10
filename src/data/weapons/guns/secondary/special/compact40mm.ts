@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 import { type WeaponData } from '../../weaponTypes'
 import { specialAmmunition, specialBoost, specialGadget, specialSight } from '../commonModifications/specialModifications'
 
-const compact40mm: WeaponData = {
+const compact40mm = {
 	name: 'Compact 40mm',
 	image: 'slap',
 	source: source['Base Game'],
@@ -38,6 +38,6 @@ const compact40mm: WeaponData = {
 		gadget: specialGadget,
 		sight: specialSight
 	}
-}
+} as const satisfies WeaponData
 
 export default compact40mm

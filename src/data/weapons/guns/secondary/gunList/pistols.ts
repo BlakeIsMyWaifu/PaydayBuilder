@@ -34,9 +34,9 @@ import signature40 from '../pistol/signature40'
 import stryk18c from '../pistol/stryk18c'
 import whiteStreak from '../pistol/whiteStreak'
 
-export type PistolList = typeof pistolList[number]
+export type Pistol = typeof pistolList[number]
 
-const pistols: Record<PistolList, WeaponData> = {
+const pistols: Record<Pistol, WeaponData> = {
 	'Interceptor .45': interceptor45,
 	'Chimano Custom': chimanoCustom,
 	'5/7 AP': $57Ap,

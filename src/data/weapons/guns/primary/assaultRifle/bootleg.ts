@@ -1,13 +1,12 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
 import grip from '../../modifications/grip'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const bootleg: WeaponData = {
+const bootleg = {
 	name: 'Bootleg',
 	image: 'tecci',
 	source: content['Sydney Character Pack'],
@@ -38,7 +37,22 @@ const bootleg: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['AML Barrel']
+			{
+				name: 'AML Barrel',
+				image: 'wpn_fps_ass_tecci_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Sydney Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: 4,
+					stability: 12,
+					concealment: -3
+				}
+			}
 		],
 		barrelExt: [
 			barrelExt['Medium Suppressor'],
@@ -51,7 +65,24 @@ const bootleg: WeaponData = {
 			barrelExt['Funnel of Fun Nozzle'],
 			barrelExt['Tactical Compensator'],
 			barrelExt['Ported Compensator'],
-			barrelExt['Bootstrap Compensator'],
+			{
+				name: 'Bootstrap Compensator',
+				image: 'wpn_fps_ass_tecci_ns_special',
+				icon: 'inv_mod_barrel_ext',
+				slot: 'barrelExt',
+				source: content['Sydney Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					damage: 2,
+					accuracy: 4,
+					stability: 12,
+					concealment: -2,
+					threat: 6
+				}
+			},
 			barrelExt['Marmon Compensator'],
 			barrelExt['Verdunkeln Muzzle Brake'],
 			barrelExt['KS12-A Burst Muzzle'],
@@ -84,6 +115,6 @@ const bootleg: WeaponData = {
 			stock['Starlight Stock']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default bootleg

@@ -1,13 +1,10 @@
 import content from 'data/source/downloadableContent'
 
 import barrelExt from '../../modifications/barrelExt'
-import grip from '../../modifications/grip'
-import magazine from '../../modifications/magazine'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBoost, submachineGunCustom, submachineGunGadgetSmall, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const cobra: WeaponData = {
+const cobra = {
 	name: 'Cobra',
 	image: 'scorpion',
 	source: content['Hotline Miami'],
@@ -48,7 +45,24 @@ const cobra: WeaponData = {
 			barrelExt['Competitor\'s Compensator'],
 			barrelExt['Funnel of Fun Nozzle'],
 			barrelExt['Tactical Compensator'],
-			barrelExt.Suppressor,
+			{
+				name: 'Suppressor',
+				image: 'wpn_fps_smg_scorpion_b_suppressed',
+				icon: 'inv_mod_silencer',
+				slot: 'barrelExt',
+				source: content['Hotline Miami'],
+				cost: 36e3,
+				acquisition: {
+					achievement: 'Sounds of Animals Fighting'
+				},
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					accuracy: -4,
+					stability: 4,
+					concealment: -2,
+					threat: -24
+				}
+			},
 			barrelExt['Ported Compensator'],
 			barrelExt['Marmon Compensator'],
 			barrelExt['Verdunkeln Muzzle Brake'],
@@ -59,19 +73,91 @@ const cobra: WeaponData = {
 		custom: submachineGunCustom,
 		gadget: submachineGunGadgetSmall,
 		grip: [
-			grip['Ergo Grip (Cobra)'],
-			grip['Wooden Grip (Cobra)']
+			{
+				name: 'Ergo Grip',
+				image: 'wpn_fps_smg_scorpion_g_ergo',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Hotline Miami'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Phew!'
+				},
+				stats: {
+					stability: 12,
+					concealment: 1
+				}
+			},
+			{
+				name: 'Wooden Grip',
+				image: 'wpn_fps_smg_scorpion_g_wood',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Hotline Miami'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Do You Like Hurting Other People?'
+				},
+				stats: {
+					accuracy: 4,
+					stability: 4,
+					concealment: -1
+				}
+			}
 		],
 		magazine: [
-			magazine['Extended Magazine (Cobra)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_smg_scorpion_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['Hotline Miami'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Phew!'
+				},
+				stats: {
+					magazine: 20,
+					stability: 8,
+					concealment: -3
+				}
+			}
 		],
 		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight,
 		stock: [
-			stock['No Stock (Cobra)'],
-			stock['Unfolded Stock (Cobra)']
+			{
+				name: 'No Stock',
+				image: 'wpn_fps_smg_scorpion_s_nostock',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Hotline Miami'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Sounds of Animals Fighting'
+				},
+				stats: {
+					stability: -4,
+					concealment: 1
+				}
+			},
+			{
+				name: 'Unfolded Stock',
+				image: 'wpn_fps_smg_scorpion_s_unfolded',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Hotline Miami'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Phew!'
+				},
+				stats: {
+					stability: 12,
+					concealment: -2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default cobra

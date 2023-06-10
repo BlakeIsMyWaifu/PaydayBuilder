@@ -3,11 +3,10 @@ import content from 'data/source/downloadableContent'
 import barrelExt from '../../modifications/barrelExt'
 import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
-import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
 import { submachineGunBoost, submachineGunCustom, submachineGunGadget } from '../commonModifications/submachineGunModifications'
 
-const jacketsPiece: WeaponData = {
+const jacketsPiece = {
 	name: 'Jacket\'s Piece',
 	image: 'cobray',
 	source: content['Jacket Character Pack'],
@@ -91,9 +90,24 @@ const jacketsPiece: WeaponData = {
 			stock['VD-12 Stock']
 		],
 		upperReceiver: [
-			upperReceiver['80\'s Calling']
+			{
+				name: '80\'s Calling',
+				image: 'wpn_fps_smg_cobray_body_upper_jacket',
+				icon: 'inv_mod_upper_receiver',
+				slot: 'upperReceiver',
+				source: content['Jacket Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					damage: 1,
+					stability: 20,
+					concealment: -3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default jacketsPiece

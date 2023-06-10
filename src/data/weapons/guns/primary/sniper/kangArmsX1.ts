@@ -1,13 +1,11 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import magazine from '../../modifications/magazine'
 import secondarySight from '../../modifications/secondarySight'
 import sight from '../../modifications/sight'
 import { type WeaponData } from '../../weaponTypes'
 import { sniperBoost, sniperGadget } from '../commonModifications/sniperModifications'
 
-const kangArmsX1: WeaponData = {
+const kangArmsX1 = {
 	name: 'Káng Arms X1',
 	image: 'qbu88',
 	source: content['Jiu Feng Smuggler Pack 2'],
@@ -38,13 +36,47 @@ const kangArmsX1: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['KA-ZD1A Long Barrel'],
-			barrel['KA-ZD1B Short Barrel']
+			{
+				name: 'KA-ZD1A Long Barrel',
+				image: 'wpn_fps_snp_qbu88_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Jiu Feng Smuggler Pack 2'],
+				cost: 14e3,
+				stats: {
+					accuracy: 8,
+					stability: 8,
+					concealment: -2
+				}
+			},
+			{
+				name: 'KA-ZD1B Short Barrel',
+				image: 'wpn_fps_snp_qbu88_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Jiu Feng Smuggler Pack 2'],
+				cost: 14e3,
+				stats: {
+					accuracy: -4,
+					concealment: 1
+				}
+			}
 		],
 		boost: sniperBoost,
 		gadget: sniperGadget,
 		magazine: [
-			magazine['KA-ZDM2 Extended Magazine']
+			{
+				name: 'KA-ZDM2 Extended Magazine',
+				image: 'wpn_fps_snp_qbu88_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['Jiu Feng Smuggler Pack 2'],
+				cost: 14e3,
+				stats: {
+					magazine: 10,
+					concealment: -1
+				}
+			}
 		],
 		secondarySight: [
 			secondarySight['Riktpunkt 45 degree Sight'],
@@ -77,12 +109,23 @@ const kangArmsX1: WeaponData = {
 			sight['Biometric Analyzer x1.25'],
 			sight['Advanced Combat Sight x3.25'],
 			sight['CASSIAN Sharp Sight x3.25'],
-			sight['KA-ZD032 Iron Sight x1.25'],
+			{
+				name: 'KA-ZD032 Iron Sight x1.25',
+				image: 'wpn_fps_snp_qbu88_o_standard',
+				icon: 'inv_mod_scope',
+				slot: 'sight',
+				source: content['Jiu Feng Smuggler Pack 2'],
+				cost: 9e3,
+				stats: {
+					stability: -4,
+					concealment: 2
+				}
+			},
 			sight['Trace Optic x6.25'],
 			sight['Z5 Owl Glass Universal Scope x2.5'],
 			sight['Tuunbaq Scope x4.5 / x10']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default kangArmsX1
