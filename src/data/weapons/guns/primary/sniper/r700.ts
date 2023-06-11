@@ -89,7 +89,7 @@ const r700 = {
 				}
 			},
 			{
-				name: 'Tactical Stock (R700)',
+				name: 'Tactical Stock',
 				image: 'wpn_fps_snp_r700_s_military',
 				icon: 'inv_mod_stock',
 				slot: 'stock',

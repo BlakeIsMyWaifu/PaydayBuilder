@@ -36,7 +36,7 @@ const breaker12G = {
 		ammunition: shotgunAmmunition,
 		barrel: [
 			{
-				name: 'Long Barrel (Breaker)',
+				name: 'Long Barrel',
 				image: 'wpn_fps_sho_boot_b_long',
 				icon: 'inv_mod_barrel',
 				slot: 'barrel',
@@ -49,7 +49,7 @@ const breaker12G = {
 				}
 			},
 			{
-				name: 'Short Barrel (Breaker)',
+				name: 'Short Barrel',
 				image: 'wpn_fps_sho_boot_b_short',
 				icon: 'inv_mod_barrel',
 				slot: 'barrel',

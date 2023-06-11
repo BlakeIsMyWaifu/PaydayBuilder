@@ -92,7 +92,7 @@ const airbow = {
 		],
 		stock: [
 			{
-				name: 'Light Stock (Airbow)',
+				name: 'Light Stock',
 				image: 'wpn_fps_bow_ecp_s_bare',
 				icon: 'inv_mod_stock',
 				slot: 'stock',

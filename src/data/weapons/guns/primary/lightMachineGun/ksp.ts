@@ -76,7 +76,7 @@ const ksp = {
 			stock['Standard Stock (Main)'],
 			stock['Tactical Stock (Main)'],
 			{
-				name: 'Solid Stock (KSP)',
+				name: 'Solid Stock',
 				image: 'wpn_fps_lmg_m249_s_solid',
 				icon: 'inv_mod_stock',
 				slot: 'stock',

@@ -50,7 +50,7 @@ const uar = {
 				}
 			},
 			{
-				name: 'Long Barrel (UAR)',
+				name: 'Long Barrel',
 				image: 'wpn_fps_aug_b_long',
 				icon: 'inv_mod_barrel',
 				slot: 'barrel',

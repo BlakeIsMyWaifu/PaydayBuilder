@@ -197,7 +197,7 @@ const gewehr3 = {
 				}
 			},
 			{
-				name: 'Wooden Stock (Gewehr)',
+				name: 'Wooden Stock',
 				image: 'wpn_fps_ass_g3_s_wood',
 				icon: 'inv_mod_stock',
 				slot: 'stock',

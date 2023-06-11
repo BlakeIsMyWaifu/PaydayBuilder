@@ -99,7 +99,7 @@ const grom = {
 			sight['Reconnaissance Sight x2'],
 			sight['Compact Tactical Box Sight x2.5'],
 			{
-				name: 'Iron Sight (Grom)', // TODO scope level
+				name: 'Iron Sight', // TODO scope level
 				image: 'wpn_fps_snp_siltstone_iron_sight',
 				icon: 'inv_mod_scope',
 				slot: 'sight',

@@ -44,7 +44,7 @@ const izhma12G = {
 		ammunition: shotgunAmmunition,
 		barrel: [
 			{
-				name: 'Short Barrel (IZHMA)',
+				name: 'Short Barrel',
 				image: 'wpn_fps_sho_saiga_b_short',
 				icon: 'inv_mod_barrel',
 				slot: 'barrel',

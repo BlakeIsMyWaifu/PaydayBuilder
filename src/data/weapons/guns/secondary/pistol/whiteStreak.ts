@@ -56,7 +56,7 @@ const whiteStreak = {
 		gadget: pistolGadget,
 		magazine: [
 			{
-				name: 'Extended Magazine (White Streak)',
+				name: 'Extended Magazine',
 				image: 'wpn_fps_pis_pl14_m_extended',
 				icon: 'inv_mod_magazine',
 				slot: 'magazine',

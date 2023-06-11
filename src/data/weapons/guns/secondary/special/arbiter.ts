@@ -52,7 +52,7 @@ const arbiter = {
 				}
 			},
 			{
-				name: 'Long Barrel (Arbiter)',
+				name: 'Long Barrel',
 				image: 'wpn_fps_gre_arbiter_b_long',
 				icon: 'inv_mod_barrel',
 				slot: 'barrel',

@@ -66,7 +66,7 @@ const $57Ap = {
 		gadget: pistolGadget,
 		magazine: [
 			{
-				name: 'Extended Magazine (5/7 AP)',
+				name: 'Extended Magazine',
 				image: 'wpn_fps_pis_lemming_m_ext',
 				icon: 'inv_mod_magazine',
 				slot: 'magazine',

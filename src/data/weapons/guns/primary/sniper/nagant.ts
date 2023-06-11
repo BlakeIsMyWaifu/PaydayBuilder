@@ -120,7 +120,7 @@ const nagant = {
 			sight['Trigonom Sight x1.5'],
 			sight['Solar Sight x1.5'],
 			{
-				name: 'Iron Sight x1.25 (Nagant)',
+				name: 'Iron Sight x1.25',
 				image: 'wpn_fps_snp_mosin_iron_sight',
 				icon: 'inv_mod_scope',
 				slot: 'sight',

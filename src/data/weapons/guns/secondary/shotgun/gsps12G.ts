@@ -53,7 +53,7 @@ const gsps12G = {
 		gadget: shotgunGadget,
 		stock: [
 			{
-				name: 'Stakeout Stock (GSPS)',
+				name: 'Stakeout Stock',
 				image: 'wpn_fps_shot_m37_s_short',
 				icon: 'inv_mod_stock',
 				slot: 'stock',

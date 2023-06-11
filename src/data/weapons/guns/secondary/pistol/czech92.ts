@@ -56,7 +56,7 @@ const czech92 = {
 		gadget: pistolGadget,
 		grip: [
 			{
-				name: 'Cartel Grip (Czech)',
+				name: 'Cartel Grip',
 				image: 'wpn_fps_pis_czech_g_luxury',
 				icon: 'inv_mod_grip',
 				slot: 'grip',

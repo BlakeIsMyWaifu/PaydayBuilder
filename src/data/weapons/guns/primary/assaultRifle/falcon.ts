@@ -158,7 +158,7 @@ const falcon = {
 				}
 			},
 			{
-				name: 'Marksman Stock (Falcon)',
+				name: 'Marksman Stock',
 				image: 'wpn_fps_ass_fal_s_03',
 				icon: 'inv_mod_stock',
 				slot: 'stock',
@@ -174,7 +174,7 @@ const falcon = {
 				}
 			},
 			{
-				name: 'Wooden Stock (Falcon)',
+				name: 'Wooden Stock',
 				image: 'wpn_fps_ass_fal_s_wood',
 				icon: 'inv_mod_stock',
 				slot: 'stock',

@@ -103,7 +103,7 @@ const piglet = {
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
 			{
-				name: 'No Stock (Piglet)',
+				name: 'No Stock',
 				image: 'wpn_fps_gre_m32_no_stock',
 				icon: 'inv_mod_stock',
 				slot: 'stock',

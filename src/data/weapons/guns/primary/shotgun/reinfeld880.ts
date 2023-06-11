@@ -66,7 +66,7 @@ const reinfeld880 = {
 		],
 		magazine: [
 			{
-				name: 'Extended Magazine (Reinfeld 880)',
+				name: 'Extended Magazine',
 				image: 'wpn_fps_shot_r870_m_extended',
 				icon: 'inv_mod_magazine',
 				slot: 'magazine',

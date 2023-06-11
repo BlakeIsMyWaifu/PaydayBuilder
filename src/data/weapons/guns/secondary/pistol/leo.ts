@@ -71,7 +71,7 @@ const leo = {
 				}
 			},
 			{
-				name: 'Long Slide (LEO)',
+				name: 'Long Slide',
 				image: 'wpn_fps_pis_hs2000_sl_long',
 				icon: 'inv_mod_slide',
 				slot: 'slide',

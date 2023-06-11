@@ -83,7 +83,7 @@ const crosskill = {
 		gadget: pistolGadget,
 		grip: [
 			{
-				name: 'Ergo Grip (Crosskill)',
+				name: 'Ergo Grip',
 				image: 'wpn_fps_pis_1911_g_ergo',
 				icon: 'inv_mod_grip',
 				slot: 'grip',
@@ -94,7 +94,7 @@ const crosskill = {
 				}
 			},
 			{
-				name: 'Bling Grip (Crosskill)',
+				name: 'Bling Grip',
 				image: 'wpn_fps_pis_1911_g_bling',
 				icon: 'inv_mod_grip',
 				slot: 'grip',

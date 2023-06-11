@@ -88,8 +88,6 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weaponData, equippedModNa
 		setSelectedTab(tab)
 	}
 
-	const fixItemName = (name: string): string => name.split(' (')[0] // TODO remove
-
 	const totalStats = useWeaponStats(weaponData, equippedModNames).total
 
 	const isMobile = useIsMobile()
@@ -123,7 +121,7 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weaponData, equippedModNa
 							onClick={() => selectedItem.name === mod.name ? equipModHelper() : setSelectedItem(mod)}
 						>
 							{mod.name === equippedModData[mod.slot]?.name && <ItemEquipped />}
-							<ItemName colour={itemColours[mod.source.rarity]}>{fixItemName(mod.name)}</ItemName>
+							<ItemName colour={itemColours[mod.source.rarity]}>{mod.name}</ItemName>
 							<ItemImage
 								src={`/images/modifications/${mod.image}.webp`}
 								aspectRatio='auto'
@@ -143,7 +141,7 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weaponData, equippedModNa
 					<ModWrapper>
 						<ModIcon src={`/images/modifications/icons/${selectedItem.icon}.png`} equipped={true} />
 					</ModWrapper>
-					<InfoTitle>{fixItemName(selectedItem.name)}</InfoTitle>
+					<InfoTitle>{selectedItem.name}</InfoTitle>
 				</InfoTitleWrapper>
 				<BlackmarketStatsTable
 					weapon={weaponData}

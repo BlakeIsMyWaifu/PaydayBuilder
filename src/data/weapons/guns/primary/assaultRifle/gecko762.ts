@@ -141,7 +141,7 @@ const gecko762 = {
 				}
 			},
 			{
-				name: 'Light Stock (Gecko)',
+				name: 'Light Stock',
 				image: 'wpn_fps_ass_galil_s_light',
 				icon: 'inv_mod_stock',
 				slot: 'stock',
@@ -156,7 +156,7 @@ const gecko762 = {
 				}
 			},
 			{
-				name: 'Plastic Stock (Gecko)',
+				name: 'Plastic Stock',
 				image: 'wpn_fps_ass_galil_s_plastic',
 				icon: 'inv_mod_stock',
 				slot: 'stock',
@@ -172,7 +172,7 @@ const gecko762 = {
 				}
 			},
 			{
-				name: 'Skeletal Stock (Gecko)',
+				name: 'Skeletal Stock',
 				image: 'wpn_fps_ass_galil_s_skeletal',
 				icon: 'inv_mod_stock',
 				slot: 'stock',
@@ -188,7 +188,7 @@ const gecko762 = {
 				}
 			},
 			{
-				name: 'Sniper Stock (Gecko)',
+				name: 'Sniper Stock',
 				image: 'wpn_fps_ass_galil_s_sniper',
 				icon: 'inv_mod_stock',
 				slot: 'stock',
@@ -204,7 +204,7 @@ const gecko762 = {
 				}
 			},
 			{
-				name: 'Wooden Stock (Gecko)',
+				name: 'Wooden Stock',
 				image: 'wpn_fps_ass_galil_s_wood',
 				icon: 'inv_mod_stock',
 				slot: 'stock',

@@ -38,7 +38,7 @@ const barrel = {
 		}
 	},
 	'DMR Kit (AK)': {
-		name: 'DMR Kit (AK)',
+		name: 'DMR Kit',
 		image: 'wpn_fps_upg_ass_ak_b_zastava',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
@@ -56,7 +56,7 @@ const barrel = {
 		}
 	},
 	'Long Barrel (CAR / AMR)': {
-		name: 'Long Barrel (CAR / AMR)',
+		name: 'Long Barrel',
 		image: 'wpn_fps_m4_uupg_b_long',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',
@@ -69,7 +69,7 @@ const barrel = {
 		}
 	},
 	'DMR Kit (CAR / AMR)': {
-		name: 'DMR Kit (CAR / AMR)',
+		name: 'DMR Kit',
 		image: 'wpn_fps_upg_ass_m4_b_beowulf',
 		icon: 'inv_mod_barrel',
 		slot: 'barrel',

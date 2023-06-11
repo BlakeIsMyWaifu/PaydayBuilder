@@ -36,7 +36,7 @@ const goliath12G = {
 		ammunition: shotgunAmmunition,
 		barrel: [
 			{
-				name: 'Short Barrel (Goliath)',
+				name: 'Short Barrel',
 				image: 'wpn_fps_sho_rota_b_short',
 				icon: 'inv_mod_barrel',
 				slot: 'barrel',
@@ -48,7 +48,7 @@ const goliath12G = {
 				}
 			},
 			{
-				name: 'Silenced Barrel (Goliath)',
+				name: 'Silenced Barrel',
 				image: 'wpn_fps_sho_rota_b_silencer',
 				icon: 'inv_mod_silencer',
 				slot: 'barrel',

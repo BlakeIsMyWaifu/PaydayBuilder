@@ -82,7 +82,7 @@ const bernetti9 = {
 		gadget: pistolGadget,
 		grip: [
 			{
-				name: 'Ergo Grip (Bernetti 9)',
+				name: 'Ergo Grip',
 				image: 'wpn_fps_pis_beretta_g_ergo',
 				icon: 'inv_mod_grip',
 				slot: 'grip',
@@ -123,7 +123,7 @@ const bernetti9 = {
 		],
 		magazine: [
 			{
-				name: 'Extended Magazine (Bernetti 9)',
+				name: 'Extended Magazine',
 				image: 'wpn_fps_pis_beretta_m_extended',
 				icon: 'inv_mod_magazine',
 				slot: 'magazine',

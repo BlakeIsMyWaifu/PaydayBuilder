@@ -67,7 +67,7 @@ const grip = {
 		}
 	},
 	'Ergo Grip (Main)': {
-		name: 'Ergo Grip (Main)',
+		name: 'Ergo Grip',
 		image: 'wpn_fps_upg_m4_g_ergo',
 		icon: 'inv_mod_grip',
 		slot: 'grip',
@@ -215,7 +215,7 @@ const grip = {
 		}
 	},
 	'Ergo Grip (STRYK / Chimano Custom)': {
-		name: 'Ergo Grip (STRYK / Chimano Custom)',
+		name: 'Ergo Grip',
 		image: 'wpn_fps_pis_g18c_g_ergo',
 		icon: 'inv_mod_grip',
 		slot: 'grip',

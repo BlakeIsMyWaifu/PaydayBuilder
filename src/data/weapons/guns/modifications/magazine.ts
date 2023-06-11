@@ -155,7 +155,7 @@ const magazine = {
 		}
 	},
 	'Extended Magazine (Chimano)': {
-		name: 'Extended Magazine (Chimano)',
+		name: 'Extended Magazine',
 		image: 'wpn_fps_pis_g18c_m_mag_33rnd',
 		icon: 'inv_mod_magazine',
 		slot: 'magazine',

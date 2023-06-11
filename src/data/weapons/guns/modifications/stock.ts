@@ -7,7 +7,7 @@ export type StockModification = keyof typeof stock
 
 const stock = {
 	'Standard Stock (Main)': {
-		name: 'Standard Stock (Main)',
+		name: 'Standard Stock',
 		image: 'wpn_fps_upg_m4_s_standard',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
@@ -19,7 +19,7 @@ const stock = {
 		}
 	},
 	'Tactical Stock (Main)': {
-		name: 'Tactical Stock (Main)',
+		name: 'Tactical Stock',
 		image: 'wpn_fps_upg_m4_s_pts',
 		icon: 'inv_mod_stock',
 		slot: 'stock',
@@ -31,7 +31,7 @@ const stock = {
 		}
 	},
 	'Skeletal Stock (Main)': {
-		name: 'Skeletal Stock (Main)',
+		name: 'Skeletal Stock',
 		image: 'wpn_upg_ak_s_skfoldable',
 		icon: 'inv_mod_stock',
 		slot: 'stock',

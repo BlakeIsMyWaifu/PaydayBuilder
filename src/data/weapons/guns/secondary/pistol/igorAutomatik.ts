@@ -65,7 +65,7 @@ const igorAutomatik = {
 				}
 			},
 			{
-				name: 'Cartel Grip (Igor)',
+				name: 'Cartel Grip',
 				image: 'wpn_fps_pis_stech_g_luxury',
 				icon: 'inv_mod_grip',
 				slot: 'grip',

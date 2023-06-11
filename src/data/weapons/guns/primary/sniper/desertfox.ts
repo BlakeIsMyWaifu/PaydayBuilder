@@ -35,7 +35,7 @@ const desertfox = {
 	modifications: {
 		barrel: [
 			{
-				name: 'Long Barrel (Desertfox)',
+				name: 'Long Barrel',
 				image: 'wpn_fps_snp_desertfox_b_long',
 				icon: 'inv_mod_barrel',
 				slot: 'barrel',
@@ -50,7 +50,7 @@ const desertfox = {
 				}
 			},
 			{
-				name: 'Silenced Barrel (Desertfox)',
+				name: 'Silenced Barrel',
 				image: 'wpn_fps_snp_desertfox_b_silencer',
 				icon: 'inv_mod_silencer',
 				slot: 'barrel',

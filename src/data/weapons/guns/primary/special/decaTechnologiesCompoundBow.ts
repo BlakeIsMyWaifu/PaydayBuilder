@@ -64,7 +64,7 @@ const decaTechnologiesCompoundBow = {
 		boost: specialBoost,
 		grip: [
 			{
-				name: 'Wooden Grip (DECA)',
+				name: 'Wooden Grip',
 				image: 'wpn_fps_bow_elastic_g_2', // - wpn_fps_bow_elastic_g_wood
 				icon: 'inv_mod_grip',
 				slot: 'grip',
@@ -76,7 +76,7 @@ const decaTechnologiesCompoundBow = {
 				}
 			},
 			{
-				name: 'Ergonomic Grip (DECA)',
+				name: 'Ergonomic Grip',
 				image: 'wpn_fps_bow_elastic_g_3', // - wpn_fps_bow_elastic_g_ergo
 				icon: 'inv_mod_grip',
 				slot: 'grip',
