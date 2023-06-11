@@ -1,7 +1,8 @@
-import { type MeleeList } from 'data/weapons/melees'
-import { type ThrowableList } from 'data/weapons/throwables'
 import { deepStrictEqual } from 'node:assert'
 import { describe, it } from 'node:test'
+
+import { type MeleeList } from 'data/weapons/melees'
+import { type ThrowableList } from 'data/weapons/throwables'
 import { defaultBuild } from 'state/useBuildsStore'
 import { decodeMelee, decodeThrowable } from 'utils/decodeBuild'
 import { encodeMelee, encodeThrowable } from 'utils/encodeBuild'

@@ -1,82 +1,20 @@
 import content from 'data/source/downloadableContent'
+import source from 'data/source/miscSources'
 
-import { type ModificationList } from '../weaponTypes'
+import { type ModificationCollection } from '../weaponTypes'
 
-export type UnderbarrelModificationsList =
-	// Káng Arms Model 54
-	| 'KA54 Bull Stopper Addon'
-	| 'Flechette'
-	| 'AP Slug'
+export type UnderbarrelModification = keyof typeof underbarrel
 
-	// KETCHNOV BYK-1
-	| 'Frag Round'
-	| 'Viper Grenade'
-
-const underbarrel: ModificationList<UnderbarrelModificationsList> = {
-	'KA54 Bull Stopper Addon': {
-		name: 'KA54 Bull Stopper Addon',
-		image: 'KA54_Bull_Stopper_Addon',
+const underbarrel = {
+	'Sting Grenade': {
+		name: 'Sting Grenade',
+		image: 'wpn_fps_upg_a_grenade_launcher_hornet',
 		icon: 'inv_mod_ammo_custom',
 		slot: 'underbarrel',
-		source: content['Jiu Feng Smuggler Pack 3'],
-		cost: 9e3,
-		stats: {
-			stability: 4,
-			concealment: -4
-		},
-		compatibleWeapons: {
-			pistol: [
-				'Káng Arms Model 54'
-			]
-		}
-	},
-	'Flechette': {
-		name: 'Flechette',
-		image: 'wpn_fps_upg_a_piercing',
-		icon: 'inv_mod_ammo_piercing',
-		slot: 'underbarrel',
-		source: content['Jiu Feng Smuggler Pack 3'],
-		cost: 9e3,
-		stats: {
-			stability: 4,
-			concealment: -4
-		},
-		compatibleWeapons: {
-			pistol: [
-				'Káng Arms Model 54'
-			]
-		}
-	},
-	'AP Slug': {
-		name: 'AP Slug',
-		image: 'wpn_fps_upg_a_slug',
-		icon: 'inv_mod_ammo_slug',
-		slot: 'underbarrel',
-		source: content['Jiu Feng Smuggler Pack 3'],
-		cost: 9e3,
-		stats: {
-			stability: 4,
-			concealment: -4
-		},
-		compatibleWeapons: {
-			pistol: [
-				'Káng Arms Model 54'
-			]
-		}
-	},
-	'Frag Round': {
-		name: 'Frag Round',
-		image: 'inv_mod_ammo_explosive',
-		icon: 'inv_mod_ammo_explosive',
-		slot: 'underbarrel',
-		source: content['Jiu Feng Smuggler Pack 2'],
-		cost: 9e3,
-		stats: {},
-		compatibleWeapons: {
-			assaultRifle: [
-				'KETCHNOV Byk-1'
-			]
-		}
+		source: source['Base Game'], // TODO Find update, around start of 2023
+		cost: 14e3,
+		specialEffect: ['Shoots an AP shotgun round.', 'Receives bonuses from skills', 'Suffers from damage falloff'],
+		stats: {}
 	},
 	'Viper Grenade': {
 		name: 'Viper Grenade',
@@ -85,13 +23,20 @@ const underbarrel: ModificationList<UnderbarrelModificationsList> = {
 		slot: 'underbarrel',
 		source: content['Jiu Feng Smuggler Pack 2'],
 		cost: 9e3,
-		stats: {},
-		compatibleWeapons: {
-			assaultRifle: [
-				'KETCHNOV Byk-1'
-			]
+		stats: {}
+	},
+	'X1-a Tactical ZAPper': {
+		name: 'X1-a Tactical ZAPper',
+		image: 'wpn_fps_upg_a_grenade_launcher_electric',
+		icon: 'inv_mod_ammo_custom',
+		slot: 'underbarrel',
+		source: content['Jiu Feng Smuggler Pack 2'],
+		cost: 9e3,
+		specialEffect: ['Electrocutes all targets within its radius'],
+		stats: {
+			damage: -80
 		}
 	}
-}
+} as const satisfies ModificationCollection
 
 export default underbarrel

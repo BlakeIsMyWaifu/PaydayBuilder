@@ -1,6 +1,7 @@
-import { type PerkDeckList } from 'data/abilities/perks'
 import { deepStrictEqual } from 'node:assert'
 import { describe, it } from 'node:test'
+
+import { type PerkDeckList } from 'data/abilities/perks'
 import { type CopycatValues } from 'state/useAbilitiesStore'
 import { defaultBuild } from 'state/useBuildsStore'
 import { decodeCopycat, decodePerkDeck } from 'utils/decodeBuild'

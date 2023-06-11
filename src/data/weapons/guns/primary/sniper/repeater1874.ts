@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import sight from '../../modifications/sight'
 import { type WeaponData } from '../../weaponTypes'
 import { sniperBoost } from '../commonModifications/sniperModifications'
 
-const repeater1874: WeaponData = {
+const repeater1874 = {
 	name: 'Repeater 1874',
 	image: 'winchester1874',
 	source: content['The Butcher\'s Western Pack'],
@@ -36,14 +34,60 @@ const repeater1874: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Long Range Barrel'],
-			barrel['Outlaw\'s Silenced Barrel']
+			{
+				name: 'Long Range Barrel',
+				image: 'wpn_fps_snp_winchester_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Butcher\'s Western Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: 4,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Outlaw\'s Silenced Barrel',
+				image: 'wpn_fps_snp_winchester_b_suppressed',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['The Butcher\'s Western Pack'],
+				cost: 44e3,
+				acquisition: {
+					bonus: 1
+				},
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -6,
+					accuracy: -4,
+					stability: 12,
+					concealment: -2,
+					threat: -22
+				}
+			}
 		],
 		boost: sniperBoost,
 		sight: [
-			sight['A5 Scope']
+			{
+				name: 'A5 Scope', // TODO scope level
+				image: 'wpn_fps_snp_winchester_sniper_scope',
+				icon: 'inv_mod_scope',
+				slot: 'sight',
+				source: content['The Butcher\'s Western Pack'],
+				cost: 0,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					stability: 4,
+					concealment: -3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default repeater1874

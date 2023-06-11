@@ -1,15 +1,17 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
+import barrelExt from '../../modifications/barrelExt'
+import chargingHandle from '../../modifications/chargingHandle'
 import extra from '../../modifications/extra'
-import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
+import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunCustom, shotgunGadget, shotgunSight } from '../commonModifications/shotgunModifications'
+import { shotgunAmmunition, shotgunBoost, shotgunCustom, shotgunGadget, shotgunSight } from '../commonModifications/shotgunModifications'
 
-const izhma12G: WeaponData = {
+const izhma12G = {
 	name: 'IZHMA 12G',
 	image: 'saiga',
 	source: source['Base Game'],
@@ -41,24 +43,76 @@ const izhma12G: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrel: [
-			barrel['Short Barrel (IZHMA)']
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_sho_saiga_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Spec Ops Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					accuracy: -4,
+					stability: -4,
+					concealment: 4
+				}
+			}
 		],
-		barrelExt: shotgunBarrelExt,
+		barrelExt: [
+			barrelExt['Shark Teeth Nozzle'],
+			barrelExt['The Silent Killer Suppressor'],
+			barrelExt['King\'s Crown Compensator'],
+			barrelExt['Shh!'],
+			barrelExt['Donald\'s Horizontal Leveller'],
+			barrelExt['Taktika Muzzle Brake']
+		],
 		boost: shotgunBoost,
 		custom: shotgunCustom,
+		chargingHandle: [
+			chargingHandle['Taktika Charging Handle']
+		],
 		extra: [
-			extra['Scope Mount (AK)']
+			extra['Scope Mount']
 		],
 		foregrip: [
-			foregrip['The Tactical Russian Rail'],
-			foregrip['Hollow Handle']
+			{
+				name: 'The Tactical Russian Rail',
+				image: 'wpn_upg_saiga_fg_lowerrail',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: source['Base Game'],
+				cost: 36e3,
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Hollow Handle',
+				image: 'wpn_fps_sho_saiga_fg_holy',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['Gage Spec Ops Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					concealment: 4
+				}
+			}
 		],
 		gadget: shotgunGadget,
 		grip: [
 			grip['AK Rubber Grip'],
 			grip['AK Plastic Grip'],
 			grip['AK Wood Grip'],
-			grip['Aluminum Grip']
+			grip['Aluminum Grip'],
+			grip['Verge AK Grip'],
+			grip['Ergonomic AK Grip'],
+			grip['Ultimatum AK Grip']
 		],
 		magazine: [
 			magazine['Big Brother Magazine']
@@ -73,9 +127,14 @@ const izhma12G: WeaponData = {
 			stock['War-Torn Stock'],
 			stock['Classic Stock'],
 			stock['2 Piece Stock'],
-			stock['Contractor Stock']
+			stock['Contractor Stock'],
+			stock['Taktika Telescopic Stock'],
+			stock['VD-12 Stock']
+		],
+		upperReceiver: [
+			upperReceiver['Taktika Railed Cover']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default izhma12G

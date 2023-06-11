@@ -1,13 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import bipod from '../../modifications/bipod'
-import foregrip from '../../modifications/foregrip'
-import grip from '../../modifications/grip'
 import { type WeaponData } from '../../weaponTypes'
 import { lightMachineGunBarrelExt, lightMachineGunBoost, lightMachineGunGadget } from '../commonModifications/lightMachineGunModifications'
 
-const brenner21: WeaponData = {
+const brenner21 = {
 	name: 'Brenner-21',
 	image: 'hk21',
 	source: content['Gage Weapon Pack #02'],
@@ -38,7 +35,20 @@ const brenner21: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Long Barrel (Brenner)']
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_lmg_hk21_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Weapon Pack #02'],
+				cost: 28e3,
+				stats: {
+					damage: -1,
+					accuracy: 4,
+					stability: 4,
+					concealment: -2
+				}
+			}
 		],
 		barrelExt: lightMachineGunBarrelExt,
 		bipod: [
@@ -46,13 +56,37 @@ const brenner21: WeaponData = {
 		],
 		boost: lightMachineGunBoost,
 		foregrip: [
-			foregrip['Short Foregrip (Brenner)']
+			{
+				name: 'Short Foregrip',
+				image: 'wpn_fps_lmg_hk21_fg_short',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['Gage Weapon Pack #02'],
+				cost: 79200,
+				stats: {
+					damage: 1,
+					accuracy: -4,
+					concealment: 3
+				},
+				incompatibleSlot: ['bipod']
+			}
 		],
 		gadget: lightMachineGunGadget,
 		grip: [
-			grip['Ergo Grip (Brenner)']
+			{
+				name: 'Ergo Grip',
+				image: 'wpn_fps_lmg_hk21_g_ergo',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Gage Weapon Pack #02'],
+				cost: 37800,
+				stats: {
+					stability: 4,
+					concealment: -1
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default brenner21

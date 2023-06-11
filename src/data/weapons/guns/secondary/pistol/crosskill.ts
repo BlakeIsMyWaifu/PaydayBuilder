@@ -1,14 +1,12 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
 import barrelExt from '../../modifications/barrelExt'
-import grip from '../../modifications/grip'
-import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
-import slide from '../../modifications/slide'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
+import { pistolBoost, pistolGadget } from '../commonModifications/pistolModifications'
 
-const crosskill: WeaponData = {
+const crosskill = {
 	name: 'Crosskill',
 	image: 'colt_1911',
 	source: source['Base Game'],
@@ -39,30 +37,156 @@ const crosskill: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			...pistolBarrelExt,
-			barrelExt['Aggressor Compensator'],
-			barrelExt['Punisher Compensator']
+			barrelExt['IPSC Compensator'],
+			barrelExt['Roctec Suppressor'],
+			barrelExt['Champion\'s Suppressor'],
+			barrelExt['Facepunch Compensator'],
+			barrelExt['Standard Issue Suppressor'],
+			{
+				name: 'Aggressor Compensator',
+				image: 'wpn_fps_pis_1911_co_2',
+				icon: 'inv_mod_barrel_ext',
+				slot: 'barrelExt',
+				source: source.Community,
+				cost: 14e3,
+				stats: {
+					damage: 2,
+					stability: 8,
+					concealment: -1,
+					threat: 1
+				}
+			},
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['Size Doesn\'t Matter Suppressor'],
+			{
+				name: 'Punisher Compensator',
+				image: 'wpn_fps_pis_1911_co_1',
+				icon: 'inv_mod_barrel_ext',
+				slot: 'barrelExt',
+				source: source.Community,
+				cost: 36e3,
+				stats: {
+					damage: 1,
+					stability: 4,
+					concealment: -1,
+					threat: 10
+				}
+			},
+			barrelExt['Monolith Suppressor'],
+			barrelExt['Asepsis Suppressor'],
+			barrelExt['Flash Hider'],
+			barrelExt['Budget Suppressor'],
+			barrelExt['Jungle Ninja Suppressor'],
+			barrelExt['Hurricane Compensator']
 		],
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		grip: [
-			grip['Ergo Grip (Crosskill)'],
-			grip['Bling Grip (Crosskill)'],
-			grip['Engraved Crosskill Grips']
+			{
+				name: 'Ergo Grip',
+				image: 'wpn_fps_pis_1911_g_ergo',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: source['Base Game'],
+				cost: 14e3,
+				stats: {
+					stability: 4
+				}
+			},
+			{
+				name: 'Bling Grip',
+				image: 'wpn_fps_pis_1911_g_bling',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: source['Base Game'],
+				cost: 80e3,
+				stats: {
+					accuracy: 4,
+					stability: -4
+				}
+			},
+			{
+				name: 'Engraved Crosskill Grips',
+				image: 'wpn_fps_pis_1911_g_engraved',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['The Butcher Mod Pack 2'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					stability: 4
+				}
+			}
 		],
 		magazine: [
-			magazine['12rnd Mag.'],
-			magazine['Magazine with Ameritude!']
+			{
+				name: '12rnd Mag.',
+				image: 'wpn_fps_pis_1911_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: source['Base Game'],
+				cost: 21e3,
+				stats: {
+					magazine: 6,
+					concealment: -1
+				}
+			},
+			{
+				name: 'Magazine with Ameritude!',
+				image: 'wpn_fps_pis_1911_m_big',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['Gage Spec Ops Pack'],
+				cost: 14e3,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					magazine: 12,
+					stability: 8,
+					concealment: -2
+				}
+			}
 		],
 		sight: [
-			sight['Marksman Sight'],
-			...pistolSight
+			sight['Marksman Sight x1.25'],
+			sight['Pistol Red Dot Sight x1.5'],
+			sight['Riktpunkt Holosight x1.5'],
+			sight['SKOLD Micro Reflex Sight x1.5']
 		],
 		slide: [
-			slide['Vented Slide'],
-			slide['Long Vented Slide']
+			{
+				name: 'Vented Slide',
+				image: 'wpn_fps_pis_1911_b_vented',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					damage: 1,
+					accuracy: -4,
+					stability: 8,
+					threat: 2
+				}
+			},
+			{
+				name: 'Long Vented Slide',
+				image: 'wpn_fps_pis_1911_b_long',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: source['Base Game'],
+				cost: 14e3,
+				stats: {
+					damage: 1,
+					accuracy: 8,
+					stability: 8,
+					concealment: -2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default crosskill

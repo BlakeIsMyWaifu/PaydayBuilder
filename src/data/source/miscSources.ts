@@ -16,9 +16,11 @@ type SourceList =
 	| 'The Search For Kento'
 	| 'RAID: World War II Community'
 	| 'Ownership of Hotline Miami 2 Digital Special'
+	| 'Christmas 2020 Update'
 	| 'Winter Wonderland 2021'
 	| '8th Anniversary Event'
 	| 'Prime Matter'
+	| 'Chinese New Year 2022'
 
 const source: Record<SourceList, SourceData> = {
 	'Base Game': {
@@ -28,7 +30,7 @@ const source: Record<SourceList, SourceData> = {
 	},
 	'Infamous': {
 		name: 'Infamous',
-		rarity: 'Event',
+		rarity: 'Free',
 		type: 'Feature'
 	},
 	'Community': {
@@ -48,12 +50,12 @@ const source: Record<SourceList, SourceData> = {
 	},
 	'Meles Weapon Pack': {
 		name: 'Meles Weapon Pack',
-		rarity: 'Event',
+		rarity: 'Free',
 		type: 'Weapon'
 	},
 	'The Search For Kento': {
 		name: 'The Search For Kento',
-		rarity: 'Event',
+		rarity: 'Free',
 		type: 'Weapon'
 	},
 	'RAID: World War II Community': {
@@ -66,20 +68,30 @@ const source: Record<SourceList, SourceData> = {
 		rarity: 'Collaboration',
 		type: 'Weapon'
 	},
+	'Christmas 2020 Update': {
+		name: 'Christmas 2020 Update',
+		rarity: 'Free',
+		type: 'Weapon Mod'
+	},
 	'Winter Wonderland 2021': {
 		name: 'Winter Wonderland 2021',
-		rarity: 'Event',
+		rarity: 'Free',
 		type: 'Weapon'
 	},
 	'8th Anniversary Event': {
 		name: '8th Anniversary Event',
-		rarity: 'Event',
+		rarity: 'Free',
 		type: 'Weapon'
 	},
 	'Prime Matter': {
 		name: 'Prime Matter',
 		rarity: 'Community',
 		type: 'Mask'
+	},
+	'Chinese New Year 2022': {
+		name: 'Chinese New Year 2022',
+		rarity: 'Paid',
+		type: 'Weapon Mod'
 	}
 }
 

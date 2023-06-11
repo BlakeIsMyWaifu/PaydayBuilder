@@ -1,12 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
-import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const geckoM2: WeaponData = {
+const geckoM2 = {
 	name: 'Gecko M2',
 	image: 'maxim9',
 	source: content['Jiu Feng Smuggler Pack 4'],
@@ -37,8 +35,32 @@ const geckoM2: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['UpShot Barrel'],
-			barrel['Pinnacle Barrel']
+			{
+				name: 'UpShot Barrel',
+				image: 'wpn_fps_pis_maxim9_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Jiu Feng Smuggler Pack 4'],
+				cost: 11200,
+				stats: {
+					accuracy: 12,
+					stability: 8,
+					concealment: -3
+				}
+			},
+			{
+				name: 'Pinnacle Barrel',
+				image: 'wpn_fps_pis_maxim9_b_marksman',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Jiu Feng Smuggler Pack 4'],
+				cost: 11200,
+				stats: {
+					accuracy: 4,
+					stability: 4,
+					concealment: -1
+				}
+			}
 		],
 		barrelExt: [
 			barrelExt['IPSC Compensator'],
@@ -48,10 +70,21 @@ const geckoM2: WeaponData = {
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		magazine: [
-			magazine['Stack S3 Magazine']
+			{
+				name: 'Stack S3 Magazine',
+				image: 'wpn_fps_pis_maxim9_m_ext',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['Jiu Feng Smuggler Pack 4'],
+				cost: 7200,
+				stats: {
+					magazine: 4,
+					concealment: -1
+				}
+			}
 		],
 		sight: pistolSight
 	}
-}
+} as const satisfies WeaponData
 
 export default geckoM2

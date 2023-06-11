@@ -1,13 +1,9 @@
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
-import foregrip from '../../modifications/foregrip'
-import grip from '../../modifications/grip'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
+import { submachineGunBarrelExt, submachineGunBoost, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const chicagoTypewriter: WeaponData = {
+const chicagoTypewriter = {
 	name: 'Chicago Typewriter',
 	image: 'm1928',
 	source: source.Community,
@@ -38,24 +34,91 @@ const chicagoTypewriter: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Stubby Barrel'],
-			barrel['Long Barrel (Chicago Typewriter)']
+			{
+				name: 'Stubby Barrel',
+				image: 'wpn_fps_smg_thompson_barrel_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source.Community,
+				cost: 14e3,
+				stats: {
+					accuracy: -4,
+					concealment: 3
+				}
+			},
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_smg_thompson_barrel_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source.Community,
+				cost: 28e3,
+				stats: {
+					accuracy: 4,
+					concealment: -3
+				}
+			}
 		],
 		barrelExt: submachineGunBarrelExt,
 		boost: submachineGunBoost,
 		foregrip: [
-			foregrip['Discrete Foregrip']
+			{
+				name: 'Discrete Foregrip',
+				image: 'wpn_fps_smg_thompson_foregrip_discrete',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: source.Community,
+				cost: 14e3,
+				stats: {
+					stability: -4,
+					concealment: 1
+				}
+			}
 		],
 		gadget: submachineGunGadget,
 		grip: [
-			grip['Discrete Grip']
+			{
+				name: 'Discrete Grip',
+				image: 'wpn_fps_smg_thompson_grip_discrete',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: source.Community,
+				cost: 14e3,
+				stats: {
+					stability: -4,
+					concealment: 1
+				}
+			}
 		],
+		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight,
 		stock: [
-			stock['QD Sling Stock'],
-			stock['Discrete Stock (Chicago Typewriter)']
+			{
+				name: 'QD Sling Stock',
+				image: 'wpn_fps_smg_thompson_stock_nostock',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source.Community,
+				cost: 9e3,
+				stats: {
+					stability: -12,
+					concealment: 4
+				}
+			},
+			{
+				name: 'Discrete Stock',
+				image: 'wpn_fps_smg_thompson_stock_discrete',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source.Community,
+				cost: 21e3,
+				stats: {
+					stability: -4,
+					concealment: 1
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default chicagoTypewriter

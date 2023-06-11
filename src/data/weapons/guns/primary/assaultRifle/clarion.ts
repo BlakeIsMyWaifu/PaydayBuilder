@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import grip from '../../modifications/grip'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const clarion: WeaponData = {
+const clarion = {
 	name: 'Clarion',
 	image: 'famas',
 	source: content['Gage Assault Pack'],
@@ -36,20 +34,99 @@ const clarion: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Long Barrel (Clarion)'],
-			barrel['Short Barrel (Clarion)'],
-			barrel['Sniper Barrel'],
-			barrel['Suppressed Barrel (Clarion)']
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_ass_famas_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Assault Pack'],
+				cost: 14e3,
+				acquisition: {
+					achievement: 'Unusual Suspects'
+				},
+				stats: {
+					damage: 1,
+					stability: 4,
+					concealment: -1
+				}
+			},
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_ass_famas_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Assault Pack'],
+				cost: 14e3,
+				acquisition: {
+					achievement: 'So Many Choices'
+				},
+				stats: {
+					damage: 3,
+					accuracy: -4,
+					stability: -4,
+					concealment: 2
+				}
+			},
+			{
+				name: 'Sniper Barrel',
+				image: 'wpn_fps_ass_famas_b_sniper',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Assault Pack'],
+				cost: 14e3,
+				acquisition: {
+					achievement: 'Precision Aiming'
+				},
+				stats: {
+					damage: 1,
+					accuracy: 4,
+					stability: -4,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Suppressed Barrel',
+				image: 'wpn_fps_ass_famas_b_suppressed',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['Gage Assault Pack'],
+				cost: 28e3,
+				acquisition: {
+					achievement: 'Tour de Clarion'
+				},
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					accuracy: 8,
+					concealment: -1,
+					threat: -16.8
+				}
+			}
 		],
 		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		grip: [
-			grip['G2 Grip']
+			{
+				name: 'G2 Grip',
+				image: 'wpn_fps_ass_famas_g_retro',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Gage Assault Pack'],
+				cost: 14e3,
+				acquisition: {
+					achievement: 'Tour de Clarion'
+				},
+				stats: {
+					accuracy: 8,
+					stability: 4,
+					concealment: -1
+				}
+			}
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight
 	}
-}
+} as const satisfies WeaponData
 
 export default clarion

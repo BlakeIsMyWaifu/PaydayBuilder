@@ -1,10 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import ammunition from '../../modifications/ammunition'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoostTotalAmmo } from '../commonModifications/specialModifications'
+import { specialBoost } from '../commonModifications/specialModifications'
 
-const heavyCrossbow: WeaponData = {
+const heavyCrossbow = {
 	name: 'Heavy Crossbow',
 	image: 'arblast',
 	source: content['Gage Chivalry Pack'],
@@ -35,11 +34,40 @@ const heavyCrossbow: WeaponData = {
 	},
 	modifications: {
 		ammunition: [
-			ammunition['Explosive Bolt (Heavy Crossbow)'],
-			ammunition['Poison Bolt (Heavy Crossbow)']
+			{
+				name: 'Explosive Bolt',
+				image: 'wpn_fps_bow_arblast_m_explosive',
+				icon: 'inv_mod_ammo_explosive',
+				slot: 'ammunition',
+				source: content['Gage Chivalry Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				specialEffect: ['Explosive', 'Removes Ammo Pickup'],
+				stats: {
+					damage: -600
+				}
+			},
+			{
+				name: 'Poison Bolt',
+				image: 'wpn_fps_bow_arblast_m_poison',
+				icon: 'inv_mod_ammo_poison',
+				slot: 'ammunition',
+				source: content['Gage Chivalry Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				specialEffect: ['100% chance to poison target'],
+				stats: {
+					totalAmmo: -100,
+					damage: -1700
+				}
+			}
 		],
-		boost: specialBoostTotalAmmo
+		boost: specialBoost
 	}
-}
+} as const satisfies WeaponData
 
 export default heavyCrossbow

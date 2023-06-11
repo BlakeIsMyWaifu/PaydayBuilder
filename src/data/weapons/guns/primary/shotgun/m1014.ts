@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadgetMagnifier, shotgunSight } from '../commonModifications/shotgunModifications'
+import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
-const m1014: WeaponData = {
+const m1014 = {
 	name: 'M1014',
 	image: 'benelli',
 	source: content['Gage Shotgun Pack'],
@@ -37,18 +35,81 @@ const m1014: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrel: [
-			barrel['Short Barrel (M1014)'],
-			barrel['Long Barrel (M1014)']
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_sho_ben_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Shotgun Pack'],
+				cost: 36e3,
+				acquisition: {
+					achievement: 'Seven Eleven'
+				},
+				stats: {
+					magazine: -2,
+					damage: 2,
+					accuracy: -8,
+					stability: -8,
+					concealment: 6
+				}
+			},
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_sho_ben_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Shotgun Pack'],
+				cost: 62e3,
+				acquisition: {
+					achievement: 'Shotguns 101'
+				},
+				stats: {
+					magazine: 2,
+					accuracy: 8,
+					stability: 4,
+					concealment: -2
+				}
+			}
 		],
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
-		gadget: shotgunGadgetMagnifier,
+		gadget: shotgunGadget,
+		secondarySight: shotgunSecondarySight,
 		sight: shotgunSight,
 		stock: [
-			stock['Collapsed Stock'],
-			stock['Tactical Stock (M1014)']
+			{
+				name: 'Collapsed Stock',
+				image: 'wpn_fps_sho_ben_s_collapsed',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Gage Shotgun Pack'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Knock, Knock'
+				},
+				stats: {
+					stability: -12,
+					concealment: 6
+				}
+			},
+			{
+				name: 'Tactical Stock',
+				image: 'wpn_fps_sho_ben_s_solid',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Gage Shotgun Pack'],
+				cost: 36e3,
+				acquisition: {
+					achievement: 'Shock and Awe'
+				},
+				stats: {
+					accuracy: 4,
+					stability: 8,
+					concealment: -2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default m1014

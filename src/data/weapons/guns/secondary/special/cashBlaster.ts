@@ -3,7 +3,7 @@ import source from 'data/source/miscSources'
 import { type WeaponData } from '../../weaponTypes'
 import { specialBoostTotalAmmo, specialGadget } from '../commonModifications/specialModifications'
 
-const cashBlaster: WeaponData = {
+const cashBlaster = {
 	name: 'Cash Blaster',
 	image: 'money',
 	source: source['8th Anniversary Event'],
@@ -36,6 +36,6 @@ const cashBlaster: WeaponData = {
 		boost: specialBoostTotalAmmo,
 		gadget: specialGadget
 	}
-}
+} as const satisfies WeaponData
 
 export default cashBlaster

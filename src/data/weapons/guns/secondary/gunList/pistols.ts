@@ -1,3 +1,4 @@
+import { type pistolList } from '../../gunList'
 import { type WeaponData } from '../../weaponTypes'
 import $57Ap from '../pistol/57Ap'
 import babyDeagle from '../pistol/babyDeagle'
@@ -21,6 +22,7 @@ import gruberKurz from '../pistol/gruberKurz'
 import holt9mm from '../pistol/holt9mm'
 import igorAutomatik from '../pistol/igorAutomatik'
 import interceptor45 from '../pistol/interceptor45'
+import kahn357 from '../pistol/kahn357'
 import kangArmsModel54 from '../pistol/kangArmsModel54'
 import leo from '../pistol/leo'
 import m139mm from '../pistol/m139mm'
@@ -32,73 +34,42 @@ import signature40 from '../pistol/signature40'
 import stryk18c from '../pistol/stryk18c'
 import whiteStreak from '../pistol/whiteStreak'
 
-export type PistolList =
-	| 'Interceptor .45'
-	| 'Chimano 88'
-	| 'Gruber Kurz'
-	| 'Signature .40'
-	| 'Crosskill'
-	| 'Bernetti 9'
-	| 'Bronco .44'
-	| 'Crosskill Chunky Compact'
-	| 'White Streak'
-	| 'Baby Deagle'
-	| 'M13 9mm'
-	| 'Chimano Custom'
-	| 'Broomstick'
-	| 'Parabellum'
-	| '5/7 AP'
-	| 'Castigo .44'
-	| 'Contractor'
-	| 'Frenchman Model 87'
-	| 'Chimano Compact'
-	| 'Crosskill Guard'
-	| 'LEO'
-	| 'STRYK 18c'
-	| 'Bernetti Auto'
-	| 'Czech 92'
-	| 'Igor Automatik'
-	| 'HOLT 9mm'
-	| 'Peacemaker .45'
-	| 'Matever .357'
-	| 'Deagle'
-	| 'Gecko M2'
-	| 'Káng Arms Model 54'
-	| 'RUS-12 Angry Tiger'
+export type Pistol = typeof pistolList[number]
 
-const pistols: Record<PistolList, WeaponData> = {
+const pistols: Record<Pistol, WeaponData> = {
 	'Interceptor .45': interceptor45,
+	'Chimano Custom': chimanoCustom,
+	'5/7 AP': $57Ap,
+	'Chimano Compact': chimanoCompact,
 	'Chimano 88': chimano88,
-	'Gruber Kurz': gruberKurz,
-	'Signature .40': signature40,
 	'Crosskill': crosskill,
 	'Bernetti 9': bernetti9,
 	'Bronco .44': bronco44,
-	'Crosskill Chunky Compact': crosskillChunkyCompact,
 	'White Streak': whiteStreak,
-	'Baby Deagle': babyDeagle,
-	'M13 9mm': m139mm,
-	'Chimano Custom': chimanoCustom,
-	'Broomstick': broomstick,
 	'Parabellum': parabellum,
-	'5/7 AP': $57Ap,
 	'Castigo .44': castigo44,
-	'Contractor': contractor,
-	'Frenchman Model 87': frenchmanModel87,
-	'Chimano Compact': chimanoCompact,
 	'Crosskill Guard': crosskillGuard,
-	'LEO': leo,
 	'STRYK 18c': stryk18c,
+	'Deagle': deagle,
+	'M13 9mm': m139mm,
+	'Gruber Kurz': gruberKurz,
+	'Signature .40': signature40,
+	'Broomstick': broomstick,
+	'Contractor': contractor,
+	'LEO': leo,
+	'Peacemaker .45': peacemaker45,
+	'Matever .357': matever357,
+	'Baby Deagle': babyDeagle,
 	'Bernetti Auto': bernettiAuto,
 	'Czech 92': czech92,
 	'Igor Automatik': igorAutomatik,
 	'HOLT 9mm': holt9mm,
-	'Peacemaker .45': peacemaker45,
-	'Matever .357': matever357,
-	'Deagle': deagle,
+	'Frenchman Model 87': frenchmanModel87,
+	'Crosskill Chunky Compact': crosskillChunkyCompact,
+	'RUS-12 Angry Tiger': rus12AngryTiger,
 	'Gecko M2': geckoM2,
 	'Káng Arms Model 54': kangArmsModel54,
-	'RUS-12 Angry Tiger': rus12AngryTiger
+	'Kahn .357': kahn357
 }
 
 export default pistols

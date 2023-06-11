@@ -1,14 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import foregrip from '../../modifications/foregrip'
-import grip from '../../modifications/grip'
 import stock from '../../modifications/stock'
-import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const commando553: WeaponData = {
+const commando553 = {
 	name: 'Commando 553',
 	image: 's552',
 	source: content['Armored Transport'],
@@ -39,32 +35,102 @@ const commando553: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Long Barrel (Commando)']
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_ass_s552_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Armored Transport'],
+				cost: 52800,
+				stats: {
+					damage: 1,
+					accuracy: 4,
+					concealment: -4
+				}
+			}
 		],
 		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
 		foregrip: [
-			foregrip['Enhanced Foregrip'],
-			foregrip['Railed Foregrip (Commando)']
+			{
+				name: 'Enhanced Foregrip',
+				image: 'wpn_fps_ass_s552_fg_standard_green',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['Armored Transport'],
+				cost: 10800,
+				stats: {
+					accuracy: 4,
+					concealment: -4
+				}
+			},
+			{
+				name: 'Railed Foregrip',
+				image: 'wpn_fps_ass_s552_fg_railed',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['Armored Transport'],
+				cost: 63600,
+				stats: {
+					stability: 20,
+					concealment: -2
+				}
+			}
 		],
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		grip: [
-			grip['Enhanced Grip']
+			{
+				name: 'Enhanced Grip',
+				image: 'wpn_fps_ass_s552_g_standard_green',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Armored Transport'],
+				cost: 33600,
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			}
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight,
 		stock: [
 			stock['Tactical Stock (Main)'],
-			stock['Enhanced Stock'],
+			{
+				name: 'Enhanced Stock',
+				image: 'wpn_fps_ass_s552_g_standard_green',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Armored Transport'],
+				cost: 33600,
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			},
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
-			stock['Contractor Stock']
+			stock['Contractor Stock'],
+			stock['VD-12 Stock']
 		],
 		upperReceiver: [
-			upperReceiver['Heat Treated Body']
+			{
+				name: 'Heat Treated Body',
+				image: 'wpn_fps_ass_s552_body_standard_black',
+				icon: 'inv_mod_upper_receiver',
+				slot: 'upperReceiver',
+				source: content['Armored Transport'],
+				cost: 21e3,
+				stats: {
+					damage: 1,
+					accuracy: -4,
+					concealment: 4
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default commando553

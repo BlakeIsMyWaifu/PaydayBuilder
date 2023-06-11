@@ -1,13 +1,11 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
-import grip from '../../modifications/grip'
 import sight from '../../modifications/sight'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost, pistolGadget } from '../commonModifications/pistolModifications'
 
-const rus12AngryTiger: WeaponData = {
+const rus12AngryTiger = {
 	name: 'RUS-12 Angry Tiger',
 	image: 'rsh12',
 	source: content['Jiu Feng Smuggler Pack 3'],
@@ -38,8 +36,33 @@ const rus12AngryTiger: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['RUS-J Long Valley Barrel and Stabilizer'],
-			barrel['RUS-K Tactical Short Barrel']
+			{
+				name: 'RUS-J Long Valley Barrel and Stabilizer',
+				image: 'wpn_fps_pis_rsh12_b_comp',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Jiu Feng Smuggler Pack 3'],
+				cost: 32e3,
+				stats: {
+					damage: 4,
+					accuracy: 12,
+					stability: 4,
+					concealment: -3
+				}
+			},
+			{
+				name: 'RUS-K Tactical Short Barrel',
+				image: 'wpn_fps_pis_rsh12_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Jiu Feng Smuggler Pack 3'],
+				cost: 21e3,
+				stats: {
+					accuracy: -8,
+					stability: -8,
+					concealment: 2
+				}
+			}
 		],
 		barrelExt: [
 			barrelExt['IPSC Compensator'],
@@ -50,28 +73,42 @@ const rus12AngryTiger: WeaponData = {
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		grip: [
-			grip['RUS Custom Wood Grip']
+			{
+				name: 'RUS Custom Wood Grip',
+				image: 'wpn_fps_pis_rsh12_g_wood',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Jiu Feng Smuggler Pack 3'],
+				cost: 21e3,
+				stats: {
+					stability: 24
+				}
+			}
 		],
 		sight: [
-			sight['The Professional\'s Choice Sight'],
-			sight['Surgeon Sight'],
-			sight['See More Sight'],
-			sight['Combat Sight'],
-			sight['Speculator Sight'],
-			sight['Trigonom Sight'],
-			sight['Holographic Sight'],
-			sight['Compact Holosight'],
-			sight['Solar Sight'],
-			sight['Military Red Dot Sight (1)'],
-			sight['Military Red Dot Sight (2)'],
-			sight['Milspec Scope'],
-			sight['Acough Optic Scope'],
-			sight['Compact Profile Sight'],
-			sight['Maelstrom Sight'],
-			sight['Advanced Combat Sight'],
-			sight['Reconnaissance Sight']
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Acough Optic Scope x3.25'],
+			sight['Military Red Dot Sight x2'],
+			sight['Military Red Dot Sight Special x2'],
+			sight['Milspec Scope x2'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			sight['Compact Tactical Box Sight x2.5'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Maelstrom Sight x1.5'],
+			sight['CASSIAN Elite Score x4.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['Advanced Combat Sight x3.25'],
+			sight['CASSIAN Sharp Sight x3.25'],
+			sight['Z5 Owl Glass Universal Scope x2.5']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default rus12AngryTiger

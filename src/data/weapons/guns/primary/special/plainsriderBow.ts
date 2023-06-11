@@ -1,11 +1,10 @@
 import content from 'data/source/downloadableContent'
+import source from 'data/source/miscSources'
 
-import ammunition from '../../modifications/ammunition'
 import boost from '../../modifications/boost'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoostTotalAmmo } from '../commonModifications/specialModifications'
 
-const plainsriderBow: WeaponData = {
+const plainsriderBow = {
 	name: 'Plainsrider Bow',
 	image: 'plainsrider',
 	source: content['The Butcher\'s Western Pack'],
@@ -36,14 +35,57 @@ const plainsriderBow: WeaponData = {
 	},
 	modifications: {
 		ammunition: [
-			ammunition['Explosive Arrows (Plainsrider)'],
-			ammunition['Poisoned Arrows (Plainsrider)']
+			{
+				name: 'Explosive Arrows',
+				image: 'wpn_fps_upg_a_bow_explosion',
+				icon: 'inv_mod_ammo_explosive',
+				slot: 'ammunition',
+				source: content['The Butcher\'s Western Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				specialEffect: ['Explosive', 'Removes Ammo Pickup'],
+				stats: {
+					damage: -300
+				}
+			},
+			{
+				name: 'Poisoned Arrows',
+				image: 'wpn_fps_upg_a_bow_poison',
+				icon: 'inv_mod_ammo_poison',
+				slot: 'ammunition',
+				source: source['Base Game'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				specialEffect: ['100% chance to poison target'],
+				stats: {
+					totalAmmo: -15,
+					damage: -900
+				}
+			}
 		],
 		boost: [
-			...specialBoostTotalAmmo,
-			boost['Total Ammo (Plainsrider)']
+			boost.Concealment,
+			boost.Stability,
+			boost.Accuracy,
+			boost['Team Boost'],
+			boost['Total Ammo'],
+			{
+				name: 'Total Ammo',
+				image: 'wpn_fps_upg_bonus_total_ammo_p3',
+				icon: 'inv_mod_bonus_stats',
+				slot: 'boost',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					totalAmmo: 8
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default plainsriderBow

@@ -1,15 +1,18 @@
 import source from 'data/source/miscSources'
 
 import barrel from '../../modifications/barrel'
+import chargingHandle from '../../modifications/chargingHandle'
 import extra from '../../modifications/extra'
 import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
+import secondarySight from '../../modifications/secondarySight'
 import stock from '../../modifications/stock'
+import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExtPlus, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const ak762: WeaponData = {
+const ak762 = {
 	name: 'AK.762',
 	image: 'akm',
 	source: source['Base Game'],
@@ -44,11 +47,14 @@ const ak762: WeaponData = {
 			barrel['Modern Barrel'],
 			barrel['DMR Kit (AK)']
 		],
-		barrelExt: assaultRifleBarrelExt,
+		barrelExt: assaultRifleBarrelExtPlus,
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
+		chargingHandle: [
+			chargingHandle['Taktika Charging Handle']
+		],
 		extra: [
-			extra['Scope Mount (AK)']
+			extra['Scope Mount']
 		],
 		foregrip: [
 			foregrip['Railed Wooden Grip'],
@@ -56,19 +62,28 @@ const ak762: WeaponData = {
 			foregrip['Battleproven Handguard'],
 			foregrip['Lightweight Rail'],
 			foregrip['Crabs Rail'],
-			foregrip['Keymod Rail']
+			foregrip['Keymod Rail'],
+			foregrip['Taktika Handguard Kit']
 		],
 		gadget: assaultRifleGadget,
 		grip: [
 			grip['AK Rubber Grip'],
 			grip['AK Plastic Grip'],
 			grip['AK Wood Grip'],
-			grip['Aluminum Grip']
+			grip['Aluminum Grip'],
+			grip['Verge AK Grip'],
+			grip['Ergonomic AK Grip'],
+			grip['Ultimatum AK Grip']
 		],
 		magazine: [
 			magazine['AK Quadstacked Mag'],
 			magazine['Low Drag Magazine'],
 			magazine['Speed Pull Magazine']
+		],
+		secondarySight: [
+			secondarySight['Riktpunkt 45 degree Sight'],
+			secondarySight['45 degree red-dot sight'],
+			secondarySight['45 Degree Ironsights']
 		],
 		sight: assaultRifleSight,
 		stock: [
@@ -80,9 +95,14 @@ const ak762: WeaponData = {
 			stock['War-Torn Stock'],
 			stock['Classic Stock'],
 			stock['2 Piece Stock'],
-			stock['Contractor Stock']
+			stock['Contractor Stock'],
+			stock['Taktika Telescopic Stock'],
+			stock['VD-12 Stock']
+		],
+		upperReceiver: [
+			upperReceiver['Taktika Railed Cover']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default ak762

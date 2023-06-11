@@ -1,12 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import bipod from '../../modifications/bipod'
-import foregrip from '../../modifications/foregrip'
 import { type WeaponData } from '../../weaponTypes'
 import { lightMachineGunBarrelExt, lightMachineGunBoost, lightMachineGunGadget } from '../commonModifications/lightMachineGunModifications'
 
-const m60: WeaponData = {
+const m60 = {
 	name: 'M60',
 	image: 'm60',
 	source: content['Fugitive Weapon Pack'],
@@ -37,7 +35,18 @@ const m60: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Short Barrel (M60)']
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_lmg_m60_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Fugitive Weapon Pack'],
+				cost: 21e3,
+				stats: {
+					accuracy: -4,
+					stability: 4
+				}
+			}
 		],
 		barrelExt: lightMachineGunBarrelExt,
 		bipod: [
@@ -45,12 +54,46 @@ const m60: WeaponData = {
 		],
 		boost: lightMachineGunBoost,
 		foregrip: [
-			foregrip['Modernized Foregrip'],
-			foregrip['Tactical Foregrip (M60)'],
-			foregrip['Tropical Foregrip']
+			{
+				name: 'Modernized Foregrip',
+				image: 'wpn_fps_lmg_m60_fg_keymod',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['Fugitive Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					stability: -8
+				}
+			},
+			{
+				name: 'Tactical Foregrip',
+				image: 'wpn_fps_lmg_m60_fg_tactical',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['Fugitive Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					stability: -8
+				}
+			},
+			{
+				name: 'Tropical Foregrip',
+				image: 'wpn_fps_lmg_m60_fg_tropical',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['Fugitive Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: -4,
+					stability: 8,
+					threat: 9
+				}
+			}
 		],
 		gadget: lightMachineGunGadget
 	}
-}
+} as const satisfies WeaponData
 
 export default m60

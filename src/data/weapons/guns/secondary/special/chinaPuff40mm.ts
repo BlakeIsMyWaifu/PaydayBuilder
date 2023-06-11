@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import ammunition from '../../modifications/ammunition'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoost } from '../commonModifications/specialModifications'
+import { specialAmmunition, specialBoost } from '../commonModifications/specialModifications'
 
-const chinaPuff40mm: WeaponData = {
+const chinaPuff40mm = {
 	name: 'China Puff 40mm',
 	image: 'china',
 	source: content['Wolf Pack'],
@@ -35,14 +33,23 @@ const chinaPuff40mm: WeaponData = {
 		damageModifier: null
 	},
 	modifications: {
-		ammunition: [
-			ammunition['Incendiary Round']
-		],
+		ammunition: specialAmmunition,
 		boost: specialBoost,
 		stock: [
-			stock['Riot Stock']
+			{
+				name: 'Riot Stock',
+				image: 'wpn_fps_gre_china_s_short',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Wolf Pack'],
+				cost: 9e3,
+				stats: {
+					stability: -4,
+					concealment: 4
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default chinaPuff40mm

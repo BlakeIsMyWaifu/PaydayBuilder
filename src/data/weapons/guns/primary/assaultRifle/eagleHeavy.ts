@@ -1,13 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import foregrip from '../../modifications/foregrip'
 import grip from '../../modifications/grip'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const eagleHeavy: WeaponData = {
+const eagleHeavy = {
 	name: 'Eagle Heavy',
 	image: 'scar',
 	source: content['Gage Weapon Pack #01'],
@@ -38,27 +35,77 @@ const eagleHeavy: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Short Barrel (Eagle Heavy)'],
-			barrel['Long Barrel (Eagle Heavy)']
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_ass_scar_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Weapon Pack #01'],
+				cost: 29400,
+				stats: {
+					damage: 1,
+					accuracy: -4,
+					concealment: 3,
+					threat: 4
+				}
+			},
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_ass_scar_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Weapon Pack #01'],
+				cost: 39200,
+				stats: {
+					accuracy: 8,
+					concealment: -3
+				}
+			}
 		],
 		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
 		foregrip: [
-			foregrip['Rail Extension']
+			{
+				name: 'Rail Extension',
+				image: 'wpn_fps_ass_scar_fg_railext',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['Gage Weapon Pack #01'],
+				cost: 39200,
+				stats: {
+					stability: 4,
+					concealment: -1
+				}
+			}
 		],
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		grip: [
 			grip['Ergo Grip (Main)'],
 			grip['Pro Grip'],
 			grip['Straight Grip'],
-			grip['Contractor Grip']
+			grip['Contractor Grip'],
+			grip['Titanium Skeleton Grip'],
+			grip['VD-12 Grip'],
+			grip['Ursa Minor Grip']
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight,
 		stock: [
-			stock['Sniper Stock (Eagle Heavy)']
+			{
+				name: 'Sniper Stock',
+				image: 'wpn_fps_ass_scar_s_sniper',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Gage Weapon Pack #01'],
+				cost: 39200,
+				stats: {
+					stability: 8,
+					concealment: -3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default eagleHeavy

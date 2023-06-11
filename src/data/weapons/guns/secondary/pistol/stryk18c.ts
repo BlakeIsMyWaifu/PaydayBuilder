@@ -3,11 +3,10 @@ import source from 'data/source/miscSources'
 import barrelExt from '../../modifications/barrelExt'
 import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
+import { pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const stryk18c: WeaponData = {
+const stryk18c = {
 	name: 'STRYK 18c',
 	image: 'glock_18c',
 	source: source['Base Game'],
@@ -38,25 +37,48 @@ const stryk18c: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			...pistolBarrelExt,
+			barrelExt['IPSC Compensator'],
+			barrelExt['Roctec Suppressor'],
+			barrelExt['Champion\'s Suppressor'],
+			barrelExt['Facepunch Compensator'],
+			barrelExt['Standard Issue Suppressor'],
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['Size Doesn\'t Matter Suppressor'],
 			barrelExt['Ventilated Compensator'],
-			barrelExt['Velocity Compensator']
+			barrelExt['Velocity Compensator'],
+			barrelExt['Monolith Suppressor'],
+			barrelExt['Asepsis Suppressor'],
+			barrelExt['Flash Hider'],
+			barrelExt['Budget Suppressor'],
+			barrelExt['Jungle Ninja Suppressor'],
+			barrelExt['Hurricane Compensator']
 		],
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		grip: [
-			grip['Laser Grip (Chimano)'],
+			grip['Laser Grip'],
 			grip['Platypus Grip'],
 			grip['Ergo Grip (STRYK / Chimano Custom)']
 		],
 		magazine: [
-			magazine['Extended Mag. (Chimano)']
+			magazine['Extended Magazine (Chimano)']
 		],
 		sight: pistolSight,
 		stock: [
-			stock.Stock
+			{
+				name: 'Stock',
+				image: 'wpn_fps_pis_g18c_s_stock',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 62e3,
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default stryk18c

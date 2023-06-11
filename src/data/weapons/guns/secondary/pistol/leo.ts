@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import magazine from '../../modifications/magazine'
-import slide from '../../modifications/slide'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const leo: WeaponData = {
+const leo = {
 	name: 'LEO',
 	image: 'hs2000',
 	source: content['The Bomb Heists'],
@@ -39,14 +37,58 @@ const leo: WeaponData = {
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		magazine: [
-			magazine['Extended Mag (LEO)']
+			{
+				name: 'Extended Mag',
+				image: 'wpn_fps_pis_hs2000_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['The Bomb Heists'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Breaking Dead' // also from drops
+				},
+				stats: {
+					magazine: 8
+				}
+			}
 		],
 		sight: pistolSight,
 		slide: [
-			slide['Custom Slide'],
-			slide['Long Slide (LEO)']
+			{
+				name: 'Custom Slide',
+				image: 'wpn_fps_pis_hs2000_sl_custom',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: content['The Bomb Heists'],
+				cost: 28e3,
+				acquisition: {
+					achievement: 'Done in 60 Seconds' // also from drops
+				},
+				stats: {
+					damage: 2,
+					stability: 4,
+					threat: 2
+				}
+			},
+			{
+				name: 'Long Slide',
+				image: 'wpn_fps_pis_hs2000_sl_long',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: content['The Bomb Heists'],
+				cost: 44e3,
+				acquisition: {
+					achievement: 'I\'ve Got the Power' // also from drops
+				},
+				stats: {
+					damage: 1,
+					accuracy: 8,
+					stability: 4,
+					concealment: -3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default leo

@@ -1,12 +1,10 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import foregrip from '../../modifications/foregrip'
-import magazine from '../../modifications/magazine'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
+import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const compact5: WeaponData = {
+const compact5 = {
 	name: 'Compact-5',
 	image: 'new_mp5',
 	source: source['Base Game'],
@@ -40,22 +38,123 @@ const compact5: WeaponData = {
 		boost: submachineGunBoost,
 		custom: submachineGunCustom,
 		foregrip: [
-			foregrip['Sehr Kurze Barrel'],
-			foregrip['Polizei Tactical Barrel'],
-			foregrip['The Ninja Barrel'],
-			foregrip['Enlightened Foregrip']
+			{
+				name: 'Sehr Kurze Barrel',
+				image: 'wpn_fps_smg_mp5_fg_m5k',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: source['Base Game'],
+				cost: 28e3,
+				stats: {
+					stability: -12,
+					concealment: 3
+				}
+			},
+			{
+				name: 'Polizei Tactical Barrel',
+				image: 'wpn_fps_smg_mp5_fg_mp5a5',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: source['Base Game'],
+				cost: 36e3,
+				stats: {
+					stability: 8,
+					concealment: -3
+				}
+			},
+			{
+				name: 'The Ninja Barrel',
+				image: 'wpn_fps_smg_mp5_fg_mp5sd',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: source['Base Game'],
+				cost: 80e3,
+				stats: {
+					damage: -4,
+					stability: 12,
+					concealment: 1,
+					threat: -24
+				},
+				incompatibleSlot: ['barrelExt']
+			},
+			{
+				name: 'Enlightened Foregrip',
+				image: 'wpn_fps_smg_mp5_fg_flash',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['Gage Spec Ops Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				specialEffect: ['Flashlight'],
+				stats: {
+					accuracy: 4,
+					stability: 4,
+					concealment: -2
+				}
+			}
 		],
 		gadget: submachineGunGadget,
 		magazine: [
-			magazine['Straight Magazine']
+			{
+				name: 'Straight Magazine',
+				image: 'wpn_fps_smg_mp5_m_straight',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['The Butcher Mod Pack 2'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					stability: 8,
+					concealment: -1
+				}
+			}
 		],
+		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight,
 		stock: [
-			stock['Adjustable Stock'],
-			stock['Bare Essentials Stock'],
-			stock['Spartan Stock']
+			{
+				name: 'Adjustable Stock',
+				image: 'wpn_fps_smg_mp5_s_adjust',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 21e3,
+				stats: {
+					concealment: 3
+				}
+			},
+			{
+				name: 'Bare Essentials Stock',
+				image: 'wpn_fps_smg_mp5_s_ring',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 21e3,
+				stats: {
+					stability: -12,
+					concealment: 4
+				}
+			},
+			{
+				name: 'Spartan Stock',
+				image: 'wpn_fps_smg_mp5_s_folding',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Gage Spec Ops Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					stability: 4
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default compact5

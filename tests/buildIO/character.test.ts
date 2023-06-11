@@ -1,8 +1,9 @@
+import { deepStrictEqual } from 'node:assert'
+import { describe, it } from 'node:test'
+
 import { type ArmourList } from 'data/character/armours'
 import { type CharacterList } from 'data/character/characters'
 import { type MaskList } from 'data/character/masks'
-import { deepStrictEqual } from 'node:assert'
-import { describe, it } from 'node:test'
 import { defaultBuild } from 'state/useBuildsStore'
 import { decodeArmour, decodeCharacter, decodeEquipment, decodeMask } from 'utils/decodeBuild'
 import { encodeArmour, encodeCharacter, encodeEquipment, encodeMask } from 'utils/encodeBuild'

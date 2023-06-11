@@ -1,11 +1,9 @@
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
-import grip from '../../modifications/grip'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolSight } from '../commonModifications/pistolModifications'
 
-const m139mm: WeaponData = {
+const m139mm = {
 	name: 'M13 9mm',
 	image: 'legacy',
 	source: source['Base Game'],
@@ -36,15 +34,37 @@ const m139mm: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Threaded Barrel (M13)']
+			{
+				name: 'Threaded Barrel',
+				image: 'wpn_fps_pis_legacy_b_threaded',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					stability: -4,
+					concealment: -1
+				}
+			}
 		],
 		barrelExt: pistolBarrelExt,
 		boost: pistolBoost,
 		grip: [
-			grip['Wooden Grip (M13)']
+			{
+				name: 'Wooden Grip',
+				image: 'wpn_fps_pis_legacy_g_wood',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					stability: 8
+				}
+			}
 		],
 		sight: pistolSight
 	}
-}
+} as const satisfies WeaponData
 
 export default m139mm

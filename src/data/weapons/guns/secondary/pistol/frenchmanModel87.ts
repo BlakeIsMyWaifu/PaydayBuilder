@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import grip from '../../modifications/grip'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBoost } from '../commonModifications/pistolModifications'
 
-const frenchmanModel87: WeaponData = {
+const frenchmanModel87 = {
 	name: 'Frenchman Model 87',
 	image: 'model3',
 	source: content['Gunslinger Weapon Pack'],
@@ -36,14 +34,47 @@ const frenchmanModel87: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Opera Long Barrel'],
-			barrel['Napoleon Barrel']
+			{
+				name: 'Opera Long Barrel',
+				image: 'wpn_fps_pis_model3_b_long', // - wpn_fps_pis_model3_bar_xxx
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gunslinger Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 8,
+					stability: 8,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Napoleon Barrel',
+				image: 'wpn_fps_pis_model3_b_short', // - wpn_fps_pis_model3_bar_xxx__
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gunslinger Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: -4,
+					concealment: 2
+				}
+			}
 		],
 		boost: pistolBoost,
 		grip: [
-			grip['Mule Bone Grip']
+			{
+				name: 'Mule Bone Grip',
+				image: 'wpn_fps_pis_model3_g_bling', // - wpn_fps_pis_model3_g_xxx
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Gunslinger Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					stability: 4
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default frenchmanModel87

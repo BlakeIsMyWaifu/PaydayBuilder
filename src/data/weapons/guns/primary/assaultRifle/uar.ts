@@ -1,13 +1,11 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
-import extra from '../../modifications/extra'
-import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const uar: WeaponData = {
+const uar = {
 	name: 'UAR',
 	image: 'aug',
 	source: source['Base Game'],
@@ -38,24 +36,78 @@ const uar: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Short Barrel (UAR)'],
-			barrel['Long Barrel (UAR)']
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_aug_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source['Base Game'],
+				cost: 36e3,
+				stats: {
+					accuracy: -4,
+					stability: 8,
+					concealment: 2
+				}
+			},
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_aug_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source['Base Game'],
+				cost: 53e3,
+				stats: {
+					damage: 1,
+					accuracy: 4,
+					stability: 4,
+					concealment: -3
+				}
+			}
 		],
 		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
 		extra: [
-			extra['A3 Tactical Foregrip']
+			{
+				name: 'A3 Tactical Foregrip',
+				image: 'wpn_fps_aug_fg_a3',
+				icon: 'inv_mod_extra',
+				slot: 'extra',
+				source: source['Base Game'],
+				cost: 53e3,
+				stats: {
+					damage: 1,
+					stability: 8,
+					concealment: -2
+				}
+			}
 		],
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		lowerReceiver: [
-			lowerReceiver['Raptor Polymer Body']
+			{
+				name: 'Raptor Polymer Body',
+				image: 'wpn_fps_aug_body_f90',
+				icon: 'inv_mod_lower_receiver',
+				slot: 'lowerReceiver',
+				source: content['The Butcher Mod Pack 2'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					damage: 2,
+					accuracy: 4,
+					stability: 8,
+					concealment: -2
+				}
+			}
 		],
 		magazine: [
 			magazine['Speed Pull Magazine']
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight
 	}
-}
+} as const satisfies WeaponData
 
 export default uar

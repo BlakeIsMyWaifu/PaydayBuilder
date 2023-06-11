@@ -14,11 +14,12 @@ import WeaponInfo from './WeaponInfo'
 interface WeaponBuyProps {
 	slot: Slot;
 	data: Record<string, Record<string, WeaponData>>;
+	gunList: Record<string, readonly string[]>;
 	setEnableBuy: Dispatch<SetStateAction<boolean>>;
 	setSelectedWeaponId: Dispatch<SetStateAction<number>>;
 }
 
-const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWeaponId }) => {
+const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, gunList, setEnableBuy, setSelectedWeaponId }) => {
 
 	const armoury = useArmouryStore(state => state[slot])
 	const equippedWeaponId = useWeaponsStore(state => state[slot])
@@ -26,8 +27,8 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWe
 
 	const leftFacing = useIsLeftFacing()
 
-	const [selectedTab, setSelectedTab] = useState<string>(Object.keys(data)[0])
-	const [selectedWeapon, setSelectedWeapon] = useState<WeaponData>(Object.values(data[selectedTab])[0])
+	const [selectedTab, setSelectedTab] = useState<string>(Object.keys(gunList)[0])
+	const [selectedWeapon, setSelectedWeapon] = useState<WeaponData>(data[selectedTab][Object.values(gunList[selectedTab])[0]])
 
 	const addWeapon = useArmouryStore(state => state.addWeapon)
 	const changeWeapon = useWeaponsStore(state => state.changeWeapon)
@@ -42,7 +43,7 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWe
 
 	return (
 		<Container
-			title={slot}
+			title={slot === 'primary' ? 'Primary' : 'Secondary'}
 			desktopLayout={{
 				columns: '3fr 1.5fr',
 				rows: '4rem 2rem auto 2rem 4rem',
@@ -55,7 +56,7 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWe
 			}}
 		>
 
-			<HorizontalBar active={selectedTab} items={Object.keys(data).map(weaponType => ({
+			<HorizontalBar active={selectedTab} items={Object.keys(gunList).map(weaponType => ({
 				label: weaponType,
 				callback: () => {
 					setSelectedTab(weaponType)
@@ -64,7 +65,8 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWe
 
 			<ItemContainer>
 				{
-					Object.values(Object.values(data[selectedTab])).map(weapon => {
+					Object.values(Object.values(gunList[selectedTab])).map(weaponName => {
+						const weapon = data[selectedTab][weaponName]
 						return <Item
 							key={weapon.name}
 							rowAmount={5}

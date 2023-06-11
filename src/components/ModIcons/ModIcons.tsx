@@ -1,12 +1,13 @@
 import { type HoverInfo } from 'components/Home/Tabs'
 import WeaponsStatsTable from 'components/Table/WeaponStatsTable'
-import modificationList, { modificationIcons } from 'data/weapons/guns/modificationList'
-import { type ModificationSlot, type Weapon } from 'data/weapons/guns/weaponTypes'
+import modificationIcons from 'data/weapons/guns/modificationIcons'
+import { type Weapon } from 'data/weapons/guns/weaponTypes'
 import Link from 'next/link'
 import { type Dispatch, type FC, type SetStateAction } from 'react'
 import styled from 'styled-components'
 import findWeapon from 'utils/findWeapon'
 import { capitalizeEachWord, spaceBetween } from 'utils/stringCases'
+import { typedObject } from 'utils/typedObject'
 
 import ModIconsTable from './ModIconsTable'
 
@@ -75,12 +76,12 @@ const ModIcons: FC<ModIconsProps> = ({ weapon, link, setHoverInfo }) => {
 			}
 
 			{
-				Object.keys(weaponData.modifications).map(modSlot => {
+				typedObject.keys(weaponData.modifications).map(modSlot => {
 					const equipped = Object.keys(weapon.modifications).includes(modSlot)
-					const modName = weapon.modifications[(modSlot as ModificationSlot)] || ''
-					const equippedMod = modificationList[(modSlot as ModificationSlot)][modName]
+					const modName = weapon.modifications[modSlot] ?? ''
+					const equippedMod = weaponData.modifications[modSlot]?.find(mods => mods.name === modName)
 					const modIcon = <ModIcon
-						src={`/images/modifications/icons/${equippedMod?.icon || modificationIcons[(modSlot as ModificationSlot)]}.png`}
+						src={`/images/modifications/icons/${equippedMod?.icon ?? modificationIcons[(modSlot)]}.png`}
 						equipped={equipped}
 						onMouseOver={() => link && setHoverInfo && setHoverInfo({
 							title: modName || `No ${capitalizeEachWord(spaceBetween(modSlot))} Mod Equipped`,

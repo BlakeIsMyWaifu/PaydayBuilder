@@ -1,15 +1,11 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import barrelExt from '../../modifications/barrelExt'
 import custom from '../../modifications/custom'
-import foregrip from '../../modifications/foregrip'
 import sight from '../../modifications/sight'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { lightMachineGunBarrelExt, lightMachineGunBoost, lightMachineGunGadget } from '../commonModifications/lightMachineGunModifications'
 
-const sgVersteckt51D: WeaponData = {
+const sgVersteckt51D = {
 	name: 'SG Versteckt 51D',
 	image: 'hk51b',
 	source: content['McShay Weapon Pack'],
@@ -40,44 +36,79 @@ const sgVersteckt51D: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Kalt Barrel']
+			{
+				name: 'Kalt Barrel',
+				image: 'wpn_fps_lmg_hk51b_b_fluted',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack'],
+				cost: 28e3,
+				stats: {
+					damage: 2,
+					accuracy: 8,
+					stability: 4,
+					concealment: -1
+				}
+			}
 		],
-		barrelExt: [
-			...lightMachineGunBarrelExt,
-			barrelExt['Marmon Compensator']
-		],
+		barrelExt: lightMachineGunBarrelExt,
 		boost: lightMachineGunBoost,
 		custom: [
 			custom['Single Fire'],
 			custom['Auto Fire']
 		],
 		foregrip: [
-			foregrip['Schatten Foregrip']
+			{
+				name: 'Schatten Foregrip',
+				image: 'wpn_fps_lmg_hk51b_fg_railed',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['McShay Weapon Pack'],
+				cost: 44e3,
+				stats: {
+					stability: 8,
+					concealment: -1
+				}
+			}
 		],
 		gadget: lightMachineGunGadget,
 		sight: [
-			sight['The Professional\'s Choice Sight'],
-			sight['Surgeon Sight'],
-			sight['See More Sight'],
-			sight['Combat Sight'],
-			sight['Speculator Sight'],
-			sight['Trigonom Sight'],
-			sight['Holographic Sight'],
-			sight['Compact Holosight'],
-			sight['Solar Sight'],
-			sight['Military Red Dot Sight (1)'],
-			sight['Military Red Dot Sight (2)'],
-			sight['Milspec Scope'],
-			sight['Acough Optic Scope'],
-			sight['Compact Profile Sight'],
-			sight['Maelstrom Sight'],
-			sight['Advanced Combat Sight'],
-			sight['Reconnaissance Sight']
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Acough Optic Scope x3.25'],
+			sight['Military Red Dot Sight x2'],
+			sight['Military Red Dot Sight Special x2'],
+			sight['Milspec Scope x2'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			sight['Compact Tactical Box Sight x2.5'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Maelstrom Sight x1.5'],
+			sight['CASSIAN Elite Score x4.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['Advanced Combat Sight x3.25'],
+			sight['CASSIAN Sharp Sight x3.25']
 		],
 		stock: [
-			stock['Zittern Stock']
+			{
+				name: 'Zittern Stock',
+				image: 'wpn_fps_lmg_hk51b_s_extended',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default sgVersteckt51D

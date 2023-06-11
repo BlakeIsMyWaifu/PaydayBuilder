@@ -1,10 +1,9 @@
 import source from 'data/source/miscSources'
 
-import lowerReceiver from '../../modifications/lowerReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadgetMagnifier, shotgunSight } from '../commonModifications/shotgunModifications'
+import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
-const theJudge: WeaponData = {
+const theJudge = {
 	name: 'The Judge',
 	image: 'judge',
 	source: source.Community,
@@ -37,12 +36,24 @@ const theJudge: WeaponData = {
 		ammunition: shotgunAmmunition,
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
-		gadget: shotgunGadgetMagnifier,
-		sight: shotgunSight,
+		gadget: shotgunGadget,
 		lowerReceiver: [
-			lowerReceiver['Custom Reinforced Frame']
-		]
+			{
+				name: 'Custom Reinforced Frame',
+				image: 'wpn_fps_pis_judge_body_modern',
+				icon: 'inv_mod_lower_receiver',
+				slot: 'lowerReceiver',
+				source: source['Base Game'],
+				cost: 12600,
+				acquisition: {
+					coins: 6
+				},
+				stats: {}
+			}
+		],
+		secondarySight: shotgunSecondarySight,
+		sight: shotgunSight
 	}
-}
+} as const satisfies WeaponData
 
 export default theJudge

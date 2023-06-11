@@ -1,7 +1,7 @@
+import { primaryGunList, secondaryGunList } from 'data/weapons/guns/gunList'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
 import { type Slot, type WeaponData } from 'data/weapons/guns/weaponTypes'
-import useMountEffect from 'hooks/useMountEffect'
 import { type FC, useMemo, useState } from 'react'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useBuildsStore } from 'state/useBuildsStore'
@@ -17,6 +17,7 @@ interface WeaponsProps {
 const Weapons: FC<WeaponsProps> = ({ slot }) => {
 
 	const data: Record<string, Record<string, WeaponData>> = useMemo(() => slot === 'primary' ? primary : secondary, [slot])
+	const gunList: Record<string, readonly string[]> = useMemo(() => slot === 'primary' ? primaryGunList : secondaryGunList, [slot])
 
 	const armoury = useArmouryStore(state => state[slot])
 	const equippedWeaponId = useWeaponsStore(state => state[slot])
@@ -24,11 +25,7 @@ const Weapons: FC<WeaponsProps> = ({ slot }) => {
 
 	const slotParameter = slot === 'primary' ? 'ap' : 'as'
 
-	const [enableBuy, setEnableBuy] = useState(true)
-
-	useMountEffect(() => {
-		setEnableBuy(builds[current].data.includes(`&${slotParameter}=_&`))
-	})
+	const [enableBuy, setEnableBuy] = useState(builds[current].data.includes(`&${slotParameter}=_&`))
 
 	const [activeTabId, setActiveTabId] = useState<number>(builds[current].id)
 	const [selectedWeaponId, setSelectedWeaponId] = useState<number>(armoury[equippedWeaponId].id)
@@ -44,6 +41,7 @@ const Weapons: FC<WeaponsProps> = ({ slot }) => {
 		<WeaponBuy
 			slot={slot}
 			data={data}
+			gunList={gunList}
 			setEnableBuy={setEnableBuy}
 			setSelectedWeaponId={setSelectedWeaponId}
 		/> :

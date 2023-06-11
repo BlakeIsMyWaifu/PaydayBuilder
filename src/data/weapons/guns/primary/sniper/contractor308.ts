@@ -1,12 +1,11 @@
 import content from 'data/source/downloadableContent'
 
-import barrelExt from '../../modifications/barrelExt'
 import grip from '../../modifications/grip'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { sniperBoost, sniperGadgetMagnifier, sniperSight } from '../commonModifications/sniperModifications'
+import { sniperBoost, sniperGadget, sniperSecondarySight, sniperSight } from '../commonModifications/sniperModifications'
 
-const contractor308: WeaponData = {
+const contractor308 = {
 	name: 'Contractor .308',
 	image: 'tti',
 	source: content['John Wick Heists'],
@@ -37,17 +36,35 @@ const contractor308: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			barrelExt['Contractor Silencer']
+			{
+				name: 'Contractor Silencer',
+				image: 'wpn_fps_snp_tti_ns_hex',
+				icon: 'inv_mod_silencer',
+				slot: 'barrelExt',
+				source: content['John Wick Heists'],
+				cost: 9e3,
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -2,
+					stability: 4,
+					concealment: -2,
+					threat: -18
+				}
+			}
 		],
 		boost: sniperBoost,
-		gadget: sniperGadgetMagnifier,
+		gadget: sniperGadget,
 		grip: [
 			grip['Ergo Grip (Main)'],
 			grip['Pro Grip'],
 			grip['Rubber Grip'],
 			grip['Straight Grip'],
-			grip['Contractor Grip']
+			grip['Contractor Grip'],
+			grip['Titanium Skeleton Grip'],
+			grip['VD-12 Grip'],
+			grip['Ursa Minor Grip']
 		],
+		secondarySight: sniperSecondarySight,
 		sight: sniperSight,
 		stock: [
 			stock['Tactical Stock (Main)'],
@@ -55,9 +72,12 @@ const contractor308: WeaponData = {
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
-			stock['Contractor Stock']
+			stock['Contractor Stock'],
+			stock['VD-12 Stock'],
+			stock['Ursa Minor Stock'],
+			stock['Starlight Stock']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default contractor308

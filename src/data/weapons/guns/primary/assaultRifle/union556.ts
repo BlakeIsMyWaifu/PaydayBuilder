@@ -1,12 +1,10 @@
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
-import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const union556: WeaponData = {
+const union556 = {
 	name: 'Union 5.56',
 	image: 'corgi',
 	source: source['Reservoir Dogs'],
@@ -37,12 +35,37 @@ const union556: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Short Barrel (Union)']
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_ass_corgi_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					accuracy: -8,
+					concealment: 3
+				}
+			}
 		],
 		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
+		lowerReceiver: [
+			{
+				name: 'Dunes Tactical Receiver',
+				image: 'wpn_fps_ass_corgi_b_short', // - wpn_fps_corgi_body_lower_strap
+				icon: 'inv_mod_lower_receiver',
+				slot: 'lowerReceiver',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			}
+		],
 		magazine: [
 			magazine['Vintage Mag.'],
 			magazine['Tactical Mag.'],
@@ -51,11 +74,9 @@ const union556: WeaponData = {
 			magazine['L5 Magazine'],
 			magazine['Speed Pull Magazine']
 		],
-		sight: assaultRifleSight,
-		lowerReceiver: [
-			lowerReceiver['Dunes Tactical Receiver']
-		]
+		secondarySight: assaultRifleSecondarySight,
+		sight: assaultRifleSight
 	}
-}
+} as const satisfies WeaponData
 
 export default union556

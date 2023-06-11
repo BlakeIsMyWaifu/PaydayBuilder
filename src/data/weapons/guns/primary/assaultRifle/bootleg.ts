@@ -1,12 +1,12 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
+import barrelExt from '../../modifications/barrelExt'
 import grip from '../../modifications/grip'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const bootleg: WeaponData = {
+const bootleg = {
 	name: 'Bootleg',
 	image: 'tecci',
 	source: content['Sydney Character Pack'],
@@ -37,19 +37,71 @@ const bootleg: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['AML Barrel']
+			{
+				name: 'AML Barrel',
+				image: 'wpn_fps_ass_tecci_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Sydney Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: 4,
+					stability: 12,
+					concealment: -3
+				}
+			}
 		],
-		barrelExt: assaultRifleBarrelExt,
+		barrelExt: [
+			barrelExt['Medium Suppressor'],
+			barrelExt['Low Profile Suppressor'],
+			barrelExt['Stubby Compensator'],
+			barrelExt['The Tank Compensator'],
+			barrelExt['Fire Breather Nozzle'],
+			barrelExt['The Bigger The Better Suppressor'],
+			barrelExt['Competitor\'s Compensator'],
+			barrelExt['Funnel of Fun Nozzle'],
+			barrelExt['Tactical Compensator'],
+			barrelExt['Ported Compensator'],
+			{
+				name: 'Bootstrap Compensator',
+				image: 'wpn_fps_ass_tecci_ns_special',
+				icon: 'inv_mod_barrel_ext',
+				slot: 'barrelExt',
+				source: content['Sydney Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					damage: 2,
+					accuracy: 4,
+					stability: 12,
+					concealment: -2,
+					threat: 6
+				}
+			},
+			barrelExt['Marmon Compensator'],
+			barrelExt['Verdunkeln Muzzle Brake'],
+			barrelExt['KS12-A Burst Muzzle'],
+			barrelExt['KS12-S Long Silencer'],
+			barrelExt['Rami Suppressor'],
+			barrelExt['Dourif Muzzle']
+		],
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		grip: [
 			grip['Ergo Grip (Main)'],
 			grip['Pro Grip'],
 			grip['Rubber Grip'],
 			grip['Straight Grip'],
-			grip['Contractor Grip']
+			grip['Contractor Grip'],
+			grip['Titanium Skeleton Grip']
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight,
 		stock: [
 			stock['Tactical Stock (Main)'],
@@ -57,9 +109,12 @@ const bootleg: WeaponData = {
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
-			stock['Contractor Stock']
+			stock['Contractor Stock'],
+			stock['VD-12 Stock'],
+			stock['Ursa Minor Stock'],
+			stock['Starlight Stock']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default bootleg

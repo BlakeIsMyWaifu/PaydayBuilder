@@ -1,14 +1,12 @@
 import content from 'data/source/downloadableContent'
 
-import barrelExt from '../../modifications/barrelExt'
-import boost from '../../modifications/boost'
-import gadget from '../../modifications/gadget'
 import grip from '../../modifications/grip'
 import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
+import { sniperBoost, sniperGadget, sniperSecondarySight } from '../commonModifications/sniperModifications'
 
-const northStar: WeaponData = {
+const northStar = {
 	name: 'North Star',
 	image: 'victor',
 	source: content['A Criminal Carol'],
@@ -39,62 +37,104 @@ const northStar: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			barrelExt['Tiwaz Silencer']
+			{
+				name: 'Tiwaz Silencer',
+				image: 'wpn_fps_snp_victor_ns_omega',
+				icon: 'inv_mod_silencer',
+				slot: 'barrelExt',
+				source: content['A Criminal Carol'],
+				cost: 9e3,
+				stats: {
+					damage: -2,
+					accuracy: 8,
+					stability: -4,
+					concealment: -2,
+					threat: -22
+				}
+			}
 		],
-		boost: [
-			boost.Concealment,
-			boost.Stability,
-			boost.Accuracy,
-			boost['Team Boost'],
-			boost['Total Ammo (Main)']
+		boost: sniperBoost,
+		exclusiveSet: [
+			{
+				name: 'Celestial Assault',
+				image: 'wpn_fps_snp_victor_sbr_kit',
+				icon: 'inv_mod_ammo_explosive', // TODO update icon
+				slot: 'exclusiveSet',
+				source: content['A Criminal Carol'],
+				cost: 9e3,
+				acquisition: {
+					sideJob: 'Diamonds In The Sky'
+				},
+				stats: {
+					damage: -2,
+					accuracy: 8,
+					stability: 8,
+					concealment: 3
+				}
+			}
 		],
-		// TODO exclusive set
-		gadget: [
-			gadget['Assault Light'],
-			gadget['Tactical Laser Module'],
-			gadget['Compact Laser Module'],
-			gadget['Military Laser Module'],
-			gadget['LED Combo'],
-			gadget['Stealth Laser Module']
-		],
+		gadget: sniperGadget,
 		grip: [
 			grip['Ergo Grip (Main)'],
 			grip['Pro Grip'],
 			grip['Rubber Grip'],
 			grip['Straight Grip'],
-			grip['Titanium Skeleton Grip']
+			grip['Titanium Skeleton Grip'],
+			grip['Ursa Minor Grip']
 		],
-		// TODO secondary sight
+		secondarySight: sniperSecondarySight,
 		sight: [
-			sight['The Professional\'s Choice Sight'],
-			sight['Surgeon Sight'],
-			sight['See More Sight'],
-			sight['Combat Sight'],
-			sight['Speculator Sight'],
-			sight['Trigonom Sight'],
-			sight['Holographic Sight'],
-			sight['Compact Holosight'],
-			sight['Solar Sight'],
-			sight['Military Red Dot Sight (1)'],
-			sight['Military Red Dot Sight (2)'],
-			sight['Milspec Scope'],
-			sight['Acough Optic Scope'],
-			sight['Compact Profile Sight'],
-			sight['Maelstrom Sight'],
-			sight['Advanced Combat Sight'],
-			sight['Reconnaissance Sight'],
-			sight['Theia Magnified Scope'],
-			sight['Box Buddy Sight'],
-			sight['Iron Sights']
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Acough Optic Scope x3.25'],
+			sight['Military Red Dot Sight x2'],
+			sight['Military Red Dot Sight Special x2'],
+			sight['Milspec Scope x2'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			sight['Theia Magnified Scope x10'],
+			sight['Box Buddy Sight x10'],
+			sight['Reconnaissance Sight x2'],
+			sight['Compact Tactical Box Sight x2.5'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Maelstrom Sight x1.5'],
+			sight['CASSIAN Elite Score x4.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['Advanced Combat Sight x3.25'],
+			sight['CASSIAN Sharp Sight x3.25'],
+			sight['Trace Optic x6.25'],
+			{
+				name: 'Cynosura Iron Sights',
+				image: 'wpn_fps_snp_victor_o_standard',
+				icon: 'inv_mod_scope',
+				slot: 'sight',
+				source: content['A Criminal Carol'],
+				cost: 9e3,
+				acquisition: {
+					sideJob: 'Constellation Prize'
+				},
+				stats: {
+					concealment: 2
+				}
+			},
+			sight['Z5 Owl Glass Universal Scope x2.5'],
+			sight['Tuunbaq Scope x4.5 / x10']
 		],
 		stock: [
 			stock['Tactical Stock (Main)'],
 			stock['Folding Stock'],
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
-			stock['2 Piece Stock']
+			stock['2 Piece Stock'],
+			stock['Ursa Minor Stock'],
+			stock['Starlight Stock']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default northStar

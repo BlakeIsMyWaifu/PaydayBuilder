@@ -1,15 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import bolt from '../../modifications/bolt'
-import boost from '../../modifications/boost'
-import gadget from '../../modifications/gadget'
-import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
+import { sniperBoost, sniperGadget, sniperSecondarySight } from '../commonModifications/sniperModifications'
 
-const pronghorn: WeaponData = {
+const pronghorn = {
 	name: 'Pronghorn',
 	image: 'scout',
 	source: content['McShay Weapon Pack'],
@@ -40,61 +35,136 @@ const pronghorn: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Longshot Suppressor']
+			{
+				name: 'Longshot Suppressor',
+				image: 'wpn_fps_snp_scout_ns_suppressor',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					damage: -2,
+					accuracy: 12,
+					stability: 4,
+					concealment: -2,
+					threat: -22
+				}
+			}
 		],
 		bolt: [
-			bolt['Quickdraw Speedbolt']
+			{
+				name: 'Quickdraw Speedbolt',
+				image: 'wpn_fps_snp_scout_bolt_speed',
+				icon: 'inv_mod_bolt',
+				slot: 'bolt',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					concealment: -1 // TODO reload
+				}
+			}
 		],
-		boost: [
-			boost.Concealment,
-			boost.Stability,
-			boost.Accuracy,
-			boost['Team Boost'],
-			boost['Total Ammo (Main)']
+		boost: sniperBoost,
+		exclusiveSet: [
+			{
+				name: 'Open Range Sniper',
+				image: 'wpn_fps_snp_scout_conversion',
+				icon: 'inv_mod_ammo_explosive', // TODO update icon
+				slot: 'exclusiveSet',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 12,
+					stability: 16,
+					concealment: -2,
+					reload: -1.5
+				}
+			}
 		],
-		gadget: [
-			gadget['Assault Light'],
-			gadget['Tactical Laser Module'],
-			gadget['Compact Laser Module'],
-			gadget['Military Laser Module'],
-			gadget['LED Combo'],
-			gadget['Angled Sight'],
-			gadget['Riktpunkt 45 degree Sight'],
-			gadget['45 degree red-dot sight'],
-			gadget['45 Degree Ironsights'],
-			gadget['Riktpunkt Magnifier Gadget'],
-			gadget['Signature Magnifier Gadget']
-		],
+		gadget: sniperGadget,
 		magazine: [
-			magazine['Standoff Extended Magazine']
+			{
+				name: 'Standoff Extended Magazine',
+				image: 'wpn_fps_snp_scout_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					totalAmmo: 2,
+					concealment: -1
+				}
+			}
 		],
+		secondarySight: sniperSecondarySight,
 		sight: [
-			sight['The Professional\'s Choice Sight'],
-			sight['Surgeon Sight'],
-			sight['See More Sight'],
-			sight['Combat Sight'],
-			sight['Speculator Sight'],
-			sight['Trigonom Sight'],
-			sight['Holographic Sight'],
-			sight['Compact Holosight'],
-			sight['Solar Sight'],
-			sight['Military Red Dot Sight (1)'],
-			sight['Military Red Dot Sight (2)'],
-			sight['Milspec Scope'],
-			sight['Acough Optic Scope'],
-			sight['Compact Profile Sight'],
-			sight['Maelstrom Sight'],
-			sight['Advanced Combat Sight'],
-			sight['Reconnaissance Sight'],
-			sight['Theia Magnified Scope'],
-			sight['Box Buddy Sight'],
-			sight['Iron Sights']
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Acough Optic Scope x3.25'],
+			sight['Military Red Dot Sight x2'],
+			sight['Military Red Dot Sight Special x2'],
+			sight['Milspec Scope x2'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			sight['Theia Magnified Scope x10'],
+			sight['Box Buddy Sight x10'],
+			sight['Reconnaissance Sight x2'],
+			sight['Compact Tactical Box Sight x2.5'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Maelstrom Sight x1.5'],
+			sight['CASSIAN Elite Score x4.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['Advanced Combat Sight x3.25'],
+			sight['CASSIAN Sharp Sight x3.25'],
+			{
+				name: 'Iron Sights',
+				image: 'wpn_fps_snp_scout_o_iron_up',
+				icon: 'inv_mod_scope',
+				slot: 'sight',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					stability: -4,
+					concealment: 2
+				}
+			},
+			sight['Trace Optic x6.25'],
+			sight['Z5 Owl Glass Universal Scope x2.5'],
+			sight['Tuunbaq Scope x4.5 / x10']
 		],
 		stock: [
-			stock['Stakeout Stock (Pronghorn)'],
-			stock['Marksman Stock (Pronghorn)']
+			{
+				name: 'Stakeout Stock',
+				image: 'wpn_fps_snp_scout_s_pads_none',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: -8,
+					stability: -4,
+					concealment: 2
+				}
+			},
+			{
+				name: 'Marksman Stock',
+				image: 'wpn_fps_snp_scout_s_pads_one',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['McShay Weapon Pack'],
+				cost: 9e3,
+				stats: {
+					stability: -4,
+					concealment: 1
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default pronghorn

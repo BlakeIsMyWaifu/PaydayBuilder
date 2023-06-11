@@ -1,12 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import lowerReceiver from '../../modifications/lowerReceiver'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunGadget } from '../commonModifications/shotgunModifications'
 
-const breaker12G: WeaponData = {
+const breaker12G = {
 	name: 'Breaker 12G',
 	image: 'boot',
 	source: content['Biker Character Pack'],
@@ -37,20 +34,67 @@ const breaker12G: WeaponData = {
 	},
 	modifications: {
 		ammunition: shotgunAmmunition,
-		barrelExt: shotgunBarrelExt,
 		barrel: [
-			barrel['Long Barrel (Breaker)'],
-			barrel['Short Barrel (Breaker)']
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_sho_boot_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Biker Character Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					stability: 4,
+					concealment: -3
+				}
+			},
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_sho_boot_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Biker Character Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: -4,
+					stability: -4,
+					concealment: 3
+				}
+			}
 		],
+		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
 		gadget: shotgunGadget,
 		lowerReceiver: [
-			lowerReceiver['Treated Body']
+			{
+				name: 'Treated Body',
+				image: 'wpn_fps_sho_boot_body_exotic',
+				icon: 'inv_mod_lower_receiver',
+				slot: 'lowerReceiver',
+				source: content['Biker Character Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					stability: 4,
+					concealment: -1
+				}
+			}
 		],
 		stock: [
-			stock['Long Stock']
+			{
+				name: 'Long Stock',
+				image: 'wpn_fps_sho_boot_s_long',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Biker Character Pack'],
+				cost: 9e3,
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default breaker12G

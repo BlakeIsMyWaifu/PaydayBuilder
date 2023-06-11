@@ -2,11 +2,10 @@ import source from 'data/source/miscSources'
 
 import barrelExt from '../../modifications/barrelExt'
 import magazine from '../../modifications/magazine'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
+import { submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const heather: WeaponData = {
+const heather = {
 	name: 'Heather',
 	image: 'sr2',
 	source: source['Base Game'],
@@ -37,8 +36,36 @@ const heather: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			...submachineGunBarrelExt,
-			barrelExt['Tishina Suppressor']
+			barrelExt['Medium Suppressor'],
+			{
+				name: 'Tishina Suppressor',
+				image: 'wpn_fps_smg_sr2_ns_silencer',
+				icon: 'inv_mod_silencer',
+				slot: 'barrelExt',
+				source: source['Base Game'],
+				cost: 21e3,
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -2,
+					stability: 8,
+					concealment: -2,
+					threat: -20
+				}
+			},
+			barrelExt['Low Profile Suppressor'],
+			barrelExt['Stubby Compensator'],
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['The Tank Compensator'],
+			barrelExt['Fire Breather Nozzle'],
+			barrelExt['The Bigger The Better Suppressor'],
+			barrelExt['Competitor\'s Compensator'],
+			barrelExt['Funnel of Fun Nozzle'],
+			barrelExt['Tactical Compensator'],
+			barrelExt['Ported Compensator'],
+			barrelExt['Marmon Compensator'],
+			barrelExt['Verdunkeln Muzzle Brake'],
+			barrelExt['Rami Suppressor'],
+			barrelExt['Dourif Muzzle']
 		],
 		boost: submachineGunBoost,
 		custom: submachineGunCustom,
@@ -48,9 +75,19 @@ const heather: WeaponData = {
 		],
 		sight: submachineGunSight,
 		stock: [
-			stock['Unfolded Stock (Heather)']
+			{
+				name: 'Unfolded Stock',
+				image: 'wpn_fps_smg_sr2_s_unfolded',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					stability: 8
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default heather

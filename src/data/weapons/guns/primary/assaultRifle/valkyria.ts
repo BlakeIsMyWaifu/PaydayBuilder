@@ -1,11 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import stock from '../../modifications/stock'
+import secondarySight from '../../modifications/secondarySight'
 import { type WeaponData } from '../../weaponTypes'
 import { assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const valkyria: WeaponData = {
+const valkyria = {
 	name: 'Valkyria',
 	image: 'asval',
 	source: content['Sokol Character Pack'],
@@ -36,16 +35,50 @@ const valkyria: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Prototype Barrel (Valkyria)']
+			{
+				name: 'Prototype Barrel',
+				image: 'wpn_fps_ass_asval_b_proto',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['Sokol Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					accuracy: -4,
+					concealment: 2
+				}
+			}
 		],
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
 		gadget: assaultRifleGadget,
+		secondarySight: [
+			secondarySight['Riktpunkt 45 degree Sight'],
+			secondarySight['45 degree red-dot sight'],
+			secondarySight['45 Degree Ironsights']
+		],
 		sight: assaultRifleSight,
 		stock: [
-			stock['Solid Stock (Valkyria)']
+			{
+				name: 'Solid Stock',
+				image: 'wpn_fps_ass_asval_s_solid',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Sokol Character Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					stability: 20,
+					concealment: -3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default valkyria

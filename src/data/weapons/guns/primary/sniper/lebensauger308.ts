@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import grip from '../../modifications/grip'
 import { type WeaponData } from '../../weaponTypes'
-import { sniperBoost, sniperGadgetMagnifier, sniperSight } from '../commonModifications/sniperModifications'
+import { sniperBoost, sniperGadget, sniperSecondarySight, sniperSight } from '../commonModifications/sniperModifications'
 
-const lebensauger308: WeaponData = {
+const lebensauger308 = {
 	name: 'Lebensauger .308',
 	image: 'wa2000',
 	source: content['Gage Ninja Pack'],
@@ -36,18 +34,78 @@ const lebensauger308: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Langer Barrel'],
-			barrel['Gedämpfter Barrel']
+			{
+				name: 'Langer Barrel',
+				image: 'wpn_fps_snp_wa2000_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Ninja Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					concealment: -3
+				}
+			},
+			{
+				name: 'Gedämpfter Barrel',
+				image: 'wpn_fps_snp_wa2000_b_suppressed',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['Gage Ninja Pack'],
+				cost: 44e3,
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -4,
+					accuracy: -4,
+					stability: 8,
+					concealment: -2,
+					threat: -18
+				}
+			}
 		],
 		boost: sniperBoost,
-		gadget: sniperGadgetMagnifier,
+		gadget: sniperGadget,
 		grip: [
-			grip['Leichter Grip'],
-			grip['Subtiler Grip'],
-			grip['Walnuss Grip']
+			{
+				name: 'Leichter Grip',
+				image: 'wpn_fps_snp_wa2000_g_light',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Gage Ninja Pack'],
+				cost: 9e3,
+				stats: {
+					stability: 4,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Subtiler Grip',
+				image: 'wpn_fps_snp_wa2000_g_stealth',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Gage Ninja Pack'],
+				cost: 9e3,
+				stats: {
+					stability: -4,
+					concealment: 2
+				}
+			},
+			{
+				name: 'Walnuss Grip',
+				image: 'wpn_fps_snp_wa2000_g_walnut',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Gage Ninja Pack'],
+				cost: 439e3,
+				stats: {
+					stability: 4,
+					concealment: -2
+				}
+			}
 		],
+		secondarySight: sniperSecondarySight,
 		sight: sniperSight
 	}
-}
+} as const satisfies WeaponData
 
 export default lebensauger308

@@ -1,13 +1,11 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
 import barrelExt from '../../modifications/barrelExt'
 import grip from '../../modifications/grip'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
+import { submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const akGen21Tactical: WeaponData = {
+const akGen21Tactical = {
 	name: 'AK Gen 21 Tactical',
 	image: 'vityaz',
 	source: content['Jiu Feng Smuggler Pack'],
@@ -38,12 +36,54 @@ const akGen21Tactical: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['MG8 Precision Barrel'],
-			barrel['BY90 Wide Suppressor']
+			{
+				name: 'MG8 Precision Barrel',
+				image: 'wpn_fps_smg_vityaz_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Jiu Feng Smuggler Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					stability: 4,
+					concealment: -2
+				}
+			},
+			{
+				name: 'BY90 Wide Suppressor',
+				image: 'wpn_fps_smg_vityaz_b_supressed', // - wpn_fps_smg_vityaz_b_xxx
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['Jiu Feng Smuggler Pack'],
+				cost: 9e3,
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					accuracy: -4,
+					concealment: -1,
+					threat: -16.8
+				}
+			}
 		],
 		barrelExt: [
-			...submachineGunBarrelExt,
-			barrelExt['PBS Suppressor']
+			barrelExt['Medium Suppressor'],
+			barrelExt['Low Profile Suppressor'],
+			barrelExt['Stubby Compensator'],
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['The Tank Compensator'],
+			barrelExt['Fire Breather Nozzle'],
+			barrelExt['The Bigger The Better Suppressor'],
+			barrelExt['Competitor\'s Compensator'],
+			barrelExt['Funnel of Fun Nozzle'],
+			barrelExt['Tactical Compensator'],
+			barrelExt['PBS Suppressor'],
+			barrelExt['Ported Compensator'],
+			barrelExt['Taktika Muzzle Brake'],
+			barrelExt['Marmon Compensator'],
+			barrelExt['Verdunkeln Muzzle Brake'],
+			barrelExt['Fyodor Muzzle Brake'],
+			barrelExt['Federation Suppressor'],
+			barrelExt['Rami Suppressor'],
+			barrelExt['Dourif Muzzle']
 		],
 		boost: submachineGunBoost,
 		custom: submachineGunCustom,
@@ -52,13 +92,27 @@ const akGen21Tactical: WeaponData = {
 			grip['AK Rubber Grip'],
 			grip['AK Plastic Grip'],
 			grip['AK Wood Grip'],
-			grip['Aluminum Grip']
+			grip['Aluminum Grip'],
+			grip['Verge AK Grip'],
+			grip['Ergonomic AK Grip'],
+			grip['Ultimatum AK Grip']
 		],
 		sight: submachineGunSight,
 		stock: [
-			stock['Bull Stock']
+			{
+				name: 'Bull Stock',
+				image: 'wpn_fps_smg_vityaz_s_short', // - wpn_fps_smg_vityaz_b_xxx
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Jiu Feng Smuggler Pack'],
+				cost: 9e3,
+				stats: {
+					stability: -8,
+					concealment: 2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default akGen21Tactical

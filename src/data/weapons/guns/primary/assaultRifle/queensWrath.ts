@@ -1,13 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import foregrip from '../../modifications/foregrip'
-import grip from '../../modifications/grip'
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const queensWrath: WeaponData = {
+const queensWrath = {
 	name: 'Queen\'s Wrath',
 	image: 'l85a2',
 	source: content['Clover Character Pack'],
@@ -38,18 +35,60 @@ const queensWrath: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Prodigious Barrel'],
-			barrel['Diminutive Barrel']
+			{
+				name: 'Prodigious Barrel',
+				image: 'wpn_fps_ass_l85a2_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Clover Character Pack'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					concealment: -3
+				}
+			},
+			{
+				name: 'Diminutive Barrel',
+				image: 'wpn_fps_ass_l85a2_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Clover Character Pack'],
+				cost: 9e3,
+				stats: {
+					concealment: 3
+				}
+			}
 		],
 		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
 		foregrip: [
-			foregrip['Versatile Foregrip']
+			{
+				name: 'Versatile Foregrip',
+				image: 'wpn_fps_ass_l85a2_fg_short',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['Clover Character Pack'],
+				cost: 9e3,
+				stats: {
+					stability: 4,
+					concealment: 1
+				}
+			}
 		],
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		grip: [
-			grip['Delightful Grip']
+			{
+				name: 'Delightful Grip',
+				image: 'wpn_fps_ass_l85a2_g_worn',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['Clover Character Pack'],
+				cost: 9e3,
+				stats: {
+					stability: 4
+				}
+			}
 		],
 		magazine: [
 			magazine['Vintage Mag.'],
@@ -59,8 +98,9 @@ const queensWrath: WeaponData = {
 			magazine['L5 Magazine'],
 			magazine['Speed Pull Magazine']
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight
 	}
-}
+} as const satisfies WeaponData
 
 export default queensWrath

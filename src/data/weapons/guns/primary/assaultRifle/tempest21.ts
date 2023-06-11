@@ -2,9 +2,9 @@ import source from 'data/source/miscSources'
 
 import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const tempest21: WeaponData = {
+const tempest21 = {
 	name: 'Tempest-21',
 	image: 'komodo',
 	source: source['Base Game'],
@@ -37,7 +37,7 @@ const tempest21: WeaponData = {
 		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		magazine: [
 			magazine['Vintage Mag.'],
 			magazine['Tactical Mag.'],
@@ -46,8 +46,9 @@ const tempest21: WeaponData = {
 			magazine['L5 Magazine'],
 			magazine['Speed Pull Magazine']
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight
 	}
-}
+} as const satisfies WeaponData
 
 export default tempest21

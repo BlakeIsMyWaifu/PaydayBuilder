@@ -1,12 +1,12 @@
 import source from 'data/source/miscSources'
 
 import custom from '../../modifications/custom'
-import foregrip from '../../modifications/foregrip'
 import magazine from '../../modifications/magazine'
+import grimm12G from '../../secondary/shotgun/grimm12G'
 import { type WeaponData } from '../../weaponTypes'
 import { akimboShotgunAmmunition, akimboShotgunBarrelExt, akimboShotgunBoost, akimboShotgunGadget } from '../commonModifications/akimboShotgunModifications'
 
-const brothersGrimm12G: WeaponData = {
+const brothersGrimm12G = {
 	name: 'Brothers Grimm 12G',
 	image: 'x_basset',
 	source: source['Base Game'],
@@ -43,14 +43,12 @@ const brothersGrimm12G: WeaponData = {
 			custom['Single Fire'],
 			custom['Auto Fire']
 		],
-		foregrip: [
-			foregrip['Little Brother Foregrip']
-		],
+		foregrip: grimm12G.modifications.foregrip,
 		gadget: akimboShotgunGadget,
 		magazine: [
 			magazine['Big Brother Magazine']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default brothersGrimm12G

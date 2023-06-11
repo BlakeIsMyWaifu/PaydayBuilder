@@ -1,12 +1,10 @@
 import source from 'data/source/miscSources'
 
-import foregrip from '../../modifications/foregrip'
-import magazine from '../../modifications/magazine'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSight } from '../commonModifications/submachineGunModifications'
+import { submachineGunBarrelExt, submachineGunBoost, submachineGunCustom, submachineGunGadget, submachineGunSecondarySight, submachineGunSight } from '../commonModifications/submachineGunModifications'
 
-const signature: WeaponData = {
+const signature = {
 	name: 'Signature',
 	image: 'shepheard',
 	source: source['Base Game'],
@@ -40,21 +38,55 @@ const signature: WeaponData = {
 		boost: submachineGunBoost,
 		custom: submachineGunCustom,
 		foregrip: [
-			foregrip['Short Foregrip (Signature)']
+			{
+				name: 'Short Foregrip',
+				image: 'wpn_fps_smg_shepheard_body_short',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					accuracy: -8,
+					concealment: 2
+				}
+			}
 		],
 		gadget: submachineGunGadget,
 		magazine: [
-			magazine['Extended Magazine (Signature)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_smg_shepheard_mag_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					magazine: 30
+				}
+			}
 		],
+		secondarySight: submachineGunSecondarySight,
 		sight: submachineGunSight,
 		stock: [
+			{
+				name: 'No Stock',
+				image: 'wpn_fps_smg_shepheard_s_no',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					stability: -8,
+					concealment: 2
+				}
+			},
 			stock['Tactical Stock (Main)'],
 			stock['Wide Stock'],
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
-			stock['No Stock (Signature)']
+			stock['VD-12 Stock']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default signature

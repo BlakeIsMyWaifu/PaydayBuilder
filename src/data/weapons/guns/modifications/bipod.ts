@@ -1,11 +1,10 @@
 import source from 'data/source/miscSources'
 
-import { type ModificationList } from '../weaponTypes'
+import { type ModificationCollection } from '../weaponTypes'
 
-export type BipodModificationsList =
-	| 'Lion\'s Bipod'
+export type BipodModification = keyof typeof bipod
 
-const bipod: ModificationList<BipodModificationsList> = {
+const bipod = {
 	'Lion\'s Bipod': {
 		name: 'Lion\'s Bipod',
 		image: 'wpn_fps_upg_bp_lmg_lionbipod',
@@ -17,17 +16,8 @@ const bipod: ModificationList<BipodModificationsList> = {
 			bonus: 1
 		},
 		stats: {},
-		compatibleWeapons: {
-			lightMachineGun: [
-				'KSP 58',
-				'RPK',
-				'KSP',
-				'Buzzsaw 42',
-				'Brenner-21'
-			]
-		},
 		incompatibleSlot: [] // brenner 21 incompatible with foregrip
 	}
-}
+} as const satisfies ModificationCollection
 
 export default bipod

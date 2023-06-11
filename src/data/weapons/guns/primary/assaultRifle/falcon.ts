@@ -1,13 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import grip from '../../modifications/grip'
-import magazine from '../../modifications/magazine'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const falcon: WeaponData = {
+const falcon = {
 	name: 'Falcon',
 	image: 'fal',
 	source: content['The Big Bank Heist'],
@@ -38,28 +34,161 @@ const falcon: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['CQB Foregrip (Falcon)'],
-			barrel['Retro Foregrip'],
-			barrel['Marksman Foregrip'],
-			barrel['Wooden Foregrip']
+			{
+				name: 'CQB Foregrip',
+				image: 'wpn_fps_ass_fal_fg_01',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Big Bank Heist'],
+				cost: 11200,
+				acquisition: {
+					achievement: 'Entrapment'
+				},
+				stats: {
+					damage: 1,
+					accuracy: -4,
+					concealment: 6
+				}
+			},
+			{
+				name: 'Retro Foregrip',
+				image: 'wpn_fps_ass_fal_fg_03',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Big Bank Heist'],
+				cost: 11200,
+				acquisition: {
+					achievement: 'You Owe Me One'
+				},
+				stats: {
+					damage: 1,
+					stability: 8,
+					concealment: -1
+				}
+			},
+			{
+				name: 'Marksman Foregrip',
+				image: 'wpn_fps_ass_fal_fg_04',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Big Bank Heist'],
+				cost: 11200,
+				acquisition: {
+					achievement: 'Sweet Sixteen'
+				},
+				stats: {
+					damage: 1,
+					accuracy: 4,
+					stability: -4,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Wooden Foregrip',
+				image: 'wpn_fps_ass_fal_fg_wood',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Big Bank Heist'],
+				cost: 11200,
+				acquisition: {
+					achievement: '12 Angry Minutes'
+				},
+				stats: {
+					accuracy: 8,
+					stability: 4,
+					concealment: -2
+				}
+			}
 		],
 		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		grip: [
-			grip['Tactical Grip']
+			{
+				name: 'Tactical Grip',
+				image: 'wpn_fps_ass_fal_g_01',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['The Big Bank Heist'],
+				cost: 11200,
+				acquisition: {
+					achievement: 'It Takes Two to Tango'
+				},
+				stats: {
+					stability: 4,
+					concealment: 2
+				}
+			}
 		],
 		magazine: [
-			magazine['Extended Magazine (Falcon)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_ass_fal_m_01',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['The Big Bank Heist'],
+				cost: 11200,
+				acquisition: {
+					achievement: 'It Takes a Pig to Kill a Pig'
+				},
+				stats: {
+					magazine: 20,
+					accuracy: -4,
+					stability: 4,
+					concealment: -2
+				}
+			}
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight,
 		stock: [
-			stock['CQB Stock'],
-			stock['Marksman Stock (Falcon)'],
-			stock['Wooden Stock (Falcon)']
+			{
+				name: 'CQB Stock',
+				image: 'wpn_fps_ass_fal_s_01',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['The Big Bank Heist'],
+				cost: 11200,
+				acquisition: {
+					achievement: 'Don\'t Bring the Heat'
+				},
+				stats: {
+					concealment: 5
+				}
+			},
+			{
+				name: 'Marksman Stock',
+				image: 'wpn_fps_ass_fal_s_03',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['The Big Bank Heist'],
+				cost: 11200,
+				acquisition: {
+					achievement: 'Funding Father'
+				},
+				stats: {
+					accuracy: 4,
+					stability: 4,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Wooden Stock',
+				image: 'wpn_fps_ass_fal_s_wood',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['The Big Bank Heist'],
+				cost: 11200,
+				acquisition: {
+					achievement: 'Backing Bobblehead Bob'
+				},
+				stats: {
+					stability: 16
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default falcon

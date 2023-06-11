@@ -1,13 +1,10 @@
 import source from 'data/source/miscSources'
 
-import ammunition from '../../modifications/ammunition'
-import grip from '../../modifications/grip'
 import sight from '../../modifications/sight'
-import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoostTotalAmmo, specialSight } from '../commonModifications/specialModifications'
+import { specialBoost } from '../commonModifications/specialModifications'
 
-const decaTechnologiesCompoundBow: WeaponData = {
+const decaTechnologiesCompoundBow = {
 	name: 'DECA Technologies Compound Bow',
 	image: 'elastic',
 	source: source['Base Game'],
@@ -38,25 +35,98 @@ const decaTechnologiesCompoundBow: WeaponData = {
 	},
 	modifications: {
 		ammunition: [
-			ammunition['Explosive Arrow (DECA)'],
-			ammunition['Poison Arrow (DECA)']
+			{
+				name: 'Explosive Arrow',
+				image: 'wpn_fps_bow_elastic_m_explosive',
+				icon: 'inv_mod_ammo_explosive',
+				slot: 'ammunition',
+				source: source['Base Game'],
+				cost: 9e3,
+				specialEffect: ['Explosive', 'Removes Ammo Pickup'],
+				stats: {
+					damage: -600
+				}
+			},
+			{
+				name: 'Poison Arrow',
+				image: 'wpn_fps_bow_elastic_m_poison',
+				icon: 'inv_mod_ammo_poison',
+				slot: 'ammunition',
+				source: source['Base Game'],
+				cost: 9e3,
+				specialEffect: ['100% chance to poison target'],
+				stats: {
+					totalAmmo: -9,
+					damage: -1700 // TODO adds damage now?
+				}
+			}
 		],
-		boost: specialBoostTotalAmmo,
+		boost: specialBoost,
 		grip: [
-			grip['Wooden Grip (DECA)'],
-			grip['Ergonomic Grip (DECA)']
+			{
+				name: 'Wooden Grip',
+				image: 'wpn_fps_bow_elastic_g_2', // - wpn_fps_bow_elastic_g_wood
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					stability: 8
+				}
+			},
+			{
+				name: 'Ergonomic Grip',
+				image: 'wpn_fps_bow_elastic_g_3', // - wpn_fps_bow_elastic_g_ergo
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					concealment: 1
+				}
+			}
 		],
 		sight: [
-			...specialSight,
-			sight['Compact Profile Sight'],
-			sight['Maelstrom Sight'],
-			sight['Advanced Combat Sight'],
-			sight['Reconnaissance Sight']
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Acough Optic Scope x3.25'],
+			sight['Military Red Dot Sight x2'],
+			sight['Military Red Dot Sight Special x2'],
+			sight['Milspec Scope x2'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			sight['Reconnaissance Sight x2'],
+			sight['Compact Tactical Box Sight x2.5'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Maelstrom Sight x1.5'],
+			sight['CASSIAN Elite Score x4.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['Advanced Combat Sight x3.25'],
+			sight['Z5 Owl Glass Universal Scope x2.5']
 		],
 		upperReceiver: [
-			upperReceiver['Tactical Frame']
+			{
+				name: 'Tactical Frame',
+				image: 'wpn_fps_bow_elastic_body_tactic',
+				icon: 'inv_mod_upper_receiver',
+				slot: 'upperReceiver',
+				source: source['Base Game'],
+				cost: 21e3,
+				stats: {
+					accuracy: -4,
+					stability: -4,
+					concealment: 1
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default decaTechnologiesCompoundBow

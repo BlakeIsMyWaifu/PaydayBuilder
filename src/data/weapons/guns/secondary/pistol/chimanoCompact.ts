@@ -1,13 +1,11 @@
 import source from 'data/source/miscSources'
 
 import grip from '../../modifications/grip'
-import lowerReceiver from '../../modifications/lowerReceiver'
 import magazine from '../../modifications/magazine'
-import slide from '../../modifications/slide'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
+import { pistolBarrelExt, pistolBoostConcealment, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const chimanoCompact: WeaponData = {
+const chimanoCompact = {
 	name: 'Chimano Compact',
 	image: 'g26',
 	source: source.Community,
@@ -38,24 +36,60 @@ const chimanoCompact: WeaponData = {
 	},
 	modifications: {
 		barrelExt: pistolBarrelExt,
-		boost: pistolBoost,
+		boost: pistolBoostConcealment,
 		gadget: pistolGadget,
 		grip: [
-			grip['Laser Grip (Chimano)'],
+			grip['Laser Grip'],
 			grip['Platypus Grip']
 		],
 		lowerReceiver: [
-			lowerReceiver['Striking Body Kit']
+			{
+				name: 'Striking Body Kit',
+				image: 'wpn_fps_pis_g26_body_custom',
+				icon: 'inv_mod_lower_receiver',
+				slot: 'lowerReceiver',
+				source: source.Community,
+				cost: 53e3,
+				stats: {
+					damage: 1,
+					stability: 4,
+					concealment: -1
+				}
+			}
 		],
 		magazine: [
-			magazine['Striking Mag'],
-			magazine['Extended Mag. (Chimano)']
+			{
+				name: 'Striking Mag',
+				image: 'wpn_fps_pis_g26_m_contour',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: source.Community,
+				cost: 53e3,
+				stats: {
+					stability: 8,
+					concealment: -1
+				}
+			},
+			magazine['Extended Magazine (Chimano)']
 		],
 		sight: pistolSight,
 		slide: [
-			slide['Striking Slide']
+			{
+				name: 'Striking Slide',
+				image: 'wpn_fps_pis_g26_b_custom',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: source.Community,
+				cost: 28e3,
+				stats: {
+					damage: 1,
+					accuracy: 4,
+					stability: -8,
+					concealment: -1
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default chimanoCompact

@@ -1,10 +1,9 @@
 import source from 'data/source/miscSources'
 
-import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoostTotalAmmo, specialGadget } from '../commonModifications/specialModifications'
+import { specialBoost, specialGadget } from '../commonModifications/specialModifications'
 
-const xl556Microgun: WeaponData = {
+const xl556Microgun = {
 	name: 'XL 5.56 Microgun',
 	image: 'shuno',
 	source: source['Base Game'],
@@ -34,14 +33,50 @@ const xl556Microgun: WeaponData = {
 		damageModifier: null
 	},
 	modifications: {
-		boost: specialBoostTotalAmmo,
+		boost: specialBoost,
 		gadget: specialGadget,
 		upperReceiver: [
-			upperReceiver['Heat Sink Barrel'],
-			upperReceiver['XS Heat Sink Barrel'],
-			upperReceiver['XS Barrel']
+			{
+				name: 'Heat Sink Barrel',
+				image: 'wpn_fps_lmg_shuno_b_heat_long',
+				icon: 'inv_mod_upper_receiver',
+				slot: 'upperReceiver',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					stability: -8,
+					concealment: -2
+				}
+			},
+			{
+				name: 'XS Heat Sink Barrel',
+				image: 'wpn_fps_lmg_shuno_b_heat_short',
+				icon: 'inv_mod_upper_receiver',
+				slot: 'upperReceiver',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					accuracy: -4,
+					stability: 8,
+					concealment: 2
+				}
+			},
+			{
+				name: 'XS Barrel',
+				image: 'wpn_fps_lmg_shuno_b_short',
+				icon: 'inv_mod_upper_receiver',
+				slot: 'upperReceiver',
+				source: source['Base Game'],
+				cost: 9e3,
+				stats: {
+					accuracy: -8,
+					stability: 16,
+					concealment: 2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default xl556Microgun

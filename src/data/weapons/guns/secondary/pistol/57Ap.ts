@@ -1,11 +1,10 @@
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
-import magazine from '../../modifications/magazine'
+import barrelExt from '../../modifications/barrelExt'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
+import { pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const $57Ap: WeaponData = {
+const $57Ap = {
 	name: '5/7 AP',
 	image: 'lemming',
 	source: source.Community,
@@ -36,16 +35,50 @@ const $57Ap: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['TiN Treated Barrel']
+			{
+				name: 'TiN Treated Barrel',
+				image: 'wpn_fps_pis_lemming_b_nitride',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source.Community,
+				cost: 21e3,
+				stats: {
+					accuracy: 4,
+					stability: 4
+				}
+			}
 		],
-		barrelExt: pistolBarrelExt,
+		barrelExt: [
+			barrelExt['IPSC Compensator'],
+			barrelExt['Roctec Suppressor'],
+			barrelExt['Champion\'s Suppressor'],
+			barrelExt['Facepunch Compensator'],
+			barrelExt['Standard Issue Suppressor'],
+			barrelExt['Size Doesn\'t Matter Suppressor'],
+			barrelExt['Monolith Suppressor'],
+			barrelExt['Asepsis Suppressor'],
+			barrelExt['Flash Hider'],
+			barrelExt['Budget Suppressor'],
+			barrelExt['Jungle Ninja Suppressor'],
+			barrelExt['Hurricane Compensator']
+		],
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		magazine: [
-			magazine['Extended Magazine (5/7 AP)']
+			{
+				name: 'Extended Magazine',
+				image: 'wpn_fps_pis_lemming_m_ext',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: source.Community,
+				cost: 9e3,
+				stats: {
+					magazine: 4
+				}
+			}
 		],
 		sight: pistolSight
 	}
-}
+} as const satisfies WeaponData
 
 export default $57Ap

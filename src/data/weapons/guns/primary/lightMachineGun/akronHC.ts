@@ -1,13 +1,12 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import magazine from '../../modifications/magazine'
+import barrelExt from '../../modifications/barrelExt'
 import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { lightMachineGunBarrelExt, lightMachineGunBoost, lightMachineGunGadget } from '../commonModifications/lightMachineGunModifications'
+import { lightMachineGunBoost, lightMachineGunGadget } from '../commonModifications/lightMachineGunModifications'
 
-const akronHC: WeaponData = {
+const akronHC = {
 	name: 'Akron HC',
 	image: 'hcar',
 	source: content['McShay Weapon Pack 3'],
@@ -38,35 +37,119 @@ const akronHC: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Short Barrel (Akron HC)'],
-			barrel['DMR Barrel']
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_lmg_hcar_barrel_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack 3'],
+				cost: 14e3,
+				stats: {
+					accuracy: -4,
+					stability: -4,
+					concealment: 2
+				}
+			},
+			{
+				name: 'DMR Barrel',
+				image: 'wpn_fps_lmg_hcar_barrel_dmr',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack 3'],
+				cost: 21e3,
+				stats: {
+					magazine: -10,
+					totalAmmo: -80,
+					damage: 40
+				}
+			}
 		],
-		barrelExt: lightMachineGunBarrelExt,
+		barrelExt: [
+			barrelExt['Medium Suppressor'],
+			barrelExt['Low Profile Suppressor'],
+			barrelExt['Stubby Compensator'],
+			barrelExt['The Tank Compensator'],
+			barrelExt['Fire Breather Nozzle'],
+			barrelExt['The Bigger The Better Suppressor'],
+			barrelExt['Competitor\'s Compensator'],
+			barrelExt['Funnel of Fun Nozzle'],
+			barrelExt['Tactical Compensator'],
+			barrelExt['Ported Compensator'],
+			barrelExt['Marmon Compensator'],
+			barrelExt['Verdunkeln Muzzle Brake'],
+			barrelExt['Buckeye Suppressor'],
+			barrelExt['Rami Suppressor'],
+			barrelExt['Dourif Muzzle']
+		],
 		boost: lightMachineGunBoost,
-		// TODO exclusive set
+		exclusiveSet: [
+			{
+				name: 'Aureate',
+				image: 'wpn_fps_lmg_hcar_body_conversionkit',
+				icon: 'inv_mod_ammo_explosive', // TODO update icon
+				slot: 'exclusiveSet',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				specialEffect: ['Ammo pickups locked to 6-12'],
+				stats: {
+					magazine: 80,
+					totalAmmo: 160,
+					// TODO rateOfFire: 400,
+					damage: -40,
+					accuracy: 4,
+					stability: 4,
+					concealment: 3
+				}
+			}
+		],
 		gadget: lightMachineGunGadget,
 		magazine: [
-			magazine['Large Magazine'],
-			magazine['Standard Magazine']
+			{
+				name: 'Large Magazine',
+				image: 'wpn_fps_lmg_hcar_m_drum',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['McShay Weapon Pack 3'],
+				cost: 21e3,
+				stats: {
+					magazine: 50,
+					concealment: -4
+				}
+			},
+			{
+				name: 'Standard Magazine',
+				image: 'wpn_fps_lmg_hcar_m_stick',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['McShay Weapon Pack 3'],
+				cost: 21e3,
+				stats: {
+					magazine: 20,
+					concealment: -2
+				}
+			}
 		],
 		sight: [
-			sight['The Professional\'s Choice Sight'],
-			sight['Surgeon Sight'],
-			sight['See More Sight'],
-			sight['Combat Sight'],
-			sight['Speculator Sight'],
-			sight['Trigonom Sight'],
-			sight['Holographic Sight'],
-			sight['Compact Holosight'],
-			sight['Solar Sight'],
-			sight['Military Red Dot Sight (1)'],
-			sight['Military Red Dot Sight (2)'],
-			sight['Milspec Scope'],
-			sight['Acough Optic Scope'],
-			sight['Compact Profile Sight'],
-			sight['Maelstrom Sight'],
-			sight['Advanced Combat Sight'],
-			sight['Reconnaissance Sight']
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Acough Optic Scope x3.25'],
+			sight['Military Red Dot Sight x2'],
+			sight['Military Red Dot Sight Special x2'],
+			sight['Milspec Scope x2'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			sight['Compact Tactical Box Sight x2.5'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Maelstrom Sight x1.5'],
+			sight['CASSIAN Elite Score x4.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['Advanced Combat Sight x3.25'],
+			sight['CASSIAN Sharp Sight x3.25']
 		],
 		stock: [
 			stock['Tactical Stock (Main)'],
@@ -75,9 +158,11 @@ const akronHC: WeaponData = {
 			stock['War-Torn Stock'],
 			stock['2 Piece Stock'],
 			stock['Contractor Stock'],
-			stock['VD-12 Stock']
+			stock['VD-12 Stock'],
+			stock['Ursa Minor Stock'],
+			stock['Starlight Stock']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default akronHC

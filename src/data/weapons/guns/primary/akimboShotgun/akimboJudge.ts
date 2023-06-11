@@ -1,10 +1,10 @@
 import source from 'data/source/miscSources'
 
-import lowerReceiver from '../../modifications/lowerReceiver'
+import theJudge from '../../secondary/shotgun/theJudge'
 import { type WeaponData } from '../../weaponTypes'
 import { akimboShotgunAmmunition, akimboShotgunBarrelExt, akimboShotgunBoost, akimboShotgunGadget } from '../commonModifications/akimboShotgunModifications'
 
-const akimboJudge: WeaponData = {
+const akimboJudge = {
 	name: 'Akimbo Judge',
 	image: 'x_judge',
 	source: source['Base Game'],
@@ -38,10 +38,8 @@ const akimboJudge: WeaponData = {
 		barrelExt: akimboShotgunBarrelExt,
 		boost: akimboShotgunBoost,
 		gadget: akimboShotgunGadget,
-		lowerReceiver: [
-			lowerReceiver['Custom Reinforced Frame']
-		]
+		lowerReceiver: theJudge.modifications.lowerReceiver
 	}
-}
+} as const satisfies WeaponData
 
 export default akimboJudge

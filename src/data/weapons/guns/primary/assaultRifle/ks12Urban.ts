@@ -1,12 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrelExt from '../../modifications/barrelExt'
-import extra from '../../modifications/extra'
-import upperReceiver from '../../modifications/upperReceiver'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleGadget, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const ks12Urban: WeaponData = {
+const ks12Urban = {
 	name: 'KS12 Urban',
 	image: 'shak12',
 	source: content['Jiu Feng Smuggler Pack 3'],
@@ -36,21 +33,41 @@ const ks12Urban: WeaponData = {
 		damageModifier: [1.0, 1.0]
 	},
 	modifications: {
-		barrelExt: [
-			...assaultRifleBarrelExt,
-			barrelExt['KS12-A Burst Muzzle'],
-			barrelExt['KS12-S Long Silencer']
-		],
+		barrelExt: assaultRifleBarrelExt,
 		boost: assaultRifleBoost,
 		extra: [
-			extra['KS12-S Carry Handle']
+			{
+				name: 'KS12-S Carry Handle',
+				image: 'wpn_fps_ass_groza_fl_adapter', // ! missing image
+				icon: 'inv_mod_extra',
+				slot: 'extra',
+				source: content['Jiu Feng Smuggler Pack 3'],
+				cost: 9e3,
+				stats: {}
+			}
 		],
 		gadget: assaultRifleGadget,
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight,
 		upperReceiver: [
-			upperReceiver['KS12 DMR kit']
+			{
+				name: 'KS12 DMR kit',
+				image: 'wpn_fps_ass_shak12_body_vks',
+				icon: 'inv_mod_upper_receiver',
+				slot: 'upperReceiver',
+				source: content['Jiu Feng Smuggler Pack 3'],
+				cost: 28e3,
+				stats: {
+					magazine: -10,
+					totalAmmo: -31,
+					damage: 85,
+					accuracy: 8,
+					stability: -4,
+					concealment: -3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default ks12Urban

@@ -1,12 +1,10 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import bayonet from '../../modifications/bayonet'
-import stock from '../../modifications/stock'
+import sight from '../../modifications/sight'
 import { type WeaponData } from '../../weaponTypes'
-import { sniperBoost, sniperGadgetMagnifier, sniperSight } from '../commonModifications/sniperModifications'
+import { sniperBoost, sniperGadget, sniperSecondarySight } from '../commonModifications/sniperModifications'
 
-const nagant: WeaponData = {
+const nagant = {
 	name: 'Nagant',
 	image: 'mosin',
 	source: content['Gage Historical Pack'],
@@ -37,20 +35,138 @@ const nagant: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Short Barrel (Nagant)'],
-			barrel['Long Barrel (Nagant)'],
-			barrel['Silenced Barrel (Nagant)']
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_snp_mosin_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Historical Pack'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Wind of Change'
+				},
+				stats: {
+					accuracy: -4,
+					concealment: 3
+				}
+			},
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_snp_mosin_b_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Historical Pack'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Death From Below'
+				},
+				stats: {
+					stability: 8,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Silenced Barrel',
+				image: 'wpn_fps_snp_mosin_b_sniper',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['Gage Historical Pack'],
+				cost: 44e3,
+				acquisition: {
+					achievement: 'Death From Below'
+				},
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -16,
+					accuracy: -4,
+					stability: 4,
+					concealment: -2,
+					threat: -22
+				}
+			}
 		],
 		bayonet: [
-			bayonet['Nagant Bayonet']
+			{
+				name: 'Nagant Bayonet',
+				image: 'wpn_fps_snp_mosin_ns_bayonet',
+				icon: 'inv_mod_bayonet',
+				slot: 'bayonet',
+				source: content['Gage Historical Pack'],
+				cost: 9e3,
+				acquisition: {
+					infinite: true
+				},
+				specialEffect: ['Modifies Weapon Butt'],
+				stats: {
+					concealment: -2
+				}
+			}
 		],
 		boost: sniperBoost,
-		gadget: sniperGadgetMagnifier,
-		sight: sniperSight,
+		gadget: sniperGadget,
+		secondarySight: sniperSecondarySight,
+		sight: [
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Acough Optic Scope x3.25'],
+			sight['Military Red Dot Sight x2'],
+			sight['Military Red Dot Sight Special x2'],
+			sight['Milspec Scope x2'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			{
+				name: 'Iron Sight x1.25',
+				image: 'wpn_fps_snp_mosin_iron_sight',
+				icon: 'inv_mod_scope',
+				slot: 'sight',
+				source: content['Gage Historical Pack'],
+				cost: 0,
+				acquisition: {
+					infinite: true
+				},
+				stats: {
+					stability: -4,
+					concealment: 2
+				}
+			},
+			sight['Theia Magnified Scope x10'],
+			sight['Box Buddy Sight x10'],
+			sight['Reconnaissance Sight x2'],
+			sight['Compact Tactical Box Sight x2.5'],
+			sight['CASSIAN Iron Sights x1'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Maelstrom Sight x1.5'],
+			sight['CASSIAN Elite Score x4.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['Advanced Combat Sight x3.25'],
+			sight['CASSIAN Sharp Sight x3.25'],
+			sight['Trace Optic x6.25'],
+			sight['Z5 Owl Glass Universal Scope x2.5'],
+			sight['Tuunbaq Scope x4.5 / x10']
+		],
 		stock: [
-			stock['Discrete Stock (Nagant)']
+			{
+				name: 'Discrete Stock',
+				image: 'wpn_fps_snp_mosin_body_standard_black',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Gage Historical Pack'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Wind of Change'
+				},
+				stats: {
+					stability: -4,
+					concealment: 3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default nagant

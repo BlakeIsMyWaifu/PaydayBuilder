@@ -1,14 +1,11 @@
 import content from 'data/source/downloadableContent'
 
 import barrelExt from '../../modifications/barrelExt'
-import magazine from '../../modifications/magazine'
 import sight from '../../modifications/sight'
-import slide from '../../modifications/slide'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
+import { pistolBoost, pistolGadget } from '../commonModifications/pistolModifications'
 
-const broomstick: WeaponData = {
+const broomstick = {
 	name: 'Broomstick',
 	image: 'c96',
 	source: content['Gage Historical Pack'],
@@ -39,25 +36,111 @@ const broomstick: WeaponData = {
 	},
 	modifications: {
 		barrelExt: [
-			...pistolBarrelExt,
-			barrelExt['Damper.L 44 Nozzle']
+			barrelExt['Roctec Suppressor'],
+			barrelExt['Champion\'s Suppressor'],
+			barrelExt['Standard Issue Suppressor'],
+			barrelExt['Medved R4 Suppressor'],
+			barrelExt['Size Doesn\'t Matter Suppressor'],
+			barrelExt['Monolith Suppressor'],
+			barrelExt['Asepsis Suppressor'],
+			barrelExt['Flash Hider'],
+			{
+				name: 'Damper.L 44 Nozzle',
+				image: 'wpn_fps_pis_c96_nozzle',
+				icon: 'inv_mod_barrel_ext',
+				slot: 'barrelExt',
+				source: content['Gage Historical Pack'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Special Operations Execution'
+				},
+				stats: {
+					damage: 2,
+					accuracy: -4,
+					stability: 8,
+					concealment: -1
+				}
+			},
+			barrelExt['Budget Suppressor'],
+			barrelExt['Jungle Ninja Suppressor'],
+			barrelExt['Hurricane Compensator']
 		],
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		magazine: [
-			magazine['High Capacity Mag']
+			{
+				name: 'High Capacity Mag',
+				image: 'wpn_fps_pis_c96_m_extended',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['Gage Historical Pack'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'So Uncivilized'
+				},
+				stats: {
+					magazine: 10,
+					concealment: -2
+				}
+			}
 		],
 		sight: [
-			sight['Barrel Sight 44'],
-			...pistolSight
+			sight['Pistol Red Dot Sight x1.5'],
+			{
+				name: 'Barrel Sight 44',
+				image: 'wpn_fps_pis_c96_sight',
+				icon: 'inv_mod_scope',
+				slot: 'sight',
+				source: content['Gage Historical Pack'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Special Operations Execution'
+				},
+				stats: {
+					concealment: -2
+				}
+			},
+			sight['Riktpunkt Holosight x1.5'],
+			sight['SKOLD Micro Reflex Sight x1.5']
 		],
 		slide: [
-			slide['Precision Barrel (Broomstick)']
+			{
+				name: 'Precision Barrel',
+				image: 'wpn_fps_pis_c96_b_long',
+				icon: 'inv_mod_slide',
+				slot: 'slide',
+				source: content['Gage Historical Pack'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Wind of Change'
+				},
+				stats: {
+					totalAmmo: -45,
+					damage: 110,
+					accuracy: -8,
+					stability: -8,
+					concealment: -3
+				}
+			}
 		],
 		stock: [
-			stock['Holster Stock']
+			{
+				name: 'Holster Stock',
+				image: 'wpn_fps_pis_c96_s_solid',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Gage Historical Pack'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'So Uncivilized'
+				},
+				stats: {
+					stability: 16,
+					concealment: -3
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default broomstick

@@ -1,15 +1,11 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import barrelExt from '../../modifications/barrelExt'
-import boost from '../../modifications/boost'
-import foregrip from '../../modifications/foregrip'
-import grip from '../../modifications/grip'
 import sight from '../../modifications/sight'
 import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
+import { sniperBoost } from '../commonModifications/sniperModifications'
 
-const aranG2: WeaponData = {
+const aranG2 = {
 	name: 'Aran G2',
 	image: 'contender',
 	source: content['McShay Weapon Pack 3'],
@@ -40,47 +36,132 @@ const aranG2: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Long Barrel (Aran G2)'],
-			barrel['Short Barrel (Aran G2)']
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_snp_contender_barrel_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				stats: {
+					damage: 12,
+					accuracy: 4,
+					concealment: -3
+				}
+			},
+			{
+				name: 'Short Barrel',
+				image: 'wpn_fps_snp_contender_barrel_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				stats: {
+					accuracy: -8,
+					stability: -8,
+					concealment: 2
+				}
+			}
 		],
 		barrelExt: [
-			barrelExt['Phantom Suppressor']
+			{
+				name: 'Phantom Suppressor',
+				image: 'wpn_fps_snp_contender_suppressor',
+				icon: 'inv_mod_barrel_ext',
+				slot: 'barrelExt',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					stability: 4,
+					concealment: -2
+				}
+			}
 		],
-		boost: [
-			boost.Concealment,
-			boost.Stability,
-			boost.Accuracy,
-			boost['Team Boost'],
-			boost['Total Ammo (Main)']
+		boost: sniperBoost,
+		exclusiveSet: [
+			{
+				name: 'Perfect Blue',
+				image: 'wpn_fps_snp_contender_conversion',
+				icon: 'inv_mod_ammo_explosive', // TODO update icon
+				slot: 'exclusiveSet',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				stats: {
+					totalAmmo: -1,
+					damage: 40,
+					accuracy: 8,
+					concealment: -8
+				}
+			}
 		],
-		// TODO exclusive set
 		foregrip: [
-			foregrip['Kanden Foregrip']
+			{
+				name: 'Kanden Foregrip',
+				image: 'wpn_fps_snp_contender_frontgrip_long',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				stats: {
+					accuracy: 8,
+					stability: 4,
+					concealment: -1
+				}
+			}
 		],
 		grip: [
-			grip['Bounty Grip']
+			{
+				name: 'Bounty Grip',
+				image: 'wpn_fps_upg_m4_g_contender',
+				icon: 'inv_mod_grip',
+				slot: 'grip',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				stats: {
+					accuracy: 4,
+					stability: 8,
+					concealment: -1
+				}
+			}
 		],
 		sight: [
-			sight['The Professional\'s Choice Sight'],
-			sight['Surgeon Sight'],
-			sight['See More Sight'],
-			sight['Combat Sight'],
-			sight['Speculator Sight'],
-			sight['Trigonom Sight'],
-			sight['Holographic Sight'],
-			sight['Compact Holosight'],
-			sight['Solar Sight'],
-			sight['Military Red Dot Sight (1)'],
-			sight['Military Red Dot Sight (2)'],
-			sight['Milspec Scope'],
-			sight['Acough Optic Scope'],
-			sight['Compact Profile Sight'],
-			sight['Maelstrom Sight'],
-			sight['Advanced Combat Sight'],
-			sight['Reconnaissance Sight'],
-			sight['Theia Magnified Scope'],
-			sight['Box Buddy Sight'],
-			sight['Iron Sights']
+			sight['Holographic Sight x1.5'],
+			sight['The Professional\'s Choice Sight x1.5'],
+			sight['Surgeon Sight x1.25'],
+			sight['Acough Optic Scope x3.25'],
+			sight['Military Red Dot Sight x2'],
+			sight['Military Red Dot Sight Special x2'],
+			sight['Milspec Scope x2'],
+			sight['See More Sight x1.5'],
+			sight['Combat Sight x2'],
+			sight['Compact Holosight x1.5'],
+			sight['Speculator Sight x1.5'],
+			sight['Trigonom Sight x1.5'],
+			sight['Solar Sight x1.5'],
+			sight['Theia Magnified Scope x10'],
+			sight['Box Buddy Sight x10'],
+			sight['Compact Tactical Box Sight x2.5'],
+			sight['Compact Profile Sight x1.5'],
+			sight['Maelstrom Sight x1.5'],
+			sight['CASSIAN Elite Score x4.5'],
+			sight['Biometric Analyzer x1.25'],
+			sight['Advanced Combat Sight x3.25'],
+			sight['CASSIAN Sharp Sight x3.25'],
+			{
+				name: 'Sylux Iron Sight',
+				image: 'wpn_fps_upg_contender_o_ironsight',
+				icon: 'inv_mod_scope',
+				slot: 'sight',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				stats: {
+					stability: -4,
+					concealment: 2
+				}
+			},
+			sight['Trace Optic x6.25'],
+			sight['Tuunbaq Scope x4.5 / x10']
 		],
 		stock: [
 			stock['Tactical Stock (Main)'],
@@ -89,9 +170,23 @@ const aranG2: WeaponData = {
 			stock['2 Piece Stock'],
 			stock['Contractor Stock'],
 			stock['VD-12 Stock'],
-			stock['Bounty Stock']
+			{
+				name: 'Bounty Stock',
+				image: 'wpn_fps_upg_m4_s_contender',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['McShay Weapon Pack 3'],
+				cost: 9e3,
+				stats: {
+					accuracy: 8,
+					stability: 8,
+					concealment: -2
+				}
+			},
+			stock['Ursa Minor Stock'],
+			stock['Starlight Stock']
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default aranG2

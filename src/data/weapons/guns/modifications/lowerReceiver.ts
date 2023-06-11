@@ -1,67 +1,10 @@
 import content from 'data/source/downloadableContent'
-import source from 'data/source/miscSources'
 
-import { type ModificationList } from '../weaponTypes'
+import { type ModificationCollection } from '../weaponTypes'
 
-export type LowerReceiverModificationsList =
-	// Union 5.56
-	| 'Dunes Tactical Receiver'
+export type LowerReceiverModification = keyof typeof lowerReceiver
 
-	// CAR-4, AMR-16, Para
-	| 'THRUST Lower Receiver'
-
-	// UAR
-	| 'Raptor Polymer Body'
-
-	// Rodion 3B
-	| 'Arkady Ammo Pouch'
-
-	// Breaker 12G
-	| 'Treated Body'
-
-	// Mosconi 12G Tactical
-	| 'CE Rail Stabilizer'
-
-	// The Judge, Akimbo Judge
-	| 'Custom Reinforced Frame'
-
-	// OVE9000
-	| 'Silent Motor'
-	| 'Fast Motor'
-
-	// Bernetti 9
-	| 'Custom Titanium Frame'
-
-	// Baby Deagle
-	| 'Spike Kit'
-
-	// Chimano Compact
-	| 'Striking Body Kit'
-
-	// Mark 10
-	| 'Custom Built Frame'
-
-	// Kobus 90
-	| 'Custom Assault Frame'
-
-const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
-	'Dunes Tactical Receiver': {
-		name: 'Dunes Tactical Receiver',
-		image: 'wpn_fps_corgi_body_lower_strap',
-		icon: 'inv_mod_lower_receiver',
-		slot: 'lowerReceiver',
-		source: source['Base Game'],
-		cost: 9e3,
-		stats: {
-			stability: 8,
-			concealment: -2
-		},
-		compatibleWeapons: {
-			assaultRifle: [
-				'Union 5.56'
-			]
-		}
-	},
+const lowerReceiver = {
 	'THRUST Lower Receiver': {
 		name: 'THRUST Lower Receiver',
 		image: 'wpn_fps_upg_ass_m4_lower_reciever_core',
@@ -74,239 +17,22 @@ const lowerReceiver: ModificationList<LowerReceiverModificationsList> = {
 		},
 		stats: {
 			damage: 2
-		},
-		compatibleWeapons: {
-			assaultRifle: [
-				'CAR-4',
-				'AMR-16'
-			],
-			submachineGun: [
-				'Para'
-			]
 		}
 	},
-	'Raptor Polymer Body': {
-		name: 'Raptor Polymer Body',
-		image: 'wpn_fps_aug_body_f90',
+	'Orthogon Lower Receiver': {
+		name: 'Orthogon Lower Receiver',
+		image: 'wpn_fps_m4_uupg_lower_radian',
 		icon: 'inv_mod_lower_receiver',
 		slot: 'lowerReceiver',
-		source: content['The Butcher Mod Pack 2'],
+		source: content['McShay Mod Pack'],
 		cost: 9e3,
-		acquisition: {
-			bonus: 1
-		},
 		stats: {
 			damage: 2,
 			accuracy: 4,
-			stability: 8,
-			concealment: -2
-		},
-		compatibleWeapons: {
-			assaultRifle: [
-				'UAR'
-			]
-		}
-	},
-	'Arkady Ammo Pouch': {
-		name: 'Arkady Ammo Pouch',
-		image: 'wpn_fps_ass_tkb_body_pouch',
-		icon: 'inv_mod_lower_receiver',
-		slot: 'lowerReceiver',
-		source: content['McShay Weapon Pack 3'],
-		cost: 9e3,
-		stats: {
-			totalAmmo: 45,
-			accuracy: -4,
-			stability: 4,
-			concealment: -2
-		},
-		compatibleWeapons: {
-			assaultRifle: [
-				'Rodion 3B'
-			]
-		}
-	},
-	'Treated Body': {
-		name: 'Treated Body',
-		image: 'wpn_fps_sho_boot_body_exotic',
-		icon: 'inv_mod_lower_receiver',
-		slot: 'lowerReceiver',
-		source: content['Biker Character Pack'],
-		cost: 9e3,
-		stats: {
-			accuracy: 4,
 			stability: 4,
 			concealment: -1
-		},
-		compatibleWeapons: {
-			shotgun: [
-				'Breaker 12G'
-			]
-		}
-	},
-	'CE Rail Stabilizer': {
-		name: 'CE Rail Stabilizer',
-		image: 'wpn_fps_sho_m590_lower_receiver_xxx',
-		icon: 'inv_mod_lower_receiver',
-		slot: 'lowerReceiver',
-		source: content['Jiu Feng Smuggler Pack'],
-		cost: 9e3,
-		stats: {
-			accuracy: 4,
-			concealment: -2
-		},
-		compatibleWeapons: {
-			shotgun: [
-				'Mosconi 12G Tactical'
-			]
-		}
-	},
-	'Custom Reinforced Frame': {
-		name: 'Custom Reinforced Frame',
-		image: 'wpn_fps_pis_judge_body_modern',
-		icon: 'inv_mod_lower_receiver',
-		slot: 'lowerReceiver',
-		source: source['Base Game'],
-		cost: 12600,
-		acquisition: {
-			coins: 6
-		},
-		stats: {},
-		compatibleWeapons: {
-			shotgun: [
-				'The Judge'
-			],
-			akimboShotgun: [
-				'Akimbo Judge'
-			]
-		}
-	},
-	'Silent Motor': {
-		name: 'Silent Motor',
-		image: 'wpn_fps_saw_body_silent',
-		icon: 'inv_mod_lower_receiver',
-		slot: 'lowerReceiver',
-		source: content['The Butcher Mod Pack 2'],
-		cost: 9e3,
-		acquisition: {
-			bonus: 1
-		},
-		specialEffect: ['Silences Weapon'],
-		stats: {
-			threat: -16
-		},
-		compatibleWeapons: {
-			special: [
-				'OVE9000'
-			]
-		}
-	},
-	'Fast Motor': {
-		name: 'Fast Motor',
-		image: 'wpn_fps_saw_body_speed',
-		icon: 'inv_mod_lower_receiver',
-		slot: 'lowerReceiver',
-		source: content['The Butcher Mod Pack 2'],
-		cost: 9e3,
-		acquisition: {
-			bonus: 1
-		},
-		stats: {
-			damage: 3
-		},
-		compatibleWeapons: {
-			special: [
-				'OVE9000'
-			]
-		}
-	},
-	'Custom Titanium Frame': {
-		name: 'Custom Titanium Frame',
-		image: 'wpn_fps_pis_beretta_body_modern',
-		icon: 'inv_mod_lower_receiver',
-		slot: 'lowerReceiver',
-		source: source['Base Game'],
-		cost: 9e3,
-		acquisition: {
-			coins: 6
-		},
-		stats: {},
-		compatibleWeapons: {
-			pistol: [
-				'Bernetti 9'
-			]
-		}
-	},
-	'Spike Kit': {
-		name: 'Spike Kit',
-		image: 'wpn_fps_pis_sparrow_body_941',
-		icon: 'inv_mod_lower_receiver',
-		slot: 'lowerReceiver',
-		source: content['The Point Break Heists'],
-		cost: 9e3,
-		stats: {
-			accuracy: 4,
-			stability: -8,
-			concealment: 1
-		},
-		compatibleWeapons: {
-			pistol: [
-				'Baby Deagle'
-			]
-		}
-	},
-	'Striking Body Kit': {
-		name: 'Striking Body Kit',
-		image: 'wpn_fps_pis_g26_body_custom',
-		icon: 'inv_mod_lower_receiver',
-		slot: 'lowerReceiver',
-		source: source.Community,
-		cost: 53e3,
-		stats: {
-			damage: 1,
-			stability: 4,
-			concealment: -1
-		},
-		compatibleWeapons: {
-			pistol: [
-				'Chimano Compact'
-			]
-		}
-	},
-	'Custom Built Frame': {
-		name: 'Custom Built Frame',
-		image: 'wpn_fps_smg_mac10_body_modern',
-		icon: 'inv_mod_lower_receiver',
-		slot: 'lowerReceiver',
-		source: source['Base Game'],
-		cost: 9e3,
-		acquisition: {
-			coins: 6
-		},
-		stats: {},
-		compatibleWeapons: {
-			submachineGun: [
-				'Mark 10'
-			]
-		}
-	},
-	'Custom Assault Frame': {
-		name: 'Custom Assault Frame',
-		image: 'wpn_fps_smg_p90_body_boxy',
-		icon: 'inv_mod_lower_receiver',
-		slot: 'lowerReceiver',
-		source: source['Base Game'],
-		cost: 9e3,
-		acquisition: {
-			coins: 6
-		},
-		stats: {},
-		compatibleWeapons: {
-			submachineGun: [
-				'Kobus 90'
-			]
 		}
 	}
-}
+} as const satisfies ModificationCollection
 
 export default lowerReceiver

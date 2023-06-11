@@ -1,12 +1,10 @@
 import content from 'data/source/downloadableContent'
 
 import ammunition from '../../modifications/ammunition'
-import barrel from '../../modifications/barrel'
-import stock from '../../modifications/stock'
+import boost from '../../modifications/boost'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoost } from '../commonModifications/specialModifications'
 
-const gl40: WeaponData = {
+const gl40 = {
 	name: 'GL40',
 	image: 'gre_m79',
 	source: content['Gage Assault Pack'],
@@ -37,16 +35,53 @@ const gl40: WeaponData = {
 	},
 	modifications: {
 		ammunition: [
-			ammunition['Incendiary Round']
+			ammunition['Sting Grenade'],
+			ammunition['Incendiary Round'],
+			ammunition['X1-a Tactical ZAPper'],
+			ammunition['Viper Grenade']
 		],
 		barrel: [
-			barrel['Pirate Barrel']
+			{
+				name: 'Pirate Barrel',
+				image: 'wpn_fps_gre_m79_barrel_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['Gage Assault Pack'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Artillery Barrage'
+				},
+				specialEffect: ['Removes flip-up sight.'],
+				stats: {
+					accuracy: -8,
+					concealment: 4
+				}
+			}
 		],
-		boost: specialBoost,
+		boost: [
+			boost.Concealment,
+			boost.Stability,
+			boost.Accuracy,
+			boost['Team Boost']
+		],
 		stock: [
-			stock['Sawed-off Stock']
+			{
+				name: 'Sawed-off Stock',
+				image: 'wpn_fps_gre_m79_stock_short',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: content['Gage Assault Pack'],
+				cost: 9e3,
+				acquisition: {
+					achievement: 'Big Bada Boom'
+				},
+				stats: {
+					stability: -4,
+					concealment: 4
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default gl40

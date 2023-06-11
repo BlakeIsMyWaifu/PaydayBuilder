@@ -218,6 +218,10 @@ type ContentList =
 	| 'McShay Mod Pack'
 	| 'A Criminal Carol'
 	| 'McShay Weapon Pack 3'
+	| 'Hostile Takeover Heist'
+	| 'Crude Awakening Bundle'
+	| 'Lawless Tailor Pack' // TODO masks
+	| 'McShay Weapon Pack 4'
 
 const pcExclusive: Platform = {
 	360: false,
@@ -2402,7 +2406,7 @@ const content: Record<ContentList, ContentData> = {
 	},
 	'A Criminal Carol': {
 		name: 'A Criminal Carol',
-		rarity: 'Free',
+		rarity: 'Event', // - Free
 		type: 'Feature',
 		released: '2022, December 15',
 		price: 'Free',
@@ -2413,6 +2417,38 @@ const content: Record<ContentList, ContentData> = {
 		rarity: 'Paid',
 		type: 'Weapon Pack',
 		released: '2023, February 1',
+		price: '$3.99',
+		platform: pcExclusive
+	},
+	'Hostile Takeover Heist': {
+		name: 'Hostile Takeover Heist',
+		rarity: 'Paid',
+		type: 'Heist',
+		released: '2023, February 22',
+		price: '$6.99',
+		platform: pcExclusive
+	},
+	'Crude Awakening Bundle': {
+		name: 'Crude Awakening Bundle',
+		rarity: 'Bundle',
+		type: 'Bundle',
+		released: '2023, March 22',
+		price: '$9.99',
+		platform: pcExclusive
+	},
+	'Lawless Tailor Pack': {
+		name: 'Lawless Tailor Pack',
+		rarity: 'Paid',
+		type: 'Outfit',
+		released: '2023, March 22',
+		price: '$2.99',
+		platform: pcExclusive
+	},
+	'McShay Weapon Pack 4': {
+		name: 'McShay Weapon Pack 4',
+		rarity: 'Paid',
+		type: 'Weapon Pack',
+		released: '2023, April 26',
 		price: '$3.99',
 		platform: pcExclusive
 	}

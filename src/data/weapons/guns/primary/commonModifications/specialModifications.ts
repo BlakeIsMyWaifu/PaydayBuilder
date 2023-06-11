@@ -1,41 +1,20 @@
-import boost, { type BoostModificationsList } from '../../modifications/boost'
-import gadget, { type GadgetModificationsList } from '../../modifications/gadget'
-import sight, { type SightModificationsList } from '../../modifications/sight'
+import boost from '../../modifications/boost'
+import gadget from '../../modifications/gadget'
 import { type Modification } from '../../weaponTypes'
 
-export const specialBoost: Modification<BoostModificationsList>[] = [
+export const specialBoost: Modification[] = [
 	boost.Concealment,
 	boost.Stability,
 	boost.Accuracy,
-	boost['Team Boost']
+	boost['Team Boost'],
+	boost['Total Ammo']
 ]
 
-export const specialBoostTotalAmmo: Modification<BoostModificationsList>[] = [
-	...specialBoost,
-	boost['Total Ammo (Main)']
-]
-
-export const specialGadget: Modification<GadgetModificationsList>[] = [
+export const specialGadget: Modification[] = [
 	gadget['Assault Light'],
 	gadget['Tactical Laser Module'],
 	gadget['Compact Laser Module'],
 	gadget['Military Laser Module'],
 	gadget['LED Combo'],
 	gadget['Stealth Laser Module']
-]
-
-export const specialSight: Modification<SightModificationsList>[] = [
-	sight['The Professional\'s Choice Sight'],
-	sight['Surgeon Sight'],
-	sight['See More Sight'],
-	sight['Combat Sight'],
-	sight['Speculator Sight'],
-	sight['Trigonom Sight'],
-	sight['Holographic Sight'],
-	sight['Compact Holosight'],
-	sight['Solar Sight'],
-	sight['Military Red Dot Sight (1)'],
-	sight['Military Red Dot Sight (2)'],
-	sight['Milspec Scope'],
-	sight['Acough Optic Scope']
 ]

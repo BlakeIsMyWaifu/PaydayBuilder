@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import extra from '../../modifications/extra'
 import { type WeaponData } from '../../weaponTypes'
-import { specialBoostTotalAmmo, specialGadget } from '../commonModifications/specialModifications'
+import { specialBoost, specialGadget } from '../commonModifications/specialModifications'
 
-const vulcanMinigun: WeaponData = {
+const vulcanMinigun = {
 	name: 'Vulcan Minigun',
 	image: 'm134',
 	source: content['The OVERKILL Pack'],
@@ -36,15 +34,61 @@ const vulcanMinigun: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['Aerial Assault Barrel'],
-			barrel['The Stump Barrel']
+			{
+				name: 'Aerial Assault Barrel',
+				image: 'wpn_fps_lmg_m134_barrel_extreme',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The OVERKILL Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: 4,
+					stability: -12,
+					concealment: -3
+				}
+			},
+			{
+				name: 'The Stump Barrel',
+				image: 'wpn_fps_lmg_m134_barrel_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The OVERKILL Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: -4,
+					stability: 12,
+					concealment: 3
+				}
+			}
 		],
-		boost: specialBoostTotalAmmo,
+		boost: specialBoost,
 		extra: [
-			extra['I\'ll Take Half That Kit']
+			{
+				name: 'I\'ll Take Half That Kit',
+				image: 'wpn_fps_lmg_m134_body_upper_light',
+				icon: 'inv_mod_extra',
+				slot: 'extra',
+				source: content['The OVERKILL Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					totalAmmo: -300,
+					accuracy: -4,
+					stability: 12,
+					concealment: 3
+				}
+			}
 		],
 		gadget: specialGadget
 	}
-}
+} as const satisfies WeaponData
 
 export default vulcanMinigun

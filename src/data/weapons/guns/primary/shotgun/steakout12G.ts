@@ -1,11 +1,9 @@
 import content from 'data/source/downloadableContent'
 
-import barrel from '../../modifications/barrel'
-import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
-import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunCustom, shotgunGadgetMagnifier, shotgunSight } from '../commonModifications/shotgunModifications'
+import { shotgunAmmunition, shotgunBarrelExt, shotgunBoost, shotgunCustom, shotgunGadget, shotgunSecondarySight, shotgunSight } from '../commonModifications/shotgunModifications'
 
-const steakout12G: WeaponData = {
+const steakout12G = {
 	name: 'Steakout 12G',
 	image: 'aa12',
 	source: content['The Butcher\'s BBQ Pack'],
@@ -37,18 +35,67 @@ const steakout12G: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrel: [
-			barrel['Long Barrel (Steakout)'],
-			barrel['Suppressed Barrel (Steakout)']
+			{
+				name: 'Long Barrel',
+				image: 'wpn_fps_sho_aa12_barrel_long',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Butcher\'s BBQ Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					accuracy: 8,
+					stability: 8,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Suppressed Barrel',
+				image: 'wpn_fps_sho_aa12_barrel_silenced',
+				icon: 'inv_mod_silencer',
+				slot: 'barrel',
+				source: content['The Butcher\'s BBQ Pack'],
+				cost: 36e3,
+				acquisition: {
+					bonus: 1
+				},
+				specialEffect: ['Silences Weapon'],
+				stats: {
+					damage: -2,
+					accuracy: 4,
+					stability: -8,
+					concealment: -2,
+					threat: -22
+				},
+				incompatibleSlot: ['barrelExt']
+			}
 		],
 		barrelExt: shotgunBarrelExt,
 		boost: shotgunBoost,
 		custom: shotgunCustom,
-		gadget: shotgunGadgetMagnifier,
+		gadget: shotgunGadget,
 		magazine: [
-			magazine['Drum Mag']
+			{
+				name: 'Drum Mag',
+				image: 'wpn_fps_sho_aa12_mag_drum',
+				icon: 'inv_mod_magazine',
+				slot: 'magazine',
+				source: content['The Butcher\'s BBQ Pack'],
+				cost: 9e3,
+				acquisition: {
+					bonus: 1
+				},
+				stats: {
+					magazine: 12,
+					concealment: -4
+				}
+			}
 		],
+		secondarySight: shotgunSecondarySight,
 		sight: shotgunSight
 	}
-}
+} as const satisfies WeaponData
 
 export default steakout12G

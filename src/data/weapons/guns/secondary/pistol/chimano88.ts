@@ -5,7 +5,7 @@ import magazine from '../../modifications/magazine'
 import { type WeaponData } from '../../weaponTypes'
 import { pistolBarrelExt, pistolBoost, pistolGadget, pistolSight } from '../commonModifications/pistolModifications'
 
-const chimano88: WeaponData = {
+const chimano88 = {
 	name: 'Chimano 88',
 	image: 'glock_17',
 	source: source['Base Game'],
@@ -39,14 +39,14 @@ const chimano88: WeaponData = {
 		boost: pistolBoost,
 		gadget: pistolGadget,
 		grip: [
-			grip['Laser Grip (Chimano)'],
+			grip['Laser Grip'],
 			grip['Platypus Grip']
 		],
 		magazine: [
-			magazine['Extended Mag. (Chimano)']
+			magazine['Extended Magazine (Chimano)']
 		],
 		sight: pistolSight
 	}
-}
+} as const satisfies WeaponData
 
 export default chimano88

@@ -1,13 +1,12 @@
+import content from 'data/source/downloadableContent'
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
-import foregrip from '../../modifications/foregrip'
+import barrelExt from '../../modifications/barrelExt'
 import magazine from '../../modifications/magazine'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
-import { assaultRifleBarrelExt, assaultRifleBoost, assaultRifleCustom, assaultRifleGadgetMagnifier, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
+import { assaultRifleBoost, assaultRifleCustom, assaultRifleGadget, assaultRifleSecondarySight, assaultRifleSight } from '../commonModifications/assaultRifleModifications'
 
-const ak5: WeaponData = {
+const ak5 = {
 	name: 'AK5',
 	image: 'ak5',
 	source: source['Base Game'],
@@ -38,16 +37,69 @@ const ak5: WeaponData = {
 	},
 	modifications: {
 		barrel: [
-			barrel['CQB Barrel (AK5)']
+			{
+				name: 'CQB Barrel',
+				image: 'wpn_fps_ass_ak5_b_short',
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: content['The Butcher Mod Pack 2'],
+				cost: 9e3,
+				stats: {
+					damage: 2,
+					accuracy: 4,
+					concealment: 2
+				}
+			}
 		],
-		barrelExt: assaultRifleBarrelExt,
+		barrelExt: [
+			barrelExt['Medium Suppressor'],
+			barrelExt['Low Profile Suppressor'],
+			barrelExt['Stubby Compensator'],
+			barrelExt['The Tank Compensator'],
+			barrelExt['Fire Breather Nozzle'],
+			barrelExt['The Bigger The Better Suppressor'],
+			barrelExt['Competitor\'s Compensator'],
+			barrelExt['Funnel of Fun Nozzle'],
+			barrelExt['Tactical Compensator'],
+			barrelExt['Ported Compensator'],
+			barrelExt['Taktika Muzzle Brake'],
+			barrelExt['Marmon Compensator'],
+			barrelExt['Verdunkeln Muzzle Brake'],
+			barrelExt['KS12-A Burst Muzzle'],
+			barrelExt['KS12-S Long Silencer'],
+			barrelExt['Rami Suppressor'],
+			barrelExt['Dourif Muzzle']
+		],
 		boost: assaultRifleBoost,
 		custom: assaultRifleCustom,
 		foregrip: [
-			foregrip['Karbin Ceres Handguard'],
-			foregrip['Belgian Heat Handguard']
+			{
+				name: 'Karbin Ceres Handguard',
+				image: 'wpn_fps_ass_ak5_fg_ak5c',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: source['Base Game'],
+				cost: 53e3,
+				stats: {
+					damage: 1,
+					stability: 8,
+					concealment: -2
+				}
+			},
+			{
+				name: 'Belgian Heat Handguard',
+				image: 'wpn_fps_ass_ak5_fg_fnc',
+				icon: 'inv_mod_foregrip',
+				slot: 'foregrip',
+				source: source['Base Game'],
+				cost: 80e3,
+				stats: {
+					stability: -4,
+					concealment: 1
+				}
+			}
 		],
-		gadget: assaultRifleGadgetMagnifier,
+		gadget: assaultRifleGadget,
 		magazine: [
 			magazine['Vintage Mag.'],
 			magazine['Tactical Mag.'],
@@ -56,12 +108,35 @@ const ak5: WeaponData = {
 			magazine['L5 Magazine'],
 			magazine['Speed Pull Magazine']
 		],
+		secondarySight: assaultRifleSecondarySight,
 		sight: assaultRifleSight,
 		stock: [
-			stock['Bertil Stock'],
-			stock['Caesar Stock']
+			{
+				name: 'Bertil Stock',
+				image: 'wpn_fps_ass_ak5_s_ak5b',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 36e3,
+				stats: {
+					accuracy: 4,
+					concealment: -1
+				}
+			},
+			{
+				name: 'Caesar Stock',
+				image: 'wpn_fps_ass_ak5_s_ak5c',
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source['Base Game'],
+				cost: 53e3,
+				stats: {
+					stability: 8,
+					concealment: 2
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default ak5

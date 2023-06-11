@@ -1,11 +1,9 @@
 import source from 'data/source/miscSources'
 
-import barrel from '../../modifications/barrel'
-import stock from '../../modifications/stock'
 import { type WeaponData } from '../../weaponTypes'
 import { shotgunAmmunition, shotgunBoost } from '../commonModifications/shotgunModifications'
 
-const claire12G: WeaponData = {
+const claire12G = {
 	name: 'Claire 12G',
 	image: 'coach',
 	source: source['Base Game'],
@@ -37,13 +35,37 @@ const claire12G: WeaponData = {
 	modifications: {
 		ammunition: shotgunAmmunition,
 		barrel: [
-			barrel['Sawed Off Barrel (Claire)']
+			{
+				name: 'Sawed-Off Barrel',
+				image: 'wpn_fps_sho_coach_b_short', // - wpn_fps_shot_coach_b_short
+				icon: 'inv_mod_barrel',
+				slot: 'barrel',
+				source: source.Community,
+				cost: 9e3,
+				stats: {
+					accuracy: -16,
+					stability: -16,
+					concealment: 10
+				}
+			}
 		],
 		boost: shotgunBoost,
 		stock: [
-			stock['Deadman\'s Stock']
+			{
+				name: 'Deadman\'s Stock',
+				image: 'wpn_fps_sho_coach_s_short', // - wpn_fps_shot_coach_s_short
+				icon: 'inv_mod_stock',
+				slot: 'stock',
+				source: source.Community,
+				cost: 9e3,
+				stats: {
+					accuracy: -16,
+					stability: -16,
+					concealment: 10
+				}
+			}
 		]
 	}
-}
+} as const satisfies WeaponData
 
 export default claire12G
