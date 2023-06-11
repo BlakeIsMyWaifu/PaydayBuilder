@@ -3,25 +3,28 @@ import DetectionRisk from 'components/DetectionRisk'
 import { InfoContainer, InfoDescription, InfoTitle } from 'components/elements/infoElements'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } from 'components/elements/itemElements'
 import ArmourStatsTable from 'components/Table/ArmourStatsTable'
-import armours, { type ArmourData } from 'data/character/armours'
+import { type ArmourData } from 'data/character/armours'
 import { type NextPage } from 'next'
 import { useState } from 'react'
 import { useIsMobile } from 'state/settingsContext'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useSkillsStore } from 'state/useSkillsStore'
+import { trpc } from 'utils/trpc'
 
 export const Armour: NextPage = () => {
 
-	const equippedArmour = armours[useCharacterStore(state => state.armour)]
-	const [selectedArmour, setSelectedArmour] = useState<ArmourData>(equippedArmour)
+	const { data } = trpc.characterData.armourData.useQuery()
+
+	const equippedArmourName = useCharacterStore(state => state.armour)
+	const [selectedArmour, setSelectedArmour] = useState<ArmourData | null>(null)
 
 	const ironManUnlocked = useSkillsStore(state => state.trees.enforcer.Tank.upgrades['Iron Man']) === 'aced'
 
 	const changeArmour = useCharacterStore(state => state.changeArmour)
 
 	const equipArmourHandler = (): void => {
-		if (selectedArmour.name === equippedArmour.name) return
-		changeArmour(selectedArmour.name)
+		if (selectedArmour?.name === equippedArmourName) return
+		changeArmour(selectedArmour?.name ?? '')
 	}
 
 	const isMobile = useIsMobile()
@@ -41,16 +44,17 @@ export const Armour: NextPage = () => {
 
 			<ItemContainer>
 				{
-					Object.values(armours).map(armour => {
+					Object.values(data ?? {}).map(armour => {
 						const locked = armour.name === 'Improved Combined Tactical Vest' && !ironManUnlocked
+						const isSelected = armour.name === selectedArmour?.name
 						return <Item
 							key={armour.name}
 							rowAmount={5}
-							selected={armour.name === selectedArmour.name}
-							onClick={() => armour.name === selectedArmour.name && !locked ? equipArmourHandler() : setSelectedArmour(armour)}
+							selected={isSelected}
+							onClick={() => isSelected && !locked ? equipArmourHandler() : setSelectedArmour(armour)}
 						>
 							<ItemName>{armour.name}</ItemName>
-							{armour.name === equippedArmour.name && <ItemEquipped />}
+							{armour.name === equippedArmourName && <ItemEquipped />}
 							{locked && <LockedIcon />}
 							<ItemImage
 								src={`/images/armours/${armour.name}.webp`}
@@ -63,9 +67,13 @@ export const Armour: NextPage = () => {
 			</ItemContainer>
 
 			<InfoContainer>
-				<InfoTitle>{selectedArmour.name}</InfoTitle>
-				<ArmourStatsTable selectedArmour={selectedArmour.name} equippedArmour={selectedArmour.name !== equippedArmour.name ? equippedArmour.name : undefined} />
-				<InfoDescription>{selectedArmour.description.join('\n\n')}</InfoDescription>
+				{
+					selectedArmour && <>
+						<InfoTitle>{selectedArmour.name}</InfoTitle>
+						<ArmourStatsTable selectedArmour={selectedArmour.name} equippedArmour={selectedArmour.name !== equippedArmourName ? equippedArmourName : undefined} />
+						<InfoDescription>{selectedArmour.description.join('\n\n')}</InfoDescription>
+					</>
+				}
 			</InfoContainer>
 
 			<DetectionRisk

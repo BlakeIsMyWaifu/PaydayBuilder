@@ -4,17 +4,15 @@ import { InfoContainer, InfoCost, InfoDescription, InfoTitle, InfoUnlock } from 
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'components/elements/itemElements'
 import HorizontalBar from 'components/HorizontalBar'
 import Info from 'components/Info'
-import { type AllMasks, type Category, type CategoryList, type Collection, type MaskData } from 'data/character/masks'
+import { type Category, type CategoryList, type Collection, type MaskData } from 'data/character/masks'
 import { type ContentRarity } from 'data/source/downloadableContent'
-import useMountEffect from 'hooks/useMountEffect'
-import useObjectState from 'hooks/useObjectState'
 import { type NextPage } from 'next'
-import { createRef, type Dispatch, type FC, type MutableRefObject, type RefObject, type SetStateAction, useCallback, useEffect, useRef, useState } from 'react'
+import { createRef, type Dispatch, type FC, type MutableRefObject, type RefObject, type SetStateAction, useMemo, useRef, useState } from 'react'
 import { useCharacterStore } from 'state/useCharacterStore'
 import styled, { css, keyframes } from 'styled-components'
 import { itemColours } from 'utils/colours'
-import findMask from 'utils/findMask'
 import { capitalizeEachWord } from 'utils/stringCases'
+import { trpc } from 'utils/trpc'
 
 const rainbow = keyframes`
 	0% {
@@ -73,55 +71,41 @@ const MaskWrapper = styled.div`
 
 const Mask: NextPage = () => {
 
-	const [categories, setCategories] = useObjectState<AllMasks>({
-		community: {},
-		normal: {},
-		dlc: {},
-		event: {},
-		collaboration: {},
-		infamous: {}
-	})
-	const [selectedTab, setSelectedTab] = useState<CategoryList | 'all'>('community')
+	const { data: communityData } = trpc.characterData.maskCommunityData.useQuery()
+	const { data: normalData } = trpc.characterData.maskNormalData.useQuery()
+	const { data: dlcData } = trpc.characterData.maskDlcData.useQuery()
+	const { data: eventData } = trpc.characterData.maskEventData.useQuery()
+	const { data: collaborationData } = trpc.characterData.maskCollaboration.useQuery()
+	const { data: infamousData } = trpc.characterData.maskInfamous.useQuery()
 
-	const equippedMask = findMask(useCharacterStore(state => state.mask))
-	const [selectedMask, setSelectedMask] = useState<MaskData>(equippedMask)
-
-	const itemContainerRef = useRef<HTMLDivElement>(null)
-	const collectionRefs = useRef<(HTMLDivElement | null)[] | RefObject<HTMLDivElement>[]>([])
-
-	const addToCategory = useCallback(async (category: CategoryList): Promise<void> => {
-		const loadMaskData = (category: CategoryList): Promise<Category> => new Promise((res, rej) => {
-			import(`../data/character/mask/${category}`).then(data => {
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-				res(data.default as unknown as Category)
-			}).catch(err => rej(err))
-		})
-		const newCategoryData = await loadMaskData(category)
-		setCategories({ [category]: newCategoryData })
-	}, [setCategories])
-
-	const getCurrentData = useCallback((): Category => {
-		const allDataArray = Object.entries(categories ?? {}).map(([key, value]) => {
+	const categories = useMemo(() => {
+		const mainCategories: Record<string, Category> = {
+			community: communityData ?? {},
+			normal: normalData ?? {},
+			dlc: dlcData ?? {},
+			event: eventData ?? {},
+			collaboration: collaborationData ?? {},
+			infamous: infamousData ?? {}
+		}
+		const allDataArray = Object.entries(mainCategories).map(([key, value]) => {
 			const collections = Object.entries(value).map<[string, Collection]>(([title, data]) => [`${key}?${title}`, data])
 			return Object.fromEntries(collections)
 		})
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		const allData: Category = Object.assign({}, ...allDataArray)
-		return (selectedTab === 'all' ? allData : categories[selectedTab]) ?? {}
-	}, [categories, selectedTab])
-
-	useMountEffect(() => {
-		addToCategory('community').catch(console.error)
-	})
-
-	useEffect(() => {
-		if (selectedTab === 'all') {
-			const allCategories: CategoryList[] = ['community', 'normal', 'dlc', 'event', 'collaboration', 'infamous']
-			allCategories.forEach(categories => void addToCategory(categories))
-		} else {
-			addToCategory(selectedTab).catch(console.error)
+		const out: Record<string, Category> = {
+			all: allData,
+			...mainCategories
 		}
-	}, [selectedTab, addToCategory])
+		return out
+	}, [collaborationData, communityData, dlcData, eventData, infamousData, normalData])
+
+	const [selectedTab, setSelectedTab] = useState<CategoryList | 'all'>('community')
+
+	const [selectedMask, setSelectedMask] = useState<MaskData | null>(null)
+
+	const itemContainerRef = useRef<HTMLDivElement>(null)
+	const collectionRefs = useRef<(HTMLDivElement | null)[] | RefObject<HTMLDivElement>[]>([])
 
 	return (
 		<Container
@@ -144,16 +128,14 @@ const Mask: NextPage = () => {
 
 			<MaskItemContainer ref={itemContainerRef}>
 				{
-					Object.entries(getCurrentData()).map(([collectionTitle, collectionMasks], i) => {
+					Object.values(categories[selectedTab]).map((collectionMasks, i) => {
 						return <MaskCollection
-							key={collectionTitle}
-							collectionTitle={collectionTitle}
+							key={Object.values(collectionMasks.masks)[0].collection}
 							collectionMasks={collectionMasks}
 							selectedMask={selectedMask}
 							setSelectedMask={setSelectedMask}
-							equippedMask={equippedMask}
 							collectionRefs={collectionRefs}
-							getCurrentData={getCurrentData}
+							selectedTabData={categories[selectedTab]}
 							i={i}
 						/>
 					})
@@ -164,7 +146,7 @@ const Mask: NextPage = () => {
 				mask: <MaskInfoTab selectedMask={selectedMask} />,
 				collections: <CollectionsTab
 					collectionRefs={collectionRefs}
-					collections={getCurrentData()}
+					collections={categories[selectedTab]}
 				/>
 			}} />
 
@@ -180,7 +162,7 @@ interface MaskHorizontalBarProps {
 
 const MaskHorizontalBar: FC<MaskHorizontalBarProps> = ({ selectedTab, setSelectedTab, itemContainerRef }) => {
 
-	const stringToRarity = (rarity: CategoryList): ContentRarity => {
+	const stringToRarity = (rarity: CategoryList) => {
 		if (rarity === 'dlc') return 'Paid'
 		return capitalizeEachWord(rarity) as ContentRarity
 	}
@@ -201,30 +183,30 @@ const MaskHorizontalBar: FC<MaskHorizontalBarProps> = ({ selectedTab, setSelecte
 }
 
 interface MaskCollectionProps {
-	collectionTitle: string;
 	collectionMasks: Collection;
-	selectedMask: MaskData;
+	selectedMask: MaskData | null;
 	setSelectedMask: Dispatch<SetStateAction<MaskCollectionProps['selectedMask']>>;
-	equippedMask: MaskData;
 	collectionRefs: MutableRefObject<(HTMLDivElement | null)[] | RefObject<HTMLDivElement>[]>;
-	getCurrentData: () => Category;
+	selectedTabData: Category;
 	i: number;
 }
 
-const MaskCollection: FC<MaskCollectionProps> = ({ collectionTitle, collectionMasks, selectedMask, setSelectedMask, equippedMask, collectionRefs, getCurrentData, i }) => {
+const MaskCollection: FC<MaskCollectionProps> = ({ collectionMasks, selectedMask, setSelectedMask, collectionRefs, selectedTabData, i }) => {
 
+	const equippedMaskName = useCharacterStore(state => state.mask)
 	const changeMask = useCharacterStore(state => state.changeMask)
 
 	const equipMaskHandler = (): void => {
-		if (selectedMask.name === equippedMask.name) return
-		changeMask(selectedMask.name)
+		if (equippedMaskName === selectedMask?.name) return
+		changeMask(selectedMask?.name ?? 'Preferred Character')
 	}
 
 	const { rarity } = Object.values(collectionMasks.masks)[0]
 	const collectionColour = itemColours[rarity]
 
-	collectionRefs.current = Array.from({ length: Object.keys(getCurrentData()).length }, () => createRef<HTMLDivElement>())
+	collectionRefs.current = Array.from({ length: Object.keys(selectedTabData).length }, () => createRef<HTMLDivElement>())
 
+	const collectionTitle = Object.values(collectionMasks.masks)[0].collection
 	const title = collectionTitle.split('?').at(-1)
 
 	return (
@@ -234,16 +216,17 @@ const MaskCollection: FC<MaskCollectionProps> = ({ collectionTitle, collectionMa
 			<MaskCollectionTitle colour={collectionColour}>{title}</MaskCollectionTitle>
 			<MaskWrapper key={collectionTitle}>
 				{
-					Object.entries(collectionMasks.masks).map(([maskName, maskData]) => {
+					Object.values(collectionMasks.masks).map(maskData => {
+						const isSelected = maskData.name === selectedMask?.name
 						return <Item
-							key={maskName}
+							key={maskData.name}
 							width={128}
 							rowAmount={10}
-							selected={maskName === selectedMask.name}
-							onClick={() => maskName === selectedMask.name ? equipMaskHandler() : setSelectedMask(maskData)}
+							selected={isSelected}
+							onClick={() => isSelected ? equipMaskHandler() : setSelectedMask(maskData)}
 						>
-							<ItemName colour={itemColours[maskData.rarity]}>{maskName.replaceAll(' ', '\n')}</ItemName>
-							{maskName === equippedMask.name && <ItemEquipped />}
+							<ItemName colour={itemColours[maskData.rarity]}>{maskData.name.replaceAll(' ', '\n')}</ItemName>
+							{maskData.name === equippedMaskName && <ItemEquipped />}
 							<ItemImage src={`/images/masks/${maskData.image || 'character_locked'}.webp`} onMouseDown={event => event.preventDefault()} />
 						</Item>
 					})
@@ -254,16 +237,20 @@ const MaskCollection: FC<MaskCollectionProps> = ({ collectionTitle, collectionMa
 }
 
 interface MaskTabProps {
-	selectedMask: MaskData;
+	selectedMask: MaskData | null;
 }
 
 const MaskInfoTab: FC<MaskTabProps> = ({ selectedMask }) => {
 	return (
 		<InfoContainer>
-			<InfoTitle>{selectedMask.name}</InfoTitle>
-			<InfoDescription>{selectedMask.description.join('\n\n')}</InfoDescription>
-			<InfoUnlock colour={itemColours[selectedMask.rarity]}>{selectedMask.unlock}</InfoUnlock>
-			<InfoCost>{selectedMask.cost}</InfoCost>
+			{
+				selectedMask && <>
+					<InfoTitle>{selectedMask.name}</InfoTitle>
+					<InfoDescription>{selectedMask.description.join('\n\n')}</InfoDescription>
+					<InfoUnlock colour={itemColours[selectedMask.rarity]}>{selectedMask.unlock}</InfoUnlock>
+					<InfoCost>{selectedMask.cost}</InfoCost>
+				</>
+			}
 		</InfoContainer>
 	)
 }

@@ -1,5 +1,6 @@
 import { createTRPCRouter } from '../trpc'
 import { buildsRouter } from './builds'
+import { characterDataRouter } from './characterData'
 import { decodeRouter } from './decode'
 import { encodeRouter } from './encode'
 import { healthRouter } from './health'
@@ -12,7 +13,8 @@ export const appRouter = createTRPCRouter({
 	session: sessionRouter,
 	loadoutData: loadoutDataRouter,
 	decode: decodeRouter,
-	encode: encodeRouter
+	encode: encodeRouter,
+	characterData: characterDataRouter
 })
 
 export type AppRouter = typeof appRouter
