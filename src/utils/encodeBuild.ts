@@ -17,7 +17,7 @@ import { type WeaponsStateSlice } from 'state/useWeaponsStore'
 
 import { charString } from './decodeBuild'
 import findMask from './findMask'
-import findWeapon from './findWeapon'
+import { findWeapon } from './findWeapon'
 
 const encodeString = (data: object, equipped: string): string => {
 	const index = Object.keys(data).findIndex(value => value === equipped)

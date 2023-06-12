@@ -22,9 +22,9 @@ export const Armour: NextPage = () => {
 
 	const changeArmour = useCharacterStore(state => state.changeArmour)
 
-	const equipArmourHandler = (): void => {
-		if (selectedArmour?.name === equippedArmourName) return
-		changeArmour(selectedArmour?.name ?? '')
+	const equipArmourHandler = () => {
+		if (!selectedArmour || selectedArmour.name === equippedArmourName) return
+		changeArmour(selectedArmour.name)
 	}
 
 	const isMobile = useIsMobile()

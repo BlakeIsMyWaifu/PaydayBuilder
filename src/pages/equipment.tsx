@@ -20,7 +20,7 @@ const Equipment: NextPage = () => {
 
 	const skillTrees = useSkillsStore(state => state.trees)
 
-	const getEquipmentAmount = (equipment: EquipmentData): number[] => {
+	const getEquipmentAmount = (equipment: EquipmentData) => {
 		let outAmount: number[] = equipment.amount
 		equipment.upgrade.forEach(({ amount, skillPath, skillState }) => {
 			const [tree, subtree, skill] = skillPath
@@ -37,7 +37,7 @@ const Equipment: NextPage = () => {
 
 	const changeEquipment = useCharacterStore(state => state.changeEquipment)
 
-	const equipEquipment = (button: number): void => {
+	const equipEquipmentHandler = (button: number) => {
 		if (button !== 0 && button !== 2) return
 		if (!selectedEquipment) return
 		if (selectedEquipment.name === 'Silenced Sentry Gun' && !engineeringUnlocked) return
@@ -75,7 +75,7 @@ const Equipment: NextPage = () => {
 							rowAmount={5}
 							key={equipment.name}
 							selected={isSelected}
-							onMouseDown={event => isSelected ? equipEquipment(event.button) : setSelectedEquipment(equipment)}
+							onMouseDown={event => isSelected ? equipEquipmentHandler(event.button) : setSelectedEquipment(equipment)}
 						>
 							<ItemName colour={itemColours[equipment.amount === amount ? 'Free' : 'Community']}>{equipment.name} (x{amount.join('/x')})</ItemName>
 							{equipment.name === equippedPrimary && <ItemEquipped> {jackOfAllTradesUnlocked ? 'Primary' : ''}</ItemEquipped>}
@@ -105,8 +105,8 @@ const Equipment: NextPage = () => {
 			{
 				jackOfAllTradesUnlocked && (
 					<ActionsContainer>
-						<ActionText onClick={() => equipEquipment(0)}>Equip Primary</ActionText>
-						<ActionText onClick={() => equipEquipment(2)}>Equip Secondary</ActionText>
+						<ActionText onClick={() => equipEquipmentHandler(0)}>Equip Primary</ActionText>
+						<ActionText onClick={() => equipEquipmentHandler(2)}>Equip Secondary</ActionText>
 					</ActionsContainer>
 				)
 			}

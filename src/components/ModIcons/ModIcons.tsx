@@ -5,8 +5,8 @@ import { type Weapon } from 'data/weapons/guns/weaponTypes'
 import Link from 'next/link'
 import { type Dispatch, type FC, type SetStateAction } from 'react'
 import styled from 'styled-components'
-import findWeapon from 'utils/findWeapon'
 import { capitalizeEachWord, spaceBetween } from 'utils/stringCases'
+import { trpc } from 'utils/trpc'
 import { typedObject } from 'utils/typedObject'
 
 import ModIconsTable from './ModIconsTable'
@@ -61,9 +61,9 @@ interface ModIconsProps {
 
 const ModIcons: FC<ModIconsProps> = ({ weapon, link, setHoverInfo }) => {
 
-	const weaponData = findWeapon(weapon.weaponFind)
+	const { data: weaponData } = trpc.loadoutData.getWeapon.useQuery(weapon.weaponFind)
 
-	return weapon.id ? (
+	return weapon.id && weaponData ? (
 		<ModIconContainer>
 
 			{
@@ -103,9 +103,7 @@ const ModIcons: FC<ModIconsProps> = ({ weapon, link, setHoverInfo }) => {
 				})
 			}
 		</ModIconContainer>
-	) : (
-		<></>
-	)
+	) : null
 }
 
 export default ModIcons

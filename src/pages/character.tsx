@@ -19,8 +19,8 @@ const Character: NextPage = () => {
 	const changeCharacter = useCharacterStore(state => state.changeCharacter)
 
 	const equipCharacterHandler = () => {
-		if (selectedCharacterData?.name === equippedCharacterName) return
-		changeCharacter(selectedCharacterData?.name ?? 'Dallas')
+		if (!selectedCharacterData || selectedCharacterData.name === equippedCharacterName) return
+		changeCharacter(selectedCharacterData.name)
 	}
 
 	const isMobile = useIsMobile()

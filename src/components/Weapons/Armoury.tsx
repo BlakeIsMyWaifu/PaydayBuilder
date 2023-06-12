@@ -9,7 +9,7 @@ import ModIcons from 'components/ModIcons'
 import { type Slot, type Weapon, type WeaponData } from 'data/weapons/guns/weaponTypes'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { type Dispatch, type FC, Fragment, type SetStateAction, useState } from 'react'
+import { type Dispatch, type FC, type SetStateAction, useState } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
 import { useIsLeftFacing, useIsMobile } from 'state/settingsContext'
 import { useArmouryStore } from 'state/useArmouryStore'
@@ -17,7 +17,6 @@ import { type BuildSave, useBuildsStore } from 'state/useBuildsStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import styled from 'styled-components'
 import { blue, itemColours } from 'utils/colours'
-import findWeapon from 'utils/findWeapon'
 import { findNextNum } from 'utils/maths'
 
 import BuildsArmoury, { type BuildTab } from './BuildsArmoury'
@@ -100,13 +99,13 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 		active: false
 	})).filter(build => build.id !== activeBuildId && !build.data.includes(`&${slotParameter}=_&`)))
 
-	const getBuildWeapons = (tabId: number): Weapon[] => {
+	const getBuildWeapons = (tabId: number) => {
 		const build = buildTabs.find(build => build.id === tabId) ?? buildTabs[0]
 		return typeof build.data === 'string' ? [] : build.data
 	}
 
 	const isActiveBuild = activeBuildId === activeTabId
-	const weaponsData = isActiveBuild ? Object.values(armoury) : getBuildWeapons(activeTabId)
+	const weapons = isActiveBuild ? Object.values(armoury) : getBuildWeapons(activeTabId)
 
 	const resetArmoury = useArmouryStore(state => state.resetArmoury)
 	const removeWeapon = useArmouryStore(state => state.removeWeapon)
@@ -132,8 +131,8 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 	}
 
 	const duplicateWeaponHandler = (): void => {
-		const { weaponFind, modifications } = weaponsData[selectedWeaponId - 1]
-		const weaponData = findWeapon(weaponFind)
+		const { weaponFind, modifications } = weapons[selectedWeaponId - 1]
+		const weaponData = data[weaponFind.type][weaponFind.name]
 		const nextNum = findNextNum(armoury)
 		addWeapon(weaponData, modifications)
 		changeWeapon(slot, nextNum)
@@ -142,6 +141,9 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 	}
 
 	const isMobile = useIsMobile()
+
+	const selectedWeapon = weapons.find(weapon => weapon.id === selectedWeaponId) ?? armoury[0]
+	const equippedWeapon = armoury[selectedWeaponId]?.id === equippedWeaponId && isActiveBuild ? undefined : armoury[equippedWeaponId]
 
 	return (
 		<Container
@@ -167,7 +169,8 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 			/>
 
 			<ArmouryItems
-				weaponsData={weaponsData}
+				weapons={weapons}
+				data={data}
 				isActiveBuild={isActiveBuild}
 				selectedWeaponId={selectedWeaponId}
 				setSelectedWeaponId={setSelectedWeaponId}
@@ -190,8 +193,9 @@ const Armoury: FC<ArmouryProps> = ({ slot, data, setEnableBuy, activeTabId, chan
 
 			<Info tabs={{
 				'weapon stats': <WeaponInfo
-					selectedWeapon={weaponsData[selectedWeaponId - (isActiveBuild ? 0 : 1)] ?? armoury[0]}
-					equippedWeapon={armoury[selectedWeaponId]?.id === equippedWeaponId && isActiveBuild ? undefined : armoury[equippedWeaponId]}
+					selectedWeapon={selectedWeapon}
+					selectedWeaponData={data[selectedWeapon.weaponFind.type][selectedWeapon.weaponFind.name]}
+					equippedWeapon={equippedWeapon ? [equippedWeapon, data[equippedWeapon?.weaponFind.type ?? '']?.[equippedWeapon?.weaponFind.name ?? '']] : []}
 				/>,
 				builds: <BuildsArmoury
 					data={data}
@@ -264,7 +268,8 @@ const ArmouryBar: FC<ArmouryBarProps> = ({ builds, activeBuildId, isActiveBuild,
 }
 
 interface ArmouryItemsProps {
-	weaponsData: Weapon[];
+	weapons: Weapon[];
+	data: Record<string, Record<string, WeaponData>>;
 	isActiveBuild: boolean;
 	selectedWeaponId: number;
 	setSelectedWeaponId: Dispatch<SetStateAction<ArmouryItemsProps['selectedWeaponId']>>;
@@ -276,7 +281,7 @@ interface ArmouryItemsProps {
 	setEnableBuy: Dispatch<SetStateAction<boolean>>;
 }
 
-const ArmouryItems: FC<ArmouryItemsProps> = ({ weaponsData, isActiveBuild, selectedWeaponId, setSelectedWeaponId, equippedWeaponId, slot, duplicateWeaponHandler, activeBuildId, activeTabId, setEnableBuy }) => {
+const ArmouryItems: FC<ArmouryItemsProps> = ({ weapons, data, isActiveBuild, selectedWeaponId, setSelectedWeaponId, equippedWeaponId, slot, duplicateWeaponHandler, activeBuildId, activeTabId, setEnableBuy }) => {
 
 	const router = useRouter()
 
@@ -287,11 +292,13 @@ const ArmouryItems: FC<ArmouryItemsProps> = ({ weaponsData, isActiveBuild, selec
 	return (
 		<ItemContainer>
 			{
-				weaponsData.map((weapon, i) => {
-					if (!i && isActiveBuild) return <Fragment key={'fragment'} />
+				weapons.map((weapon, i) => {
+					if (!i && isActiveBuild) return null
 
 					const { id, weaponFind } = weapon
-					const weaponData = findWeapon(weaponFind)
+					const weaponData = data[weaponFind.type][weaponFind.name]
+
+					if (!weaponData) return null
 
 					return <Item
 						key={id}

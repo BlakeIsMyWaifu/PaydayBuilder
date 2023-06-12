@@ -6,7 +6,7 @@ import { type WeaponFind } from 'data/weapons/guns/weaponTypes'
 import melees from 'data/weapons/melees'
 import throwables, { type ThrowableList } from 'data/weapons/throwables'
 import findMask from 'utils/findMask'
-import findWeapon from 'utils/findWeapon'
+import { findWeapon } from 'utils/findWeapon'
 import { z } from 'zod'
 
 import { publicProcedure } from '../procedure'

@@ -6,14 +6,15 @@ import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'componen
 import { ResetContainer, ResetText } from 'components/elements/resetElements'
 import HorizontalBar from 'components/HorizontalBar'
 import { ModIcon, ModWrapper } from 'components/ModIcons/ModIcons'
-import { type ModificationSlot, type Slot, type Weapon, type WeaponData } from 'data/weapons/guns/weaponTypes'
+import placeholderWeapon from 'data/weapons/guns/placeholderWeapon'
+import { type ModificationSlot, type Slot, type Weapon, type WeaponFind } from 'data/weapons/guns/weaponTypes'
 import useWeaponStats from 'hooks/useWeaponStats'
-import { type FC, useState } from 'react'
+import { type FC, useCallback, useState } from 'react'
 import { useIsMobile } from 'state/settingsContext'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { itemColours } from 'utils/colours'
-import findWeapon from 'utils/findWeapon'
 import { modificationsFromNames } from 'utils/modificationsFromNames'
+import { trpc } from 'utils/trpc'
 import { typedObject } from 'utils/typedObject'
 
 import BlackmarketStatsTable from './Table/BlackmarketStatsTable'
@@ -43,7 +44,7 @@ const WeaponChecker: FC<WeaponCheckerProps> = ({ slot, id, modSlot: modtype }) =
 		<Blackmarket
 			slot={(slot as Slot)}
 			id={id ? +id : 0}
-			weaponData={findWeapon(weapon.weaponFind)}
+			weaponFind={weapon.weaponFind}
 			equippedModNames={weapon.modifications}
 			modSlotString={modtype ?? ''}
 		/>
@@ -57,12 +58,15 @@ const WeaponChecker: FC<WeaponCheckerProps> = ({ slot, id, modSlot: modtype }) =
 interface BlackmarketProps {
 	slot: Slot;
 	id: number;
-	weaponData: WeaponData;
+	weaponFind: WeaponFind;
 	equippedModNames: Partial<Record<ModificationSlot, string>>;
 	modSlotString: string;
 }
 
-const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weaponData, equippedModNames, modSlotString }) => {
+const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weaponFind, equippedModNames, modSlotString }) => {
+
+	let { data: weaponData } = trpc.loadoutData.getWeapon.useQuery(weaponFind)
+	weaponData ??= placeholderWeapon
 
 	const equippedModData = modificationsFromNames(equippedModNames, weaponData.modifications)
 
@@ -75,18 +79,18 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weaponData, equippedModNa
 	const resetWeaponMods = useArmouryStore(state => state.resetWeaponMods)
 	const removeMod = useArmouryStore(state => state.removeMod)
 
-	const equipModHelper = (): void => {
+	const equipModHelper = () => {
 		if (selectedItem === equippedModData[selectedTab]) return
 		changeMod(slot, id, selectedItem)
 	}
 
-	const changeTab = (tab: ModificationSlot): void => {
+	const changeTab = useCallback((tab: ModificationSlot) => {
 		if (selectedTab === tab) return
 		const equippedItem = equippedModData[tab]
-		const firstItem = Object.values(weaponData.modifications[tab] ?? {})[0]
+		const firstItem = Object.values((weaponData ?? placeholderWeapon).modifications[tab] ?? {})[0]
 		setSelectedItem(equippedItem ?? firstItem)
 		setSelectedTab(tab)
-	}
+	}, [equippedModData, selectedTab, weaponData])
 
 	const totalStats = useWeaponStats(weaponData, equippedModNames).total
 

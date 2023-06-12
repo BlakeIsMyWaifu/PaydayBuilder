@@ -1,12 +1,14 @@
 import { type ContentData } from 'data/source/downloadableContent'
 import { type SourceData } from 'data/source/miscSources'
 
+import { type PrimaryWeaponType } from './primary'
 import { type AkimboShotguns } from './primary/gunList/akimboShotguns'
 import { type AssaultRifle as AssaultRifle } from './primary/gunList/assaultRifles'
 import { type LightMachineGun } from './primary/gunList/lightMachineGuns'
 import { type ShotgunPrimary } from './primary/gunList/shotgunsPrimary'
 import { type SniperPrimary } from './primary/gunList/snipersPrimary'
 import { type SpecialPrimary } from './primary/gunList/specialsPrimary'
+import { type SecondaryWeaponType } from './secondary'
 import { type Pistol } from './secondary/gunList/pistols'
 import { type SecondaryShotgun } from './secondary/gunList/shotgunsSecondary'
 import { type SecondarySniper } from './secondary/gunList/snipersSecondary'
@@ -15,17 +17,7 @@ import { type SubmachineGun } from './secondary/gunList/submachineGuns'
 
 export type Slot = 'primary' | 'secondary'
 
-export type WeaponType =
-	| 'Assault Rifle'
-	| 'Shotgun'
-	| 'LMG'
-	| 'Sniper'
-	| 'Akimbo Pistol'
-	| 'Akimbo Shotgun'
-	| 'Akimbo SMG'
-	| 'Special'
-	| 'Pistol'
-	| 'Submachine Gun'
+export type WeaponType = PrimaryWeaponType | SecondaryWeaponType
 
 export type WeaponModifications = Partial<Record<ModificationSlot, Modification[]>> & { boost: Modification[] }
 

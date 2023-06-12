@@ -2,8 +2,9 @@ import Container from 'components/Container'
 import { ActionsContainer, ActionText } from 'components/elements/itemActionElements'
 import { Item, ItemContainer, ItemImage, ItemName } from 'components/elements/itemElements'
 import HorizontalBar from 'components/HorizontalBar'
+import { primaryGunList, secondaryGunList } from 'data/weapons/guns/gunList'
 import { type Slot, type WeaponData } from 'data/weapons/guns/weaponTypes'
-import { type Dispatch, type FC, type SetStateAction, useState } from 'react'
+import { type Dispatch, type FC, type SetStateAction, useMemo, useState } from 'react'
 import { useIsLeftFacing } from 'state/settingsContext'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
@@ -14,26 +15,28 @@ import WeaponInfo from './WeaponInfo'
 interface WeaponBuyProps {
 	slot: Slot;
 	data: Record<string, Record<string, WeaponData>>;
-	gunList: Record<string, readonly string[]>;
 	setEnableBuy: Dispatch<SetStateAction<boolean>>;
 	setSelectedWeaponId: Dispatch<SetStateAction<number>>;
 }
 
-const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, gunList, setEnableBuy, setSelectedWeaponId }) => {
+const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWeaponId }) => {
+
+	const gunList: Record<string, readonly string[]> = useMemo(() => slot === 'primary' ? primaryGunList : secondaryGunList, [slot])
 
 	const armoury = useArmouryStore(state => state[slot])
 	const equippedWeaponId = useWeaponsStore(state => state[slot])
 	const equippedWeapon = armoury[equippedWeaponId]
+	const equippedWeaponData = data[equippedWeapon.weaponFind.type][equippedWeapon.weaponFind.name]
 
 	const leftFacing = useIsLeftFacing()
 
-	const [selectedTab, setSelectedTab] = useState<string>(Object.keys(gunList)[0])
-	const [selectedWeapon, setSelectedWeapon] = useState<WeaponData>(data[selectedTab][Object.values(gunList[selectedTab])[0]])
+	const [selectedTab, setSelectedTab] = useState(Object.keys(gunList)[0])
+	const [selectedWeapon, setSelectedWeapon] = useState<WeaponData | null>(null)
 
 	const addWeapon = useArmouryStore(state => state.addWeapon)
 	const changeWeapon = useWeaponsStore(state => state.changeWeapon)
 
-	const addWeaponHelper = (weapon: WeaponData): void => {
+	const addWeaponHelper = (weapon: WeaponData) => {
 		addWeapon(weapon)
 		const id = +Object.keys(armoury)[Object.keys(armoury).length - 1] + 1
 		changeWeapon(slot, id)
@@ -66,18 +69,14 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, gunList, setEnableBuy, setS
 			<ItemContainer>
 				{
 					Object.values(Object.values(gunList[selectedTab])).map(weaponName => {
-						const weapon = data[selectedTab][weaponName]
+						const weapon = data[selectedTab]?.[weaponName]
+						if (!weapon) return null
+						const isSelected = weapon.name === selectedWeapon?.name
 						return <Item
 							key={weapon.name}
 							rowAmount={5}
-							selected={selectedWeapon.name === weapon.name}
-							onClick={() => {
-								if (selectedWeapon.name === weapon.name) {
-									addWeaponHelper(weapon)
-								} else {
-									setSelectedWeapon(weapon)
-								}
-							}}
+							selected={isSelected}
+							onClick={() => isSelected ? addWeaponHelper(weapon) : setSelectedWeapon(weapon)}
 						>
 							<ItemName colour={itemColours[weapon.source.rarity]}>{weapon.name}</ItemName>
 							<ItemImage
@@ -91,18 +90,22 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, gunList, setEnableBuy, setS
 				}
 			</ItemContainer>
 
-			<WeaponInfo selectedWeapon={{
-				id: -1,
-				weaponFind: {
-					name: selectedWeapon.name,
-					type: selectedWeapon.weaponType,
-					slot
-				},
-				modifications: {}
-			}} equippedWeapon={equippedWeaponId ? equippedWeapon : undefined} />
+			<WeaponInfo
+				selectedWeapon={selectedWeapon ? {
+					id: -1,
+					weaponFind: {
+						name: selectedWeapon.name,
+						type: selectedWeapon.weaponType,
+						slot
+					},
+					modifications: {}
+				} : null}
+				selectedWeaponData={selectedWeapon ?? null}
+				equippedWeapon={equippedWeaponId ? [equippedWeapon, equippedWeaponData] : []}
+			/>
 
 			<ActionsContainer>
-				<ActionText onClick={() => addWeaponHelper(selectedWeapon)}>Save Weapon</ActionText>
+				{selectedWeapon && <ActionText onClick={() => addWeaponHelper(selectedWeapon)}>Save Weapon</ActionText>}
 			</ActionsContainer>
 
 		</Container>

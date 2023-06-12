@@ -71,34 +71,7 @@ const MaskWrapper = styled.div`
 
 const Mask: NextPage = () => {
 
-	const { data: communityData } = trpc.characterData.maskCommunityData.useQuery()
-	const { data: normalData } = trpc.characterData.maskNormalData.useQuery()
-	const { data: dlcData } = trpc.characterData.maskDlcData.useQuery()
-	const { data: eventData } = trpc.characterData.maskEventData.useQuery()
-	const { data: collaborationData } = trpc.characterData.maskCollaboration.useQuery()
-	const { data: infamousData } = trpc.characterData.maskInfamous.useQuery()
-
-	const categories = useMemo(() => {
-		const mainCategories: Record<string, Category> = {
-			community: communityData ?? {},
-			normal: normalData ?? {},
-			dlc: dlcData ?? {},
-			event: eventData ?? {},
-			collaboration: collaborationData ?? {},
-			infamous: infamousData ?? {}
-		}
-		const allDataArray = Object.entries(mainCategories).map(([key, value]) => {
-			const collections = Object.entries(value).map<[string, Collection]>(([title, data]) => [`${key}?${title}`, data])
-			return Object.fromEntries(collections)
-		})
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-		const allData: Category = Object.assign({}, ...allDataArray)
-		const out: Record<string, Category> = {
-			all: allData,
-			...mainCategories
-		}
-		return out
-	}, [collaborationData, communityData, dlcData, eventData, infamousData, normalData])
+	const categories = useMaskData()
 
 	const [selectedTab, setSelectedTab] = useState<CategoryList | 'all'>('community')
 
@@ -196,9 +169,9 @@ const MaskCollection: FC<MaskCollectionProps> = ({ collectionMasks, selectedMask
 	const equippedMaskName = useCharacterStore(state => state.mask)
 	const changeMask = useCharacterStore(state => state.changeMask)
 
-	const equipMaskHandler = (): void => {
-		if (equippedMaskName === selectedMask?.name) return
-		changeMask(selectedMask?.name ?? 'Preferred Character')
+	const equipMaskHandler = () => {
+		if (!selectedMask || selectedMask.name === equippedMaskName) return
+		changeMask(selectedMask.name)
 	}
 
 	const { rarity } = Object.values(collectionMasks.masks)[0]
@@ -253,6 +226,38 @@ const MaskInfoTab: FC<MaskTabProps> = ({ selectedMask }) => {
 			}
 		</InfoContainer>
 	)
+}
+
+const useMaskData = () => {
+
+	const { data: communityData } = trpc.characterData.maskCommunityData.useQuery()
+	const { data: normalData } = trpc.characterData.maskNormalData.useQuery()
+	const { data: dlcData } = trpc.characterData.maskDlcData.useQuery()
+	const { data: eventData } = trpc.characterData.maskEventData.useQuery()
+	const { data: collaborationData } = trpc.characterData.maskCollaboration.useQuery()
+	const { data: infamousData } = trpc.characterData.maskInfamous.useQuery()
+
+	return useMemo(() => {
+		const mainCategories: Record<string, Category> = {
+			community: communityData ?? {},
+			normal: normalData ?? {},
+			dlc: dlcData ?? {},
+			event: eventData ?? {},
+			collaboration: collaborationData ?? {},
+			infamous: infamousData ?? {}
+		}
+		const allDataArray = Object.entries(mainCategories).map(([key, value]) => {
+			const collections = Object.entries(value).map<[string, Collection]>(([title, data]) => [`${key}?${title}`, data])
+			return Object.fromEntries(collections)
+		})
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+		const allData: Category = Object.assign({}, ...allDataArray)
+		const out: Record<string, Category> = {
+			all: allData,
+			...mainCategories
+		}
+		return out
+	}, [collaborationData, communityData, dlcData, eventData, infamousData, normalData])
 }
 
 export default Mask

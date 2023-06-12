@@ -4,7 +4,7 @@ import { type inferRouterInputs, type inferRouterOutputs } from '@trpc/server'
 import { type AppRouter } from 'server/trpc/routers/_router'
 import superjson from 'superjson'
 
-export const getBaseUrl = (): string => {
+export const getBaseUrl = () => {
 	if (typeof window !== 'undefined') return ''
 	if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`
 	return `http://localhost:${process.env.PORT ?? 3000}`
@@ -21,7 +21,15 @@ export const trpc = createTRPCNext<AppRouter>({
 				httpBatchLink({
 					url: `${getBaseUrl()}/api/trpc`
 				})
-			]
+			],
+			queryClientConfig: {
+				defaultOptions: {
+					queries: {
+						refetchOnWindowFocus: false,
+						staleTime: Infinity
+					}
+				}
+			}
 		}
 	},
 	ssr: false

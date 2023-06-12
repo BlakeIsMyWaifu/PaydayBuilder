@@ -1,8 +1,5 @@
-import { primaryGunList, secondaryGunList } from 'data/weapons/guns/gunList'
-import primary from 'data/weapons/guns/primary'
-import secondary from 'data/weapons/guns/secondary'
 import { type Slot, type WeaponData } from 'data/weapons/guns/weaponTypes'
-import { type FC, useMemo, useState } from 'react'
+import { type FC, useState } from 'react'
 import { useArmouryStore } from 'state/useArmouryStore'
 import { useBuildsStore } from 'state/useBuildsStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
@@ -12,40 +9,43 @@ import WeaponBuy from './WeaponBuy'
 
 interface WeaponsProps {
 	slot: Slot;
+	data: Record<string, Record<string, WeaponData>>;
 }
 
-const Weapons: FC<WeaponsProps> = ({ slot }) => {
+const Weapons: FC<WeaponsProps> = ({ slot, data }) => {
 
-	const data: Record<string, Record<string, WeaponData>> = useMemo(() => slot === 'primary' ? primary : secondary, [slot])
-	const gunList: Record<string, readonly string[]> = useMemo(() => slot === 'primary' ? primaryGunList : secondaryGunList, [slot])
+	const isPrimary = slot === 'primary'
 
 	const armoury = useArmouryStore(state => state[slot])
 	const equippedWeaponId = useWeaponsStore(state => state[slot])
 	const { current, builds } = useBuildsStore()
 
-	const slotParameter = slot === 'primary' ? 'ap' : 'as'
+	const [enableBuy, setEnableBuy] = useState(builds[current].data.includes(`&${isPrimary ? 'ap' : 'as'}=_&`))
 
-	const [enableBuy, setEnableBuy] = useState(builds[current].data.includes(`&${slotParameter}=_&`))
+	const [activeTabId, setActiveTabId] = useState(builds[current].id)
+	const [selectedWeaponId, setSelectedWeaponId] = useState(armoury[equippedWeaponId].id)
 
-	const [activeTabId, setActiveTabId] = useState<number>(builds[current].id)
-	const [selectedWeaponId, setSelectedWeaponId] = useState<number>(armoury[equippedWeaponId].id)
-
-	const changeActiveTab = (tabId: number): void => {
+	const changeActiveTab = (tabId: number) => {
 		setSelectedWeaponId(current === tabId ? equippedWeaponId : 1)
 		setActiveTabId(tabId)
 	}
-
-	const armouryProps = { slot, data, setEnableBuy, activeTabId, changeActiveTab, selectedWeaponId, setSelectedWeaponId }
 
 	return enableBuy ?
 		<WeaponBuy
 			slot={slot}
 			data={data}
-			gunList={gunList}
 			setEnableBuy={setEnableBuy}
 			setSelectedWeaponId={setSelectedWeaponId}
 		/> :
-		<Armoury {...armouryProps} />
+		<Armoury
+			slot={slot}
+			data={data}
+			setEnableBuy={setEnableBuy}
+			activeTabId={activeTabId}
+			changeActiveTab={changeActiveTab}
+			selectedWeaponId={selectedWeaponId}
+			setSelectedWeaponId={setSelectedWeaponId}
+		/>
 }
 
 export default Weapons

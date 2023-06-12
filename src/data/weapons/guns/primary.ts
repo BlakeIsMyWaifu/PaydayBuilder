@@ -5,6 +5,8 @@ import shotgunsPrimary from './primary/gunList/shotgunsPrimary'
 import snipersPrimary from './primary/gunList/snipersPrimary'
 import specialsPrimary from './primary/gunList/specialsPrimary'
 
+export type PrimaryWeaponType = keyof typeof primary
+
 const primary = {
 	'Assault Rifle': assaultRifles,
 	'Shotgun': shotgunsPrimary,
