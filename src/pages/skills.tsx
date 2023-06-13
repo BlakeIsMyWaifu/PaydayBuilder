@@ -6,6 +6,7 @@ import Points from 'components/Skills/Points'
 import Subtree from 'components/Skills/Subtree'
 import skills, { type SkillData, type TreeData, type TreeNames } from 'data/abilities/skills'
 import equipments from 'data/character/equipment'
+import useHandleKey from 'hooks/useHandleKey'
 import { type NextPage } from 'next'
 import { useEffect, useState, type WheelEvent } from 'react'
 import { useIsMobile } from 'state/settingsContext'
@@ -73,19 +74,8 @@ const Skills: NextPage = () => {
 	const resetTree = useSkillsStore(state => state.resetTree)
 	const resetSkills = useSkillsStore(state => state.resetSkills)
 
-	useEffect(() => {
-		const handleKeys = (event: KeyboardEvent) => {
-			if (event.key === 'f') {
-				resetTree(currentTree.name)
-			} else if (event.key === 'r') {
-				resetSkills()
-			}
-		}
-		window.addEventListener('keydown', handleKeys)
-		return () => {
-			window.removeEventListener('keydown', handleKeys)
-		}
-	}, [currentTree, resetSkills, resetTree])
+	useHandleKey('f', () => resetTree(currentTree.name))
+	useHandleKey('r', resetSkills)
 
 	useEffect(() => {
 		if (jackOfAllTrades !== 'aced' && equippedEquipment.secondary) {
