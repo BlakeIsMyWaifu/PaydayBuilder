@@ -1,6 +1,7 @@
+import useHandleKey from 'hooks/useHandleKey'
 import Head from 'next/head'
 import Link from 'next/link'
-import { type FC, type ReactNode } from 'react'
+import { type FC, type ReactNode, useRef } from 'react'
 import { useIsMobile } from 'state/settingsContext'
 import styled from 'styled-components'
 import { blue } from 'utils/colours'
@@ -100,6 +101,9 @@ const Container: FC<ContainerProps> = ({
 		areas: layout?.areas ?? defaultLayout.areas
 	}
 
+	const backLinkRef = useRef<HTMLAnchorElement>(null)
+	useHandleKey('Escape', () => backLinkRef.current?.click())
+
 	return (
 		<>
 			{
@@ -117,7 +121,11 @@ const Container: FC<ContainerProps> = ({
 
 				{
 					backButton && <BackWrapper>
-						<BackLink href={backLocation} onMouseDown={event => event.preventDefault()}>
+						<BackLink
+							ref={backLinkRef}
+							href={backLocation}
+							onMouseDown={event => event.preventDefault()}
+						>
 							<BackText>Back</BackText>
 						</BackLink>
 					</BackWrapper>
