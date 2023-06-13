@@ -10,10 +10,10 @@ import Selector from './Selector'
 import SkillTable from './SkillTable'
 
 const SkillsContainer = styled.div`
-	width: calc(100% - 24px);
-	height: calc(100% - 64px);
-	padding-left: 12px;
-	padding-top: 32px;
+	width: 100%;
+	height: 100%;
+	padding: 32px 12px;
+	box-sizing: border-box;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -24,6 +24,7 @@ const SkillWrapper = styled.div`
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 `
 
 const SkillsCard = styled.div`
@@ -52,11 +53,15 @@ const SelectorSkills: FC<SelectorSkillProps> = ({ setHoverInfo }) => {
 	const currentTrees = useSkillsStore(state => state.trees)
 
 	return (
-		<Selector title='skills' setHoverInfo={setHoverInfo}
+		<Selector
+			linkChildren
+			title='skills'
+			setHoverInfo={setHoverInfo}
 			infoData={{
 				title: 'Skills',
 				table: <SkillTable />
-			}} >
+			}}
+		>
 			{
 				<SkillsContainer>
 					{
