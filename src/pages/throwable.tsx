@@ -1,7 +1,6 @@
 import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoRequirement, InfoTitle, InfoUnlock } from 'components/elements/infoElements'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } from 'components/elements/itemElements'
-import perkDecks from 'data/abilities/perks'
 import { type ThrowableData } from 'data/weapons/throwables'
 import { type NextPage } from 'next'
 import { useState } from 'react'
@@ -17,7 +16,7 @@ const Throwable: NextPage = () => {
 	const equippedThrowableName = useWeaponsStore(state => state.throwable)
 	const [selectedThrowable, setSelectedThrowable] = useState<ThrowableData | null>(null)
 
-	const perkDeckName = useAbilityStore(state => perkDecks[state.perkDeck].name)
+	const perkDeckName = useAbilityStore(state => state.perkDeck)
 
 	const changeThrowable = useWeaponsStore(state => state.changeThrowable)
 

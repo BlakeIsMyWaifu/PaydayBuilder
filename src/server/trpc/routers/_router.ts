@@ -1,4 +1,5 @@
 import { createTRPCRouter } from '../trpc'
+import { abilitiesDataRouter } from './abilitiesData'
 import { buildsRouter } from './builds'
 import { characterDataRouter } from './characterData'
 import { decodeRouter } from './decode'
@@ -16,7 +17,8 @@ export const appRouter = createTRPCRouter({
 	decode: decodeRouter,
 	encode: encodeRouter,
 	characterData: characterDataRouter,
-	weaponData: weaponDataRouter
+	weaponData: weaponDataRouter,
+	abilitiesData: abilitiesDataRouter
 })
 
 export type AppRouter = typeof appRouter

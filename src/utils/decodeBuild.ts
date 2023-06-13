@@ -8,31 +8,9 @@ import melees, { type MeleeList } from 'data/weapons/melees'
 import throwables, { type ThrowableData, type ThrowableList } from 'data/weapons/throwables'
 import { type CopycatValues } from 'state/useAbilitiesStore'
 
+import { decodeValues, decompressData } from './decodeEncodeUtils'
 import { findWeapon } from './findWeapon'
 import { typedObject } from './typedObject'
-
-export const charString = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,@'
-
-export const decodeValues = (value: string): number => {
-	if (value.length === 2) {
-		const [firstValue, secondValue] = value.split('')
-		return (decodeValues(firstValue) * charString.length) + decodeValues(secondValue)
-	}
-	return charString.indexOf(value)
-}
-
-export const decompressData = (data: string): string => {
-	let decompressed = ''
-	for (let i = 0; i < data.length; i++) {
-		if (data.charAt(i + 1) === '-') {
-			decompressed += data.charAt(i).repeat(parseInt(data.charAt(i + 2)))
-			i += 2
-			continue
-		}
-		decompressed += data.charAt(i)
-	}
-	return decompressed
-}
 
 export const decodePerkDeck = (value: string): PerkDeckList => {
 	const perkIndex = decodeValues(value)

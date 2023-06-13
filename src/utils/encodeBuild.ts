@@ -15,44 +15,9 @@ import { type CharacterStateSlice } from 'state/useCharacterStore'
 import { type SkillsStateSlice } from 'state/useSkillsStore'
 import { type WeaponsStateSlice } from 'state/useWeaponsStore'
 
-import { charString } from './decodeBuild'
+import { charString, compressData, encodeNumber, encodeString } from './decodeEncodeUtils'
 import findMask from './findMask'
 import { findWeapon } from './findWeapon'
-
-const encodeString = (data: object, equipped: string): string => {
-	const index = Object.keys(data).findIndex(value => value === equipped)
-	return charString[index]
-}
-
-const encodeNumber = (index: number): string => {
-	if (index < charString.length) return charString[index]
-	const overflow = ~~(index / charString.length)
-	const remainder = index - (charString.length * overflow)
-	return charString[overflow] + charString[remainder]
-}
-
-const compressData = (data: string): string => {
-	let count = 1
-	let currentChar = data[0]
-	let compressed = ''
-
-	for (let i = 1; i < data.length + 1; i++) {
-		const value = data[i]
-		if (value === currentChar) {
-			if (count > 8) {
-				compressed += `${currentChar}-${count}`
-				count = 0
-			}
-			count++
-			continue
-		}
-		compressed += count > 3 ? `${currentChar}-${count}` : currentChar.repeat(count)
-		currentChar = value
-		count = 1
-	}
-
-	return compressed
-}
 
 export const encodeSkills = (trees: SkillsStateSlice['trees']): string => {
 	let skillsString = ''
