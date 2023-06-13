@@ -38,9 +38,9 @@ const EquipmentImage = styled.img`
 `
 
 const PerkDeckImage = styled(CardIconBase)`
-	height: calc(100% - 32px);
-	aspect-ratio: 1;
+	height: 100%;
 	max-width: 100%;
+	aspect-ratio: 1;
 	margin: auto;
 	filter: invert(1);
 `
@@ -83,7 +83,7 @@ const SelectorWrapper = styled(corner)`
 	height: calc(100% - 20px);
 	display: grid;
 	grid-template-columns: ${props => props.theme.isMobile ? '1fr 1fr' : '1fr'};
-	grid-template-rows: ${props => props.theme.isMobile ? 'minmax(0, 1fr) minmax(0, 1fr)' : '1fr 1fr 1fr 1fr'};
+	grid-template-rows: ${props => props.theme.isMobile ? 'minmax(0, 1fr) minmax(0, 1fr)' : '25% 25% 25% 25%'};
 `
 
 const Tabs: FC = () => {
@@ -346,6 +346,7 @@ const PerkDeckSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 
 	return isSuccess ? (
 		<Selector
+			linkChildren
 			title='perk deck'
 			setHoverInfo={setHoverInfo}
 			infoData={{

@@ -8,6 +8,8 @@ import { type HoverInfo } from './Tabs'
 
 const SelectorLink = styled(Link)`
 	text-decoration: none;
+	width: 100%;
+	height: 100%;
 `
 
 const Container = styled.div`
@@ -51,23 +53,24 @@ const Image = styled.div<ImageProps>`
 export interface SelectorProps {
 	title: string;
 	children?: ReactNode;
+	linkChildren?: boolean;
 	infoData: HoverInfo;
 	setHoverInfo: Dispatch<SetStateAction<SelectorProps['infoData']>>;
 	image?: string;
 	imageLeftFacing?: boolean;
 }
 
-const Selector: FC<SelectorProps> = ({ title, children, infoData, setHoverInfo, image, imageLeftFacing }) => {
+const Selector: FC<SelectorProps> = ({ title, children, linkChildren, infoData, setHoverInfo, image, imageLeftFacing }) => {
 
 	const leftFacing = useIsLeftFacing()
 
 	return (
-		<SelectorLink href={`/${title.replaceAll(' ', '')}`}>
-			<Container
-				onMouseDown={event => event.preventDefault()}
-				onMouseEnter={() => setHoverInfo(infoData)}
-				onMouseLeave={() => setHoverInfo(null)}
-			>
+		<Container
+			onMouseDown={event => event.preventDefault()}
+			onMouseEnter={() => setHoverInfo(infoData)}
+			onMouseLeave={() => setHoverInfo(null)}
+		>
+			<SelectorLink href={`/${title.replaceAll(' ', '')}`}>
 
 				<Title>{title}</Title>
 
@@ -79,9 +82,12 @@ const Selector: FC<SelectorProps> = ({ title, children, infoData, setHoverInfo, 
 					/>
 				}
 
-				{children}
-			</Container>
-		</SelectorLink>
+				{linkChildren && children}
+			</SelectorLink>
+
+			{!linkChildren && children}
+
+		</Container>
 	)
 }
 
