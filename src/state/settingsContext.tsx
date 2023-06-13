@@ -21,7 +21,7 @@ const settingsReducer: Reducer<State, Action> = (state, action) => {
 			const { isLeftFacing } = action
 			return {
 				...state,
-				isLeftFacing: isLeftFacing
+				isLeftFacing
 			}
 		}
 		case 'UpdateSize': {
@@ -77,7 +77,7 @@ export const UpdateSettingsContext: FC = () => {
 	useEffect(() => {
 		dispatch({
 			type: 'UpdateSize',
-			size: size
+			size
 		})
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [dispatch, size.width])

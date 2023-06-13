@@ -53,7 +53,7 @@ const Skills: NextPage = () => {
 
 	const treeNameOrder: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
 
-	const scrollTrees = (event: WheelEvent): void => {
+	const scrollTrees = (event: WheelEvent) => {
 		const direction = event.deltaY < 0 ? -1 : 1
 		let index = treeNameOrder.indexOf(currentTree.name)
 		index += direction
@@ -74,7 +74,7 @@ const Skills: NextPage = () => {
 	const resetSkills = useSkillsStore(state => state.resetSkills)
 
 	useEffect(() => {
-		const handleKeys = (event: KeyboardEvent): void => {
+		const handleKeys = (event: KeyboardEvent) => {
 			if (event.key === 'f') {
 				resetTree(currentTree.name)
 			} else if (event.key === 'r') {

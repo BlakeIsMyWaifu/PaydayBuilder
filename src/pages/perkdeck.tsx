@@ -3,19 +3,30 @@ import { ItemContainer } from 'components/elements/itemElements'
 import HorizontalBar from 'components/HorizontalBar'
 import Perk from 'components/PerkDeck/Perk'
 import PerkInfoTab from 'components/PerkDeck/PerkInfoTab'
-import perkDecks, { type PerkCard } from 'data/abilities/perks'
-import useMountEffect from 'hooks/useMountEffect'
+import { type PerkCard, type PerkData } from 'data/abilities/perks'
 import { type NextPage } from 'next'
-import { createRef, useRef, useState } from 'react'
+import { createRef, useEffect, useRef, useState } from 'react'
 import { useAbilityStore } from 'state/useAbilitiesStore'
+import { trpc } from 'utils/trpc'
 
 export type PerkCardIndex = PerkCard & { index: number }
 
 const PerkDeck: NextPage = () => {
 
+	const { data } = trpc.abilitiesData.perkDeckData.useQuery()
+
+	useEffect(() => {
+		if (!data) return
+		setSelectedPerk(data[equippedPerkName])
+		const currentEquippedIndex = Object.keys(data).indexOf(equippedPerkName)
+		scrollToPerk(currentEquippedIndex, 'auto')
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [data])
+
 	const perkWrapperRef = useRef<HTMLDivElement>(null)
 
-	const perkRefs = useRef(Array.from({ length: Object.keys(perkDecks).length }, () => createRef<HTMLDivElement>()))
+	// ! the length must be updated if any new perk decks are added
+	const perkRefs = useRef(Array.from({ length: 23 }, () => createRef<HTMLDivElement>()))
 
 	const scrollToPerk = (i: number, behavior: 'smooth' | 'auto'): void => {
 		const container = perkWrapperRef.current
@@ -29,14 +40,9 @@ const PerkDeck: NextPage = () => {
 
 	const [hoveredCard, setHoveredCard] = useState<PerkCardIndex | null>(null)
 
-	const equippedPerk = perkDecks[useAbilityStore(state => state.perkDeck)]
+	const equippedPerkName = useAbilityStore(state => state.perkDeck)
 
-	const [selectedPerk, setSelectedPerk] = useState(equippedPerk)
-
-	useMountEffect(() => {
-		const currentEquippedIndex = Object.keys(perkDecks).indexOf(equippedPerk.name)
-		scrollToPerk(currentEquippedIndex, 'auto')
-	})
+	const [selectedPerk, setSelectedPerk] = useState<PerkData | null>(null)
 
 	return (
 		<Container
@@ -51,14 +57,14 @@ const PerkDeck: NextPage = () => {
 			}}
 		>
 
-			<HorizontalBar active={equippedPerk.name} items={Object.values(perkDecks).map((perkDeck, i) => ({
+			<HorizontalBar active={equippedPerkName} items={Object.values(data ?? {}).map((perkDeck, i) => ({
 				label: perkDeck.name,
 				callback: () => scrollToPerk(i, 'smooth')
 			}))} />
 
 			<ItemContainer ref={perkWrapperRef}>
 				{
-					Object.values(perkDecks).map((perkdeck, i) => {
+					data && Object.values(data).map((perkdeck, i) => {
 						return <Perk
 							perkref={perkRefs.current[i]}
 							key={perkdeck.name}
@@ -67,6 +73,7 @@ const PerkDeck: NextPage = () => {
 							setHoveredCard={setHoveredCard}
 							selectedPerk={selectedPerk}
 							setSelectedPerk={setSelectedPerk}
+							equippedPerkData={data[equippedPerkName]}
 						/>
 					})
 				}

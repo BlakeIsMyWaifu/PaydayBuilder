@@ -1,3 +1,4 @@
+import placeholderWeapon from 'data/weapons/guns/placeholderWeapon'
 import useArmourStats from 'hooks/useArmourStats'
 import useMeleeStats from 'hooks/useMeleeStats'
 import useWeaponStats from 'hooks/useWeaponStats'
@@ -7,7 +8,7 @@ import { useCharacterStore } from 'state/useCharacterStore'
 import { useWeaponsStore } from 'state/useWeaponsStore'
 import styled from 'styled-components'
 import { cornerCSS } from 'utils/corner'
-import findWeapon from 'utils/findWeapon'
+import { trpc } from 'utils/trpc'
 
 interface ContainerProps {
 	flexDirection: 'row' | 'column';
@@ -133,9 +134,13 @@ const DetectionRisk: FC<DetectionRiskProps> = ({ flexDirection, corner, text = t
 
 	const weapons = useWeaponsStore(),
 		primaryWeapon = useArmouryStore(state => state.primary)[weapons.primary],
-		secondaryWeapon = useArmouryStore(state => state.secondary)[weapons.secondary],
-		primaryConcealment = useWeaponStats(findWeapon(primaryWeapon.weaponFind), primaryWeapon.modifications).total.concealment,
-		secondaryConcealment = useWeaponStats(findWeapon(secondaryWeapon.weaponFind), secondaryWeapon.modifications).total.concealment,
+		secondaryWeapon = useArmouryStore(state => state.secondary)[weapons.secondary]
+
+	const { data: primaryWeaponData } = trpc.loadoutData.getWeapon.useQuery(primaryWeapon.weaponFind, { placeholderData: placeholderWeapon })
+	const { data: secondaryWeaponData } = trpc.loadoutData.getWeapon.useQuery(secondaryWeapon.weaponFind, { placeholderData: placeholderWeapon })
+
+	const primaryConcealment = useWeaponStats(primaryWeaponData ?? placeholderWeapon, primaryWeapon.modifications).total.concealment,
+		secondaryConcealment = useWeaponStats(secondaryWeaponData ?? placeholderWeapon, secondaryWeapon.modifications).total.concealment,
 
 		meleeConcealment = useMeleeStats(weapons.melee).total.concealment,
 		armourConcealment = useArmourStats(useCharacterStore(state => state.armour)).total.concealment,

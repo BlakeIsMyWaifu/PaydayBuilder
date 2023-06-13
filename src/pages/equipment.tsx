@@ -2,22 +2,25 @@ import Container from 'components/Container'
 import { InfoContainer, InfoDescription, InfoTitle, InfoUnlock } from 'components/elements/infoElements'
 import { ActionsContainer, ActionText } from 'components/elements/itemActionElements'
 import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName, LockedIcon } from 'components/elements/itemElements'
-import equipments, { type EquipmentData } from 'data/character/equipment'
+import { type EquipmentData } from 'data/character/equipment'
 import { type NextPage } from 'next'
 import { useState } from 'react'
 import { useCharacterStore } from 'state/useCharacterStore'
 import { useSkillsStore } from 'state/useSkillsStore'
 import { itemColours } from 'utils/colours'
+import { trpc } from 'utils/trpc'
 
 const Equipment: NextPage = () => {
 
+	const { data } = trpc.characterData.equipmentData.useQuery()
+
 	const { primary: equippedPrimary, secondary: equippedSecondary } = useCharacterStore(state => state.equipment)
 
-	const [selectedEquipment, setSelectedEquipment] = useState<EquipmentData>(equipments[equippedPrimary])
+	const [selectedEquipment, setSelectedEquipment] = useState<EquipmentData | null>(null)
 
 	const skillTrees = useSkillsStore(state => state.trees)
 
-	const getEquipmentAmount = (equipment: EquipmentData): number[] => {
+	const getEquipmentAmount = (equipment: EquipmentData) => {
 		let outAmount: number[] = equipment.amount
 		equipment.upgrade.forEach(({ amount, skillPath, skillState }) => {
 			const [tree, subtree, skill] = skillPath
@@ -34,8 +37,9 @@ const Equipment: NextPage = () => {
 
 	const changeEquipment = useCharacterStore(state => state.changeEquipment)
 
-	const equipEquipment = (button: number): void => {
+	const equipEquipmentHandler = (button: number) => {
 		if (button !== 0 && button !== 2) return
+		if (!selectedEquipment) return
 		if (selectedEquipment.name === 'Silenced Sentry Gun' && !engineeringUnlocked) return
 
 		const slot = button ? 'secondary' : 'primary'
@@ -63,14 +67,15 @@ const Equipment: NextPage = () => {
 
 			<ItemContainer>
 				{
-					Object.values(equipments).map(equipment => {
+					Object.values(data ?? {}).map(equipment => {
 						const locked = equipment.name === 'Silenced Sentry Gun' && !engineeringUnlocked
 						const amount = getEquipmentAmount(equipment)
+						const isSelected = equipment.name === selectedEquipment?.name
 						return <Item
 							rowAmount={5}
 							key={equipment.name}
-							selected={equipment.name === selectedEquipment.name}
-							onMouseDown={event => equipment.name !== selectedEquipment.name ? setSelectedEquipment(equipment) : equipEquipment(event.button)}
+							selected={isSelected}
+							onMouseDown={event => isSelected ? equipEquipmentHandler(event.button) : setSelectedEquipment(equipment)}
 						>
 							<ItemName colour={itemColours[equipment.amount === amount ? 'Free' : 'Community']}>{equipment.name} (x{amount.join('/x')})</ItemName>
 							{equipment.name === equippedPrimary && <ItemEquipped> {jackOfAllTradesUnlocked ? 'Primary' : ''}</ItemEquipped>}
@@ -88,16 +93,20 @@ const Equipment: NextPage = () => {
 			</ItemContainer>
 
 			<InfoContainer>
-				<InfoTitle>{selectedEquipment.name} (x{getEquipmentAmount(selectedEquipment).join('/x')})</InfoTitle>
-				<InfoDescription>{selectedEquipment.description.join('\n\n')}</InfoDescription>
-				<InfoUnlock colour={itemColours[selectedEquipment.source.rarity]}>{selectedEquipment.source.name}</InfoUnlock>
+				{
+					selectedEquipment && <>
+						<InfoTitle>{selectedEquipment.name} (x{getEquipmentAmount(selectedEquipment).join('/x')})</InfoTitle>
+						<InfoDescription>{selectedEquipment.description.join('\n\n')}</InfoDescription>
+						<InfoUnlock colour={itemColours[selectedEquipment.source.rarity]}>{selectedEquipment.source.name}</InfoUnlock>
+					</>
+				}
 			</InfoContainer>
 
 			{
 				jackOfAllTradesUnlocked && (
 					<ActionsContainer>
-						<ActionText onClick={() => equipEquipment(0)}>Equip Primary</ActionText>
-						<ActionText onClick={() => equipEquipment(2)}>Equip Secondary</ActionText>
+						<ActionText onClick={() => equipEquipmentHandler(0)}>Equip Primary</ActionText>
+						<ActionText onClick={() => equipEquipmentHandler(2)}>Equip Secondary</ActionText>
 					</ActionsContainer>
 				)
 			}

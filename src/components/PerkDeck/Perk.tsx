@@ -1,5 +1,4 @@
-import perkDecks, { type PerkData } from 'data/abilities/perks'
-import throwables from 'data/weapons/throwables'
+import { type PerkData } from 'data/abilities/perks'
 import { type PerkCardIndex } from 'pages/perkdeck'
 import { type Dispatch, type FC, type RefObject, type SetStateAction } from 'react'
 import { useIsMobile } from 'state/settingsContext'
@@ -90,13 +89,13 @@ interface PerkProps {
 	index: number;
 	perkref: RefObject<HTMLDivElement>;
 	setHoveredCard: Dispatch<SetStateAction<PerkCardIndex | null>>;
-	selectedPerk: PerkData;
+	selectedPerk: PerkData | null;
 	setSelectedPerk: Dispatch<SetStateAction<PerkProps['selectedPerk']>>;
+	equippedPerkData: PerkData;
 }
 
-const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPerk, setSelectedPerk }) => {
+const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPerk, setSelectedPerk, equippedPerkData }) => {
 
-	const equippedPerk = perkDecks[useAbilityStore(state => state.perkDeck)]
 	const changePerkDeck = useAbilityStore(state => state.changePerkDeck)
 
 	const copycatCards = useAbilityStore(state => state.copycat)
@@ -104,28 +103,28 @@ const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPer
 
 	const changeThrowable = useWeaponsStore(state => state.changeThrowable)
 
-	const equipPerkDeckHandler = (): void => {
-		if (selectedPerk.name === equippedPerk.name) return
+	const equipPerkDeckHandler = () => {
+		if (!selectedPerk || selectedPerk.name === equippedPerkData.name) return
 		changePerkDeck(selectedPerk.name)
 	}
 
-	const perkDeckClickHandler = (): void => {
-		if (selectedPerk.name !== perk.name) return setSelectedPerk(perk)
-		if (perk.throwable || equippedPerk.throwable) {
-			const throwable = perk.throwable ? throwables[perk.throwable] : throwables['Frag Grenade']
-			changeThrowable(throwable.name)
+	const perkDeckClickHandler = () => {
+		if (selectedPerk?.name !== perk.name) return setSelectedPerk(perk)
+		if (perk.throwable || equippedPerkData.throwable) {
+			const throwable = perk.throwable ? perk.throwable : 'Frag Grenade'
+			changeThrowable(throwable)
 		}
 		equipPerkDeckHandler()
 	}
 
 	const isMobile = useIsMobile()
 
-	const cardClickHandler = (button: number, cardIndex: number): void => {
+	const cardClickHandler = (button: number, cardIndex: number) => {
 		if (isMobile) {
 			setHoveredCard({ ...perk.cards[cardIndex], index: cardIndex })
 		}
 
-		if (perk.name !== 'Copycat' || selectedPerk.name !== 'Copycat' || equippedPerk.name !== 'Copycat' || cardIndex % 2) return
+		if (perk.name !== 'Copycat' || selectedPerk?.name !== 'Copycat' || equippedPerkData.name !== 'Copycat' || cardIndex % 2) return
 		changeCopycatValues(cardIndex / 2, button ? 'decrement' : 'increment')
 	}
 
@@ -133,7 +132,7 @@ const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPer
 		<Container ref={perkref}>
 
 			<Title>{perk.name}</Title>
-			<Equipped>{perk.name === equippedPerk.name && '(EQUIPPED)'}</Equipped>
+			<Equipped>{perk.name === equippedPerkData.name && '(EQUIPPED)'}</Equipped>
 
 			<CardWrapper onClick={perkDeckClickHandler}>
 				{
@@ -141,15 +140,19 @@ const Perk: FC<PerkProps> = ({ perk, index, perkref, setHoveredCard, selectedPer
 						if (isMobile && i % 2) return null
 						const x = ~~((i + 1) / 2) * 48
 						const y = i % 2 ? 0 : (index + 1) * 48
+						const isSelected = perk.name === selectedPerk?.name
 						return <Card
 							key={`${perk.name}-${card.name}`}
 							onMouseOver={() => setHoveredCard({ ...card, index: i })}
 							onMouseLeave={() => setHoveredCard(null)}
 							onMouseDown={event => cardClickHandler(event.button, i)}
 							onContextMenu={event => event.preventDefault()}
-							selected={selectedPerk.name === perk.name}>
-							<CardBackground src='/images/perks/card.png' onMouseDown={event => event.preventDefault()}
-								selected={selectedPerk.name === perk.name} />
+							selected={isSelected}>
+							<CardBackground
+								src='/images/perks/card.png'
+								onMouseDown={event => event.preventDefault()}
+								selected={isSelected}
+							/>
 							<CardIcon x={x} y={y} />
 							{perk.name === 'Copycat' && !(i % 2) && <CardNumber>{copycatCards[i / 2] + 1}/{i === 8 ? 22 : 4}</CardNumber>}
 						</Card>

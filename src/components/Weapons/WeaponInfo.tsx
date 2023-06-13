@@ -1,19 +1,19 @@
 import { InfoContainer, InfoSubtitle, InfoTitle, InfoUnlock } from 'components/elements/infoElements'
-import { type Weapon } from 'data/weapons/guns/weaponTypes'
+import { type Weapon, type WeaponData } from 'data/weapons/guns/weaponTypes'
 import { type FC } from 'react'
 import { itemColours } from 'utils/colours'
-import findWeapon from 'utils/findWeapon'
 
 import WeaponsStatsTable from '../Table/WeaponStatsTable'
 
 interface WeaponInfoProps {
-	selectedWeapon: Weapon;
-	equippedWeapon?: Weapon;
+	selectedWeapon: Weapon | null;
+	selectedWeaponData: WeaponData | null;
+	equippedWeapon: [Weapon, WeaponData] | undefined[];
 }
 
-const WeaponInfo: FC<WeaponInfoProps> = ({ selectedWeapon, equippedWeapon }) => {
+const WeaponInfo: FC<WeaponInfoProps> = ({ selectedWeapon, selectedWeaponData, equippedWeapon: [equippedWeapon, equippedWeaponData] }) => {
 
-	const selectedWeaponData = findWeapon(selectedWeapon.weaponFind)
+	if (!selectedWeapon || !selectedWeaponData) return <InfoContainer />
 
 	return (
 		<InfoContainer>
@@ -21,8 +21,11 @@ const WeaponInfo: FC<WeaponInfoProps> = ({ selectedWeapon, equippedWeapon }) => 
 			<InfoSubtitle>Value ${selectedWeaponData.cost.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}</InfoSubtitle>
 			<WeaponsStatsTable
 				showExtraStats={true}
-				selectedWeapon={selectedWeapon}
-				equippedWeapon={equippedWeapon} />
+				selectedWeaponData={selectedWeaponData}
+				selectedWeaponMods={selectedWeapon.modifications}
+				equippedWeaponData={equippedWeaponData}
+				equippedWeaponMods={equippedWeapon?.modifications}
+			/>
 			<InfoUnlock colour={itemColours[selectedWeaponData.source.rarity]}>{selectedWeaponData.source.name}</InfoUnlock>
 		</InfoContainer>
 	)
