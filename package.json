@@ -1,7 +1,7 @@
 {
   "name": "payday-builder",
   "private": true,
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Payday 2 Build Helper Website",
   "author": "Joel Dohm-Karatjas",
   "license": "MIT",
