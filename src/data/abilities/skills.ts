@@ -1,7 +1,7 @@
-export type TreeNames = 'mastermind' | 'enforcer' | 'technician' | 'ghost' | 'fugitive'
+import { type SkillTreeName } from './skillsMinimised'
 
 export interface TreeData {
-	name: TreeNames;
+	name: SkillTreeName;
 	subtrees: Record<string, SubtreeData>;
 }
 
@@ -18,7 +18,7 @@ export interface SkillData {
 	tier: 1 | 2 | 3 | 4;
 }
 
-const skills: Record<TreeNames, TreeData> = {
+const skills: Record<SkillTreeName, TreeData> = {
 	mastermind: {
 		name: 'mastermind',
 		subtrees: {

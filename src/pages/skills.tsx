@@ -4,7 +4,8 @@ import HorizontalBar from 'components/HorizontalBar'
 import Info from 'components/Skills/Info'
 import Points from 'components/Skills/Points'
 import Subtree from 'components/Skills/Subtree'
-import skills, { type SkillData, type TreeData, type TreeNames } from 'data/abilities/skills'
+import skills, { type SkillData } from 'data/abilities/skills'
+import { skillTreeNames } from 'data/abilities/skillsMinimised'
 import equipments from 'data/character/equipment'
 import useHandleKey from 'hooks/useHandleKey'
 import { type NextPage } from 'next'
@@ -48,18 +49,16 @@ const SubtreeLabel = styled.p`
 
 const Skills: NextPage = () => {
 
-	const [currentTree, setCurrentTree] = useState<TreeData>(skills.mastermind)
+	const [currentTree, setCurrentTree] = useState(skills.mastermind)
 
 	const [skillHovered, setSkillHovered] = useState<SkillData | null>(null)
 
-	const treeNameOrder: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
-
 	const scrollTrees = (event: WheelEvent) => {
 		const direction = event.deltaY < 0 ? -1 : 1
-		let index = treeNameOrder.indexOf(currentTree.name)
+		let index = skillTreeNames.indexOf(currentTree.name)
 		index += direction
 		index = index < 0 ? 0 : index > 4 ? 4 : index
-		setCurrentTree(skills[treeNameOrder[index]])
+		setCurrentTree(skills[skillTreeNames[index]])
 	}
 
 	const jackOfAllTrades = useSkillsStore(state => state.trees.technician.Engineer.upgrades['Jack of All Trades'])
@@ -112,7 +111,7 @@ const Skills: NextPage = () => {
 
 			<HorizontalBar
 				active={currentTree.name}
-				items={treeNameOrder.map(treeName => ({
+				items={skillTreeNames.map(treeName => ({
 					label: treeName,
 					callback: () => setCurrentTree(skills[treeName]),
 					additionalStyling: highlightActive
