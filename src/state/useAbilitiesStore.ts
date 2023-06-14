@@ -31,6 +31,7 @@ interface AbilityActionSlice {
 	changeCopycatValues: (index: number, direction: 'increment' | 'decrement') => void;
 	setCopycatValues: (values: CopycatValues) => void;
 	toggleInfamy: () => void;
+	setInfamy: (enabled: boolean) => void;
 }
 
 const actionName = createActionName('abilities')
@@ -55,6 +56,9 @@ const createActionSlice: Slice<AbilityStore, AbilityActionSlice> = (set, get) =>
 	},
 	toggleInfamy: () => {
 		set(state => ({ infamy: !state.infamy }), ...actionName('toggleInfamy'))
+	},
+	setInfamy: enabled => {
+		set({ infamy: enabled }, ...actionName('setInfamy'))
 	}
 })
 

@@ -130,3 +130,5 @@ export const decodeCharacter = (value: string): CharacterList => {
 	const characterIndex = decodeValues(value)
 	return Object.keys(characters)[characterIndex]
 }
+
+export const decodeInfamy = (value: '0' | '1') => value === '1'

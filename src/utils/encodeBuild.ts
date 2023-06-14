@@ -156,3 +156,5 @@ export const encodeMask = (mask: CharacterStateSlice['mask']): string => {
 }
 
 export const encodeCharacter = (character: CharacterList): string => encodeString(characters, character)
+
+export const encodeInfamy = (infamy: boolean): '0' | '1' => infamy ? '1' : '0'

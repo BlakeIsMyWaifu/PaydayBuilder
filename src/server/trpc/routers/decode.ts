@@ -1,7 +1,7 @@
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
 import { type Slot } from 'data/weapons/guns/weaponTypes'
-import { decodeArmour, type DecodeArmoury, decodeArmoury, decodeCharacter, decodeCopycat, decodeEquipment, decodeMask, decodeMelee, decodePerkDeck, decodeThrowable, decodeWeapons } from 'utils/decodeBuild'
+import { decodeArmour, type DecodeArmoury, decodeArmoury, decodeCharacter, decodeCopycat, decodeEquipment, decodeInfamy, decodeMask, decodeMelee, decodePerkDeck, decodeThrowable, decodeWeapons } from 'utils/decodeBuild'
 import { z } from 'zod'
 
 import { publicProcedure } from '../procedure'
@@ -40,5 +40,8 @@ export const decodeRouter = createTRPCRouter({
 		.mutation(({ input }) => decodePerkDeck(input ?? '0')),
 	copycat: publicProcedure
 		.input(z.string().nullable())
-		.mutation(({ input }) => decodeCopycat(input ?? '1-5'))
+		.mutation(({ input }) => decodeCopycat(input ?? '1-5')),
+	infamy: publicProcedure
+		.input(z.union([z.literal('0'), z.literal('1')]).nullable())
+		.mutation(({ input }) => decodeInfamy(input ?? '1'))
 })
