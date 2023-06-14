@@ -31,7 +31,7 @@ const handler = async (req: NextRequest): Promise<ImageResponse> => {
 				height: '100%',
 				width: '100%',
 
-				backgroundImage: `url(${getBaseUrl()}/images/loading_bg.png)`,
+				backgroundImage: `url(${getBaseUrl()}/images/background.png)`,
 				backgroundSize: '1200px 630px',
 
 				display: 'flex',

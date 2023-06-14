@@ -25,6 +25,7 @@ const BackgroundImage = styled.img`
 	top: 0;
 	left: 0;
 	z-index: -1;
+	object-fit: cover;
 `
 
 interface AppProps extends NextAppProps {
@@ -70,7 +71,7 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 
 					<div onContextMenu={event => isDev() ? null : event.preventDefault()}>
 
-						<BackgroundImage src='/images/loading_bg.png' />
+						<BackgroundImage src='/images/background.png' />
 
 						<Cookies />
 
