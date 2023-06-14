@@ -1,6 +1,7 @@
 import armours, { type ArmourList, type ArmourStats } from 'data/character/armours'
 import { type CustomStatsHook } from 'hooks/customStatsHook'
 import { useSkillsStore } from 'state/useSkillsStore'
+import { typedObject } from 'utils/typedObject'
 
 interface CompleteArmourStats extends ArmourStats {
 	health: number;
@@ -42,8 +43,8 @@ const useArmourStats = (armourName: ArmourList): CustomStatsHook<CompleteArmourS
 	const totalStats = (): CompleteArmourStats => {
 		const stats = baseStats()
 
-		Object.entries(skillStats()).forEach(([label, stat]) => {
-			stats[(label as keyof CompleteArmourStats)] += stat
+		typedObject.entries(skillStats()).forEach(([label, stat]) => {
+			stats[label] += stat
 		})
 
 		return stats

@@ -6,7 +6,7 @@ import equipments, { type EquipmentData } from 'data/character/equipment'
 import { allMasks, type CategoryList } from 'data/character/masks'
 import primary from 'data/weapons/guns/primary'
 import secondary from 'data/weapons/guns/secondary'
-import { type ModificationSlot, type Slot, type Weapon } from 'data/weapons/guns/weaponTypes'
+import { type Slot, type Weapon } from 'data/weapons/guns/weaponTypes'
 import melees from 'data/weapons/melees'
 import throwables, { type ThrowableData, type ThrowableList } from 'data/weapons/throwables'
 import { type AbilityStateSlice } from 'state/useAbilitiesStore'
@@ -18,6 +18,7 @@ import { type WeaponsStateSlice } from 'state/useWeaponsStore'
 import { charString, compressData, encodeNumber, encodeString } from './decodeEncodeUtils'
 import findMask from './findMask'
 import { findWeapon } from './findWeapon'
+import { typedObject } from './typedObject'
 
 export const encodeSkills = (trees: SkillsStateSlice['trees']): string => {
 	let skillsString = ''
@@ -103,8 +104,7 @@ export const encodeArmoury = (armoury: ArmouryStateSlice['primary']): string => 
 		const weaponTypeValue = Object.keys(data).findIndex(value => value === weapon.weaponFind.type)
 		const weaponValue = Object.keys(data[(weapon.weaponFind.type as keyof typeof data)]).findIndex(value => value === weapon.weaponFind.name)
 		const weaponData = findWeapon(weapon.weaponFind)
-		const modsValues = Object.keys(weaponData.modifications).map(modNameString => {
-			const modName = modNameString as ModificationSlot
+		const modsValues = typedObject.keys(weaponData.modifications).map(modName => {
 			if (!weapon.modifications[modName]) return '0'
 			return charString[(weaponData.modifications[modName]?.findIndex(value => value.name === weapon.modifications[modName]) ?? -1) + 1]
 		}).join('')
