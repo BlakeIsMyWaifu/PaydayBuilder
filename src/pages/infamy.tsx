@@ -1,6 +1,6 @@
 import Container from 'components/Container'
 import { type NextPage } from 'next'
-import { useState } from 'react'
+import { useAbilityStore } from 'state/useAbilitiesStore'
 import styled from 'styled-components'
 
 const Section = styled.section`
@@ -51,7 +51,8 @@ const CheckboxImage = styled.img`
 
 const Infamy: NextPage = () => {
 
-	const [checkbox, setCheckbox] = useState(true)
+	const infamy = useAbilityStore(state => state.infamy)
+	const toggleInfamy = useAbilityStore(state => state.toggleInfamy)
 
 	return (
 		<Container
@@ -70,16 +71,16 @@ const Infamy: NextPage = () => {
 			<Section>
 				<Text>Infamy lowers the required skill points spent to unlock the top skill of every tree from 18 to 16</Text>
 
-				<CheckboxWrapper backgroundColour={checkbox ? 'rgba(255, 26, 255, 0.2)' : 'rgba(255, 255, 255, 0.1)'}>
+				<CheckboxWrapper backgroundColour={infamy ? 'rgba(255, 26, 255, 0.2)' : 'rgba(255, 255, 255, 0.1)'}>
 					<CheckboxInput
 						type='checkbox'
 						id='infamy'
-						checked={checkbox}
-						onChange={() => setCheckbox(state => !state)}
+						checked={infamy}
+						onChange={toggleInfamy}
 					/>
 					<CheckboxLabel htmlFor='infamy'>
-						<CheckboxImage src={checkbox ? '/images/masks/dallas.webp' : '/images/masks/dallas_clean.webp'} />
-						<Text>{checkbox ? 'Disable' : 'Enable'} Infamy</Text>
+						<CheckboxImage src={infamy ? '/images/masks/dallas.webp' : '/images/masks/dallas_clean.webp'} />
+						<Text>{infamy ? 'Disable' : 'Enable'} Infamy</Text>
 					</CheckboxLabel>
 				</CheckboxWrapper>
 			</Section>
