@@ -1,4 +1,5 @@
-import { type SkillData, type SubtreeData, type TreeNames } from 'data/abilities/skills'
+import { type SkillData, type SubtreeData } from 'data/abilities/skills'
+import { type SkillTreeName } from 'data/abilities/skillsMinimised'
 import { type Dispatch, type FC, type SetStateAction } from 'react'
 import { useIsMobile } from 'state/settingsContext'
 import { useAbilityStore } from 'state/useAbilitiesStore'
@@ -51,7 +52,7 @@ const MobileBackground = styled.img<BackgroundProps>`
 `
 
 interface SubtreeProps {
-	treeName: TreeNames;
+	treeName: SkillTreeName;
 	subtree: SubtreeData;
 	setSkillHovered: Dispatch<SetStateAction<SkillData | null>>;
 }

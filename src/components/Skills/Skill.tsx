@@ -1,4 +1,5 @@
-import { type SkillData, type SubtreeData, type TreeNames } from 'data/abilities/skills'
+import { type SkillData, type SubtreeData } from 'data/abilities/skills'
+import { type SkillTreeName } from 'data/abilities/skillsMinimised'
 import useHoldButton from 'hooks/useHoldButton'
 import { type Dispatch, type FC, type MouseEvent, type SetStateAction, useCallback, useState } from 'react'
 import { useSkillsStore } from 'state/useSkillsStore'
@@ -97,7 +98,7 @@ const Label = styled.p<LabelProps>`
 `
 
 export interface SkillProps {
-	treeName: TreeNames;
+	treeName: SkillTreeName;
 	subtree: SubtreeData;
 	skill: SkillData;
 	setSkillHovered: Dispatch<SetStateAction<SkillData | null>>;
@@ -114,7 +115,7 @@ const Skill: FC<SkillProps> = ({ treeName, subtree, skill, setSkillHovered }) =>
 	const points = useSkillsStore(state => state.points)
 	const changeSkillState = useSkillsStore(state => state.changeSkillState)
 
-	const clickSkills = useCallback((button: MouseEvent['button']): void => {
+	const clickSkills = useCallback((button: MouseEvent['button']) => {
 		if (button !== 0 && button !== 2) return
 
 		const isLeftClick = !button
@@ -173,7 +174,8 @@ const Skill: FC<SkillProps> = ({ treeName, subtree, skill, setSkillHovered }) =>
 		changeSkillState({
 			tree: treeName,
 			subtree: subtree.name,
-			skill,
+			skillTier: skill.tier,
+			skillName: skill.name,
 			oldLevel: skillState,
 			direction: isLeftClick ? 'upgrade' : 'downgrade'
 		})

@@ -1,5 +1,5 @@
 import perkDecks from 'data/abilities/perks'
-import { type TreeNames } from 'data/abilities/skills'
+import { skillTreeNames } from 'data/abilities/skillsMinimised'
 import armours from 'data/character/armours'
 import characters, { type CharacterList } from 'data/character/characters'
 import equipments, { type EquipmentData } from 'data/character/equipment'
@@ -23,9 +23,7 @@ import { typedObject } from './typedObject'
 export const encodeSkills = (trees: SkillsStateSlice['trees']): string => {
 	let skillsString = ''
 
-	const treeNames: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
-
-	treeNames.forEach(treeNames => {
+	skillTreeNames.forEach(treeNames => {
 		Object.values(trees[treeNames]).forEach(subtree => {
 			let subtreeBasicChar = 0
 			let subtreeAcedChar = 0

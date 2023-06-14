@@ -1,5 +1,5 @@
 import { type HoverInfo } from 'components/Home/Tabs'
-import skills from 'data/abilities/skills'
+import { skillTreeNames } from 'data/abilities/skillsMinimised'
 import { type Dispatch, type FC, type SetStateAction } from 'react'
 import { useSkillsStore } from 'state/useSkillsStore'
 import styled from 'styled-components'
@@ -65,7 +65,7 @@ const SelectorSkills: FC<SelectorSkillProps> = ({ setHoverInfo }) => {
 			{
 				<SkillsContainer>
 					{
-						Object.keys(skills).map(tree => {
+						skillTreeNames.map(tree => {
 							const treePoints = skillTreePoints(tree, currentTrees)
 							return <SkillWrapper key={tree}>
 								<SkillsCard />

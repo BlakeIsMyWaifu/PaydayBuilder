@@ -1,4 +1,4 @@
-import skills, { type SkillData, type TreeNames } from 'data/abilities/skills'
+import skillsMinimised, { type SkillTreeName, skillTreeNames } from 'data/abilities/skillsMinimised'
 import { decodeValues, decompressData } from 'utils/decodeEncodeUtils'
 import SkillTreePoints from 'utils/skillTreePoints'
 import { create } from 'zustand'
@@ -19,28 +19,15 @@ export interface Subtrees {
 	};
 }
 
-const getTrees = (): Record<string, Subtrees> => {
-	const out: Record<string, Subtrees> = {};
-	(Object.keys(skills) as Array<keyof typeof skills>).forEach((tree: TreeNames) => {
-		const t: TreeNames = tree
-		out[tree] = getSubtrees(t)
-	})
-	return out
-}
+const getTrees = () => Object.fromEntries(skillTreeNames.map(treeName => [treeName, getSubtrees(treeName)]))
 
-const getSubtrees = (tree: TreeNames): Subtrees => {
-	const out: Subtrees = {}
-	Object.values(skills[tree].subtrees).forEach(subtree => {
-		out[subtree.name] = {
-			tier: 1,
-			points: 0,
-			upgrades: getUpgrades(Object.values(subtree.upgrades))
-		}
-	})
-	return out
-}
+const getSubtrees = (tree: SkillTreeName) => Object.fromEntries(Object.entries(skillsMinimised[tree]).map(([treeName, subtreeSkillNames]) => [treeName, {
+	tier: 1,
+	points: 0,
+	upgrades: getUpgrades(subtreeSkillNames)
+}]))
 
-const getUpgrades = (subtree: SkillData[]): Record<string, SkillUpgradeTypes> => Object.fromEntries(subtree.map<[string, SkillUpgradeTypes]>(skill => [skill.name, skill.tier === 1 ? 'available' : 'locked']))
+const getUpgrades = (subtree: string[]) => Object.fromEntries(subtree.map<[string, SkillUpgradeTypes]>((skillName, i) => [skillName, i ? 'locked' : 'available']))
 
 export interface SkillsStateSlice {
 	points: number;
@@ -57,16 +44,17 @@ export const createStateSlice: Slice<SkillsStore, SkillsStateSlice> = () => init
 // Action
 
 interface ChangeSkillState {
-	tree: TreeNames;
+	tree: SkillTreeName;
 	subtree: string;
-	skill: SkillData;
+	skillName: string;
+	skillTier: 1 | 2 | 3 | 4;
 	oldLevel: SkillUpgradeTypes;
 	direction: 'upgrade' | 'downgrade';
 }
 
 interface SkillsActionSlice {
 	changeSkillState: (newSkillState: ChangeSkillState) => void;
-	resetTree: (treeName: TreeNames) => void;
+	resetTree: (treeName: SkillTreeName) => void;
 	resetSkills: () => void;
 	importSkillsData: (skillsDataCompressed: string) => void;
 }
@@ -74,7 +62,8 @@ interface SkillsActionSlice {
 const actionName = createActionName('skills')
 
 export const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, get) => ({
-	changeSkillState: ({ tree, subtree, skill, oldLevel, direction }) => {
+	changeSkillState: ({ tree, subtree, skillName, skillTier, oldLevel, direction }) => {
+
 		const acedCost = {
 			1: 3,
 			2: 4,
@@ -93,17 +82,17 @@ export const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, ge
 
 		if (direction === 'upgrade') {
 			newLevel = oldLevel === 'available' ? 'basic' : 'aced'
-			cost = oldLevel === 'available' ? skill.tier : acedCost[skill.tier]
+			cost = oldLevel === 'available' ? skillTier : acedCost[skillTier]
 		} else {
 			newLevel = oldLevel === 'basic' ? 'available' : 'basic'
-			cost = (oldLevel === 'basic' ? skill.tier : acedCost[skill.tier]) * -1
+			cost = (oldLevel === 'basic' ? skillTier : acedCost[skillTier]) * -1
 		}
 
 		const currentSubtree = get().trees[tree][subtree]
 		const points = currentSubtree.points + cost
 
-		let newTier: number
-		for (newTier = 0; newTier < 4; newTier++) {
+		let newTier = 0
+		for (; newTier < 4; newTier++) {
 			if (points < tierCost[newTier]) break
 		}
 
@@ -132,7 +121,7 @@ export const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, ge
 						upgrades: {
 							...state.trees[tree][subtree].upgrades,
 							...unlocked,
-							[skill.name]: newLevel
+							[skillName]: newLevel
 						}
 					}
 				}
@@ -156,21 +145,19 @@ export const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, ge
 
 		get().resetSkills()
 
-		const trees: TreeNames[] = ['mastermind', 'enforcer', 'technician', 'ghost', 'fugitive']
-
-		trees.forEach(treeName => {
-			Object.values(skills[treeName].subtrees).forEach(subtree => {
+		skillTreeNames.forEach(treeName => {
+			Object.entries(skillsMinimised[treeName]).forEach(([subtreeName, skillNames]) => {
 
 				const subtreeBasicChar = decodeValues(skillsData.substring(0, 1))
 				const subtreeAcedChar = decodeValues(skillsData.substring(1, 2))
-				let mask = 1
+				let mask = 1;
 
-				// semicolons needed
-				const upgrades = [...Object.values(subtree.upgrades)];
-				[upgrades[1], upgrades[2]] = [upgrades[2], upgrades[1]];
-				[upgrades[3], upgrades[4]] = [upgrades[4], upgrades[3]]
+				[skillNames[1], skillNames[2]] = [skillNames[2], skillNames[1]];
+				[skillNames[3], skillNames[4]] = [skillNames[4], skillNames[3]]
 
-				upgrades.forEach(skill => {
+				skillNames.forEach((skillName, i) => {
+
+					const skillTierIndex = [1, 2, 2, 3, 3, 4] as const
 
 					const skillBasicBit = subtreeBasicChar & mask
 					const skillAcedBit = subtreeAcedChar & mask
@@ -178,8 +165,9 @@ export const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, ge
 					if (skillBasicBit !== 0 || skillAcedBit !== 0) {
 						get().changeSkillState({
 							tree: treeName,
-							subtree: subtree.name,
-							skill,
+							subtree: subtreeName,
+							skillTier: skillTierIndex[i],
+							skillName,
 							oldLevel: 'available',
 							direction: 'upgrade'
 						})
@@ -187,8 +175,9 @@ export const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, ge
 						if (skillAcedBit !== 0) {
 							get().changeSkillState({
 								tree: treeName,
-								subtree: subtree.name,
-								skill,
+								subtree: subtreeName,
+								skillTier: skillTierIndex[i],
+								skillName,
 								oldLevel: 'basic',
 								direction: 'upgrade'
 							})
