@@ -112,8 +112,11 @@ const Container: FC<ContainerProps> = ({
 				</Head>
 			}
 
-			<Area columns={columns} rows={rows}
-				areas={areas}>
+			<Area
+				columns={columns}
+				rows={rows}
+				areas={areas}
+			>
 
 				{title && <Title>{title}</Title>}
 
