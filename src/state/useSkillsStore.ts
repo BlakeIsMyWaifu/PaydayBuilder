@@ -5,6 +5,7 @@ import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 
 import { createActionName, type Slice } from './storeTypes'
+import { useAbilityStore } from './useAbilitiesStore'
 
 // State
 
@@ -81,7 +82,9 @@ export const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, ge
 			4: 8
 		}
 
-		const tierCost = [0, 1, 3, 16]
+		const { infamy } = useAbilityStore.getState()
+
+		const tierCost = [0, 1, 3, infamy ? 16 : 18]
 
 		const skillTierIndex = [1, 2, 2, 3, 3, 4]
 

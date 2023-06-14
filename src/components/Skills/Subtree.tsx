@@ -1,6 +1,7 @@
 import { type SkillData, type SubtreeData, type TreeNames } from 'data/abilities/skills'
 import { type Dispatch, type FC, type SetStateAction } from 'react'
 import { useIsMobile } from 'state/settingsContext'
+import { useAbilityStore } from 'state/useAbilitiesStore'
 import { useSkillsStore } from 'state/useSkillsStore'
 import styled from 'styled-components'
 import corner from 'utils/corner'
@@ -61,8 +62,10 @@ const Subtree: FC<SubtreeProps> = ({ treeName, subtree, setSkillHovered }) => {
 
 	const skills = Object.values(subtree.upgrades)
 
-	const backgroundBarHeight = (): number => {
-		return tier === 3 ? (25 * tier) + (points / 16 * 25) : 25 * tier
+	const infamy = useAbilityStore(state => state.infamy)
+
+	const backgroundBarHeight = () => {
+		return tier === 3 ? (25 * tier) + (points / (infamy ? 16 : 18) * 25) : 25 * tier
 	}
 
 	const skillProps = (i: number): SkillProps => ({
