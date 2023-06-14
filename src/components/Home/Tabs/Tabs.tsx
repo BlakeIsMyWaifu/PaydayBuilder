@@ -370,11 +370,21 @@ const CrewManagementSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 }
 
 const InfamySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
+
+	const infamy = useAbilityStore(state => state.infamy)
+
 	return (
 		<Selector
 			title='infamy'
 			setHoverInfo={setHoverInfo}
-			infoData={null}
+			infoData={{
+				title: 'Infamy',
+				description: [
+					'Infamy lowers the required skill points spent to unlock the top skill of every tree from 18 to 16',
+					`Currently ${infamy ? 'enabled' : 'disabled'}`
+				]
+			}}
+			image={infamy ? 'masks/dallas' : 'masks/dallas_clean'}
 		/>
 	)
 }

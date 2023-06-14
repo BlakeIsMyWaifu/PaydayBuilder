@@ -2,7 +2,7 @@ import { type PerkDeckList } from 'data/abilities/perks'
 import { type MaskList } from 'data/character/masks'
 import { type Weapon } from 'data/weapons/guns/weaponTypes'
 import { type ThrowableList } from 'data/weapons/throwables'
-import { encodeArmour, encodeArmoury, encodeCharacter, encodeCopycat, encodeEquipment, encodeMask, encodeMelee, encodePerkDeck, encodeSkills, encodeThrowable, type EncodeWeapons, encodeWeapons } from 'utils/encodeBuild'
+import { encodeArmour, encodeArmoury, encodeCharacter, encodeCopycat, encodeEquipment, encodeInfamy, encodeMask, encodeMelee, encodePerkDeck, encodeSkills, encodeThrowable, type EncodeWeapons, encodeWeapons } from 'utils/encodeBuild'
 import { z } from 'zod'
 
 import { publicProcedure } from '../procedure'
@@ -67,5 +67,8 @@ export const encodeRouter = createTRPCRouter({
 		.mutation(({ input }) => encodePerkDeck(input as PerkDeckList)),
 	copycat: publicProcedure
 		.input(z.tuple([z.number(), z.number(), z.number(), z.number(), z.number()]))
-		.mutation(({ input }) => encodeCopycat(input))
+		.mutation(({ input }) => encodeCopycat(input)),
+	infamy: publicProcedure
+		.input(z.boolean())
+		.mutation(({ input }) => encodeInfamy(input))
 })

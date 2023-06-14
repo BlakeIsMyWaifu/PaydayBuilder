@@ -14,7 +14,7 @@ const useBuildImport = () => {
 	const { changeMask, changeCharacter, changeArmour, changeEquipment } = useCharacterStore()
 	const { resetArmoury, addWeapon } = useArmouryStore()
 	const { changeWeapon, changeThrowable, changeMelee } = useWeaponsStore()
-	const { changePerkDeck, setCopycatValues } = useAbilityStore()
+	const { changePerkDeck, setCopycatValues, setInfamy } = useAbilityStore()
 	const { importSkillsData } = useSkillsStore()
 
 	const maskData = trpc.decode.mask.useMutation({ onSuccess: data => changeMask(data) })
@@ -45,6 +45,7 @@ const useBuildImport = () => {
 	const meleeData = trpc.decode.melee.useMutation({ onSuccess: data => changeMelee(data) })
 	const perkDeckData = trpc.decode.perkDeck.useMutation({ onSuccess: data => changePerkDeck(data) })
 	const copycatData = trpc.decode.copycat.useMutation({ onSuccess: data => setCopycatValues(data) })
+	const infamyData = trpc.decode.infamy.useMutation({ onSuccess: data => setInfamy(data) })
 
 	return useCallback((buildData: string, newBuild: boolean) => {
 
@@ -66,8 +67,9 @@ const useBuildImport = () => {
 		meleeData.mutate(parameters.get('m'))
 		perkDeckData.mutate(parameters.get('p'))
 		copycatData.mutate(parameters.get('c'))
+		infamyData.mutate(parameters.get('i') === '0' ? '0' : '1')
 		importSkillsData(parameters.get('s') ?? '0-90-90-9000')
-	}, [addBuild, armourData, armouryData, characterData, copycatData, equipmentData, importSkillsData, maskData, meleeData, perkDeckData, throwableData, weaponsData])
+	}, [addBuild, armourData, armouryData, characterData, copycatData, equipmentData, importSkillsData, infamyData, maskData, meleeData, perkDeckData, throwableData, weaponsData])
 }
 
 export default useBuildImport

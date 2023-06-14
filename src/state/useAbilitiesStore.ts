@@ -12,14 +12,14 @@ export interface AbilityStateSlice {
 	perkDeck: PerkDeckList;
 	copycat: CopycatValues;
 	crewmanagement: null;
-	infamy: null;
+	infamy: boolean;
 }
 
 const initialState: AbilityStateSlice = {
 	perkDeck: 'Crew Chief',
 	copycat: [0, 0, 0, 0, 0],
 	crewmanagement: null,
-	infamy: null
+	infamy: true
 }
 
 const createStateSlice: Slice<AbilityStore, AbilityStateSlice> = () => initialState
@@ -30,6 +30,8 @@ interface AbilityActionSlice {
 	changePerkDeck: (perkdeck: PerkDeckList) => void;
 	changeCopycatValues: (index: number, direction: 'increment' | 'decrement') => void;
 	setCopycatValues: (values: CopycatValues) => void;
+	toggleInfamy: () => void;
+	setInfamy: (enabled: boolean) => void;
 }
 
 const actionName = createActionName('abilities')
@@ -51,6 +53,12 @@ const createActionSlice: Slice<AbilityStore, AbilityActionSlice> = (set, get) =>
 	},
 	setCopycatValues: values => {
 		set({ copycat: values }, ...actionName('setCopycatValues'))
+	},
+	toggleInfamy: () => {
+		set(state => ({ infamy: !state.infamy }), ...actionName('toggleInfamy'))
+	},
+	setInfamy: enabled => {
+		set({ infamy: enabled }, ...actionName('setInfamy'))
 	}
 })
 

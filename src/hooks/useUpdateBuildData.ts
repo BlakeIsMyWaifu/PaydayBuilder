@@ -73,6 +73,10 @@ const useUpdateBuildData = (): void => {
 	useEffect(() => {
 		copycatEncode.mutate(copycat)
 	}, [...copycat])
+
+	const infamy = useAbilityStore(state => state.infamy)
+	const infamyEncode = trpc.encode.infamy.useMutation(onSuccess('i'))
+	useMutate(infamy, infamyEncode)
 }
 
 const onSuccess = (key: string) => ({ onSuccess: (data: string) => updateData(key, data) })
