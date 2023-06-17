@@ -1,3 +1,6 @@
+import { type CrewAbility } from 'data/abilities/crewAbilities'
+import { type CrewBoost } from 'data/abilities/crewBoosts'
+import { type CrewWeapon } from 'data/abilities/crewWeapons'
 import { type PerkDeckList } from 'data/abilities/perks'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
@@ -6,19 +9,41 @@ import { createActionName, type Slice } from './storeTypes'
 
 // State
 
+export interface Crew {
+	weapon: CrewWeapon;
+	ability: CrewAbility;
+	boost: CrewBoost;
+}
+
 export type CopycatValues = [number, number, number, number, number];
 
 export interface AbilityStateSlice {
 	perkDeck: PerkDeckList;
 	copycat: CopycatValues;
-	crewmanagement: null;
+	crewManagement: [Crew, Crew, Crew];
 	infamy: boolean;
 }
 
 const initialState: AbilityStateSlice = {
 	perkDeck: 'Crew Chief',
 	copycat: [0, 0, 0, 0, 0],
-	crewmanagement: null,
+	crewManagement: [
+		{
+			weapon: 'AMCAR',
+			ability: 'Quick',
+			boost: 'Accelerator'
+		},
+		{
+			weapon: 'AMCAR',
+			ability: 'Piercing',
+			boost: 'Invigorator'
+		},
+		{
+			weapon: 'AMCAR',
+			ability: 'Sharpeyed',
+			boost: 'Stockpiler'
+		}
+	],
 	infamy: true
 }
 
