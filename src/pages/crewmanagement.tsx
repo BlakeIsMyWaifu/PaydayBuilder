@@ -1,14 +1,19 @@
 import Container from 'components/Container'
-import { Data, Head, Label, Row, Table } from 'components/Table/Table-Elements'
+import CrewWeaponTable from 'components/Table/CrewWeaponTable'
 import crewAbilities from 'data/abilities/crewAbilities'
 import crewBoosts from 'data/abilities/crewBoosts'
-import crewWeapons, { type CrewWeapon } from 'data/abilities/crewWeapons'
+import crewWeapons from 'data/abilities/crewWeapons'
 import { type NextPage } from 'next'
+import { useRouter } from 'next/router'
 import { type FC } from 'react'
 import { Crew, useAbilityStore } from 'state/useAbilitiesStore'
 import styled from 'styled-components'
 import { blue, dim } from 'utils/colours'
 import corner from 'utils/corner'
+
+export type CrewIndex = '0' | '1' | '2'
+
+export const isValidCrewIndex = (slot: string): slot is CrewIndex => ['0', '1', '2'].includes(slot)
 
 const ItemContainer = styled.div`
 	grid-area: items;
@@ -42,6 +47,7 @@ const SlotTitle = styled.p`
 
 const SlotImage = styled.img`
 	grid-area: image;
+	cursor: pointer;
 `
 
 const SlotDescription = styled.p`
@@ -78,7 +84,11 @@ const CrewManagement: NextPage = () => {
 			<ItemContainer>
 				{
 					crews.map((crew, i) => {
-						return <Crew key={i} crew={crew} />
+						return <Crew
+							key={i}
+							crew={crew}
+							crewIndex={i}
+						/>
 					})
 				}
 			</ItemContainer>
@@ -88,17 +98,19 @@ const CrewManagement: NextPage = () => {
 
 interface CrewProps {
 	crew: Crew;
+	crewIndex: number;
 }
 
-const Crew: FC<CrewProps> = ({ crew: { weapon, ability, boost } }) => {
+const Crew: FC<CrewProps> = ({ crew: { weapon, ability, boost }, crewIndex }) => {
 	return (
 		<CrewContainer>
 
 			<Slot
 				label='Weapon'
 				title={weapon}
-				image={`weapons/${weapon}`}
-				description={<WeaponTable weapon={weapon} />}
+				image={`weapons/${crewWeapons[weapon].image}`}
+				description={<TableWrapper><CrewWeaponTable weaponName={weapon} /></TableWrapper>}
+				crewIndex={crewIndex}
 			/>
 
 			<Slot
@@ -106,6 +118,7 @@ const Crew: FC<CrewProps> = ({ crew: { weapon, ability, boost } }) => {
 				title={ability}
 				image={`crew/abilities/${ability}`}
 				description={<SlotDescription>{crewAbilities[ability]}</SlotDescription>}
+				crewIndex={crewIndex}
 			/>
 
 			<Slot
@@ -113,6 +126,7 @@ const Crew: FC<CrewProps> = ({ crew: { weapon, ability, boost } }) => {
 				title={boost}
 				image={`crew/boosts/${boost}`}
 				description={<SlotDescription>{crewBoosts[boost]}</SlotDescription>}
+				crewIndex={crewIndex}
 			/>
 
 		</CrewContainer>
@@ -124,49 +138,22 @@ interface SlotProps {
 	title: string;
 	image: string;
 	description: JSX.Element;
+	crewIndex: number;
 }
 
-const Slot: FC<SlotProps> = ({ label, title, image, description }) => {
+const Slot: FC<SlotProps> = ({ label, title, image, description, crewIndex }) => {
+
+	const router = useRouter()
+
 	return (
 		<SlotContainer>
 			<SlotLabel>{label}</SlotLabel>
 			<SlotTitle>{title}</SlotTitle>
-			<SlotImage src={`/images/${image}.webp`} />
+			<SlotImage src={`/images/${image}.webp`} onClick={() => {
+				router.push(`/crewmanagement/${label.toLowerCase()}/${crewIndex}`).catch(console.error)
+			}} />
 			{description}
 		</SlotContainer>
-	)
-}
-
-interface WeaponTableProps {
-	weapon: CrewWeapon;
-}
-
-const WeaponTable: FC<WeaponTableProps> = ({ weapon }) => {
-
-	const weaponData = crewWeapons[weapon]
-
-	return (
-		<TableWrapper>
-			<Table>
-				<thead>
-					<Row>
-						<Head/>
-						<Head>Stats</Head>
-					</Row>
-				</thead>
-				<tbody>
-					{
-						Object.entries(weaponData).map(([stat, value], i) => {
-							if (!i) return null
-							return <Row key={stat}>
-								<Label>{stat}</Label>
-								<Data>{value}</Data>
-							</Row>
-						})
-					}
-				</tbody>
-			</Table>
-		</TableWrapper>
 	)
 }
 

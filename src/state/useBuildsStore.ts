@@ -42,7 +42,7 @@ interface BuildsActionSlice {
 	changeBuild: (id: number) => void;
 }
 
-const actionName = createActionName('builds')
+const actionName = createActionName<keyof BuildsActionSlice>('builds')
 
 const createActionSlice: Slice<BuildsStore, BuildsActionSlice, Middlewares> = (set, get) => ({
 	addBuild: equipBuild => {
@@ -94,7 +94,7 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice, Middlewares> = (s
 					data: parameters.toString()
 				}
 			}
-		}), ...actionName(`updateData/${key}`))
+		}), false, `builds/updateData/${key}`)
 	},
 	changeBuild: id => {
 		set({ current: id }, ...actionName('changeBuild'))

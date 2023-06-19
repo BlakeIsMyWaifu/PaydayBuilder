@@ -59,7 +59,7 @@ interface SkillsActionSlice {
 	importSkillsData: (skillsDataCompressed: string) => void;
 }
 
-const actionName = createActionName('skills')
+const actionName = createActionName<keyof SkillsActionSlice>('skills')
 
 export const createActionSlice: Slice<SkillsStore, SkillsActionSlice> = (set, get) => ({
 	changeSkillState: ({ tree, subtree, skillName, skillTier, oldLevel, direction }) => {

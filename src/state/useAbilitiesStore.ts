@@ -2,6 +2,7 @@ import { type CrewAbility } from 'data/abilities/crewAbilities'
 import { type CrewBoost } from 'data/abilities/crewBoosts'
 import { type CrewWeapon } from 'data/abilities/crewWeapons'
 import { type PerkDeckList } from 'data/abilities/perks'
+import { type CrewIndex } from 'pages/crewmanagement'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 
@@ -55,11 +56,14 @@ interface AbilityActionSlice {
 	changePerkDeck: (perkdeck: PerkDeckList) => void;
 	changeCopycatValues: (index: number, direction: 'increment' | 'decrement') => void;
 	setCopycatValues: (values: CopycatValues) => void;
+	changeCrewWeapon: (crewIndex: CrewIndex, weapon: CrewWeapon) => void;
+	changeCrewAbility: (crewIndex: CrewIndex, ability: CrewAbility) => void;
+	changeCrewBoost: (crewIndex: CrewIndex, boost: CrewBoost) => void;
 	toggleInfamy: () => void;
 	setInfamy: (enabled: boolean) => void;
 }
 
-const actionName = createActionName('abilities')
+const actionName = createActionName<keyof AbilityActionSlice>('abilities')
 
 const createActionSlice: Slice<AbilityStore, AbilityActionSlice> = (set, get) => ({
 	changePerkDeck: perkdeck => {
@@ -74,10 +78,25 @@ const createActionSlice: Slice<AbilityStore, AbilityActionSlice> = (set, get) =>
 		if (nextValue === maxValue + 1) nextValue = 0
 		const { copycat } = get()
 		copycat[index] = nextValue
-		set({ copycat }, ...actionName('changeCopycatCard'))
+		set({ copycat }, ...actionName('changeCopycatValues'))
 	},
 	setCopycatValues: values => {
 		set({ copycat: values }, ...actionName('setCopycatValues'))
+	},
+	changeCrewWeapon: (crewIndex, weapon) => {
+		const { crewManagement } = get()
+		crewManagement[+crewIndex].weapon = weapon
+		set({ crewManagement }, ...actionName('changeCrewWeapon'))
+	},
+	changeCrewAbility: (crewIndex, ability) => {
+		const { crewManagement } = get()
+		crewManagement[+crewIndex].ability = ability
+		set({ crewManagement }, ...actionName('changeCrewAbility'))
+	},
+	changeCrewBoost: (crewIndex, boost) => {
+		const { crewManagement } = get()
+		crewManagement[+crewIndex].boost = boost
+		set({ crewManagement }, ...actionName('changeCrewBoost'))
 	},
 	toggleInfamy: () => {
 		set(state => ({ infamy: !state.infamy }), ...actionName('toggleInfamy'))

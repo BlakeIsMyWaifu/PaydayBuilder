@@ -8,7 +8,7 @@ const steakout12G = {
 	image: 'aa12',
 	source: content['The Butcher\'s BBQ Pack'],
 	inventorySlot: 'primary',
-	reputation: -1,
+	reputation: -1, // TODO
 	weaponType: 'Shotgun',
 	firingMode: 'Selective firing',
 	cost: 920e3,
