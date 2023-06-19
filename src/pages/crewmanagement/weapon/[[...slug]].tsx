@@ -35,13 +35,13 @@ const CrewWeapon = ({ crewIndex }: CrewWeaponProps) => {
 
 	const leftFacing = useIsLeftFacing()
 
-	const equippedName = useAbilityStore(state => state.crewManagement[+crewIndex].weapon)
-	const [selectedWeaponName, setSelectedWeaponName] = useState(equippedName)
+	const equippedWeaponName = useAbilityStore(state => state.crewManagement[+crewIndex].weapon)
+	const [selectedWeaponName, setSelectedWeaponName] = useState(equippedWeaponName)
 
 	const changeCrewWeapon = useAbilityStore(state => state.changeCrewWeapon)
 
 	const equipWeaponHandler = () => {
-		if (selectedWeaponName === equippedName) return
+		if (selectedWeaponName === equippedWeaponName) return
 		router.push('/crewmanagement').catch(console.error)
 		changeCrewWeapon(crewIndex, selectedWeaponName)
 	}
@@ -63,7 +63,7 @@ const CrewWeapon = ({ crewIndex }: CrewWeaponProps) => {
 							onClick={() => isSelected ? equipWeaponHandler() : setSelectedWeaponName(weaponName)}
 						>
 							<ItemName colour={itemColours.Free}>{weaponName}</ItemName>
-							{weaponName === equippedName && <ItemEquipped />}
+							{weaponName === equippedWeaponName && <ItemEquipped />}
 							<ItemImage
 								src={`/images/weapons/${weaponData.image}.webp`}
 								leftFacing={leftFacing}
