@@ -93,7 +93,7 @@ const CrewManagementContainer = styled.div`
 	grid-template-rows: repeat(2, auto);
 	align-items: center;
 	justify-content: center;
-	padding: ${props => props.theme.isMobile ? '0' : '32px 0'}
+	padding: ${props => props.theme.isMobile ? '0' : '32px 0'};
 `
 
 const CrewManagementImage = styled.img`
@@ -405,6 +405,8 @@ const InfamySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 
 	const infamy = useAbilityStore(state => state.infamy)
 
+	const { isSuccess } = trpc.loadoutData.getCharacter.useQuery('Dallas')
+
 	return (
 		<Selector
 			title='infamy'
@@ -416,7 +418,7 @@ const InfamySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 					`Currently ${infamy ? 'enabled' : 'disabled'}`
 				]
 			}}
-			image={infamy ? 'masks/dallas' : 'masks/dallas_clean'}
+			image={isSuccess ? (infamy ? 'masks/dallas' : 'masks/dallas_clean') : undefined}
 		/>
 	)
 }
