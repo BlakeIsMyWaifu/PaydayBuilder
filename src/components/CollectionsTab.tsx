@@ -42,7 +42,7 @@ const CollectionsTab: FC<CollectionsTabProps> = ({ collectionRefs, collections }
 						const title = collectionTitle.split('?').at(-1)
 
 						return <CollectionTitle
-							key={collectionTitle}
+							key={`${rarity}?${collectionTitle}`}
 							colour={itemColours[rarity]}
 							onClick={() => (collectionRefs.current[i] as HTMLDivElement)?.scrollIntoView({ behavior: 'smooth' })}
 						>

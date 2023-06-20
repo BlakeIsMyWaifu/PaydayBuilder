@@ -102,8 +102,9 @@ const Mask: NextPage = () => {
 			<MaskItemContainer ref={itemContainerRef}>
 				{
 					Object.values(categories[selectedTab]).map((collectionMasks, i) => {
+						const firstMask = Object.values(collectionMasks.masks)[0]
 						return <MaskCollection
-							key={Object.values(collectionMasks.masks)[0].collection}
+							key={`${firstMask.rarity}?${firstMask.collection}`}
 							collectionMasks={collectionMasks}
 							selectedMask={selectedMask}
 							setSelectedMask={setSelectedMask}
@@ -183,11 +184,11 @@ const MaskCollection: FC<MaskCollectionProps> = ({ collectionMasks, selectedMask
 	const title = collectionTitle.split('?').at(-1)
 
 	return (
-		<MaskCollectionContainer key={collectionTitle} ref={ref => {
+		<MaskCollectionContainer key={`${collectionMasks.masks[0]?.rarity}?${collectionTitle}`} ref={ref => {
 			collectionRefs.current[i] = ref
 		}}>
 			<MaskCollectionTitle colour={collectionColour}>{title}</MaskCollectionTitle>
-			<MaskWrapper key={collectionTitle}>
+			<MaskWrapper key={`${collectionMasks.masks[0]?.rarity}?${collectionTitle}`}>
 				{
 					Object.values(collectionMasks.masks).map(maskData => {
 						const isSelected = maskData.name === selectedMask?.name
