@@ -1,7 +1,7 @@
 import Container from 'components/Container'
 import CrewWeaponTable from 'components/Table/CrewWeaponTable'
-import crewAbilities, { type CrewAbility } from 'data/abilities/crewAbilities'
-import crewBoosts, { type CrewBoost } from 'data/abilities/crewBoosts'
+import crewAbilities from 'data/abilities/crewAbilities'
+import crewBoosts from 'data/abilities/crewBoosts'
 import crewWeapons from 'data/abilities/crewWeapons'
 import useWindowSize from 'hooks/useWindow.size'
 import { type NextPage } from 'next'
@@ -12,6 +12,7 @@ import { Crew, useAbilityStore } from 'state/useAbilitiesStore'
 import styled from 'styled-components'
 import { blue, dim } from 'utils/colours'
 import corner from 'utils/corner'
+import { isUniqueValue } from 'utils/isUniqueValue'
 
 const ItemContainer = styled.div`
 	grid-area: items;
@@ -165,19 +166,12 @@ const Slot: FC<SlotProps> = ({ label, title, image, description, crewIndex, mobi
 
 	const isWeapon = label === 'weapon'
 
-	const isUnique = () => {
-		if (isWeapon) return true
-		const crewValues: (CrewAbility | CrewBoost | null)[] = crewManagement.map(crew => crew[label])
-		crewValues[+crewIndex] = null
-		return !crewValues.includes(title)
-	}
-
 	const isMobile = useIsMobile()
 
 	const { width } = useWindowSize()
 
 	return (
-		<SlotContainer isUnique={isUnique()} firstColumnWidth={isWeapon ? 256 : 128}>
+		<SlotContainer isUnique={isWeapon || isUniqueValue(title, crewManagement.map(crew => crew[label]))} firstColumnWidth={isWeapon ? 256 : 128}>
 			{!isMobile && <SlotLabel>{label}</SlotLabel>}
 			<SlotTitle>{title}</SlotTitle>
 			<SlotImage

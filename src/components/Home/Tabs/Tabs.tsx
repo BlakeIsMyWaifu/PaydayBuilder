@@ -16,6 +16,7 @@ import { dim } from 'utils/colours'
 import corner from 'utils/corner'
 import { trpc } from 'utils/trpc'
 
+import CrewManagementTable from './CrewManagementTable'
 import PlaceholderSelector from './PlaceholderSelector'
 import Selector from './Selector'
 import SelectorSkills from './SkillsSelector'
@@ -82,8 +83,23 @@ const Preview = styled(corner)`
 const SelectorWrapper = styled(corner)`
 	height: calc(100% - 20px);
 	display: grid;
-	grid-template-columns: ${props => props.theme.isMobile ? '1fr 1fr' : '1fr'};
+	grid-template-columns: ${props => props.theme.isMobile ? 'minmax(0, 1fr) minmax(0, 1fr)' : '1fr'};
 	grid-template-rows: ${props => props.theme.isMobile ? 'minmax(0, 1fr) minmax(0, 1fr)' : '25% 25% 25% 25%'};
+`
+
+const CrewManagementContainer = styled.div`
+	display: grid;
+	grid-template-columns: repeat(3, auto);
+	grid-template-rows: repeat(2, auto);
+	align-items: center;
+	justify-content: center;
+	padding: ${props => props.theme.isMobile ? '0' : '32px 0'}
+`
+
+const CrewManagementImage = styled.img`
+	max-height: 90%;
+	max-width: 90%;
+	aspect-ratio: 1 / 1;
 `
 
 const Tabs: FC = () => {
@@ -360,12 +376,28 @@ const PerkDeckSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 }
 
 const CrewManagementSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
+
+	const crewManagement = useAbilityStore(state => state.crewManagement)
+
 	return (
 		<Selector
+			linkChildren
 			title='crew management'
 			setHoverInfo={setHoverInfo}
-			infoData={null}
-		/>
+			infoData={{
+				title: 'Crew Management',
+				table: <CrewManagementTable/>
+			}}
+		>
+			<CrewManagementContainer>
+				<CrewManagementImage src={`/images/crew/abilities/${crewManagement[0].ability}.webp`} />
+				<CrewManagementImage src={`/images/crew/abilities/${crewManagement[1].ability}.webp`} />
+				<CrewManagementImage src={`/images/crew/abilities/${crewManagement[2].ability}.webp`} />
+				<CrewManagementImage src={`/images/crew/boosts/${crewManagement[0].boost}.webp`} />
+				<CrewManagementImage src={`/images/crew/boosts/${crewManagement[1].boost}.webp`} />
+				<CrewManagementImage src={`/images/crew/boosts/${crewManagement[2].boost}.webp`} />
+			</CrewManagementContainer>
+		</Selector>
 	)
 }
 

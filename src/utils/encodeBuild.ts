@@ -19,7 +19,7 @@ import { type SkillsStateSlice } from 'state/useSkillsStore'
 import { type WeaponsStateSlice } from 'state/useWeaponsStore'
 
 import { charString, compressData, encodeNumber, encodeString } from './decodeEncodeUtils'
-import findMask from './findMask'
+import { findMask } from './findMask'
 import { findWeapon } from './findWeapon'
 import { typedObject } from './typedObject'
 
