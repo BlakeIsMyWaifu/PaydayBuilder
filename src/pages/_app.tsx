@@ -2,6 +2,7 @@ import 'fonts/fonts.css'
 
 import { Analytics } from '@vercel/analytics/react'
 import Cookies from 'components/Cookies'
+import useCacheAll from 'hooks/useCacheAll'
 import useErrorHandler from 'hooks/useErrorHandler'
 import useFirstLoadBuildImport from 'hooks/useFirstLoadBuildImport'
 import useUpdateBuildData from 'hooks/useUpdateBuildData'
@@ -43,6 +44,8 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX
 	useUpdateBuildData()
 
 	useErrorHandler()
+
+	useCacheAll()
 
 	const [theme, setTheme] = useState<DefaultTheme>({ isMobile: false })
 
