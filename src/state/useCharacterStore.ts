@@ -41,7 +41,7 @@ interface CharacterActionSlice {
 	changeEquipment: (slot: Slot, equipment: EquipmentList | null) => void;
 }
 
-const actionName = createActionName('character')
+const actionName = createActionName<keyof CharacterActionSlice>('character')
 
 const createActionSlice: Slice<CharacterStore, CharacterActionSlice> = (set, get) => ({
 	changeMask: mask => {

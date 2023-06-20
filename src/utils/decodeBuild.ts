@@ -1,12 +1,15 @@
+import crewAbilities from 'data/abilities/crewAbilities'
+import crewBoosts from 'data/abilities/crewBoosts'
+import crewWeapons from 'data/abilities/crewWeapons'
 import perkDecks, { type PerkDeckList } from 'data/abilities/perks'
 import armours, { type ArmourList } from 'data/character/armours'
 import characters, { type CharacterList } from 'data/character/characters'
 import equipments, { type EquipmentData, type EquipmentList } from 'data/character/equipment'
-import { allMasks, type CategoryList, type MaskList } from 'data/character/masks'
+import { allMasks, type MaskList } from 'data/character/masks'
 import { type Modification, type ModificationSlot, type WeaponData, type WeaponFind, type WeaponName, type WeaponType } from 'data/weapons/guns/weaponTypes'
 import melees, { type MeleeList } from 'data/weapons/melees'
 import throwables, { type ThrowableData, type ThrowableList } from 'data/weapons/throwables'
-import { type CopycatValues } from 'state/useAbilitiesStore'
+import { type CopycatValues,type Crew } from 'state/useAbilitiesStore'
 
 import { decodeValues, decompressData } from './decodeEncodeUtils'
 import { findWeapon } from './findWeapon'
@@ -115,7 +118,7 @@ export const decodeMelee = (value: string): MeleeList => {
 export const decodeMask = (value: string): MaskList => {
 	const [categoryIndex, encodedCollection, encodedMaskId] = value.split('')
 
-	const category = Object.keys(allMasks)[+categoryIndex] as CategoryList
+	const category = typedObject.keys(allMasks)[+categoryIndex]
 
 	const collectionId = decodeValues(encodedCollection)
 	const collections = Object.values(allMasks[category])
@@ -129,6 +132,42 @@ export const decodeMask = (value: string): MaskList => {
 export const decodeCharacter = (value: string): CharacterList => {
 	const characterIndex = decodeValues(value)
 	return Object.keys(characters)[characterIndex]
+}
+
+export const decodeCrewManagement = (value: string) => {
+	const crew: [Crew, Crew, Crew] = [
+		{
+			weapon: 'AMCAR',
+			ability: 'Quick',
+			boost: 'Accelerator'
+		},
+		{
+			weapon: 'AMCAR',
+			ability: 'Piercing',
+			boost: 'Invigorator'
+		},
+		{
+			weapon: 'AMCAR',
+			ability: 'Sharpeyed',
+			boost: 'Stockpiler'
+		}
+	]
+	if (value.length !== 6) return crew
+
+	const weaponList = typedObject.keys(crewWeapons)
+	const abilityList = typedObject.keys(crewAbilities)
+	const boostList = typedObject.keys(crewBoosts)
+
+	value.match(/.{1,2}/g)?.forEach(([weaponValue, skillValue], i) => {
+		crew[i].weapon = weaponList[decodeValues(weaponValue)]
+
+		const boostIndex = decodeValues(skillValue) % 8
+		const abilityIndex = ((decodeValues(skillValue) - boostIndex) / 8) - 1
+		crew[i].ability = abilityList[abilityIndex]
+		crew[i].boost = boostList[boostIndex]
+	})
+
+	return crew
 }
 
 export const decodeInfamy = (value: '0' | '1') => value === '1'

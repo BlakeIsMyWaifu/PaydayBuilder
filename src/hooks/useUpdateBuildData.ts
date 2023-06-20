@@ -74,6 +74,12 @@ const useUpdateBuildData = (): void => {
 		copycatEncode.mutate(copycat)
 	}, [...copycat])
 
+	const crewManagement = useAbilityStore(state => state.crewManagement)
+	const crewManagementEncode = trpc.encode.crewManagement.useMutation(onSuccess('b'))
+	useEffect(() => {
+		crewManagementEncode.mutate(crewManagement)
+	}, [JSON.stringify(crewManagement)])
+
 	const infamy = useAbilityStore(state => state.infamy)
 	const infamyEncode = trpc.encode.infamy.useMutation(onSuccess('i'))
 	useMutate(infamy, infamyEncode)

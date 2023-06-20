@@ -12,4 +12,4 @@ export type Slice<
 	Middleware extends [keyof StoreMutators<unknown, unknown>, unknown][] = [DevTools]
 	> = StateCreator<Store, Middleware, [], Slice>
 
-export const createActionName = (storeName: string) => (actionName: string): [false, string] => [false, `${storeName}/${actionName}`]
+export const createActionName = <T extends string>(storeName: string) => (actionName: T): [false, string] => [false, `${storeName}/${actionName}`]

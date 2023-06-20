@@ -24,7 +24,7 @@ interface SettingsActionSlice {
 	acceptCookies: () => void;
 }
 
-const actionName = createActionName('settings')
+const actionName = createActionName<keyof SettingsActionSlice>('settings')
 
 const createActionSlice: Slice<SettingsStore, SettingsActionSlice, Middlewares> = set => ({
 	toggleLeftFacing: () => {

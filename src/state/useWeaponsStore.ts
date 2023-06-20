@@ -32,7 +32,7 @@ interface WeaponsActionSlice {
 	changeMelee: (melee: MeleeList) => void;
 }
 
-const actionName = createActionName('weapons')
+const actionName = createActionName<keyof WeaponsActionSlice>('weapons')
 
 const createActionSlice: Slice<WeaponsStore, WeaponsActionSlice> = (set, get) => ({
 	changeWeapon: (slot, weaponId) => {

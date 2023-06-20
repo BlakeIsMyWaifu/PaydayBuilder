@@ -1,3 +1,6 @@
+import crewAbilities from 'data/abilities/crewAbilities'
+import crewBoosts from 'data/abilities/crewBoosts'
+import crewWeapons from 'data/abilities/crewWeapons'
 import perkDecks from 'data/abilities/perks'
 import { skillTreeNames } from 'data/abilities/skillsMinimised'
 import armours from 'data/character/armours'
@@ -9,14 +12,14 @@ import secondary from 'data/weapons/guns/secondary'
 import { type Slot, type Weapon } from 'data/weapons/guns/weaponTypes'
 import melees from 'data/weapons/melees'
 import throwables, { type ThrowableData, type ThrowableList } from 'data/weapons/throwables'
-import { type AbilityStateSlice } from 'state/useAbilitiesStore'
+import { type AbilityStateSlice,type Crew } from 'state/useAbilitiesStore'
 import { type ArmouryStateSlice } from 'state/useArmouryStore'
 import { type CharacterStateSlice } from 'state/useCharacterStore'
 import { type SkillsStateSlice } from 'state/useSkillsStore'
 import { type WeaponsStateSlice } from 'state/useWeaponsStore'
 
 import { charString, compressData, encodeNumber, encodeString } from './decodeEncodeUtils'
-import findMask from './findMask'
+import { findMask } from './findMask'
 import { findWeapon } from './findWeapon'
 import { typedObject } from './typedObject'
 
@@ -154,5 +157,18 @@ export const encodeMask = (mask: CharacterStateSlice['mask']): string => {
 }
 
 export const encodeCharacter = (character: CharacterList): string => encodeString(characters, character)
+
+export const encodeCrewManagement = (crews: AbilityStateSlice['crewManagement']) => {
+	const getIndex = (data: object, search: string) => Object.keys(data).findIndex(value => value === search)
+
+	const encodeCrew = (crew: Crew) => {
+		const weaponIndex = getIndex(crewWeapons, crew.weapon)
+		const abilityIndex = getIndex(crewAbilities, crew.ability)
+		const boostIndex = getIndex(crewBoosts, crew.boost)
+		return `${encodeNumber(weaponIndex)}${encodeNumber(((abilityIndex + 1) * 8) + boostIndex)}`
+	}
+
+	return `${encodeCrew(crews[0])}${encodeCrew(crews[1])}${encodeCrew(crews[2])}`
+}
 
 export const encodeInfamy = (infamy: boolean): '0' | '1' => infamy ? '1' : '0'

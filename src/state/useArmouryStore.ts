@@ -47,7 +47,7 @@ interface ArmouryActionSlice {
 	resetWeaponMods: (slot: Slot, id: number) => void;
 }
 
-const actionName = createActionName('armoury')
+const actionName = createActionName<keyof ArmouryActionSlice>('armoury')
 
 const createActionSlice: Slice<ArmouryStore, ArmouryActionSlice> = (set, get) => ({
 	addWeapon: (weapon, mods) => {

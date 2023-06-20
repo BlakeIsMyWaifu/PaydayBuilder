@@ -15,5 +15,3 @@ export const findMask = (maskName: string): MaskData => {
 	})
 	return out ?? defaultMask['Preferred Character']
 }
-
-export default findMask

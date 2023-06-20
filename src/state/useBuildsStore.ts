@@ -17,7 +17,7 @@ interface BuildsStateSlice {
 	builds: Record<number, BuildSave>;
 }
 
-export const defaultBuild = 's=0-90-90-9000&p=0&c=1-5&a=0&t=5&d=0&m=0&k=100&h=0&ap=_&as=_&w=0-0&i=1&n=_'
+export const defaultBuild = 's=0-90-90-9000&p=0&c=1-5&a=0&t=5&d=0&m=0&k=100&h=0&ap=_&as=_&w=0-0&b=7f7z7u&i=1&n=_'
 
 const initialState: BuildsStateSlice = {
 	current: 0,
@@ -42,7 +42,7 @@ interface BuildsActionSlice {
 	changeBuild: (id: number) => void;
 }
 
-const actionName = createActionName('builds')
+const actionName = createActionName<keyof BuildsActionSlice>('builds')
 
 const createActionSlice: Slice<BuildsStore, BuildsActionSlice, Middlewares> = (set, get) => ({
 	addBuild: equipBuild => {
@@ -94,7 +94,7 @@ const createActionSlice: Slice<BuildsStore, BuildsActionSlice, Middlewares> = (s
 					data: parameters.toString()
 				}
 			}
-		}), ...actionName(`updateData/${key}`))
+		}), false, `builds/updateData/${key}`)
 	},
 	changeBuild: id => {
 		set({ current: id }, ...actionName('changeBuild'))
