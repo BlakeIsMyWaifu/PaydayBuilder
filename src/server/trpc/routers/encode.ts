@@ -2,7 +2,8 @@ import { type PerkDeckList } from 'data/abilities/perks'
 import { type MaskList } from 'data/character/masks'
 import { type Weapon } from 'data/weapons/guns/weaponTypes'
 import { type ThrowableList } from 'data/weapons/throwables'
-import { encodeArmour, encodeArmoury, encodeCharacter, encodeCopycat, encodeEquipment, encodeInfamy, encodeMask, encodeMelee, encodePerkDeck, encodeSkills, encodeThrowable, type EncodeWeapons, encodeWeapons } from 'utils/encodeBuild'
+import { type AbilityStateSlice } from 'state/useAbilitiesStore'
+import { encodeArmour, encodeArmoury, encodeCharacter, encodeCopycat, encodeCrewManagement,encodeEquipment, encodeInfamy, encodeMask, encodeMelee, encodePerkDeck, encodeSkills, encodeThrowable, type EncodeWeapons, encodeWeapons } from 'utils/encodeBuild'
 import { z } from 'zod'
 
 import { publicProcedure } from '../procedure'
@@ -17,6 +18,12 @@ const armoury = z.record(z.object({
 	}),
 	modifications: z.record(z.string())
 }))
+
+const crew = z.object({
+	weapon: z.string(),
+	ability: z.string(),
+	boost: z.string()
+})
 
 export const encodeRouter = createTRPCRouter({
 	mask: publicProcedure
@@ -68,6 +75,9 @@ export const encodeRouter = createTRPCRouter({
 	copycat: publicProcedure
 		.input(z.tuple([z.number(), z.number(), z.number(), z.number(), z.number()]))
 		.mutation(({ input }) => encodeCopycat(input)),
+	crewManagement: publicProcedure
+		.input(z.tuple([crew, crew, crew]))
+		.mutation(({ input }) => encodeCrewManagement(input as AbilityStateSlice['crewManagement'])),
 	infamy: publicProcedure
 		.input(z.boolean())
 		.mutation(({ input }) => encodeInfamy(input))

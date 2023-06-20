@@ -42,7 +42,7 @@ const CrewAbility = ({ crewIndex }: CrewAbilityProps) =>  {
 	}
 
 	return (
-		<Container title='Crew Ability'>
+		<Container title='Crew Ability' backLocation='/crewmanagement'>
 
 			<ItemContainer>
 				{

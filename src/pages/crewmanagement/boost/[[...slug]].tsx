@@ -42,7 +42,7 @@ const CrewBoost = ({ crewIndex }: CrewBoostProps) =>  {
 	}
 
 	return (
-		<Container title='Crew Boost'>
+		<Container title='Crew Boost' backLocation='/crewmanagement'>
 
 			<ItemContainer>
 				{

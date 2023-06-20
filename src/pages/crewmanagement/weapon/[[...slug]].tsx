@@ -46,10 +46,13 @@ const CrewWeapon = ({ crewIndex }: CrewWeaponProps) => {
 	}
 
 	return (
-		<Container title='Crew Weapon' mobileLayout={{
-			rows: '3rem auto 156px 64px',
-			areas: '"title reset" "items items" "info ." "info back"'
-		}}>
+		<Container
+			title='Crew Weapon'
+			backLocation='/crewmanagement'
+			mobileLayout={{
+				rows: '3rem auto 156px 64px',
+				areas: '"title reset" "items items" "info ." "info back"'
+			}}>
 
 			<ItemContainer>
 				{

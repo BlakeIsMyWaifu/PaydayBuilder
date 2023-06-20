@@ -62,6 +62,7 @@ interface AbilityActionSlice {
 	changeCrewWeapon: (crewIndex: CrewIndex, weapon: CrewWeapon) => void;
 	changeCrewAbility: (crewIndex: CrewIndex, ability: CrewAbility) => void;
 	changeCrewBoost: (crewIndex: CrewIndex, boost: CrewBoost) => void;
+	setCrewManagement: (crews: [Crew, Crew, Crew]) => void;
 	toggleInfamy: () => void;
 	setInfamy: (enabled: boolean) => void;
 }
@@ -100,6 +101,9 @@ const createActionSlice: Slice<AbilityStore, AbilityActionSlice> = (set, get) =>
 		const { crewManagement } = get()
 		crewManagement[+crewIndex].boost = boost
 		set({ crewManagement }, ...actionName('changeCrewBoost'))
+	},
+	setCrewManagement: crews => {
+		set({ crewManagement: crews }, ...actionName('setCrewManagement'))
 	},
 	toggleInfamy: () => {
 		set(state => ({ infamy: !state.infamy }), ...actionName('toggleInfamy'))
