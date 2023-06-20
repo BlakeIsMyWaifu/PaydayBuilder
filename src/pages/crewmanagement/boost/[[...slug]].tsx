@@ -4,9 +4,8 @@ import { Item, ItemContainer, ItemEquipped, ItemImage, ItemName } from 'componen
 import crewBoosts from 'data/abilities/crewBoosts'
 import { type NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { type CrewIndex,isValidCrewIndex } from 'pages/crewmanagement'
 import { useState } from 'react'
-import { useAbilityStore } from 'state/useAbilitiesStore'
+import { type CrewIndex, isValidCrewIndex, useAbilityStore } from 'state/useAbilitiesStore'
 import { itemColours } from 'utils/colours'
 import { typedObject } from 'utils/typedObject'
 

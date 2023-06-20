@@ -2,7 +2,6 @@ import { type CrewAbility } from 'data/abilities/crewAbilities'
 import { type CrewBoost } from 'data/abilities/crewBoosts'
 import { type CrewWeapon } from 'data/abilities/crewWeapons'
 import { type PerkDeckList } from 'data/abilities/perks'
-import { type CrewIndex } from 'pages/crewmanagement'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 
@@ -15,6 +14,10 @@ export interface Crew {
 	ability: CrewAbility;
 	boost: CrewBoost;
 }
+
+export type CrewIndex = '0' | '1' | '2'
+
+export const isValidCrewIndex = (slot: string): slot is CrewIndex => ['0', '1', '2'].includes(slot)
 
 export type CopycatValues = [number, number, number, number, number];
 
