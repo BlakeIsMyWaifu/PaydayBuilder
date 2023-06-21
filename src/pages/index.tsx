@@ -3,10 +3,9 @@ import BuildSelector from 'components/Home/BuildSelector'
 import BuildsPanel from 'components/Home/Panel/BuildsPanel'
 import ControlPanel from 'components/Home/Panel/ControlPanel'
 import Tabs from 'components/Home/Tabs'
-import { type NextPage } from 'next'
+import { type NextPage, type NextPageContext } from 'next'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { encode } from 'querystring'
+import { encode,type ParsedUrlQuery } from 'querystring'
 import { useState } from 'react'
 import { FaCog } from 'react-icons/fa'
 import styled from 'styled-components'
@@ -39,21 +38,24 @@ const VersionText = styled.p`
 	font-size: 1.2rem;
 `
 
-const Home: NextPage = () => {
+interface HomeProps {
+	query: ParsedUrlQuery;
+}
+
+const Home: NextPage<HomeProps> = ({ query }: HomeProps) => {
 
 	const [toggleBuilds, setToggleBuilds] = useState(false)
 
 	const [toggleControl, setToggleControl] = useState(false)
 
-	const { query } = useRouter()
-
 	const basePath = `https://${process.env.VERCEL_URL ?? 'www.pd2.dev'}`
+	const parsedParams = stringifyParams(new URLSearchParams(encode(query)))
 
 	return (
 		<>
 			<Head>
 				<title>Payday Builder</title>
-				<meta property='og:image' content={`${basePath}/api/og?${stringifyParams(new URLSearchParams(encode(query)))}`} />
+				<meta property='og:image' content={`${basePath}/api/og?${parsedParams}`} />
 			</Head>
 
 			<BuildsPanel
@@ -106,6 +108,10 @@ const Home: NextPage = () => {
 	)
 }
 
-Home.getInitialProps = () => ({})
+Home.getInitialProps = ({ query }: NextPageContext) => {
+	return {
+		query
+	}
+}
 
 export default Home
