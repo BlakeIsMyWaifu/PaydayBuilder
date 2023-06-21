@@ -5,11 +5,10 @@ import ControlPanel from 'components/Home/Panel/ControlPanel'
 import Tabs from 'components/Home/Tabs'
 import { type NextPage, type NextPageContext } from 'next'
 import Head from 'next/head'
-import { encode,type ParsedUrlQuery } from 'querystring'
+import { type ParsedUrlQuery } from 'querystring'
 import { useState } from 'react'
 import { FaCog } from 'react-icons/fa'
 import styled from 'styled-components'
-import { stringifyParams } from 'utils/stringifyUrl'
 import { builderVersion, paydayVersion } from 'utils/version'
 
 const ConfigContainer = styled.div`
@@ -42,20 +41,16 @@ interface HomeProps {
 	query: ParsedUrlQuery;
 }
 
-const Home: NextPage<HomeProps> = ({ query }: HomeProps) => {
+const Home: NextPage<HomeProps> = () => {
 
 	const [toggleBuilds, setToggleBuilds] = useState(false)
 
 	const [toggleControl, setToggleControl] = useState(false)
 
-	const basePath = `https://${process.env.VERCEL_URL ?? 'www.pd2.dev'}`
-	const parsedParams = stringifyParams(new URLSearchParams(encode(query)))
-
 	return (
 		<>
 			<Head>
 				<title>Payday Builder</title>
-				<meta property='og:image' content={`${basePath}/api/og?${parsedParams}`} />
 			</Head>
 
 			<BuildsPanel
