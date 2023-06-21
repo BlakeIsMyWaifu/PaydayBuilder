@@ -36,6 +36,7 @@ const Character: NextPage = () => {
 							key={character.name}
 							width={isMobile ? 96 : 192}
 							rowAmount={10}
+							aspectRatio='1 / 1'
 							selected={isSelected}
 							onClick={() => isSelected ? equipCharacterHandler() : setSelectedCharacter(character)}
 						>

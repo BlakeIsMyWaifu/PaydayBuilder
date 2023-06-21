@@ -196,6 +196,7 @@ const MaskCollection: FC<MaskCollectionProps> = ({ collectionMasks, selectedMask
 							key={maskData.name}
 							width={128}
 							rowAmount={10}
+							aspectRatio='1 / 1'
 							selected={isSelected}
 							onClick={() => isSelected ? equipMaskHandler() : setSelectedMask(maskData)}
 						>

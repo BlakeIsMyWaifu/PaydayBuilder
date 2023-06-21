@@ -336,6 +336,7 @@ const ArmouryItems: FC<ArmouryItemsProps> = ({ weapons, data, isActiveBuild, sel
 				activeBuildId === activeTabId && <BuyContainer
 					rowAmount={5}
 					selected={false}
+					aspectRatio='2 / 1'
 					onClick={() => setEnableBuy(true)}
 				>
 					<FaPlusCircle size={48} />

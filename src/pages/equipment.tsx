@@ -72,8 +72,9 @@ const Equipment: NextPage = () => {
 						const amount = getEquipmentAmount(equipment)
 						const isSelected = equipment.name === selectedEquipment?.name
 						return <Item
-							rowAmount={5}
 							key={equipment.name}
+							rowAmount={5}
+							aspectRatio='1 / 1'
 							selected={isSelected}
 							onMouseDown={event => isSelected ? equipEquipmentHandler(event.button) : setSelectedEquipment(equipment)}
 						>

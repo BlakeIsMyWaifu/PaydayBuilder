@@ -51,6 +51,7 @@ const CrewBoost = ({ crewIndex }: CrewBoostProps) =>  {
 						return <Item
 							key={boostName}
 							rowAmount={4}
+							aspectRatio='1 / 1'
 							selected={isSelected}
 							onClick={() => isSelected ? equipBoostHandler(): setSelectedBoostName(boostName)}
 						>

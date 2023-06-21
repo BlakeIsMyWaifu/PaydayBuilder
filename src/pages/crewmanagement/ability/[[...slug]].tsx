@@ -51,6 +51,7 @@ const CrewAbility = ({ crewIndex }: CrewAbilityProps) =>  {
 						return <Item
 							key={abilityName}
 							rowAmount={4}
+							aspectRatio='1 / 1'
 							selected={isSelected}
 							onClick={() => isSelected ? equipAbilityHandler(): setSelectedAbilityName(abilityName)}
 						>

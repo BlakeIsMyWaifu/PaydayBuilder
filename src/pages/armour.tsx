@@ -50,6 +50,7 @@ export const Armour: NextPage = () => {
 						return <Item
 							key={armour.name}
 							rowAmount={5}
+							aspectRatio='1 / 1'
 							selected={isSelected}
 							onClick={() => isSelected && !locked ? equipArmourHandler() : setSelectedArmour(armour)}
 						>
