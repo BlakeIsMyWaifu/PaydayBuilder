@@ -75,6 +75,7 @@ const WeaponBuy: FC<WeaponBuyProps> = ({ slot, data, setEnableBuy, setSelectedWe
 						return <Item
 							key={weapon.name}
 							rowAmount={5}
+							aspectRatio='2 / 1'
 							selected={isSelected}
 							onClick={() => isSelected ? addWeaponHelper(weapon) : setSelectedWeapon(weapon)}
 						>

@@ -303,6 +303,7 @@ const ArmouryItems: FC<ArmouryItemsProps> = ({ weapons, data, isActiveBuild, sel
 					return <Item
 						key={id}
 						rowAmount={5}
+						aspectRatio='2 / 1'
 						selected={selectedWeaponId === id}
 						onClick={() => {
 							if (selectedWeaponId === id && isActiveBuild) {

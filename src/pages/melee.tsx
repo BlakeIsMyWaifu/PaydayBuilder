@@ -49,6 +49,7 @@ export const Melee: NextPage = () => {
 						return <Item
 							key={melee.name}
 							rowAmount={8}
+							aspectRatio='2 / 1'
 							selected={isSelected}
 							onClick={() => isSelected ? equipMeleeHander() : setSelectedMelee(melee)}
 						>

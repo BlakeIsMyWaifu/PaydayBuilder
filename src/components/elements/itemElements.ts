@@ -14,12 +14,14 @@ export interface ItemProps {
 	width?: number;
 	rowAmount: number;
 	selected: boolean;
+	aspectRatio?: '2 / 1' | '1 / 1';
 }
 
 export const Item = styled.div<ItemProps>`
 	position: relative;
 	line-height: 0;
 	width: max(${props => 100 / (props.rowAmount || 10)}%, ${props => props.width ?? (props.theme.isMobile ? 128 : 192)}px);
+	aspect-ratio: ${props => props.aspectRatio ?? '1 / 1'};
 	cursor: pointer;
 	${props => props.selected && cornerCSS};
 `

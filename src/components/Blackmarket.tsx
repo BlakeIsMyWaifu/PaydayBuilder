@@ -121,6 +121,7 @@ const Blackmarket: FC<BlackmarketProps> = ({ slot, id, weaponFind, equippedModNa
 						return <Item
 							key={mod.name}
 							rowAmount={4}
+							aspectRatio='2 / 1'
 							selected={selectedItem.name === mod.name}
 							onClick={() => selectedItem.name === mod.name ? equipModHelper() : setSelectedItem(mod)}
 						>

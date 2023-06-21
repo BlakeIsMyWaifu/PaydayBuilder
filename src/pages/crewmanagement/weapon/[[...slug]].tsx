@@ -61,6 +61,7 @@ const CrewWeapon = ({ crewIndex }: CrewWeaponProps) => {
 						return <Item
 							key={weaponName}
 							rowAmount={5}
+							aspectRatio='2 / 1'
 							selected={isSelected}
 							onClick={() => isSelected ? equipWeaponHandler() : setSelectedWeaponName(weaponName)}
 						>
