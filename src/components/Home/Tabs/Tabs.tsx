@@ -200,7 +200,7 @@ const MaskSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 			}}
 			image={`masks/${data.image}`}
 		/>
-	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
+	) : <PlaceholderSelector title='mask' setHoverInfo={setHoverInfo} />
 }
 
 const CharacterSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
@@ -218,7 +218,7 @@ const CharacterSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 			}}
 			image={`masks/${data.image}`}
 		/>
-	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
+	) : <PlaceholderSelector title='character' setHoverInfo={setHoverInfo} />
 }
 
 const ArmourSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
@@ -236,7 +236,7 @@ const ArmourSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 			}}
 			image={`armours/${data.name}`}
 		/>
-	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
+	) : <PlaceholderSelector title='armour' setHoverInfo={setHoverInfo} />
 }
 
 const EquipmentSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
@@ -261,7 +261,7 @@ const EquipmentSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 				</EquipmentContainer>
 			}
 		</Selector>
-	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
+	) : <PlaceholderSelector title='equipment' setHoverInfo={setHoverInfo} />
 }
 
 const PrimarySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
@@ -288,7 +288,7 @@ const PrimarySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 				setHoverInfo={setHoverInfo}
 			/>
 		</Selector>
-	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
+	) : <PlaceholderSelector title='primary' setHoverInfo={setHoverInfo} />
 }
 
 const SecondarySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
@@ -315,7 +315,7 @@ const SecondarySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 				setHoverInfo={setHoverInfo}
 			/>
 		</Selector>
-	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
+	) : <PlaceholderSelector title='secondary' setHoverInfo={setHoverInfo} />
 }
 
 const ThrowableSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
@@ -333,7 +333,7 @@ const ThrowableSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 			}}
 			image={`throwables/${data.image}`}
 		/>
-	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
+	) : <PlaceholderSelector title='throwable' setHoverInfo={setHoverInfo} />
 }
 
 const MeleeSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
@@ -352,7 +352,7 @@ const MeleeSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 			image={`melees/${data.image}`}
 			imageLeftFacing
 		/>
-	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
+	) : <PlaceholderSelector title='melee' setHoverInfo={setHoverInfo} />
 }
 
 const PerkDeckSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
@@ -372,14 +372,16 @@ const PerkDeckSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 		>
 			<PerkDeckImage x={192} y={(data.index + 1) * 48} />
 		</Selector>
-	) : <PlaceholderSelector setHoverInfo={setHoverInfo} />
+	) : <PlaceholderSelector title='perk deck' setHoverInfo={setHoverInfo} />
 }
 
 const CrewManagementSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 
 	const crewManagement = useAbilityStore(state => state.crewManagement)
 
-	return (
+	const { isSuccess } = trpc.loadoutData.getCharacter.useQuery('Dallas')
+
+	return isSuccess ? (
 		<Selector
 			linkChildren
 			title='crew management'
@@ -398,7 +400,7 @@ const CrewManagementSelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 				<CrewManagementImage src={`/images/crew/boosts/${crewManagement[2].boost}.webp`} />
 			</CrewManagementContainer>
 		</Selector>
-	)
+	) : <PlaceholderSelector title='crew management' setHoverInfo={setHoverInfo} />
 }
 
 const InfamySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
@@ -407,7 +409,7 @@ const InfamySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 
 	const { isSuccess } = trpc.loadoutData.getCharacter.useQuery('Dallas')
 
-	return (
+	return  isSuccess ? (
 		<Selector
 			title='infamy'
 			setHoverInfo={setHoverInfo}
@@ -418,9 +420,9 @@ const InfamySelector: FC<OuterSelectorProps> = ({ setHoverInfo }) => {
 					`Currently ${infamy ? 'enabled' : 'disabled'}`
 				]
 			}}
-			image={isSuccess ? (infamy ? 'masks/dallas' : 'masks/dallas_clean') : undefined}
+			image={infamy ? 'masks/dallas' : 'masks/dallas_clean'}
 		/>
-	)
+	) : <PlaceholderSelector title='infamy' setHoverInfo={setHoverInfo} />
 }
 
 export default Tabs

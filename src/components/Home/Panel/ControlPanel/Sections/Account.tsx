@@ -7,12 +7,11 @@ import { Section, SectionTitle } from './sectionsElements'
 
 const Account: FC = () => {
 
-	const healthCheck = trpc.health.healthCheck.useQuery(undefined, {
-		refetchOnMount: false,
-		refetchOnWindowFocus: false
-	})
+	const healthCheck = trpc.health.healthCheck.useQuery()
 
-	const getSession = trpc.session.getSession.useQuery()
+	const getSession = trpc.session.getSession.useQuery(undefined, {
+		staleTime: 60 * 1000 * 5
+	})
 
 	return (
 		<Section>
