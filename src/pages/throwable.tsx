@@ -36,6 +36,7 @@ const Throwable: NextPage = () => {
 						return <Item
 							key={throwable.name}
 							rowAmount={5}
+							aspectRatio='2 / 1'
 							selected={isSelected}
 							onClick={() => isSelected && !locked ? equipThrowableHandler() : setSelectedThrowable(throwable)}
 						>
