@@ -1,5 +1,5 @@
 import { type HoverInfo } from 'components/Home/Tabs'
-import { skillTreeNames } from 'data/abilities/skillsMinimised'
+import { type SkillTreeName, skillTreeNames } from 'data/abilities/skillsMinimised'
 import { type Dispatch, type FC, type SetStateAction } from 'react'
 import { useSkillsStore } from 'state/useSkillsStore'
 import styled from 'styled-components'
@@ -32,6 +32,8 @@ const SkillsCard = styled.div`
 	height: clamp(64px, 50%, 128px);
 	background-color: #fff;
 	border-radius: 6px;
+	display: flex;
+	align-items: center;
 `
 
 interface SkillsAmountProps {
@@ -44,6 +46,10 @@ const SkillsAmount = styled.h1<SkillsAmountProps>`
 	color: ${props => props.colour};
 `
 
+const MaskImage = styled.img`
+	width: 100%;
+`
+
 interface SelectorSkillProps {
 	setHoverInfo: Dispatch<SetStateAction<HoverInfo | null>>;
 }
@@ -51,6 +57,14 @@ interface SelectorSkillProps {
 const SelectorSkills: FC<SelectorSkillProps> = ({ setHoverInfo }) => {
 
 	const currentTrees = useSkillsStore(state => state.trees)
+
+	const masks: Record<SkillTreeName, string> = {
+		mastermind: 'dallas',
+		enforcer: 'chains',
+		technician: 'wolf',
+		ghost: 'hoxton',
+		fugitive: 'old_hoxton'
+	}
 
 	return (
 		<Selector
@@ -68,7 +82,9 @@ const SelectorSkills: FC<SelectorSkillProps> = ({ setHoverInfo }) => {
 						skillTreeNames.map(tree => {
 							const treePoints = skillTreePoints(tree, currentTrees)
 							return <SkillWrapper key={tree}>
-								<SkillsCard />
+								<SkillsCard>
+									<MaskImage src={`/images/masks/${masks[tree]}.webp`} />
+								</SkillsCard>
 								<SkillsAmount colour={treePoints ? '#fff' : grey}>{treePoints}</SkillsAmount>
 							</SkillWrapper>
 						})

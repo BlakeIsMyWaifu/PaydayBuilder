@@ -11,7 +11,6 @@ import { useState } from 'react'
 import { FaCog } from 'react-icons/fa'
 import styled from 'styled-components'
 import { stringifyParams } from 'utils/stringifyUrl'
-import { getBaseUrl } from 'utils/trpc'
 import { builderVersion, paydayVersion } from 'utils/version'
 
 const ConfigContainer = styled.div`
@@ -48,11 +47,13 @@ const Home: NextPage = () => {
 
 	const { query } = useRouter()
 
+	const basePath = `https://${process.env.VERCEL_URL ?? 'www.pd2.dev'}`
+
 	return (
 		<>
 			<Head>
 				<title>Payday Builder</title>
-				<meta property='og:image' content={`${getBaseUrl()}/api/og?${stringifyParams(new URLSearchParams(encode(query)))}`} />
+				<meta property='og:image' content={`${basePath}/api/og?${stringifyParams(new URLSearchParams(encode(query)))}`} />
 			</Head>
 
 			<BuildsPanel

@@ -245,9 +245,6 @@ const Skill: FC<SkillProps> = ({ treeName, treePoints, mask }) => {
 			alignItems: 'center',
 			width: '196px'
 		}}>
-			<b style={{
-				fontSize: '0.2rem'
-			}}>{treeName}</b>
 			<div style={{
 				display: 'flex',
 				width: '128px',
