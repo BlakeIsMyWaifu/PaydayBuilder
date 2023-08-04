@@ -12,8 +12,8 @@ const primary = {
 	'Shotgun': shotgunsPrimary,
 	'LMG': lightMachineGuns,
 	'Sniper': snipersPrimary,
-	// 'Akimbo Pistol': [],
-	// 'Akimbo SMG': [],
+	'Akimbo Pistol': {},
+	'Akimbo SMG': {},
 	'Akimbo Shotgun': akimboShotguns,
 	'Special': specialsPrimary
 }
