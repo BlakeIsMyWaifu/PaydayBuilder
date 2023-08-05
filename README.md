@@ -14,24 +14,31 @@ Inspired by [pd2builder](https://github.com/r-paydaybuilds/pd2builder)
 <table>
   <thead>
     <tr>
-      <th colspan="2">
+      <th colspan="3">
         Contributors
       </th>
     </tr>
   </thead>
   <tr>
     <td align="center">
-      <img src="https://github.com/blakeismywaifu.png?size=100" alt="">
+      <img src="https://github.com/blakeismywaifu.png?size=100" alt="BlakeIsMyWaifu Avatar" width="100">
       <br />
       <a href="https://github.com/BlakeIsMyWaifu">
         BlakeIsMyWaifu
       </a>
     </td>
     <td align="center">
-      <img src="https://github.com/ramleton.png?size=100" alt="">
+      <img src="https://github.com/ramleton.png?size=100" alt="Ramleton Avatar" width="100">
       <br />
       <a href="https://github.com/ramleton">
         Ramleton
+      </a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/chshin59.png?size=100" alt="chshin59 Avatar" width="100">
+      <br />
+      <a href="https://github.com/chshin59">
+        chshin59
       </a>
     </td>
 </table>

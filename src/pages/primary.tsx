@@ -26,6 +26,8 @@ const usePrimaryData = () => {
 		'Shotgun': shotgunData ?? {},
 		'LMG': LMGData ?? {},
 		'Sniper': sniperData ?? {},
+		'Akimbo Pistol': {},
+		'Akimbo SMG': {},
 		'Akimbo Shotgun': akimboShotgunData ?? {},
 		'Special': specialData ?? {}
 	}), [LMGData, akimboShotgunData, assaultRifleData, shotgunData, sniperData, specialData])
