@@ -12,7 +12,7 @@ const bernettiRangehitter = {
 	inventorySlot: 'primary',
 	reputation: 26,
 	weaponType: 'Sniper',
-	firingMode: 'Lever Action',
+	firingMode: 'Lever action',
 	cost: 581e3,
 	stats: {
 		magazine: 10,

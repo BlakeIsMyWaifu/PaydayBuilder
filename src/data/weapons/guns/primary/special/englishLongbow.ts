@@ -10,7 +10,7 @@ const englishLongbow = {
 	inventorySlot: 'primary',
 	reputation: 29,
 	weaponType: 'Special',
-	firingMode: 'Single Shot',
+	firingMode: 'Single shot',
 	cost: 652e3,
 	stats: {
 		magazine: 1,

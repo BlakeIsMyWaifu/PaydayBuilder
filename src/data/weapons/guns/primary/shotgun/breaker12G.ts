@@ -10,7 +10,7 @@ const breaker12G = {
 	inventorySlot: 'primary',
 	reputation: 3,
 	weaponType: 'Shotgun',
-	firingMode: 'Lever Action',
+	firingMode: 'Lever action',
 	cost: 76e3,
 	stats: {
 		magazine: 7,

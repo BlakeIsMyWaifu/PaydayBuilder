@@ -10,7 +10,7 @@ const commando101 = {
 	inventorySlot: 'secondary',
 	reputation: 41,
 	weaponType: 'Special',
-	firingMode: 'Single Shot',
+	firingMode: 'Single shot',
 	cost: 920e3,
 	stats: {
 		magazine: 4,

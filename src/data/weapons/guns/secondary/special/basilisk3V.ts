@@ -10,7 +10,7 @@ const basilisk3V = {
 	inventorySlot: 'secondary',
 	reputation: 47,
 	weaponType: 'Special',
-	firingMode: 'Break Action',
+	firingMode: 'Break action',
 	cost: 736e3,
 	stats: {
 		magazine: 3,

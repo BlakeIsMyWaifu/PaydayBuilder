@@ -10,7 +10,7 @@ const hrl7 = {
 	inventorySlot: 'secondary',
 	reputation: 38,
 	weaponType: 'Special',
-	firingMode: 'Single Shot',
+	firingMode: 'Single shot',
 	cost: 871e3,
 	stats: {
 		magazine: 1,

@@ -10,7 +10,7 @@ const mosconi12G = {
 	inventorySlot: 'primary',
 	reputation: 39,
 	weaponType: 'Shotgun',
-	firingMode: 'Break Action',
+	firingMode: 'Break action',
 	cost: 896e3,
 	stats: {
 		magazine: 2,

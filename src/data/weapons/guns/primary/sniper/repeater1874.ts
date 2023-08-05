@@ -10,7 +10,7 @@ const repeater1874 = {
 	inventorySlot: 'primary',
 	reputation: 36,
 	weaponType: 'Sniper',
-	firingMode: 'Lever Action',
+	firingMode: 'Lever action',
 	cost: 822e3,
 	stats: {
 		magazine: 15,

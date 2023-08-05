@@ -37,12 +37,12 @@ export type WeaponName =
 type FiringMode =
 	| 'Selective firing'
 	| 'Semi-Automatic'
-	| 'Lever Action'
+	| 'Lever action'
 	| 'Pump action'
-	| 'Break Action'
+	| 'Break action'
 	| 'Fully automatic'
 	| 'Bolt action'
-	| 'Single Shot'
+	| 'Single shot'
 	| 'Double action'
 	| 'Single action'
 

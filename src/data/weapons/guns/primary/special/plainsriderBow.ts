@@ -11,7 +11,7 @@ const plainsriderBow = {
 	inventorySlot: 'primary',
 	reputation: 15,
 	weaponType: 'Special',
-	firingMode: 'Single Shot',
+	firingMode: 'Single shot',
 	cost: 327e3,
 	stats: {
 		magazine: 1,

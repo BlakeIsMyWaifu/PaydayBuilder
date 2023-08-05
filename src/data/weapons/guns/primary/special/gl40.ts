@@ -11,7 +11,7 @@ const gl40 = {
 	inventorySlot: 'primary',
 	reputation: 46,
 	weaponType: 'Special',
-	firingMode: 'Break Action',
+	firingMode: 'Break action',
 	cost: 920e3,
 	stats: {
 		magazine: 1,

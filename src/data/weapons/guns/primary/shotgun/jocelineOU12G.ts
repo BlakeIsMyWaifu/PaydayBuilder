@@ -10,7 +10,7 @@ const jocelineOU12G = {
 	inventorySlot: 'primary',
 	reputation: 43,
 	weaponType: 'Shotgun',
-	firingMode: 'Break Action',
+	firingMode: 'Break action',
 	cost: 920e3,
 	stats: {
 		magazine: 2,

@@ -11,7 +11,7 @@ const decaTechnologiesCompoundBow = {
 	inventorySlot: 'primary',
 	reputation: 33,
 	weaponType: 'Special',
-	firingMode: 'Single Shot',
+	firingMode: 'Single shot',
 	cost: 749e3,
 	stats: {
 		magazine: 1,

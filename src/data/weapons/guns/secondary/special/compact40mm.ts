@@ -10,7 +10,7 @@ const compact40mm = {
 	inventorySlot: 'secondary',
 	reputation: 20,
 	weaponType: 'Special',
-	firingMode: 'Break Action',
+	firingMode: 'Break action',
 	cost: 441e3,
 	stats: {
 		magazine: 1,

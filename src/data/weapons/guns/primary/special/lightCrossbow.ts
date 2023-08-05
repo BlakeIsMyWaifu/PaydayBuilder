@@ -10,7 +10,7 @@ const lightCrossbow = {
 	inventorySlot: 'primary',
 	reputation: 17,
 	weaponType: 'Special',
-	firingMode: 'Single Shot',
+	firingMode: 'Single shot',
 	cost: 372e3,
 	stats: {
 		magazine: 1,

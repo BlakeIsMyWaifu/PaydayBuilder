@@ -10,7 +10,7 @@ const heavyCrossbow = {
 	inventorySlot: 'primary',
 	reputation: 38,
 	weaponType: 'Special',
-	firingMode: 'Single Shot',
+	firingMode: 'Single shot',
 	cost: 871e3,
 	stats: {
 		magazine: 1,

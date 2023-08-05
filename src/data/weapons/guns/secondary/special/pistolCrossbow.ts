@@ -11,7 +11,7 @@ const pistolCrossbow = {
 	inventorySlot: 'secondary',
 	reputation: 16,
 	weaponType: 'Special',
-	firingMode: 'Single Shot',
+	firingMode: 'Single shot',
 	cost: 349e3,
 	stats: {
 		magazine: 1,
